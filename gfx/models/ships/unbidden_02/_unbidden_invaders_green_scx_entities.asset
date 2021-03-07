@@ -1,0 +1,595 @@
+
+##################         	 CARRIER           ########################
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0 #1.25
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part4" position = { 0 0 0 } rotation = { 0 0 0 } }
+
+	locator = { name = "extension_01A" position = { 0 3.7 -8.9 } rotation = { 0 0 0 } }
+	locator = { name = "extension_01B" position = { 0 -3.7 -8.9 } rotation = { 0 0 180 } }
+	locator = { name = "extension_02A" position = { 0 4.15 -5.85 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02B" position = { 0 -2.35 4.75 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02C" position = { 0 -4.15 -5.85 } rotation = { 0 0 180 } }
+	locator = { name = "extension_03" position = { 0 4.8 5.85 } rotation = { 0 0 0 } }
+	locator = { name = "extension_04" position = { 0 4.35 14.2 } rotation = { 0 0 0 } }
+	attach = { extension_01A = "unbidden_02_Carrier_extension_01_entity" }
+	attach = { extension_01B = "unbidden_02_Carrier_extension_01_entity"}
+	attach = { extension_02A = "unbidden_02_Carrier_extension_02_entity" }
+	attach = { extension_02B = "unbidden_02_Carrier_extension_03_entity"}
+	attach = { extension_02C = "unbidden_02_Carrier_extension_04_entity" }
+	attach = { extension_03 = "unbidden_02_Carrier_extension_02_entity" }
+	attach = { extension_04 = "unbidden_02_Carrier_extension_05_entity" }
+	
+	locator = { name = "effect" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { effect = "unbidden_02_Carrier_effect" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 22
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+### BOW ###
+entity = {
+	name = "unbidden_02_SCX_Carrier_bow_L1M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 3.3 -13.71 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 -3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -3.28 -17.37 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_bow_L1S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 3.3 -13.71 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 3.28 -17.37 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 -3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 -3.28 -17.37 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_bow_L2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 3.3 -13.71 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 -3.3 -13.71 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_bow_M1S2SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 3.3 -13.71 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 -3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -3.28 -17.37 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_bow_M2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 3.3 -13.71 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 -3.3 -13.71 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 3.28 -17.37 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 -3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 -3.28 -17.37 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_bow_M3S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 -3.3 -13.71 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 0 3.28 -17.37 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 -3.43 -15.75 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -3.28 -17.37 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_bow_XL1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "xl_gun_01" position = { 0 0.1 -18.9 } rotation = { 0 0 0 } }
+}
+
+### MID 1 ###
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid1_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 3.39 -6.87 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 -3.39 -6.87 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid1_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 3.39 -6.87 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid1_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid1_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 3.39 -6.87 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid1_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid1_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -1.96 3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.96 -3.75 -2.56 } rotation = { 0 0 0 } }
+}
+
+### MID 2 ###
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid2_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 4.04 4.83 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 -3.39 -6.87 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid2_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 4.04 4.83 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid2_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid2_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 4.04 4.83 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid2_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_mid2_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.96 4.4 9.14 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.96 4.4 9.14 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "unbidden_02_SCX_Carrier_stern_L1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 4.57 15.4575 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_stern_M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 4.57 15.4575 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 3.71 4.27 17.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -3.71 4.27 17.16 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_stern_M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 2.64 4.19 15.56 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -2.64 4.19 15.56 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Carrier_stern_S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 3.71 4.27 17.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -3.71 4.27 17.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 2.64 4.19 15.56 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -2.64 4.19 15.56 } rotation = { 0 0 0 } }
+}
+
+##################         	 DREADNOUGHT           ########################
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0 #1.3
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part4" position = { 0 0 0 } rotation = { 0 0 0 } }
+
+	locator = { name = "extension_01" position = { 0 0 -10.5 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 0 -0.32 -5.6 } rotation = { 0 0 180 } }
+	locator = { name = "extension_03A" position = { 0 0 5.6 } rotation = { 0 0 0 } }
+	locator = { name = "extension_03B" position = { 8.2 0 11.1 } rotation = { 0 0 -90 } }
+	locator = { name = "extension_03C" position = { -8.2 0 11.1 } rotation = { 0 0 90 } }
+	locator = { name = "extension_04A" position = { 0 0 11.8 } rotation = { 0 0 0 } }
+	locator = { name = "extension_04B" position = { 0 -2.3 9.8 } rotation = { 0 -12 180 } }
+	locator = { name = "extension_04C" position = { 0 -2.7 8.2 } rotation = { 0 0 180 } }
+	attach = { extension_01 = "unbidden_02_Dreadnought_extension_01_entity" }
+	attach = { extension_02 = "unbidden_02_Dreadnought_extension_02_entity" }
+	attach = { extension_03A = "unbidden_02_Dreadnought_extension_02_entity" }
+	attach = { extension_03B = "unbidden_02_Dreadnought_extension_03_entity" }
+	attach = { extension_03C = "unbidden_02_Dreadnought_extension_03_entity" }
+	attach = { extension_04A = "unbidden_02_Dreadnought_extension_04_entity" }
+	attach = { extension_04B = "unbidden_02_Dreadnought_extension_05_entity" }
+	attach = { extension_04C = "unbidden_02_Dreadnought_extension_06_entity" }
+	
+	locator = { name = "effect" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { effect = "unbidden_02_Dreadnought_effect" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 22
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+### BOW ###
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_bow_L1M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { -2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2.7 0.98 -15.74 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.7 0.98 -15.74 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_bow_L1S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 2.36 1.11 -20.43 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 2.7 0.98 -15.74 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -2.7 0.98 -15.74 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_bow_L2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 2.36 1.11 -20.43 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -2.36 1.11 -20.43 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_bow_M2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 2.36 1.11 -20.43 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -2.36 1.11 -20.43 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 2.7 0.98 -15.74 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -2.7 0.98 -15.74 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_bow_M1S2SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 2.36 1.11 -20.43 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_bow_M3S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 2.36 1.11 -20.43 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { -2.7 0.98 -17.67 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2.7 0.98 -15.74 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.7 0.98 -15.74 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_bow_XL1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "xl_gun_01" position = { 7.5 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "xl_gun_02" position = { -7.5 0 -9.5 } rotation = { 0 0 0 } }
+}
+
+### MID 1 ###
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid1_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 -2.17 -9.076 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid1_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid1_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid1_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 -2.17 -9.076 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid1_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid1_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.75 -1.29 -7.68 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.75 -1.33 -1.89 } rotation = { 0 0 0 } }
+}
+
+### MID 2 ###
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid2_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 1.85 2.124 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 9.2 0 7.9 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -9.2 0 7.9 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid2_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 9.2 0 7.9 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -9.2 0 7.9 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid2_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 9.2 0 7.9 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -9.2 0 7.9 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.75 1.01 9.31 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.75 1.01 9.31 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid2_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 1.85 2.124 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -2.75 0.97 3.52 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid2_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 9.2 0 7.9 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -9.2 0 7.9 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_mid2_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.75 0.97 3.52 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 9.2 0 7.9 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -9.2 0 7.9 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_stern_L1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0.88 13.14 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_stern_M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0.88 13.14 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 1.77 1.01 16.15 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -1.77 1.01 16.15 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_stern_M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 1.77 1.01 16.15 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.77 1.01 16.15 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_02_SCX_Dreadnought_stern_S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 3.817 1.609 14.475 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -3.817 1.609 14.475 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 2.96 1.48 18.428 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -2.96 1.48 18.428 } rotation = { 0 0 0 } }
+}

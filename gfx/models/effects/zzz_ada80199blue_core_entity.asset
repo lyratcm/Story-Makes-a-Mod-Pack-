@@ -1,0 +1,26 @@
+@cull_radius = 60000
+entity = {
+    name = "blue_core_entity"
+    locator = {
+        name = "root"
+        rotation = {
+            0
+            0
+            0
+        }
+    }
+    default_state = "idle"
+    state = {
+        name = "idle"
+        state_time = 5
+        event = {
+            time = 0
+            node = "root"
+            particle = "nebula_core_3_particle"
+            trigger_once = yes
+            keep_particle = yes
+        }
+    }
+    scale = 3
+    cull_radius = @cull_radius
+}

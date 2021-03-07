@@ -1,0 +1,60 @@
+###_Z FW 战斗entity 理解器	####################################################################
+
+###_asb裂解器	#######################################
+
+#_FX投射物
+entity = {
+	name = "z_fx_combat_dsrpt_projectile"
+	cull_radius = 1.0
+	
+	default_state = idle
+	state = { name = "idle"
+		event = { time = 0 particle = "z_fx_combat_dsrpt_projectile_effect" keep_particle = yes }
+		event = { time = 0 particle = "z_fx_combat_dsrpt_projectile_effect_plus" keep_particle = yes }
+	}
+	scale = 1.0		#_mid=1.5 large=2
+}
+
+#_FX预热
+entity = {
+	name = "z_fx_combat_dsrpt_windup"
+
+	default_state = "attack"
+	get_state_from_parent = no
+	state = {
+		name = "attack" state_time = 1.0 looping = no
+		
+		event = { trigger_once = yes  }
+		event = { use_parent_nodes = yes node = xl_gun_01 particle = "z_fx_combat_dsrpt_windup_effect" trigger_once = yes keep_particle = yes }
+	}	
+	scale = 1.0		#_mid=1.5 large=2
+}
+
+###_FX开火
+entity = {
+	name = "z_fx_combat_dsrpt_muzzle"
+	cull_radius = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 0.5 looping = no
+		event = { time = 0 particle = "z_fx_combat_dsrpt_muzzle_effect" keep_particle = yes sound = { soundeffect = disruptor_fire volume = 0.2 } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_disruptor_fire" volume = 0.2 } }
+		event = { time = 0 particle = "mass_driver_medium_muzzle_particle" keep_particle = yes }
+	}
+	scale = 1.0		#_mid=1.5 large=2
+}
+
+###_FX命中 <盾与船体共用>
+entity = {
+	name = "z_fx_combat_dsrpt_hit"
+	cull_radius = 1.0
+	
+	
+	default_state = "explode_med_hp"
+	
+	state = { name = "explode_med_hp" state_time = 1 looping = no
+		event = { time = 0.0 particle = "z_fx_combat_dsrpt_hit_effect" keep_particle = yes sound = { soundeffect = energy_torpedo_hit } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_energy_torpedo_hit" } }	#_原版音效
+	}
+	scale = 1.0		#_mid=1.5 large=2
+}

@@ -1,0 +1,13 @@
+locator = {
+    name = "gun_05"
+    position = {
+        -2.2195
+        1.3225
+        -26.795
+    }
+    rotation = {
+        0
+        0
+        0
+    }
+}

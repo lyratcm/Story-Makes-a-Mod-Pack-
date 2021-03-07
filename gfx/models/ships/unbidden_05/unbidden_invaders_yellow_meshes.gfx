@@ -1,0 +1,1013 @@
+objectTypes = {
+	
+	pdxmesh = {
+		name = "unbidden_05_new_warship_large_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_large_ship.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_new_warship_medium_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_medium_ship.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_new_warship_small_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_small_ship.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_new_civilian_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_large_civilian.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_new_station_large_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_large_station.mesh"
+		scale = 3.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}	
+	
+	pdxmesh = {
+		name = "unbidden_05_new_station_small_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_small_station.mesh"
+		scale = 3.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_new_anchor_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_anchor_station.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "extra_dimensional_anchor_station_idle_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_anchor_station_portal_mesh"
+		file = "gfx/models/ships/extra_dimensional_01/extra_dimensional_anchor_station_portal.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "anchor_station_yellow_diffuse.dds"
+		}
+	}
+	
+	### TITAN ###
+	
+	pdxmesh = {
+		name = "unbidden_05_titan_extension_01_mesh"
+		file = "gfx/models/ships/fungoid_01/fungoid_01_battleship_bow_XL1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_titan_extension_02_mesh"
+		file = "gfx/models/ships/fungoid_01/fungoid_01_battleship_mid_S4LHB.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_titan_extension_03_mesh"
+		file = "gfx/models/ships/fungoid_01/fungoid_01_battleship_bow_L2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_titan_extension_04_mesh"
+		file = "gfx/models/ships/fungoid_01/fungoid_01_battleship_mid_L3.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_titan_extension_05_mesh"
+		file = "gfx/models/ships/fungoid_01/fungoid_01_battleship_stern_L1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_titan_extension_06_mesh"
+		file = "gfx/models/ships/fungoid_01/fungoid_01_military_station_section_heavy.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_titan_extension_07_mesh"
+		file = "gfx/models/ships/fungoid_01/fungoid_01_science.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### COLOSSUS ###
+	
+	pdxmesh = {
+		name = "unbidden_05_colossus_hull_mesh"
+		file = "gfx/models/ships/guardians/stellarite/stellarite.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "stellarite_idle_animation" }
+		animation = { id = "moving"			type = "stellarite_moving_animation" }
+		animation = { id = "death"			type = "stellarite_death_animation" }
+		animation = { id = "attack"			type = "stellarite_attack_animation" }
+		
+		meshsettings = {
+			name = "MembraneShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+		
+		meshsettings = {
+			name = "BodyShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### JUGGERNAUT ###
+	
+	pdxmesh = {
+		name = "unbidden_05_juggernaut_extension_01_mesh"
+		file = "gfx/models/ships/titans/mammalian_01/mammalian_01_titan_bow.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			name = "Mammalian_Titan_Bow_LPShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_juggernaut_extension_02_mesh"
+		file = "gfx/models/ships/titans/mammalian_01/mammalian_01_titan_mid.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			name = "Mammalian_Titan_Mid_LPShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_juggernaut_extension_03_mesh"
+		file = "gfx/models/ships/titans/mammalian_01/mammalian_01_titan_stern.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			name = "Mammalian_Titan_Stern_LPShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### FRONTIER OUTPOST ###
+	
+	pdxmesh = {
+		name = "unbidden_05_outpost_mesh"
+		file = "gfx/models/ships/fallen_empire_01/fallen_empire_station_small.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			name = "MeshShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### MILITARY STATION ###
+	
+	pdxmesh = {
+		name = "unbidden_05_military_station_mesh"
+		file = "gfx/models/ships/fallen_empire_01/fallen_empire_station_large.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "fallen_empire_station_large_idle_animation" }
+		animation = { id = "death"			type = "fallen_empire_station_large_death_animation" }
+		
+		meshsettings = {
+			name = "large_finished_MeshShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_military_station_attachment_mesh"
+		file = "gfx/models/ships/fallen_empire_01/fallen_empire_small_warship.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			name = "MeshShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+
+	### STRIKE CRUISER ###
+	
+	pdxmesh = {
+		name = "unbidden_05_StrikeCruiser_extension_01_mesh"
+		file = "gfx/models/ships/mammalian_01/mammalian_01_battleship_bow_XL1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_StrikeCruiser_extension_02_mesh"
+		file = "gfx/models/ships/mammalian_01/mammalian_01_battleship_mid_L3.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_StrikeCruiser_extension_03_mesh"
+		file = "gfx/models/ships/mammalian_01/mammalian_01_battleship_stern_M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_StrikeCruiser_extension_04_mesh"
+		file = "gfx/models/ships/mammalian_01/mammalian_01_cruiser_mid_L1M1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_StrikeCruiser_extension_05_mesh"
+		file = "gfx/models/ships/mammalian_01/mammalian_01_cruiser_stern_M1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### BATTLECRUISER ###
+	
+	pdxmesh = {
+		name = "unbidden_05_Battlecruiser_extension_01_mesh"
+		file = "gfx/models/ships/molluscoid_01/molluscoid_01_battleship_bow_XL1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Battlecruiser_extension_02_mesh"
+		file = "gfx/models/ships/molluscoid_01/molluscoid_01_battleship_bow_L2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Battlecruiser_extension_03_mesh"
+		file = "gfx/models/ships/molluscoid_01/molluscoid_01_battleship_stern_M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Battlecruiser_extension_04_mesh"
+		file = "gfx/models/ships/molluscoid_01/molluscoid_01_battleship_mid_L3.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Battlecruiser_extension_05_mesh"
+		file = "gfx/models/ships/molluscoid_01/molluscoid_01_military_station_section_heavy.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Battlecruiser_extension_06_mesh"
+		file = "gfx/models/ships/molluscoid_01/molluscoid_01_battleship_stern_L1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### CARRIER ###
+	
+	pdxmesh = {
+		name = "unbidden_05_Carrier_extension_01_mesh"
+		file = "gfx/models/ships/avian_01/avian_01_battleship_bow_M1S2SHB.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Carrier_extension_02_mesh"
+		file = "gfx/models/ships/avian_01/avian_01_battleship_mid_L3.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Carrier_extension_03_mesh"
+		file = "gfx/models/ships/avian_01/avian_01_construction.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"						type = "avian_01_construction_idle_animation" }
+		animation = { id = "working"					type = "avian_01_construction_working_animation" }
+		animation = { id = "working_looping"			type = "avian_01_construction_working_looping_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Carrier_extension_04_mesh"
+		file = "gfx/models/ships/avian_01/avian_01_battleship_mid_L3.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Carrier_extension_05_mesh"
+		file = "gfx/models/ships/avian_01/avian_01_battleship_stern_S4.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### DREADNOUGHT ###
+	
+	pdxmesh = {
+		name = "unbidden_05_Dreadnought_extension_01_mesh"
+		file = "gfx/models/ships/arthropoid_01/arthropoid_01_battleship_bow_M2S4.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Dreadnought_extension_02_mesh"
+		file = "gfx/models/ships/arthropoid_01/arthropoid_01_battleship_mid_L2M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Dreadnought_extension_03_mesh"
+		file = "gfx/models/ships/arthropoid_01/arthropoid_01_cruiser_bow_L1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Dreadnought_extension_04_mesh"
+		file = "gfx/models/ships/arthropoid_01/arthropoid_01_battleship_stern_M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Dreadnought_extension_05_mesh"
+		file = "gfx/models/ships/arthropoid_01/arthropoid_01_battleship_bow_M1S2SHB.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_Dreadnought_extension_06_mesh"
+		file = "gfx/models/ships/arthropoid_01/arthropoid_01_battleship_stern_M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### FLAGSHIP ###
+	
+	pdxmesh = {
+		name = "unbidden_05_flagship_frame_mesh"
+		file = "gfx/models/ships/unbidden_01/extra_dimensional_flagship_frame.mesh"
+		scale = 1.0
+
+		meshsettings = {
+			name = "|fallen_empire_07_tank_main|fallen_empire_07_tank_main"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### ESCORT CARRIER ###
+	
+	pdxmesh = {
+		name = "unbidden_05_escortcarrier_extension_01_mesh"
+		file = "gfx/models/ships/reptilian_01/reptilian_01_battleship_bow_XL1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_escortcarrier_extension_02_mesh"
+		file = "gfx/models/ships/reptilian_01/reptilian_01_battleship_mid_L3.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_escortcarrier_extension_03_mesh"
+		file = "gfx/models/ships/reptilian_01/reptilian_01_battleship_bow_L2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_escortcarrier_extension_04_mesh"
+		file = "gfx/models/ships/reptilian_01/reptilian_01_battleship_mid_L2M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_escortcarrier_extension_05_mesh"
+		file = "gfx/models/ships/reptilian_01/reptilian_01_battleship_stern_M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### EXPLORATION SHIP ###
+		
+	pdxmesh = {
+		name = "unbidden_05_explorationship_extension_01_mesh"
+		file = "gfx/models/ships/plantoid_01/plantoid_01_battleship_bow_M1S2SHB.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_explorationship_extension_02_mesh"
+		file = "gfx/models/ships/plantoid_01/plantoid_01_battleship_mid_L2M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_explorationship_extension_03_mesh"
+		file = "gfx/models/ships/plantoid_01/plantoid_01_military_station_section_heavy.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_explorationship_extension_04_mesh"
+		file = "gfx/models/ships/plantoid_01/plantoid_01_battleship_mid_L3.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_explorationship_extension_05_mesh"
+		file = "gfx/models/ships/plantoid_01/plantoid_01_battleship_stern_M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_explorationship_extension_06_mesh"
+		file = "gfx/models/ships/plantoid_01/plantoid_01_military_station_section_medium.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### LEVIATHAN ###
+	
+	pdxmesh = {
+		name = "unbidden_05_leviathan_extension_01_mesh"
+		file = "gfx/models/ships/humanoid_01/humanoid_01_battleship_bow_XL1.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_leviathan_extension_02_mesh"
+		file = "gfx/models/ships/humanoid_01/humanoid_01_battleship_mid_L3.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_leviathan_extension_03_mesh"
+		file = "gfx/models/ships/humanoid_01/humanoid_01_transport_ship.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_leviathan_extension_04_mesh"
+		file = "gfx/models/ships/humanoid_01/humanoid_01_battleship_mid_L2M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_leviathan_extension_05_mesh"
+		file = "gfx/models/ships/humanoid_01/humanoid_01_battleship_stern_M2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_leviathan_extension_06_mesh"
+		file = "gfx/models/ships/humanoid_01/humanoid_01_military_station_section_heavy.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### HEADQUARTERS ###
+	
+	pdxmesh = {
+		name = "unbidden_05_headquarters_mesh"
+		file = "gfx/models/ships/_nsc_01/mammalian_01_battle_fortress_frame.mesh"
+		scale = 0.8
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### GALACTIC MALL ###
+	
+	pdxmesh = {
+		name = "unbidden_05_galactic_mall_mesh"
+		file = "gfx/models/ships/_nsc_01/mammalian_01_headquarters_Station.mesh"
+		scale = 0.8
+
+		meshsettings = {
+			name = "HullShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+
+		meshsettings = {
+			name = "LightsShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### HOSPITAL ###
+	
+	pdxmesh = {
+		name = "unbidden_05_hospital_01_mesh"
+		file = "gfx/models/ships/other/sensor_station.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "sensor_station_idle_animation" }
+		animation = { id = "death"			type = "sensor_station_death_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_hospital_02_mesh"
+		file = "gfx/models/ships/_nsc_01/sa_outpost.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_hospital_03_mesh"
+		file = "gfx/models/ships/_nsc_01/sa_01_fortress.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### STRATEGIC RESOURCE FACTORY ###
+	
+	pdxmesh = {
+		name = "unbidden_05_strategic_resource_factory_mesh"
+		file = "gfx/models/ships/_nsc_01/mammalian_01_MiningBase.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			name = "|energy_station|energy_station"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### MISCELLANEOUS ###
+	
+	pdxmesh = {
+		name = "unbidden_05_constructioncruiser_mesh"
+		file = "gfx/models/ships/other/event_ship_07.mesh"
+		scale = 4.0
+		
+		animation = { id = "idle"			type = "molluscoid_01_corvette_frame_idle_animation" }
+		animation = { id = "death"			type = "molluscoid_01_corvette_frame_death_animation" }
+		animation = { id = "death2"			type = "molluscoid_01_corvette_frame_death2_animation" }
+		animation = { id = "death3"			type = "molluscoid_01_corvette_frame_death3_animation" }
+
+		meshsettings = {
+			name = "low_mirrShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_sciencecruiser_mesh"
+		file = "gfx/models/ships/other/abandoned_ship.mesh"
+		scale = 2.0
+		
+		animation = { id = "idle"			type = "molluscoid_01_corvette_frame_idle_animation" }
+		animation = { id = "death3"			type = "molluscoid_01_corvette_frame_death3_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_drydock_mesh"
+		file = "gfx/models/ships/_nsc_01/mammalian_01_drydock.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			name = "|Telgorn|Telgorn"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_PowerStation_mesh"
+		file = "gfx/models/ships/_nsc_01/mammalian_01_PowerStationV2.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			name = "|PowerStation|PowerStation"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### EREBUS ###
+	
+	pdxmesh = {
+		name = "unbidden_05_erebus_side_mesh"
+		file = "gfx/models/ships/fallen_empire_01/fallen_empire_large_warship.mesh"
+		scale = 1.0
+		
+		#animation = { id = "idle"			type = "molluscoid_01_corvette_frame_idle_animation" }
+		#animation = { id = "death"			type = "molluscoid_01_corvette_frame_death3_animation" }
+
+		meshsettings = {
+			name = "finished_MeshShape"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_erebus_drone_mesh"
+		file = "gfx/models/ships/avian_01/avian_01_fighter.mesh"
+		scale = 4.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_erebus_fallen_obj_mesh"
+		file = "gfx/models/ships/fallen_empire_01/fallen_empire_fighter.mesh"
+		scale = 1.0
+		
+		#animation = { id = "idle"		type = "fallen_empire_station_large_idle_animation" }
+		#animation = { id = "death"		type = "fallen_empire_station_large_death_animation" }
+
+		meshsettings = {
+			name = "pPlaneShape1"
+			index = 0
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### AVATAR ###
+	
+	pdxmesh = {
+		name = "unbidden_05_avatar_mesh"
+		file = "gfx/models/ships/isb_avatar/avatar.mesh"
+		scale = 1.0
+		
+		#animation = { id = "idle"			type = "ai_01_station_large_station_idle_animation" }
+		#animation = { id = "death"			type = "ai_01_station_large_death_animation" }
+		animation = { id = "idle"			type = "ai_01_station_large_station_idle_animation" }
+		animation = { id = "death"			type = "ai_01_station_large_death_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_avatar_section_mesh"
+		file = "gfx/models/ships/isb_avatar/avatar.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "ai_01_station_large_station_idle_animation" }
+		animation = { id = "death"			type = "ai_01_station_large_death_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_avatar_frame_mesh"
+		file = "gfx/models/ships/isb_avatar/avatar.mesh"
+		scale = 1.0
+		
+		#animation = { id = "idle"			type = "ai_01_station_large_station_idle_animation" }
+		#animation = { id = "death"			type = "ai_01_station_large_death_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "unbidden_05_avatar_constructor_mesh"
+		file = "gfx/models/ships/ai_01/ai_01_warship_large.mesh"
+		scale = 1.0
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+	
+	### RAGNAROK ###
+	
+	pdxmesh = {
+		name = "unbidden_05_ragnarok_mesh"
+		file = "gfx/models/ships/molluscoid_01/molluscoid_01_terraforming_station.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"			type = "molluscoid_01_terraforming_station_idle_animation" }
+		animation = { id = "moving"			type = "molluscoid_01_terraforming_station_idle_animation" }
+		animation = { id = "death"			type = "molluscoid_01_terraforming_station_death_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "ship_mask_yellow.dds"
+			shader = "PdxMeshExtraDimensionalShip"
+		}
+	}
+}

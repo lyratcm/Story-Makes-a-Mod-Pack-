@@ -1,0 +1,172 @@
+@titan_scale = 38
+@leviathan_scale = 20
+
+##################         	 TITAN           ########################
+
+entity = {
+	name = "swarm_invaders_isb_titan_entity"
+	scale = 1.0
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 -90 0 } }
+	locator = { name = "extension_02" position = { 39 36 -6 } rotation = { 0 0 0 } }
+	locator = { name = "extension_03" position = { -39 36 -6 } rotation = { 0 0 0 } }
+	locator = { name = "extension_04" position = { 66 -14.4 -24 } rotation = { 0 0 0 } }
+	locator = { name = "extension_05" position = { -66 -14.4 -24 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "swarm_invaders_titan_extension_01_entity" }
+	attach = { extension_02 = "swarm_invaders_titan_extension_02_entity" }
+	attach = { extension_03 = "swarm_invaders_titan_extension_02_entity" }
+	attach = { extension_04 = "swarm_invaders_titan_extension_02_entity" }
+	attach = { extension_05 = "swarm_invaders_titan_extension_02_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 4 }
+	state = { name = "moving" state_time = 4 }
+	state = { name = "death" state_time = 4 }
+	
+	game_data = {
+		size = @titan_scale
+	}
+}
+
+### BOW ###
+entity = {
+	name = "swarm_invaders_isb_titan_bow_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -63 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 39 36 -21 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -39 36 -21 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_04" position = { 66 -12 -39 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_05" position = { -66 -12 -39 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 21.39 -8.52 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 -21.39 -8.52 } rotation = { 0 0 0 } }
+}
+
+### MID ###
+entity = {
+	name = "swarm_invaders_isb_titan_mid_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -63 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 15 0 -34.5 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -15 0 -34.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 15.54 0 -29.7 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -15.54 0 -29.7 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "swarm_invaders_isb_titan_stern_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -63 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 21.39 -8.52 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { 0 -21.39 -8.52 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 39 36 -21 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -39 36 -21 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 66 -12 -39 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -66 -12 -39 } rotation = { 0 0 0 } }
+}
+
+##################         	 LEVIATHAN           ########################
+
+entity = {
+	name = "swarm_invaders_leviathan_entity"
+	scale = 1.0
+	
+	locator = { name = "part1"	position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2"	position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3"	position = { 0 0 0 } rotation = { 0 0 0 } }
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 -90 0 } }
+	locator = { name = "extension_02" position = { 76.15385 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "extension_03" position = { -76.15385 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "extension_04" position = { 0 70 15 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "swarm_invaders_Flagship_extension_01_entity" }
+	attach = { extension_02 = "swarm_invaders_Flagship_extension_02_entity" }
+	attach = { extension_03 = "swarm_invaders_Flagship_extension_02_entity" }
+	attach = { extension_04 = "swarm_invaders_Flagship_extension_03_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 4 }
+	state = { name = "moving" state_time = 4 }
+	state = { name = "death" state_time = 4 }
+	
+	game_data = {
+		size = @leviathan_scale
+	}
+}
+
+### BOW ###
+entity = {
+	name = "swarm_invaders_leviathan_bow_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -35.75 } rotation = { 0 0 0 } }
+}
+
+### MID ###
+entity = {
+	name = "swarm_invaders_leviathan_mid_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 76.15385 6.6 -18.18685 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -76.15385 6.6 -18.18685 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "swarm_invaders_leviathan_stern_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 4.6725 70 1.252 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -4.6725 70 1.252 } rotation = { 0 0 0 } }
+}
+
+##################         	 SUN CRUSHER           ########################
+
+entity = {
+	name = "swarm_invaders_sun_crusher_entity"
+	scale = 1.0
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 9 }
+	state = { name = "moving" state_time = 9 }
+	state = { name = "death" state_time = 9 }
+	
+	game_data = {
+		size = 25
+	}
+}
+
+entity = {
+	name = "swarm_invaders_sun_crusher_ship_entity"
+	pdxmesh = "swarm_01_civilian_mesh"
+	scale = 1.5
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.45 
+		start_event = { trigger_once = yes sound = { soundeffect = "swarm_civlian_ship_idle" } } 
+	}
+	state = { name = "moving" animation = "moving" animation_blend_time = 0.45  }
+	state = { name = "death" animation = "death" animation_blend_time = 0.45 looping = no 
+		event = { time = 0.0 node = "gib_locator_01" particle = "amoeba_gib_squirt_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 0.4 node = "gib_locator_02" particle = "amoeba_gib_squirt_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 1.9 node = "gib_locator_03" particle = "amoeba_gib_squirt_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 2.7 node = "gib_locator_04" particle = "amoeba_gib_squirt_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 3.0 node = "gib_locator_05" particle = "amoeba_gib_squirt_effect" keep_particle = yes trigger_once = yes }	
+		event = { trigger_once = yes sound = { soundeffect = "swarm_civilian_death" } }
+	}
+}

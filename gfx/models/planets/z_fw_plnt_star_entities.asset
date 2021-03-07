@@ -1,0 +1,76 @@
+###_infinite stellaris star entities	#########################################################
+
+
+
+
+###_dummy star
+entity = { 
+	name = "z_dummy_star_entity"
+	pdxmesh = "locator_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	state_time = 5 }
+	
+	scale = 1
+}
+
+
+
+
+###_Celestial Orrery Super Nova
+entity = { 
+	name = "z_nova_entity"
+	pdxmesh = "pulsar_mesh"		#_gfx\models\planets\_star_meshes.gfx
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" 
+		event = { time = 0.0 node = "" particle = "f_class_star_particle"  keep_particle = no trigger_once = yes }		#_\gfx\particles\_generic_particles.gfx
+		event = { time = 0 particle = "black_hole_particle" trigger_once = yes keep_particle = yes }		#_\gfx\particles\_generic_particles.gfx
+	}
+	
+	attach = { "planet" = "z_nova_rings_entity" }
+	
+	#game_data = {
+	#	uv_animation_speed   = 2.0
+	#	uv_animation_direction  = { 0.0 -1.0 }
+	#}
+	
+	attach = { "planet" = "z_nova_outbursts_entity" }
+
+	scale = 5.0
+}
+entity = { 
+	name = "z_nova_rings_entity"
+	pdxmesh = "black_hole_rings_mesh"
+	
+	default_state = "idle"
+	state = {
+		name = "idle" state_time = 5
+	}
+	
+	scale = 4.0
+	
+	game_data = {
+		uv_animation_speed   = -0.1
+		uv_animation_direction  = { 0.4 0.4 }
+	}	
+}
+entity = { 
+	name = "z_nova_outbursts_entity"
+	pdxmesh = "pulsar_outbursts_mesh"
+	
+	default_state = "idle"
+	state = {
+		name = "idle" state_time = 5
+		event = { time = 0.0 node = "polar_effect_1" particle = "z_nova_star_outburst_effect"  keep_particle = no trigger_once = yes  sound = { soundeffect = "pulsar_star_idle_hum" } }
+		event = { time = 0.0 node = "polar_effect_2" particle = "z_nova_star_outburst_effect"  keep_particle = no trigger_once = yes }
+	}
+	
+	scale = 2.0
+	
+	game_data = {
+		uv_animation_speed   = -0.1
+		uv_animation_direction  = { 0.4 0.4 }
+		bloom_factor = 0.5
+	}	
+}

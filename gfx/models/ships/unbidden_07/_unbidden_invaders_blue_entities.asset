@@ -1,0 +1,2849 @@
+
+###################################################################################
+###																				###
+###									WEAPONS										###
+###																				###
+###################################################################################
+
+entity = {
+	name = "unbidden_07_missle_entity"
+	pdxmesh = "arthropoid_01_missile_mesh"
+	scale = 1.25
+	
+	default_state = idle
+	state = { name = "idle" animation = "idle" }
+	state = { name = "stop" animation = "miss" looping = no }
+}
+
+# ##################
+# Regular Weapons
+# ##################
+
+entity = {
+	name = "unbidden_07_turret_energy_torpedo_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_turret_torpedo_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_turret_missile_large_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_turret_missile_medium_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_turret_missile_small_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_large_kinetic_gun_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_medium_kinetic_gun_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_small_kinetic_gun_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_turret_point_defence_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_large_laser_gun_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_medium_laser_gun_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_small_laser_gun_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_turret_xl_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+# ##################
+# Critter Weapons
+# ##################
+
+# Amoeba Weapons
+
+entity = {
+	name = "unbidden_07_small_space_amoeba_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_medium_space_amoeba_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_large_space_amoeba_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+# Space Cloud Weapons
+
+entity = {
+	name = "unbidden_07_small_space_cloud_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_large_space_cloud_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+# Crystal Weapons
+
+entity = {
+	name = "unbidden_07_small_crystal_ship_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_medium_crystal_ship_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_large_crystal_ship_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+# Mining Drone Weapons
+
+entity = {
+	name = "unbidden_07_small_mining_drone_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_medium_mining_drone_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+# Space Whale Weapons
+
+entity = {
+	name = "unbidden_07_small_space_whale_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_medium_space_whale_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_large_space_whale_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+# Swarm Weapons
+
+entity = {
+	name = "unbidden_07_small_scourge_projectile_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_medium_scourge_projectile_weapon_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+# Star Wars Weapons
+
+entity = {
+	name = "unbidden_07_octuple_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_sw_Superlaser_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+# Standing Turrets
+
+entity = {
+	name = "unbidden_07_standing_turret_large_entity"
+	pdxmesh = "techno_sphere_turret_large_mesh"
+	scale = 0.4
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+
+	meshsettings = {
+		name = "polySurfaceShape11"
+		index = 0
+		texture_diffuse = "ship_mask_blue.dds"
+		texture_normal = "nonormal.dds"
+		texture_specular = "nospec.dds"
+		shader = "PdxMeshExtraDimensionalShip"
+	}
+}
+
+entity = {
+	name = "unbidden_07_standing_turret_medium_entity"
+	pdxmesh = "techno_sphere_turret_medium_mesh"
+	scale = 0.4
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+
+	meshsettings = {
+		name = "polySurface7Shape"
+		index = 0
+		texture_diffuse = "ship_mask_blue.dds"
+		texture_normal = "nonormal.dds"
+		texture_specular = "nospec.dds"
+		shader = "PdxMeshExtraDimensionalShip"
+	}
+}
+
+entity = {
+	name = "unbidden_07_standing_turret_small_entity"
+	pdxmesh = "techno_sphere_turret_small_mesh"
+	scale = 0.4
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+
+	meshsettings = {
+		name = "polySurface1Shape"
+		index = 0
+		texture_diffuse = "ship_mask_blue.dds"
+		texture_normal = "nonormal.dds"
+		texture_specular = "nospec.dds"
+		shader = "PdxMeshExtraDimensionalShip"
+	}
+}
+
+######################           CORVETTE             ########################
+
+entity = {
+	name = "unbidden_07_corvette_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 0.35 #0.5
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_corvette_hull_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 12
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_corvette_hull_entity"
+	pdxmesh = "unbidden_07_new_warship_small_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_corvette_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction 	= { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_corvette_M1S1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 -0.39 3.7 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 2.24 -5.68 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_corvette_S3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 0 2.24 -5.68 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 3.17 2.24 -5.68 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { -2.62 2.24 -5.68 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_corvette_S1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 0 -0.39 3.7 } rotation = { 0 0 0 } }
+}
+
+###################            DESTROYER             ########################
+
+entity = {
+	name = "unbidden_07_destroyer_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0 #0.8
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_destroyer_hull_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 10
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_destroyer_hull_entity"
+	pdxmesh = "unbidden_07_new_warship_medium_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 node = "ship_effect" particle = "ed_small_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_corvette_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 node = "ship_effect" particle = "ed_small_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+		
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+### BOW ###
+entity = {
+	name = "unbidden_07_destroyer_bow_L1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 2.79 7.61 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_destroyer_bow_M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 2.79 7.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 4.31 0.51 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 1.8 -9.9 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_destroyer_bow_S3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 0 2.79 7.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 4.31 0.51 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 1.8 -9.9 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "unbidden_07_destroyer_stern_S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 2.38 1.8 -9.9 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2.5 1.8 -9.9 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_destroyer_stern_M1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 4.31 0.51 } rotation = { 0 0 0 } }
+}
+
+##################         	 CRUISER           ########################
+
+entity = {
+	name = "unbidden_07_cruiser_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 0.75
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_cruiser_hull_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 14
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_cruiser_hull_entity"
+	pdxmesh = "unbidden_07_new_civilian_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_starship_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+### BOW ###
+entity = {
+	name = "unbidden_07_cruiser_bow_L1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 8.445 13.465 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_cruiser_bow_M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 8.445 13.465 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 0.45 -25.928 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 4.5 -20.875 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_cruiser_bow_M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 8.445 13.465 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 0.45 -25.928 } rotation = { 0 0 0 } }
+}
+
+### MID ###
+entity = {
+	name = "unbidden_07_cruiser_mid_S2HB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 0 4.5 -20.875 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -4 -26.68 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_cruiser_mid_L1M1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 4.5 -20.875 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 -4 -26.68 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_cruiser_mid_M3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 4.5 -20.875 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 -4 -26.68 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 5 -3.2 -33.266 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_cruiser_mid_M2S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0.45 -25.928 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 4.5 -20.875 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 -4 -26.68 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 5 -3.2 -33.266 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "unbidden_07_cruiser_stern_M1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 5 -3.2 -33.266 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_cruiser_stern_S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 0 8.445 13.465 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -5 -3.2 -33.266 } rotation = { 0 0 0 } }
+}
+
+##################         	 BATTLESHIP           ########################
+
+entity = {
+	name = "unbidden_07_battleship_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 0.6 #0.85
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_battleship_hull_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 18
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_battleship_hull_entity"
+	pdxmesh = "unbidden_07_new_warship_large_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_04" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_battleship_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_moving_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_moving_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_moving_03" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_moving_04" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+### BOW ###
+entity = {
+	name = "unbidden_07_battleship_bow_L1M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 -1.68893 -23.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 5.85 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -5.93 4.61 14.03 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_bow_L1S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 -1.68893 -23.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 5.85 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -5.93 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_bow_L2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 5.85 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -5.93 4.61 14.03 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_bow_M1S2SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 -1.68893 -23.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 5.85 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -5.93 4.61 14.03 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_bow_M2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 5.85 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -5.93 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 -1.68893 -23.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 1.89 -20.35 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_bow_M3S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 -1.68893 -23.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 5.85 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -5.93 4.61 14.03 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_bow_XL1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "xl_gun_01" position = { 0 -1.68893 -23.84 } rotation = { 0 0 0 } }
+}
+
+### MID ###
+entity = {
+	name = "unbidden_07_battleship_mid_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2.95 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -3.06 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 1.89 -20.35 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_mid_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 1.89 -20.35 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 2.95 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -3.06 2.98 -4.61 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_mid_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 2.95 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -3.06 2.98 -4.61 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_mid_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 2.95 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -3.06 2.98 -4.61 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_mid_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 2.95 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -3.06 2.98 -4.61 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_mid_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 0 4.61 14.03 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 2.95 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -3.06 2.98 -4.61 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "unbidden_07_battleship_stern_L1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 1.89 -20.35 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_stern_M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 1.89 -20.35 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 3.7 1.89 -20.35 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -3.53 1.89 -20.35 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_stern_M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 3.7 1.89 -20.35 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -3.53 1.89 -20.35 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_battleship_stern_S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 0 2.98 -4.61 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 3.7 1.89 -20.35 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { -3.53 1.89 -20.35 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 1.89 -20.35 } rotation = { 0 0 0 } }
+}
+
+##################         	 TITAN         	 ##################
+	
+	# Extradimensional Titan Turret Positions:
+	locator = { name = "xl_gun_01" position = { 0 4.09 -21.285 } rotation = { 0 0 0 } }
+	locator = { name = "xl_gun_02" position = { 3 -1.4 -21.285 } rotation = { 0 0 0 } }
+	locator = { name = "xl_gun_03" position = { -3 -1.4 -21.285 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_01" position = { 0 -0.4 -9.875 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_02" position = { 0 5.755 -18.095 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_03" position = { 3.355 5.578 -15.375 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_04" position = { -3.355 5.578 -15.375 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_05" position = { 3.43 5.177 -20.451 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_06" position = { -3.43 5.177 -20.451 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_07" position = { 2.63 4.78 -31.44 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_08" position = { -2.63 4.78 -31.44 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_09" position = { 5.69 0.197 -19.805 } rotation = { 0 0 0 } }
+	locator = { name = "bow_gun_10" position = { -5.69 0.197 -19.805 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_01" position = { 0 8.786 -4.286 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_02" position = { 2.424 6.16 3.602 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_03" position = { -2.424 6.16 3.602 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_04" position = { 6.37 0.29 -6.28 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_05" position = { -6.37 0.29 -6.28 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_06" position = { 2.86 0.053 -2.045 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_07" position = { -2.86 0.053 -2.045 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_08" position = { 1.44 6.96 -9.485 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_09" position = { -1.44 6.96 -9.485 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_10" position = { 1.37 6.83 -1.395 } rotation = { 0 0 0 } }
+	locator = { name = "mid1_gun_11" position = { -1.37 6.83 -1.395 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_01" position = { 0 6.62 4.115 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_02" position = { 3.16 6.4 8.715 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_03" position = { -3.16 6.4 8.715 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_04" position = { 7.85 3.9 13.475 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_05" position = { -7.85 3.9 13.475 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_06" position = { 4.27 5.856 4.055 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_07" position = { -4.27 5.856 4.055 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_08" position = { 8.1 3.914 11.675 } rotation = { 0 0 0 } }
+	locator = { name = "mid2_gun_09" position = { -8.1 3.914 11.675 } rotation = { 0 0 0 } }
+	locator = { name = "stern_gun_01" position = { 0 6.35 14.905 } rotation = { 0 0 0 } }
+	locator = { name = "stern_gun_02" position = { 0 -3.955 12.215 } rotation = { 0 0 0 } }
+	locator = { name = "stern_gun_03" position = { 3.25 -3.38 20.795 } rotation = { 0 0 0 } }
+	locator = { name = "stern_gun_04" position = { -3.25 -3.38 20.795 } rotation = { 0 0 0 } }
+	locator = { name = "stern_gun_05" position = { 3.25 5.77 23.775 } rotation = { 0 0 0 } }
+	locator = { name = "stern_gun_06" position = { -3.25 5.77 23.775 } rotation = { 0 0 0 } }
+
+entity = {
+	name = "unbidden_07_titan_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0 #1.75
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+
+	locator = { name = "extension_01" position = { 0 -0.4 -9.875 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02A" position = { 0 -0.4 -6.475 } rotation = { 0 0 180 } }
+	locator = { name = "extension_02B" position = { 0 2.8 0.925 } rotation = { 0 0 180 } }
+	locator = { name = "extension_03" position = { 0 0.4 6.475 } rotation = { 0 0 0 } }
+	locator = { name = "extension_04A" position = { 0 -0.1 14.775 } rotation = { 0 0 0 } }
+	locator = { name = "extension_04B" position = { 0 2.5 11.975 } rotation = { 0 0 180 } }
+	locator = { name = "extension_04C" position = { 7.0 3.4 8.775 } rotation = { 0 0 -90 } }
+	locator = { name = "extension_04D" position = { -7.0 3.4 8.775 } rotation = { 0 0 90 } }
+	locator = { name = "extension_04E" position = { 6.5 3.4 21.275 } rotation = { 0 0 -90 } }
+	locator = { name = "extension_04F" position = { -6.5 3.4 21.275 } rotation = { 0 0 90 } }
+	attach = { extension_01 = "unbidden_07_titan_extension_01_entity" }
+	attach = { extension_02A = "unbidden_07_titan_extension_02_entity" }
+	attach = { extension_02B = "unbidden_07_titan_extension_03_entity" }
+	attach = { extension_03 = "unbidden_07_titan_extension_04_entity" }
+	attach = { extension_04A = "unbidden_07_titan_extension_05_entity" }
+	attach = { extension_04B = "unbidden_07_titan_extension_05_entity" }
+	attach = { extension_04C = "unbidden_07_titan_extension_06_entity" }
+	attach = { extension_04D = "unbidden_07_titan_extension_06_entity" }
+	attach = { extension_04E = "unbidden_07_titan_extension_07_entity" }
+	attach = { extension_04F = "unbidden_07_titan_extension_07_entity" }
+	
+	locator = { name = "effect" position = { 0 1.5 0 } rotation = { 0 0 0 } }
+	attach = { effect = "unbidden_07_titan_effect" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 45
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_titan_effect"
+	pdxmesh = "locator_mesh"
+	scale = 1.65
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_battleship_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_titan_extension_01_entity"
+	pdxmesh = "unbidden_07_titan_extension_01_mesh"
+	scale = 1.0
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_titan_extension_02_entity"
+	pdxmesh = "unbidden_07_titan_extension_02_mesh"
+	scale = 1.0
+	
+	attach = { small_gun_01 = "unbidden_07_standing_turret_small_entity" }
+	attach = { small_gun_02 = "unbidden_07_standing_turret_small_entity" }
+	attach = { small_gun_03 = "unbidden_07_standing_turret_small_entity" }
+	attach = { small_gun_04 = "unbidden_07_standing_turret_small_entity" }
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_titan_extension_03_entity"
+	pdxmesh = "unbidden_07_titan_extension_03_mesh"
+	scale = 1.0
+	
+	attach = { large_gun_01 = "unbidden_07_standing_turret_large_entity" }
+	attach = { large_gun_02 = "unbidden_07_standing_turret_large_entity" }
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_titan_extension_04_entity"
+	pdxmesh = "unbidden_07_titan_extension_04_mesh"
+	scale = 1.0
+	
+	attach = { large_gun_01 = "unbidden_07_standing_turret_large_entity" }
+	attach = { large_gun_02 = "unbidden_07_standing_turret_large_entity" }
+	attach = { large_gun_03 = "unbidden_07_standing_turret_large_entity" }
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_titan_extension_05_entity"
+	pdxmesh = "unbidden_07_titan_extension_05_mesh"
+	scale = 1.0
+	
+	attach = { large_gun_01 = "unbidden_07_standing_turret_large_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 node = "engine_large_up_01" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_up_02" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_up_03" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_up_04" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_up_05" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_01" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_02" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_03" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_04" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_05" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+	}
+	state = { name = "moving" state_time = 5
+		event = { time = 0 node = "engine_large_up_01" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_up_02" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_up_03" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_up_04" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_up_05" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_01" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_02" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_03" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_04" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_down_05" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_titan_extension_06_entity"
+	pdxmesh = "unbidden_07_titan_extension_06_mesh"	
+	scale = 1.0
+	
+	attach = { large_gun_01 = "unbidden_07_standing_turret_large_entity" }
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_titan_extension_07_entity"
+	pdxmesh = "unbidden_07_titan_extension_07_mesh"
+	scale = 1.1
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 node = "engine_large_04" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_05" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_06" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_07" particle = "ed_blue_exhaust_idle" trigger_once = yes keep_particle = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_science_ship_hum" } }
+	}
+	state = { name = "moving" state_time = 5
+		event = { time = 0 node = "engine_large_01" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_02" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "engine_large_03" particle = "ed_blue_exhaust_moving" trigger_once = yes keep_particle = yes }
+		event = { trigger_once = yes sound = { soundeffect = moving_out_science } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+### BOW ###
+entity = {
+	name = "unbidden_07_titan_bow_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "xl_gun_01" position = { 0 4.09 -21.285 } rotation = { 0 0 0 } }
+}
+
+### MID ###
+entity = {
+	name = "unbidden_07_titan_mid_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 3.16 6.4 8.715 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -3.16 6.4 8.715 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { 6.37 0.29 -6.28 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_04" position = { -6.37 0.29 -6.28 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "unbidden_07_titan_stern_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 3.25 -3.38 20.795 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -3.25 -3.38 20.795 } rotation = { 0 0 0 } }
+}
+
+##################         	 COLOSSUS           ########################
+
+entity = {
+	name = "unbidden_07_colossus_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 0.975 #1.5
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "working" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 70
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_colossus_ship_entity"
+	pdxmesh = "mammalian_01_colossus_mesh"
+	scale = 0.001
+	
+	locator = { name = "planet_killer_gun_01" position = { 0 -7000 0 } rotation = { 0 0 0 } }
+	
+	attach = { arms = "unbidden_07_colossus_hull_entity" }
+	
+	default_state = "idle" 
+	state = { name = "idle" animation = "idle" looping = no next_state = "idle" animation_blend_time = 5
+		chance = { if_current_state = { "idle" = 100 "moving" = 100 "death" = 0 "working" = 100 "working_looping" = 0 } }
+		start_event = { trigger_once = yes sound = { soundeffect = "mammalian_colossus_idle" } }		
+	}
+	state = { name = "idle" animation = "closing" looping = no next_state = "idle" 
+		chance = { if_current_state = { "idle" = 0 "moving" = 0 "death" = 0 "working" = 0 "working_looping" = 100 } }
+		event = { trigger_once = yes sound = { soundeffect = "mammalian_colossus_closing" stop_on_state_change = yes } }
+	}
+	state = { name = "moving" animation = "idle" looping = yes next_state = "moving"
+		chance = { if_current_state = { "idle" = 100 "moving" = 100 "death" = 0 "working" = 100 "working_looping" = 0 } }
+		event = { trigger_once = yes sound = { soundeffect = "moving_out_colossus" } }	
+	}
+	state = { name = "moving" animation = "closing" looping = no next_state = "moving"
+		chance = { if_current_state = { "idle" = 0 "moving" = 0 "death" = 0 "working" = 0 "working_looping" = 100 } }
+		event = { trigger_once = yes sound = { soundeffect = "mammalian_colossus_closing" stop_on_state_change = yes } }	
+	}
+	state = { name = "working_looping" animation = "open" 
+		event = { time = 0	id = "beam_start" }
+	}
+	state = { name = "working" animation = "opening" looping = no next_state = "working_looping" 
+		event = { trigger_once = yes sound = { soundeffect = "mammalian_colossus_opening" stop_on_state_change = yes } }
+		event = { time = 1000 id = "beam_start" } 
+	}
+	state = { name = "death" animation = "idle" looping = no
+		chance = { if_current_state = { "idle" = 100 "moving" = 100	"death" = 0	"working" = 0 "working_looping" = 0	} }
+	}
+	state = { name = "death" animation = "open" looping = no animation_blend_time = 2
+		chance = { if_current_state = { "idle" = 0 "moving" = 0 "death" = 0 "working" = 100 "working_looping" = 100 } }
+	}
+}
+
+entity = {
+	name = "unbidden_07_colossus_hull_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1000
+
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 90 0 0 } }
+	attach = { extension_01 = "unbidden_07_colossus_hull_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_colossus_hull_extension_entity"
+	pdxmesh = "unbidden_07_colossus_hull_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 1 
+		event = { time = 0 node = "body_locator" particle = "ed_blue_colossus_body_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "core_location" particle = "ed_blue_colossus_core_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_battleship_hum" } }
+	}
+	state = { name = "moving" animation = "idle" animation_blend_time = 1 
+		event = { time = 0 node = "body_locator" particle = "ed_blue_colossus_body_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "core_location" particle = "ed_blue_colossus_core_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" animation = "death" animation_blend_time = 1 looping = no
+		event = { time = 0 particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_ship_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_ship_death" } }
+	}
+	state = { name = "combat_moving" animation = "idle" animation_blend_time = 2 
+		event = { time = 0 node = "body_locator" particle = "ed_blue_colossus_body_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "core_location" particle = "ed_blue_colossus_core_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "attack" animation = "attack" animation_blend_time = 0.45 looping = no 
+		event = { time = 0 node = "body_locator" particle = "ed_blue_colossus_body_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "core_location" particle = "ed_blue_colossus_core_effect" keep_particle = yes trigger_once = yes }
+	}
+
+	game_data = {
+		uv_animation_speed 		= 10.0
+		uv_animation_direction 	= { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+##################         	 JUGGERNAUT           ########################
+
+entity = {
+	name = "unbidden_07_juggernaut_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+
+	locator = { name = "extension_01" position = { 0 0 -25.7 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 0 0 -14.2 } rotation = { 0 0 0 } }
+	locator = { name = "extension_03" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "extension_04" position = { 0 0 14.2 } rotation = { 0 0 0 } }
+	locator = { name = "extension_05" position = { 0 0 22.3 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_juggernaut_extension_01_entity" }
+	attach = { extension_02 = "unbidden_07_juggernaut_extension_02_entity" }
+	attach = { extension_03 = "unbidden_07_juggernaut_extension_02_entity" }
+	attach = { extension_04 = "unbidden_07_juggernaut_extension_02_entity" }
+	attach = { extension_05 = "unbidden_07_juggernaut_extension_03_entity" }
+	
+	locator = { name = "effect_01" position = { 0 0 5 } rotation = { 0 0 0 } }
+	locator = { name = "effect_02" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "effect_03" position = { 0 0 -22.5 } rotation = { 0 0 0 } }
+	attach = { effect_01 = "unbidden_07_juggernaut_effect_01" }
+	attach = { effect_02 = "unbidden_07_juggernaut_effect_02" }
+	attach = { effect_03 = "unbidden_07_juggernaut_effect_01" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 70
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_juggernaut_effect_01"
+	pdxmesh = "locator_mesh"
+	scale = 1.75
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_juggernaut_effect_02"
+	pdxmesh = "locator_mesh"
+	scale = 1.75
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_battleship_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_juggernaut_extension_01_entity"
+	pdxmesh = "unbidden_07_juggernaut_extension_01_mesh"
+	scale = 1.0
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_juggernaut_extension_02_entity"
+	pdxmesh = "unbidden_07_juggernaut_extension_02_mesh"
+	scale = 1.0
+	
+	attach = { large_gun_01 = "unbidden_07_standing_turret_large_entity" }
+	attach = { large_gun_02 = "unbidden_07_standing_turret_large_entity" }
+	attach = { large_gun_03 = "unbidden_07_standing_turret_large_entity" }
+	attach = { large_gun_04 = "unbidden_07_standing_turret_large_entity" }
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_juggernaut_extension_03_entity"
+	pdxmesh = "unbidden_07_juggernaut_extension_03_mesh"
+	scale = 1.0
+	
+	attach = { large_gun_01 = "unbidden_07_standing_turret_large_entity" }
+	attach = { large_gun_02 = "unbidden_07_standing_turret_large_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		start_event = { node = "engine_large_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { node = "engine_large_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { node = "engine_large_03" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "moving" state_time = 5
+		start_event = { node = "engine_large_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		start_event = { node = "engine_large_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		start_event = { node = "engine_large_03" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_juggernaut_core_section_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "xl_gun_01" position = { 3.6 3.8 -14.3 } rotation = { 0 0 0 } }
+	locator = { name = "xl_gun_02" position = { -3.6 3.8 -14.3 } rotation = { 0 0 0 } }
+	locator = { name = "gun_1" position = { 0 3.55 -14.3 } rotation = { 0 0 0 } }
+	locator = { name = "gun_2" position = { 3.6 3.8 -0.1 } rotation = { 0 0 0 } }
+	locator = { name = "gun_3" position = { -3.6 3.8 -0.1 } rotation = { 0 0 0 } }
+	locator = { name = "gun_4" position = { 3.6 3.8 14.1 } rotation = { 0 0 0 } }
+	locator = { name = "gun_5" position = { -3.6 3.8 14.1 } rotation = { 0 0 0 } }
+}
+
+###################################################################################
+###																				###
+###								SMALL SHIPS										###
+###																				###
+###################################################################################
+
+entity = {
+	name = "unbidden_07_bomber_entity"
+	pdxmesh = "unbidden_07_new_warship_small_mesh"
+	scale = 0.11
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_droppod_entity"
+	pdxmesh = "unbidden_07_new_warship_small_mesh"
+	scale = 0.11
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_fighter_entity"
+	pdxmesh = "unbidden_07_new_warship_small_mesh"
+	scale = 0.11
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+###################################################################################
+###																				###
+###								CIVILIAN SHIPS									###
+###																				###
+###################################################################################
+
+entity = {
+	name = "unbidden_07_constructor_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 20
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_construction_ship_entity"
+	pdxmesh = "unbidden_07_new_civilian_mesh"
+	scale = 0.6
+	
+	locator = { name = "bow_node" position = { 0 0 -30 } }
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_starship_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "working"		state_time = 5 looping = no next_state = working_looping 
+		event = { time = 0 node = "bow_node" particle = "ed_blue_construction_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect"	keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_starship_hum" } }
+	}
+	state = { name = "working_looping"		state_time = 5
+		event = { time = 0 node = "bow_node" particle = "ed_blue_construction_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect"	keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_starship_hum" } }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_colonizer_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 20
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_colony_ship_entity"
+	pdxmesh = "unbidden_07_new_civilian_mesh"
+	scale = 0.75
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_starship_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_science_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 20
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_science_ship_entity"
+	pdxmesh = "unbidden_07_new_warship_small_mesh"
+	scale = 0.75
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_corvette_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_large_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_transport_entity"
+	pdxmesh = "extra_dimensional_01_ship_frame_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
+	state = { name = "moving" animation = "idle" }
+	state = { name = "death" animation = "death" looping = no }
+	
+	game_data = {
+		size = 20
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_transport_ship_entity"
+	pdxmesh = "unbidden_07_new_civilian_mesh"
+	scale = 0.6
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_idle" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_starship_hum" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_ship_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_01" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_02" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "engine_medium_03" particle = "ed_blue_exhaust_moving" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5 
+		event = { time = 0 node = "root" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed 		= 0.2
+		uv_animation_direction 	= { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+###################################################################################
+###																				###
+###									STATIONS									###
+###																				###
+###################################################################################
+
+######################           SPACEPORT             ########################
+
+entity = {
+	name = "unbidden_07_orbital_station_entity"
+	locator = { name = "part1" 	position = { 0 0 0 } }
+	locator = { name = "part2" 	position = { 0 0 0 } }
+	locator = { name = "part3" 	position = { 0 0 0 } }
+	locator = { name = "part4" 	position = { 0 0 0 } }
+	locator = { name = "part5" 	position = { 0 0 0 } }
+	locator = { name = "part6" 	position = { 0 0 0 } }
+	locator = { name = "part7" 	position = { 0 0 0 } }
+	
+	game_data = {
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_orbital_station_core_entity"
+	pdxmesh = "unbidden_07_new_station_large_mesh"	
+	scale = 1.5 #1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 2.5 0 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 2.5 0 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 3.7 1.6 3.7 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -3.7 1.6 3.7 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 3.7 1.6 -3.7 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -3.7 1.6 -3.7 } rotation = { 0 0 0 } }
+
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5		looping = no
+		event = { time = 0 node = "death_locator" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_orbital_station_assemblyyard_section_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_orbital_station_hangarbay_section_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_orbital_station_refinery_section_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_orbital_station_science_section_entity"
+	locator = { name = "turret_muzzle_01" 	position = { 0 0 0 } }
+}
+
+######################           STARBASE             ########################
+
+entity = {
+	name = "unbidden_07_starbase_outpost_entity"
+	scale = 5.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_outpost_section_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "top" particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_1" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_2" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_3" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_4" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_5" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_6" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_7" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_8" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" animation = "idle" animation_blend_time = 5
+		event = { time = 0 node = "death_locator" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_starport_entity"
+	scale = 5.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_starport_section_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "top" particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_1" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_2" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_3" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_4" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_5" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_6" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_7" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_8" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" animation = "idle" animation_blend_time = 5
+		event = { time = 0 node = "death_locator" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_starhold_entity"
+	scale = 5.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_starhold_section_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "top" particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_1" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_2" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_3" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_4" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_5" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_6" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_7" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_8" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" animation = "idle" animation_blend_time = 5
+		event = { time = 0 node = "death_locator" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_starfortress_entity"
+	scale = 5.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_starfortress_section_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "top" particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_1" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_2" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_3" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_4" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_5" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_6" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_7" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_8" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" animation = "idle" animation_blend_time = 5
+		event = { time = 0 node = "death_locator" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_citadel_entity"
+	scale = 5.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_citadel_section_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 node = "top" particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_1" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_2" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_3" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_4" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_5" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_6" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_7" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "arm_8" particle = "ed_blue_anchor_station_lightning_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" animation = "idle" animation_blend_time = 5
+		event = { time = 0 node = "death_locator" particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_anchor_station_portal_entity"
+	pdxmesh = "unbidden_07_anchor_station_portal_mesh"
+	scale = 1.0
+
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_blue_anchor_station_portal_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed = -0.3
+		uv_animation_direction = { 0.06 0.09 }
+		bloom_factor = 1.6
+	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_stronghold_entity"
+	scale = 5.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_headquarters_entity"
+	scale = 5.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_outpost_phase_01_entity"
+	cull_radius = 500
+	
+	locator = { name = "slot1" position = { 0 0 0 } }
+	attach = { "slot1" = "unbidden_07_starbase_outpost_section_entity" }
+}
+
+entity = {
+	name = "unbidden_07_starbase_starport_phase_02_entity"
+	cull_radius = 500
+	
+	locator = { name = "slot1" position = { 0 0 0 } }
+	attach = { "slot1" = "unbidden_07_starbase_starport_section_entity" }
+}
+
+entity = {
+	name = "unbidden_07_starbase_starhold_phase_03_entity"
+	cull_radius = 500
+	
+	locator = { name = "slot1" position = { 0 0 0 } }
+	attach = { "slot1" = "unbidden_07_starbase_starhold_section_entity" }
+}
+
+entity = {
+	name = "unbidden_07_starbase_starfortress_phase_04_entity"
+	cull_radius = 500
+	
+	locator = { name = "slot1" position = { 0 0 0 } }
+	attach = { "slot1" = "unbidden_07_starbase_starfortress_section_entity" }
+}
+
+entity = {
+	name = "unbidden_07_starbase_citadel_phase_05_entity"
+	cull_radius = 500
+	
+	locator = { name = "slot1" position = { 0 0 0 } }
+	attach = { "slot1" = "unbidden_07_starbase_citadel_entity" }
+}
+
+entity = {
+	name = "unbidden_07_starbases_entity"
+	cull_radius = 500
+	
+	locator = { name = "slot1" position = { 0 0 0 } }
+	locator = { name = "slot2" position = { 0 0 0 } }
+	locator = { name = "slot3" position = { 0 0 0 } }
+	locator = { name = "slot4" position = { 0 0 0 } }
+	locator = { name = "slot5" position = { 0 0 0 } }
+	attach = { "slot1" = "unbidden_07_starbase_outpost_phase_01_entity" }
+	attach = { "slot2" = "unbidden_07_starbase_starport_phase_02_entity" }
+	attach = { "slot3" = "unbidden_07_starbase_starhold_phase_03_entity" }
+	attach = { "slot4" = "unbidden_07_starbase_starfortress_phase_04_entity" }
+	attach = { "slot5" = "unbidden_07_starbase_citadel_phase_05_entity" }
+}
+
+entity = {
+	name = "unbidden_07_starbase_turret_section_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" 	position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" 	position = { 0 0 0 } rotation = { 0 0 0 } }
+}
+
+######################           ION CANNON             ########################
+
+entity = {
+	name = "unbidden_07_ion_cannon_entity"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_xl_cannon_entity"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+		size = 30
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_ion_cannon_section_entity"
+	pdxmesh = "unbidden_07_new_station_large_mesh"
+	scale = 1.0
+	
+	locator = { name = "xl_gun_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "moving"		state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death"		state_time = 5		looping = no
+		event = { time = 0 node = "death_locator" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+######################           ORBITAL HABITAT             ########################
+
+entity = {
+	name = "unbidden_07_habitat_phase_01_entity"
+	pdxmesh = "unbidden_07_new_station_large_mesh"
+	scale = 1.5 #2.0
+	
+	default_state = "habitat_idle"
+	state = { name = "idle" state_time = 5 looping = yes
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "habitat_idle" state_time = 5 looping = yes
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "construction" looping = yes }
+	state = { name = "moving" state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" state_time = 5 looping = no
+		event = { time = 0 node = "death_locator" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+		shader_type = ship
+	}
+}
+
+entity = {
+	name = "unbidden_07_habitat_phase_02_entity"
+	pdxmesh = "unbidden_07_new_station_large_mesh"
+	scale = 1.5 #2.0
+	
+	default_state = "habitat_idle"
+	state = { name = "idle" state_time = 5 looping = yes
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "habitat_idle" state_time = 5 looping = yes
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "construction" looping = yes }
+	state = { name = "moving" state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" state_time = 5 looping = no
+		event = { time = 0 node = "death_locator" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+		shader_type = ship
+	}
+}
+
+entity = {
+	name = "unbidden_07_habitat_phase_03_entity"
+	pdxmesh = "unbidden_07_new_station_large_mesh"
+	scale = 1.5 #2.0
+	
+	default_state = "habitat_idle"
+	state = { name = "idle" state_time = 5 looping = yes
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "habitat_idle" state_time = 5 looping = yes
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "construction" looping = yes }
+	state = { name = "moving" state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" state_time = 5 looping = no
+		event = { time = 0 node = "death_locator" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+		shader_type = ship
+	}
+}
+
+entity = {
+	name = "unbidden_07_orbital_habitat_entity"
+	pdxmesh = "unbidden_07_new_station_large_mesh"
+	scale = 1.5 #2.0
+	
+	default_state = "habitat_idle"
+	state = { name = "idle" state_time = 5 looping = yes
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "habitat_idle" state_time = 5 looping = yes
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "construction" looping = yes }
+	state = { name = "moving" state_time = 5
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" state_time = 5 looping = no
+		event = { time = 0 node = "death_locator" particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+		shader_type = ship
+	}
+}
+
+######################           MINING STATION             ########################
+
+entity = {
+	name = "unbidden_07_mining_station_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_mining_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_mining_station_extension_entity"
+	pdxmesh = "unbidden_07_new_station_small_mesh"
+	scale = 1.25
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+		}
+	state = { name = "moving"		state_time = 5            
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}	
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+######################           RESEARCH STATION             ########################
+
+entity = {
+	name = "unbidden_07_research_station_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_research_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_research_station_extension_entity"
+	pdxmesh = "unbidden_07_new_station_small_mesh"
+	scale = 1.25
+
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "moving"		state_time = 5            
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}	
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+######################           OBSERVATION STATION             ########################
+
+entity = {
+	name = "unbidden_07_observation_station_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_observation_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_observation_station_extension_entity"
+	pdxmesh = "unbidden_07_new_station_small_mesh"
+	scale = 1.25
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "moving"		state_time = 5            
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+######################           TERRAFORMING STATION             ########################
+
+entity = {
+	name = "unbidden_07_terraform_station_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_terraform_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_terraform_station_extension_entity"
+	pdxmesh = "unbidden_07_new_station_small_mesh"
+	scale = 1.25
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "moving"		state_time = 5            
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+######################           WORMHOLE STATION             ########################
+
+entity = {
+	name = "unbidden_07_wormhole_station_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_wormhole_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_wormhole_station_extension_entity"
+	pdxmesh = "unbidden_07_new_station_small_mesh"
+	scale = 1.25
+	
+	default_state = "idle"
+	state = { name = "idle"		state_time = 5
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "moving"		state_time = 5            
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.02 }
+		bloom_factor = 2
+	}
+}
+
+######################           DEFENSE STATIONS             ########################
+
+entity = {
+	name = "unbidden_07_military_station_large_entity"
+	pdxmesh = "unbidden_07_military_station_mesh"
+	scale = 1.0
+	
+	locator = { name = "part1" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part4" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part5" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part6" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part7" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part8" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	
+	locator = { name = "extension_01" position = { 0 -1.8 -17.5 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 0 -1.8 17.5 } rotation = { 180 0 0 } }
+	locator = { name = "extension_03" position = { -17.5 -1.8 0 } rotation = { 90 0 0 } }
+	locator = { name = "extension_04" position = { 17.5 -1.8 0 } rotation = { -90 0 0 } }
+	attach = { extension_01 = "unbidden_07_military_station_attachment_entity" }
+	attach = { extension_02 = "unbidden_07_military_station_attachment_entity" }
+	attach = { extension_03 = "unbidden_07_military_station_attachment_entity" }
+	attach = { extension_04 = "unbidden_07_military_station_attachment_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "top" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 0 node = "bottom" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "death" animation = "death" looping = no
+		event = { time = 0 particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_military_station_medium_entity"
+	pdxmesh = "unbidden_07_military_station_mesh"
+	scale = 1.0
+	
+	locator = { name = "part1" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part4" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	
+	locator = { name = "extension_01" position = { 0 -1.8 -17.5 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 0 -1.8 17.5 } rotation = { 180 0 0 } }
+	attach = { extension_01 = "unbidden_07_military_station_attachment_entity" }
+	attach = { extension_02 = "unbidden_07_military_station_attachment_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "top" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 0 node = "bottom" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "death" animation = "death" looping = no
+		event = { time = 0 particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_military_station_small_entity"
+	pdxmesh = "unbidden_07_military_station_mesh"
+	scale = 1.0
+	
+	locator = { name = "part1" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 -1.8 0 } rotation = { 0 0 0 } }
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"
+		event = { time = 0 particle = "ed_large_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		event = { time = 0 node = "top" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		event = { time = 0 node = "bottom" particle = "energy_core_effect" keep_particle = yes trigger_once = yes }	
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "death" animation = "death" looping = no
+		event = { time = 0 particle = "ed_large_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+entity = {
+	name = "unbidden_07_military_station_section_heavy_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 32 0 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_military_station_section_medium_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 28 -2.52 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 28 2.52 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_military_station_section_light_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+
+	locator = { name = "small_gun_01" position = { 0 0 -19.3 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 0 19.3 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 19.3 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -19.3 0 0 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "unbidden_07_military_station_attachment_entity"
+	pdxmesh = "unbidden_07_military_station_attachment_mesh"
+	scale = 1.0
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+######################           OUTPOST STATION             ########################
+
+entity = {
+	name = "unbidden_07_outpost_station_entity"
+	scale = 1.2
+	
+	locator = { name = "part1" position = { 0 0 0 } }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7 }
+	state = { name = "death" state_time = 7 looping = no }
+	
+	game_data = {
+  		raytrace_projectiles = no
+  		dissolve_on_death = 3.0
+		ship_color = hsv { 0.75 1.0 0.75 1.0 }
+ 	}
+}
+
+entity = {
+	name = "unbidden_07_outpost_station_section_entity"
+	pdxmesh = "unbidden_07_outpost_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 6
+		event = { time = 0 particle = "ed_small_blue_def_station_effect" keep_particle = yes trigger_once = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "ex_mining_station_signals" } }
+	}
+	state = { name = "death" state_time = 5 looping = no
+		event = { time = 0 particle = "ed_small_blue_dissolve_effect" keep_particle = yes trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "extra_dimensional_station_death" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_extra_dimensional_station_death" } }
+	}
+	
+	game_data = {
+		uv_animation_speed = 0.2
+		uv_animation_direction = { 0.0 0.09 }
+		bloom_factor = 2
+	}
+}
+
+##################         	 CONSTRUCTION ENTITIES           ########################
+
+entity = {
+	name = "unbidden_07_starbase_starport_construction_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5 #animation = "idle" 
+		event = { time = 0 particle = "ed_blue_anchor_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_starhold_construction_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5 #animation = "idle" 
+		event = { time = 0 particle = "ed_blue_anchor_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_starfortress_construction_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5 #animation = "idle" 
+		event = { time = 0 particle = "ed_blue_anchor_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_starbase_citadel_construction_entity"
+	pdxmesh = "unbidden_07_new_anchor_mesh"
+	scale = 1.0
+	
+	attach = { portal = "unbidden_07_anchor_station_portal_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5 #animation = "idle" 
+		event = { time = 0 particle = "ed_blue_anchor_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_habitat_phase_01_construction_entity"
+	pdxmesh = "unbidden_07_new_station_large_mesh"
+	scale = 1.5 #2.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_orbital_station_construction_entity"
+	pdxmesh = "unbidden_07_new_station_large_mesh"	
+	scale = 1.5 #1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_mining_station_construction_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_mining_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_research_station_construction_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_research_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_wormhole_station_construction_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_wormhole_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_terraform_station_construction_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_terraform_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_observation_station_construction_entity"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "unbidden_07_observation_station_extension_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_military_station_large_construction_entity"
+	pdxmesh = "unbidden_07_military_station_mesh"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 -1.8 -17.5 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 0 -1.8 17.5 } rotation = { 180 0 0 } }
+	locator = { name = "extension_03" position = { -17.5 -1.8 0 } rotation = { 90 0 0 } }
+	locator = { name = "extension_04" position = { 17.5 -1.8 0 } rotation = { -90 0 0 } }
+	attach = { extension_01 = "unbidden_07_military_station_attachment_entity" }
+	attach = { extension_02 = "unbidden_07_military_station_attachment_entity" }
+	attach = { extension_03 = "unbidden_07_military_station_attachment_entity" }
+	attach = { extension_04 = "unbidden_07_military_station_attachment_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_military_station_medium_construction_entity"
+	pdxmesh = "unbidden_07_military_station_mesh"
+	scale = 1.0
+	
+	locator = { name = "extension_01" position = { 0 -1.8 -17.5 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 0 -1.8 17.5 } rotation = { 180 0 0 } }
+	attach = { extension_01 = "unbidden_07_military_station_attachment_entity" }
+	attach = { extension_02 = "unbidden_07_military_station_attachment_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_military_station_small_construction_entity"
+	pdxmesh = "unbidden_07_military_station_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "unbidden_07_outpost_station_construction_entity"
+	pdxmesh = "unbidden_07_outpost_mesh"
+	scale = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 particle = "ed_blue_construction_effect" keep_particle = yes trigger_once = yes }
+	}
+}

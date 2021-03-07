@@ -1,0 +1,611 @@
+
+##################         	 CARRIER           ########################
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_entity"
+	pdxmesh = "mammalian_01_SCX_dreadnought_frame_mesh"
+	scale = 1.61 #2.3
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part4" position = { 0 0 0 } rotation = { 0 0 0 } }
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 0 -2 8.5 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "fallen_empire_spiritualist_battleship_hull_entity" }
+	attach = { extension_02 = "fallen_empire_spiritualist_construction_ship_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" animation_blend_time = 4.0 
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_battleship_hum" } }
+	}
+	state = { name = "moving"	animation = "idle" animation_blend_time = 4.0 
+		event = { trigger_once = yes sound = { soundeffect = "moving_out_battleship" } }
+	}
+	state = { name = "death" animation = "death" animation_blend_time = 0.0 animation_speed = 0.6 looping = no
+		event = { time = 0.0 node = "explosion_locator1" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator2" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator3" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator4" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator1" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator1" particle = "ship_burn_particle" }
+		event = { time = 0.0 node = "explosion_locator2" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator2" particle = "ship_burn_particle" }
+		event = { time = 0.5 node = "explosion_locator5" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.5 node = "explosion_locator5" particle = "ship_burn_particle" }
+		event = { time = 2.5 node = "explosion_locator6" particle = "avian_small_ship_explosion_particle" }
+		event = { time = 2.5 node = "explosion_locator6" particle = "ship_burn_particle" }
+		event = { time = 1.7 node = "explosion_locator7" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 1.7 node = "explosion_locator7" particle = "ship_burn_particle" }
+		event = { time = 0.78 node = "explosion_locator8" particle = "avian_small_ship_explosion_particle" }
+		event = { time = 0.78 node = "explosion_locator8" particle = "ship_burn_particle" }
+		event = { time = 6.5 node = "explosion_locator9" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 6.5 node = "explosion_locator9" particle = "ship_burn_particle" }
+		event = { time = 0.0 particle = "avian_01_large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+	}
+	
+	game_data = {
+		size = 22
+	}
+}
+
+### BOW ###
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_bow_L1M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_bow_L1S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_bow_L2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_bow_M1S2SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_bow_M2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_bow_M3S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_bow_XL1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "xl_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+}
+
+### MID 1 ###
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid1_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid1_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid1_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid1_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid1_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid1_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+### MID 2 ###
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid2_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid2_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid2_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid2_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 10.5 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { 0 -10.5 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid2_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_mid2_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_stern_L1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_stern_M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_stern_M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 10.5 0 -3.07 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -10.5 0 -3.07 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Carrier_stern_S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -10.5 10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -10.5 -10.5 -1.84 } rotation = { 0 0 0 } }
+}
+
+##################         	 DREADNOUGHT           ########################
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_entity"
+	pdxmesh = "mammalian_01_SCX_dreadnought_frame_mesh"
+	scale = 1.75 #2.5
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part4" position = { 0 0 0 } rotation = { 0 0 0 } }
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 7.15 0 0 } rotation = { -90 0 90 } }
+	locator = { name = "extension_03" position = { -7.15 0 0 } rotation = { 90 0 -90 } }
+	attach = { extension_01 = "fallen_empire_spiritualist_battleship_hull_entity" }
+	attach = { extension_02 = "fallen_empire_spiritualist_Station_attachment_entity" }
+	attach = { extension_03 = "fallen_empire_spiritualist_Station_attachment_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" animation_blend_time = 4.0 
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_battleship_hum" } }
+	}
+	state = { name = "moving"	animation = "idle" animation_blend_time = 4.0 
+		event = { trigger_once = yes sound = { soundeffect = "moving_out_battleship" } }
+	}
+	state = { name = "death" animation = "death" animation_blend_time = 0.0 animation_speed = 0.6 looping = no
+		event = { time = 0.0 node = "explosion_locator1" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator2" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator3" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator4" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator1" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator1" particle = "ship_burn_particle" }
+		event = { time = 0.0 node = "explosion_locator2" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator2" particle = "ship_burn_particle" }
+		event = { time = 0.5 node = "explosion_locator5" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.5 node = "explosion_locator5" particle = "ship_burn_particle" }
+		event = { time = 2.5 node = "explosion_locator6" particle = "avian_small_ship_explosion_particle" }
+		event = { time = 2.5 node = "explosion_locator6" particle = "ship_burn_particle" }
+		event = { time = 1.7 node = "explosion_locator7" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 1.7 node = "explosion_locator7" particle = "ship_burn_particle" }
+		event = { time = 0.78 node = "explosion_locator8" particle = "avian_small_ship_explosion_particle" }
+		event = { time = 0.78 node = "explosion_locator8" particle = "ship_burn_particle" }
+		event = { time = 6.5 node = "explosion_locator9" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 6.5 node = "explosion_locator9" particle = "ship_burn_particle" }
+		event = { time = 0.0 particle = "scx_supercapital_explosion_particle" sound = { soundeffect = ship_destroyed } }
+	}
+	
+	game_data = {
+		size = 22
+	}
+}
+
+### BOW ###
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_bow_L1M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2 0.04 -7.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2 0.04 -7.5 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_bow_L1S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_03" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 2 0.04 -7.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -2 0.04 -7.5 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_bow_L2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_bow_M1S2SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_bow_M2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 2 0.04 -7.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -2 0.04 -7.5 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_bow_M3S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 2 0.04 -7.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -2 0.04 -7.5 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_bow_XL1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "xl_gun_01" position = { 2 0.04 -7.5 } rotation = { 0 0 0 } }
+	locator = { name = "xl_gun_02" position = { -2 0.04 -7.5 } rotation = { 0 0 0 } }
+}
+
+### MID 1 ###
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid1_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid1_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid1_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid1_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid1_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid1_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -7.226 9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -7.246 -9.444 -1.16 } rotation = { 0 0 0 } }
+}
+
+### MID 2 ###
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid2_L2S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid2_L1M4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid2_L2M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid2_L3_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid2_M4SHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_03" position = { 1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_04" position = { -1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_mid2_S4LHB_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { -1.853 1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -1.853 -1.584 -24.31 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_stern_L1_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_stern_M1S2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 0 -9.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_stern_M2_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "medium_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "fallen_empire_spiritualist_SCX_Dreadnought_stern_S4_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "small_gun_01" position = { 0 9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 -9.618 -3.44 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_03" position = { 2 0.04 -7.5 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_04" position = { -2 0.04 -7.5 } rotation = { 0 0 0 } }
+}

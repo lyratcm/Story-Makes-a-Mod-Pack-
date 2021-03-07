@@ -1,0 +1,17 @@
+@entity_scale_5 = 7.5
+@small_cull_radius = 1000
+entity = {
+    name = "collapsar_globule_entity_small"
+    default_state = "idle"
+    state = {
+        name = "idle"
+        start_event = {
+            time = 0
+            particle = "collapsar_globule_effect"
+            keep_particle = yes
+            trigger_once = yes
+        }
+    }
+    scale = @entity_scale_5
+    cull_radius = @small_cull_radius
+}

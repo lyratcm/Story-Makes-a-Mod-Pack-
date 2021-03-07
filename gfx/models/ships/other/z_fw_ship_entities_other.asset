@@ -1,0 +1,12 @@
+###_Z FW 舰船entity 其他	#################################################################
+
+
+entity = {
+	name = "z_fw_dummy_ship_entity"
+	pdxmesh = "locator_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	state_time = 5 }
+	
+	scale = 1
+}

@@ -1,0 +1,239 @@
+@titan_scale = 38
+@leviathan_scale = 20
+
+##################         	 TITAN           ########################
+
+entity = {
+	name = "pirate_02_nsc_isb_titan_entity"
+	pdxmesh = "mammalian_01_isb_titan_frame_mesh"
+	scale = 2.34783 #2.7
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+	
+	locator = { name = "extension_01" position = { 0 0 0 } rotation = { 0 0 0 } }
+	attach = { extension_01 = "pirate_02_nsc_titan_extension_01_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" animation_blend_time = 4.0 
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_battleship_hum" } }
+	}
+	state = { name = "moving"	animation = "idle" animation_blend_time = 4.0 
+		event = { trigger_once = yes sound = { soundeffect = "moving_out_battleship" } }
+	}
+	state = { name = "death" animation = "death" animation_blend_time = 0.0 chance = 1 looping = no
+		event = { time = 9.26 node = "part1_locator" particle = "ship_explosion_air_vent_particle" }
+		event = { time = 9.26 node = "part1_locator" particle = "ship_burn_particle" }
+		event = { time = 9.26 node = "part1_locator" particle = "large_ship_explosion_particle" }
+		event = { time = 7.63 node = "part1_locator" particle = "ship_explosion_particle" }
+		event = { time = 10.26 node = "part2_back_locator" particle = "ship_explosion_air_vent_particle" }
+		event = { time = 10.26 node = "part2_back_locator" particle = "ship_burn_particle" }
+		event = { time = 10.26 node = "part3_locator" particle = "ship_burn_particle" }
+		event = { time = 10.26 node = "part3_locator" particle = "large_ship_explosion_particle" }
+		event = { time = 0.0 particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+	}
+	state = { name = "death" animation = "death2" animation_blend_time = 0.0 chance = 1 looping = no
+		event = { time = 9.56 node = "part1_locator" particle = "ship_explosion_air_vent_particle" }
+		event = { time = 9.56 node = "part1_locator" particle = "ship_burn_particle" }
+		event = { time = 9.56 node = "part1_locator" particle = "large_ship_explosion_particle" }
+		event = { time = 9.0 node = "part1_locator" particle = "ship_explosion_particle" }
+		event = { time = 9.56 node = "part2_front_locator" particle = "ship_explosion_air_vent_particle" }
+		event = { time = 9.56 node = "part2_front_locator" particle = "ship_burn_particle" }
+		event = { time = 14.7 node = "part2_back_locator" particle = "ship_explosion_air_vent_particle" }
+		event = { time = 14.7 node = "part2_back_locator" particle = "ship_burn_particle" }
+		event = { time = 14.7 node = "part3_locator" particle = "ship_explosion_air_vent_particle" }
+		event = { time = 14.7 node = "part3_locator" particle = "ship_burn_particle" }
+		event = { time = 14.7 node = "part3_locator" particle = "large_ship_explosion_particle" }
+		event = { time = 0.0 particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+	}
+	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
+		event = { time = 1.0 node = "explosion_locator1" particle = "ship_burn_particle" }
+		event = { time = 1.0 node = "explosion_locator1" particle = "ship_explosion_particle" }
+		event = { time = 1.7 node = "explosion_locator2" particle = "ship_burn_particle" }
+		event = { time = 1.7 node = "explosion_locator2" particle = "ship_explosion_particle" }
+		event = { time = 3.7 node = "explosion_locator3" particle = "ship_burn_particle" }
+		event = { time = 3.7 node = "explosion_locator3" particle = "ship_explosion_particle" }
+		event = { time = 6.0 node = "explosion_locator4" particle = "ship_burn_particle" }
+		event = { time = 6.0 node = "explosion_locator4" particle = "ship_explosion_particle" }
+		event = { time = 7.3 node = "explosion_locator5" particle = "ship_burn_particle" }
+		event = { time = 7.3 node = "explosion_locator5" particle = "ship_explosion_particle" }
+		event = { time = 0.0 particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+	}
+	
+	game_data = {
+		size = @titan_scale
+	}
+}
+
+### BOW ###
+entity = {
+	name = "pirate_02_nsc_isb_titan_bow_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 1.6905 -27.232 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 2.2195 1.3225 -26.795 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -2.2195 1.3225 -26.795 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_04" position = { 0 2.4495 -8.602 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_05" position = { 0.644 3.8985 -4.025 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 0 1.725 -15.3755 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { 0 1.725 -12.2245 } rotation = { 0 0 0 } }
+}
+
+### MID ###
+entity = {
+	name = "pirate_02_nsc_isb_titan_mid_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 1.6905 -27.232 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 3.289 1.472 -5.9685 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { -3.289 1.472 -5.9685 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 5.0485 2.4495 14.1105 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -5.0485 2.4495 14.1105 } rotation = { 0 0 0 } }
+}
+
+### STERN ###
+entity = {
+	name = "pirate_02_nsc_isb_titan_stern_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 1.6905 -27.232 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 2.4495 -8.602 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_03" position = { 0.644 3.8985 -4.025 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_01" position = { 2.2195 1.3225 -26.795 } rotation = { 0 0 0 } }
+	locator = { name = "medium_gun_02" position = { -2.2195 1.3225 -26.795 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_01" position = { 0 1.725 -15.3755 } rotation = { 0 0 0 } }
+	locator = { name = "small_gun_02" position = { 0 1.725 -12.2245 } rotation = { 0 0 0 } }
+}
+
+##################         	 LEVIATHAN           ########################
+
+# FRAME
+entity = {
+	name = "pirate_02_nsc_leviathan_entity"
+	pdxmesh = "mammalian_01_leviathan_frame_mesh"
+	scale = 2.34783 #2.7
+	
+	locator = { name = "part1" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part2" position = { 0 0 0 } rotation = { 0 0 0 } }
+	locator = { name = "part3" position = { 0 0 0 } rotation = { 0 0 0 } }
+	
+	locator = { name = "extension_01" position = { 0 1.5 0 } rotation = { 0 0 0 } }
+	locator = { name = "extension_02" position = { 0 -1.5 0 } rotation = { 0 0 180 } }
+	attach = { extension_01 = "pirate_02_nsc_titan_extension_01_entity" }
+	attach = { extension_02 = "pirate_02_nsc_titan_extension_01_entity" }
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" animation_blend_time = 4.0 
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_battleship_hum" } }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_battleship_bass" } }
+	}
+	state = { name = "moving"	animation = "idle" animation_blend_time = 4.0 
+		event = { trigger_once = yes sound = { soundeffect = "moving_out_battleship" } }
+	}
+	state = { name = "death" animation = "death" animation_blend_time = 0.0 animation_speed = 0.5 looping = no
+		event = { time = 0.0 node = "part2_locator" particle = "nsc_flagship_explosion_particle" }
+		event = { time = 0.0 node = "part4_locator" particle = "nsc_flagship_explosion_particle" }
+		event = { time = 0.5 node = "explosion_locator_01" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.5 node = "explosion_locator_01" particle = "ship_burn_particle" }
+		event = { time = 0.75 node = "explosion_locator3" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 0.75 node = "explosion_locator3" particle = "ship_burn_particle" }
+		event = { time = 1.25 node = "explosion_locator4" particle = "avian_small_ship_explosion_particle" }
+		event = { time = 1.25 node = "explosion_locator4" particle = "ship_burn_particle" }
+		event = { time = 2.5 node = "explosion_locator_02" particle = "avian_small_ship_explosion_particle" }
+		event = { time = 2.5 node = "explosion_locator_02" particle = "ship_burn_particle" }
+		event = { time = 1.7 node = "explosion_locator_03" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 1.7 node = "explosion_locator_03" particle = "ship_burn_particle" }
+		event = { time = 0.78 node = "explosion_locator_04" particle = "avian_small_ship_explosion_particle" }
+		event = { time = 0.78 node = "explosion_locator_04" particle = "ship_burn_particle" }
+		event = { time = 6.5 node = "explosion_locator_05" particle = "avian_01_large_ship_explosion_particle" }
+		event = { time = 6.5 node = "explosion_locator_05" particle = "ship_burn_particle" }
+		event = { time = 0.0 particle = "avian_01_large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+	}
+	
+	game_data = {
+		size = @leviathan_scale
+	}
+}
+
+entity = {
+	name = "pirate_02_nsc_leviathan_bow_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 3.4155 -27.232 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "pirate_02_nsc_leviathan_mid_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 2.2195 3.0475 -26.795 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { -2.2195 3.0475 -26.795 } rotation = { 0 0 0 } }
+}
+
+entity = {
+	name = "pirate_02_nsc_leviathan_stern_entity"
+	pdxmesh = "locator_mesh"
+	scale = 1.0
+	
+	locator = { name = "large_gun_01" position = { 0 3.45 -15.3755 } rotation = { 0 0 0 } }
+	locator = { name = "large_gun_02" position = { 0 3.45 -12.2245 } rotation = { 0 0 0 } }
+}
+
+##################         	 SUN CRUSHER           ########################
+
+entity = {
+	name = "pirate_02_nsc_sun_crusher_entity"
+	pdxmesh = "molluscoid_01_corvette_frame_mesh"
+	scale = 1.0 #1.3
+	
+	default_state = "idle"
+	state = { name = "idle"	 animation = "idle" animation_blend_time = 4 
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_fallen_empire_civilship_01" } }
+	}
+	state = { name = "moving"	animation = "idle" animation_blend_time = 2 
+		event = { trigger_once = yes sound = { soundeffect = moving_out_corvette } }
+	}
+	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
+		event = { time = 4.63 node = "ship_main" particle = "large_ship_explosion_particle" }
+		event = { time = 0.0 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 1.6 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 2.83 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 3.26 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 3.9 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 4.1 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+	}
+	
+	game_data = {
+		size = 25
+	}
+}
+
+entity = {
+	name = "pirate_02_nsc_sun_crusher_ship_entity"
+	pdxmesh = "pirate_01_constructor_mesh"
+	scale = 1.3
+	
+	default_state = "idle"
+	state = { name = "idle"	 animation = "idle" animation_blend_time = 4 
+		event = { time = 0 node = "engine_large_01" particle = "generic_05_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_event_ship_03_idle" } }
+	}
+	state = { name = "moving"	animation = "idle" animation_blend_time = 2 
+		event = { time = 0 node = "engine_large_01" particle = "generic_1_exhaust_circle_long_moving" trigger_once = yes keep_particle = yes }
+	}
+	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
+		event = { time = 4.63 node = "ship_main" particle = "large_ship_explosion_particle" }
+		event = { time = 0.0 node = "explosion_locator1" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 1.6 node = "explosion_locator2" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 2.83 node = "explosion_locator3" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 3.26 node = "explosion_locator5" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 3.9 node = "explosion_locator4" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+		event = { time = 4.1 node = "explosion_locator5" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed_big_explosion } }
+	}
+}

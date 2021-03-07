@@ -1,0 +1,10 @@
+@entity_scale_50 = 75
+entity = {
+    name = "inner_green_nebula_8_entity_large"
+    pdxmesh = "dust_nebula_01_mesh"
+    meshsettings = {
+        name = "dustNebulaShape"
+        texture_diffuse = "dust_nebula_green_08_diffuse.dds"
+    }
+    scale = @entity_scale_50
+}

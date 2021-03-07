@@ -1,0 +1,26 @@
+@dust_scale_3 = 18
+entity = {
+    name = "blue_space_dust_2_entity"
+    locator = {
+        name = "core"
+        position = {
+            0
+            -5
+            0
+        }
+    }
+    scale = @dust_scale_3
+    default_state = "idle"
+    state = {
+        name = "idle"
+        state_time = 5
+        event = {
+            time = 0
+            node = "core"
+            particle = "blue_space_dust_2_effect"
+            keep_particle = yes
+            trigger_once = yes
+        }
+    }
+    cull_radius = 20000
+}

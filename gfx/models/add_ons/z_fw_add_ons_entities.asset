@@ -1,0 +1,26 @@
+###_infinite stellaris star entities	#########################################################
+#_	gfx\models\add_ons\_add_ons_entities.asset
+
+###_ship addons
+
+
+entity = {
+	name = "z_warp_ftl_ship_effect_entity"
+	
+	default_state = "wind_down"
+	state = { name = "wind_up"
+		start_event = { particle = "warp_wind_up_effect" keep_particle = yes trigger_once = yes sound = { soundeffect = "ftl_warp_charge_up_ship" } }
+	}
+	state = { name = "wind_down"
+		start_event = { particle = "warp_wind_down_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "jump_in" state_time = 1.0 looping = no
+		start_event = { particle = "ftl_in_ship_particle" }
+		event = { trigger_once = yes sound = { soundeffect = "ftl_warp_jump_in_ship" } }
+	}
+	state = { name = "jump_out" state_time = 1.0 looping = no
+		start_event = { particle = "ftl_out_ship_particle" }
+		event = { trigger_once = yes sound = { soundeffect = "ftl_warp_jump_out_ship" } }
+	}
+	scale = 1
+}
