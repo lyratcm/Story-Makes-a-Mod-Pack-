@@ -1,0 +1,56 @@
+specialist_job_check_trigger = {
+    custom_tooltip = SPECIALIST_JOB_TRIGGER
+    hidden_trigger = {
+        exists = owner
+        exists = planet
+        worker_promotion_check_trigger = yes
+        OR = {
+            is_enslaved = no
+            has_slavery_type = {
+                type = slavery_indentured
+            }
+            planet = {
+                has_modifier = slave_colony
+            }
+            is_slave_complex_possible = yes
+            AND = {
+                NOT = {
+                    host_has_dlc = "Utopia"
+                }
+                is_same_species = owner_main_species
+                owner = {
+                    OR = {
+                        has_valid_civic = civic_indentured_assets
+                        has_valid_civic = civic_slaver_guilds
+                    }
+                }
+            }
+        }
+        is_being_purged = no
+        is_being_assimilated = no
+        NOR = {
+            has_trait = trait_syncretic_proles
+            has_trait = trait_slave_gene
+            has_trait = trait_nerve_stapled
+            has_trait = trait_subsapient_form
+            has_trait = trait_presapient_docile_livestock
+            has_citizenship_type = {
+                type = citizenship_organic_trophy
+            }
+        }
+        OR = {
+            NOT = {
+                has_trait = trait_mechanical
+            }
+            owner = {
+                has_technology = tech_droid_workers
+            }
+        }
+        if = {
+            limit = {
+                divinity_right_to_work_job_check_trigger_exempt = no
+            }
+            divinity_right_to_work_job_check_trigger_specialist = yes
+        }
+    }
+}

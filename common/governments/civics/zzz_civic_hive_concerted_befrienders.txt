@@ -1,0 +1,21 @@
+civic_hive_concerted_befrienders = {
+    description = "civic_tooltip_concerted_befrienders_effects"
+    potential = {
+        always = no
+    }
+    possible = {
+        civics = {
+            NOT = {
+                value = civic_hive_devouring_swarm
+            }
+        }
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        country_trust_growth = 0.25
+        envoy_improve_relations_mult = 0.25
+        country_trust_cap_add = 50
+    }
+}

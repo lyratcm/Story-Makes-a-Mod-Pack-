@@ -1,0 +1,31 @@
+can_modify_species = {
+    root.owner = {
+        OR = {
+            is_ai = no
+            AND = {
+                is_ai = yes
+                OR = {
+                    has_global_flag = z_pf2_ai_species_mod
+                    AND = {
+                        has_global_flag = z_pf2_ai_species_mod_limit
+                        count_exact_species = {
+                            count < 3
+                            limit = {
+                                OR = {
+                                    is_same_species = root
+                                    is_subspecies = root
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        OR = {
+            NOT = {
+                has_trait = trait_self_modified
+            }
+            is_same_species = root
+        }
+    }
+}

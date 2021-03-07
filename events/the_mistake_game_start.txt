@@ -1,0 +1,25 @@
+
+namespace = the_mistake_game_start
+####################################################################################
+####################################################################################
+
+
+###  planet stuff
+country_event = {
+	id = the_mistake_game_start.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { 
+		has_origin = origin_g_the_mistake 
+	}
+
+	immediate = {
+		random_owned_planet = {
+			limit = { is_capital = yes }
+			add_deposit = d_underground_generator
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+		}
+	}
+}

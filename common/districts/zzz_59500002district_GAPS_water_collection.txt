@@ -1,0 +1,93 @@
+@GAPS_aquaifiers_cost = 500
+@GAPS_aquaifiers_upkeep = 2
+district_GAPS_water_collection = {
+    base_buildtime = 360
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        exists = owner
+        has_modifier = Planet_Modifier_GAPS_Pure_Water
+    }
+    potential = {
+        exists = owner
+        has_modifier = Planet_Modifier_GAPS_Pure_Water
+    }
+    resources = {
+        category = planet_districts
+        cost = {
+            energy = @GAPS_aquaifiers_cost
+        }
+        upkeep = {
+            energy = @GAPS_aquaifiers_upkeep
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 5
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_non_swapped_tradition = tr_prosperity_public_works
+            }
+        }
+        modifier = {
+            planet_housing_add = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_technology = tech_housing_1
+            }
+        }
+        modifier = {
+            planet_housing_add = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_technology = tech_housing_2
+                NOT = {
+                    has_valid_civic = civic_agrarian_idyll
+                }
+            }
+        }
+        modifier = {
+            planet_housing_add = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+            }
+        }
+        modifier = {
+            job_GAPS_water_collector_gestalt_add = 5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+        }
+        modifier = {
+            job_GAPS_water_collector_add = 5
+        }
+    }
+    ai_weight = {
+        weight = 10
+    }
+    ai_resource_production = {
+        sr_GAPS_water = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

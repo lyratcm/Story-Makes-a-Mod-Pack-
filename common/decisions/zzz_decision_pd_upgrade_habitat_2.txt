@@ -1,0 +1,56 @@
+decision_upgrade_pd_habitat_2 = {
+	owned_planets_only = yes
+	icon = decision_satellite_in_orbit
+
+	enactment_time = 1440
+	resources = {
+		category = decisions
+		cost = {
+			alloys = 1500
+		}
+	}
+
+	potential = {
+		OR = {
+		is_planet_class = pc_pd_barren_cold_hab
+		is_planet_class = pc_pd_barren_hab
+		is_planet_class = pc_pd_frozen_hab
+		is_planet_class = pc_pd_gas_giant_hab
+		is_planet_class = pc_pd_hothouse_hab
+		is_planet_class = pc_pd_toxic_hab
+		is_planet_class = pc_pd_molten_hab
+		is_planet_class = pc_pd_asteroid_hab
+		}
+		has_planet_flag = advanced_habitat
+		NOT = { has_planet_flag = advanced_habitat_2 }
+		exists = owner
+		owner = {
+			has_technology = tech_habitat_3
+		}
+	}
+
+	allow = {
+		free_district_slots = 0
+		has_building = building_hab_major_capital
+		#has_major_upgraded_capital = yes
+	}
+
+	effect = {
+		if = {
+			limit = { NOT = { is_planet_class = pc_pd_asteroid_hab }
+			}
+			add_deposit = d_expanded_dome_system
+		}
+		else_if = {
+			limit = { is_planet_class = pc_pd_asteroid_hab }
+			add_deposit = d_expanded_dome_system_1
+		}
+		hidden_effect = {
+			set_planet_flag = advanced_habitat_2
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

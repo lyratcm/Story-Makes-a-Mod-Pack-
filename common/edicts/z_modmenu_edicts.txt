@@ -1,0 +1,62 @@
+#_ÎÞ¾¡ÕûºÏmodmenu
+z_modmenu_edt = {
+	length = 0
+	icon = "GFX_z_fw_edict_gray"
+	edict_cap_usage = 0
+	ai_weight = { weight = 0 }
+
+	#resources = {
+	#	category = edicts
+	#	cost = {
+	#		energy = 0
+	#	}
+	#}
+
+	potential = {
+		has_global_flag = z_modmenu_installed
+		NOT = { has_country_flag = z_fw_flg_cntr_edt_hide }
+	}
+	allow = { is_ai = no }
+
+	effect = { hidden_effect = { country_event = { id = z_modmenu.1 days = 0 } } }
+}
+
+#_debug
+z_modmenu_restoration_edt = {
+	length = 0
+	icon = "GFX_z_fw_edict_green"
+	edict_cap_usage = 0
+	ai_weight = { weight = 0 }
+
+	potential = {
+		OR = {
+			z_mm_menu_locked = yes
+			z_mm_setting_panel_locked = yes
+			z_mm_trgr_expanded_sub_ui = yes
+		}
+	}
+	allow = { is_ai = no }
+
+	effect = {
+		hidden_effect = {
+			z_mm_unlock_menu = yes
+			z_mm_unlock_setting_panel = yes
+			z_mm_eft_expanded_sub_ui_exit = yes
+		}
+	}
+}
+
+#_init
+z_modmenu_initialization_edt = {
+	length = 0
+	icon = "GFX_z_fw_edict_blue"
+	edict_cap_usage = 0
+	ai_weight = { weight = 0 }
+
+	potential = {
+		NOT = { has_global_flag = z_modmenu_installed }
+	}
+	allow = { is_ai = no }
+
+	effect = { hidden_effect = { set_global_flag = z_modmenu_installed } }
+}

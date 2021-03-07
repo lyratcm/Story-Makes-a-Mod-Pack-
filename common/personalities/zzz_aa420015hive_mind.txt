@@ -1,0 +1,88 @@
+hive_mind = {
+    aggressiveness = 2.0
+    trade_willingness = 0.7
+    bravery = 1.0
+    combat_bravery = 1.0
+    military_spending = 1.0
+    colony_spending = 1.2
+    federation_acceptance = -25
+    nap_acceptance = -10
+    commercial_pact_acceptance = 0
+    research_agreement_acceptance = 0
+    defensive_pact_acceptance = -10
+    migration_pact_acceptance = -100
+    advanced_start_chance = 75
+    weapon_preferences = weapon_type_kinetic
+    armor_ratio = 0.2
+    shields_ratio = 0.4
+    hull_ratio = 0.4
+    threat_modifier = 0.75
+    threat_others_modifier = 0.5
+    friction_modifier = 1.5
+    claims_modifier = 1.5
+    behaviour = {
+        conqueror = yes
+        subjugator = no
+        liberator = no
+        opportunist = yes
+        slaver = yes
+        uplifter = no
+        purger = no
+        displacer = yes
+        dominator = yes
+        infiltrator = no
+        robot_exploiter = no
+        robot_liberator = no
+        propagator = yes
+        multispecies = no
+        crisis_fighter = yes
+    }
+    allow = {
+        OR = {
+            is_country_type = default
+            is_country_type = ark
+        }
+        has_authority = "auth_hive_mind"
+        NOR = {
+            has_origin = origin_common_ground
+            has_origin = origin_common_ground_npc
+            has_origin = origin_symbiote
+            has_valid_civic = civic_hive_devouring_swarm
+            has_valid_civic = civic_hive_parasitic
+            has_valid_civic = civic_closed_collective
+            has_valid_civic = civic_harm_hive
+            has_valid_civic = civic_infestation
+        }
+    }
+    weight_modifier = {
+        weight = 1000
+        modifier = {
+            factor = 50
+            has_valid_civic = "civic_hive_ascetic"
+        }
+        modifier = {
+            factor = 50
+            has_valid_civic = "civic_integrated_bioarchitecture"
+        }
+        modifier = {
+            factor = 100
+            has_valid_civic = "civic_hive_one_mind"
+        }
+        modifier = {
+            factor = 100
+            has_valid_civic = "civic_hive_subsumed_will"
+        }
+        modifier = {
+            factor = 100
+            has_government = "gov_resource_collector_mind"
+        }
+        modifier = {
+            factor = 200
+            has_origin = "origin_hive_queen"
+        }
+        modifier = {
+            factor = 500
+            has_origin = "origin_life_seeded"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+effect_ancient_jug_booster_cooldown = {
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_30 days = 30 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_60 days = 60 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_90 days = 90 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_120 days = 120 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_150 days = 150 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_180 days = 180 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_210 days = 210 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_240 days = 240 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_270 days = 270 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_300 days = 300 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_330 days = 330 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown_360 days = 360 }
+    set_timed_country_flag = { flag = ancient_jug_booster_selected_cooldown days = 360 }
+}

@@ -1,0 +1,11 @@
+lrsk_gov_var_civic_hive_reclamation_pools = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        planet_jobs_food_produces_mult = 0.1
+    }
+}

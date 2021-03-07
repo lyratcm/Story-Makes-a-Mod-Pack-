@@ -1,0 +1,39 @@
+trait_decadent = {
+    cost = -1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_hive_mind"
+        "trait_nerve_stapled"
+        "trait_anxious"
+        "trait_thrifty"
+        "trait_additrait_easily_satisfied"
+        "trait_conservational"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pop_cat_worker_happiness = -0.1
+        pop_cat_slave_happiness = -0.1
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_decadent@prev
+                }
+            }
+        }
+    }
+    slave_cost = {
+        energy = -25
+    }
+}

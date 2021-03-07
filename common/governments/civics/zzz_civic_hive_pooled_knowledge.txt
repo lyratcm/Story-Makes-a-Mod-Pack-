@@ -1,0 +1,23 @@
+civic_hive_pooled_knowledge = {
+    potential = {
+        authority = {
+            value = auth_hive_mind
+        }
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_hive_synapses
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        leader_skill_levels = 1
+        country_leader_pool_size = 2
+        planet_jobs_complex_drone_produces_mult = 0.1
+        species_leader_exp_gain = 0.1
+    }
+}

@@ -1,0 +1,47 @@
+civic_death_cult_corporate = {
+    playable = {
+        host_has_dlc = "Necroids Species Pack"
+    }
+    description = "civic_tooltip_death_cult_effects"
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    possible = {
+        origin = {
+            NOT = {
+                value = origin_necrophage
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_corp_philosopher_king
+            }
+        }
+        ethics = {
+            value = ethic_fanatic_spiritualist
+        }
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_private
+            }
+        }
+    }
+    modifier = {
+        pop_growth_speed = 0.10
+    }
+}

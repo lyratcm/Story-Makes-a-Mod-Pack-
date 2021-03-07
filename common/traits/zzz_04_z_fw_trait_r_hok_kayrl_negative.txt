@@ -1,0 +1,24 @@
+z_fw_trait_r_hok_kayrl_negative = {
+    cost = 0
+    potential_crossbreeding_chance = 0.25
+    initial = no
+    modification = no
+    randomized = no
+    immortal_leaders = yes
+    allowed_archetypes = {
+        BIOLOGICAL
+        MACHINE
+    }
+    modifier = {
+        pop_environment_tolerance = 1.0
+        pop_growth_speed = 0.15
+        planet_jobs_produces_mult = -0.10
+        species_leader_exp_gain = -0.25
+    }
+    slave_cost = {
+        energy = 50
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

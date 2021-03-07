@@ -1,0 +1,22 @@
+trait_inspired = {
+    cost = 3
+    initial = no
+    modification = no
+    randomized = no
+    opposites = {
+        "trait_nerve_stapled"
+        "trait_anxious"
+        "trait_masterful"
+        "trait_talented"
+    }
+    potential_crossbreeding_chance = 1.0
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+    }
+    modifier = {
+        planet_jobs_ruler_produces_mult = 0.10
+        planet_jobs_specialist_produces_mult = 0.05
+    }
+}

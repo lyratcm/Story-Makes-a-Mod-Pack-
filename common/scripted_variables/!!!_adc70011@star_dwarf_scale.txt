@@ -1,0 +1,1 @@
+@star_dwarf_scale = 40

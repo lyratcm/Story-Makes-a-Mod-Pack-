@@ -1,0 +1,42 @@
+civic_master_computer_datavore = {
+    description = civic_master_computer_datavore_effect
+    modification = no
+
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+
+    possible = {
+        ethics = {
+            OR = {
+                value = ethic_fanatic_militarist
+                value = ethic_militarist
+                value = ethic_fanatic_xenophobe
+                value = ethic_xenophobe
+            }
+            NOR = {
+                text = civic_tooltip_not_pacifist
+				value = ethic_pacifist
+				value = ethic_fanatic_pacifist
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_master_computer_virtual_world
+                value = civic_master_computer_mm_integrator
+                value = civic_master_computer_purifier
+                value = civic_master_computer_exchange
+            }
+        }
+    }
+
+    modifier = {
+        country_war_exhaustion_mult = -0.1
+    }
+
+    random_weight = {
+        base = 5
+    }
+}

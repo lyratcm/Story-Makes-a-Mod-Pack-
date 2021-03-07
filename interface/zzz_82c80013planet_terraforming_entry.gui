@@ -1,0 +1,135 @@
+guiTypes = {
+    @sidebar_inner_w = 430
+    @sidebar_inner_button_w = 432
+    containerWindowType = {
+        name = "planet_terraforming_entry"
+        position = {
+            x = 0
+            y = 82
+        }
+        moveable = no
+        size = {
+            width = @sidebar_inner_w
+            height = 70
+        }
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_frame"
+        }
+        iconType = {
+            name = "planet_class_from_icon"
+            position = {
+                x = 5
+                y = 25
+            }
+            spriteType = "GFX_planet_type"
+            frame = 1
+            alwaysTransparent = yes
+        }
+        iconType = {
+            name = "leads_to_arrows"
+            spriteType = "GFX_leads_to_arrows"
+            position = {
+                x = 40
+                y = 32
+            }
+            alwaysTransparent = yes
+        }
+        iconType = {
+            name = "planet_class_to_icon"
+            position = {
+                x = 65
+                y = 25
+            }
+            spriteType = "GFX_planet_type"
+            frame = 1
+            alwaysTransparent = yes
+        }
+        containerWindowType = {
+            name = "planet_class_name"
+            size = {
+                width = @sidebar_inner_w
+                height = 22
+            }
+            position = {
+                x = 0
+                y = 0
+            }
+            background = {
+                name = "background"
+                spriteType = "GFX_tiles_frame"
+            }
+            instantTextBoxType = {
+                name = "habitability"
+                font = "cg_16b"
+                text = "82%"
+                position = {
+                    x = 7
+                    y = 3
+                }
+                maxWidth = 160
+                maxHeight = 20
+                fixedSize = yes
+                format = left
+                alwaysTransparent = yes
+            }
+            instantTextBoxType = {
+                name = "planet_class_name"
+                font = "cg_16b"
+                text = "Continental World"
+                position = {
+                    x = 0
+                    y = 3
+                }
+                maxWidth = @sidebar_inner_w
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+                alwaysTransparent = yes
+            }
+        }
+        instantTextBoxType = {
+            name = "terraforming_cost"
+            font = "cg_16b"
+            text = "500 energy credits"
+            position = {
+                x = -110
+                y = 25
+            }
+            orientation = upper_right
+            maxWidth = 100
+            maxHeight = 80
+            fixedSize = yes
+            format = right
+            alwaysTransparent = yes
+        }
+        instantTextBoxType = {
+            name = "terraforming_time"
+            font = "cg_16b"
+            text = "500 energy credits"
+            position = {
+                x = -110
+                y = 45
+            }
+            orientation = upper_right
+            maxWidth = 100
+            maxHeight = 80
+            fixedSize = yes
+            format = right
+            alwaysTransparent = yes
+        }
+        buttonType = {
+            name = "terraform_button"
+            position = {
+                x = -1
+                y = -1
+            }
+            size = {
+                x = @sidebar_inner_button_w
+                y = 72
+            }
+            quadTextureSprite = "GFX_button_light"
+            clicksound = "ui_queuing_terraforming"
+        }
+    }
+}

@@ -1,0 +1,68 @@
+nutritional_plenitude_hive = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = nutritional_plenitude_hive }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = nutritional_plenitude_hive
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		pop_growth_speed = 0.10
+		empire_size_pops_mult = 0.10
+		planet_pops_organics_food_upkeep_mult = 0.25
+		planet_pops_organics_minerals_upkeep_mult = 0.25	
+	}
+
+	potential = {
+		is_hive_empire = yes
+	}
+	
+	allow = {
+		NOT = { has_edict = food_rationing }
+	}
+
+	prerequisites = {
+		"tech_gene_crops"
+	}
+
+	show_tech_unlock_if = {
+		is_hive_empire = yes
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+		modifier = {
+			factor = 0
+			ROOT = {
+				is_lithoid_empire = no
+				has_monthly_income = {
+					resource = food
+					value < 10
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			ROOT = {
+				is_lithoid_empire = yes
+				has_monthly_income = {
+					resource = minerals
+					value < 10
+				}
+			}
+		}
+	}
+}

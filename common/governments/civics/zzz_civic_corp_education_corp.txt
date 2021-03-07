@@ -1,0 +1,24 @@
+lrsk_gov_var_civic_mc_edu_corp = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    description = "civic_tooltip_lrsk_gov_var_civic_mc_edu_corp_effects"
+    random_weight = {
+        base = 5
+    }
+    possible = {
+        ethics = {
+            value = ethic_fanatic_materialist
+        }
+    }
+    modifier = {
+        planet_jobs_specialist_produces_mult = 0.1
+        species_leader_exp_gain = 0.2
+    }
+}

@@ -1,0 +1,38 @@
+namespace = precursor
+
+ship_event = {
+	id = precursor.55
+	title = "precursor.55.name"
+	desc = "precursor.55.desc"
+	picture = GFX_evt_mining_station
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = INTERESTING
+		from = {
+			hidden_effect = {
+				gpm_designate_precursor_world = yes
+				gpm_colour_planet_name = yes
+				if = { 
+					limit = { 
+						gpm_has_required_terraform_modifier = no
+						gpm_is_planet_class_normal_uninhabitable = yes
+					}
+					add_modifier = { modifier = terraforming_candidate_precursor }
+				}
+			}			
+			if = {
+				limit = { gpm_are_precursors_enabled = yes NOT = { has_modifier = gpm_precursor_mines } }
+				add_modifier = { modifier = gpm_precursor_mines }
+			}
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_11"
+				location = this
+				owner = root.owner
+			}
+		}	
+	}
+}

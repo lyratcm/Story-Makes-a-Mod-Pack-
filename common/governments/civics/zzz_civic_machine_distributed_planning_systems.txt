@@ -1,0 +1,12 @@
+lrsk_gov_var_civic_machine_distributed_planning_systems = {
+	potential = { authority = { value = auth_machine_intelligence } }
+  	#icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_mech.dds"
+	random_weight = { base = 5 }
+
+	description = "civic_tooltip_lrsk_gov_var_civic_machine_distributed_planning_systems_desc_effects"
+
+  	modifier = {
+		pop_amenities_usage_mult = -0.10
+		pop_housing_usage_mult = -0.10
+  	}
+}

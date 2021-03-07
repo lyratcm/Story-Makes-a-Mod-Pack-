@@ -1,0 +1,14 @@
+civic_machine_administrator = {
+	description = "civic_tooltip_machine_administrator_effects"
+	potential = { authority = { value = auth_machine_intelligence } }
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_machine_delegated_functions
+				value = civic_machine_efficient_administrators
+				value = civic_master_computer
+			}
+		}
+	}
+	random_weight = { base = 2 }
+}

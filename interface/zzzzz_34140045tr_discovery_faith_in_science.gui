@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_5 = 201
+    @y_2 = 125
+    positionType = {
+        name = "tr_discovery_faith_in_science"
+        position = {
+            x = @x_5
+            y = @y_2
+        }
+    }
+}

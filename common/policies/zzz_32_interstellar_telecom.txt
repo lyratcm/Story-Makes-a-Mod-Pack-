@@ -1,0 +1,68 @@
+interstellar_telecom = {
+	potential = {
+		is_gestalt = no
+	}
+
+	option = {
+		name = "none_telecom"
+		policy_flags = {
+			none_telecom
+		}
+		modifier = {
+		}
+	}
+
+	option = {
+		name = "civilian_telecom"
+		policy_flags = {
+			civilian_telecom
+		}
+		valid = {
+			NOR = {
+				has_ethic = ethic_fanatic_militarist
+			}
+			is_country_type = default
+		}
+		modifier = {
+        	country_admin_cap_mult = 0.1
+			station_researchers_produces_mult = 0.2
+			science_ship_survey_speed = 0.33
+			country_naval_cap_mult = -0.5
+			pop_ethic_pacifist_attraction_mult = 0.25
+		}
+    	AI_weight = {
+			weight = 50
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_pacifist
+			}
+	    }
+	}
+
+	option = {
+		name = "military_telecom"
+		policy_flags = {
+			military_telecom
+		}
+		valid = {
+			NOR = {
+				has_ethic = ethic_fanatic_pacifist
+				has_valid_civic = civic_exploration
+			}
+			is_country_type = default
+		}
+		modifier = {
+        	country_naval_cap_mult = 0.33
+			country_starbase_capacity_add = 5
+			station_researchers_produces_mult = -0.15
+			pop_ethic_militarist_attraction_mult = 0.25
+		}
+    	AI_weight = {
+			weight = 50
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+	}
+}

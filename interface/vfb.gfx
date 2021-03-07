@@ -1,0 +1,117 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_building_vfb_armory"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_armory.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_asteroid"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_asteroid.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_harbor"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_harbor.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_fusion"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_fusion.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_logistichub"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_logistichub.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_manufactory"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_manufactory.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_plaza"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_plaza.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_refinery"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_refinery.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_residence"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_residence.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_wharf"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_wharf.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_siderurgy"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_siderurgy.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_building_vfb_plastic"
+		textureFile = "gfx/interface/icons/buildings/building_vfb_plastic.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_prospector_bio"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_prospector_bio.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_tunneller_bio"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_tunneller_bio.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_prospector_bot"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_prospector_bot.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_tunneller_bot"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_tunneller_bot.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_manufacturer"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_manufacturer.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_enricher"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_enricher.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_logistician"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_logistician.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_lifter"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_lifter.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_functionary"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_functionary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_siderurgist_bio"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_siderurgist_bio.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_job_vfb_siderurgist_bot"
+		textureFile = "gfx/interface/icons/jobs/job_vfb_siderurgist_bot.dds"
+	}
+}

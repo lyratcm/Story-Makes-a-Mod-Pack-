@@ -1,0 +1,50 @@
+building_urban_maintenance = {
+	base_buildtime = 480
+	
+	branch_office_building = yes
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { 
+			has_valid_civic = civic_mutualistic_behavior	
+			NOT = { is_organic = yes }	
+		}
+		owner = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+	}
+	
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.25
+		planet_amenities_mult = 0.25
+		pop_citizen_happiness = 0.05
+		pop_ethic_xenophile_attraction_mult = 1.00
+	}
+
+	country_modifier = {
+		planet_jobs_complex_drone_produces_mult = 0.025
+		country_unity_produces_mult = 0.05
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 1000
+		}	
+		produces = {
+			unity = 30
+		}	
+		upkeep = {
+			energy = 10
+			minerals = 10
+			food = 10
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

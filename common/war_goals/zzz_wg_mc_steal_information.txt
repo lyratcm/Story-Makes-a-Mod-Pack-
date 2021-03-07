@@ -1,0 +1,106 @@
+wg_master_computer_steal_information = {
+    casus_belli = cb_master_computer_data_theft
+    
+    hide_if_no_cb = yes
+
+    surrender_acceptance = -25
+
+    potential = {
+        has_valid_civic = civic_master_computer_datavore
+    }
+
+    possible = {
+        custom_tooltip = {
+            fail_text = wg_master_computer_no_modifier
+            master_computer_has_datavore_mod = no
+        }
+        custom_tooltip = {
+            fail_text = wg_master_computer_only_one
+            NOT = {
+                any_war = {
+                    using_war_goal = {
+                        type = wg_master_computer_steal_information
+                        owner = prev                        
+                    }
+                }
+            }
+        }
+    }
+
+    ai_weight = {
+        weight = 1000        
+    }
+
+    on_accept = {
+        IF = {
+            limit = {
+                from = {
+                    relative_power = {
+                        who = PREV
+                        value = inferior
+                        category = technology
+                    }
+                }
+            }
+            add_modifier = {
+                modifier = master_computer_datavore_inferior
+                days = 1800
+            }
+        }
+        ELSE_IF = {
+            limit = {
+                from = {
+                    relative_power = {
+                        who = PREV
+                        value = equivalent
+                        category = technology
+                    }
+                }
+            }
+            add_modifier = {
+                modifier = master_computer_datavore_equivalent
+                days = 1800
+            }
+        }
+        ELSE_IF = {
+            limit = {
+                from = {
+                    relative_power = {
+                        who = PREV
+                        value = superior
+                        category = technology
+                    }
+                }
+            }
+            add_modifier = {
+                modifier = master_computer_datavore_superior
+                days = 1800
+            }
+        }
+        ELSE_IF = {
+            limit = {
+                from = {
+                    relative_power = {
+                        who = PREV
+                        value = overwhelming
+                        category = technology
+                    }
+                }
+            }
+            add_modifier = {
+                modifier = master_computer_datavore_overwhelming
+                days = 1800
+            }
+        }
+        FROM = {
+            add_modifier = {
+                modifier = master_computer_datavore_victim
+                days = 1800
+            }
+            add_opinion_modifier = {
+                who = PREV
+                modifier = master_computer_data_theives                
+            }
+        }
+    }
+}

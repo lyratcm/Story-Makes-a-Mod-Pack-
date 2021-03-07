@@ -1,0 +1,21 @@
+###_z fw 国家 占位符	#####################################################################
+
+#_巨龙之路
+htbd_horde = {
+	government = no
+	observable = no
+	ai = {
+		enabled = no
+	}
+	faction = {
+		hostile = no
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+	}
+	modules = {
+		basic_technology_module = {}
+		standard_event_module = {}
+		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
+	}
+}

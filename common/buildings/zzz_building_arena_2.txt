@@ -1,0 +1,91 @@
+building_virtual_combat_arena = {
+	base_buildtime = @b2_time
+	can_build = no
+	icon = building_hyper_entertainment_forum
+
+	category = amenity
+	
+	potential = {
+		has_building = building_combat_arena
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
+			has_modifier = slave_colony
+
+		}
+	}
+	
+	convert_to = {
+		building_hyper_entertainment_forum
+	}
+		
+	planet_modifier = {
+		job_duelist_add = @b2_jobs
+	}
+	
+	army_modifier = {
+		army_defense_morale_mult = 0.40
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+	
+	prerequisites = {
+		"tech_virtual_combat_arena"
+	}
+
+	triggered_desc = {		
+		text = job_duelist_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 5
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value >= 4
+				}
+			}
+			buildings_has_exotic_gases = yes
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 510 } }
+			}
+		}
+	}
+}

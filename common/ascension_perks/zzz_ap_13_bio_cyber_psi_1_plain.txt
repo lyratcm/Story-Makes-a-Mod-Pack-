@@ -1,0 +1,63 @@
+ap_esap_bio_cyber_psi_1_plain = {
+	on_enabled = {
+		custom_tooltip = ap_esap_bio_cyber_psi_1_plain_tooltip
+		if = {
+			limit = {
+				Not = {
+					has_technology = tech_gene_tailoring
+				}
+			}		
+			add_research_option = tech_gene_tailoring
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					Not = {
+						has_technology = tech_robotic_workers
+					}
+				}
+				give_technology =  {
+					tech = tech_robotic_workers
+					message = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				Not = {
+					has_technology = tech_droid_workers
+				}
+			}		
+			add_research_option = tech_droid_workers
+		}
+		if = {
+			limit = {
+				Not = {
+					has_technology = tech_psionic_theory
+				}
+			}		
+			add_research_option = tech_psionic_theory
+		}
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		esap_has_bio_cyber_psi_1 = no
+		NOT = {
+			has_authority = "auth_machine_intelligence"
+			has_authority = auth_hive_mind
+		}
+		Or = {
+			has_ascension_perk = ap_evolutionary_mastery
+			has_ascension_perk = ap_synthetic_evolution
+			has_ascension_perk = ap_transcendence
+			has_ascension_perk = ap_esap_bio_bonus
+			has_ascension_perk = ap_esap_cyber_bonus
+			has_ascension_perk = ap_esap_psi_bonus
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

@@ -1,0 +1,26 @@
+gpm_edict_ship_bombard_dmg  = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			minor_artifacts = 40
+		}
+	}
+
+	potential = {
+		has_technology = tech_arcane_deciphering
+	}
+
+	modifier = {
+		ship_orbital_bombardment_mult = 1.00
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictLowPrio
+			is_at_war = yes
+		}
+	}	
+}

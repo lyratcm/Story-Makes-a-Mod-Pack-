@@ -1,0 +1,81 @@
+decision_development_of_scorched_lands = {
+	owned_planets_only = yes
+	sound = event_construction
+	icon = decision_development_of_scorched_lands
+	
+	enactment_time = 700
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				planet_size < 10
+			}
+			influence = 50
+			energy = 1000
+		}
+		cost = {
+			trigger = {
+				planet_size >= 10
+				planet_size < 15
+			}
+			influence = 100
+			energy = 2000
+		}
+		cost = {
+			trigger = {
+				planet_size >= 15
+				planet_size < 20
+			}
+			influence = 150
+			energy = 3000
+		}	
+		cost = {
+			trigger = {
+				planet_size >= 20
+			}
+			influence = 200
+			energy = 5000
+		}
+	}
+	
+	potential = {
+		is_planet_class = pc_tidallylocked
+		NOR = { 
+			has_modifier = scorched_lands
+			has_modifier = arctic_tidally_locked
+			has_modifier = ocean_tidally_locked
+		}
+	}
+	
+	effect = {
+		custom_tooltip = decision_development_of_scorched_lands_effec_desc
+		hidden_effect = {
+			add_modifier = {
+				modifier = "scorched_lands"
+				days = -1
+			}
+			random_list = {
+				50 = {
+					add_deposit = d_searing_desert
+				}
+				35 = {
+					add_deposit = d_searing_desert
+					add_deposit = d_searing_desert
+				}
+				15 = {
+					modifier = {
+						factor = 0.5
+						NOT = { has_modifier = arid_tidally_locked }
+					}
+					add_deposit = d_searing_desert
+					add_deposit = d_searing_desert
+					add_deposit = d_dust_desert
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

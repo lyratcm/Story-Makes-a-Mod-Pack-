@@ -1,0 +1,14 @@
+planet_structures = {
+    parent = planets
+    hidden = yes
+    generate_add_modifiers = {
+        cost
+        upkeep
+        produces
+    }
+    generate_mult_modifiers = {
+        cost
+        upkeep
+        produces
+    }
+}

@@ -1,0 +1,33 @@
+decision_gpm_restore_oppertunity = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_restore_oppertunity
+	enactment_time = 30
+
+    resources = {
+		category = decisions
+		cost = {
+			energy = 1000
+		}
+	}
+
+    potential = {
+		has_modifier = gpm_oppertunity
+		NOT = { has_global_flag = gpm_r_mars_rover_found }
+	}
+	
+	allow = {
+		has_modifier = gpm_oppertunity
+		NOT = { has_global_flag = gpm_r_mars_rover_found }
+	}
+
+    effect = {
+		remove_modifier = gpm_oppertunity
+		owner = { add_relic = gpm_r_mars_rover }
+		set_global_flag = gpm_r_mars_rover_found
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}

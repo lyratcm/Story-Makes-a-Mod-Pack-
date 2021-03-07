@@ -1,0 +1,16 @@
+namespace = fq_patch
+
+event = {
+	id = fq_patch.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:complex_event_country = {
+			set_variable = {
+				which = latest_fq_version
+				value = 20201029
+			}
+		}
+	}
+}

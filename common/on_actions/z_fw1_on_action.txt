@@ -1,0 +1,166 @@
+###_z_fw 框架独立功能触发器	#############################################################################
+
+#_[z_country]
+#_[z_fleet]
+#_[z_leader]
+
+
+
+
+on_game_start = {
+	events = {
+	}
+}
+
+
+
+
+#_[global pulse]	#######################################################
+on_monthly_pulse = {
+	events = {
+		z_fw1_misc.120			#_自动矿站触发器
+	}
+}
+
+
+
+
+###_[z_country]	#####################################################
+# this = country
+on_monthly_pulse_country = {
+	events = {
+	#	z_fw1_misc.12			#_自动矿站
+		z_fw1_misc.125			#_自动矿站debug
+	}
+}
+# this = country
+on_yearly_pulse_country = {
+	events = {
+	}
+}
+# this = country
+on_bi_yearly_pulse_country = {
+	events = {
+	}
+}
+# this = country
+on_five_year_pulse_country = {
+	events = {
+	}
+}
+
+
+
+
+# Root = Loser
+# From = Main Winner
+#on_war_ended = {
+#	events = {
+#	}
+#}
+
+
+# Root = Winner Warleader
+# From = Loser Warleader
+# FromFrom = War
+on_war_won = {
+	events = {
+		z_fw1_misc.11		#_[战争胜利_渴望点数]
+	}
+}
+
+#This = destroyed country
+#From = optional, destroyer (country)
+on_country_destroyed = {
+	events = {
+		z_fw1_misc.111		#_灭国战胜利者添加渴望点数1
+		z_fw1_misc.312		#_z_fw_r_co 国家灭亡通知发射
+	}
+}
+
+
+
+
+
+
+
+
+###_[z_fleet]	#####################################################
+# This = owner of fleet 1 (destroyed)
+# From = owner of fleet 2 (combatant)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_fleet_destroyed_victim = {
+	events = {
+		z_fw1_misc.121		#_自动矿站-建设者被击毁
+		z_fw1_misc.141		#_自我拆解-目标被毁
+		z_modmenu.111		#_modmenu测试-靶机被毁
+	}
+}
+
+#_舰队解散
+# This = owner of fleet
+# From = disbanded fleet
+on_fleet_disbanded = {
+	events = {
+		#z_fw1_misc.122		#_自动矿站-建设者被解散
+	}
+}
+
+#_自动移动到达目标
+# This = owner of fleet
+# From = fleet
+# FromFrom = planet (if any)
+on_fleet_auto_move_arrival = {
+	events = {
+		z_fw1_misc.131		#_禁止AI挖掘relic_debug	解除锁定
+	}
+}
+
+# This = Attacked Fleet
+# From = Aggressor Fleet
+# FromFrom = Additional Attacked Fleet (if joining ongoing combat)
+# FromFromFrom = Additional Attacked Fleet (if joining ongoing combat)
+on_fleet_combat_joined_attacker = {
+	events = {
+		#z_fw1_misc.123		#_自动矿站-建设者接敌
+	}
+}
+
+# This = Aggressor Fleet
+# From = Attacked Fleet
+# FromFrom = Additional Attacked Fleet (if part of ongoing combat)
+# FromFromFrom = Additional Attacked Fleet (if part of ongoing combat)
+on_fleet_combat_joined_defender = {
+	events = {
+		#z_fw1_misc.123		#_自动矿站-建设者接敌
+	}
+}
+
+# This = Fleet ( science vessel )
+# From = Archaeological Site
+on_arch_stage_finished = {
+	events = {
+	}
+}
+
+#From = Planet scope
+#This = Fleet scope
+on_fleet_enter_orbit = {
+	events = {
+	#	z_fw1_misc.130		#_禁止AI挖掘relic
+		z_fw1_misc.140		#_自我拆解
+	}
+}
+
+
+
+
+###_[z_leader]	#####################################################
+# This = Country
+# From = Leader
+on_leader_death = {
+	events = {
+		z_fw1_relic_koh.311	#_伞鼬复活
+	}
+}

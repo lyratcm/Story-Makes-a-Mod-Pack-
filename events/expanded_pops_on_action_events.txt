@@ -1,0 +1,754 @@
+############################
+#
+# Expanded gamestart Events
+#
+############################
+
+namespace = onactionpops
+
+# Terraforming Tomb and Relic Worlds
+planet_event = {
+	id = onactionpops.1
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_relic
+		}
+	}
+	
+	immediate = {
+		owner = {
+			remove_country_flag = memorialist_terraformed_relic
+			set_timed_country_flag = { flag = memorialist_terraformed_relic days = 7200 }
+		}
+	}
+}
+
+# remote colony stability
+country_event = {
+	id = onactionpops.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = capital_scope
+	}
+	
+	immediate = {
+		capital_scope = {
+			save_event_target_as = the_capital
+			remove_modifier = remote_colony
+			remove_modifier = very_remote_colony
+		}
+		every_owned_planet = {
+			limit = { is_capital = no }
+			remove_modifier = remote_colony
+			remove_modifier = very_remote_colony
+			if = {
+				limit = {
+					distance = {
+						source = event_target:the_capital
+						use_bypasses = yes
+						min_jumps = 52
+					}
+				}
+				add_modifier = { modifier = very_remote_colony days = -1 }
+			}
+			else_if = {
+				limit = {
+					distance = {
+						source = event_target:the_capital
+						use_bypasses = yes
+						min_jumps = 28
+					}
+				}
+				add_modifier = { modifier = remote_colony days = -1 }
+			}
+		}
+	}
+}
+
+# Ministry of Production
+planet_event = {
+	id = onactionpops.3
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = {
+			country_event = { id = onactionpops.5 }
+		}
+		if = {
+			limit = { exists = FROM }
+			FROM = { 
+				country_event = { id = onactionpops.5 }
+			}
+		}
+	}
+}
+country_event = {
+	id = onactionpops.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			planet_event = { id = onactionpops.3 days = 5 }
+		}
+	}
+}
+country_event = {
+	id = onactionpops.5
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_planet = {
+			OR = {
+				has_modifier = ministry_production_modifier
+				has_building = building_ministry_production
+				has_building = building_production_center
+			}
+		}
+	}
+	
+	immediate = {
+		every_owned_planet = {
+			limit = { has_modifier = ministry_production_modifier }
+			if = {
+				limit = {
+					exists = sector
+					sector = {
+						prev = {
+							owner = {
+								NOT = {
+									any_owned_planet = {
+										sector = { is_same_value = PREVPREVPREVPREV }
+										OR = {
+											has_building = building_ministry_production
+											has_building = building_production_center
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				remove_modifier = ministry_production_modifier
+			}
+		}
+		every_owned_planet = {
+			limit = { NOT = { has_modifier = ministry_production_modifier } }
+			if = {
+				limit = {
+					exists = sector
+					sector = {
+						prev = {
+							owner = {
+								any_owned_planet = {
+									sector = { is_same_value = PREVPREVPREVPREV }
+									OR = {
+										has_building = building_ministry_production
+										has_building = building_production_center
+									}
+								}
+							}
+						}
+					}
+				}
+				add_modifier = { modifier = ministry_production_modifier days = -1 }
+			}
+		}
+	}
+}
+
+# Transcendent Learning
+country_event = {
+	id = onactionpops.6
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_ascension_perk = ap_transcendent_learning
+	}
+	
+	immediate = {
+		FROM = { add_skill = 1 }
+	}
+}
+
+# Non-Gestalt Instability
+country_event = {
+	id = onactionpops.7
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_gestalt = yes
+		NOR = {
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_machine_assimilator
+			has_valid_civic = civic_machine_servitor
+			has_valid_civic = civic_machine_consciousness
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_gestalt = yes
+				NOR = {
+					has_valid_civic = civic_harm_hive
+					has_valid_civic = civic_harm_machine
+					has_origin = origin_extant_creators
+					has_origin = origin_symbiote
+				}
+				NOT = { has_swapped_tradition = tr_synchronicity_finish }
+			}
+			update_resident_non_gestalt_effect = yes
+		}
+		else_if = {
+			limit = {
+				is_gestalt = yes
+				NOR = {
+					has_valid_civic = civic_harm_hive
+					has_valid_civic = civic_harm_machine
+					has_origin = origin_extant_creators
+					has_origin = origin_symbiote
+				}
+				has_swapped_tradition = tr_synchronicity_finish
+			}
+			update_resident_non_gestalt_harm_effect = yes
+		}
+		else_if = {
+			limit = {
+				is_gestalt = yes
+				OR = {
+					has_valid_civic = civic_harm_hive
+					has_valid_civic = civic_harm_machine
+					has_origin = origin_extant_creators
+					has_origin = origin_symbiote
+				}
+				NOT = { has_swapped_tradition = tr_synchronicity_finish }
+			}
+			update_resident_non_gestalt_harm_effect = yes
+		}
+		else = {
+			remove_modifier = gestalt_residents_harm_20
+			remove_modifier = gestalt_residents_harm_25
+			remove_modifier = gestalt_residents_harm_30
+			remove_modifier = gestalt_residents_harm_35
+			remove_modifier = gestalt_residents_harm_40
+			remove_modifier = gestalt_residents_harm_45
+			remove_modifier = gestalt_residents_harm_50
+			remove_modifier = gestalt_residents_harm_55
+			remove_modifier = gestalt_residents_harm_60
+			remove_modifier = gestalt_residents_harm_80
+		}
+	}
+}
+
+country_event = {
+	id = onactionpops.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					is_country_type = lost_empire
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			every_owned_ship = {
+				limit = {
+					has_hp_percentage < 0.01
+				}
+				destroy_ship = this
+			}
+		}
+		FROM = {
+			if = {
+				limit = {
+					OR = {
+						is_country_type = default
+						is_country_type = ascended_empire
+						is_country_type = lost_empire
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+				every_owned_ship = {
+					limit = {
+						has_hp_percentage < 0.01
+					}
+					destroy_ship = this
+				}
+			}
+		}
+	}
+}
+
+# Special Vassals
+country_event = {
+	id = onactionpops.9
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = overlord
+		overlord = { is_country_type = default }
+		OR = {
+			is_subject_type = vassal
+			is_subject_type = protectorate
+		}
+	}
+	
+	immediate = {
+		overlord = {
+			save_event_target_as = da_boss
+			if = {
+				limit = { has_valid_civic = civic_feudal_realm }
+				ROOT = {
+					set_subject_of = {
+						who = none
+					}
+					set_subject_of = {
+						who = event_target:da_boss
+						subject_type = duchy
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_valid_civic = civic_feudal_realm }
+					NOT = { is_megacorp = yes }
+					ROOT = { is_megacorp = yes }
+				}
+				ROOT = {
+					set_subject_of = {
+						who = none
+					}
+					set_subject_of = {
+						who = event_target:da_boss
+						subject_type = charter
+					}
+				}
+			}
+		}
+	}
+}
+
+# Sell off excessive resources
+country_event = {
+	id = onactionpops.10
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = yes
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+			is_country_type = lost_empire
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				resource_stockpile_compare = { resource = minerals value >= 15000 }
+				resource_stockpile_compare = { resource = energy value < 50000 }
+			}
+			add_resource = {
+				minerals = -5000
+				energy = 3750
+			}
+		}
+		if = {
+			limit = {
+				resource_stockpile_compare = { resource = alloys value < 15000 }
+				resource_stockpile_compare = { resource = energy value >= 10000 }
+			}
+			add_resource = {
+				alloys = 250
+				energy = -1500
+			}
+		}
+		if = {
+			limit = {
+				resource_stockpile_compare = { resource = food value >= 15000 }
+				resource_stockpile_compare = { resource = energy value < 50000 }
+			}
+			add_resource = {
+				food = -5000
+				energy = 3750
+			}
+		}
+		if = {
+			limit = {
+				resource_stockpile_compare = { resource = alloys value < 15000 }
+				resource_stockpile_compare = { resource = energy value >= 10000 }
+			}
+			add_resource = {
+				alloys = 250
+				energy = -1500
+			}
+		}
+		if = {
+			limit = {
+				is_gestalt = no
+				resource_stockpile_compare = { resource = consumer_goods value < 1000 }
+				resource_stockpile_compare = { resource = energy value >= 7500 }
+			}
+			add_resource = {
+				consumer_goods = 250
+				energy = -750
+			}
+		}
+		if = {
+			limit = {
+				resource_stockpile_compare = { resource = consumer_goods value >= 15000 }
+				resource_stockpile_compare = { resource = energy value < 50000 }
+			}
+			add_resource = {
+				consumer_goods = -5000
+				energy = 7500
+			}
+		}
+		if = {
+			limit = {
+				resource_stockpile_compare = { resource = alloys value < 15000 }
+				resource_stockpile_compare = { resource = energy value >= 10000 }
+			}
+			add_resource = {
+				alloys = 250
+				energy = -1500
+			}
+		}
+	}
+}
+
+# Pops move out of low habitability planets
+country_event = {
+	id = onactionpops.11
+
+	hide_window = yes
+	is_triggered_only = no
+	location = from
+
+	trigger = {
+		any_owned_pop = {
+			has_migration_control = no
+			planet = {
+				habitability = { who = prev value <= 0.30 }
+				num_pops > 10
+				OR = {
+					free_housing <= 0
+					free_jobs <= 2
+					planet_stability < 50
+					PREV = { is_unemployed = yes }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_owned_pop = {
+			limit = {
+				has_migration_control = no
+				planet = {
+					habitability = { who = prev value <= 0.30 }
+					num_pops > 10
+					OR = {
+						free_housing <= 0
+						free_jobs <= 2
+						planet_stability < 50
+						PREV = { is_unemployed = yes }
+					}
+				}
+			}
+			save_event_target_as = greater_than_ourselves_target_pop
+		}
+		random_owned_planet = {
+			limit = {
+				habitability = { who = event_target:greater_than_ourselves_target_pop value >= 0.5 }
+				free_housing >= 1
+				free_jobs >= 1
+				is_under_colonization = no
+				is_controlled_by = owner
+				has_orbital_bombardment = no
+			}
+			save_event_target_as = greater_than_ourselves_target_planet
+		}
+		random_country = {
+			limit = {
+				has_diplo_migration_treaty = ROOT
+				any_owned_planet = {
+					habitability = { who = event_target:greater_than_ourselves_target_pop value >= 0.5 }
+					free_housing >= 1
+					free_jobs >= 1
+					is_under_colonization = no
+					is_controlled_by = owner
+					has_orbital_bombardment = no
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					habitability = { who = event_target:greater_than_ourselves_target_pop value >= 0.5 }
+					free_housing >= 1
+					free_jobs >= 1
+					is_under_colonization = no
+					is_controlled_by = owner
+					has_orbital_bombardment = no
+				}
+				save_event_target_as = greater_than_ourselves_target_planet_xeno
+			}
+		}
+		random_list = {
+			10 = {
+			}
+			9 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						exists = event_target:greater_than_ourselves_target_pop
+						exists = event_target:greater_than_ourselves_target_planet
+					}
+				}
+				resettle_pop = {
+					pop = event_target:greater_than_ourselves_target_pop
+					planet = event_target:greater_than_ourselves_target_planet
+				}
+				event_target:greater_than_ourselves_target_pop = { clear_pop_category = yes }
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						exists = event_target:greater_than_ourselves_target_pop
+						exists = event_target:greater_than_ourselves_target_planet_xeno
+					}
+				}
+				resettle_pop = {
+					pop = event_target:greater_than_ourselves_target_pop
+					planet = event_target:greater_than_ourselves_target_planet_xeno
+				}
+				event_target:greater_than_ourselves_target_pop = { clear_pop_category = yes }
+			}
+		}
+	}
+}
+
+# Xeno-Tourism will move pops every 5 years
+planet_event = {
+	id = onactionpops.12
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		num_pops > 25
+		has_branch_office = yes
+		OR = {
+			has_building = building_xeno_tourism_agency
+			has_building = building_xeno_tourism_agency_crime
+		}
+		any_pop = {
+			has_migration_control = no
+			is_robot_pop = no
+			OR = {
+				is_unemployed = yes
+				AND = {
+					ROOT = { has_building = building_xeno_tourism_agency_crime }
+					OR = {
+						is_pop_category = criminal
+						is_enslaved = yes
+						is_being_purged = yes
+					}
+				}
+				AND = {
+					is_pop_category = worker
+					ROOT = {
+						OR = {
+							free_housing <= 0
+							free_jobs <= 2
+						}
+					}
+				}
+			}
+		}
+		branch_office_owner = {
+			OR = {
+				has_diplo_migration_treaty = root.owner
+				is_criminal_syndicate = yes
+			}
+		}
+	}
+	
+	immediate = {
+		random_pop = {
+			limit = {
+				has_migration_control = no
+				is_robot_pop = no
+				OR = {
+					is_unemployed = yes
+					AND = {
+						ROOT = { has_building = building_xeno_tourism_agency_crime }
+						OR = {
+							is_pop_category = criminal
+							is_enslaved = yes
+							is_being_purged = yes
+						}
+					}
+					AND = {
+						is_pop_category = worker
+						ROOT = {
+							OR = {
+								free_housing <= 0
+								free_jobs <= 2
+							}
+						}
+					}
+				}
+			}
+			save_event_target_as = greater_than_ourselves_target_pop
+		}
+		branch_office_owner = {
+			random_owned_planet = {
+				limit = {
+					habitability = { who = event_target:greater_than_ourselves_target_pop value >= 0.5 }
+					free_housing >= 1
+					free_jobs >= 1
+					is_under_colonization = no
+					is_controlled_by = owner
+					has_orbital_bombardment = no
+				}
+				save_event_target_as = greater_than_ourselves_target_planet
+			}
+		}
+		if = {
+			limit = {
+				exists = event_target:greater_than_ourselves_target_pop
+				exists = event_target:greater_than_ourselves_target_planet
+				event_target:greater_than_ourselves_target_pop = {
+					NOR ={
+						has_citizenship_type = { country = event_target:greater_than_ourselves_target_planet.owner type = citizenship_slavery }
+						has_citizenship_type = { country = event_target:greater_than_ourselves_target_planet.owner type = citizenship_purge }
+					}
+				}
+			}
+			resettle_pop = {
+				pop = event_target:greater_than_ourselves_target_pop
+				planet = event_target:greater_than_ourselves_target_planet
+			}
+			event_target:greater_than_ourselves_target_pop = { clear_pop_category = yes }
+		}
+	}
+}
+
+# Food Deficit
+country_event = {
+	id = onactionpops.13
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_lithoid_empire = no
+				has_deficit = food
+			}
+			AND = {
+				is_lithoid_empire = yes
+				has_deficit = minerals
+			}
+			has_modifier = empire_food_deficit
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_lithoid_empire = no
+				has_deficit = food
+				NOT = { has_modifier = empire_food_deficit }
+			}
+			add_modifier = { modifier = empire_food_deficit days = -1 }
+		}
+		else_if = {
+			limit = {
+				is_lithoid_empire = yes
+				has_deficit = minerals
+				NOT = { has_modifier = empire_food_deficit }
+			}
+			add_modifier = { modifier = empire_food_deficit days = -1 }
+		}
+		else_if = {
+			limit = {
+				has_modifier = empire_food_deficit
+				NOR = {
+					AND = {
+						is_lithoid_empire = no
+						has_deficit = food
+					}
+					AND = {
+						is_lithoid_empire = yes
+						has_deficit = minerals
+					}
+				}
+			}
+			remove_modifier = empire_food_deficit
+		}
+	}
+}
+
+planet_event = {
+	id = onactionpops.16
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_orbital_bombardment = yes
+		OR = {
+			has_orbital_bombardment_stance = armageddon
+			has_orbital_bombardment_stance = pox
+			has_orbital_bombardment_stance = death
+		}
+		habitable_planet = yes
+		planet_devastation >= 100
+		num_pops < 2
+	}
+	
+	immediate = {
+		owner = {
+			add_static_war_exhaustion = {
+				attacker = from
+				location = root
+				value_for_planet_destruction = 0.5
+			}
+			country_event = { id = action.82 }
+		}
+		from = { country_event = { id = action.83 } }
+		change_pc = pc_nuked
+		remove_all_buildings = yes
+		reroll_deposits = yes
+		remove_modifier = "natural_beauty"
+		remove_modifier = "atmospheric_aphrodisiac"
+		remove_modifier = "atmospheric_hallucinogen"
+		remove_modifier = "lush_planet"
+		remove_modifier = "dangerous_wildlife"
+		set_planet_flag = armageddon_nuked
+	}
+}

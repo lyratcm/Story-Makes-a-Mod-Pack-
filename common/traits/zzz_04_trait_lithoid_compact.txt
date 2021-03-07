@@ -1,0 +1,5 @@
+trait_lithoid_compact = {
+    cost = 3
+    initial = no
+    randomized = no
+}

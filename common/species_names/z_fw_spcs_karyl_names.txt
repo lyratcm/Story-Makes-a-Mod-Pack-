@@ -1,0 +1,108 @@
+
+#_[hok_wsg]
+#_[hok_wsg]
+#_[hok_sofe]
+
+
+
+
+Z_KARYL = {
+	z_karyl_1 = {
+		name = "Skunk"
+		plural = "Skunks"
+		home_planet = "WTF"
+		home_system = "WTF Paradise"
+		name_list = "MAN1"
+	}
+}
+Z_KARYL_ROBOT = {
+	z_karyl_robot_1 = {
+		name = "Iron Skunk"
+		plural = "Iron Skunks"
+		home_planet = "WTF"
+		home_system = "WTF Paradise"
+		name_list = "MAN1"
+	}
+}
+Z_KARYL_MACHINE = {
+	z_karyl_machine_1 = {
+		name = "Titanum Skunk"
+		plural = "Titanum Skunks"
+		home_planet = "WTF"
+		home_system = "WTF Paradise"
+		name_list = "MAN1"
+	}
+}
+Z_KARYL_LITHOID = {
+	z_karyl_lithoid_1 = {
+		name = "Rocky Skunk"
+		plural = "Rocky Skunks"
+		home_planet = "WTF"
+		home_system = "WTF Paradise"
+		name_list = "MAN1"
+	}
+}
+Z_KARYL_NECROID = {
+	z_karyl_necroid_1 = {
+		name = "Corpse Skunk"
+		plural = "Corpse Skunks"
+		home_planet = "WTF"
+		home_system = "WTF Paradise"
+		name_list = "MAN1"
+	}
+}
+
+
+#_[hok_wsg]
+Z_KARYL_WSS_WSG = {
+	z_karyl_wsg_1 = {
+		name = "Warship Skunk"
+		plural = "Warship Skunks"
+		home_planet = "WTF"
+		home_system = "WTF Paradise"
+		name_list = "MAN1"
+	}
+}
+Z_KARYL_WSS_SH = {
+	z_karyl_sh_1 = {
+		name = "Shenhai Skunk"
+		plural = "Shenhai Skunks"
+		home_planet = "WTF"
+		home_system = "WTF Paradise"
+		name_list = "MAN1"
+	}
+}
+Z_KARYL_WSS_SWG = {
+	z_karyl_wss_swg_1 = {
+		name = "Star Warship Skunk"
+		plural = "Star Warship Skunks"
+		home_planet = "WTF"
+		home_system = "WTF Paradise"
+		name_list = "MAN1"
+	}
+}
+
+
+#_[hok_sofe]
+Z_KARYL_SOFE_PGNT = {
+	z_karyl_sofe_pgnt_1 = {
+		name = "Fluorescent Skunk"
+		plural = "Fluorescent Skunk"
+		home_planet = "Fluorescent World"
+		home_system = "Fluorescent System"
+		name_list = "MAN1"
+	}
+}
+
+
+#_[hok_dal]
+Z_KARYL_DAL = {
+	z_karyl_dal_1 = {
+		language = "l_simp_chinese"
+		name = "Spirit Skunk"
+		plural = "Spirit Skunk"
+		home_planet = "Date A Live"
+		home_system = "Date A Live"
+		name_list = "MAN1"
+	}
+}

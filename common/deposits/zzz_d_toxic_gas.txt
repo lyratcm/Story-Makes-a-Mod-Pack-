@@ -1,0 +1,63 @@
+gpm_tb_toxic_gas = {
+    time = 270
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+    resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 400
+		}
+	}
+	
+	planet_modifier = {
+		district_farming_max = -2
+	}
+
+	triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_green = yes
+            }
+        }
+        modifier = {
+            planet_jobs_unity_produces_add = 1
+            planet_amenities_add = 5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = secret_neopaganism
+            }
+        }
+        modifier = {
+            planet_housing_add = 2
+            planet_amenities_add = 1
+            job_soldier_add = 1
+        }
+    }
+
+	all_blocker_swap_types = yes
+
+	on_cleared = {
+		owner = {
+			random_list = {
+				50 = { add_resource = { exotic_gases = 5 } }
+				40 = { add_resource = { exotic_gases = 10 } }
+				30 = { add_resource = { exotic_gases = 15 } }
+				20 = { add_resource = { exotic_gases = 20 } }
+				10 = { add_resource = { exotic_gases = 25 } }
+			}
+		}
+	}
+
+	# weight 0: event added
+	drop_weight = {
+		weight = 0
+	}
+
+	prerequisites = { "tech_gpm_tb_toxic_gas" }
+}

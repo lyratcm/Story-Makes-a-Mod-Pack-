@@ -1,0 +1,17 @@
+trait_governor_genetic_savant = {
+    cost = 0
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_leader_genetic_savant.dds"
+    modifier = {
+        planet_pops_upkeep_mult = -0.10
+        planet_amenities_add = 10
+    }
+    leader_trait = {
+        governor
+    }
+    leader_class = {
+        governor
+    }
+    initial = no
+    randomized = no
+}

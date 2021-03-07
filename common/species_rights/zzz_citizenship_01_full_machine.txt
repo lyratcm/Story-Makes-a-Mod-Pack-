@@ -1,0 +1,87 @@
+citizenship_full_machine = {
+    token = citizenship_full_machine
+    potential = {
+        host_has_dlc = "Synthetic Dawn Story Pack"
+        exists = from
+        from = {
+            has_authority = auth_machine_intelligence
+        }
+    }
+    allow = {
+        hidden_trigger = {
+            exists = from
+        }
+        custom_tooltip = {
+            fail_text = MACHINE_SPECIES_NOT_MACHINE
+            OR = {
+                has_trait = trait_mechanical
+                has_trait = trait_machine_unit
+                from = {
+                    has_valid_civic = civic_machine_assimilator
+                }
+                from = {
+                    has_valid_civic = civic_machine_consciousness
+                }
+                AND = {
+                    has_trait = trait_cybernetic
+                    from = {
+                        has_technology = tech_positronic_implants
+                        has_ascension_perk = ap_synthetic_age
+                    }
+                }
+            }
+        }
+        custom_tooltip = {
+            fail_text = ASSIMILATOR_SPECIES_NOT_CYBORG
+            OR = {
+                NOR = {
+                    from = {
+                        has_valid_civic = civic_machine_assimilator
+                    }
+                    from = {
+                        has_valid_civic = civic_machine_consciousness
+                    }
+                }
+                AND = {
+                    OR = {
+                        has_trait = trait_cybernetic
+                        has_trait = trait_machine_unit
+                        has_trait = trait_mechanical
+                    }
+                    OR = {
+                        from = {
+                            has_valid_civic = civic_machine_assimilator
+                        }
+                        from = {
+                            has_valid_civic = civic_machine_consciousness
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ai_will_do = {
+        factor = 30
+        modifier = {
+            factor = 0
+            has_trait = trait_cybernetic
+            FROM = {
+                from = {
+                    has_authority = auth_machine_intelligence
+                }
+                has_valid_ai_personality = yes
+                NOR = {
+                    has_valid_civic = civic_machine_assimilator
+                    has_ai_personality_behaviour = multispecies
+                }
+                OR = {
+                    is_galactic_community_member = no
+                    NOR = {
+                        is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+                        is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+                    }
+                }
+            }
+        }
+    }
+}

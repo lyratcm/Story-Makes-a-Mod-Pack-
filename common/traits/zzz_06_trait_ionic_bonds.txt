@@ -1,0 +1,13 @@
+trait_ionic_bonds = {
+    icon = "gfx/interface/icons/traits/trait_ionic_bonds.dds"
+    cost = 2
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        planet_jobs_energy_produces_mult = 0.20
+    }
+    slave_cost = {
+        energy = 100
+    }
+}

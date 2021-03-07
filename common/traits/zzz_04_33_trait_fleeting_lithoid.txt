@@ -1,0 +1,31 @@
+trait_fleeting_lithoid = {
+    cost = -1
+    potential_crossbreeding_chance = 1.0
+    modifier = {
+        leader_age = -25
+        pop_decline_speed = 0.2
+    }
+    icon = "gfx/interface/icons/traits/trait_fleeting.dds"
+    opposites = {
+        "trait_venerable_lithoid"
+        "trait_enduring_lithoid"
+        "trait_lithoid_geological"
+        "trait_lithoid_eternal"
+        "trait_ageless"
+        "trait_additrait_ephemeral_lithoid"
+    }
+    allowed_archetypes = {
+        LITHOID
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_fleeting@prev
+                }
+            }
+        }
+    }
+}

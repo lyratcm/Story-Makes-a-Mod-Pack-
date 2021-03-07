@@ -1,0 +1,39 @@
+decision_environment_fix = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 400
+		}
+	}
+
+	potential = {
+		owner = { is_regular_empire = yes }
+		owner = { has_valid_civic = civic_terraforming }
+	}
+
+
+	effect = {
+		custom_tooltip = edict_voice_planet_2.tooltip
+		planet_event = { id = voice_planet.2 }
+		}
+
+		ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			NOR = {
+			has_modifier = "unstable_tectonics"
+			has_modifier = "weak_magnetic_field"
+			has_modifier = "tidal_locked"
+			has_modifier = "irradiated_planet"
+			has_modifier = "damaged_ecology"
+			has_modifier = "wasteland_radiation"
+			has_modifier = "abandoned_terraforming"
+			}
+		}
+	}
+}

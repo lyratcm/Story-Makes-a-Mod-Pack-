@@ -1,0 +1,14 @@
+trait_infested_advanced = {
+    cost = 0
+    icon = "gfx/interface/icons/traits/trait_infested.dds"
+    initial = no
+    randomized = no
+    modification = no
+    sorting_priority = 10
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        species_empire_size_mult = -0.2
+    }
+}

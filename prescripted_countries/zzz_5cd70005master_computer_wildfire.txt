@@ -1,0 +1,58 @@
+master_computer_wildfire = {
+    name = "Maar-Toq Wildfire"
+    adjective = "Maar-Toq"
+    spawn_enabled = yes
+    ship_prefix = WFS
+    species = {
+        class = "MAM"
+        portrait = "mam9"
+        name = "Maar-Toq"
+        plural = "Maar-Toqs"
+        adjective = "Maar-Toq"
+        name_list = "MAM1"
+        trait = trait_strong
+        trait = trait_rapid_breeders
+        trait = trait_decadent
+    }
+    room = "personality_hegemonic_imperialists_room"
+    authority = "auth_master_computer"
+    civics = {
+        "civic_master_computer_datavore"
+        "civic_master_computer_censor"
+    }
+    government = "gov_master_computer_datavore"
+    ethic = "ethic_xenophobe"
+    ethic = "ethic_militarist"
+    ethic = "ethic_materialist"
+    planet_name = "Malgan"
+    planet_class = "pc_arid"
+    system_name = "Molos"
+    initializer = ""
+    graphical_culture = "mammalian_01"
+    city_graphical_culture = "mammalian_01"
+    empire_flag = {
+        icon = {
+            category = "zoological"
+            file = "flag_zoological_23.dds"
+        }
+        background = {
+            category = "backgrounds"
+            file = "diagonal.dds"
+        }
+        colors = {
+            "dark_purple"
+            "burgundy"
+            "null"
+            "null"
+        }
+    }
+    ruler = {
+        gender = female
+        name = "Sari D'Kara"
+        portrait = "mam9"
+        texture = 0
+        hair = 0
+        clothes = 4
+        leader_class = "ruler"
+    }
+}

@@ -1,0 +1,25 @@
+trait_obedient = {
+    potential_crossbreeding_chance = 0.5
+    cost = 3
+    icon = "gfx/interface/icons/traits/leader_traits/leader_trait_eager.dds"
+    initial = no
+    randomized = no
+    opposites = {
+        "trait_conformists"
+        "trait_deviants"
+        "trait_hive_mind"
+        "trait_nerve_stapled"
+        "trait_docile"
+        "trait_unruly"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    advanced_trait = yes
+    modifier = {
+        pop_government_ethic_attraction = 0.5
+        species_empire_size_mult = -0.15
+        pop_amenities_usage_mult = -0.10
+    }
+}

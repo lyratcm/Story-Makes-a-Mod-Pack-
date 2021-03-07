@@ -1,0 +1,29 @@
+gpm_edict_alloy_production  = {
+	length = 1800
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			minor_artifacts = 15
+		}
+	}
+
+	potential = {
+		has_technology = tech_arcane_deciphering
+	}
+
+	modifier = {
+		planet_jobs_alloys_produces_mult = 0.25
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictHighPrio
+			has_monthly_income = {
+				resource = alloys
+				value < 10
+			}
+		}
+	}	
+}

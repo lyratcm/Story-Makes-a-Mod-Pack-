@@ -1,0 +1,28 @@
+ap_esap_hive_swarm = {
+	on_enabled = {
+		custom_tooltip = ap_esap_hive_swarm_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_1"
+			num_ascension_perks > 0
+		}
+	}
+
+	modifier = {
+		weapon_type_strike_craft_weapon_fire_rate_mult = 0.25
+		shipsize_corvette_build_speed_mult = 1.0
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_hive_swarm
+		}
+		has_authority = auth_hive_mind 
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

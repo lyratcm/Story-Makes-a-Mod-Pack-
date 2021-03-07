@@ -1,0 +1,27 @@
+BOO_origin_one_with_nature = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_default.dds"
+    picture = GFX_evt_gaia
+    potential = {
+        always = yes
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_green
+                value = ethic_green
+                value = ethic_fanatic_green
+            }
+        }
+        species = {
+            NOT = {
+                value = LITHOID
+            }
+        }
+    }
+    random_weight = {
+        base = 15
+    }
+    description = "BOO_origin_one_with_nature_tooltip_effects"
+    advanced_start = yes
+}

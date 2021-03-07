@@ -1,0 +1,1582 @@
+namespace = z_lctr
+
+#_[菜单]
+#_[mod_DEBUG]			pink
+#_[特殊目标]			橙
+#_[目标定位器_持有者]	绿		[无限宝石]
+#_[LCTR_FLT]			蓝
+#_[LCTR_RES]			normal
+#_[P_C]					绿
+#_[特殊星系]			蓝
+#_[LCTR_MEGA]			橙
+
+
+
+
+#_设定flg
+event = {
+	id = z_lctr.10
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = z_lctr_installed } }
+			set_global_flag = z_lctr_installed
+		}
+	}
+}
+###_万用初始化
+country_event = {
+	id = z_lctr.101
+	hide_window = yes
+#	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+#	mean_time_to_happen = { days = 13 }
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = z_lctr_installed } }
+			set_global_flag = z_lctr_installed
+		}
+	}
+}
+
+
+
+
+#_无目标通知
+country_event = {
+	id = z_lctr.2
+	title = z_lctr.no_target
+	desc = z_lctr.no_target_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	diplomatic = yes
+	custom_gui = "z_mm_evt_tips_gui"
+	picture_event_data = {
+		room = z_mm_evt_tips_room
+	}
+	option = {
+        custom_gui = "z_mm_button_evt_sub_red"
+		name = z_lctr_no_target
+	}
+}
+#_战争通知-胜
+country_event = {
+	id = z_lctr.21
+	title = z_lctr.war_winner
+	desc = z_lctr.war_winner.desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	diplomatic = yes
+	custom_gui = "z_mm_evt_tips_gui"
+	picture_event_data = {
+		room = z_mm_evt_tips_room
+	}
+	option = {
+        custom_gui = "z_mm_button_evt_sub_green"
+		name = z_lctr_tips_good
+	}
+}
+#_战争通知-败
+country_event = {
+	id = z_lctr.22
+	title = z_lctr.war_loser
+	desc = z_lctr.war_loser.desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	diplomatic = yes
+	custom_gui = "z_mm_evt_tips_gui"
+	picture_event_data = {
+		room = z_mm_evt_tips_room
+	}
+	option = {
+        custom_gui = "z_mm_button_evt_sub_red"
+		name = z_lctr_no_target
+	}
+}
+
+
+
+
+#_[菜单]
+#_eft_cntr		[z_lctr_eft_cntr_chain_init]	
+#_eft_cntr_prmt	[z_lctr_eft_cntr_prmt_res_chain]
+#_eft_cntr_prmt	[z_lctr_eft_cntr_prmt_plnt_chain_class]
+#_eft_cntr_prmt	[z_lctr_eft_cntr_prmt_mega_chain]
+country_event = {
+	id = z_lctr.1
+	is_triggered_only = yes
+	title = z_lctr_name
+	desc = z_lctr_desc
+	
+	diplomatic = yes
+	custom_gui = "z_lctr_modmenu_gui"
+	
+	#_关闭
+	option = {
+		name = z_modmenu_return
+		custom_tooltip = z_modmenu_return_desc
+        custom_gui = "z_mm_button_evt_option_red"
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes
+		}
+	}
+	# Debug
+	option = {
+		name = z_lctr_menu_clear
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_定位苍雪山探测矩阵
+	option = {
+		name = z_lctr_r_adv_sensor_holder
+		custom_tooltip = z_lctr_r_adv_sensor_holder_tips
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			NOT = { has_relic = z_lctr_r_adv_sensor }
+			any_country = { has_relic = z_lctr_r_adv_sensor }
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_sensor_chain = yes
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	
+	
+	
+	###_[mod_DEBUG]	##############################	pink
+	#_mod
+	option = {
+		name = z_lctr_menu.sstm.debug_mod
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = { has_country_flag = z_mm_flg_cntr_test }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_trgr = { SSTM_TRGR = z_lctr_trgr_sstm_mod_debug }
+		}
+	}
+	
+	
+	
+	
+	###_[特殊目标]	##############################	绿
+	#_收起
+	option = {
+		name = z_lctr_menu.target_a
+        custom_gui = "z_mm_button_evt_option_orange"
+		trigger = { has_country_flag = z_lctr_flg_cntr_target_hide }
+		hidden_effect = {
+			remove_country_flag = z_lctr_flg_cntr_target_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_展开
+	option = {
+		name = z_lctr_menu.target_b
+        custom_gui = "z_mm_button_evt_option_orange"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_target_hide } }
+		hidden_effect = {
+			set_country_flag = z_lctr_flg_cntr_target_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_plnt_primitive
+	option = {
+		name = z_lctr_menu.target.primitive
+		custom_tooltip = z_lctr_menu.target.primitive.tooltip
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_target_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_trgr = { PLNT_TRGR = z_lctr_trgr_plnt_owner_primitive }
+		}
+	}
+	#_plnt_capital
+	option = {
+		name = z_lctr_menu.target.capital
+		custom_tooltip = z_lctr_menu.target.capital.tooltip
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_target_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_trgr = { PLNT_TRGR = z_lctr_trgr_plnt_capital_normal }
+		}
+	}
+	#_plnt_capital_fallen	relic	堕落/始源/永恒/夸特
+	option = {
+		name = z_lctr_menu.target.capital_fallen
+		custom_tooltip = z_lctr_menu.target.capital_fallen.tooltip
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_target_hide } }
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_trgr = { PLNT_TRGR = z_lctr_trgr_plnt_capital_fallen }
+		}
+	}
+	#_plnt	圣地
+	option = {
+		name = z_lctr_menu.target.holy_planet
+		custom_tooltip = z_lctr_menu.target.holy_planet.tooltip
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_target_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_trgr = { PLNT_TRGR = z_lctr_trgr_plnt_holy_planet }
+		}
+	}
+	
+	
+	
+	
+	###_[目标定位器_持有者]	###################################################################
+	#_收起
+	option = {
+		name = z_lctr_menu.holder_a
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+		hidden_effect = {
+			remove_country_flag = z_lctr_flg_cntr_holder_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_展开
+	option = {
+		name = z_lctr_menu.holder_b
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide } }
+		hidden_effect = {
+			set_country_flag = z_lctr_flg_cntr_holder_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_holder_relic		r_dragon_trophy
+	option = {
+		name = z_lctr_menu.holder.r_dragon_trophy
+		custom_tooltip = z_lctr_menu.holder.r_dragon_trophy.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_dragon_trophy }	#_只侦测自己没有的
+			any_country = { has_relic = r_dragon_trophy }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_dragon_trophy }
+		}
+	}
+	#_holder_relic		r_khans_throne
+	option = {
+		name = z_lctr_menu.holder.r_khans_throne
+		custom_tooltip = z_lctr_menu.holder.r_khans_throne.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_khans_throne }	#_只侦测自己没有的
+			any_country = { has_relic = r_khans_throne }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_khans_throne }
+		}
+	}
+	#_holder_relic		r_worm_scales
+	option = {
+		name = z_lctr_menu.holder.r_worm_scales
+		custom_tooltip = z_lctr_menu.holder.r_worm_scales.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_worm_scales }	#_只侦测自己没有的
+			any_country = { has_relic = r_worm_scales }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_worm_scales }
+		}
+	}
+	#_holder_relic		r_rubricator
+	option = {
+		name = z_lctr_menu.holder.r_rubricator
+		custom_tooltip = z_lctr_menu.holder.r_rubricator.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_rubricator }	#_只侦测自己没有的
+			any_country = { has_relic = r_rubricator }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_rubricator }
+		}
+	}
+	#_holder_relic		r_galaxy
+	option = {
+		name = z_lctr_menu.holder.r_galaxy
+		custom_tooltip = z_lctr_menu.holder.r_galaxy.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_galaxy }	#_只侦测自己没有的
+			any_country = { has_relic = r_galaxy }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_galaxy }
+		}
+	}
+	#_holder_relic		r_omnicodex
+	option = {
+		name = z_lctr_menu.holder.r_omnicodex
+		custom_tooltip = z_lctr_menu.holder.r_omnicodex.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_omnicodex }	#_只侦测自己没有的
+			any_country = { has_relic = r_omnicodex }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_omnicodex }
+		}
+	}
+	#_holder_relic		r_surveyor
+	option = {
+		name = z_lctr_menu.holder.r_surveyor
+		custom_tooltip = z_lctr_menu.holder.r_surveyor.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_surveyor }	#_只侦测自己没有的
+			any_country = { has_relic = r_surveyor }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_surveyor }
+		}
+	}
+	#_holder_relic		r_galatron
+	option = {
+		name = z_lctr_menu.holder.r_galatron
+		custom_tooltip = z_lctr_menu.holder.r_galatron.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_galatron }	#_只侦测自己没有的
+			any_country = { has_relic = r_galatron }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_galatron }
+		}
+	}
+	#_holder_relic		r_ancient_sword
+	option = {
+		name = z_lctr_menu.holder.r_ancient_sword
+		custom_tooltip = z_lctr_menu.holder.r_ancient_sword.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_ancient_sword }	#_只侦测自己没有的
+			any_country = { has_relic = r_ancient_sword }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_ancient_sword }
+		}
+	}
+	#_holder_relic		r_severed_head
+	option = {
+		name = z_lctr_menu.holder.r_severed_head
+		custom_tooltip = z_lctr_menu.holder.r_severed_head.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_severed_head }	#_只侦测自己没有的
+			any_country = { has_relic = r_severed_head }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_severed_head }
+		}
+	}
+	#_holder_relic		r_prethoryn_queen
+	option = {
+		name = z_lctr_menu.holder.r_prethoryn_queen
+		custom_tooltip = z_lctr_menu.holder.r_prethoryn_queen.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_prethoryn_queen }	#_只侦测自己没有的
+			any_country = { has_relic = r_prethoryn_queen }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_prethoryn_queen }
+		}
+	}
+	#_holder_relic		r_unbidden_warlock
+	option = {
+		name = z_lctr_menu.holder.r_unbidden_warlock
+		custom_tooltip = z_lctr_menu.holder.r_unbidden_warlock.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_unbidden_warlock }	#_只侦测自己没有的
+			any_country = { has_relic = r_unbidden_warlock }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_unbidden_warlock }
+		}
+	}
+	#_holder_relic		r_contingency_core
+	option = {
+		name = z_lctr_menu.holder.r_contingency_core
+		custom_tooltip = z_lctr_menu.holder.r_contingency_core.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_contingency_core }	#_只侦测自己没有的
+			any_country = { has_relic = r_contingency_core }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_contingency_core }
+		}
+	}
+	#_holder_relic		r_zro_crystal
+	option = {
+		name = z_lctr_menu.holder.r_zro_crystal
+		custom_tooltip = z_lctr_menu.holder.r_zro_crystal.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_zro_crystal }	#_只侦测自己没有的
+			any_country = { has_relic = r_zro_crystal }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_zro_crystal }
+		}
+	}
+	#_holder_relic		r_the_last_baol
+	option = {
+		name = z_lctr_menu.holder.r_the_last_baol
+		custom_tooltip = z_lctr_menu.holder.r_the_last_baol.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_the_last_baol }	#_只侦测自己没有的
+			any_country = { has_relic = r_the_last_baol }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_the_last_baol }
+		}
+	}
+	#_holder_relic		r_the_defragmentor
+	option = {
+		name = z_lctr_menu.holder.r_the_defragmentor
+		custom_tooltip = z_lctr_menu.holder.r_the_defragmentor.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_the_defragmentor }	#_只侦测自己没有的
+			any_country = { has_relic = r_the_defragmentor }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_the_defragmentor }
+		}
+	}
+	#_holder_relic		r_reality_perforator
+	option = {
+		name = z_lctr_menu.holder.r_reality_perforator
+		custom_tooltip = z_lctr_menu.holder.r_reality_perforator.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_reality_perforator }	#_只侦测自己没有的
+			any_country = { has_relic = r_reality_perforator }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_reality_perforator }
+		}
+	}
+	#_holder_relic		r_pox_sample
+	option = {
+		name = z_lctr_menu.holder.r_pox_sample
+		custom_tooltip = z_lctr_menu.holder.r_pox_sample.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_pox_sample }	#_只侦测自己没有的
+			any_country = { has_relic = r_pox_sample }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_pox_sample }
+		}
+	}
+	#_holder_relic		r_cryo_core
+	option = {
+		name = z_lctr_menu.holder.r_cryo_core
+		custom_tooltip = z_lctr_menu.holder.r_cryo_core.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_cryo_core }	#_只侦测自己没有的
+			any_country = { has_relic = r_cryo_core }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_cryo_core }
+		}
+	}
+	#_holder_relic		r_war_forge
+	option = {
+		name = z_lctr_menu.holder.r_war_forge
+		custom_tooltip = z_lctr_menu.holder.r_war_forge.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_war_forge }	#_只侦测自己没有的
+			any_country = { has_relic = r_war_forge }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_war_forge }
+		}
+	}
+	#_holder_relic		z_fw_r_head_of_karyl	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.z_fw_r_head_of_karyl
+		custom_tooltip = z_lctr_menu.holder.z_fw_r_head_of_karyl.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = z_fw_r_head_of_karyl }	#_只侦测自己没有的
+			any_country = { has_relic = z_fw_r_head_of_karyl }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = z_fw_r_head_of_karyl }
+		}
+	}
+	#_[无限宝石]
+	#_holder_relic		r_space_stone	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.r_space_stone
+		custom_tooltip = z_lctr_menu.holder.r_space_stone.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_space_stone }	#_只侦测自己没有的
+			any_country = { has_relic = r_space_stone }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_space_stone }
+		}
+	}
+	#_holder_relic		r_power_stone	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.r_power_stone
+		custom_tooltip = z_lctr_menu.holder.r_power_stone.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_power_stone }	#_只侦测自己没有的
+			any_country = { has_relic = r_power_stone }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_power_stone }
+		}
+	}
+	#_holder_relic		r_time_stone	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.r_time_stone
+		custom_tooltip = z_lctr_menu.holder.r_time_stone.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_time_stone }	#_只侦测自己没有的
+			any_country = { has_relic = r_time_stone }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_time_stone }
+		}
+	}
+	#_holder_relic		r_reality_stone	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.r_reality_stone
+		custom_tooltip = z_lctr_menu.holder.r_reality_stone.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_reality_stone }	#_只侦测自己没有的
+			any_country = { has_relic = r_reality_stone }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_reality_stone }
+		}
+	}
+	#_holder_relic		r_soul_stone	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.r_soul_stone
+		custom_tooltip = z_lctr_menu.holder.r_soul_stone.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_soul_stone }	#_只侦测自己没有的
+			any_country = { has_relic = r_soul_stone }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_soul_stone }
+		}
+	}
+	#_holder_relic		r_mind_stone	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.r_mind_stone
+		custom_tooltip = z_lctr_menu.holder.r_mind_stone.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_mind_stone }	#_只侦测自己没有的
+			any_country = { has_relic = r_mind_stone }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_mind_stone }
+		}
+	}
+	#_holder_relic		r_mjolnir	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.r_mjolnir
+		custom_tooltip = z_lctr_menu.holder.r_mjolnir.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_mjolnir }	#_只侦测自己没有的
+			any_country = { has_relic = r_mjolnir }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_mjolnir }
+		}
+	}
+	#_holder_relic		r_infinity_gauntlet	<z_fw_relic>
+	option = {
+		name = z_lctr_menu.holder.r_infinity_gauntlet
+		custom_tooltip = z_lctr_menu.holder.r_infinity_gauntlet.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_holder_hide }
+			NOT = { has_relic = r_infinity_gauntlet }	#_只侦测自己没有的
+			any_country = { has_relic = r_infinity_gauntlet }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_holder_chain_relic = { RELIC_TRGR = r_infinity_gauntlet }
+		}
+	}
+	
+	
+	
+	
+	###_[LCTR_FLT]	z_lctr_flg_cntr_flt_hide	###################################################################
+	#_收起
+	option = {
+		name = z_lctr_menu.flt_a
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_country_flag = z_lctr_flg_cntr_flt_hide }
+		hidden_effect = {
+			remove_country_flag = z_lctr_flg_cntr_flt_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_展开
+	option = {
+		name = z_lctr_menu.flt_b
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_flt_hide } }
+		hidden_effect = {
+			set_country_flag = z_lctr_flg_cntr_flt_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_sstm	enclave
+	option = {
+		name = z_lctr_menu.flt.enclave_1
+		custom_tooltip = z_lctr_menu.flt.enclave_1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_flt_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_trgr = { SSTM_TRGR = z_lctr_trgr_sstm_flt_enclave }
+		}
+	}
+	#_sstm	guardian
+	option = {
+		name = z_lctr_menu.flt.guardian_1
+		custom_tooltip = z_lctr_menu.flt.guardian_1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_flt_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_trgr = { SSTM_TRGR = z_lctr_trgr_sstm_flt_guardian }
+		}
+	}
+	#_sstm	红甲	crystal_station_large
+	option = {
+		name = z_lctr_menu.flt.crystal
+		custom_tooltip = z_lctr_menu.flt.crystal.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_flt_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_trgr = { SSTM_TRGR = z_lctr_trgr_sstm_flt_crystal }
+		}
+	}
+	
+	
+	
+	
+	###_[LCTR_RES]	z_lctr_flg_cntr_res_hide	###################################################################
+	#_收起
+	option = {
+		name = z_lctr_menu.2a
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_country_flag = z_lctr_flg_cntr_res_hide }
+		hidden_effect = {
+			remove_country_flag = z_lctr_flg_cntr_res_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_展开
+	option = {
+		name = z_lctr_menu.2b
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_res_hide } }
+		hidden_effect = {
+			set_country_flag = z_lctr_flg_cntr_res_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_Volatile_Motes
+	option = {
+		name = z_lctr_menu.2.0
+		custom_tooltip = z_lctr_menu.2.0.tooltip
+        custom_gui = "z_mm_button_evt_sub_normal"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_res_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_res_chain = { RESOURCE = volatile_motes }	#_chain
+		}
+	}
+	#_Exotic_Gases
+	option = {
+		name = z_lctr_menu.2.1
+		custom_tooltip = z_lctr_menu.2.1.tooltip
+        custom_gui = "z_mm_button_evt_sub_normal"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_res_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_res_chain = { RESOURCE = exotic_gases }	#_chain
+		}
+	}
+	#_Rare_Crystals
+	option = {
+		name = z_lctr_menu.2.2
+		custom_tooltip = z_lctr_menu.2.2.tooltip
+        custom_gui = "z_mm_button_evt_sub_normal"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_res_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_res_chain = { RESOURCE = rare_crystals }	#_chain
+		}
+	}
+	#_Dark_Matter
+	option = {
+		name = z_lctr_menu.2.3
+		custom_tooltip = z_lctr_menu.2.3.tooltip
+        custom_gui = "z_mm_button_evt_sub_normal"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_res_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_res_chain = { RESOURCE = sr_dark_matter }	#_chain
+		}
+	}
+	#_Living_Metal
+	option = {
+		name = z_lctr_menu.2.4
+		custom_tooltip = z_lctr_menu.2.4.tooltip
+        custom_gui = "z_mm_button_evt_sub_normal"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_res_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_res_chain = { RESOURCE = sr_living_metal }	#_chain
+		}
+	}
+	#_Zro
+	option = {
+		name = z_lctr_menu.2.5
+		custom_tooltip = z_lctr_menu.2.5.tooltip
+        custom_gui = "z_mm_button_evt_sub_normal"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_res_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_res_chain = { RESOURCE = sr_zro }	#_chain
+		}
+	}
+	#_Nanites
+	option = {
+		name = z_lctr_menu.2.6
+		custom_tooltip = z_lctr_menu.2.6.tooltip
+        custom_gui = "z_mm_button_evt_sub_normal"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_res_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_res_chain = { RESOURCE = nanites }	#_chain
+		}
+	}
+	
+	
+	
+	
+	###_[P_C]	############################################################
+	#_收起
+	option = {
+		name = z_lctr_menu.1a
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = { has_country_flag = z_lctr_flg_cntr_pc_hide }
+		hidden_effect = {
+			remove_country_flag = z_lctr_flg_cntr_pc_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_展开
+	option = {
+		name = z_lctr_menu.1b
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			set_country_flag = z_lctr_flg_cntr_pc_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_pc_relic
+	option = {
+		name = z_lctr_menu.1.relic
+		custom_tooltip = z_lctr_menu.1.relic.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_relic }
+		}
+	}
+	#_pc_gaia
+	option = {
+		name = z_lctr_menu.1.gaia
+		custom_tooltip = z_lctr_menu.1.gaia.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_gaia }
+		}
+	}
+	#_pc_molten
+	option = {
+		name = z_lctr_menu.1.pc_molten
+		custom_tooltip = z_lctr_menu.1.pc_molten.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_molten }
+		}
+	}
+	
+	#_pc_habitat
+	option = {
+		name = z_lctr_menu.1.pc_habitat
+		custom_tooltip = z_lctr_menu.1.pc_habitat.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_habitat }
+		}
+	}
+	#_pc_ringworld_habitable
+	option = {
+		name = z_lctr_menu.1.pc_ringworld_habitable
+		custom_tooltip = z_lctr_menu.1.pc_ringworld_habitable.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_ringworld_habitable }
+		}
+	}
+	#_pc_ringworld_habitable_damaged
+	option = {
+		name = z_lctr_menu.1.pc_ringworld_habitable_damaged
+		custom_tooltip = z_lctr_menu.1.pc_ringworld_habitable_damaged.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_ringworld_habitable_damaged }
+		}
+	}
+	
+	#_pc_black_hole
+	option = {
+		name = z_lctr_menu.1.bh
+		custom_tooltip = z_lctr_menu.1.bh.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_black_hole }
+		}
+	}
+	#_pc_neutron_star
+	option = {
+		name = z_lctr_menu.1.neutron
+		custom_tooltip = z_lctr_menu.1.neutron.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_neutron_star }
+		}
+	}
+	#_pc_a_star
+	option = {
+		name = z_lctr_menu.1.pc_a_star
+		custom_tooltip = z_lctr_menu.1.pc_a_star.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_a_star }
+		}
+	}
+	#_pc_b_star
+	option = {
+		name = z_lctr_menu.1.pc_b_star
+		custom_tooltip = z_lctr_menu.1.pc_b_star.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_pc_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_plnt_chain_class = { CLASS = pc_b_star }
+		}
+	}
+	
+	
+	
+	
+	###_[特殊星系]	############################################################	蓝
+	#_收起
+	option = {
+		name = z_lctr_menu.sstm_a
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_country_flag = z_lctr_flg_cntr_sstm_hide }
+		hidden_effect = {
+			remove_country_flag = z_lctr_flg_cntr_sstm_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_展开
+	option = {
+		name = z_lctr_menu.sstm_b
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide } }
+		hidden_effect = {
+			set_country_flag = z_lctr_flg_cntr_sstm_hide
+			country_event = { id = z_lctr.1 }
+		}
+	}
+	#_sstm_relic	sol_system
+	option = {
+		name = z_lctr_menu.sstm.sol_system
+		custom_tooltip = z_lctr_menu.sstm.sol_system.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide } }
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = sol_system }
+		}
+	}
+	#_sstm_relic	sealed
+	option = {
+		name = z_lctr_menu.sstm.sealed
+		custom_tooltip = z_lctr_menu.sstm.sealed.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide } }
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = sealed_system }
+		}
+	}
+	#_sstm_relic	lcluster
+	option = {
+		name = z_lctr_menu.sstm.lcluster
+		custom_tooltip = z_lctr_menu.sstm.lcluster.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide } }
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = lcluster }
+		}
+	}
+	#_sstm_relic	<mod>	舰娘_sealed_system
+	option = {
+		name = z_lctr_menu.sstm.wsg_1
+		custom_tooltip = z_lctr_menu.sstm.wsg_1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			has_global_flag = has_wsg_mod
+			NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide }
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = wg_sealed_system }
+		}
+	}
+	#_sstm_relic	<mod>	古代帝国_sealed_system
+	option = {
+		name = z_lctr_menu.sstm.ag_1
+		custom_tooltip = z_lctr_menu.sstm.ag_1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide } }
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = ag_no_sensor_system }
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = ag_no_jump_in_system }
+		}
+	}
+	#_sstm_relic	<mod>	狡猾_sealed_system
+	option = {
+		name = z_lctr_menu.sstm.kuat_1
+		custom_tooltip = z_lctr_menu.sstm.kuat_1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide }
+			has_global_flag = install_kuat_mod
+		}
+		allow = {
+			custom_tooltip = {#_有矩阵
+				hidden_trigger = { has_relic = z_lctr_r_adv_sensor }
+				fail_text = z_lctr_tips_need_matrix
+			}
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = Kuat_system }
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = Kuat_system_1 }
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = Kuat_system_2 }
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = Kuat_system_3 }
+		}
+	}
+	#_sstm	<mod>	SOFE_sealed_system
+	option = {
+		name = z_lctr_menu.sstm.sofe_1
+		custom_tooltip = z_lctr_menu.sstm.sofe_1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			has_global_flag = sofe_activated
+			NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide }
+		}
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = outercluster }
+		}
+	}
+	#_sstm	<mod>	EHOF_system
+	option = {
+		name = z_lctr_menu.sstm.ehof_1
+		custom_tooltip = z_lctr_menu.sstm.ehof_1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			z_lctr_eft_cntr_prmt_sstm_chain_flg = { SSTM_FLG = ehof_compound_system }
+		}
+	}
+	option = {
+		name = z_lctr_menu.sstm.ehof_2
+		custom_tooltip = z_lctr_menu.sstm.ehof_2.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = { NOT = { has_country_flag = z_lctr_flg_cntr_sstm_hide } }
+		hidden_effect = {
+			z_lctr_eft_cntr_chain_init = yes	#_init
+			country_event = { id = z_lctr.1 }	#_自循环
+			#_set
+			begin_event_chain = {
+				event_chain = z_lctr_chain_sstm
+				target = root
+			}
+			#_星系flg参数
+			every_system = {
+				limit = {
+					exists = star
+					OR = {
+						cohesive_system = yes					#_giga
+						urmazin_system = yes					#_giga
+						everchanging_system = yes				#_giga
+						ehof_cohesive_system = yes				#_ehof
+						ehof_trader_system = yes				#_ehof
+						ehof_creator_system = yes				#_ehof
+					}
+					z_lctr_trgr_sstm = yes
+				}
+				enable_special_project = {
+					name = Z_LCTR_SP_SSTM
+					location = star
+					owner = root
+				}
+			}
+			#_没有符合目标
+			if = {
+				limit = { NOT = { has_special_project = Z_LCTR_SP_SSTM } }
+				z_lctr_eft_cntr_chain_init = yes
+				country_event = { id = z_lctr.2 }
+			}
+		}
+	}
+	
+	
+	
+	
+	###_[LCTR_MEGA]	#################################################################################	橙色
+	option = {
+		name = z_lctr_menu.3.0
+		custom_tooltip = z_lctr_menu_mega
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			#_init
+			z_lctr_eft_cntr_chain_init = yes
+			#_chain
+			z_lctr_eft_cntr_prmt_mega_chain = { CHAIN_NAME = z_lctr_chain_mega }
+			every_megastructure = {
+				limit = {
+					exists = star
+					NOR = {
+						z_lctr_trgr_mega_type_gate = yes
+						is_megastructure_type = lgate_base
+					}
+				}
+				if = {
+					limit = { z_lctr_trgr_mega = yes }
+					enable_special_project = {
+						name = Z_LCTR_SP_MEGA
+						location = star
+						owner = root
+					}
+				}
+			}
+			#_自循环
+			country_event = { id = z_lctr.1 }
+			#_没有符合目标
+			if = {
+				limit = { NOT = { has_special_project = Z_LCTR_SP_MEGA } }
+				z_lctr_eft_cntr_chain_init = yes
+				country_event = { id = z_lctr.2 }
+			}
+		}
+	}
+	###_Gateways	#################################################################################
+	option = {
+		name = z_lctr_menu.3.1
+		custom_tooltip = z_lctr_menu_mega
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			#_init
+			z_lctr_eft_cntr_chain_init = yes
+			#_chain
+			z_lctr_eft_cntr_prmt_mega_chain = { CHAIN_NAME = z_lctr_chain_gate }
+			every_megastructure = {
+				limit = {
+					exists = star
+					z_lctr_trgr_mega_type_gate = yes
+				}
+				if = {
+					limit = { z_lctr_trgr_mega = yes }
+					enable_special_project = {
+						name = Z_LCTR_SP_GATE
+						location = star
+						owner = root
+					}
+				}
+			}
+			#_自循环
+			country_event = { id = z_lctr.1 }
+			#_没有符合目标
+			if = {
+				limit = { NOT = { has_special_project = Z_LCTR_SP_GATE } }
+				z_lctr_eft_cntr_chain_init = yes
+				country_event = { id = z_lctr.2 }
+			}
+		}
+	}
+	###_L-Gates	#################################################################################
+	option = {
+		name = z_lctr_menu.3.2
+		custom_tooltip = z_lctr_menu_mega
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			#_init
+			z_lctr_eft_cntr_chain_init = yes
+			#_chain
+			z_lctr_eft_cntr_prmt_mega_chain = { CHAIN_NAME = z_lctr_chain_lgate }
+			every_megastructure = {
+				limit = {
+					exists = star
+					is_megastructure_type = lgate_base
+				}
+				if = {
+					limit = { z_lctr_trgr_mega = yes }
+					enable_special_project = {
+						name = Z_LCTR_SP_LGATE
+						location = star
+						owner = root
+					}
+				}
+			}
+			#_自循环
+			country_event = { id = z_lctr.1 }
+			#_没有符合目标
+			if = {
+				limit = { NOT = { has_special_project = Z_LCTR_SP_LGATE } }
+				z_lctr_eft_cntr_chain_init = yes
+				country_event = { id = z_lctr.2 }
+			}
+		}
+	}
+	###_Wormholes	#################################################################################
+	option = {
+		name = z_lctr_menu.3.3
+		custom_tooltip = z_lctr_menu_mega
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			#_init
+			z_lctr_eft_cntr_chain_init = yes
+			#_chain
+			z_lctr_eft_cntr_prmt_mega_chain = { CHAIN_NAME = z_lctr_chain_wormhole }
+			every_system = {
+				limit = {
+					exists = star
+					has_natural_wormhole = yes
+				}
+				if = {
+					limit = { z_lctr_trgr_sstm = yes }
+					enable_special_project = {
+						name = Z_LCTR_SP_WORMHOLE
+						location = star
+						owner = root
+					}
+				}
+			}
+			#_自循环
+			country_event = { id = z_lctr.1 }
+			#_没有符合目标
+			if = {
+				limit = { NOT = { has_special_project = Z_LCTR_SP_WORMHOLE } }
+				z_lctr_eft_cntr_chain_init = yes
+				country_event = { id = z_lctr.2 }
+			}
+		}
+	}
+}
+

@@ -1,0 +1,22 @@
+trait_artisanal = {
+    cost = 4
+    initial = yes
+    modification = no
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_agrarian"
+        "trait_urban"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+    }
+    modifier = {
+        planet_jobs_food_produces_mult = 0.25
+        planet_jobs_consumer_goods_produces_mult = 0.1
+    }
+    slave_cost = {
+        energy = 100
+    }
+}

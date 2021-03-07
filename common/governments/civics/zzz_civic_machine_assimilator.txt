@@ -1,0 +1,46 @@
+civic_machine_assimilator = {
+    potential = {
+        authority = {
+            value = auth_machine_intelligence
+        }
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_machine_servitor
+                value = civic_machine_terminator
+                value = civic_machine_emotions
+                value = civic_machine_memorialist
+            }
+        }
+        origin = {
+            NOR = {
+                value = origin_hegemon
+                value = origin_extant_creators
+                value = origin_research_coop
+                value = origin_research_coop_npc
+            }
+        }
+    }
+    modification = no
+    random_weight = {
+        base = 5
+        modifier = {
+            factor = 0
+            NOT = {
+                host_has_dlc = "Synthetic Dawn Story Pack"
+            }
+        }
+        modifier = {
+            factor = 0
+            has_global_flag = game_started
+        }
+    }
+    description = civic_tooltip_machine_assimilator_effects
+    has_secondary_species = {
+        title = civic_machine_assimilator_secondary_species
+        traits = {
+            trait = trait_cybernetic
+        }
+    }
+}

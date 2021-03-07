@@ -1,0 +1,33 @@
+origin_sterile = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_sterile.dds"
+	picture = GFX_origin_sterile
+
+	potential = {
+		always = yes
+	}
+
+	possible = {
+		authority = {
+			NOT = {
+				value = auth_machine_intelligence
+			}
+		}
+		species = {
+			NOT = {
+				value = LITHOID
+			}
+		}
+	}
+
+	traits = {
+		trait = trait_sterile
+	}
+
+	random_weight = {
+		base = 3
+	}
+	description = "origin_tooltip_sterile_effects"
+
+	advanced_start = yes
+}

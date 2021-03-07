@@ -1,0 +1,119 @@
+fallen_1_4 = {
+    class = "sc_g"
+    name = "NAME_Beacon_of_Stability"
+    planet = {
+        class = pc_g_star
+        orbit_distance = 0
+        orbit_angle = 0
+        init_effect = {
+            create_ambient_object = {
+                type = "large_debris_object"
+                entity_offset_height = {
+                    min = -0
+                    max = -25
+                }
+                location = this
+            }
+            last_created_ambient_object = {
+                set_location = {
+                    target = prev
+                    distance = 45
+                    angle = 90
+                }
+            }
+            create_ambient_object = {
+                type = "large_debris_object"
+                entity_offset_height = {
+                    min = -0
+                    max = -25
+                }
+                location = this
+            }
+            last_created_ambient_object = {
+                set_location = {
+                    target = prev
+                    distance = 45
+                    angle = 145
+                }
+            }
+            create_ambient_object = {
+                type = "large_debris_object"
+                entity_offset_height = {
+                    min = -0
+                    max = -25
+                }
+                location = this
+            }
+            last_created_ambient_object = {
+                set_location = {
+                    target = prev
+                    distance = 45
+                    angle = 210
+                }
+            }
+        }
+    }
+    change_orbit = 45
+    planet = {
+        class = "pc_ringworld_seam"
+        name = "NAME_Ring_Section_C"
+        orbit_angle = -30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_habitable"
+        name = "NAME_Eternal_Bastion"
+        orbit_angle = 30
+        orbit_distance = 0
+        modifiers = none
+        init_effect = {
+            set_planet_flag = fallen_empire_world
+            prevent_anomaly = yes
+            set_owner = ROOT
+            add_building = building_ancient_palace
+            add_building = building_fe_stronghold
+            add_building = building_fe_dome
+            add_district = district_rw_city
+            add_district = district_rw_farming
+            while = {
+                count = 12
+                create_pop = {
+                    species = owner_main_species
+                }
+            }
+            while = {
+                count = 35
+                create_pop = {
+                    species = event_target:fe_servants
+                }
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_tech"
+        name = "NAME_Ring_Section_E"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    init_effect = {
+        spawn_megastructure = {
+            type = "ring_world_ruined"
+            orbit_angle = 90
+            orbit_distance = 45
+            location = planet
+        }
+        spawn_megastructure = {
+            type = "ring_world_ruined"
+            orbit_angle = 180
+            orbit_distance = 45
+            location = planet
+        }
+        spawn_megastructure = {
+            type = "ring_world_ruined"
+            orbit_angle = 270
+            orbit_distance = 45
+            location = planet
+        }
+        create_fe_citadel = yes
+    }
+}

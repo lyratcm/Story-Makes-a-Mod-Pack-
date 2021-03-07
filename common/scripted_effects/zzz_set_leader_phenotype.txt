@@ -1,0 +1,51 @@
+set_leader_phenotype = {
+	IF = {
+		limit = { species_has_subsapient_form = yes }
+		switch = {
+			trigger = has_trait
+			trait_has_subsapient_form = {
+				modify_species = {
+					species = this
+					remove_trait = trait_has_subsapient_form
+					add_trait = trait_subsapient_form
+				}
+			}
+			trait_subsapient_form = {
+				modify_species = {
+					species = this
+					remove_trait = trait_subsapient_form
+					add_trait = trait_sapient_form
+				}
+			}
+			default = { }
+		}
+	}
+	ELSE_IF = {
+		limit = { species_is_multihive = yes }
+		switch = {
+			trigger = leader_class
+			ruler = {
+				modify_species = {
+					species = this
+					remove_trait = trait_multihive
+					add_trait = trait_multihive_core
+				}
+			}
+			governor = {
+				modify_species = {
+					species = this
+					remove_trait = trait_multihive
+					add_trait = trait_multihive_core
+				}
+				add_trait = leader_trait_multihive_core
+			}
+			default = {
+				modify_species = {
+					species = this
+					remove_trait = trait_multihive
+					add_trait = trait_multihive_drone
+				}
+			}
+		}
+	}
+}

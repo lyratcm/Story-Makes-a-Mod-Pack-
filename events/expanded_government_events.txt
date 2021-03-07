@@ -1,0 +1,4465 @@
+############################
+#
+# Expanded Civics Events
+#
+############################
+
+### Subterranean Evolution ###
+namespace = civicsexpanded
+planet_event = {
+	id = civicsexpanded.1
+	title = "civicsexpanded.1.name"
+	desc = "civicsexpanded.1.desc"
+	picture = GFX_evt_in_the_dark
+	show_sound = event_mystic_reveal
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = civicsexpanded.1.a
+		hidden_effect = {
+			planet_event = { id = civicsexpanded.2 days = 510 random = 60 }
+		}
+	}
+}
+
+planet_event = {
+	id = civicsexpanded.2
+	title = "civicsexpanded.2.name"
+	desc = "civicsexpanded.2.desc"
+	picture = GFX_evt_in_the_dark
+	show_sound = event_mystic_reveal
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		add_deposit = "d_underground_farm"
+	}
+}
+
+planet_event = {
+	id = civicsexpanded.3
+	title = "civicsexpanded.1.name"
+	desc = "civicsexpanded.3.desc"
+	picture = GFX_evt_in_the_dark
+	show_sound = event_mystic_reveal
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = civicsexpanded.1.a
+		hidden_effect = {
+			planet_event = { id = civicsexpanded.4 days = 510 random = 60 }
+		}
+	}
+}
+
+planet_event = {
+	id = civicsexpanded.4
+	title = "civicsexpanded.2.name"
+	desc = "civicsexpanded.4.desc"
+	picture = GFX_evt_in_the_dark
+	show_sound = event_mystic_reveal
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		add_deposit = "d_underground_mine"
+	}
+}
+
+planet_event = {
+	id = civicsexpanded.5
+	title = "civicsexpanded.1.name"
+	desc = "civicsexpanded.5.desc"
+	picture = GFX_evt_in_the_dark
+	show_sound = event_mystic_reveal
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = civicsexpanded.1.a
+		hidden_effect = {
+			planet_event = { id = civicsexpanded.6 days = 510 random = 60 }
+		}
+	}
+}
+
+planet_event = {
+	id = civicsexpanded.6
+	title = "civicsexpanded.2.name"
+	desc = "civicsexpanded.6.desc"
+	picture = GFX_evt_in_the_dark
+	show_sound = event_mystic_reveal
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		add_deposit = "d_underground_generator"
+	}
+}
+
+### Nationalistic Zeal ###
+# Add war won modifier
+country_event = {
+	id = civicsexpanded.7
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_valid_civic = civic_nationalistic_zeal
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_modifier = zeal_war_won }
+			remove_modifier = zeal_war_won # reset timer
+		}
+		add_modifier = { modifier = zeal_war_won days = 10800 } # 30 years
+	}
+}
+planet_event = {
+	id = civicsexpanded.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { has_valid_civic = civic_nationalistic_zeal }
+	}
+	
+	immediate = {
+		FROM = {
+			if = {
+				limit = { has_modifier = zeal_war_won }
+				remove_modifier = zeal_war_won # reset timer
+			}
+			add_modifier = { modifier = zeal_war_won days = 10800 } # 30 years
+		}
+	}
+}
+
+### Parasitic Hive ###
+planet_event = {
+	id = civicsexpanded.9
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			has_valid_civic = civic_living_hosts
+		}
+		FROMFROM = {
+			is_robot_pop = no
+			is_lithoid = no
+			NOT = {
+				is_same_species = owner_species
+			}
+		}
+		is_controlled_by = FROM
+	}
+	
+	immediate = {
+		create_pop = {
+			species = owner
+		}
+	}
+}
+
+### Natural Hunters ###
+# Natural Hunter kills space prey
+country_event = {
+	id = civicsexpanded.10
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_natural_hunters
+		fromfromfrom = { 
+			any_ship = {
+				OR = {
+					# regular space monsters
+					is_ship_size = ancient_mining_drone
+					is_ship_size = ancient_corvette
+					is_ship_size = ancient_destroyer
+					is_ship_size = crystal_ship_small_blue
+					is_ship_size = crystal_ship_medium_blue
+					is_ship_size = crystal_ship_large_blue
+					is_ship_size = crystal_ship_small_green
+					is_ship_size = crystal_ship_medium_green
+					is_ship_size = crystal_ship_large_green
+					is_ship_size = crystal_ship_small_yellow
+					is_ship_size = crystal_ship_medium_yellow
+					is_ship_size = crystal_ship_large_yellow
+					is_ship_size = crystal_ship_small_red
+					is_ship_size = crystal_ship_medium_red
+					is_ship_size = crystal_ship_large_red
+					is_ship_size = space_cloud
+					is_ship_size = space_amoeba
+					is_ship_size = space_amoeba_mother
+					is_ship_size = space_whale_1
+					is_ship_size = space_whale_2
+					is_ship_size = space_whale_3
+					is_ship_size = space_whale_4
+					# elite space monsters
+					is_ship_size = crystal_ship_small_blue_elite
+					is_ship_size = crystal_ship_medium_blue_elite
+					is_ship_size = crystal_ship_large_blue_elite
+					is_ship_size = crystal_ship_small_green_elite
+					is_ship_size = crystal_ship_medium_green_elite
+					is_ship_size = crystal_ship_large_green_elite
+					is_ship_size = crystal_ship_small_yellow_elite
+					is_ship_size = crystal_ship_medium_yellow_elite
+					is_ship_size = crystal_ship_large_yellow_elite
+					is_ship_size = crystal_ship_small_red_elite
+					is_ship_size = crystal_ship_medium_red_elite
+					is_ship_size = crystal_ship_large_red_elite
+					is_ship_size = homebase
+					is_ship_size = hive_asteroid
+					is_ship_size = space_amoeba_centenarian
+					# Lesser Leviathans
+					is_ship_size = space_dragon_baby
+					is_ship_size = nanite_space_dragon_baby
+					# Leviathans
+					is_ship_size = space_dragon_red
+					is_ship_size = stellarite
+					is_ship_size = galleon
+					is_ship_size = station_xl
+					is_ship_size = station_l
+					is_ship_size = station_m
+					is_ship_size = station_s
+					is_ship_size = station_xs
+					is_ship_size = dimensional_horror
+					is_ship_size = npc_warship_01
+					is_ship_size = wraith_01_blue
+					is_ship_size = wraith_01_red
+					is_ship_size = wraith_01_yellow
+					is_ship_size = leviathan_01_scavenger_bot
+					is_ship_size = leviathan_01_elder_tiyanki
+					is_ship_size = leviathan_01_voidspawn
+					# Prethoryn
+					is_ship_size = large_ship_swarm
+					is_ship_size = large_ship_carrier_swarm
+					is_ship_size = small_ship_swarm
+					is_ship_size = queen_swarm
+				}
+			}
+		}
+	}
+
+	immediate = {
+		# Leviathans
+		if = {
+			limit = {
+				fromfromfrom = {
+					OR = {
+						is_ship_size = space_dragon_red
+						is_ship_size = space_dragon_blue
+						is_ship_size = stellarite
+						is_ship_size = galleon
+						is_ship_size = station_xl
+						is_ship_size = dimensional_horror
+						is_ship_size = npc_warship_01
+						is_ship_size = wraith_01_blue
+						is_ship_size = wraith_01_red
+						is_ship_size = wraith_01_yellow
+						is_ship_size = leviathan_01_scavenger_bot
+						is_ship_size = leviathan_01_elder_tiyanki
+						is_ship_size = leviathan_01_voidspawn
+						is_ship_size = corrupted_avatar
+						is_ship_size = shroud_manifestation
+						is_ship_size = warped_consciousness
+					}
+				}
+			}
+			add_resource = {
+				influence = 500
+				unity = 10000
+			}
+		}
+		# Lesser Leviathans
+		if = {
+			limit = {
+				fromfromfrom = {
+					OR = {
+						is_ship_size = space_dragon_baby
+						is_ship_size = nanite_space_dragon_baby
+						is_ship_size = psionic_avatar
+						is_ship_size = core_ai
+						is_ship_size = final_core_ai
+						is_ship_size = dimensional_portal_ed
+						is_ship_size = graygoo_factory
+					}
+				}
+			}
+			add_resource = {
+				influence = 450
+				unity = 9000
+			}
+		}
+		# elite space monsters
+		if = {
+			limit = {
+				fromfromfrom = {
+					OR = {
+						is_ship_size = crystal_ship_small_blue_elite
+						is_ship_size = crystal_ship_medium_blue_elite
+						is_ship_size = crystal_ship_large_blue_elite
+						is_ship_size = crystal_ship_small_green_elite
+						is_ship_size = crystal_ship_medium_green_elite
+						is_ship_size = crystal_ship_large_green_elite
+						is_ship_size = crystal_ship_small_yellow_elite
+						is_ship_size = crystal_ship_medium_yellow_elite
+						is_ship_size = crystal_ship_large_yellow_elite
+						is_ship_size = crystal_ship_small_red_elite
+						is_ship_size = crystal_ship_medium_red_elite
+						is_ship_size = crystal_ship_large_red_elite
+						is_ship_size = homebase
+						is_ship_size = space_amoeba_centenarian
+						is_ship_size = station_l
+						is_ship_size = station_m
+						is_ship_size = station_s
+						is_ship_size = station_xs
+						is_ship_size = large_ship_swarm
+						is_ship_size = large_ship_carrier_swarm
+						is_ship_size = queen_swarm
+						is_ship_size = large_ship_ai
+						is_ship_size = military_station_large_ai
+						is_ship_size = large_ship_ed
+						is_ship_size = graygoo_mothership
+					}
+				}
+			}
+			add_resource = {
+				influence = 100
+				unity = 1000
+			}
+		}
+		# regular space monsters
+		if = {
+			limit = {
+				fromfromfrom = {
+					OR = {
+						is_ship_size = ancient_mining_drone
+						is_ship_size = ancient_corvette
+						is_ship_size = ancient_destroyer
+						is_ship_size = crystal_ship_small_blue
+						is_ship_size = crystal_ship_medium_blue
+						is_ship_size = crystal_ship_large_blue
+						is_ship_size = crystal_ship_small_green
+						is_ship_size = crystal_ship_medium_green
+						is_ship_size = crystal_ship_large_green
+						is_ship_size = crystal_ship_small_yellow
+						is_ship_size = crystal_ship_medium_yellow
+						is_ship_size = crystal_ship_large_yellow
+						is_ship_size = crystal_ship_small_red
+						is_ship_size = crystal_ship_medium_red
+						is_ship_size = crystal_ship_large_red
+						is_ship_size = space_cloud
+						is_ship_size = space_amoeba
+						is_ship_size = space_amoeba_mother
+						is_ship_size = space_whale_1
+						is_ship_size = space_whale_2
+						is_ship_size = space_whale_3
+						is_ship_size = space_whale_4
+						is_ship_size = hive_asteroid
+						is_ship_size = small_ship_swarm
+						
+					}
+				}
+			}
+			add_resource = {
+				influence = 30
+				unity = 300
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = civicsexpanded.11
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_deposit = d_dangerous_wildlife_blocker
+	}
+	
+	immediate = {
+		set_planet_flag = has_dangerous_wildlife
+	}
+}
+
+### Private Prospectors ###
+planet_event = {
+	id = civicsexpanded.12
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = { has_valid_civic = civic_private_prospectors }
+	}
+	
+	immediate = {
+		add_modifier = { modifier = private_development days = 3600 }
+	}
+}
+
+### Symbiote ###
+# New pops get brain slugs
+country_event = {
+	id = civicsexpanded.13
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_origin = origin_symbiote
+		any_owned_pop = { is_valid_symbiote_pop = yes }
+	}
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 2
+					NOT = {
+						any_owned_pop = {
+							is_valid_symbiote_pop = yes
+							OR = {
+								has_ethic = ethic_xenophile
+								has_ethic = ethic_authoritarian
+							}
+						}
+					}
+				}
+			}
+			1 = {
+				random_owned_pop = {
+					limit = { is_valid_symbiote_pop = yes }
+					weights = {
+						base = 1
+						modifier = {
+							add = 10
+							has_ethic = ethic_xenophile
+						}
+						modifier = {
+							add = 5
+							has_ethic = ethic_authoritarian
+						}
+					}
+					modify_species = {
+						species = this
+						add_trait = trait_brainslug
+						add_traits_at_start_of_list = yes
+					}
+					modify_species = {
+						species = this
+						add_trait = trait_hive_mind
+						add_traits_at_start_of_list = yes
+					}
+					set_citizenship_type = {
+						type = citizenship_full
+						country = root
+					}
+					set_living_standard = {
+						type = living_standard_hive_mind
+						country = root
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #New leaders get Brainslug Trait
+	id = civicsexpanded.14
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_symbiote
+		from.species = {
+			has_trait = trait_brainslug
+			NOR = {
+				has_trait = trait_cybernetic
+				has_trait = trait_mechanical
+				has_trait = trait_machine_unit
+				is_species_class = ROBOT
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			if = {
+				limit = {
+					leader_class = general
+				}
+				add_trait = leader_trait_general_brainslug
+				add_ruler_trait = leader_trait_ruler_brainslug
+				break = yes
+			}
+			if = {
+				limit = {
+					leader_class = admiral
+				}
+				add_trait = leader_trait_admiral_brainslug
+				add_ruler_trait = leader_trait_ruler_brainslug
+				break = yes
+			}
+			if = {
+				limit = {
+					leader_class = governor
+				}
+				add_trait = leader_trait_governor_brainslug
+				add_ruler_trait = leader_trait_ruler_brainslug
+				break = yes
+			}
+			if = {
+				limit = {
+					leader_class = scientist
+				}
+				add_trait = leader_trait_scientist_brainslug
+				add_ruler_trait = leader_trait_ruler_brainslug
+				break = yes
+			}
+			if = {
+				limit = {
+					leader_class = ruler
+				}
+				add_trait = leader_trait_ruler_brainslug
+				add_ruler_trait = leader_trait_ruler_brainslug
+				break = yes
+			}
+		}
+	}
+}
+
+### Criminal Syndicate ###
+country_event = {
+	id = civicsexpanded.15
+	title = "civicsexpanded.15.name"
+	desc = "civicsexpanded.15.desc"
+	picture = GFX_evt_dark_alley
+	show_sound = event_criminal_activity
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+			}
+			save_event_target_as = bribe_planet_1
+		}
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+				NOT = {
+					is_same_value = event_target:bribe_planet_1
+				}
+			}
+			save_event_target_as = bribe_planet_2
+		}
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+				NOT = {
+					is_same_value = event_target:bribe_planet_1
+					is_same_value = event_target:bribe_planet_2
+				}
+			}
+			save_event_target_as = bribe_planet_3
+		}
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+				NOT = {
+					is_same_value = event_target:bribe_planet_1
+					is_same_value = event_target:bribe_planet_2
+					is_same_value = event_target:bribe_planet_3
+				}
+			}
+			save_event_target_as = bribe_planet_4
+		}
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+				NOT = {
+					is_same_value = event_target:bribe_planet_1
+					is_same_value = event_target:bribe_planet_2
+					is_same_value = event_target:bribe_planet_3
+					is_same_value = event_target:bribe_planet_4
+				}
+			}
+			save_event_target_as = bribe_planet_5
+		}
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+				NOT = {
+					is_same_value = event_target:bribe_planet_1
+					is_same_value = event_target:bribe_planet_2
+					is_same_value = event_target:bribe_planet_3
+					is_same_value = event_target:bribe_planet_4
+					is_same_value = event_target:bribe_planet_5
+				}
+			}
+			save_event_target_as = bribe_planet_6
+		}
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+				NOT = {
+					is_same_value = event_target:bribe_planet_1
+					is_same_value = event_target:bribe_planet_2
+					is_same_value = event_target:bribe_planet_3
+					is_same_value = event_target:bribe_planet_4
+					is_same_value = event_target:bribe_planet_5
+					is_same_value = event_target:bribe_planet_6
+				}
+			}
+			save_event_target_as = bribe_planet_7
+		}
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+				NOT = {
+					is_same_value = event_target:bribe_planet_1
+					is_same_value = event_target:bribe_planet_2
+					is_same_value = event_target:bribe_planet_3
+					is_same_value = event_target:bribe_planet_4
+					is_same_value = event_target:bribe_planet_5
+					is_same_value = event_target:bribe_planet_6
+					is_same_value = event_target:bribe_planet_7
+				}
+			}
+			save_event_target_as = bribe_planet_8
+		}
+		random_planet = {
+			limit = {
+				has_branch_office = yes
+				branch_office_owner = { is_same_value = ROOT }
+				NOT = { has_modifier = syndicate_bribery }
+				planet_crime < 50
+				NOT = {
+					is_same_value = event_target:bribe_planet_1
+					is_same_value = event_target:bribe_planet_2
+					is_same_value = event_target:bribe_planet_3
+					is_same_value = event_target:bribe_planet_4
+					is_same_value = event_target:bribe_planet_5
+					is_same_value = event_target:bribe_planet_6
+					is_same_value = event_target:bribe_planet_7
+					is_same_value = event_target:bribe_planet_8
+				}
+			}
+			save_event_target_as = bribe_planet_9
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.15.a
+		trigger = { exists = event_target:bribe_planet_1 }
+		event_target:bribe_planet_1 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.b
+		trigger = { exists = event_target:bribe_planet_2 }
+		event_target:bribe_planet_2 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.c
+		trigger = { exists = event_target:bribe_planet_3 }
+		event_target:bribe_planet_3 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.d
+		trigger = { exists = event_target:bribe_planet_4 }
+		event_target:bribe_planet_4 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.e
+		trigger = { exists = event_target:bribe_planet_5 }
+		event_target:bribe_planet_5 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.f
+		trigger = { exists = event_target:bribe_planet_6 }
+		event_target:bribe_planet_6 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.g
+		trigger = { exists = event_target:bribe_planet_7 }
+		event_target:bribe_planet_7 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.h
+		trigger = { exists = event_target:bribe_planet_8 }
+		event_target:bribe_planet_8 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.i
+		trigger = { exists = event_target:bribe_planet_9 }
+		event_target:bribe_planet_9 = {
+			add_modifier = { modifier = "syndicate_bribery" days = 3600 }
+		}
+		add_resource = { consumer_goods = -500 }
+	}
+	option = {
+		name = civicsexpanded.15.j
+		trigger = { is_ai = no }
+	}
+}
+
+### Construction Contractors ###
+planet_event = {
+	id = civicsexpanded.20
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_branch_office = yes
+		OR = {
+			has_building = building_corp_construction
+			has_building = building_corp_construction_crime
+		}
+	}
+	
+	immediate = {
+		branch_office_owner = {
+			add_resource = { energy = 1000 }
+		}
+	}
+}
+
+### Master Computer ###
+country_event = {
+	id = civicsexpanded.21
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_civic = civic_master_computer
+			any_owned_planet = { has_deposit = d_master_computer }
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_civic = civic_master_computer
+				NOT = {
+					any_owned_planet = {
+						has_deposit = d_master_computer
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = { is_capital = yes }
+				add_deposit = d_master_computer
+			}
+		}
+		else = {
+			every_owned_planet = { remove_deposit = d_master_computer }
+		}
+	}
+}
+
+### Private Military Companies ###
+planet_event = {
+	id = civicsexpanded.22
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_branch_office = yes
+		OR = {
+			has_building = building_military_contractors
+			has_building = building_pirate_haven
+		}
+		FROM = { army_type = merc_army }
+	}
+	
+	immediate = {
+		branch_office_owner = {
+			add_resource = { energy = 75 }
+			if = {
+				limit = { has_valid_civic = civic_private_military_companies }
+				add_resource = { energy = 75 }
+			}
+		}
+	}
+}
+
+### Infestation ###
+country_event = {
+	id = civicsexpanded.23
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			last_increased_tech = tech_infestation_1
+			last_increased_tech = tech_infestation_2
+		}
+	}
+
+	immediate = {
+		every_owned_pop = {
+			if = {
+				limit = {
+					has_trait = trait_infested_basic
+					ROOT = { has_technology = tech_infestation_1 }
+				}
+				
+				modify_species = {
+					species = this
+					remove_trait = trait_infested_basic
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_infested
+					
+					add_traits_at_start_of_list = yes
+				}
+				
+				remove_culture_shock = yes
+				remove_self_modified = yes # scripted effect
+				
+				set_citizenship_type = {
+					type = citizenship_full
+					country = root
+				}
+				set_living_standard = {
+					type = living_standard_hive_mind
+					country = root
+				}
+			}
+			
+			else_if = {
+				limit = {
+					has_trait = trait_infested
+					ROOT = { has_technology = tech_infestation_2 }
+				}
+				
+				modify_species = {
+					species = this
+					remove_trait = trait_infested
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_infested_advanced
+					
+					add_traits_at_start_of_list = yes
+				}
+				
+				remove_culture_shock = yes
+				remove_self_modified = yes # scripted effect
+				
+				set_citizenship_type = {
+					type = citizenship_full
+					country = root
+				}
+				set_living_standard = {
+					type = living_standard_hive_mind
+					country = root
+				}
+
+			}
+		}
+	}
+}
+planet_event = {
+	id = civicsexpanded.24
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			has_valid_civic = civic_infestation
+		}
+		num_assigned_jobs = {
+			job = infested_pop
+			value >= 1
+		}
+	}
+	
+	immediate = {
+		every_owned_pop = {
+			limit = { has_job = infested_pop }
+			ROOT = {
+				change_variable = {
+					which = var_necrophaged_pops
+					value = 1
+				}
+			}
+			
+			modify_species = {
+				species = this
+				add_trait = trait_hive_mind
+				add_traits_at_start_of_list = yes
+			}
+			
+			if = {
+				limit = {
+					owner = { has_technology = tech_infestation_2 }
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_infested_advanced
+					add_traits_at_start_of_list = yes
+				}
+				add_modifier = { modifier = recently_infested days = 360 }
+			}
+			
+			else_if = {
+				limit = {
+					owner = { has_technology = tech_infestation_1 }
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_infested
+					add_traits_at_start_of_list = yes
+				}
+				add_modifier = { modifier = recently_infested days = 900 }
+			}
+			
+			else_if = {
+				limit = {
+					owner = { has_technology = tech_infestation_0 }
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_infested_basic
+					add_traits_at_start_of_list = yes
+				}
+				add_modifier = { modifier = recently_infested days = 1800 }
+			}
+			
+			remove_culture_shock = yes
+			remove_self_modified = yes # scripted effect
+			
+			set_citizenship_type = {
+				type = citizenship_full
+				country = root.owner
+			}
+			set_living_standard = {
+				type = living_standard_hive_mind
+				country = root.owner
+			}
+			
+			every_country = {
+				limit = {
+					has_communications = root.owner
+					NOT = { is_country = root.owner }
+					NOT = { is_same_species = prev }
+					NOT = { has_ai_personality_behaviour = purger }
+					NOT = { has_valid_civic = civic_infestation }
+					NOT = { has_origin = origin_necrophage }
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOR = {
+						has_valid_civic = civic_death_cult
+						has_valid_civic = civic_death_cult_corporate
+					}
+					OR = {
+						is_country_type = default
+						is_country_type = ascended_empire
+						is_country_type = lost_empire
+						has_ai_personality = awakened_fallen_empire_xenophile
+					}
+				}
+				add_opinion_modifier = { who = root.owner modifier = opinion_necrophage }
+			}
+			every_country = {
+				limit = {
+					has_communications = root.owner
+					NOT = { is_country = root.owner }
+					is_same_species = prev
+				}
+				add_opinion_modifier = { who = root.owner modifier = opinion_necrophage_our_species }
+			}
+		}
+		create_message = {
+			type = MESSAGE_NECROPHAGE_POPS_NECROPHAGED
+			localization = MESSAGE_INFESTOR_POP_INFESTED
+			days = 30
+			target = this
+			variable = {
+				type = name
+				localization = PLANET
+				scope = this
+			}
+			variable = {
+				type = variable
+				varname = var_necrophaged_pops
+				localization = VALUE
+				scope = this
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					has_swapped_tradition = tr_harmony_unity_of_self_hive
+				}
+			}
+			owner = {
+				add_monthly_resource_mult = {
+					resource = unity
+					value = 1.5
+					min = 5
+					max = 100
+				}
+			}
+		}
+		set_variable = {
+			which = var_necrophaged_pops
+			value = 0
+		}
+	}
+}
+# New species, get projet to infest it
+country_event = {
+	id = civicsexpanded.26
+	title = civicsexpanded.26.title
+	desc = civicsexpanded.26.desc
+	
+	picture = GFX_evt_genetic_modification
+	
+	trigger = {
+		has_valid_civic = civic_infestation
+		
+		any_owned_pop = {
+			is_robot_pop = no
+			is_sapient = yes
+			species = {
+				NOT = { has_trait = trait_hive_mind }
+				NOT = { has_species_flag = flag_species_to_infest }
+				NOT = { has_species_flag = flag_species_infestation_project }
+				NOT = { has_species_flag = flag_species_infestation_refused }
+				#has_citizenship_type = { country = root type = citizenship_slavery }
+			}
+		}
+		
+		NOT = { has_country_flag = flag_species_infestation_project_possible }
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	immediate = {
+		random_owned_pop = {
+			limit = {
+				is_robot_pop = no
+				is_sapient = yes
+				species = {
+					NOT = { has_trait = trait_hive_mind }
+					NOT = { has_species_flag = flag_species_to_infest }
+					NOT = { has_species_flag = flag_species_infestation_project }
+					NOT = { has_species_flag = flag_species_infestation_refused }
+					
+					#has_citizenship_type = { country = root type = citizenship_slavery }
+				}
+			}
+			
+			save_event_target_as = pop_to_infest
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.26.optA
+		
+		enable_special_project = {
+			name = "SPECIES_INFEST"
+			location = capital_scope
+			owner = root
+		}
+		
+		set_country_flag = flag_species_infestation_project_possible
+		
+		event_target:pop_to_infest = {
+			species = {
+				set_species_flag = flag_species_infestation_project
+			}
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.26.optB
+		
+		event_target:pop_to_infest = {
+			species = {
+				set_species_flag = flag_species_infestation_refused
+			}
+		}
+	}
+}
+country_event = {
+	id = civicsexpanded.27
+	title = civicsexpanded.26.title
+	desc = civicsexpanded.27.desc
+	
+	picture = GFX_evt_genetic_modification
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_owned_pop = {
+			limit = {
+				is_robot_pop = no
+				is_sapient = yes
+				species = {
+					NOT = { has_trait = trait_hive_mind }
+					NOT = { has_species_flag = flag_species_to_infest }
+					NOT = { has_species_flag = flag_species_infestation_project }
+					#NOT = { has_species_flag = flag_species_infestation_refused }
+					
+					#has_citizenship_type = { country = root type = citizenship_slavery }
+				}
+			}
+			
+			save_event_target_as = pop_to_infest
+		}
+		
+		set_country_flag = flag_infest_species_open
+	}
+	
+	option = {
+		name = civicsexpanded.27.optA
+		
+		enable_special_project = {
+			name = "SPECIES_INFEST"
+			location = capital_scope
+			owner = root
+		}
+		
+		set_country_flag = flag_species_infestation_project_possible
+		
+		event_target:pop_to_infest = {
+			species = {
+				set_species_flag = flag_species_infestation_project
+			}
+		}
+		
+		remove_country_flag = flag_infest_species_open
+	}
+	
+	option = {
+		name = civicsexpanded.26.optB
+		
+		event_target:pop_to_infest = {
+			species = {
+				set_species_flag = flag_species_infestation_refused
+			}
+		}
+		
+		remove_country_flag = flag_infest_species_open
+	}
+}
+country_event = {
+	id = civicsexpanded.28
+	title = civicsexpanded.26.title
+	desc = civicsexpanded.28.desc
+	
+	picture = GFX_evt_genetic_modification
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = civicsexpanded.28.optA
+		
+		event_target:pop_to_infest = {
+			species = {
+				set_species_flag = flag_species_to_infest
+			}
+		}
+		
+		remove_country_flag = flag_species_infestation_project_possible
+	}
+}
+
+### Civic effect toggle ###
+event = {
+	id = civicsexpanded.29
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_country = {
+			country_event = { id = civicsexpanded.30 }
+		}
+	}	
+}
+
+country_event = {
+	id = civicsexpanded.30
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Fanatic Befrienders
+		every_country = {
+			limit = { has_valid_civic = civic_befrienders }
+			country_event = { id = civicsexpanded.31 }
+		}
+		every_country = {
+			limit = { NOT = { has_valid_civic = civic_befrienders } }
+			remove_befriender_migration_modifiers = yes
+			every_owned_planet = {
+				limit = { has_modifier = befriender_xeno_happiness }
+				remove_modifier = befriender_xeno_happiness
+			}
+		}
+		# Vassal Navy Tax
+		every_country = {
+			limit = { is_overlord = yes  }
+			country_event = { id = civicsexpanded.32 }
+		}
+		every_country = {
+			limit = { NOT = { is_overlord = yes  } }
+			remove_vassal_navy_modifiers = yes
+		}
+		every_country = {
+			limit = {
+				NOR = {
+					is_subject_type = vassal
+					is_subject_type = duchy
+				}
+				has_modifier = vassal_navy_tax
+			}
+			remove_modifier = vassal_navy_tax
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_subject_type = vassal
+					is_subject_type = duchy
+				}
+				NOT = { has_modifier = vassal_navy_tax }
+			}
+			add_modifier = { modifier = vassal_navy_tax days = -1 }
+		}
+		# Philosopher King
+		every_country = {
+			limit = {
+				OR = {
+					has_valid_civic = civic_philosopher_king
+					has_modifier = philosopher_king_wise_leader
+				}
+			}
+			if = {
+				limit = {
+					has_valid_civic = civic_philosopher_king
+					NOT = { has_modifier = philosopher_king_wise_leader }
+					any_owned_leader = {
+						leader_class = ruler
+						has_skill > 4
+					}
+				}
+				add_modifier = { modifier = philosopher_king_wise_leader days = -1 }
+			}
+			else_if = {
+				limit = {
+					has_modifier = philosopher_king_wise_leader
+					OR = {
+						NOT = { has_valid_civic = civic_philosopher_king }
+						NOT = {
+							any_owned_leader = {
+								leader_class = ruler
+								has_skill > 4
+							}
+						}
+					}
+				}
+				remove_modifier = philosopher_king_wise_leader
+			}
+		}
+		# Shadow Country
+		every_country = {
+			limit = {
+				OR = {
+					has_valid_civic = civic_shadow_council
+					has_valid_civic = civic_shadow_council_megacorp
+					any_owned_pop = { has_modifier = pop_shadow_ruler }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_valid_civic = civic_shadow_council
+						has_valid_civic = civic_shadow_council_megacorp
+					}
+					NOT = {
+						any_owned_pop = {
+							is_pop_category = ruler
+							has_modifier = pop_shadow_ruler
+						}
+					}
+					exists = capital_scope
+				}
+				capital_scope = {
+					random_pop = {
+						limit = { is_pop_category = ruler }
+						add_modifier = { modifier = pop_shadow_ruler days = -1 }
+					}
+				}
+				every_owned_pop = {
+					limit = {
+						NOT = { is_pop_category = ruler }
+						has_modifier = pop_shadow_ruler
+					}
+					remove_modifier = pop_shadow_ruler
+				}
+			}
+			else = {
+				every_owned_pop = {
+					limit = { has_modifier = pop_shadow_ruler }
+					remove_modifier = pop_shadow_ruler
+				}
+			}
+		}
+		# Beacon of Liberty
+		every_country = {
+			limit = {
+				OR = {
+					has_valid_civic = civic_beacon_of_liberty
+					has_modifier = liberty_beacon
+					has_valid_civic = civic_idealistic_foundation
+					has_modifier = idealistic_foundation_influence
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_valid_civic = civic_beacon_of_liberty
+						has_valid_civic = civic_idealistic_foundation
+					}
+					NOR = {
+						any_owned_pop = {
+							OR = {
+								has_migration_control = yes
+								NOT = {
+									has_citizenship_type = {
+										country = root.owner
+										type = citizenship_full
+									}
+								}
+							}
+							is_sapient = yes
+							is_enslaved = no
+							is_being_purged = no
+							is_robot_pop = no
+							NOR = {
+								has_trait = trait_hive_mind
+								has_trait = trait_syncretic_proles
+								has_trait = trait_nerve_stapled
+								has_trait = trait_presapient_docile_livestock
+							}
+						}
+						has_policy_flag = resettlement_allowed
+						has_policy_flag = population_controls_allowed
+						has_policy_flag = slavery_allowed 
+						AND = {
+							OR = {
+								has_technology = tech_selected_lineages
+								has_technology = tech_capacity_boosters
+							}
+							OR = {
+								has_policy_flag = leader_enhancement_selected_lineages
+								has_policy_flag = leader_enhancement_capacity_boosters
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_valid_civic = civic_beacon_of_liberty
+						NOT = { has_modifier = liberty_beacon }
+					}
+					add_modifier = { modifier = liberty_beacon days = -1 }
+				}
+				if = {
+					limit = {
+						has_valid_civic = civic_idealistic_foundation
+						NOT = { has_modifier = idealistic_foundation_influence }
+					}
+					add_modifier = { modifier = idealistic_foundation_influence days = -1 }
+				}
+			}
+			else_if = {
+				remove_modifier = liberty_beacon
+				remove_modifier = idealistic_foundation_influence
+			}
+		}
+		# Media Conglomerate
+		every_country = {
+			limit = {
+				OR = {
+					has_valid_civic = civic_media_conglomerate
+					has_modifier = media_war_claims
+				}
+			}
+			if = {
+				limit = {
+					has_valid_civic = civic_media_conglomerate
+					is_at_war = yes
+				}
+				if = {
+					limit = { NOT = { has_modifier = media_war_claims } }
+					add_modifier = { modifier = media_war_claims days = -1 }
+				}
+			}
+			else = {
+				remove_modifier = media_war_claims
+			}
+		}
+	}
+}
+# Fanatic Befrienders
+country_event = {
+	id = civicsexpanded.31
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		befriender_migration_update = yes
+		every_owned_planet = {
+			if = {
+				limit = {
+					NOT = { has_modifier = befriender_xeno_happiness }
+					count_species = {
+						limit = { 
+							is_sapient = yes
+							is_shackled_robot = no
+						}
+						count >= 2
+					}
+				}
+				add_modifier = { modifier = befriender_xeno_happiness days = -1 }
+			}
+			else_if = {
+				limit = {
+					has_modifier = befriender_xeno_happiness
+					NOT = {
+						count_species = {
+							limit = { 
+								is_sapient = yes
+								is_shackled_robot = no
+							}
+							count >= 2
+						}
+					}
+				}
+				remove_modifier = befriender_xeno_happiness
+			}
+		}
+	}
+}
+# Vassal Navy Tax
+country_event = {
+	id = civicsexpanded.32
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		vassal_navy_update = yes
+	}
+}
+# Philosopher King
+country_event = {
+	id = civicsexpanded.33
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_valid_civic = civic_philosopher_king
+	}
+	
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				leader_class = ruler
+				has_skill < 5
+			}
+			add_experience = 200
+		}
+	}
+}
+
+country_event = {
+	id = civicsexpanded.34
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				is_gestalt = yes
+				owner_species = {
+					NOR = {
+						has_trait = trait_machine_unit
+						has_trait = trait_hive_mind
+					}
+				}
+			}
+			country_remove_ethic = ethic_gestalt_consciousness
+			random_list = {
+				1 = { country_add_ethic = ethic_fanatic_materialist modifier = { factor = 0 NOT = { any_owned_pop = { pop_has_ethic = ethic_materialist } } } }
+				1 = { country_add_ethic = ethic_fanatic_spiritualist modifier = { factor = 0 NOT = { any_owned_pop = { pop_has_ethic = ethic_spiritualist } } } }
+				1 = { country_add_ethic = ethic_fanatic_militarist modifier = { factor = 0 NOT = { any_owned_pop = { pop_has_ethic = ethic_militarist } } } }
+				1 = { country_add_ethic = ethic_fanatic_pacifist modifier = { factor = 0 NOT = { any_owned_pop = { pop_has_ethic = ethic_pacifist } } } }
+				1 = { country_add_ethic = ethic_fanatic_xenophile modifier = { factor = 0 NOT = { any_owned_pop = { pop_has_ethic = ethic_xenophile } } } }
+				1 = { country_add_ethic = ethic_fanatic_egalitarian modifier = { factor = 0 NOT = { any_owned_pop = { pop_has_ethic = ethic_egalitarian } } } }
+				1 = { country_add_ethic = ethic_fanatic_authoritarian modifier = { factor = 0 NOT = { any_owned_pop = { pop_has_ethic = ethic_authoritarian } } } }
+			}
+			random_list = {
+				1 = { country_add_ethic = ethic_materialist modifier = { factor = 0
+				OR = { has_ethic = ethic_fanatic_materialist has_ethic = ethic_fanatic_spiritualist } } }
+				
+				1 = { country_add_ethic = ethic_spiritualist modifier = { factor = 0
+				OR = { has_ethic = ethic_fanatic_spiritualist has_ethic = ethic_fanatic_materialist } } }
+				
+				1 = { country_add_ethic = ethic_militarist modifier = { factor = 0
+				OR = { has_ethic = ethic_fanatic_militarist has_ethic = ethic_fanatic_pacifist } } }
+				
+				1 = { country_add_ethic = ethic_pacifist modifier = { factor = 0
+				OR = { has_ethic = ethic_fanatic_pacifist has_ethic = ethic_fanatic_militarist } } }
+				
+				1 = { country_add_ethic = ethic_xenophile modifier = { factor = 0
+				OR = { has_ethic = ethic_fanatic_xenophile has_ethic = ethic_fanatic_xenophobe } } }
+				
+				1 = { country_add_ethic = ethic_xenophobe modifier = { factor = 0
+				OR = { has_ethic = ethic_fanatic_xenophobe has_ethic = ethic_fanatic_xenophile } } }
+				
+				1 = { country_add_ethic = ethic_egalitarian modifier = { factor = 0
+				OR = { has_ethic = ethic_fanatic_egalitarian has_ethic = ethic_fanatic_authoritarian } } }
+				
+				1 = { country_add_ethic = ethic_authoritarian modifier = { factor = 0
+				OR = { has_ethic = ethic_fanatic_authoritarian has_ethic = ethic_fanatic_egalitarian } } }
+			}
+			change_government = {
+				authority = random
+				civics = random
+			}
+		}
+	}
+}
+
+### Void Dweller ###
+country_event = {
+	id = civicsexpanded.35
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			OR = {
+				has_trait = trait_pc_habitat_preference
+				has_trait = trait_void_dweller_1
+				has_trait = trait_void_dweller_2
+			}
+		}
+	}
+	
+	immediate = {
+		every_owned_pop = {
+			limit = { is_same_species = FROM }
+			if = {
+				limit = { 
+					has_trait = trait_pc_habitat_preference
+					NOT = { has_trait = trait_void_dweller_1 }
+					exists = planet
+					planet = { is_planet_class = pc_habitat }
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_void_dweller_1
+				}
+				if = {
+					limit = { has_trait = trait_void_dweller_2 }
+					modify_species = {
+						species = this
+						remove_trait = trait_void_dweller_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_trait = trait_void_dweller_1
+					exists = planet
+					planet = {
+						NOT = { is_planet_class = pc_habitat }
+					}
+				}
+				modify_species = {
+					species = this
+					remove_trait = trait_void_dweller_1
+					add_trait = trait_void_dweller_2
+				}
+			}
+		}
+	}
+}
+
+### Starvation Fearing ###
+country_event = {
+	id = civicsexpanded.36
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_valid_civic = civic_starvation_fearing
+	}
+	
+	immediate = {
+		if  = {
+			limit = {
+				NOT = { has_modifier = starvation_fearing_low_food }
+				OR = {
+					AND = {
+						has_deficit = food
+						is_lithoid_empire = no
+					}
+					AND = {
+						has_deficit = minerals
+						is_lithoid_empire = yes
+					}
+				}
+			}
+			add_modifier = { modifier = starvation_fearing_low_food days = -1 }
+		}
+		else_if = {
+			limit = {
+				has_modifier = starvation_fearing_low_food
+				OR = {
+					AND = {
+						NOT = { has_deficit = food }
+						has_monthly_income = { resource = food  value > 0 }
+						is_lithoid_empire = no
+					}
+					AND = {
+						NOT = { has_deficit = minerals }
+						has_monthly_income = { resource = minerals  value > 0 }
+						is_lithoid_empire = yes
+					}
+				}
+			}
+			remove_modifier = starvation_fearing_low_food
+		}
+	}
+}
+
+# 37 at bottom
+
+### Shadow Council ###
+country_event = {
+	id = civicsexpanded.38
+	title = "civicsexpanded.38.name"
+	desc = "civicsexpanded.38.desc_accident"
+	desc = {
+		text = "civicsexpanded.38.desc_bombing"
+		trigger = {
+			any_owned_planet = { planet_stability < 35 }
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_war"
+		trigger = {
+			is_at_war = yes
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_hunting"
+		trigger = {
+			is_militarist = yes
+			is_xenophile = no
+			is_at_war = no
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_embezzlement"
+		trigger = {
+			is_megacorp = yes
+		}
+	}
+	desc = civicsexpanded.38.desc_fall
+	desc = {
+		text = "civicsexpanded.38.desc_fake_noble"
+		trigger = {
+			OR = {
+				has_valid_civic = civic_aristocratic_elite
+				has_valid_civic = civic_royal_trading_company
+			}
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_poison"
+		trigger = {
+			event_target:deposed_ruler = {
+				is_lithoid = no
+				is_robotic_species = no
+			}
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_honor"
+		trigger = {
+			has_valid_civic = civic_warrior_culture
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_resign_family"
+		trigger = {
+			NOT = { has_authority = auth_dictatorial }
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_resign_health"
+		trigger = {
+			NOT = { has_authority = auth_dictatorial }
+			event_target:deposed_ruler = { is_robotic_species = no }
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_kennedy"
+		trigger = {
+			has_authority = auth_democratic
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_phile"
+		trigger = {
+			NOT = { has_authority = auth_dictatorial }
+			is_xenophile = yes
+			num_communications > 2
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_spir"
+		trigger = {
+			NOT = { has_authority = auth_dictatorial }
+			is_spiritualist = yes
+			NOT = { has_ethic = ethic_fanatic_egalitarian }
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_mil"
+		trigger = {
+			OR = {
+				has_valid_civic = civic_distinguished_admiralty
+				has_valid_civic = civic_naval_contractors
+			}
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_coup"
+		trigger = {
+			has_authority = auth_dictatorial
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_robot"
+		trigger = {
+			NOT = { has_authority = auth_dictatorial }
+			is_materialist = yes
+			has_technology = tech_robotic_workers
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_slave"
+		trigger = {
+			any_owned_pop = { is_enslaved = yes }
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_many_lovers"
+		trigger = {
+			event_target:deposed_ruler = {
+				OR = {
+					has_trait = trait_ruler_fertility_preacher
+					species = { has_trait = trait_rapid_breeders }
+					species = { has_trait = trait_fertile }
+					species = { has_trait = trait_decadent }
+					species = { has_trait = trait_deviants }
+				}
+			}
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_enemies_corp"
+		trigger = {
+			is_megacorp = yes
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_enemies_olig"
+		trigger = {
+			has_authority = auth_oligarchic
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_overdose"
+		trigger = {
+			event_target:deposed_ruler = {
+				is_robotic_species = no
+				OR = {
+					has_trait = leader_trait_substance_abuser
+					has_trait = trait_ruler_eye_for_talent
+					has_trait = trait_ruler_deep_connections
+					has_trait = trait_ruler_charismatic
+					species = { has_trait = trait_decadent }
+					species = { has_trait = trait_unruly }
+					species = { has_trait = trait_communal }
+					species = { has_trait = trait_charismatic }
+					species = { has_trait = trait_deviants }
+					species = { has_trait = trait_carefree }
+				}
+			}
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_party"
+		trigger = {
+			NOT = { has_authority = auth_dictatorial }
+			event_target:deposed_ruler = {
+				is_robotic_species = no
+				OR = {
+					has_trait = leader_trait_substance_abuser
+					has_trait = trait_ruler_eye_for_talent
+					has_trait = trait_ruler_deep_connections
+					has_trait = trait_ruler_charismatic
+					species = { has_trait = trait_decadent }
+					species = { has_trait = trait_unruly }
+					species = { has_trait = trait_communal }
+					species = { has_trait = trait_charismatic }
+					species = { has_trait = trait_deviants }
+					species = { has_trait = trait_carefree }
+				}
+			}
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_phobe"
+		trigger = {
+			NOT = { has_authority = auth_dictatorial }
+			is_xenophobe = yes
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
+		}
+	}
+	desc = {
+		text = "civicsexpanded.38.desc_scandal_phobe_fp"
+		trigger = {
+			has_valid_civic = civic_fanatic_purifiers
+		}
+	}
+	picture = GFX_evt_galactic_senate
+	show_sound = event_factions
+	location = ROOT.capital_scope
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_owned_leader = {
+			limit = { leader_class = ruler }
+			save_event_target_as = deposed_ruler
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		custom_tooltip = civicsexpanded.38.a.tooltip
+		add_modifier = { modifier = recently_deposed_ruler days = 3600 }
+		hidden_effect = {
+			event_target:deposed_ruler = { kill_leader = { show_notification = no } }
+		}
+	}
+}
+
+### Cyberocracy ###
+event = {
+	id = civicsexpanded.40
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_country = {
+			OR = {
+				has_civic = civic_iron_despot
+				has_civic = civic_corp_iron_despot
+			}
+			exists = ruler
+			OR = {
+				NOR = {
+					has_authority = auth_dictatorial
+					has_authority = auth_private
+				}
+				is_egalitarian = yes
+				is_materialist = no
+				ruler = {
+					NOT = { has_trait = leader_trait_ruler_iron_despot }
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					has_civic = civic_iron_despot
+					has_civic = civic_corp_iron_despot
+				}
+				OR = {
+					NOR = {
+						has_authority = auth_dictatorial
+						has_authority = auth_private
+					}
+					is_egalitarian = yes
+					is_materialist = no
+				}
+				is_ai = no
+			}
+			country_event = { id = civicsexpanded.41 }
+		}
+		every_country = {
+			limit = {
+				OR = {
+					has_civic = civic_iron_despot
+					has_civic = civic_corp_iron_despot
+				}
+				OR = {
+					NOR = {
+						has_authority = auth_dictatorial
+						has_authority = auth_private
+					}
+					is_egalitarian = yes
+					is_materialist = no
+				}
+				is_ai = yes
+			}
+			add_resource = { influence = 250 }
+			if = {
+				limit = {
+					is_egalitarian = yes
+					has_government = gov_totalitarian_iron_despot
+				}
+				shift_ethic = ethic_authoritarian
+			}
+			else_if = {
+				limit = {
+					is_egalitarian = yes
+					NOT = { has_government = gov_totalitarian_iron_despot }
+				}
+				shift_ethic = ethic_materialist
+				if = {
+					limit = { is_egalitarian = yes }
+					shift_ethic = ethic_materialist
+				}
+				if = {
+					limit = { is_egalitarian = yes }
+					country_remove_ethic = ethic_egalitarian
+					country_add_ethic = ethic_xenophile
+				}
+			}
+			if = {
+				limit = { is_materialist = no }
+				shift_ethic = ethic_materialist
+			}
+			if = {
+				limit = { has_civic = civic_iron_despot }
+				change_government = {
+					authority = auth_dictatorial
+				}
+			}
+			else_if = {
+				limit = { has_civic = civic_corp_iron_despot }
+				change_government = {
+					authority = auth_private
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					has_civic = civic_iron_despot
+					has_civic = civic_corp_iron_despot
+				}
+				ruler = {
+					NOT = { has_trait = leader_trait_ruler_iron_despot }
+				}
+			}
+			country_event = { id = civicsexpanded.53 }
+		}
+	}
+}
+
+country_event = {
+	id = civicsexpanded.41
+	title = "civicsexpanded.41.name"
+	desc = "civicsexpanded.41.desc"
+	picture = GFX_evt_sapient_AI
+	show_sound = event_alien_signal
+	location = ROOT.capital_scope
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = civicsexpanded.41.a
+		hidden_effect = {
+			if = {
+				limit = {
+					is_egalitarian = yes
+					has_government = gov_totalitarian_iron_despot
+				}
+				shift_ethic = ethic_authoritarian
+			}
+			else_if = {
+				limit = {
+					is_egalitarian = yes
+					NOT = { has_government = gov_totalitarian_iron_despot }
+				}
+				shift_ethic = ethic_materialist
+				if = {
+					limit = { is_egalitarian = yes }
+					shift_ethic = ethic_materialist
+				}
+				if = {
+					limit = { is_egalitarian = yes }
+					country_remove_ethic = ethic_egalitarian
+					country_add_ethic = ethic_xenophile
+				}
+			}
+			if = {
+				limit = { is_materialist = no }
+				shift_ethic = ethic_materialist
+			}
+		}
+		if = {
+			limit = { has_civic = civic_iron_despot }
+			change_government = {
+				authority = auth_dictatorial
+			}
+		}
+		else_if = {
+			limit = { has_civic = civic_corp_iron_despot }
+			change_government = {
+				authority = auth_private
+			}
+		}
+		custom_tooltip = civicsexpanded.45.a.tooltip
+	}
+	option = {
+		name = civicsexpanded.41.b
+		country_event = { id = civicsexpanded.42 }
+	}
+}
+
+country_event = {
+	id = civicsexpanded.42
+	title = "civicsexpanded.42.name"
+	desc = {
+		text = civicsexpanded.42.desc_a
+		trigger = {
+			OR = {
+				is_authoritarian = yes
+				is_xenophobe = yes
+				is_militarist = yes
+			}
+		}
+	}
+	desc = {
+		text = civicsexpanded.42.desc_b
+		trigger = {
+			NOR = {
+				is_authoritarian = yes
+				is_xenophobe = yes
+				is_militarist = yes
+			}
+		}
+	}
+	
+	immediate = {
+		ruler = { save_event_target_as = Ruler_Hal }
+		if = {
+			limit = {
+				any_owned_leader = {
+					leader_class = scientist
+					is_researching_area = physics
+				}
+			}
+			random_owned_leader = {
+				limit = {
+					leader_class = scientist
+					is_researching_area = physics
+				}
+				save_event_target_as = Scientist_Dave
+			}
+		}
+		else = {
+			random_owned_leader = {
+				limit = {
+					leader_class = scientist
+				}
+				save_event_target_as = Scientist_Dave
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = root.leader
+		planet_background = root
+		graphical_culture = root
+		city_level = root
+		room = root
+	}
+	
+	option = {
+		name = civicsexpanded.42.a_a
+		trigger = {
+			OR = {
+				is_authoritarian = yes
+				is_xenophobe = yes
+				is_militarist = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = civicsexpanded.43 }
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.42.a_b
+		trigger = {
+			NOR = {
+				is_authoritarian = yes
+				is_xenophobe = yes
+				is_militarist = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = civicsexpanded.49 }
+		}
+	}
+}
+
+# Evil AI Path
+country_event = {
+	id = civicsexpanded.43
+	title = "civicsexpanded.42.name"
+	desc = civicsexpanded.43.desc
+
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = root.leader
+		planet_background = root
+		graphical_culture = root
+		city_level = root
+		room = root
+	}
+	
+	option = {
+		name = civicsexpanded.43.a
+		trigger = {
+			OR = {
+				is_authoritarian = yes
+				is_xenophobe = yes
+				is_militarist = yes
+			}
+		}
+		response_text = civicsexpanded.43.a.response
+		country_event = { id = civicsexpanded.44 }
+	}
+	option = {
+		name = civicsexpanded.43.a
+		trigger = {
+			NOR = {
+				is_authoritarian = yes
+				is_xenophobe = yes
+				is_militarist = yes
+			}
+		}
+		country_event = { id = civicsexpanded.50 }
+	}
+}
+country_event = {
+	id = civicsexpanded.44
+	title = "civicsexpanded.44.name"
+	desc = "civicsexpanded.44.desc"
+	picture = GFX_evt_guardians
+	show_sound = event_trap_laser
+	location = ROOT.capital_scope
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = civicsexpanded.44.paranoid
+		trigger = {
+			event_target:Scientist_Dave = {
+				has_trait = leader_trait_paranoid
+			}
+		}
+		custom_tooltip = civicsexpanded.44.paranoid.tooltip
+		hidden_effect = {
+			country_event = { id = civicsexpanded.46 }
+		}
+	}
+	option = {
+		name = civicsexpanded.44.hack
+		trigger = {
+			event_target:Scientist_Dave = {
+				OR = {
+					has_trait = leader_trait_expertise_computing
+					has_trait = leader_trait_spark_of_genius
+					has_trait = leader_trait_maniacal
+					has_trait = leader_trait_scientist_erudite
+					has_trait = leader_trait_curator
+					has_trait = leader_trait_custom_AI_assistant
+					has_trait = leader_trait_sapient_AI_assistant
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_scientist_synthetic
+				}
+			}
+		}
+		custom_tooltip = civicsexpanded.44.computer_expert.tooltip
+		hidden_effect = {
+			country_event = { id = civicsexpanded.46 }
+		}
+	}
+	option = {
+		name = civicsexpanded.44.hack
+		trigger = {
+			event_target:Scientist_Dave = {
+				NOR = {
+					has_trait = leader_trait_expertise_computing
+					has_trait = leader_trait_spark_of_genius
+					has_trait = leader_trait_maniacal
+					has_trait = leader_trait_scientist_erudite
+					has_trait = leader_trait_curator
+					has_trait = leader_trait_custom_AI_assistant
+					has_trait = leader_trait_sapient_AI_assistant
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_scientist_synthetic
+				}
+			}
+		}
+		custom_tooltip = civicsexpanded.44.sixty.tooltip
+		hidden_effect = {
+			random_list = {
+				40 = { country_event = { id = civicsexpanded.45 } }
+				60 = {
+					country_event = { id = civicsexpanded.46 }
+					modifier = {
+						factor = 1.5
+						event_target:Scientist_Dave = { has_skill >= 5 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = civicsexpanded.44.fight
+		trigger = {
+			event_target:Scientist_Dave = {
+				OR = {
+					has_trait = leader_trait_scientist_psionic
+					has_trait = leader_trait_scientist_chosen
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_scientist_synthetic
+					has_trait = leader_trait_towel
+					species = {
+						OR = {
+							has_trait = trait_strong
+							has_trait = trait_very_strong
+							has_trait = trait_titanic_strength
+							has_trait = trait_lithoid_titanic_strength
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = civicsexpanded.44.fight_expert.tooltip
+		hidden_effect = {
+			country_event = { id = civicsexpanded.46 }
+		}
+	}
+	option = {
+		name = civicsexpanded.44.fight
+		trigger = {
+			event_target:Scientist_Dave = {
+				NOR = {
+					has_trait = leader_trait_scientist_psionic
+					has_trait = leader_trait_scientist_chosen
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_scientist_synthetic
+					has_trait = leader_trait_towel
+					species = {
+						OR = {
+							has_trait = trait_strong
+							has_trait = trait_very_strong
+							has_trait = trait_titanic_strength
+							has_trait = trait_lithoid_titanic_strength
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = civicsexpanded.44.sixty.tooltip
+		hidden_effect = {
+			random_list = {
+				40 = { country_event = { id = civicsexpanded.45 } }
+				60 = {
+					country_event = { id = civicsexpanded.46 }
+					modifier = {
+						factor = 1.5
+						event_target:Scientist_Dave = { has_skill >= 5 }
+					}
+				}
+			}
+		}
+	}
+}
+# Bad End: AI assumes direct control
+country_event = {
+	id = civicsexpanded.45
+	title = "civicsexpanded.45.name"
+	desc = "civicsexpanded.45.desc"
+	picture = GFX_evt_sapient_AI
+	show_sound = event_alien_signal
+	location = ROOT.capital_scope
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				is_egalitarian = yes
+				has_government = gov_totalitarian_iron_despot
+			}
+			shift_ethic = ethic_authoritarian
+		}
+		else_if = {
+			limit = {
+				is_egalitarian = yes
+				NOT = { has_government = gov_totalitarian_iron_despot }
+			}
+			shift_ethic = ethic_materialist
+			if = {
+				limit = { is_egalitarian = yes }
+				shift_ethic = ethic_materialist
+			}
+			if = {
+				limit = { is_egalitarian = yes }
+				country_remove_ethic = ethic_egalitarian
+				country_add_ethic = ethic_xenophile
+			}
+		}
+		if = {
+			limit = { is_materialist = no }
+			shift_ethic = ethic_materialist
+		}
+		if = {
+			limit = { has_civic = civic_iron_despot }
+			change_government = {
+				authority = auth_dictatorial
+			}
+		}
+		else_if = {
+			limit = { has_civic = civic_corp_iron_despot }
+			change_government = {
+				authority = auth_private
+			}
+		}
+		event_target:Scientist_Dave = {
+			kill_leader = { show_notification = no }
+		}
+	}
+	
+	option = {
+		name = CURSES
+		tooltip = {
+			if = {
+				limit = { has_civic = civic_iron_despot }
+				change_government = {
+					authority = auth_dictatorial
+				}
+			}
+			else_if = {
+				limit = { has_civic = civic_corp_iron_despot }
+				change_government = {
+					authority = auth_private
+				}
+			}
+		}
+		custom_tooltip = civicsexpanded.45.a.tooltip
+	}
+}
+# Evil AI Shutdown
+country_event = {
+	id = civicsexpanded.46
+	title = "civicsexpanded.42.name"
+	desc = civicsexpanded.46.desc
+
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = root.leader
+		planet_background = root
+		graphical_culture = root
+		city_level = root
+		room = root
+	}
+	
+	option = {
+		name = civicsexpanded.46.a
+		country_event = { id = civicsexpanded.47 }
+	}
+}
+country_event = {
+	id = civicsexpanded.47
+	title = "civicsexpanded.42.name"
+	desc = civicsexpanded.47.desc
+
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = root.leader
+		planet_background = root
+		graphical_culture = root
+		city_level = root
+		room = root
+	}
+	
+	option = {
+		name = civicsexpanded.47.a
+		response_text = civicsexpanded.47.a.response
+		country_event = { id = civicsexpanded.48 }
+	}
+	option = {
+		name = civicsexpanded.47.b
+		response_text = civicsexpanded.47.b.response
+		custom_tooltip = civicsexpanded.47.b.tooltip
+		country_event = { id = civicsexpanded.45 }
+	}
+}
+
+# End of Evil AI Path
+country_event = {
+	id = civicsexpanded.48
+	title = "civicsexpanded.48.name"
+	desc = "civicsexpanded.48.desc"
+	picture = GFX_evt_announcement
+	show_sound = event_celebration
+	location = ROOT.capital_scope
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_civic = civic_iron_despot }
+			force_remove_civic = civic_iron_despot
+		}
+		else_if = {
+			limit = { has_civic = civic_corp_iron_despot }
+			force_remove_civic = civic_corp_iron_despot
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			if = {
+				limit = { has_civic = civic_iron_despot }
+				force_remove_civic = civic_iron_despot
+			}
+			else_if = {
+				limit = { has_civic = civic_corp_iron_despot }
+				force_remove_civic = civic_corp_iron_despot
+			}
+			ruler = { kill_leader = { show_notification = yes } }
+		}
+		custom_tooltip = civicsexpanded.48.a.tootip
+		add_resource = {
+			alloys = 500
+			engineering_research = 1750
+			influence = 125
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			ruler = { kill_leader = { show_notification = no } }
+		}
+	}
+}
+
+# Normal AI Path
+country_event = {
+	id = civicsexpanded.49
+	title = "civicsexpanded.42.name"
+	desc = civicsexpanded.49.desc
+
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = root.leader
+		planet_background = root
+		graphical_culture = root
+		city_level = root
+		room = root
+	}
+	
+	immediate = {
+		ruler = { save_event_target_as = Ruler_Hal }
+	}
+	
+	option = {
+		name = civicsexpanded.49.a
+		response_text = civicsexpanded.49.a.response
+		custom_tooltip = civicsexpanded.49.a.tooltip
+		hidden_effect = {
+			clone_leader = {
+				target = event_target:Ruler_Hal
+				class = governor
+				traits = {
+					trait = leader_trait_governor_iron_despot
+					trait = leader_trait_bureaucrat
+				}
+			}
+			last_created_leader = { add_ruler_trait = leader_trait_ruler_iron_despot }
+			country_event = { id = civicsexpanded.52 }
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.49.b
+		response_text = civicsexpanded.49.a.response
+		add_modifier = { modifier = iron_despot_administration days = -1 }
+		hidden_effect = {
+			country_event = { id = civicsexpanded.52 }
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.49.c
+		custom_tooltip = civicsexpanded.49.c.tooltip
+		hidden_effect = {
+			country_event = { id = civicsexpanded.43 }
+		}
+	}
+}
+
+country_event = {
+	id = civicsexpanded.50
+	title = "civicsexpanded.42.name"
+	desc = civicsexpanded.50.desc
+
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = root.leader
+		planet_background = root
+		graphical_culture = root
+		city_level = root
+		room = root
+	}
+	
+	option = {
+		name = civicsexpanded.46.a
+		country_event = { id = civicsexpanded.51 }
+	}
+	option = {
+		name = civicsexpanded.50.b
+		response_text = civicsexpanded.50.b.response
+		custom_tooltip = civicsexpanded.47.b.tooltip
+		country_event = { id = civicsexpanded.45 }
+	}
+}
+
+country_event = {
+	id = civicsexpanded.51
+	title = "civicsexpanded.42.name"
+	desc = civicsexpanded.51.desc
+
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = root.leader
+		planet_background = root
+		graphical_culture = root
+		city_level = root
+		room = root
+	}
+	
+	immediate = {
+		create_leader = {
+			class = scientist
+			species = owner_main_species
+			effect = {
+				save_event_target_as = plant_location
+				exile_leader_as = plant_location
+			}
+		}
+		create_leader = {
+			class = scientist
+			species = owner_main_species
+			effect = {
+				save_event_target_as = doctor_name
+				exile_leader_as = doctor_name
+			}
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.46.a
+		response_text = civicsexpanded.51.a.response
+		country_event = { id = civicsexpanded.48 }
+	}
+	option = {
+		name = civicsexpanded.50.b
+		response_text = civicsexpanded.50.b.response
+		custom_tooltip = civicsexpanded.47.b.tooltip
+		country_event = { id = civicsexpanded.45 }
+	}
+}
+
+# End of Normal AI Path
+country_event = {
+	id = civicsexpanded.52
+	title = "civicsexpanded.48.name"
+	desc = "civicsexpanded.52.desc"
+	picture = GFX_evt_announcement
+	show_sound = event_celebration
+	location = ROOT.capital_scope
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_civic = civic_iron_despot }
+			force_remove_civic = civic_iron_despot
+		}
+		else_if = {
+			limit = { has_civic = civic_corp_iron_despot }
+			force_remove_civic = civic_corp_iron_despot
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			if = {
+				limit = { has_civic = civic_iron_despot }
+				force_remove_civic = civic_iron_despot
+			}
+			else_if = {
+				limit = { has_civic = civic_corp_iron_despot }
+				force_remove_civic = civic_corp_iron_despot
+			}
+			ruler = { kill_leader = { show_notification = yes } }
+		}
+		add_resource = {
+			influence = 125
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			ruler = { kill_leader = { show_notification = no } }
+		}
+	}
+}
+
+# Fix leader not being machine
+country_event = {
+	id = civicsexpanded.53
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		create_species = {
+			is_mod = yes
+			name = NAME_Supercomputer
+			namelist = this
+			plural = NAME_Supercomputers
+			class = "ROBOT"
+			portrait = "ai_crisis_2"
+			traits = {
+				trait = "trait_mechanical"
+			}
+			
+			effect = {
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								is_authoritarian = yes
+								is_militarist = yes
+								is_xenophobe = yes
+							}
+						}
+					}
+					change_species_characteristics = { portrait = "ai_crisis_1" }
+				}
+				save_event_target_as = new_robotic_species
+			}
+		}
+		ruler = {
+			change_species = event_target:new_robotic_species
+			change_leader_portrait = species
+			add_trait = leader_trait_ruler_iron_despot
+			set_skill = 10
+			set_name = random
+		}
+	}
+}
+
+### Shroud-Pact ###
+#New leaders get Shroud Trait
+country_event = {
+	id = civicsexpanded.60
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_civic = civic_shroud_pact
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_owned_leader = {
+					OR = {
+						has_trait = leader_trait_governor_shroud_pact
+						has_trait = leader_trait_ruler_shroud_pact
+					}
+				}
+			}
+			random_owned_leader = {
+				limit = {
+					OR = {
+						has_trait = leader_trait_governor_shroud_pact
+						has_trait = leader_trait_ruler_shroud_pact
+					}
+				}
+				save_event_target_as = new_shroud_species
+			}
+		}
+		else = {
+			create_species = {
+				is_mod = yes
+				name = NAME_Shroud_Being
+				plural = NAME_Shroud_Beings
+				namelist = Extradimensional
+				class = EXD
+				portrait = exd1
+				traits = random
+				
+				effect = {
+					save_event_target_as = new_shroud_species
+				}
+			}
+		}
+		from = {
+			if = {
+				limit = {
+					leader_class = governor
+				}
+				change_species = event_target:new_shroud_species
+				change_leader_portrait = exd1
+				add_trait = leader_trait_governor_shroud_pact
+				add_ruler_trait = leader_trait_ruler_shroud_pact
+				set_skill = 5
+				set_name = random
+				break = yes
+			}
+			if = {
+				limit = {
+					leader_class = ruler
+				}
+				change_species = event_target:new_shroud_species
+				change_leader_portrait = species
+				add_trait = leader_trait_ruler_shroud_pact
+				add_ruler_trait = leader_trait_ruler_shroud_pact
+				set_skill = 5
+				set_name = random
+				break = yes
+			}
+		}
+	}
+}
+
+# Ethics Changed
+event = {
+	id = civicsexpanded.61
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_country = {
+			has_civic = civic_shroud_pact
+			exists = ruler
+			OR = {
+				has_authority = auth_democratic
+				is_megacorp = yes
+				has_ethic = ethic_fanatic_egalitarian
+				is_spiritualist = no
+				ruler = {
+					NOT = { has_trait = leader_trait_ruler_shroud_pact }
+				}
+				any_owned_leader = {
+					leader_class = governor
+					NOT = { has_trait = leader_trait_governor_shroud_pact }
+				}
+				any_pool_leader = {
+					leader_class = governor
+					NOT = { has_trait = leader_trait_governor_shroud_pact }
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					ruler = {
+						NOT = { has_trait = leader_trait_ruler_shroud_pact }
+					}
+					any_owned_leader = {
+						leader_class = governor
+						NOT = { has_trait = leader_trait_governor_shroud_pact }
+					}
+					any_pool_leader = {
+						leader_class = governor
+						NOT = { has_trait = leader_trait_governor_shroud_pact }
+					}
+				}
+			}
+			country_event = { id = civicsexpanded.62 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_authority = auth_democratic
+					is_megacorp = yes
+					has_ethic = ethic_fanatic_egalitarian
+					is_spiritualist = no
+				}
+				is_ai = yes
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_egalitarian }
+				shift_ethic = ethic_spiritualist
+			}
+			if = {
+				limit = { is_spiritualist = no }
+				shift_ethic = ethic_spiritualist
+			}
+			if = {
+				limit = {
+					has_authority = auth_democratic
+					is_megacorp = yes
+					is_egalitarian = yes
+				}
+				change_government = {
+					authority = auth_oligarchic
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_authority = auth_democratic
+					is_megacorp = yes
+					has_ethic = ethic_fanatic_egalitarian
+					is_spiritualist = no
+				}
+				is_ai = no
+			}
+			country_event = { id = civicsexpanded.63 }
+		}
+	}
+}
+country_event = {
+	id = civicsexpanded.62
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				any_owned_leader = {
+					OR = {
+						has_trait = leader_trait_governor_shroud_pact
+						has_trait = leader_trait_ruler_shroud_pact
+					}
+				}
+			}
+			random_owned_leader = {
+				limit = {
+					OR = {
+						has_trait = leader_trait_governor_shroud_pact
+						has_trait = leader_trait_ruler_shroud_pact
+					}
+				}
+				save_event_target_as = new_shroud_species
+			}
+		}
+		else = {
+			create_species = {
+				is_mod = yes
+				name = NAME_Shroud_Being
+				plural = NAME_Shroud_Beings
+				namelist = Extradimensional
+				class = EXD
+				portrait = exd1
+				traits = random
+				
+				effect = {
+					save_event_target_as = new_shroud_species
+				}
+			}
+		}
+		ruler = {
+			if = {
+				limit = { NOT = { has_trait = leader_trait_ruler_shroud_pact } }
+				change_species = event_target:new_shroud_species
+				change_leader_portrait = species
+				add_trait = leader_trait_ruler_shroud_pact
+				add_ruler_trait = leader_trait_ruler_shroud_pact
+				set_skill = 5
+				set_name = random
+			}
+		}
+		every_owned_leader = {
+			limit = {
+				leader_class = governor
+				NOT = { has_trait = leader_trait_governor_shroud_pact }
+			}
+			change_species = event_target:new_shroud_species
+			change_leader_portrait = exd1
+			add_trait = leader_trait_governor_shroud_pact
+			add_ruler_trait = leader_trait_ruler_shroud_pact
+			set_skill = 5
+			set_name = random
+		}
+		every_pool_leader = {
+			limit = {
+				leader_class = governor
+				NOT = { has_trait = leader_trait_governor_shroud_pact }
+			}
+			change_species = event_target:new_shroud_species
+			change_leader_portrait = exd1
+			add_trait = leader_trait_governor_shroud_pact
+			add_ruler_trait = leader_trait_ruler_shroud_pact
+			set_skill = 5
+			set_name = random
+		}
+	}
+}
+# Shroud Being Ultimatum
+country_event = {
+	id = civicsexpanded.63
+	title = "civicsexpanded.63.name"
+	desc = "civicsexpanded.63.desc"
+	picture = GFX_evt_psionics
+	show_sound = event_psionic
+	location = ROOT.capital_scope
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = civicsexpanded.63.a
+		if = {
+			limit = { has_ethic = ethic_fanatic_egalitarian }
+			shift_ethic = ethic_spiritualist
+		}
+		if = {
+			limit = { is_spiritualist = no }
+			shift_ethic = ethic_spiritualist
+		}
+		if = {
+			limit = {
+				has_authority = auth_democratic
+				is_megacorp = yes
+			}
+			change_government = {
+				authority = auth_oligarchic
+			}
+		}
+	}
+	option = {
+		name = civicsexpanded.63.b
+		force_remove_civic = civic_shroud_pact
+		custom_tooltip = civicsexpanded.63.b.tooltip
+		hidden_effect = {
+			every_owned_leader = {
+				limit = {
+					OR = {
+						has_trait = leader_trait_governor_shroud_pact
+						has_trait = leader_trait_ruler_shroud_pact
+					}
+				}
+				kill_leader = { show_notification = no }
+			}
+			every_pool_leader = {
+				limit = {
+					OR = {
+						has_trait = leader_trait_governor_shroud_pact
+						has_trait = leader_trait_ruler_shroud_pact
+					}
+				}
+				kill_leader = { show_notification = no }
+			}
+		}
+		set_timed_country_flag = {
+			flag = negative_shroud_outcome
+			days = 3600
+		}
+	}
+}
+
+### Holy Mountain ###
+# Holy Mountain Lost
+planet_event = {
+	id = civicsexpanded.70
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_deposit = d_holy_mountain
+		owner = {
+			has_origin = origin_holy_mountain
+			has_modifier = has_holy_mountain
+		}
+	}
+
+	immediate = {
+		owner = {
+			remove_modifier = has_holy_mountain
+			add_modifier = { modifier = lost_holy_mountain days = -1 }
+			country_event = { id = civicsexpanded.71 }
+		}
+	}
+}
+country_event = {
+	id = civicsexpanded.71
+	title = "civicsexpanded.71.name"
+	desc = {
+		trigger = {
+			NOR = {
+				has_country_flag = holy_mountain_destroyed
+				has_country_flag = holy_mountain_sheilded
+			}
+		}
+		text = "civicsexpanded.71.desc"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				has_country_flag = holy_mountain_destroyed
+				has_country_flag = holy_mountain_sheilded
+			}
+		}
+		text = "civicsexpanded.71.desc_b"
+	}
+	picture = GFX_evt_burning_settlement
+	show_sound = event_public_unrest
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "TERRIBLE"
+		trigger = {
+			NOR = {
+				has_country_flag = holy_mountain_destroyed
+				has_country_flag = holy_mountain_sheilded
+			}
+		}
+		tooltip = {
+			remove_modifier = has_holy_mountain
+			add_modifier = { modifier = lost_holy_mountain days = -1 }
+		}
+		custom_tooltip = civicsexpanded.71.a.tooltip
+	}
+	option = {
+		name = "civicsexpanded.71.b"
+		trigger = {
+			OR = {
+				has_country_flag = holy_mountain_destroyed
+				has_country_flag = holy_mountain_sheilded
+			}
+		}
+		tooltip = {
+			remove_modifier = has_holy_mountain
+			add_modifier = { modifier = lost_holy_mountain days = -1 }
+		}
+		custom_tooltip = civicsexpanded.71.b.tooltip
+	}
+}
+
+# Holy Mountain Regained (planet transfer)
+planet_event = {
+	id = civicsexpanded.72
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_deposit = d_holy_mountain
+		FROM = {
+			has_origin = origin_holy_mountain
+			has_modifier = lost_holy_mountain
+		}
+	}
+
+	immediate = {
+		FROM = {
+			remove_modifier = lost_holy_mountain
+			add_modifier = { modifier = has_holy_mountain days = -1 }
+			country_event = { id = civicsexpanded.74 }
+		}
+	}
+}
+# Holy Mountain Regained (recolonize)
+planet_event = {
+	id = civicsexpanded.73
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_deposit = d_holy_mountain
+		owner = {
+			has_origin = origin_holy_mountain
+			has_modifier = lost_holy_mountain
+		}
+	}
+
+	immediate = {
+		owner = {
+			remove_modifier = lost_holy_mountain
+			add_modifier = { modifier = has_holy_mountain days = -1 }
+			country_event = { id = civicsexpanded.74 }
+		}
+	}
+}
+country_event = {
+	id = civicsexpanded.74
+	title = "civicsexpanded.74.name"
+	desc = "civicsexpanded.74.desc"
+	picture = GFX_evt_announcement
+	show_sound = event_celebration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "PRAISE"
+		tooltip = {
+			remove_modifier = lost_holy_mountain
+			add_modifier = { modifier = has_holy_mountain days = -1 }
+		}
+	}
+}
+
+# Holy Mountain Cracked
+planet_event = {
+	id = civicsexpanded.75
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		exists = owner
+		has_deposit = d_holy_mountain
+		owner = {
+			has_origin = origin_holy_mountain
+			has_modifier = has_holy_mountain
+		}
+	}
+
+	immediate = {
+		remove_deposit = d_holy_mountain
+		from.owner = {
+			set_country_flag = holy_mountain_destroyer@root.owner
+		}
+		owner = {
+			set_country_flag = holy_mountain_destroyed
+			remove_modifier = has_holy_mountain
+			add_modifier = { modifier = lost_holy_mountain days = -1 }
+			country_event = { id = civicsexpanded.71 }
+		}
+	}
+}
+
+# Holy Mountain Sheilded
+planet_event = {
+	id = civicsexpanded.76
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		exists = owner
+		has_deposit = d_holy_mountain
+		owner = {
+			has_origin = origin_holy_mountain
+			has_modifier = has_holy_mountain
+		}
+	}
+
+	immediate = {
+		remove_deposit = d_holy_mountain
+		from.owner = {
+			set_country_flag = holy_mountain_destroyer@root.owner
+		}
+		owner = {
+			set_country_flag = holy_mountain_sheilded
+			remove_modifier = has_holy_mountain
+			add_modifier = { modifier = lost_holy_mountain days = -1 }
+			country_event = { id = civicsexpanded.71 }
+		}
+	}
+}
+
+
+# Holy Mountain Neutron Sweeped
+planet_event = {
+	id = civicsexpanded.77
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		exists = owner
+		has_deposit = d_holy_mountain
+		owner = {
+			has_origin = origin_holy_mountain
+			has_modifier = has_holy_mountain
+		}
+	}
+
+	immediate = {
+		owner = {
+			remove_modifier = has_holy_mountain
+			add_modifier = { modifier = lost_holy_mountain days = -1 }
+			country_event = { id = civicsexpanded.71 }
+		}
+	}
+}
+
+### Reanimated Armies ###
+# Spawns Undead Armies on Planet Won
+country_event = {
+	id = civicsexpanded.80
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_reanimated_armies
+		FROM = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		FROMFROM = {
+			any_owned_pop = {
+				NOR = {
+					has_trait = "trait_mechanical"
+					has_trait = "trait_machine_unit"
+					is_sapient = no
+				}
+			}
+		}
+	}
+
+	immediate = {
+		FROMFROM = {
+			every_owned_pop = {
+				limit = {
+					OR = {
+						has_job = soldier
+						has_job = necromancer
+						has_job = warrior_drone
+						has_job = pirate
+						has_job = enforcer
+						has_job = patrol_drone
+						has_job = enforcer_gestalt
+						has_job = slave_overseer
+					}
+					NOR = {
+						has_trait = "trait_mechanical"
+						has_trait = "trait_machine_unit"
+						is_sapient = no
+					}
+				}
+				PREV = {
+					create_army = {
+						owner = ROOT
+						species = prev.species
+						type = "undead_army"
+					}
+				}
+			}
+			every_owned_pop = {
+				limit = {
+					is_pop_category = ruler # approximation for planet development
+					NOR = {
+						has_trait = "trait_mechanical"
+						has_trait = "trait_machine_unit"
+						is_sapient = no
+					}
+				}
+				PREV = {
+					create_army = {
+						owner = ROOT
+						species = prev.species
+						type = "undead_army"
+					}
+					create_army = {
+						owner = ROOT
+						species = prev.species
+						type = "undead_army"
+					}
+				}
+			}
+			every_owned_pop = {
+				limit = {
+					has_job = synapse_drone # approximation for planet development
+					NOR = {
+						has_trait = "trait_mechanical"
+						has_trait = "trait_machine_unit"
+						is_sapient = no
+					}
+				}
+				PREV = {
+					create_army = {
+						owner = ROOT
+						species = prev.species
+						type = "undead_army"
+					}
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = civicsexpanded.81
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_reanimated_armies
+		FROM = {
+			is_robot_empire = no
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+
+	immediate = {
+		FROMFROM = {
+			while = {
+				count = 6
+				create_army = {
+					owner = ROOT
+					species = FROM.species
+					type = "undead_army"
+				}
+			}
+		}
+	}
+}
+
+### Scion ###
+# Task: Look for Probe
+country_event = {
+	id = civicsexpanded.85
+	title = TRANSMISSION
+	desc = "civicsexpanded.85.desc"
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:scion_master
+		planet_background = event_target:scion_master
+		graphical_culture = event_target:scion_master
+		city_level = event_target:scion_master
+		room = event_target:scion_master
+	}
+
+	immediate = {
+		overlord = {
+			save_event_target_as = scion_master
+			owner_species = { save_event_target_as = fe_species }
+		}
+		random_planet_within_border = {
+			limit = {
+				OR = {
+					is_planet_class = pc_barren
+					is_planet_class = pc_barren_cold
+					is_planet_class = pc_frozen
+				}
+				solar_system = {
+					NOR = {
+						has_star_flag = empire_cluster
+						has_star_flag = hostile_system
+					}
+					distance = {
+						source = ROOT.capital_scope
+						use_bypasses = no
+						min_jumps = 8
+					}
+				}
+			}
+			save_event_target_as = fe_probe_planet
+		}
+		set_country_flag = scion_lost_probe
+	}
+
+	option = {
+		name = civicsexpanded.85.q
+		response_text = civicsexpanded.85.q.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = civicsexpanded.85.a
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 2
+				has_ethic = ethic_xenophile
+			}			
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_xenophile
+			}	
+			modifier = {
+				factor = 2
+				has_ethic = ethic_materialist
+			}
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_materialist
+			}
+			modifier = {
+				factor = 2
+				is_machine_empire = yes
+			}
+			modifier = {
+				factor = 0.1
+				has_ethic = ethic_xenophobe
+			}
+			modifier = {
+				factor = 0.05
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			modifier = {
+				factor = 0.5
+				fleet_power > 10000
+			}
+		}
+		response_text = origin.27.a.response
+		enable_special_project = {
+			name = "FE_PROBE_PROJECT"
+			location = event_target:fe_probe_planet
+			owner = this
+		}
+	}
+	option = {
+		name = NOTIME
+		ai_chance = {
+			factor = 1
+		}
+		response_text = origin.27.b.response
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = { event_target:scion_master = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_request } } }
+	}
+}
+ship_event = {
+	id = civicsexpanded.86
+	title = "PROJECT_COMPLETE"
+	desc = "civicsexpanded.86.desc"
+	picture = GFX_evt_satellite_in_orbit
+	show_sound = event_ship_thrusters
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		owner = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+		}
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root.owner modifier = opinion_completed_fallen_empire_task }
+			}
+		}
+	}
+}
+
+# Task: Look for Contingency Base
+country_event = {
+	id = civicsexpanded.87
+	title = TRANSMISSION
+	desc = "civicsexpanded.87.desc"
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:scion_master
+		planet_background = event_target:scion_master
+		graphical_culture = event_target:scion_master
+		city_level = event_target:scion_master
+		room = event_target:scion_master
+	}
+
+	immediate = {
+		overlord = {
+			save_event_target_as = scion_master
+			owner_species = { save_event_target_as = fe_species }
+		}
+		random_planet_within_border = {
+			limit = {
+				OR = {
+					is_planet_class = pc_barren
+					is_planet_class = pc_barren_cold
+					is_planet_class = pc_frozen
+				}
+				solar_system = {
+					NOR = {
+						has_star_flag = empire_cluster
+						has_star_flag = hostile_system
+					}
+					distance = {
+						source = ROOT.capital_scope
+						use_bypasses = no
+						min_jumps = 8
+					}
+				}
+			}
+			save_event_target_as = fe_probe_planet
+		}
+		set_country_flag = scion_contingency_base
+	}
+
+	option = {
+		name = civicsexpanded.87.q
+		response_text = civicsexpanded.87.q.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = civicsexpanded.87.a
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 2
+				has_ethic = ethic_materialist
+			}
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_materialist
+			}
+			modifier = {
+				factor = 2
+				is_machine_empire = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_ethic = ethic_egalitarian
+			}			
+			modifier = {
+				factor = 0.25
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			modifier = {
+				factor = 0.25
+				has_ethic = ethic_xenophile
+			}			
+			modifier = {
+				factor = 0.1
+				has_ethic = ethic_fanatic_xenophile
+			}
+			modifier = {
+				factor = 0.5
+				fleet_power > 10000
+			}
+		}
+		response_text = civicsexpanded.87.a.response
+		enable_special_project = {
+			name = "FE_CONTINGENCY_PROJECT"
+			location = event_target:fe_probe_planet
+			owner = this
+		}
+	}
+	option = {
+		name = NOTIME
+		ai_chance = {
+			factor = 10
+		}
+		response_text = origin.26.b.response.machine
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = { event_target:scion_master = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_request } } }
+	}
+}
+ship_event = {
+	id = civicsexpanded.88
+	title = "PROJECT_COMPLETE"
+	desc = "civicsexpanded.88.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_alien_signal
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CURIOUS
+		owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+		}
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			set_global_flag = scion_contingency_ghost_signal
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root.owner modifier = opinion_completed_fallen_empire_task }
+			}
+		}
+	}
+}
+
+# Task: Biological Samples
+country_event = {
+	id = civicsexpanded.89
+	title = TRANSMISSION
+	desc = "civicsexpanded.89.desc"
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:scion_master
+		planet_background = event_target:scion_master
+		graphical_culture = event_target:scion_master
+		city_level = event_target:scion_master
+		room = event_target:scion_master
+	}
+
+	immediate = {
+		overlord = {
+			save_event_target_as = scion_master
+			owner_species = { save_event_target_as = fe_species }
+		}
+		random_planet_within_border = {
+			limit = {
+				OR = {
+					is_wet = yes
+					is_dry = yes
+					is_cold = yes
+				}
+				solar_system = {
+					NOR = {
+						has_star_flag = empire_cluster
+						has_star_flag = hostile_system
+					}
+					distance = {
+						source = ROOT.capital_scope
+						use_bypasses = no
+						min_jumps = 5
+					}
+				}
+			}
+			save_event_target_as = fe_probe_planet
+		}
+		set_country_flag = scion_bio_scans
+	}
+
+	option = {
+		name = origin.26.a
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 2
+				has_ethic = ethic_xenophile
+			}			
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_xenophile
+			}	
+			modifier = {
+				factor = 2
+				has_ethic = ethic_materialist
+			}
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_materialist
+			}				
+			modifier = {
+				factor = 2
+				is_machine_empire = yes
+			}
+			modifier = {
+				factor = 0.1
+				has_ethic = ethic_xenophobe
+			}
+			modifier = {
+				factor = 0.05
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			modifier = {
+				factor = 0.5
+				fleet_power > 10000
+			}
+		}
+		response_text = civicsexpanded.89.a.response
+		enable_special_project = {
+			name = "FE_BIO_SAMPLE_PROJECT"
+			location = event_target:fe_probe_planet
+			owner = this
+		}
+	}
+	option = {
+		name = NOTIME
+		ai_chance = {
+			factor = 1
+		}
+		response_text = civicsexpanded.89.b.response
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = { event_target:scion_master = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_request } } }
+	}
+	option = {
+		name = NOTIME
+		ai_chance = {
+			factor = 1
+		}
+		response_text = civicsexpanded.89.c.response
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = { event_target:scion_master = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_request } } }
+	}
+}
+ship_event = {
+	id = civicsexpanded.90
+	title = "PROJECT_COMPLETE"
+	desc = "civicsexpanded.90.desc"
+	picture = GFX_evt_animal_wildlife
+	show_sound = event_alien_nature
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = FASCINATING
+		FROMFROM = {
+			add_deposit = d_alien_pets_deposit
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			set_global_flag = scion_contingency_ghost_signal
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root.owner modifier = opinion_completed_fallen_empire_task }
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = {
+				FROMFROM = { has_modifier = "holy_planet" }
+				any_country = { has_country_flag = fallen_empire_2 }
+			}
+			FROMFROM = { save_event_target_as = defiled_holy_world }
+			owner = {
+				country_event = { id = civicsexpanded.93 days = 60 random = 90 }
+			}
+		}
+	}
+}
+ship_event = {
+	id = civicsexpanded.91
+	title = "PROJECT_COMPLETE"
+	desc = "civicsexpanded.91.desc"
+	picture = GFX_evt_animal_wildlife
+	show_sound = event_alien_nature
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = WORRYING
+		FROMFROM = {
+			add_deposit = d_dangerous_wildlife_blocker
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+		}
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			set_global_flag = scion_contingency_ghost_signal
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root.owner modifier = opinion_completed_fallen_empire_task }
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = {
+				FROMFROM = { has_modifier = "holy_planet" }
+				any_country = { has_country_flag = fallen_empire_2 }
+			}
+			FROMFROM = { save_event_target_as = defiled_holy_world }
+			owner = {
+				country_event = { id = civicsexpanded.93 days = 60 random = 90 }
+			}
+		}
+	}
+}
+ship_event = {
+	id = civicsexpanded.92
+	title = "PROJECT_COMPLETE"
+	desc = "civicsexpanded.92.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_primitive_civilization
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = { set_country_flag = upl_ongoing_generic }
+		owner = { set_country_flag = found_presapients }
+		owner = { country_event = { id = tutorial.57 days = 5 } }
+		owner = { country_event = { id = story.4 days = 30 } }
+		FROMFROM = {
+			set_planet_flag = upl_ongoing_planet
+			random_list = {
+				15 = {
+					create_species = {
+						name = random
+						class = "PRE_MAM"
+						portrait = random
+						traits = {
+							trait = random_presapient_trait
+						}
+						homeworld = FROM
+						sapient = no
+					}
+				}
+				15 = {
+					create_species = {
+						name = random
+						class = "PRE_REP"
+						portrait = random
+						traits = {
+							trait = random_presapient_trait
+						}
+						homeworld = FROM
+						sapient = no
+					}
+				}
+				15 = {
+					create_species = {
+						name = random
+						class = "PRE_AVI"
+						portrait = random
+						traits = {
+							trait = random_presapient_trait
+						}
+						homeworld = FROM
+						sapient = no
+					}
+				}
+				15 = {
+					create_species = {
+						name = random
+						class = "PRE_ART"
+						portrait = random
+						traits = {
+							trait = random_presapient_trait
+						}
+						homeworld = FROM
+						sapient = no
+					}
+				}
+				15 = {
+					create_species = {
+						name = random
+						class = "PRE_MOL"
+						portrait = random
+						traits = {
+							trait = random_presapient_trait
+						}
+						homeworld = FROM
+						sapient = no
+					}
+				}
+				15 = {
+					create_species = {
+						name = random
+						class = "PRE_FUN"
+						portrait = random
+						traits = {
+							trait = random_presapient_trait
+						}
+						homeworld = FROM
+						sapient = no
+					}
+				}
+			}
+			while = {
+				count = 3
+				create_pop = { species = last_created }
+			}
+		}
+	}
+	
+	option = {
+		name = FASCINATING
+		custom_tooltip = civicsexpanded.92.a.tooltip
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			set_global_flag = scion_contingency_ghost_signal
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root.owner modifier = opinion_completed_fallen_empire_task }
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = {
+				FROMFROM = { has_modifier = "holy_planet" }
+				any_country = { has_country_flag = fallen_empire_2 }
+			}
+			FROMFROM = { save_event_target_as = defiled_holy_world }
+			owner = {
+				country_event = { id = civicsexpanded.93 days = 60 random = 90 }
+			}
+		}
+	}
+}
+country_event = {
+	id = civicsexpanded.93
+	title = TRANSMISSION
+	desc = "civicsexpanded.93.desc"
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:angry_spiritualists
+		planet_background = event_target:angry_spiritualists
+		graphical_culture = event_target:angry_spiritualists
+		city_level = event_target:angry_spiritualists
+		room = event_target:angry_spiritualists
+	}
+
+	immediate = {
+		random_country = {
+			limit = { has_country_flag = fallen_empire_2 }
+			save_event_target_as = angry_spiritualists
+		}
+		overlord = {
+			save_event_target_as = scion_master
+		}
+	}
+
+	option = {
+		name = civicsexpanded.93.a
+		response_text = civicsexpanded.93.a.response
+		event_target:angry_spiritualists = {
+			add_opinion_modifier = { modifier = opinion_scion_defiled_holy_world who = ROOT }
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.93.b
+		response_text = civicsexpanded.93.b.response
+		event_target:angry_spiritualists = {
+			add_opinion_modifier = { modifier = opinion_scion_defiled_holy_world who = ROOT }
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.93.c
+		trigger = {
+			is_materialist = yes
+		}
+		response_text = civicsexpanded.93.c.response
+		event_target:angry_spiritualists = {
+			add_opinion_modifier = { modifier = opinion_scion_defiled_holy_world who = ROOT }
+		}
+	}
+	option = {
+		name = civicsexpanded.93.d
+		trigger = {
+			is_machine_empire = yes
+		}
+		response_text = civicsexpanded.93.d.response
+		event_target:angry_spiritualists = {
+			add_opinion_modifier = { modifier = opinion_scion_defiled_holy_world who = ROOT }
+		}
+	}
+}
+
+# Missionaries
+country_event = {
+	id = civicsexpanded.94
+	title = TRANSMISSION
+	desc = "civicsexpanded.94.desc"
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:scion_master
+		planet_background = event_target:scion_master
+		graphical_culture = event_target:scion_master
+		city_level = event_target:scion_master
+		room = event_target:scion_master
+	}
+
+	immediate = {
+		overlord = {
+			save_event_target_as = scion_master
+			owner_species = { save_event_target_as = fe_species }
+		}
+		set_country_flag = scion_missionaries
+	}
+
+	option = {
+		name = civicsexpanded.94.a
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 2
+				has_ethic = ethic_xenophile
+			}			
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_xenophile
+			}	
+			modifier = {
+				factor = 0.1
+				has_ethic = ethic_materialist
+			}
+			modifier = {
+				factor = 0.01
+				has_ethic = ethic_fanatic_materialist
+			}				
+			modifier = {
+				factor = 0.1
+				has_ethic = ethic_xenophobe
+			}
+			modifier = {
+				factor = 0.01
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			modifier = {
+				factor = 0.5
+				fleet_power > 10000
+			}
+		}
+		response_text = civicsexpanded.94.a.response
+		add_modifier = { modifier = scion_missionaries days = -1 }
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			random_owned_pop = { pop_change_ethic = ethic_spiritualist }
+			random_owned_pop = { pop_change_ethic = ethic_spiritualist }
+			random_owned_pop = { pop_change_ethic = ethic_spiritualist }
+			random_owned_pop = { pop_change_ethic = ethic_spiritualist }
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root modifier = opinion_accepted_fallen_empire_request }
+			}
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.94.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_spiritualist = yes
+				NOT = { has_ethic = ethic_fanatic_xenophobe }
+			}
+		}
+		response_text = civicsexpanded.94.b.response
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = { event_target:scion_master = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_request } } }
+	}
+}
+
+# Mainframe Beta-3
+country_event = {
+	id = civicsexpanded.95
+	title = TRANSMISSION
+	desc = "civicsexpanded.95.desc"
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:scion_master
+		planet_background = event_target:scion_master
+		graphical_culture = event_target:scion_master
+		city_level = event_target:scion_master
+		room = event_target:scion_master
+	}
+
+	immediate = {
+		overlord = {
+			save_event_target_as = scion_master
+			owner_species = { save_event_target_as = fe_species }
+		}
+		set_country_flag = scion_debugging
+	}
+
+	option = {
+		name = origin.26.a
+		ai_chance = {
+			factor = 90
+		}
+		response_text = civicsexpanded.95.a.response
+		capital_scope = {
+			enable_special_project = {
+				name = "FE_DEBUGGING_PROJECT"
+				location = this
+				owner = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = NOTIME
+		ai_chance = {
+			factor = 10
+		}
+		response_text = civicsexpanded.95.b.response
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = { event_target:scion_master = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_request } } }
+	}
+}
+planet_event = {
+	id = civicsexpanded.96
+	title = "PROJECT_COMPLETE"
+	desc = {
+		text = "civicsexpanded.96.desc"
+		trigger = { NOT = { has_country_flag = fixed_fallen_machine_empire } }
+	}
+	desc = {
+		text = "civicsexpanded.96.desc_fix"
+		trigger = { has_country_flag = fixed_fallen_machine_empire }
+	}
+	picture = GFX_evt_glitchy_matrix
+	show_sound = event_alien_signal
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = {
+			overlord = {
+				save_event_target_as = scion_master
+				owner_species = { save_event_target_as = fe_species }
+			}
+		}
+		if = {
+			limit = {
+				event_target:scion_master = { has_country_flag = fallen_machine_empire_awaken_2 }
+			}
+			random_list = {
+				1 = {
+					event_target:scion_master = {
+						remove_country_flag = fallen_machine_empire_awaken_2
+						set_country_flag = fallen_machine_empire_awaken_1
+					}
+					owner = {
+						set_country_flag = fixed_fallen_machine_empire
+						set_global_flag = fixed_fallen_machine_empire
+					}
+				}
+				2 = { }
+			}
+		}
+	}
+	
+	option = {
+		name = OK
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			set_global_flag = scion_contingency_ghost_signal
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root.owner modifier = opinion_completed_fallen_empire_task }
+			}
+		}
+	}
+}
+
+# Study Hive Pops
+country_event = {
+	id = civicsexpanded.97
+	title = TRANSMISSION
+	desc = {
+		text = "civicsexpanded.97.desc_a"
+		trigger = { event_target:scion_master = { has_country_flag = fallen_empire_1 } }
+	}
+	desc = {
+		text = "civicsexpanded.97.desc_b"
+		trigger = { event_target:scion_master = { has_country_flag = fallen_empire_3 } }
+	}
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:scion_master
+		planet_background = event_target:scion_master
+		graphical_culture = event_target:scion_master
+		city_level = event_target:scion_master
+		room = event_target:scion_master
+	}
+
+	immediate = {
+		overlord = {
+			save_event_target_as = scion_master
+			owner_species = { save_event_target_as = fe_species }
+		}
+		set_country_flag = scion_hive_study
+		random_owned_planet = {
+			limit = {
+				count_pops = { limit = { pop_has_trait = trait_hive_mind } count > 20 }
+			}
+			save_event_target_as = fe_hive_planet
+		}
+	}
+
+	option = {
+		name = civicsexpanded.97.a
+		ai_chance = {
+			factor = 45
+		}
+		response_text = civicsexpanded.97.a.response
+		custom_tooltip = civicsexpanded.97.a.tooltip
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root modifier = opinion_accepted_fallen_empire_request }
+			}
+			event_target:fe_hive_planet = {
+				random_pop = {
+					limit = { pop_has_trait = trait_hive_mind }
+					kill_pop = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.97.b
+		ai_chance = {
+			factor = 45
+		}
+		response_text = civicsexpanded.97.b.response
+		event_target:fe_hive_planet = {
+			add_modifier = { modifier = scion_studying_hive_mind days = 3600 }
+		}
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = {
+			event_target:scion_master = {
+				add_opinion_modifier = { who = root modifier = opinion_accepted_fallen_empire_request }
+			}
+		}
+	}
+	
+	option = {
+		name = civicsexpanded.97.c
+		ai_chance = {
+			factor = 10
+		}
+		response_text = civicsexpanded.97.c.response
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = {
+			
+			event_target:scion_master = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_request } }
+		}
+	}
+}
+
+### Doomsday ###
+country_event = {
+	id = civicsexpanded.37
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_origin = origin_doomsday
+		is_ai = yes
+		NOT = { any_owned_planet = { is_doomed_planet = no } }
+		any_owned_planet = {
+			OR = {
+				has_modifier = doomsday_3
+				has_modifier = doomsday_4
+				has_modifier = doomsday_5
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				any_planet_within_border = {
+					is_colonizable = yes
+					is_doomed_planet = no
+					is_under_colonization = no
+					is_colony = no
+					habitability = { who = root.owner_species value >= 0.4 }
+					NOT = { has_modifier = holy_planet } # a different kind of suicide
+				}
+			}
+			random_planet_within_border = {
+				limit = {
+					is_colonizable = yes
+					is_doomed_planet = no
+					is_under_colonization = no
+					is_colony = no
+					habitability = { who = root.owner_species value >= 0.4 }
+					NOT = { has_modifier = holy_planet } # a different kind of suicide
+				}
+				create_colony = { owner = ROOT species = ROOT.owner_species ethos = ROOT }
+			}
+		}
+	}
+}

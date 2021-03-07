@@ -1,0 +1,16 @@
+trait_virtualized_synth = {
+    cost = 0
+    allowed_archetypes = {
+        ROBOT
+    }
+    sorting_priority = 20
+    initial = no
+    randomized = no
+    modification = no
+    modifier = {
+        pop_housing_usage_add = -0.2
+    }
+    slave_cost = {
+        energy = 500
+    }
+}

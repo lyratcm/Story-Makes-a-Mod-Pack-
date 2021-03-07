@@ -1,0 +1,13 @@
+planet_branch_offices = {
+    parent = planets
+    generate_mult_modifiers = {
+        cost
+        upkeep
+        produces
+    }
+    generate_add_modifiers = {
+        cost
+        upkeep
+        produces
+    }
+}

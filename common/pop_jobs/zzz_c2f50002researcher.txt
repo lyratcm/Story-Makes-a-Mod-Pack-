@@ -1,0 +1,261 @@
+researcher = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_research_lab_1
+    clothes_texture_index = 3
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        complex_specialist_job_check_trigger = yes
+        OR = {
+            traits_restrict_specialist_jobs = no
+            has_pop_flag = allow_researcher_traits
+        }
+    }
+    resources = {
+        category = planet_researchers
+        produces = {
+            physics_research = 4
+            engineering_research = 4
+            society_research = 4
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    or = {
+                        has_valid_civic = civic_technocracy
+                        has_valid_civic = civic_cyber_dictatorship
+                        has_valid_civic = civic_science_directorate
+                        has_valid_civic = civic_cyber_demos_cratos
+                    }
+                }
+            }
+            unity = 1
+        }
+        upkeep = {
+            consumer_goods = 2
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_edict = research_subsidies
+                }
+            }
+            energy = 1
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            is_enslaved = no
+            owner = {
+                has_edict = research_subsidies
+            }
+        }
+        modifier = {
+            pop_political_power = 1
+            pop_happiness = 0.05
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            is_enslaved = no
+            owner = {
+                has_edict = research_subsidies
+                is_materialist = yes
+            }
+        }
+        modifier = {
+            pop_happiness = 0.05
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            is_enslaved = no
+            owner = {
+                OR = {
+                    has_valid_civic = civic_technocracy
+                    has_valid_civic = civic_technocracy_corp
+                }
+            }
+        }
+        modifier = {
+            pop_political_power = 1
+            pop_happiness = 0.05
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            factor = 4
+            has_trait = trait_living_architecture
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_clever
+        }
+        modifier = {
+            factor = 0.2
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 2
+            has_living_standard = {
+                type = living_standard_academic_privilege
+            }
+        }
+        modifier = {
+            factor = 3
+            has_trait = trait_erudite
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_robot_logic_engines
+                has_trait = trait_intelligent
+                has_trait = trait_enigmatic_intelligence
+                has_trait = trait_enigmatic_intelligence_poor
+                has_trait = trait_presapient_natural_intellectuals
+                has_trait = trait_mem_surveyor_freebotomites
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_brainslug
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_psionic
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_latent_psionic
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_natural_engineers
+                has_trait = trait_natural_physicists
+                has_trait = trait_natural_sociologists
+            }
+        }
+        modifier = {
+            factor = 0.1
+            can_take_servant_job = yes
+        }
+        modifier = {
+            factor = 0.65
+            OR = {
+                has_trait = trait_syncretic_proles
+                has_trait = trait_presapient_proles
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_job = researcher
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_latent_psionic
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_psionic
+        }
+        modifier = {
+            factor = 0.1
+            has_trait = trait_enigmatic_intelligence_failed
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_enigmatic_intelligence
+                has_trait = trait_enigmatic_intelligence_poor
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_presapient_natural_intellectuals
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 0.1
+            has_trait = trait_enigmatic_intelligence_failed
+        }
+        modifier = {
+            factor = 2
+            is_unemployed = yes
+            is_pop_category = specialist
+        }
+        modifier = {
+            factor = 0.8
+            is_enslaved = yes
+            exists = planet
+            OR = {
+                has_slavery_type = {
+                    type = slavery_indentured
+                }
+                planet = {
+                    OR = {
+                        owner = {
+                            has_valid_civic = civic_slaver_guilds
+                        }
+                        owner = {
+                            has_valid_civic = civic_indentured_assets
+                        }
+                    }
+                }
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_void_dweller_1
+        }
+        modifier = {
+            factor = 0.95
+            has_citizenship_type = {
+                type = citizenship_limited
+            }
+            NOT = {
+                has_job = researcher
+            }
+        }
+        modifier = {
+            factor = 0
+            has_living_standard = {
+                type = living_standard_chemical_bliss
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_necrophage
+        }
+        modifier = {
+            factor = 0.1
+            has_trait = trait_delicate
+            is_enslaved = yes
+        }
+    }
+}

@@ -1,0 +1,60 @@
+decision_ark_project = {
+	owned_planets_only = yes
+	sound = event_construction
+	icon = decision_ark_project
+	
+	enactment_time = 1080
+	resources = {
+		category = decisions
+		cost = {
+			alloys = 1000
+			food = 2000
+			consumer_goods = 1000
+		}
+	}
+	
+	potential = {
+		OR = {
+			has_modifier = apocalypse
+			has_modifier = moon_collision
+			has_modifier = moon_fall
+			has_modifier = orbit_reduction
+			has_modifier = orbit_increase
+			has_modifier = volcanic_activity
+			has_modifier = secret_disaster
+			has_modifier = doomsday_1
+			has_modifier = doomsday_2
+			has_modifier = doomsday_3
+			has_modifier = doomsday_4
+			has_modifier = doomsday_5
+			solar_system = { has_star_flag = star_disaster }
+		}
+		OR = {
+			owner = { num_owned_planets = 1 }
+			AND = {
+				owner = { num_owned_planets > 1 }
+				owner = { any_owned_planet = { solar_system = { has_star_flag = star_disaster } } }
+				owner = { NOT = { any_owned_planet = { solar_system = { NOT = { has_star_flag = star_disaster } } } } }
+			}
+		}
+	}
+	
+	allow = {
+		is_controlled_by = owner
+		has_ground_combat = no
+		has_orbital_bombardment = no
+	}
+	
+	effect = {
+		custom_tooltip = decision_ark_project_effect_desc
+		hidden_effect = {
+			owner = {
+				country_event = { id = newfrontiers_decision_event.2 days = 1 }
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

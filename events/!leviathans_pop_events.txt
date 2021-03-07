@@ -1,0 +1,759 @@
+#################################
+### Leviathan & Enclave Events###
+### by Maximilian Olbers	  ###
+### & Niclas Karlsson		  ###
+### & Rufus Tronde			  ###
+### & Henrik Thyrwall			  ###
+#################################
+
+namespace = leviathans
+
+# Trader Destroyed (HIDDEN)
+country_event = {
+	id = leviathans.140
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = enclave
+		has_country_flag = trader_enclave_country
+		FROMFROM = { 
+			is_ship_size = enclave_station
+		}
+	}
+	
+	immediate = {
+		FROMFROM = {
+			solar_system = { save_event_target_as = trader_system }
+		}
+		FROM = { 
+			country_event = { id = leviathans.141 }
+			save_event_target_as = trader_destroyer
+		}
+		every_country = {
+			limit = {
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_communications = ROOT
+				NOT = { is_country = event_target:trader_destroyer }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_1 }
+				}
+				country_event = { id = leviathans.142 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_2 }
+				}
+				country_event = { id = leviathans.143 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_3 }
+				}
+				country_event = { id = leviathans.144 }
+			}
+		}
+		random_playable_country = {
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_1 }
+				}
+				observer_event = { id = observer.8 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_2 }
+				}
+				observer_event = { id = observer.9 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_3 }
+				}
+				observer_event = { id = observer.10 }
+			}
+		}
+		random_playable_country = {
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_1 }
+				}
+				observer_event = { id = observer.8 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_2 }
+				}
+				observer_event = { id = observer.9 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_3 }
+				}
+				observer_event = { id = observer.10 }
+			}
+		}
+		species = {
+			save_event_target_as = enclave_species
+		}
+		random_country = {
+			limit = {
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_communications = ROOT
+				NOT = { is_country = event_target:trader_destroyer }
+				NOT = { has_country_flag = destroyed_trader }
+				NOT = { has_country_flag = enclave_artist_ignores }
+				NOT = { has_country_flag = destroyed_artist }
+				NOT = { has_country_flag = attacked_curators }
+				NOT = { has_country_flag = destroyed_curator }
+				NOT = { has_ethic = ethic_fanatic_xenophobe }
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_policy_flag = refugees_not_allowed }
+				any_owned_planet = {
+					is_colony = yes
+					is_under_colonization = no
+					habitability = { who = event_target:enclave_species value > 0.45 }
+				}
+			}
+			weights = {
+				base = 1
+				modifier = { 
+					add = 3
+					is_ai = no
+				}
+				modifier = { 
+					add = 5
+					allows_slavery = no
+				}
+				modifier = { 
+					add = 10
+					is_xenophile = yes
+				}
+				modifier = { 
+					add = 10
+					is_pacifist = yes
+				}
+				modifier = { 
+					add = 1000
+					FROMFROM = {
+						solar_system = {
+							space_owner = {
+								is_same_value = PREVPREVPREV
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_1 }
+				}
+				set_country_flag = refugee_trader_enclave_country_1
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_2 }
+				}
+				set_country_flag = refugee_trader_enclave_country_2
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_3 }
+				}
+				set_country_flag = refugee_trader_enclave_country_3
+			}
+			random_owned_planet = {
+				limit = {
+					is_colony = yes
+					is_under_colonization = no
+					habitability = { who = event_target:enclave_species value > 0.45 }
+				}
+				weights = {
+					base = 1
+					modifier = { 
+						add = 5
+						free_housing > 0
+					}
+					modifier = { 
+						add = 10
+						free_housing > 1
+					}
+				}
+				planet_event = { id = refugeeexpanded.8 }
+				create_pop = {
+					species = event_target:enclave_species
+					ethos = {
+						ethic = "ethic_pacifist"
+					}
+				}
+				create_pop = {
+					species = event_target:enclave_species
+					ethos = {
+						ethic = "ethic_pacifist"
+					}
+				}
+			}
+		}
+	}
+}
+
+# Any Trader Destroyed (Destroyer)
+country_event = {
+	id = leviathans.141
+	title = "leviathans.141"
+	desc = "leviathans.141.desc"
+	picture = GFX_evt_space_debris
+	location = event_target:trader_system
+	show_sound = event_ship_bridge
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = destroyed_trader
+		every_country = {
+			limit = {
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				NOR = {
+					is_same_value = root
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_destroyed_trader
+			}
+		}
+		remove_enclave_resource_trades = yes
+		remove_relation_flag = {
+			who = FROM
+			flag = enclave_resource_trade 
+		}
+		if = {
+			limit = { FROM = { has_country_flag = trader_enclave_country_1 } }
+			remove_xuracorp_trades = yes
+			remove_relation_flag = {
+				who = FROM
+				flag = xuracorp_trade 
+			}
+		}
+		else_if = {
+			limit = { FROM = { has_country_flag = trader_enclave_country_2 } }
+			remove_riggan_trades = yes
+			remove_relation_flag = {
+				who = FROM
+				flag = riggan_trade 
+			}
+		}
+		else_if = {
+			limit = { FROM = { has_country_flag = trader_enclave_country_3 } }
+			remove_muutagan_trades = yes
+			remove_relation_flag = {
+				who = FROM
+				flag = muutagan_trade 
+			}
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		add_resource = {
+			minerals = 2000
+			energy = 2000
+		}
+	}
+}
+
+# XuraCorp Destroyed
+country_event = {
+	id = leviathans.142
+	title = "leviathans.141"
+	desc = {
+		text = leviathans.142.a.desc
+		trigger = {
+			NOT = {
+				has_relation_flag = { 
+					who = FROM
+					flag = xuracorp_trade 
+				}
+			}
+			has_communications = event_target:trader_destroyer
+		}
+	}
+	desc = {
+		text = leviathans.142.b.desc
+		trigger = {
+			NOT = { 
+				has_relation_flag = { 
+					who = FROM
+					flag = xuracorp_trade 
+				}
+			}
+			NOT = { has_communications = event_target:trader_destroyer }
+		}
+	}
+	desc = {
+		text = leviathans.142.c.desc
+		trigger = {
+			has_relation_flag = { 
+				who = FROM
+				flag = xuracorp_trade 
+			}
+			has_communications = event_target:trader_destroyer
+		}
+	}
+	desc = {
+		text = leviathans.142.d.desc
+		trigger = {
+			has_relation_flag = { 
+				who = FROM
+				flag = xuracorp_trade 
+			}
+			NOT = { has_communications = event_target:trader_destroyer }
+		}
+	}
+	picture = GFX_evt_exploding_ship
+	location = event_target:trader_system
+	show_sound = event_ship_explosion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = xuracorp_destroyed
+		remove_xuracorp_trades = yes
+		remove_enclave_resource_trades = yes
+		remove_relation_flag = {
+			who = FROM
+			flag = enclave_resource_trade 
+		}
+		remove_relation_flag = {
+			who = FROM
+			flag = xuracorp_trade 
+		}
+	}
+	
+	option = {
+		name = "leviathans.142.a"
+	}
+}
+
+# Riggans Destroyed
+country_event = {
+	id = leviathans.143
+	title = "leviathans.141"
+	desc = {
+		text = leviathans.143.a.desc
+		trigger = {
+			NOT = {
+				has_relation_flag = { 
+					who = FROM
+					flag = riggan_trade 
+				}
+			}
+			has_communications = event_target:trader_destroyer
+		}
+	}
+	desc = {
+		text = leviathans.143.b.desc
+		trigger = {
+			NOT = { 
+				has_relation_flag = { 
+					who = FROM
+					flag = riggan_trade 
+				}
+			}
+			NOT = { has_communications = event_target:trader_destroyer }
+		}
+	}
+	desc = {
+		text = leviathans.143.c.desc
+		trigger = {
+			has_relation_flag = { 
+				who = FROM
+				flag = riggan_trade 
+			}
+			has_communications = event_target:trader_destroyer
+		}
+	}
+	desc = {
+		text = leviathans.143.d.desc
+		trigger = {
+			has_relation_flag = { 
+				who = FROM
+				flag = riggan_trade 
+			}
+			NOT = { has_communications = event_target:trader_destroyer }
+		}
+	}
+	picture = GFX_evt_exploding_ship
+	location = event_target:trader_system
+	show_sound = event_ship_explosion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = riggans_destroyed
+		remove_riggan_trades = yes
+		remove_enclave_resource_trades = yes
+		remove_relation_flag = {
+			who = FROM
+			flag = enclave_resource_trade 
+		}
+		remove_relation_flag = {
+			who = FROM
+			flag = riggan_trade 
+		}
+	}
+	
+	option = {
+		name = "leviathans.143.a"
+	}
+}
+
+# Muutagans Destroyed
+country_event = {
+	id = leviathans.144
+	title = "leviathans.141"
+	desc = {
+		text = leviathans.144.a.desc
+		trigger = {
+			NOT = {
+				has_relation_flag = { 
+					who = FROM
+					flag = muutagan_trade 
+				}
+			}
+			has_communications = event_target:trader_destroyer
+		}
+	}
+	desc = {
+		text = leviathans.144.b.desc
+		trigger = {
+			NOT = { 
+				has_relation_flag = { 
+					who = FROM
+					flag = muutagan_trade 
+				}
+			}
+			NOT = { has_communications = event_target:trader_destroyer }
+		}
+	}
+	desc = {
+		text = leviathans.144.c.desc
+		trigger = {
+			has_relation_flag = { 
+				who = FROM
+				flag = muutagan_trade 
+			}
+			has_communications = event_target:trader_destroyer
+		}
+	}
+	desc = {
+		text = leviathans.144.d.desc
+		trigger = {
+			has_relation_flag = { 
+				who = FROM
+				flag = muutagan_trade 
+			}
+			NOT = { has_communications = event_target:trader_destroyer }
+		}
+	}
+	picture = GFX_evt_exploding_ship
+	location = event_target:trader_system
+	show_sound = event_ship_explosion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = muutagans_destroyed
+		remove_muutagan_trades = yes
+		remove_enclave_resource_trades = yes
+		remove_relation_flag = {
+			who = FROM
+			flag = enclave_resource_trade 
+		}
+		remove_relation_flag = {
+			who = FROM
+			flag = muutagan_trade 
+		}
+	}
+	
+	option = {
+		name = "leviathans.144.a"
+	}
+}
+
+# Artist Destroyed (HIDDEN)
+country_event = {
+	id = leviathans.331
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = artist_enclave_country
+	}
+
+	immediate = {
+		fromfrom = {
+			remove_fleet_flag = artist_enclave_station
+			solar_system = {
+				remove_star_flag = guardians_artists_system
+				save_event_target_as = destroyed_station_location
+			}
+			if = { #Change capital
+				limit = { is_custom_capital_location = yes }
+				owner = {
+					random_owned_fleet = {
+						limit = { has_fleet_flag = artist_enclave_station }
+						save_event_target_as = newCustomCapital
+					}
+					set_custom_capital_location = event_target:newCustomCapital
+				}
+			}
+		}
+		every_playable_country = {
+			limit = {
+				has_communications = root
+				NOT = { is_same_value = from }
+			}
+			if = {
+				limit = {
+					fromfrom = {
+						owner = {
+							any_owned_fleet = {
+								has_fleet_flag = artist_enclave_station
+							}
+						}
+					}
+				}
+				country_event = { id = leviathans.332 }
+			}
+			else = {
+				country_event = { id = leviathans.333 }
+			}
+		}
+		random_playable_country = {
+			if = {
+				limit = {
+					fromfrom = {
+						owner = {
+							any_owned_fleet = {
+								has_fleet_flag = artist_enclave_station
+							}
+						}
+					}
+				}
+				observer_event = { id = observer.11 }
+			}
+			else = {
+				observer_event = { id = observer.12 }
+			}
+		}
+		species = {
+			save_event_target_as = enclave_species
+		}
+		random_country = {
+			limit = {
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_communications = ROOT
+				NOT = { is_country = event_target:trader_destroyer }
+				NOT = { has_country_flag = destroyed_trader }
+				NOT = { has_country_flag = enclave_artist_ignores }
+				NOT = { has_country_flag = destroyed_artist }
+				NOT = { has_country_flag = attacked_curators }
+				NOT = { has_country_flag = destroyed_curator }
+				NOT = { has_ethic = ethic_fanatic_xenophobe }
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_policy_flag = refugees_not_allowed }
+				any_owned_planet = {
+					is_colony = yes
+					is_under_colonization = no
+					habitability = { who = event_target:enclave_species value > 0.45 }
+				}
+			}
+			weights = {
+				base = 1
+				modifier = { 
+					add = 3
+					is_ai = no
+				}
+				modifier = { 
+					add = 5
+					allows_slavery = no
+				}
+				modifier = { 
+					add = 20
+					is_xenophile = yes
+				}
+				modifier = { 
+					add = 1000
+					FROMFROM = {
+						solar_system = {
+							space_owner = {
+								is_same_value = PREVPREVPREV
+							}
+						}
+					}
+				}
+			}
+			set_country_flag = refugee_artist_troupe
+			random_owned_planet = {
+				limit = {
+					is_colony = yes
+					is_under_colonization = no
+					habitability = { who = event_target:enclave_species value > 0.45 }
+				}
+				weights = {
+					base = 1
+					modifier = { 
+						add = 5
+						free_housing > 0
+					}
+					modifier = { 
+						add = 10
+						free_housing > 1
+					}
+				}
+				planet_event = { id = refugeeexpanded.9 }
+				create_pop = {
+					species = event_target:enclave_species
+					ethos = {
+						ethic = "ethic_xenophile"
+					}
+				}
+				create_pop = {
+					species = event_target:enclave_species
+					ethos = {
+						ethic = "ethic_xenophile"
+					}
+				}
+			}
+		}
+	}
+}
+
+# Curator Destroyed (HIDDEN)
+country_event = {
+	id = leviathans.592
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = enclave
+		has_country_flag = curator_enclave_country
+		FROMFROM = { 
+			is_ship_size = enclave_station
+		}
+	}
+	
+	immediate = {
+		FROMFROM = {
+			solar_system = {
+				save_event_target_as = curator_system
+				set_star_flag = curator_system_star
+			}
+		}
+		FROM = { 
+			country_event = { id = leviathans.593 }
+			save_event_target_as = curator_destroyer
+		}
+		observer_event = { id = observer.7 }
+		every_country = {
+			limit = {
+				has_communications = ROOT
+				NOT = { is_country = event_target:curator_destroyer }
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+			}
+			country_event = { id = leviathans.594 }
+		}
+		species = {
+			save_event_target_as = enclave_species
+		}
+		random_country = {
+			limit = {
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_communications = ROOT
+				NOT = { is_country = event_target:trader_destroyer }
+				NOT = { has_country_flag = destroyed_trader }
+				NOT = { has_country_flag = enclave_artist_ignores }
+				NOT = { has_country_flag = destroyed_artist }
+				NOT = { has_country_flag = attacked_curators }
+				NOT = { has_country_flag = destroyed_curator }
+				NOT = { has_ethic = ethic_fanatic_xenophobe }
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_policy_flag = refugees_not_allowed }
+				any_owned_planet = {
+					is_colony = yes
+					is_under_colonization = no
+					habitability = { who = event_target:enclave_species value > 0.45 }
+				}
+			}
+			weights = {
+				base = 1
+				modifier = { 
+					add = 3
+					is_ai = no
+				}
+				modifier = { 
+					add = 5
+					allows_slavery = no
+				}
+				modifier = { 
+					add = 10
+					is_xenophile = yes
+				}
+				modifier = { 
+					add = 10
+					is_materialist = yes
+				}
+				modifier = { 
+					add = 1000
+					FROMFROM = {
+						solar_system = {
+							space_owner = {
+								is_same_value = PREVPREVPREV
+							}
+						}
+					}
+				}
+			}
+			set_country_flag = refugee_curator_order
+			random_owned_planet = {
+				limit = {
+					is_colony = yes
+					is_under_colonization = no
+					habitability = { who = event_target:enclave_species value > 0.45 }
+				}
+				weights = {
+					base = 1
+					modifier = { 
+						add = 5
+						free_housing > 0
+					}
+					modifier = { 
+						add = 10
+						free_housing > 1
+					}
+				}
+				planet_event = { id = refugeeexpanded.10 }
+				create_pop = {
+					species = event_target:enclave_species
+					ethos = {
+						ethic = "ethic_materialist"
+					}
+				}
+				create_pop = {
+					species = event_target:enclave_species
+					ethos = {
+						ethic = "ethic_materialist"
+					}
+				}
+			}
+		}
+	}
+}

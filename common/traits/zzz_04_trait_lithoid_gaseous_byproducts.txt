@@ -1,0 +1,17 @@
+trait_lithoid_gaseous_byproducts = {
+    cost = 2
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_lithoid_volatile_excretions"
+        "trait_lithoid_scintillating"
+        "trait_lithoid_armored"
+    }
+    allowed_archetypes = {
+        LITHOID
+        FUNGOID
+    }
+    custom_tooltip = TRAIT_LITHOID_GASEOUS_BYPRODUCTS_EFFECT
+    slave_cost = {
+        energy = 100
+    }
+}

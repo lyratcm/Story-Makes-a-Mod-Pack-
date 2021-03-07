@@ -1,0 +1,26 @@
+z_pf2_eft_cntr_flt_opt_execute = {
+    every_country = {
+        limit = {
+            is_ai = yes
+            NOT = {
+                has_country_flag = z_pf2_flg_cntr_flt_opt_cd
+            }
+        }
+        if = {
+            limit = {
+                z_pf2_trgr_cntr_flt_normal = yes
+            }
+            country_event = {
+                id = z_performance_misc.250
+            }
+        }
+        else_if = {
+            limit = {
+                z_pf2_trgr_cntr_flt_fallen = yes
+            }
+            country_event = {
+                id = z_performance_misc.2501
+            }
+        }
+    }
+}

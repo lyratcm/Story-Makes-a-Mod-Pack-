@@ -1,0 +1,23 @@
+planet_priests = {
+    parent = planet_jobs
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_priest
+        modifier_types = {
+            add
+        }
+        trigger = {
+            OR = {
+                has_job = high_priest
+                has_job = priest
+            }
+        }
+    }
+}

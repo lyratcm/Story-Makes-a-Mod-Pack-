@@ -1,0 +1,70 @@
+vassal_expansion = {
+	potential = {
+		is_overlord = yes 
+	}
+	option = {
+		name = "vassal_expansion_not_allowed"
+		valid = {
+			NOR = {
+				has_valid_civic = civic_feudal_realm
+				is_megacorp = yes
+			}
+		}
+		policy_flags = {
+			vassal_expansion_not_allowed
+		}
+		modifier = {
+		}
+		AI_weight = {
+			factor = 5
+			modifier = {
+				factor = 0.1
+				has_valid_ai_personality = yes
+				OR = {
+					has_ai_personality_behaviour = liberator
+					has_ai_personality_behaviour = multispecies
+				}
+			}
+			modifier = {
+				factor = 0
+				is_xenophile = yes
+				is_authoritarian = no
+			}
+			modifier = {
+				factor = 0
+				is_egalitarian = yes
+				is_xenophobe = no
+			}
+		}
+	}
+
+	option = {
+		name = "vassal_expansion_allowed"		
+		policy_flags = {
+			vassal_expansion_allowed
+		}
+		modifier = {
+		}
+		AI_weight = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_valid_ai_personality = yes
+				OR = {
+					has_ai_personality_behaviour = dominator
+					has_ai_personality_behaviour = subjugator
+					has_ai_personality_behaviour = slaver
+				}
+				is_egalitarian = no
+				is_xenophile = no
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_authoritarian = yes
+					is_xenophobe = yes
+				}
+			}
+		}
+	}
+}

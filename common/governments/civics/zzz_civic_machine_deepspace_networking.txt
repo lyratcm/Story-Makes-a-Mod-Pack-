@@ -1,0 +1,16 @@
+civic_machine_deepspace_networking = {
+	potential = { authority = { value = auth_machine_intelligence } }
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_harm_machine
+				value = civic_closed_network
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		country_naval_cap_mult = 0.15
+		ship_fire_rate_mult = 0.05
+	}
+}

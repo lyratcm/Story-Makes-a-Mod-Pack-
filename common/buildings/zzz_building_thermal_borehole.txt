@@ -1,0 +1,81 @@
+building_thermal_borehole = {
+
+	base_buildtime = 600
+	base_cap_amount = 1
+
+	category = resource
+
+	potential = {
+		owner = { or = { has_civic = civic_consumerism } }
+		NOT = { has_modifier = resort_colony }
+		NOR = { is_planet_class = pc_habitat  is_planet_class = pc_ringworld_habitable }
+		NOT = { has_modifier = slave_colony }
+	}
+
+
+	planet_modifier = {
+		job_deep_miner_add = 4
+		pop_environment_tolerance = -0.1
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 300
+			alloys = 200
+		}
+	}
+
+	prerequisites = {
+		"tech_thermal_borehole"
+	}
+
+
+	triggered_desc = {
+		text = job_deep_miner_effect_desc
+	}
+
+	ai_weight = {
+		weight = 2
+		modifier = {
+			factor = 5
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 5
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 5
+				}
+			}
+		}
+		# No one to work it
+		modifier = {
+			factor = 0
+			count_owned_pops = {
+				limit = {
+					OR = {
+						is_unemployed = yes
+						has_job = servant
+					}
+				}
+				count < 1
+			}
+		}
+	}
+
+	ai_resource_production = {
+		minerals = 1
+		energy = 1
+		trigger = {
+			always = yes
+		}
+	}
+
+}

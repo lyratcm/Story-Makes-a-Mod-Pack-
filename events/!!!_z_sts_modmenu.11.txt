@@ -1,0 +1,2031 @@
+namespace = z_sts_modmenu
+country_event = {
+    id = z_sts_modmenu.11
+    title = z_modmenu_statistic
+    desc = z_modmenu_statistic_desc
+    picture = GFX_evt_z_statistic
+    is_triggered_only = yes
+    diplomatic = yes
+    custom_gui = "z_sts_modmenu_gui"
+    immediate = {
+        hidden_effect = {
+            set_variable = {
+                which = z_system_var
+                value = 0
+            }
+            set_variable = {
+                which = z_route_system_var
+                value = 0
+            }
+            set_variable = {
+                which = z_primitive_var
+                value = 0
+            }
+            set_variable = {
+                which = z_fallen_empire_var
+                value = 0
+            }
+            set_variable = {
+                which = z_playable_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_routes_25_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_routes_50_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_routes_100_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_25_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_50_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_sub_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_hybrid_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_biological_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_robotic_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_playable_army_var
+                value = 0
+            }
+            set_variable = {
+                which = z_non_playable_army_var
+                value = 0
+            }
+            set_variable = {
+                which = z_habitable_var
+                value = 0
+            }
+            set_variable = {
+                which = z_habitats_var
+                value = 0
+            }
+            set_variable = {
+                which = z_colony_var
+                value = 0
+            }
+            set_variable = {
+                which = z_colonized_planet_var
+                value = 0
+            }
+            set_variable = {
+                which = z_colonized_habitat_var
+                value = 0
+            }
+            set_variable = {
+                which = z_colonized_ringworld_var
+                value = 0
+            }
+            set_variable = {
+                which = z_total_pop_var
+                value = 0
+            }
+            set_variable = {
+                which = z_total_pop_unemployed_var
+                value = 0
+            }
+            set_variable = {
+                which = z_total_pop_shunks
+                value = 0
+            }
+            set_variable = {
+                which = z_combatant_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_global_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_ships_civilian_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_ships_defence_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_starbase_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_ships_military_var
+                value = 0
+            }
+            set_variable = {
+                which = z_fallen_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_fallen_defence_var
+                value = 0
+            }
+            set_variable = {
+                which = z_crisis_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_crisis_fleets_var
+                value = 0
+            }
+            set_variable = {
+                which = z_threat_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_threat_fleets_var
+                value = 0
+            }
+            set_variable = {
+                which = z_other_ships_var
+                value = 0
+            }
+            every_system = {
+                root = {
+                    change_variable = {
+                        which = z_system_var
+                        value = 1
+                    }
+                }
+                if = {
+                    limit = {
+                        has_trade_route = yes
+                        OR = {
+                            has_megastructure = gateway_final
+                            has_megastructure = gateway_restored
+                            has_natural_wormhole = yes
+                            has_megastructure = lgate_base
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_route_system_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+            every_country = {
+                limit = {
+                    OR = {
+                        is_country_type = default
+                        is_country_type = fallen_empire
+                        is_country_type = awakened_fallen_empire
+                        is_country_type = prikki
+                        is_country_type = ascended_empire
+                        is_country_type = lost_empire
+                    }
+                }
+                root = {
+                    change_variable = {
+                        which = z_playable_country_var
+                        value = 1
+                    }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            is_country_type = fallen_empire
+                            is_country_type = awakened_fallen_empire
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_fallen_empire_var
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        num_trade_routes >= 25
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_routes_25_country_var
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        num_trade_routes >= 50
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_routes_50_country_var
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        num_trade_routes >= 100
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_routes_100_country_var
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        count_owned_pop_species = {
+                            count >= 50
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_species_50_country_var
+                            value = 1
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        count_owned_pop_species = {
+                            count >= 25
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_species_25_country_var
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        count_exact_species = {
+                            count >= 25
+                            limit = {
+                                is_subspecies = prev
+                            }
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_species_sub_country_var
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        count_exact_species = {
+                            count >= 25
+                            limit = {
+                                is_half_species = any
+                            }
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_species_hybrid_country_var
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        count_exact_species = {
+                            count >= 25
+                            limit = {
+                                NOR = {
+                                    is_archetype = ROBOT
+                                    is_archetype = MACHINE
+                                }
+                            }
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_species_biological_country_var
+                            value = 1
+                        }
+                    }
+                }
+                else = {
+                    limit = {
+                        count_exact_species = {
+                            count >= 25
+                            limit = {
+                                OR = {
+                                    is_archetype = ROBOT
+                                    is_archetype = MACHINE
+                                }
+                            }
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_species_robotic_country_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+            every_country = {
+                limit = {
+                    is_primitive = yes
+                }
+                root = {
+                    change_variable = {
+                        which = z_primitive_var
+                        value = 1
+                    }
+                }
+            }
+            every_country = {
+                limit = {
+                    OR = {
+                        is_country_type = default
+                        is_country_type = prikki
+                        is_country_type = ascended_empire
+                        is_country_type = lost_empire
+                    }
+                }
+                every_owned_army = {
+                    root = {
+                        change_variable = {
+                            which = z_playable_army_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+            every_country = {
+                limit = {
+                    NOR = {
+                        is_country_type = default
+                        is_country_type = prikki
+                        is_country_type = ascended_empire
+                        is_country_type = lost_empire
+                    }
+                }
+                every_owned_army = {
+                    root = {
+                        change_variable = {
+                            which = z_non_playable_army_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+            every_planet = {
+                limit = {
+                    habitable_planet = yes
+                }
+                root = {
+                    change_variable = {
+                        which = z_habitable_var
+                        value = 1
+                    }
+                }
+            }
+            every_planet = {
+                limit = {
+                    is_planet_class = pc_habitat
+                }
+                root = {
+                    change_variable = {
+                        which = z_habitats_var
+                        value = 1
+                    }
+                }
+            }
+            every_planet = {
+                limit = {
+                    is_colony = yes
+                }
+                root = {
+                    change_variable = {
+                        which = z_colony_var
+                        value = 1
+                    }
+                }
+                if = {
+                    limit = {
+                        is_planet_class = pc_habitat
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_colonized_habitat_var
+                            value = 1
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        is_planet_class = pc_ringworld_habitable
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_colonized_ringworld_var
+                            value = 1
+                        }
+                    }
+                }
+                else = {
+                    root = {
+                        change_variable = {
+                            which = z_colonized_planet_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+            every_galaxy_pop = {
+                if = {
+                    limit = {
+                        z_fw_r_koh_is_species_karyl = yes
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_total_pop_shunks
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        is_unemployed = yes
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_total_pop_var
+                            value = 1
+                        }
+                        change_variable = {
+                            which = z_total_pop_unemployed_var
+                            value = 1
+                        }
+                    }
+                }
+                else = {
+                    root = {
+                        change_variable = {
+                            which = z_total_pop_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+            every_ship = {
+                root = {
+                    change_variable = {
+                        which = z_global_ships_var
+                        value = 1
+                    }
+                }
+                if = {
+                    limit = {
+                        is_in_combat = yes
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_combatant_ships_var
+                            value = 1
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        owner = {
+                            OR = {
+                                is_country_type = default
+                                is_country_type = prikki
+                                is_country_type = ascended_empire
+                                is_country_type = lost_empire
+                            }
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_default_ships_var
+                            value = 1
+                        }
+                    }
+                    if = {
+                        limit = {
+                            OR = {
+                                is_ship_class = shipclass_colonizer
+                                is_ship_class = shipclass_constructor
+                                is_ship_class = shipclass_science_ship
+                            }
+                        }
+                        root = {
+                            change_variable = {
+                                which = z_default_ships_civilian_var
+                                value = 1
+                            }
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            is_ship_class = shipclass_military_station
+                        }
+                        root = {
+                            change_variable = {
+                                which = z_default_ships_defence_var
+                                value = 1
+                            }
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            is_ship_class = shipclass_starbase
+                        }
+                        root = {
+                            change_variable = {
+                                which = z_default_starbase_var
+                                value = 1
+                            }
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            NOT = {
+                                is_ship_class = shipclass_transport
+                            }
+                        }
+                        root = {
+                            change_variable = {
+                                which = z_default_ships_military_var
+                                value = 1
+                            }
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        owner = {
+                            OR = {
+                                is_country_type = fallen_empire
+                                is_country_type = awakened_fallen_empire
+                            }
+                        }
+                        NOR = {
+                            is_ship_class = shipclass_military_station
+                            is_ship_class = shipclass_starbase
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_fallen_ships_var
+                            value = 1
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        owner = {
+                            OR = {
+                                is_country_type = fallen_empire
+                                is_country_type = awakened_fallen_empire
+                            }
+                        }
+                        OR = {
+                            is_ship_class = shipclass_military_station
+                            is_ship_class = shipclass_starbase
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_fallen_defence_var
+                            value = 1
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        owner = {
+                            OR = {
+                                is_country_type = swarm
+                                is_country_type = sentinels
+                                is_country_type = extradimensional
+                                is_country_type = extradimensional_2
+                                is_country_type = extradimensional_3
+                                is_country_type = gate_builders
+                                is_country_type = ai_empire
+                                is_country_type = cybrex_empire
+                            }
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_crisis_ships_var
+                            value = 1
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        owner = {
+                            OR = {
+                                is_country_type = dormant_marauders
+                                is_country_type = ruined_marauders
+                                is_country_type = awakened_marauders
+                                is_country_type = marauder_raiders
+                                is_country_type = gray_goo
+                            }
+                        }
+                    }
+                    root = {
+                        change_variable = {
+                            which = z_threat_ships_var
+                            value = 1
+                        }
+                    }
+                }
+                else = {
+                    root = {
+                        change_variable = {
+                            which = z_other_ships_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+            every_country = {
+                limit = {
+                    OR = {
+                        is_country_type = swarm
+                        is_country_type = sentinels
+                        is_country_type = extradimensional
+                        is_country_type = extradimensional_2
+                        is_country_type = extradimensional_3
+                        is_country_type = gate_builders
+                        is_country_type = ai_empire
+                        is_country_type = cybrex_empire
+                    }
+                }
+                every_owned_fleet = {
+                    root = {
+                        change_variable = {
+                            which = z_crisis_fleets_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+            every_country = {
+                limit = {
+                    OR = {
+                        is_country_type = dormant_marauders
+                        is_country_type = ruined_marauders
+                        is_country_type = awakened_marauders
+                        is_country_type = marauder_raiders
+                        is_country_type = gray_goo
+                    }
+                }
+                every_owned_fleet = {
+                    root = {
+                        change_variable = {
+                            which = z_threat_fleets_var
+                            value = 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = EXIT
+        custom_tooltip = z_modmenu_return_desc
+        custom_gui = "z_sts_button_evt_option_return"
+        hidden_effect = {
+            z_mm_unlock_setting_panel = yes
+            set_variable = {
+                which = z_system_var
+                value = 0
+            }
+            set_variable = {
+                which = z_route_system_var
+                value = 0
+            }
+            set_variable = {
+                which = z_playable_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_fallen_empire_var
+                value = 0
+            }
+            set_variable = {
+                which = z_playable_army_var
+                value = 0
+            }
+            set_variable = {
+                which = z_routes_25_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_routes_50_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_routes_100_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_25_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_50_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_sub_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_hybrid_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_biological_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_species_robotic_country_var
+                value = 0
+            }
+            set_variable = {
+                which = z_primitive_var
+                value = 0
+            }
+            set_variable = {
+                which = z_non_playable_army_var
+                value = 0
+            }
+            set_variable = {
+                which = z_habitable_var
+                value = 0
+            }
+            set_variable = {
+                which = z_habitats_var
+                value = 0
+            }
+            set_variable = {
+                which = z_colony_var
+                value = 0
+            }
+            set_variable = {
+                which = z_colonized_planet_var
+                value = 0
+            }
+            set_variable = {
+                which = z_colonized_habitat_var
+                value = 0
+            }
+            set_variable = {
+                which = z_colonized_ringworld_var
+                value = 0
+            }
+            set_variable = {
+                which = z_total_pop_var
+                value = 0
+            }
+            set_variable = {
+                which = z_total_pop_unemployed_var
+                value = 0
+            }
+            set_variable = {
+                which = z_total_pop_shunks
+                value = 0
+            }
+            set_variable = {
+                which = z_combatant_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_global_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_ships_civilian_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_ships_defence_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_starbase_var
+                value = 0
+            }
+            set_variable = {
+                which = z_default_ships_military_var
+                value = 0
+            }
+            set_variable = {
+                which = z_fallen_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_fallen_defence_var
+                value = 0
+            }
+            set_variable = {
+                which = z_crisis_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_crisis_fleets_var
+                value = 0
+            }
+            set_variable = {
+                which = z_threat_ships_var
+                value = 0
+            }
+            set_variable = {
+                which = z_threat_fleets_var
+                value = 0
+            }
+            set_variable = {
+                which = z_other_ships_var
+                value = 0
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_system_var
+                    value = 0
+                }
+            }
+            text = z_sts_system_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_system_var
+                    value > 0
+                }
+            }
+            text = z_sts_system_var
+        }
+        custom_gui = "z_sts_button_evt_option_hide"
+        trigger = {
+            has_country_flag = z_sts_flg_system_hide
+        }
+        hidden_effect = {
+            remove_country_flag = z_sts_flg_system_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_system_var
+                    value = 0
+                }
+            }
+            text = z_sts_system_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_system_var
+                    value > 0
+                }
+            }
+            text = z_sts_system_var
+        }
+        custom_gui = "z_sts_button_evt_option_expand"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_system_hide
+            }
+        }
+        hidden_effect = {
+            set_country_flag = z_sts_flg_system_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_route_system_var
+                    value = 0
+                }
+            }
+            text = z_sts_route_system_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_route_system_var
+                    value > 0
+                }
+            }
+            text = z_sts_route_system_var
+        }
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_tooltip = z_sts_route_system_var_desc
+        custom_gui = "z_sts_button_evt_sub"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_system_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_primitive_var
+                    value = 0
+                }
+            }
+            text = z_sts_primitive_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_primitive_var
+                    value > 0
+                }
+            }
+            text = z_sts_primitive_var
+        }
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_option_blue"
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_fallen_empire_var
+                    value = 0
+                }
+            }
+            text = z_sts_fallen_empire_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_fallen_empire_var
+                    value > 0
+                }
+            }
+            text = z_sts_fallen_empire_var
+        }
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_option_blue"
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_playable_country_var
+                    value = 0
+                }
+            }
+            text = z_sts_country_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_playable_country_var
+                    value > 0
+                }
+            }
+            text = z_sts_country_var
+        }
+        custom_tooltip = z_sts_country_var_desc
+        custom_gui = "z_sts_button_evt_option_hide_blue"
+        trigger = {
+            has_country_flag = z_sts_flg_country_hide
+        }
+        hidden_effect = {
+            remove_country_flag = z_sts_flg_country_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_playable_country_var
+                    value = 0
+                }
+            }
+            text = z_sts_country_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_playable_country_var
+                    value > 0
+                }
+            }
+            text = z_sts_country_var
+        }
+        custom_tooltip = z_sts_country_var_desc
+        custom_gui = "z_sts_button_evt_option_expand_blue"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+        hidden_effect = {
+            set_country_flag = z_sts_flg_country_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = zsts_routes_25_country_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            check_variable = {
+                which = z_routes_25_country_var
+                value > 0
+            }
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = zsts_routes_50_country_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            check_variable = {
+                which = z_routes_50_country_var
+                value > 0
+            }
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = zsts_routes_100_country_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            check_variable = {
+                which = z_routes_100_country_var
+                value > 0
+            }
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_species_25_country_var
+                    value = 0
+                }
+            }
+            text = z_sts_species_25_country_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_species_25_country_var
+                    value > 0
+                }
+            }
+            text = z_sts_species_25_country_var
+        }
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = z_sts_species_50_country_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            check_variable = {
+                which = z_species_50_country_var
+                value > 0
+            }
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_species_sub_country_var
+                    value = 0
+                }
+            }
+            text = z_sts_species_sub_country_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_species_sub_country_var
+                    value > 0
+                }
+            }
+            text = z_sts_species_sub_country_var
+        }
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_tooltip = z_sts_species_25
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_species_hybrid_country_var
+                    value = 0
+                }
+            }
+            text = z_sts_species_hybrid_country_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_species_hybrid_country_var
+                    value > 0
+                }
+            }
+            text = z_sts_species_hybrid_country_var
+        }
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_tooltip = z_sts_species_25
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = z_sts_species_biological_country_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_tooltip = z_sts_species_25
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            check_variable = {
+                which = z_species_biological_country_var
+                value > 0
+            }
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = z_sts_species_robotic_country_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_tooltip = z_sts_species_25
+        custom_gui = "z_sts_button_evt_sub_blue"
+        trigger = {
+            check_variable = {
+                which = z_species_robotic_country_var
+                value > 0
+            }
+            NOT = {
+                has_country_flag = z_sts_flg_country_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_playable_army_var
+                    value = 0
+                }
+            }
+            text = z_sts_army_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_playable_army_var
+                    value > 0
+                }
+            }
+            text = z_sts_army_var
+        }
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_tooltip = z_sts_country_var_desc
+        custom_gui = "z_sts_button_evt_option_green"
+    }
+    option = {
+        name = z_sts_npc_army_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_option_green"
+        trigger = {
+            check_variable = {
+                which = z_non_playable_army_var
+                value > 0
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_habitable_var
+                    value = 0
+                }
+            }
+            text = z_sts_habitable_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_habitable_var
+                    value > 0
+                }
+            }
+            text = z_sts_habitable_var
+        }
+        custom_gui = "z_sts_button_evt_option"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_habitats_var
+                    value = 0
+                }
+            }
+            text = z_sts_habitats_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_habitats_var
+                    value > 0
+                }
+            }
+            text = z_sts_habitats_var
+        }
+        custom_gui = "z_sts_button_evt_option"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_colony_var
+                    value = 0
+                }
+            }
+            text = z_sts_colony_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_colony_var
+                    value > 0
+                }
+            }
+            text = z_sts_colony_var
+        }
+        custom_gui = "z_sts_button_evt_option_hide_yellow"
+        trigger = {
+            has_country_flag = z_sts_flg_colony_hide
+        }
+        hidden_effect = {
+            remove_country_flag = z_sts_flg_colony_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_colony_var
+                    value = 0
+                }
+            }
+            text = z_sts_colony_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_colony_var
+                    value > 0
+                }
+            }
+            text = z_sts_colony_var
+        }
+        custom_gui = "z_sts_button_evt_option_expand_yellow"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_colony_hide
+            }
+        }
+        hidden_effect = {
+            set_country_flag = z_sts_flg_colony_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_colonized_planet_var
+                    value = 0
+                }
+            }
+            text = z_sts_colony_planet_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_colonized_planet_var
+                    value > 0
+                }
+            }
+            text = z_sts_colony_planet_var
+        }
+        custom_gui = "z_sts_button_evt_sub_yellow"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_colony_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_colonized_habitat_var
+                    value = 0
+                }
+            }
+            text = z_sts_colony_habitats_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_colonized_habitat_var
+                    value > 0
+                }
+            }
+            text = z_sts_colony_habitats_var
+        }
+        custom_gui = "z_sts_button_evt_sub_yellow"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_colony_hide
+            }
+        }
+    }
+    option = {
+        name = z_sts_colony_ringworld_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_sub_yellow"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_colony_hide
+            }
+            check_variable = {
+                which = z_colonized_ringworld_var
+                value > 0
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_total_pop_var
+                    value = 0
+                }
+            }
+            text = z_sts_pop_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_total_pop_var
+                    value > 0
+                }
+            }
+            text = z_sts_pop_var
+        }
+        custom_gui = "z_sts_button_evt_option_hide_orange"
+        trigger = {
+            has_country_flag = z_sts_flg_pop_hide
+        }
+        hidden_effect = {
+            remove_country_flag = z_sts_flg_pop_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_total_pop_var
+                    value = 0
+                }
+            }
+            text = z_sts_pop_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_total_pop_var
+                    value > 0
+                }
+            }
+            text = z_sts_pop_var
+        }
+        custom_gui = "z_sts_button_evt_option_expand_orange"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_pop_hide
+            }
+        }
+        hidden_effect = {
+            set_country_flag = z_sts_flg_pop_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_total_pop_unemployed_var
+                    value = 0
+                }
+            }
+            text = z_sts_pop_unemployed_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_total_pop_unemployed_var
+                    value > 0
+                }
+            }
+            text = z_sts_pop_unemployed_var
+        }
+        custom_gui = "z_sts_button_evt_sub_orange"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_pop_hide
+            }
+        }
+    }
+    option = {
+        name = z_sts_pop_shunks_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_tooltip = z_sts_pop_shunks_var_desc
+        custom_gui = "z_sts_button_evt_sub_orange"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_pop_hide
+            }
+            check_variable = {
+                which = z_total_pop_shunks
+                value > 0
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_global_ships_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_global_ships_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_var
+        }
+        custom_gui = "z_sts_button_evt_option"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_combatant_ships_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_combatant_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_combatant_ships_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_combatant_var
+        }
+        custom_gui = "z_sts_button_evt_option"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_default_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_default_var
+        }
+        custom_tooltip = z_sts_ships_default_desc
+        custom_gui = "z_sts_button_evt_option_hide_blue"
+        trigger = {
+            has_country_flag = z_sts_flg_ships_hide
+        }
+        hidden_effect = {
+            remove_country_flag = z_sts_flg_ships_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_default_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_default_var
+        }
+        custom_tooltip = z_sts_ships_default_desc
+        custom_gui = "z_sts_button_evt_option_expand_blue"
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_ships_hide
+            }
+        }
+        hidden_effect = {
+            set_country_flag = z_sts_flg_ships_hide
+            country_event = {
+                id = z_sts_modmenu.11
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_military_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_default_military_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_military_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_default_military_var
+        }
+        custom_tooltip = z_sts_ships_default_desc
+        custom_gui = "z_sts_button_evt_sub_blue"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_ships_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_defence_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_default_defence_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_defence_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_default_defence_var
+        }
+        custom_tooltip = z_sts_ships_default_desc
+        custom_gui = "z_sts_button_evt_sub_blue"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_ships_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_starbase_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_default_sb_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_starbase_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_default_sb_var
+        }
+        custom_tooltip = z_sts_ships_default_desc
+        custom_gui = "z_sts_button_evt_sub_blue"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_ships_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_civilian_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_default_civilian_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_default_ships_civilian_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_default_civilian_var
+        }
+        custom_tooltip = z_sts_ships_default_desc
+        custom_gui = "z_sts_button_evt_sub_blue"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        trigger = {
+            NOT = {
+                has_country_flag = z_sts_flg_ships_hide
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_fallen_ships_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_fallen_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_fallen_ships_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_fallen_var
+        }
+        custom_gui = "z_sts_button_evt_option_yellow"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_fallen_defence_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_fallen_def_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_fallen_defence_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_fallen_def_var
+        }
+        custom_tooltip = z_sts_ships_fallen_def_var_desc
+        custom_gui = "z_sts_button_evt_option_yellow"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    option = {
+        name = z_sts_ships_threat_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_option_orange"
+        trigger = {
+            check_variable = {
+                which = z_threat_ships_var
+                value > 0
+            }
+        }
+    }
+    option = {
+        name = z_sts_ships_threat_flt_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_tooltip = z_sts_ships_threat_var_desc
+        custom_gui = "z_sts_button_evt_option_orange"
+        trigger = {
+            check_variable = {
+                which = z_threat_fleets_var
+                value > 0
+            }
+        }
+    }
+    option = {
+        name = z_sts_ships_crisis_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_option_red"
+        trigger = {
+            check_variable = {
+                which = z_crisis_ships_var
+                value > 0
+            }
+        }
+    }
+    option = {
+        name = z_sts_ships_crisis_flt_var
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        custom_gui = "z_sts_button_evt_option_red"
+        trigger = {
+            check_variable = {
+                which = z_crisis_fleets_var
+                value > 0
+            }
+        }
+    }
+    option = {
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_other_ships_var
+                    value = 0
+                }
+            }
+            text = z_sts_ships_other_var_0
+        }
+        name = {
+            trigger = {
+                check_variable = {
+                    which = z_other_ships_var
+                    value > 0
+                }
+            }
+            text = z_sts_ships_other_var
+        }
+        custom_tooltip = z_sts_ships_other_var_desc
+        custom_gui = "z_sts_button_evt_option_green"
+        allow = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+}

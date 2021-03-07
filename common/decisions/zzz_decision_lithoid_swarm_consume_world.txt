@@ -1,0 +1,191 @@
+decision_lithoid_swarm_consume_world = {
+	icon = decision_burning_settlement
+	sound = event_structural_collapse
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+	}
+	owned_planets_only = yes
+
+	potential = {
+		owner = {
+			is_lithoid_empire = yes
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+		can_have_habitable_deposits = yes
+		is_capital = no
+	}
+
+	allow = {
+		num_free_districts = { type = any value > 0 }
+	}
+
+	effect = {
+		custom_tooltip = decision_lithoid_swarm_consume_world_effect_desc
+
+		if = {
+			limit = { num_districts = { type = any value > 0 } }
+			custom_tooltip = decision_lithoid_swarm_consume_world_destroy_district_desc
+
+			hidden_effect = {
+				random_list = {
+					1 = {
+						modifier = {
+							factor = 0
+							num_districts = { type = district_hive value = 0 }
+						}
+						remove_district = district_hive
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							num_districts = { type = district_generator value = 0 }
+						}
+						remove_district = district_generator
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							num_districts = { type = district_mining value = 0 }
+						}
+						remove_district = district_mining
+					}
+					3 = {
+						modifier = {
+							factor = 0
+							num_districts = { type = district_farming value = 0 }
+						}
+						remove_district = district_farming
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			if = {
+				limit = { num_free_districts = { type = any value >= 2 } }
+				add_deposit = d_lithoid_devastation
+				add_deposit = d_lithoid_devastation
+				add_planet_devastation = 20
+				create_pop = { species = owner_main_species }
+				create_pop = { species = owner_main_species }
+				owner = {
+					add_monthly_resource_mult = {
+						resource = minerals
+						value = 10
+						min = @tier2materialmin
+						max = @tier2materialmax
+					}
+					add_monthly_resource_mult = {
+						resource = alloys
+						value = 6
+						min = @tier2materialmin
+						max = @tier2materialmax
+					}
+					add_monthly_resource_mult = {
+						resource = engineering_research
+						value = @tier4researchreward
+						min = @tier4researchmin
+						max = @tier4researchmax
+					}
+					add_monthly_resource_mult = {
+						resource = unity
+						value = @tier4unityreward
+						min = @tier4unitymin
+						max = @tier4unitymax
+					}
+				}
+				random_list = {
+					30 = { }
+					5 = { owner = { add_resource = { rare_crystals = 500 } } }
+					5 = { owner = { add_resource = { exotic_gases = 500 } } }
+					5 = { owner = { add_resource = { volatile_motes = 500 } } }
+				}
+
+				if = {
+					limit = { owner = { is_ai = yes } }
+					random_pop = {
+						resettle_pop = {
+							pop = this
+							planet = owner.capital_scope
+						}
+					}
+				}
+			}
+			else = {
+				add_deposit = d_lithoid_devastation
+				add_planet_devastation = 10
+				create_pop = { species = owner_main_species }
+				owner = {
+					add_monthly_resource_mult = {
+						resource = minerals
+						value = 10
+						min = @tier1materialmin
+						max = @tier1materialmax
+					}
+					add_monthly_resource_mult = {
+						resource = alloys
+						value = 6
+						min = @tier1materialmin
+						max = @tier1materialmax
+					}
+					add_monthly_resource_mult = {
+						resource = engineering_research
+						value = @tier2researchreward
+						min = @tier2researchmin
+						max = @tier2researchmax
+					}
+					add_monthly_resource_mult = {
+						resource = unity
+						value = @tier2unityreward
+						min = @tier2unitymin
+						max = @tier2unitymax
+					}
+				}
+				random_list = {
+					30 = { }
+					5 = { owner = { add_resource = { rare_crystals = 250 } } }
+					5 = { owner = { add_resource = { exotic_gases = 250 } } }
+					5 = { owner = { add_resource = { volatile_motes = 250 } } }
+				}
+			}
+			create_message = {
+				type = MESSAGE_TERRAVORE_CONSUME_WORLD
+				localization = MESSAGE_TERRAVORE_CONSUME_WORLD_MOD_TEXT
+				days = 30
+				target = this
+
+				variable = {
+					type = name
+					localization = PLANET
+					scope = this
+				}
+			}
+			if = {
+				limit = {
+					num_free_districts = { type = any value <= 4 }
+					num_uncleared_blockers > 0
+				}
+				random_deposit = {
+					limit = {
+						is_blocker = yes
+					}
+					clear_blocker = yes
+				}
+			}
+			# If I'm an AI, abandon the planet if we've finished consuming the planet
+			owner = { country_event = { id = colony.185 days = 1 } }
+		}
+	}
+
+	ai_weight = {
+		weight = 5
+
+		# don't wreck worlds you want to keep
+		modifier = {
+			factor = 0
+			is_lithoid_devouring_swarm_consumption_world = no
+		}
+	}
+}

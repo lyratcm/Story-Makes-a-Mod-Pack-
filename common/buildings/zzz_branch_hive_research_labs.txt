@@ -1,0 +1,37 @@
+building_hive_research_labs = {
+    base_buildtime = 480
+    base_cap_amount = 1
+    branch_office_building = yes
+    potential = {
+        has_branch_office = yes
+        owner = {
+            has_authority = auth_hive_mind
+        }
+        branch_office_owner = {
+            is_megacorp = yes
+            is_criminal_syndicate = yes
+        }
+    }
+    planet_modifier = {
+        planet_crime_no_happiness_add = 40
+        job_brain_drone_add = 1
+        planet_branch_offices_energy_produces_add = 20
+    }
+    resources = {
+        category = planet_branch_office_buildings
+        cost = {
+            minerals = 800
+        }
+        produces = {
+            physics_research = 5
+            engineering_research = 5
+            society_research = 5
+        }
+        upkeep = {
+            energy = 3
+        }
+    }
+    ai_weight = {
+        weight = 1
+    }
+}

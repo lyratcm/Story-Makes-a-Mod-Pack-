@@ -1,0 +1,202 @@
+union_rights = {
+	potential = {
+		NOT = {
+			has_ethic = "ethic_gestalt_consciousness"
+		}
+	}	
+	option = {
+		name = "full_union_rights"
+		valid = {
+			NOR = {
+				is_authoritarian = yes
+				has_authority = auth_corporate
+				has_valid_civic = civic_aristocratic_elite
+				has_valid_civic = civic_royal_trading_company
+				has_valid_civic = civic_barbaric_despoilers
+				has_valid_civic = civic_feudal_realm
+				has_valid_civic = civic_police_state
+				has_valid_civic = civic_corp_security
+			}
+		}
+		modifier = {
+			pop_cat_worker_political_power = 0.25
+			diplo_weight_pops_mult = 0.1
+			empire_size_pops_mult = -0.1
+		}
+		policy_flags = {
+			full_union_rights
+		}
+		in_breach_of = {
+			key = resolution_lawandorder_right_to_work
+			trigger = {
+				has_global_flag = better_diplo_installed
+			}
+		}
+		AI_weight = {
+			modifier = {
+				factor = 2
+				has_ethic = ethic_egalitarian
+			}
+			modifier = {
+				factor = 5
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_authority = auth_democratic
+					has_authority = auth_cooperative
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_valid_ai_personality = yes
+				is_ai = yes
+				is_galactic_community_member = yes
+				OR = {
+					is_active_resolution = "resolution_lawandorder_right_to_work"
+					is_active_resolution = "resolution_lawandorder_administrative_subsidies"
+					is_active_resolution = "resolution_lawandorder_free_migration"
+					is_active_resolution = "resolution_lawandorder_informed_governance"
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "normal_union_rights"
+		valid = {
+			NOR = {
+				has_authority = auth_corporate
+				has_valid_civic = civic_aristocratic_elite
+				has_valid_civic = civic_royal_trading_company
+				has_valid_civic = civic_barbaric_despoilers
+				has_valid_civic = civic_feudal_realm
+				has_valid_civic = civic_police_state
+				has_valid_civic = civic_corp_security
+				has_valid_civic = civic_slaver_guilds
+				has_valid_civic = civic_indentured_assets
+				has_origin = origin_ancient_dynasty
+			}
+			OR = {
+				is_active_resolution = "resolution_lawandorder_right_to_work"
+				is_active_resolution = "resolution_lawandorder_administrative_subsidies"
+				is_active_resolution = "resolution_lawandorder_free_migration"
+				is_active_resolution = "resolution_lawandorder_informed_governance"
+				NOR = {
+					has_valid_civic = civic_shared_burden
+					has_valid_civic = civic_worker_coop
+				}
+			}
+		}
+		modifier = {
+			pop_cat_worker_political_power = 0.1
+			diplo_weight_pops_mult = 0.05
+			empire_size_pops_mult = -0.05
+		}
+		policy_flags = {
+			normal_union_rights
+		}
+		AI_weight = {
+			modifier = {
+				factor = 0
+				is_authoritarian = yes
+			}
+			modifier = {
+				factor = 4
+				is_egalitarian = no
+				OR = {
+					has_authority = auth_democratic
+					has_authority = auth_cooperative
+				}
+			}
+			modifier = {
+				factor = 2
+				is_egalitarian = yes
+				OR = {
+					has_authority = auth_democratic
+					has_authority = auth_cooperative
+				}
+			}
+			modifier = {
+				factor = 2
+				has_authority = auth_oligarchic
+				is_authoritarian = no
+			}
+		}
+	}
+	
+	option = {
+		name = "limited_union_rights"
+		valid = {
+			is_egalitarian = no
+		}
+		policy_flags = {
+			limited_union_rights
+		}
+		in_breach_of = {
+			key = resolution_greatergood_workers_rights
+			trigger = {
+				has_global_flag = better_diplo_installed
+			}
+		}
+		AI_weight = {
+			modifier = {
+				factor = 3
+				is_authoritarian = no
+				NOR = {
+					has_valid_civic = civic_aristocratic_elite
+					has_valid_civic = civic_barbaric_despoilers
+					has_valid_civic = civic_feudal_realm
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_authority = auth_democratic
+					has_authority = auth_cooperative
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "no_union_rights"
+		
+		valid = {
+			OR = {
+				is_authoritarian = yes
+				has_authority = auth_corporate
+				has_valid_civic = civic_aristocratic_elite
+				has_valid_civic = civic_barbaric_despoilers
+				has_valid_civic = civic_feudal_realm
+				has_valid_civic = civic_police_state
+			}
+		}
+		modifier = {
+			pop_cat_worker_political_power = -0.1
+			empire_size_pops_mult = 0.1
+			planet_jobs_worker_produces_mult = 0.05
+			pop_cat_worker_happiness = -0.10
+		}
+		policy_flags = {
+			no_union_rights
+		}
+		AI_weight = {
+			factor = 2
+			modifier = {
+				factor = 0.1
+				has_valid_ai_personality = yes
+				is_ai = yes
+				is_galactic_community_member = yes
+				OR = {
+					is_active_resolution = "resolution_greatergood_workers_rights"
+					is_active_resolution = "resolution_greatergood_five_year_plans"
+					is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+					is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+					is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+				}
+			}
+		}
+	}
+}

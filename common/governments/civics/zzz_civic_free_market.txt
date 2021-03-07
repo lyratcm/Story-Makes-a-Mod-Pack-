@@ -1,0 +1,32 @@
+civic_free_market = {
+    potential = {
+        always = no
+    }
+    possible = {
+        authority = {
+            value = auth_democratic
+        }
+        ethics = {
+            OR = {
+                text = civic_tooltip_egalitarian
+                value = ethic_egalitarian
+                value = ethic_fanatic_egalitarian
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_fanatic_purifiers
+                value = civic_bringers_of_death
+            }
+        }
+    }
+    random_weight = {
+        base = 7
+    }
+    modifier = {
+        trade_value_mult = 0.25
+        country_trade_fee = -0.15
+        country_energy_produces_mult = 0.05
+        planet_stability_add = -5
+    }
+}

@@ -1,0 +1,89 @@
+can_build_branch_office_on_planet = {
+    custom_tooltip = {
+        fail_text = requires_recipient_not_fanatic_purifiers
+        exists = owner
+        owner = {
+            OR = {
+                is_same_species = root
+                NOR = {
+                    has_valid_civic = civic_fanatic_purifiers
+                    has_valid_civic = civic_master_computer_purifier
+                    has_valid_civic = civic_machine_exterminator
+                    has_valid_civic = civic_hive_devouring_swarm
+                }
+            }
+        }
+    }
+    custom_tooltip = {
+        fail_text = BRANCH_OFFICE_NOT_COMMERCIAL_PACT
+        exists = owner
+        NOT = {
+            owner = {
+                is_same_value = root
+            }
+        }
+        OR = {
+            root = {
+                is_criminal_syndicate = yes
+            }
+            root = {
+                has_valid_civic = civic_mutualistic_behavior
+            }
+            owner = {
+                has_commercial_pact = root
+            }
+            owner = {
+                is_in_federation_with = root
+            }
+            root = {
+                has_valid_civic = civic_machine_servitor
+            }
+            root = {
+                is_subject = yes
+                is_subject_type = subsidiary
+                overlord = {
+                    is_same_value = owner
+                }
+            }
+            owner = {
+                is_subject = yes
+                is_subject_type = subsidiary
+                overlord = {
+                    is_same_value = root
+                }
+            }
+        }
+    }
+    custom_tooltip = {
+        fail_text = BRANCH_OFFICE_CRIMINAL_HERITAGE_HAS_TRUCE
+        exists = owner
+        OR = {
+            root = {
+                is_criminal_syndicate = no
+            }
+            owner = {
+                NOR = {
+                    has_truce = root
+                    is_at_war_with = root
+                }
+            }
+        }
+    }
+    custom_tooltip = {
+        fail_text = BRANCH_OFFICE_CRIMINAL_COOLDOWN
+        exists = owner
+        OR = {
+            root = {
+                is_criminal_syndicate = no
+            }
+            AND = {
+                root = {
+                    is_criminal_syndicate = yes
+                }
+                NOT = {
+                    has_planet_flag = criminal_branch_closed_cooldown_planet@root
+                }
+            }
+        }
+    }
+}

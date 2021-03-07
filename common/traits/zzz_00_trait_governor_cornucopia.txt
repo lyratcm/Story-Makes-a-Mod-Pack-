@@ -1,0 +1,29 @@
+trait_governor_cornucopia = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_governor_cornucopia.dds"
+    leader_potential_add = {
+        from = {
+            has_ethic = "ethic_gestalt_consciousness"
+        }
+    }
+    modifier = {
+        planet_jobs_unity_produces_mult = 0.20
+        planet_jobs_food_produces_mult = 0.40
+        pop_amenities_usage_no_happiness_mult = 0.20
+    }
+    leader_trait = {
+        governor
+    }
+    leader_class = {
+        governor
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_artisanal
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

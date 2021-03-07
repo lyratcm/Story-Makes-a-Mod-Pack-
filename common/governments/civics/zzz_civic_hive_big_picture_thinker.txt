@@ -1,0 +1,12 @@
+lrsk_gov_var_civic_hive_big_picture_thinker = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        terraform_speed_mult = 0.15
+        megastructure_build_speed_mult = 0.15
+    }
+}

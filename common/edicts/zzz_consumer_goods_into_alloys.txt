@@ -1,0 +1,36 @@
+cs_into_alloys = {
+	length = 1800
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_pops_consumer_goods_upkeep_mult = -0.05
+		pop_happiness = -0.10
+	}
+	
+	effect = {
+		country_event = { id = civic.1 }
+		custom_tooltip = cs_become_alloys
+	}
+
+	potential = {
+		has_valid_civic = civic_war_economy
+	}
+	
+	allow = {
+		is_at_war = yes
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictHighPrio
+			has_resource = { type = influence amount > 100 }
+		}
+	}
+}

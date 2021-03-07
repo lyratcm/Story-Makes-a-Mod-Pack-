@@ -1,0 +1,110 @@
+guiTypes = {
+    @sidebar_inner_w = 430
+    @sidebar_inner_button_w = 432
+    containerWindowType = {
+        name = "planet_designation_entry"
+        position = {
+            x = 0
+            y = 82
+        }
+        moveable = no
+        size = {
+            width = @sidebar_inner_w
+            height = 79
+        }
+        background = {
+            name = "designation_list_button_background"
+            spriteType = "GFX_tiles_frame"
+            clicksound = "confirm_click"
+            oversound = "mouse_over"
+        }
+        containerWindowType = {
+            name = "designation_name"
+            size = {
+                width = @sidebar_inner_w
+                height = 22
+            }
+            position = {
+                x = 0
+                y = 0
+            }
+            instantTextBoxType = {
+                name = "designation_name"
+                font = "malgun_goth_24"
+                text = "Designation Name"
+                position = {
+                    x = 0
+                    y = 1
+                }
+                maxWidth = @sidebar_inner_w
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+                alwaysTransparent = yes
+            }
+        }
+        containerWindowType = {
+            name = "designation_effects"
+            size = {
+                width = 360
+                height = 90
+            }
+            position = {
+                x = 56
+                y = 21
+            }
+            instantTextBoxType = {
+                name = "designation_effects"
+                font = "cg_16b"
+                text = "Decision effects go here"
+                position = {
+                    x = 5
+                    y = 5
+                }
+                maxWidth = 360
+                maxHeight = 50
+                format = left
+                alwaysTransparent = yes
+                scrollbarType = "standardtext_slider"
+            }
+        }
+        containerWindowType = {
+            name = "designation_icon_bg_container"
+            size = {
+                width = 55
+                height = 55
+            }
+            position = {
+                x = 1
+                y = 23
+            }
+            background = {
+                name = "designation_icon_bg"
+                spriteType = "GFX_tiles_frame_light"
+            }
+        }
+        iconType = {
+            name = "designation_icon"
+            spriteType = "GFX_colony_type"
+            position = {
+                x = 11
+                y = 33
+            }
+            alwaysTransparent = yes
+            scale = 1.1
+        }
+        buttonType = {
+            name = "button_designation"
+            quadTextureSprite = "GFX_button_light"
+            position = {
+                x = -1
+                y = -1
+            }
+            clicksound = "queuing_building"
+            size = {
+                x = @sidebar_inner_button_w
+                y = 81
+            }
+        }
+    }
+}

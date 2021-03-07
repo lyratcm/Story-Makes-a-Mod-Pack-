@@ -1,0 +1,10 @@
+lrsk_gov_var_civic_machine_architect_expert_systems = {
+	potential = { authority = { value = auth_machine_intelligence } }
+  	#icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_mech.dds"
+	random_weight = { base = 5 }
+	modifier = {
+    	planet_building_build_speed_mult = 0.2
+    	starbase_building_build_speed_mult = 0.2
+    	starbase_shipyard_build_speed_mult = 0.2
+	}
+}

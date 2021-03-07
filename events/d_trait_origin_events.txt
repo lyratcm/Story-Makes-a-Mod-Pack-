@@ -1,0 +1,1162 @@
+namespace = d_traits_origins
+
+# sterility
+country_event = {
+	id = d_traits_origins.10
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_origin = origin_sterile
+	}
+	immediate = {
+		give_technology = { tech = tech_genome_mapping message = no }
+		give_artificial_wombs = yes
+		give_technology = { tech = tech_gene_tailoring message = no }
+		every_owned_planet = {
+			while = {
+				count = 4
+				random_owned_pop = {
+					limit = { is_same_species = owner }
+					kill_pop = yes
+				}
+			}
+		}
+	}
+}
+
+# gas dependency
+country_event = {
+	id = d_traits_origins.20
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_origin = origin_gas_dependency
+	}
+	immediate = {
+		give_technology = { tech = tech_mine_exotic_gases message = no }
+		capital_scope = {
+			add_deposit = d_fuming_bog
+			add_building = building_gas_extractors
+		}
+	}
+}
+
+# sterile primitives
+country_event = {
+	id = d_traits_origins.31
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_primitive = yes
+		species = {
+			is_robotic = no
+		}
+		is_lithoid = no
+		or = {
+			has_country_flag = machine_age
+			has_country_flag = nuclear_age
+			has_country_flag = early_space_age
+		}
+	}
+	immediate = {
+		random_list = {
+			97 = { }
+			3 = {
+				species = {
+					create_species = {
+						name = this
+						plural = this
+						class = this
+						portrait = this
+						homeworld = this
+						extra_trait_points = 8
+						traits = {
+							trait = trait_sterile
+							trait = random_traits
+						}
+					}
+				}
+				IF = {
+					limit = { has_trait = trait_spatial_awareness }
+					every_owned_leader = {
+						limit = {
+							leader_class = admiral
+							is_same_species = owner
+						}
+						remove_trait = leader_trait_spatial_awareness_admiral
+					}
+					every_owned_leader = {
+						limit = {
+							OR = {
+								leader_class = general
+								leader_class = scientist
+							}
+							is_same_species = owner
+						}
+						remove_trait = leader_trait_spatial_awareness_generic
+					}
+				}
+				IF = {
+					limit = { has_trait = trait_keen_senses }
+					every_owned_leader = {
+						limit = {
+							leader_class = scientist
+							is_same_species = owner
+						}
+						remove_trait = leader_trait_keen_senses
+					}
+				}
+				every_owned_pop = {
+					limit = { is_same_species = owner }
+					change_species = last_created_species
+				}
+				every_owned_leader = {
+					limit = { is_same_species = owner }
+					change_species = last_created_species
+				}
+				change_species = last_created_species
+				give_technology = { tech = tech_genome_mapping message = no }
+				give_artificial_wombs = yes
+				give_technology = { tech = tech_gene_tailoring message = no }
+				capital_scope = {
+					while = {
+						count = 4
+						random_owned_pop = {
+							limit = { is_same_species = owner }
+							kill_pop = yes
+						}
+					}
+				}
+		
+				# contingencies for other weird traits
+				# keen senses
+				IF = {
+					limit = { has_trait = trait_spatial_awareness }
+					every_owned_leader = {
+						limit = {
+							leader_class = admiral
+							is_same_species = root
+						}
+						add_trait = leader_trait_spatial_awareness_admiral
+					}
+					every_owned_leader = {
+						limit = {
+							OR = {
+								leader_class = general
+								leader_class = scientist
+							}
+							is_same_species = root
+						}
+						add_trait = leader_trait_spatial_awareness_generic
+					}
+				}
+				# spatial awareness
+				IF = {
+					limit = { has_trait = trait_keen_senses }
+					every_owned_leader = {
+						limit = {
+							leader_class = scientist
+							is_same_species = root
+						}
+						add_trait = leader_trait_keen_senses
+					}
+				}
+			}
+		}
+	}
+}
+
+# gas dependent primitives
+country_event = {
+	id = d_traits_origins.32
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_primitive = yes
+		species = {
+			is_robotic = no
+		}
+		is_lithoid = no
+		capital_scope = {
+			OR = {
+				has_deposit = d_bubbling_swamp
+				has_deposit = d_fuming_bog
+			}
+			NOT = {
+				is_planet_class = pc_gaia
+			}
+		}
+	}
+	immediate = {
+		random_list = {
+			4 = { }
+			6 = {
+				species = {
+					IF = {
+						limit = { has_trait = trait_sterile }
+						create_species = {
+							name = this
+							plural = this
+							class = this
+							portrait = this
+							homeworld = this
+							extra_trait_points = 9
+							traits = {
+								trait = trait_exotic_gas_dependency
+								trait = trait_sterile
+								trait = random_traits
+							}
+						}
+					}
+					ELSE = {
+						create_species = {
+							name = this
+							plural = this
+							class = this
+							portrait = this
+							homeworld = this
+							extra_trait_points = 1
+							traits = {
+								trait = trait_exotic_gas_dependency
+								trait = random_traits
+							}
+						}
+					}
+				}
+				IF = {
+					limit = { has_trait = trait_spatial_awareness }
+					every_owned_leader = {
+						limit = {
+							leader_class = admiral
+							is_same_species = owner
+						}
+						remove_trait = leader_trait_spatial_awareness_admiral
+					}
+					every_owned_leader = {
+						limit = {
+							OR = {
+								leader_class = general
+								leader_class = scientist
+							}
+							is_same_species = owner
+						}
+						remove_trait = leader_trait_spatial_awareness_generic
+					}
+				}
+				IF = {
+					limit = { has_trait = trait_keen_senses }
+					every_owned_leader = {
+						limit = {
+							leader_class = scientist
+							is_same_species = owner
+						}
+						remove_trait = leader_trait_keen_senses
+					}
+				}
+				every_owned_pop = {
+					limit = { is_same_species = owner }
+					change_species = last_created_species
+				}
+				every_owned_leader = {
+					limit = { is_same_species = owner }
+					change_species = last_created_species
+				}
+				change_species = last_created_species
+				give_technology = { tech = tech_mine_exotic_gases message = no }
+				capital_scope = {
+					add_building = building_gas_extractors
+
+					# contingencies for other weird traits
+					IF = {
+						limit = {
+							any_owned_pop = { has_trait = trait_potential_living_architecture }
+							NOT = { has_modifier = living_architecture_planet_modifier }
+						}
+						add_modifier = { modifier = living_architecture_planet_modifier days = -1 }
+					}
+					ELSE_IF = {
+						limit = {
+							has_modifier = living_architecture_planet_modifier
+							NOT = { any_owned_pop = { has_trait = trait_potential_living_architecture } }
+						}
+						remove_modifier = living_architecture_planet_modifier
+					}
+				}
+
+				# contingencies for other weird traits
+				# keen senses
+				IF = {
+					limit = { has_trait = trait_spatial_awareness }
+					every_owned_leader = {
+						limit = {
+							leader_class = admiral
+							is_same_species = root
+						}
+						add_trait = leader_trait_spatial_awareness_admiral
+					}
+					every_owned_leader = {
+						limit = {
+							OR = {
+								leader_class = general
+								leader_class = scientist
+							}
+							is_same_species = root
+						}
+						add_trait = leader_trait_spatial_awareness_generic
+					}
+				}
+				# spatial awareness
+				IF = {
+					limit = { has_trait = trait_keen_senses }
+					every_owned_leader = {
+						limit = {
+							leader_class = scientist
+							is_same_species = root
+						}
+						add_trait = leader_trait_keen_senses
+					}
+				}
+			}
+		}
+	}
+}
+
+# dimorphism and instars
+# this: capital planet
+# from: founder species
+planet_event = {
+	id = d_traits_origins.40
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			OR = {
+				has_origin = origin_dimorphic
+				has_origin = origin_dimorphic_sexual
+				has_origin = origin_instars
+			}	
+		}
+	}
+	immediate = {
+		IF = {
+			limit = {
+				OR = {
+					owner = {
+						NOT = { has_country_flag = template_country }
+					}
+					calc_true_if = {
+						amount = 1
+						last_created_species = { is_species_class = LITHOID }
+						owner.species = { is_species_class = LITHOID }
+					}
+				}
+				NOT = {
+					last_created_species = {
+						switch = {
+							trigger = is_species_class
+							HUM = {
+								root.owner = {
+									OR = {
+										is_species_class = HUM
+										is_species_class = MAM
+									}
+								}
+							}
+							MAM = {
+								root.owner = {
+									OR = {
+										is_species_class = HUM
+										is_species_class = MAM
+									}
+								}
+							}
+							REP = {
+								root.owner = { is_species_class = REP }
+							}
+							AVI = {
+								root.owner = { is_species_class = AVI }
+							}
+							ART = {
+								root.owner = { is_species_class = ART }
+							}
+							MOL = {
+								root.owner = { is_species_class = MOL }
+							}
+							FUN = {
+								root.owner = { is_species_class = FUN }
+							}
+							PLANT = {
+								root.owner = { is_species_class = PLANT }
+							}
+							LITHOID = {
+								root.owner = { is_species_class = LITHOID }
+							}
+							NECROID = {
+								root.owner = { is_species_class = NECROID }
+							}
+							default = {
+								always = yes
+							}
+						}	
+					}
+				}
+			}
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0
+						calc_true_if = {
+							amount = 1
+							last_created_species = { is_species_class = LITHOID }
+							owner.species = { is_species_class = LITHOID }
+						}
+					}
+				}
+				90 = {
+					owner = {
+						switch = {
+							trigger = has_origin
+							origin_dimorphic = {
+								create_species = {
+									name = random
+									class = this
+									portrait = random
+									homeworld = root
+									traits = {
+										trait = trait_dimorphic_2
+										trait = random_traits
+									}
+								}
+							}
+							origin_dimorphic_sexual = {
+								create_species = {
+									name = random
+									class = this
+									portrait = random
+									homeworld = root
+									traits = {
+										trait = trait_dimorphic_male
+										trait = random_traits
+									}
+									extra_trait_points = -1
+								}
+							}
+							origin_instars = {
+								create_species = {
+									name = random
+									class = this
+									portrait = random
+									homeworld = root
+									traits = {
+										trait = trait_older_form
+										trait = random_traits
+									}
+								}
+							}
+						}	
+					}		
+				}
+			}
+		}
+		while = {
+			limit = { num_pops < 14 }
+			create_pop = {
+				species = owner_main_species
+				ethos = random
+			}
+		}
+		while = {
+			count = 14
+			random_owned_pop = {
+				limit = { is_same_species = owner }
+				change_species = last_created_species
+			}
+		}
+	}
+}
+
+country_event = {
+	id = d_traits_origins.41
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_origin = origin_dimorphic
+			has_origin = origin_dimorphic_sexual
+			has_origin = origin_instars
+		}	
+	}
+	immediate = {
+		IF = {
+			limit = { has_authority = auth_hive_mind }
+			every_owned_pop = {
+				limit = {
+					NOT = { is_same_species = owner }
+				}
+				modify_species = {
+					species = this
+					base = root.species
+					add_trait = trait_hive_mind
+				}
+			}
+		}
+		ELSE = {
+			every_owned_pop = {
+				limit = {
+					NOT = { is_same_species = owner }
+				}
+				modify_species = {
+					species = this
+					base = root.species
+				}
+			}
+		}
+	}
+}
+
+# country_event = {
+# 	id = d_traits_origins.50
+# 	hide_window = yes
+# 	is_triggered_only = yes
+
+# 	trigger = {
+# 		is_primitive = yes
+# 		is_gestalt = no
+# 	}
+# 	immediate = {
+# 		random_list = {
+# 			93 = { }
+# 			2 = {
+# 				species = { save_event_target_as = original_species }
+# 				modify_species = {
+# 					add_trait = trait_dimorphic_1
+# 					base = none
+# 				}
+# 				random_list = {
+# 					9 = {
+# 						create_species = {
+# 							name = random
+# 							class = this
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_dimorphic_2
+# 								trait = random_traits
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 					1 = {
+# 						modifier = {
+# 							factor = 0
+# 							root = { is_lithoid = yes }
+# 						}
+# 						create_species = {
+# 							name = random
+# 							class = random_non_machine
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_dimorphic_2
+# 								trait = random_traits
+# 							}
+# 						}
+# 						IF = {
+# 							limit = {
+# 								last_created_species = { is_lithoid = yes }
+# 							}
+# 							create_species = {
+# 								name = random
+# 								class = LITHOID
+# 								portrait = random
+# 								homeworld = root.capital_scope
+# 								traits = {
+# 									trait = trait_dimorphic_2
+# 									trait = random_traits
+# 								}
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 				}
+# 				while = {
+# 					limit = {
+# 						any_owned_pop = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = root.species
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = last_created_species
+# 					}
+# 				}
+# 				every_owned_leader = {
+# 					random_list = {
+# 						50 = { change_species = root.species }
+# 						50 = { change_species = last_created_species }
+# 					}
+# 				}
+# 			}
+# 			2 = {
+# 				species = { save_event_target_as = original_species }
+# 				modify_species = {
+# 					add_trait = trait_dimorphic_female
+# 					base = none
+# 				}
+# 				random_list = {
+# 					9 = {
+# 						create_species = {
+# 							name = random
+# 							class = this
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_dimorphic_male
+# 								trait = random_traits
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 					1 = {
+# 						modifier = {
+# 							factor = 0
+# 							root = { is_lithoid = yes }
+# 						}
+# 						create_species = {
+# 							name = random
+# 							class = random_non_machine
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_dimorphic_male
+# 								trait = random_traits
+# 							}
+# 						}
+# 						IF = {
+# 							limit = {
+# 								last_created_species = { is_lithoid = yes }
+# 							}
+# 							create_species = {
+# 								name = random
+# 								class = LITHOID
+# 								portrait = random
+# 								homeworld = root.capital_scope
+# 								traits = {
+# 									trait = trait_dimorphic_male
+# 									trait = random_traits
+# 								}
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 				}
+# 				while = {
+# 					limit = {
+# 						any_owned_pop = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = root.species
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = last_created_species
+# 					}
+# 				}
+# 				every_owned_leader = {
+# 					limit = { is_same_species = event_target:original_species }
+# 					switch = {
+# 						trigger = gender
+# 						female = {
+# 							change_species = owner.species
+# 						}
+# 						male = {
+# 							change_species = last_created_species
+# 						}
+# 						default = {
+# 							random_list = {
+# 								50 = { change_species = root.species }
+# 								50 = { change_species = last_created_species }
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			3 = {
+# 				modifier = {
+# 					factor = 0
+# 					OR = {
+# 						has_trait = trait_enduring
+# 						has_trait = trait_venerable
+# 						has_trait = trait_fleeting
+# 					}
+# 				}
+# 				species = { save_event_target_as = original_species }
+# 				modify_species = {
+# 					add_trait = trait_younger_form
+# 					base = none
+# 				}
+# 				random_list = {
+# 					9 = {
+# 						create_species = {
+# 							name = random
+# 							class = this
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_older_form
+# 								trait = random_traits
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 					1 = {
+# 						modifier = {
+# 							factor = 0
+# 							root = { is_lithoid = yes }
+# 						}
+# 						create_species = {
+# 							name = random
+# 							class = random_non_machine
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_older_form
+# 								trait = random_traits
+# 							}
+# 						}
+# 						IF = {
+# 							limit = {
+# 								last_created_species = { is_lithoid = yes }
+# 							}
+# 							create_species = {
+# 								name = random
+# 								class = LITHOID
+# 								portrait = random
+# 								homeworld = root.capital_scope
+# 								traits = {
+# 									trait = trait_older_form
+# 									trait = random_traits
+# 								}
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 				}
+# 				while = {
+# 					limit = {
+# 						any_owned_pop = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = root.species
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = last_created_species
+# 					}
+# 				}
+# 				every_owned_leader = {
+# 					change_species = root.species
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# country_event = {
+# 	id = d_traits_origins.51
+# 	hide_window = yes
+# 	is_triggered_only = yes
+
+# 	trigger = {
+# 		is_primitive = yes
+# 		has_authority = auth_hive_mind
+# 		num_species = 1
+# 	}
+# 	immediate = {
+# 		random_list = {
+# 			93 = { }
+# 			2 = {
+# 				species = { save_event_target_as = original_species }
+# 				modify_species = {
+# 					add_trait = trait_dimorphic_1
+# 					base = none
+# 				}
+# 				random_list = {
+# 					9 = {
+# 						create_species = {
+# 							name = random
+# 							class = this
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_dimorphic_2
+# 								trait = random_traits
+# 								trait = trait_hive_mind
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 					1 = {
+# 						modifier = {
+# 							factor = 0
+# 							root = { is_lithoid = yes }
+# 						}
+# 						create_species = {
+# 							name = random
+# 							class = random_non_machine
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_dimorphic_2
+# 								trait = random_traits
+# 								trait = trait_hive_mind
+# 							}
+# 						}
+# 						IF = {
+# 							limit = {
+# 								last_created_species = { is_lithoid = yes }
+# 							}
+# 							create_species = {
+# 								name = random
+# 								class = LITHOID
+# 								portrait = random
+# 								homeworld = root.capital_scope
+# 								traits = {
+# 									trait = trait_dimorphic_2
+# 									trait = random_traits
+# 									trait = trait_hive_mind
+# 								}
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 				}
+# 				while = {
+# 					limit = {
+# 						any_owned_pop = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = root.species
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = last_created_species
+# 					}
+# 				}
+# 				every_owned_leader = {
+# 					random_list = {
+# 						50 = { change_species = root.species }
+# 						50 = { change_species = last_created_species }
+# 					}
+# 				}
+# 			}
+# 			2 = {
+# 				species = { save_event_target_as = original_species }
+# 				modify_species = {
+# 					add_trait = trait_dimorphic_female
+# 					base = none
+# 				}
+# 				random_list = {
+# 					9 = {
+# 						create_species = {
+# 							name = random
+# 							class = this
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_dimorphic_male
+# 								trait = random_traits
+# 								trait = trait_hive_mind
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 					1 = {
+# 						modifier = {
+# 							factor = 0
+# 							root = { is_lithoid = yes }
+# 						}
+# 						create_species = {
+# 							name = random
+# 							class = random_non_machine
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_dimorphic_male
+# 								trait = random_traits
+# 								trait = trait_hive_mind
+# 							}
+# 						}
+# 						IF = {
+# 							limit = {
+# 								last_created_species = { is_lithoid = yes }
+# 							}
+# 							create_species = {
+# 								name = random
+# 								class = LITHOID
+# 								portrait = random
+# 								homeworld = root.capital_scope
+# 								traits = {
+# 									trait = trait_dimorphic_male
+# 									trait = random_traits
+# 									trait = trait_hive_mind
+# 								}
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 				}
+# 				while = {
+# 					limit = {
+# 						any_owned_pop = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = root.species
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = last_created_species
+# 					}
+# 				}
+# 				every_owned_leader = {
+# 					limit = { is_same_species = event_target:original_species }
+# 					switch = {
+# 						trigger = gender
+# 						female = {
+# 							change_species = owner.species
+# 						}
+# 						male = {
+# 							change_species = last_created_species
+# 						}
+# 						default = {
+# 							random_list = {
+# 								50 = { change_species = root.species }
+# 								50 = { change_species = last_created_species }
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			3 = {
+# 				modifier = {
+# 					factor = 0
+# 					OR = {
+# 						has_trait = trait_enduring
+# 						has_trait = trait_venerable
+# 						has_trait = trait_fleeting
+# 					}
+# 				}
+# 				species = { save_event_target_as = original_species }
+# 				modify_species = {
+# 					add_trait = trait_younger_form
+# 					base = none
+# 				}
+# 				random_list = {
+# 					9 = {
+# 						create_species = {
+# 							name = random
+# 							class = this
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_older_form
+# 								trait = random_traits
+# 								trait = trait_hive_mind
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 					1 = {
+# 						modifier = {
+# 							factor = 0
+# 							root = { is_lithoid = yes }
+# 						}
+# 						create_species = {
+# 							name = random
+# 							class = random_non_machine
+# 							portrait = random
+# 							homeworld = root.capital_scope
+# 							traits = {
+# 								trait = trait_older_form
+# 								trait = random_traits
+# 								trait = trait_hive_mind
+# 							}
+# 						}
+# 						IF = {
+# 							limit = {
+# 								last_created_species = { is_lithoid = yes }
+# 							}
+# 							create_species = {
+# 								name = random
+# 								class = LITHOID
+# 								portrait = random
+# 								homeworld = root.capital_scope
+# 								traits = {
+# 									trait = trait_older_form
+# 									trait = random_traits
+# 								}
+# 							}
+# 						}
+# 						random_owned_pop = {
+# 							limit = {
+# 								is_same_species = event_target:original_species
+# 							}
+# 							modify_species = {
+# 								species = last_created_species
+# 								base = root.species
+# 							}
+# 						}
+# 					}
+# 				}
+# 				while = {
+# 					limit = {
+# 						any_owned_pop = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = root.species
+# 					}
+# 					random_owned_pop = {
+# 						limit = {
+# 							is_same_species = event_target:original_species
+# 						}
+# 						change_species = last_created_species
+# 					}
+# 				}
+# 				every_owned_leader = {
+# 					change_species = root.species
+# 				}
+# 			}
+# 		}
+# 	}
+# }

@@ -1,0 +1,36 @@
+civic_corp_dystopia = {
+	potential = {
+		authority = {
+			OR = {
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			NOR = {
+				value = ethic_fanatic_pluralist
+				value = ethic_fanatic_socialism
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_agribusiness
+				value = civic_brand_loyalty
+				value = civic_am_charitable_efforts
+			}
+		}
+	}
+	description = civic_dystopia_effect
+	modifier = {
+		planet_jobs_criminal_produces_mult = 0.50
+		planet_jobs_criminal_unity_produces_add = 2
+		planet_crime_mult = 0.20
+		job_apothecary_per_crime = 0.03
+		job_smuggler_per_crime = 0.03
+		job_scrap_dealer_per_crime = 0.03
+		job_pirate_per_crime = 0.03
+		job_mob_boss_per_crime = 0.01
+	}
+}

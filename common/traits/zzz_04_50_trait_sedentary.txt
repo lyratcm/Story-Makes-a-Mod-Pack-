@@ -1,0 +1,34 @@
+trait_sedentary = {
+    cost = -1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_nomadic"
+        "trait_hive_mind"
+        "trait_machine_unit"
+        "trait_deeply_rooted"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pop_growth_from_immigration = -0.15
+        pop_resettlement_cost_mult = 0.25
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_sedentary@prev
+                }
+            }
+        }
+    }
+}

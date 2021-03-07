@@ -1,0 +1,27 @@
+masters_writings_politics = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	potential = {
+		has_country_flag = edict_masters_writings_politics
+	}
+	
+	modifier = {
+		planet_buildings_cost_mult = -0.1
+		planet_districts_cost_mult = -0.1
+		planet_building_build_speed_mult = 0.10
+	}
+
+	allow = {
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

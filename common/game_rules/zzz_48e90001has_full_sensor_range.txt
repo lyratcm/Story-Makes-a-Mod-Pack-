@@ -1,0 +1,14 @@
+has_full_sensor_range = {
+    NOR = {
+        has_country_flag = z_fw_misc_full_sensor_off
+        has_country_flag = had_closed_spy_orb
+    }
+    OR = {
+        has_megastructure = spy_orb_4
+        has_megastructure = spy_orb_restored
+        has_megastructure = sofe_omega_spy_orb_center
+        has_country_flag = z_fw_r_celestial_orrey_activited
+        has_country_flag = z_fw_r_cheat_quantum_beacon_activited
+        has_country_flag = z_lctr_r_adv_sensor_activated_full
+    }
+}

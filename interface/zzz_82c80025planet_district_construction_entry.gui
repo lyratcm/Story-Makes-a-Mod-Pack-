@@ -1,0 +1,112 @@
+guiTypes = {
+    @sidebar_inner_w = 430
+    containerWindowType = {
+        name = "planet_district_construction_entry"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = @sidebar_inner_w
+            height = 100
+        }
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_frame"
+            clicksound = "queuing_building"
+        }
+        containerWindowType = {
+            name = "district_icon"
+            size = {
+                width = 77
+                height = 77
+            }
+            position = {
+                x = 1
+                y = 23
+            }
+            iconType = {
+                name = "district_icon"
+                position = {
+                    x = 1
+                    y = -1
+                }
+                spriteType = "GFX_district_unknown"
+                alwaysTransparent = yes
+            }
+            background = {
+                name = "icon_background"
+                spriteType = "GFX_tiles_frame"
+                alwaysTransparent = yes
+            }
+        }
+        containerWindowType = {
+            name = "district_name"
+            size = {
+                width = @sidebar_inner_w
+                height = 22
+            }
+            position = {
+                x = 0
+                y = 0
+            }
+            background = {
+                name = "background"
+                spriteType = "GFX_tiles_frame"
+            }
+            instantTextBoxType = {
+                name = "district_name"
+                font = "cg_16b"
+                text = "District Name"
+                position = {
+                    x = 0
+                    y = 3
+                }
+                maxWidth = @sidebar_inner_w
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+                alwaysTransparent = yes
+            }
+        }
+        instantTextBoxType = {
+            name = "district_effects"
+            font = "cg_16b"
+            text = "District effects go here"
+            position = {
+                x = 85
+                y = 25
+            }
+            maxWidth = 340
+            maxHeight = 80
+            fixedSize = yes
+            format = left
+            alwaysTransparent = yes
+        }
+        instantTextBoxType = {
+            name = "district_cost"
+            font = "cg_16b"
+            text = "50"
+            position = {
+                x = 85
+                y = 78
+            }
+            maxWidth = 340
+            maxHeight = 80
+            fixedSize = yes
+            format = left
+            alwaysTransparent = yes
+            text_color_code = "Y"
+        }
+        buttonType = {
+            name = "background"
+            quadTextureSprite = "GFX_list_hover"
+            position = {
+                x = -4
+                y = -4
+            }
+            clicksound = "click_outliner"
+            oversound = no_sound
+        }
+    }
+}

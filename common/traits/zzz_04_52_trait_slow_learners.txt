@@ -1,0 +1,32 @@
+trait_slow_learners = {
+    cost = -1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_quick_learners"
+        "trait_enigmatic_intelligence"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        species_leader_exp_gain = -0.25
+        army_experience_gain_mult = -0.25
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_slow_learners@prev
+                }
+            }
+        }
+    }
+}

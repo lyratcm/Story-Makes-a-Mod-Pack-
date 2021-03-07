@@ -1,0 +1,259 @@
+namespace = caretaker_origin_event
+country_event = {
+    id = caretaker_origin_event.3100
+    is_triggered_only = yes
+    hide_window = yes
+    trigger = {
+        has_origin = origin_caretaker
+        has_country_flag = caretaker_secession
+    }
+    immediate = {
+        create_country = {
+            type = default
+            name = "NAME_CARETAKER_EMPIRE"
+            species = event_target:caretaker_robotic_species@root
+            ignore_initial_colony_error = yes
+            day_zero_contact = no
+            ethos = {
+                ethic = ethic_gestalt_consciousness
+            }
+            authority = auth_machine_intelligence
+            civics = {
+                civic = civic_machine_servitor
+                civic = civic_machine_introspective
+            }
+            origin = origin_caretaker_sevitor
+            flag = {
+                icon = {
+                    category = "special"
+                    file = "caretaker_emblem.dds"
+                }
+                background = {
+                    category = "backgrounds"
+                    file = "00_solid.dds"
+                }
+                colors = {
+                    "black"
+                    "black"
+                    "null"
+                    "null"
+                }
+            }
+            effect = {
+                set_country_flag = caretaker_seceded_country
+                caretaker_seceded_empire_setup_technology = {
+                    PARENT_EMPIRE = ROOT
+                }
+                add_resource = {
+                    minerals = 15000
+                    energy = 15000
+                    food = 15000
+                    alloys = 15000
+                    consumer_goods = 15000
+                    influence = 1000
+                    rare_crystals = 500
+                    exotic_gases = 500
+                    volatile_motes = 500
+                }
+                add_modifier = {
+                    modifier = caretaker_country_boost
+                    days = -1
+                }
+                save_global_event_target_as = caretaker_secession_empire
+            }
+        }
+        event_target:caretaker_secession_empire = {
+            ROOT = {
+                establish_communications_no_message = PREV
+                set_truce = {
+                    target = PREV
+                    type = war
+                }
+                set_closed_borders = {
+                    who = PREV
+                    status = no
+                    forced = 10
+                }
+            }
+            establish_communications_no_message = ROOT
+            every_playable_country = {
+                limit = {
+                    has_communications = ROOT
+                }
+                establish_communications_no_message = PREV
+            }
+            set_truce = {
+                target = ROOT
+                type = war
+            }
+            set_closed_borders = {
+                who = ROOT
+                status = no
+                forced = 10
+            }
+            if = {
+                limit = {
+                    ROOT = {
+                        has_country_flag = caretaker_secession_granted
+                    }
+                }
+                add_opinion_modifier = {
+                    who = ROOT
+                    modifier = caretaker_secession_request_granted
+                }
+            }
+            else_if = {
+                limit = {
+                    ROOT = {
+                        OR = {
+                            has_country_flag = caretaker_secession_denied
+                            has_country_flag = caretaker_secession_denied_politely
+                        }
+                    }
+                }
+                add_opinion_modifier = {
+                    who = ROOT
+                    modifier = caretaker_secession_request_denied
+                }
+                ROOT = {
+                    add_opinion_modifier = {
+                        who = PREV
+                        modifier = caretaker_seceded_against_our_wishes
+                    }
+                }
+            }
+        }
+        event_target:caretaker_secession_target_planet@root = {
+            set_owner = event_target:caretaker_secession_empire
+            set_controller = event_target:caretaker_secession_empire
+            set_capital = yes
+            caretaker_seceded_empire_setup_initial_population = {
+                PARENT_EMPIRE_SPECIES = ROOT
+                CARETAKER_SPECIES = event_target:caretaker_robotic_species@root
+            }
+            caretaker_seceded_empire_setup_capital = yes
+            set_sector_capital = yes
+            solar_system = {
+                starbase = {
+                    set_owner = event_target:caretaker_secession_empire
+                    caretaker_seceded_empire_setup_starbase = yes
+                }
+            }
+        }
+        event_target:caretaker_secession_empire = {
+            caretaker_seceded_empire_create_starting_fleet = {
+                FLEET_TARGET = THIS
+            }
+            caretaker_seceded_empire_create_civilian_ships = {
+                FLEET_TARGET = THIS
+            }
+            caretaker_seceded_empire_setup_leaders = yes
+        }
+        clear_global_event_target = caretaker_robotic_species@root
+        clear_global_event_target = caretaker_secession_target_planet@root
+        set_country_flag = caretaker_break_up
+        every_owned_planet = {
+            caretaker_secession_planets_clean_up = yes
+        }
+        if = {
+            limit = {
+                OR = {
+                    has_country_flag = caretaker_secession_granted
+                    has_country_flag = caretaker_secession_denied_politely
+                }
+            }
+            random_list = {
+                80 = {
+                    country_event = {
+                        id = caretaker_origin_event.3201
+                        days = 720
+                        random = 720
+                    }
+                }
+                20 = {
+                }
+            }
+            random_list = {
+                80 = {
+                    country_event = {
+                        id = caretaker_origin_event.3200
+                        days = 1440
+                        random = 720
+                    }
+                }
+                20 = {
+                }
+            }
+            random_list = {
+                80 = {
+                    country_event = {
+                        id = caretaker_origin_event.3202
+                        days = 2160
+                        random = 720
+                    }
+                }
+                20 = {
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = caretaker_secession_denied
+            }
+            random_list = {
+                70 = {
+                    country_event = {
+                        id = caretaker_origin_event.3250
+                        days = 720
+                        random = 720
+                    }
+                }
+                30 = {
+                }
+            }
+            random_list = {
+                40 = {
+                    country_event = {
+                        id = caretaker_origin_event.3252
+                        days = 1440
+                        random = 720
+                    }
+                }
+                60 = {
+                }
+            }
+            random_list = {
+                70 = {
+                    country_event = {
+                        id = caretaker_origin_event.3251
+                        days = 2160
+                        random = 720
+                    }
+                }
+                30 = {
+                }
+            }
+            random_list = {
+                70 = {
+                    country_event = {
+                        id = caretaker_origin_event.3250
+                        days = 3600
+                        random = 720
+                    }
+                }
+                30 = {
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_country_flag = caretaker_secession_granted
+            }
+            country_event = {
+                id = caretaker_origin_event.3300
+                days = 4680
+                random = 1440
+            }
+        }
+    }
+}

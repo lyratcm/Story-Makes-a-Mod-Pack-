@@ -1,0 +1,273 @@
+﻿l_russian:
+ 
+ #BUILDINGS
+ 
+ building_vfb_wharf:0 "Stellar Wharf"
+ building_vfb_wharf_desc:0 "While normal colonies rely on trans-orbital transport and disassembled ship pioneering, we can go one step further in our planets of higher strategical importance:  The Stellar Wharfs are massive structures devised for the purposes of lowering fuel consumption of ships, facilitating runoff of solely outer-orbit ships, monitoring space, centralizing naval anchoraging and headquartering planetary customs offices. Bridging outer-orbital and intra-orbital space, it'll serve as a dock for spacecraft and a docking bay for production fluxes. Dubbing as both an air control tower and the airfield itself, the Stellar Wharf will also concentrate all atmospheric intrusions into our planet."
+ building_vfb_harbor:0 "Interstellar Harbor"
+ building_vfb_harbor_desc:0 "The exponential growth of out platenary infrastructure, trade, production and resource flux have rendered our Stellar Wharfs outdated. No longer are our focuses only monitoring atmospheric intrusions: they've expanded into aiding our Stations on managing the outer-space that our planetary economy has rendered so profitable and rich. As such, the Interstellar Harbor consists of a series of Orbital expansions to our already significant vertical infrastructure. Standard docking protocols, Station-Planet public transport, escort and rapid response flottila deployments, advanced healthcare that stations don't have ways of providing and serving as backup to coordinate in-system spacecraft will be some of it's new responsibilities. Bridging outer-intra orbital transport like Wharfs, our Harbors will bridge all local station - planet flux."
+ 
+ building_vfb_armory:0 "Field Armories"
+ building_vfb_armory_desc:0 "Equipped with a small medical staff, pioneering equipment and primary surveillance tools, a Field Armory will be any new colony's go-to base for carrying on field-operations, providing healtcare to our pioneers and fighting pockets of crime in our newly colonized planets."
+ 
+ building_vfb_workshop:0 "Modular Workshops"
+ building_vfb_workshop_desc:0 "With forges, printers and templates, a Modular Workshop will field any colonist's special needs and all vehicle-repairing material quotas. Surplus production could also be exported."
+ 
+ building_vfb_logistichub:0 "Central Logistical Hub"
+ building_vfb_logistichub_desc:0 "This great terminal connects and controls a planetary network of Hyperloops and Maglevs, quickly distributing supplies wherever needed and assuring all our production centers are always working in top efficiency. The Central Logistics Hub also regulates most sub-orbital airborne cargo transports and connects our ever-expanding planetary network of solar harvesters, nutrient replicators and ore extractors, assuring no surplus energy, mineral or food is wasted away."
+ 
+ building_vfb_orbitalhub:0 "Integrated Orbital Hub"
+ building_vfb_orbitalhub_desc:0 "Taking advantage of the existing infrastructure of our Interstellar Harbors, the Integrated Orbital Hub expands on its grounded predecessor's mission of maximizing the efficiency of transport protocols by harnessing planetary rotation's momentuum. Besides optimizing said protocols, this endeavour opens an opportunity for centralizing our planetary power grids, mineral purification installations and food processing centers, another initiative in increasing raw and refined resource output, reducing waste considerably. Obviously this will all be horrendously expensive."
+ 
+ building_vfb_plaza:0 "Civic Plazas"
+ building_vfb_plaza_desc:0 "With greater empires come greater administrative needs! Concentrating most of our important social welfare services with our security forces in our Civic Plazas, far from the bureocratic mess of the administration, will certainly get our citizens closer to the state and provide them with a greater quality of life."
+ 
+ building_vfb_manufactory:0 "Manufacturing Complexes"
+ building_vfb_manufactory_desc:0 "These great production centers amalgamate 3D printers, forgeries, docking bays, raw material deposits, construction templates and other manufactoring necessities. Of free access, a Manufactory Complex provides all citizens with the hability to create whatever their homes need and their docks crave, on their own planets and by their own - or specialists' - hands, promising to replace our homeworld's traditional industry."
+ 
+ building_vfb_residence:0 "Structural Residences"
+ building_vfb_residence_desc:0 "The great archs and alloy walls of our Orbital Habitats have plenty of space for houses to be built on."
+ 
+ building_vfb_refinery:0 "Refinery Stations"
+ building_vfb_refinery_desc:0 "Now that we understand the potential that rare resources represent, we should concentrate their production on dedicated Refinery Stations, as to guarantee all colonies will have access to local supplies of such goods."
+ 
+ building_vfb_resort:0 "Paradise Resorts"
+ building_vfb_resort_desc:0 "While our empire can only usually finance a single resort world, we can help raising large-sized resorts on many planets for providing tourists entertainment, great food and engaging cultural and leisure activities."
+ building_vfb_groundsofeden:0 "Celestial Paradise"
+ building_vfb_groundsofeden_desc:0 "As our planets' infrastructure expands, we gain a lot of economic bonuses at the cost of beautiful visages for our resorts. Raising them upwards, having our people stare at the skies in awe during their vacations, will make up for the artificial beaches."
+
+ building_vfb_preserve:0 "Sanctuary Hubs"
+ building_vfb_preserve_desc:0 "Increasing urbanization and emerging economic prosperity have left our planets' ecosystems in great danger. Keeping the natural wildlife safe, regardless of how extraordinary native fauna and flora are, and even installing a few zoos to safeguard the ecosystems of our other, more developed, colonies, will keep our concious clean, ensure no ecosystem in any colony goes permanently extinct, and provide a good insight into xeno wildlife."
+ building_vfb_skysanctuary:0 "Sky Sanctuary"
+ building_vfb_skysanctuary_desc:0 "While our planets' emerging urbanization is great news for our economy, it isn't so for our Nature Preserves, which evermore lose space for Bio-Habitats to industries and skyscrapers. Our mastery of Anti-Gravity facility construction should help us keep the natural balance of our worlds by keeping the most valiant habitats in orbit."
+ 
+ building_vfb_siderurgy:0 "Tetra-Siderurgy"
+ building_vfb_siderurgy_desc:0 "Traditionally translated as 'Iron', 'Sides' also refers to celestial objects and all sky-ward. As such, the Tetra-Siderurgy is an Alloy Forge so great it, by connecting many other smaller Alloyworks - concentrating their material influx and thermal generators -, allows for the creation of huge amounts of valuable metal components with relatively few staff. The more forges we have on planets with this installation - §Bat least two§! - the more intense the smelters are and the more resources we put out."
+ siderurgy_addon_effect_desc:0 "Adds a Siderurgist job and +5% Metallurgist Output for every Foundry of same type in this planet, only accounting for the most common, up to four total."
+ 
+ building_vfb_asteroid_station:0 "Circumstellar Matter Dock"
+ building_vfb_asteroid_station_desc:0 "By re-routing and fragmenting circumstellar matter in outer space, and bringing them to our planetary orbits, we can harness massive amounts of much needed materials without harming our surfaces' crusts. It's a costly and risky endeavour, still."
+ building_vfb_asteroid_hub:0 "Circumstellar Matter Anchorage"
+ building_vfb_asteroid_hub_desc:0 "By re-routing and fragmenting circumstellar matter in outer space, and bringing them to our planetary orbits, we can harness massive amounts of much needed materials without harming our surfaces' crusts. It's a costly and risky endeavour, still."
+ building_vfb_asteroid_hub_b:0 "Meteorite Mills" 
+ building_vfb_asteroid_hub_b_desc:0 "These extension facilities to the Circumstellar Matter Anchorage occupy themselves on refining grounded meteorites. Their installations relief our Anchorage teams from said duty, and allow them to focus efforts better on important outer-orbital tasks, mainly asteroid retrieving. Besides, grounded teams have more time to shuffle through their resources, and make the most of what their sky fellows brought around. \n\n§B Requires the Circumstellar Matter Anchorage to be built§!"
+
+ building_vfb_fusion_plant:0 "Beta Tunnel Complex"
+ building_vfb_fusion_plant_desc:0 "While our matter-to-energy converting technology isn't nearly as efficient as it's predicted to be, we can already do so by colliding nuclei at great speeds and exciting heat recycling cells with the resulting thermal energy released. Differently from Fusion-powered plants, this process - Beta Harvesting - does not put out any remaining solid matter, being then much more efficient. It'll produce a reasonable amount of power, at the cost of a reasonable amount of matter to perform beta collisions on."
+ building_vfb_fusion_complex:0 "Beta Tunnel Arrays"
+ building_vfb_fusion_complex_desc:0 "While our matter-to-energy converting technology isn't nearly as efficient as it's predicted to be, we can already do so by colliding nuclei at great speeds and exciting heat recycling cells with the resulting thermal energy released. Differently from Fusion-powered plants, this process - Beta Harvesting - does not put out any remaining solid matter, being then much more efficient. It'll produce a reasonable amount of power, at the cost of a reasonable amount of matter to perform beta collisions on."
+ building_vfb_fusion_complex_b:0 "De-Scattering Cells"
+ building_vfb_fusion_complex_b_desc:0 "These extension facilities to the Beta Tunnel Arrays, installed around the great leaps of the Tunnels, absorb and break down many different Quantum Particles, such as neutrinos, released and unused during Beta Harvests. These weak-nuclear cells installations produce power on their own, and allow us to expand the Arrays even further without saturating the tunnels.\n\n§B Requires the Beta Tunnel Arrays to be built§!"
+ 
+ building_vfb_plastic_plant:0 "Bio-Matter Plant"
+ building_vfb_plastic_plant_desc:0 "Our reliance on ground-extracted soil-damaging minerals has always been an issue in our efforts for environmental preservation and resource-output quotas. Our Agro-engineers have recently come up with a solution: Based on our former usage on Petroleum-based solid products, new compositions of Bio-Plastics would be an efficient replacement of extracted minerals for producing alloy sheets and consumer goods. Completely eco-friendly and naturally degradable, waste biomatter from the refining processes of said Bio-Plastics could also be enriched into Methanol, Ethanol and other fuel alternatives for our colonies."
+ building_vfb_plastic_facility:0 "Bio-Matter Facilities"
+ building_vfb_plastic_facility_desc:0 "Optimizations in synthesizing, molding and recycling biomatter and Bio-Plastics have opened a new frontier for our raw goods market. By dispering our Bio-Matter Plants into local facilities we can ensure most colonial communities have a clean and efficient alternative for extracted-mineral constructed Consumer Goods."
+ 
+ building_vfb_lyceum:0 "Lyceum"
+ building_vfb_lyceum_desc:0 "While Academia and Research Facilities are spread around our citizen planets, as a general rule, these centres of learning are too disperse and too focused on their research to work together and provide insights into each other's work. By inter-linking these intelectual nucleii - wherever they're relevant - through informational infrastructure we will not only quicken research by emergence, but provide additional opportunities - seen that this network requires physical infrastructure - for archivists, professors and even phisolophers to work confortably in a dedicated space: the Lyceum."
+ lyceum_addon_effect_desc:0 "Adds a Researcher Job and +5% Researcher Output for every Research Lab of same type in this planet, only accounting for the most common, up to four total."
+ 
+ #JOBS
+ 
+ job_vfb_manufacturer:0 "Manufacturer"
+ job_vfb_manufacturer_plural:0 "Manufacturers"
+ job_vfb_manufacturer_desc:0 "Skilled workers that operate 3D printers and diverse industral machinery, procuding goods on demand and recycling industrial waste into alloys sheets."
+ job_vfb_manufacturer_effect_desc:0 "£job_vfb_manufacturer£ $job_vfb_manufacturer_plural$ turn £energy£ §Y$energy$§! and £minerals£ §Y$minerals$§! into £consumer_goods£ §Y$consumer_goods$§! and £alloys£ §Yalloys$§!."
+ mod_job_vfb_manufacturer_add:0 "$job_vfb_manufacturer$ Jobs"
+ mod_job_vfb_manufacturer_per_pop:0 "§G+1§! $job_vfb_manufacturer$ Job per $VALUE$ Pops"
+ mod_job_vfb_manufacturer_per_pop_short:0 "\n§G+1§! £mod_job_vfb_manufacturer_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_enricher:0 "Enricher"
+ job_vfb_enricher_plural:0 "Enrichers"
+ job_vfb_enricher_desc:0 "Waste is an universal companion for both primal and advanced civilizations. Expansions in production and in the physical infrastructure of our Manufacturing Complexes, regardless of how much we optimize material usage efficiency, are bound to result in a lot of eventual waste. Enrichers recycle - enrich - discarded goods and unused raw materials from said manufactories into alloy sheets. Only reasonably-sized production centres house such needs, in any case."
+ job_vfb_enricher_effect_desc:0 "£job_vfb_enricher£ $job_vfb_enricher_plural$ turn £energy£ §Y$energy$§! and Waste into £alloys£ §Yalloys$§!."
+ mod_job_vfb_enricher_add:0 "$job_vfb_enricher$ Jobs"
+ mod_job_vfb_enricher_per_pop:0 "§G+1§! $job_vfb_enricher$ Job per $VALUE$ Pops"
+ mod_job_vfb_enricher_per_pop_short:0 "\n§G+1§! £mod_job_vfb_enricher_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_logistician:0 "Logistician"
+ job_vfb_logistician_plural:0 "Logisticians"
+ job_vfb_logistician_desc:0 "Logisticians organize resource distribution and protocolize site improvements, increasing the overall efficiency of all production lines and sub-orbital transport."
+ job_vfb_logistician_effect_desc:0 "£job_vfb_logistician£ $job_vfb_logistician_plural$ create §Y$Trade Value$§! and increase §YJob Production Efficiency$§!."
+ mod_job_vfb_logistician_add:0 "$job_vfb_logistician$ Jobs"
+ mod_job_vfb_logistician_per_pop:0 "§G+1§! $job_vfb_logistician$ Job per $VALUE$ Pops"
+ mod_job_vfb_logistician_per_pop_short:0 "\n§G+1§! £mod_job_vfb_logistician_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_prospector_bio:0 "Prospector"
+ job_vfb_prospector_bio_plural:0 "Prospectors"
+ job_vfb_prospector_bio_desc:0 "Astro-Engineers and specialized operators that re-route star-orbiting matter into planetary orbits, fragmenting them and extracting valuable minerals."
+ job_vfb_prospector_bio_effect_desc:0 "£job_vfb_prospector_bio£ $job_vfb_prospector_bio_plural$ turn £energy£ §Y$energy$§! into £engineering_research£ §Y$engineering_research$§!, £alloys£ §Y$alloys$§! and £minerals£ §Y$minerals$§!."
+ mod_job_vfb_prospector_bio_add:0 "$job_vfb_prospector_bio$ Jobs"
+ mod_job_vfb_prospector_bio_per_pop:0 "§G+1§! $job_vfb_prospector_bio$ Job per $VALUE$ Pops"
+ mod_job_vfb_prospector_bio_per_pop_short:0 "\n§G+1§! £mod_job_vfb_prospector_bio_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_prospector_bot:0 "Prospector Drone"
+ job_vfb_prospector_bot_plural:0 "Prospector Drones"
+ job_vfb_prospector_bot_desc:0 "Specialized drones that operate asteroid re-router hubs that route star-orbiting matter into planetary orbits, fragmenting them and extracting valuable minerals."
+ job_vfb_prospector_bot_effect_desc:0 "£job_vfb_prospector_bot£ $job_vfb_prospector_bot_plural$ turn £energy£ §Y$energy$§! into £engineering_research£ §Y$engineering_research$§!, £alloys£ §Y$alloys$§! and £minerals£ §Y$minerals$§!."
+ mod_job_vfb_prospector_bot_add:0 "$job_vfb_prospector_bot$ Jobs"
+ mod_job_vfb_prospector_bot_per_pop:0 "§G+1§! $job_vfb_prospector_bot$ Job per $VALUE$ Pops"
+ mod_job_vfb_prospector_bot_per_pop_short:0 "\n§G+1§! £mod_job_vfb_prospector_bot_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_tunneller_bio:0 "Tunneller"
+ job_vfb_tunneller_bio_plural:0 "Tunnellers"
+ job_vfb_tunneller_bio_desc:0 "Quantum Physicists and specialized technicians that transform matter into energy through Beta Harvesting, by colliding particles inside heat-celled tunnels and recycling resulting power."
+ job_vfb_tunneller_bio_effect_desc:0 "£job_vfb_tunneller_bio£ $job_vfb_tunneller_bio_plural$ turn £minerals£ §Y$minerals$§! into £physics_research£ §Y$physics_research$§!, £trade_value£ §Y$trade_value$§! and £energy£ §Y$energy$§!."
+ mod_job_vfb_tunneller_bio_add:0 "$job_vfb_tunneller_bio$ Jobs"
+ mod_job_vfb_tunneller_bio_per_pop:0 "§G+1§! $job_vfb_tunneller_bio$ Job per $VALUE$ Pops"
+ mod_job_vfb_tunneller_bio_per_pop_short:0 "\n§G+1§! £mod_job_vfb_tunneller_bio_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_tunneller_bot:0 "Tunneller Drone"
+ job_vfb_tunneller_bot_plural:0 "Tunneller Drones"
+ job_vfb_tunneller_bot_desc:0 "Specialized drones that operate colliders, transforming matter into energy through Beta Harvesting, by colliding particles inside heat-celled tunnels and recycling resulting power."
+ job_vfb_tunneller_bot_effect_desc:0 "£job_vfb_tunneller_bot£ $job_vfb_tunneller_bot_plural$ turn £minerals£ §Y$minerals$§! into £physics_research£ §Y$physics_research$§!, £unity£ §Y$unity$§! and £energy£ §Y$energy$§!."
+ mod_job_vfb_tunneller_bot_add:0 "$job_vfb_tunneller_bot$ Jobs"
+ mod_job_vfb_tunneller_bot_per_pop:0 "§G+1§! $job_vfb_tunneller_bot$ Job per $VALUE$ Pops"
+ mod_job_vfb_tunneller_bot_per_pop_short:0 "\n§G+1§! £mod_job_vfb_tunneller_bot_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_synthesizer_bio:0 "Synthesizer"
+ job_vfb_synthesizer_bio_plural:0 "Synthesizers"
+ job_vfb_synthesizer_bio_desc:0 "Cyto-Biologists and specialized molders that enrich Bio-Matter into Bio-Plastics and turn refinery waste into Bio-Fuels."
+ job_vfb_synthesizer_bio_effect_desc:0 "£job_vfb_synthesizer_bio£ $job_vfb_synthesizer_bio_plural$ turn £minerals£ §Y$minerals$§! into £physics_research£ §Y$physics_research$§!, £trade_value£ §Y$trade_value$§! and £energy£ §Y$energy$§!."
+ mod_job_vfb_synthesizer_bio_add:0 "$job_vfb_synthesizer_bio$ Jobs"
+ mod_job_vfb_synthesizer_bio_per_pop:0 "§G+1§! $job_vfb_synthesizer_bio$ Job per $VALUE$ Pops"
+ mod_job_vfb_synthesizer_bio_per_pop_short:0 "\n§G+1§! £mod_job_vfb_synthesizer_bio_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_synthesizer_bot:0 "Synthesizer Drone"
+ job_vfb_synthesizer_bot_plural:0 "Synthesizer Drones"
+ job_vfb_synthesizer_bot_desc:0 "Specialized drones that operate that enrich Bio-Matter into Bio-Plastics and turn refinery waste into Bio-Fuels."
+ job_vfb_synthesizer_bot_effect_desc:0 "£job_vfb_synthesizer_bot£ $job_vfb_synthesizer_bot_plural$ turn £minerals£ §Y$minerals$§! into £physics_research£ §Y$physics_research$§!, £unity£ §Y$unity$§! and £energy£ §Y$energy$§!."
+ mod_job_vfb_synthesizer_bot_add:0 "$job_vfb_synthesizer_bot$ Jobs"
+ mod_job_vfb_synthesizer_bot_per_pop:0 "§G+1§! $job_vfb_synthesizer_bot$ Job per $VALUE$ Pops"
+ mod_job_vfb_synthesizer_bot_per_pop_short:0 "\n§G+1§! £mod_job_vfb_synthesizer_bot_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_functionary:0 "Syndic"
+ job_vfb_functionary_plural:0 "Syndics"
+ job_vfb_functionary_desc:0 "Syndics maintain state-organized Housing Complexes and private Condominia, housing citizens by having them directly contribute to the maintainance of the living infrastructure and other miscellaneous luxuries."
+ job_vfb_functionary_effect_desc:0 "£job_vfb_functionary£ $job_vfb_functionary_plural$ turn £energy£ §Y$Energy$§! and £consumer_goods£ §Y$Consumer Goods$§! into §Y$Housing$§!."
+ mod_job_vfb_functionary_add:0 "$job_vfb_functionary$ Jobs"
+ mod_job_vfb_functionary_per_pop:0 "§G+1§! $job_vfb_functionary$ Job per $VALUE$ Pops"
+ mod_job_vfb_functionary_per_pop_short:0 "\n§G+1§! £mod_job_vfb_functionary_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_lifter:0 "Lifter"
+ job_vfb_lifter_plural:0 "Lifters"
+ job_vfb_lifter_desc:0 "Lifters consist of highly-trained physicians, administrators and customs officers that coordinate the day-to-day operations of trans-orbital transport infrastructure. Their job is to assure that civilian settlers, military assets and goods in general go as quickly as possible through the terminals. It's also a required job experience for a recruit Logistician."
+ job_vfb_lifter_effect_desc:0 "£job_vfb_lifter£ $job_vfb_lifter_plural$ turn £consumer_goods£ §Y$Consumer Goods$§! into §Y$Amenities$§!, §Y$ Pop Growth Speed$§! and §Y$Crime Reduction$§!."
+ mod_job_vfb_lifter_add:0 "$job_vfb_lifter$ Jobs"
+ mod_job_vfb_lifter_per_pop:0 "§G+1§! $job_vfb_lifter$ Job per $VALUE$ Pops"
+ mod_job_vfb_lifter_per_pop_short:0 "\n§G+1§! £mod_job_vfb_lifter_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_preserver:0 "Preserver"
+ job_vfb_preserver_plural:0 "Preservers"
+ job_vfb_preserver_desc:0 "Preservers consist of highly skilled biologists and rangers that safeguard native and foreign ecosystems installed in our sanctuaries, organizing Safaris for entertainment and being the information forefront in weekly wildlife maganizes."
+ job_vfb_preserver_effect_desc:0 "£job_vfb_preserver£ $job_vfb_preserver_plural$ turn £energy£ §Y$Energy$§!, £food£ §Y$Food$§! and £consumer_goods£ §Y$Consumer Goods$§! into §Y$Amenities$§!, §Y$Amenities$§! and §Y$Stability$§!."
+ mod_job_vfb_preserver_add:0 "$job_vfb_preserver$ Jobs"
+ mod_job_vfb_preserver_per_pop:0 "§G+1§! $job_vfb_preserver$ Job per $VALUE$ Pops"
+ mod_job_vfb_preserver_per_pop_short:0 "\n§G+1§! £mod_job_vfb_preserver_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_bonvivant:0 "Bonvivant"
+ job_vfb_bonvivant_plural:0 "Bonvivants"
+ job_vfb_bonvivant_desc:0 "Bonvivants (Good Lifers) are a categorization for music conductors, kitchen chefs, pool animators, lifeguards and many other types of entertainment workers that assure tourists have a full, uninterrupted fun and joyful experience while vacationing."
+ job_vfb_bonvivant_effect_desc:0 "£job_vfb_bonvivant£ $job_vfb_bonvivant_plural$ turn £energy£ §Y$Energy$§!, £food£ §Y$Food$§! and £consumer_goods£ §Y$Consumer Goods$§! into §Y$Amenities$§!, §Y$Amenities$§! and §Y$Trade Value$§!."
+ mod_job_vfb_bonvivant_add:0 "$job_vfb_bonvivant$ Jobs"
+ mod_job_vfb_bonvivant_per_pop:0 "§G+1§! $job_vfb_bonvivant$ Job per $VALUE$ Pops"
+ mod_job_vfb_bonvivant_per_pop_short:0 "\n§G+1§! £mod_job_vfb_bonvivant_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_siderurgist_bio:0 "Siderurgist"
+ job_vfb_siderurgist_bio_plural:0 "Siderurgists"
+ job_vfb_siderurgist_bio_desc:0 "Siderurgists (Sky Forgers/Iron Forgers) - primitively steelworkers - are Metallurgists that perform the heavier duties of operating the Tetra-Siderurgy, coordinating with the Alloy Forges to put out much more alloy than previously feasible, in a very energetically expensive process."
+ job_vfb_siderurgist_bio_effect_desc:0 "£job_vfb_siderurgist_bio£ $job_vfb_siderurgist_bio_plural$ turn £minerals£ §Y$minerals$§! into £alloys£ §Y$alloys$§!"
+ mod_job_vfb_siderurgist_bio_add:0 "$job_vfb_siderurgist_bio$ Jobs"
+ mod_job_vfb_siderurgist_bio_per_pop:0 "§G+1§! $job_vfb_siderurgist_bio$ Job per $VALUE$ Pops"
+ mod_job_vfb_siderurgist_bio_per_pop_short:0 "\n§G+1§! £mod_job_vfb_siderurgist_bio_add£ per $VALUE$ £pop£"
+ 
+ job_vfb_siderurgist_bot:0 "Siderurgist Drone"
+ job_vfb_siderurgist_bot_plural:0 "Siderurgist Drones"
+ job_vfb_siderurgist_bot_desc:0 "Siderurgist Drones (Sky Forgers/Iron Forgers) - primitively steelworkers - are Fabricators that perform the heavier duties of operating the Tetra-Siderurgy, coordinating with the Alloy Forges to put out much more alloy than previously feasible, in a very energetically expensive process."
+ job_vfb_siderurgist_bot_effect_desc:0 "£job_vfb_siderurgist_bot£ $job_vfb_siderurgist_bot_plural$ turn £minerals£ §Y$minerals$§! into £alloys£ §Y$alloys$§!"
+ mod_job_vfb_siderurgist_bot_add:0 "$job_vfb_siderurgist_bot$ Jobs"
+ mod_job_vfb_siderurgist_bot_per_pop:0 "§G+1§! $job_vfb_siderurgist_bot$ Job per $VALUE$ Pops"
+ mod_job_vfb_siderurgist_bot_per_pop_short:0 "\n§G+1§! £mod_job_vfb_siderurgist_bot_add£ per $VALUE$ £pop£"
+ 
+ #EVENTS
+ 
+ vfb.1:0 "VF's Buildings - Hello there!"
+ vfb.1.name:0 "VF's Buildings - Hello there!"
+ vfb.1.desc:0 "§YGreat to see you here! Thank you for subscribing to and installing VF's Buildings!§! This hefty menu will give you a few options for a shining start-up.\n\nIf you'd like to play a normal game, as you normally would to,  normally researching and normally building buildings, do select so. Else, you can chose one of the three other options to either get all the tech that leads to building said buildings, to get a Wharf in every planet, or to do both.\n\nAnyway, have a great Xeno cleasing/befriending/both. All the well!"
+ vfb.1.a:0 "My researchers are up to the job"
+ vfb.1.b:0 "I don't feel like thinking too much this playthrough"
+ vfb.1.c:0 "I like Wharfs and Stellar Wharfs\n\nHarbor"
+ vfb.1.d:0 "I'm either lazy or debugging"
+ vfb.1.a.tooltip:0 "§BVanilla Start.§!"
+ vfb.1.b.tooltip:0 "§BAll regular empires get the tech they would be able to.§!"
+ vfb.1.c.tooltip:0 "§BEvery 20+ pops planet belonging to normal empires gets a wharf.§!"
+ vfb.1.d.tooltip:0 "§BGives everyone techs and wharfs.§!"
+ 
+ #TECHNOLOGIES
+ 
+ tech_building_vfb_armory:0 "Colonial Pioneering"
+ tech_building_vfb_armory_desc:0 "Furnishing armoured facilities with medical, research and personal-defence equipment, while training colonists for performing their use, will quicken and better the process of planetary occupation."
+ 
+ tech_building_vfb_workshop:0 "On-Demand Production"
+ tech_building_vfb_workshop_desc:0 "Producing a preposteours amount of objects through heavily pollutant manufacturing, hoping to liquidize stocks and most often not doing so is absurdly inneficient. Advances in printing and template technologies makes on-demand artisanry formidably faster, materially cheaper, cleaner and more efficient."
+ 
+ tech_building_vfb_harbor:0 "Solar Portuary Authority"
+ tech_building_vfb_harbor_desc:0 "Our economy's exponential growth requires ever-expanding infrastructural and administrative innovations."
+ 
+ tech_building_vfb_logistichub:0 "Centralized Distribution"
+ tech_building_vfb_logistichub_desc:0 "'Extraction, Processing, Manufacturing and Consumption' is an immensily complex chain. We can make it a bit more tidy."
+ 
+ tech_building_vfb_orbitalhub:0 "Trans-Orbital Logistics"
+ tech_building_vfb_orbitalhub_desc:0 "Hauliage. In space."
+ 
+ tech_building_vfb_refinery:0 "Concentrated Refinement Installations"
+ tech_building_vfb_refinery_desc:0 "Now that we've mastered strategic resources synthesizing technologies, we've realised we don't need that many buildings to make it work."
+ 
+ tech_building_vfb_resort:0 "Epicurianist Logic"
+ tech_building_vfb_resort_desc:0 "A satisfied populace is a productive populace. It's far from Hedonism, per-say, but we're not monsters."
+ 
+ tech_building_vfb_groundsofeden:0 "Artificial Edens"
+ tech_building_vfb_groundsofeden_desc:0 "There's something really aesthetic in stars."
+ 
+ tech_building_vfb_preserve:0 "Bio-Habitats"
+ tech_building_vfb_preserve_desc:0 "It's our duty to protect native flora and fauna, but this doesn't mean to not colonize at all."
+ 
+ tech_building_vfb_skysanctuary:0 "Celestial Guardianship"
+ tech_building_vfb_skysanctuary_desc:0 "Growing cities leave no room for zoos. Well, in some planets there aren't so many cities, but gardens in the sky sounds really cool."
+ 
+ tech_building_vfb_asteroid_station:0 "Space Prospecting"
+ tech_building_vfb_asteroid_station_desc:0 "Asteroids and miscellaneous Circumstellar Matter are incredibly resource rich, and parking them on our planets instead of mining them on space already allows us to recycle and better distribute said minerals."
+ 
+ tech_building_vfb_asteroid_hub_b:0 "Processing Protocol Revisions"
+ tech_building_vfb_asteroid_hub_b_desc:0 "Significant advances in milling technology means every single gram is valuable. Well, not literally, but we probably can find some uses for them."
+ 
+ tech_building_vfb_fusion_plant:0 "Entropic Dynamos"
+ tech_building_vfb_fusion_plant_desc:0 "The efficient conversion of inorganic matter to energy has always been a dream to most civilizations."
+ 
+ tech_building_vfb_fusion_complex_b:0 "Conversion Protocol Revisions"
+ tech_building_vfb_fusion_complex_b_desc:0 "Having specific buildings to catch those neutrinos seems much more efficient than just running around with nets."
+ 
+ tech_building_vfb_plastic_plant:0 "Plastic Utilities"
+ tech_building_vfb_plastic_plant_desc:0 "While dropping plastic centuries ago has been instrumental for keeping our homeworld from turning into a Tomb World - if it hasn't already -, polymers not derived from Petrochemicals, but from produce, will have their usages in our civilization. What matters is that they decay much faster and at all, anyway."
+ 
+ tech_building_vfb_siderurgy:0 "Neo-Siderurgy"
+ tech_building_vfb_siderurgy_desc:0 "Steel milling has been dropped many years ago for better alloys, but our ancient practice of concentrating heat and raw iron to yield as much Steel as possible has its teachings."
+ 
+ tech_building_vfb_lyceum:0 "Neo-Philosophy"
+ tech_building_vfb_lyceum_desc:0 "The 'love of knowledge' has drove our ancestors towards the Scientific Method and, eventually, the stars. Today, abstract speculation and knowledge inter-twining have all been lost to empirism. Or have they?"
+ 
+ #MODIFIERS
+ 
+ mod_planet_chemists_volatile_motes_produces_mult:0 "Volatile Motes from Chemists"
+ mod_planet_translucers_rare_crystals_produces_mult:0 "Rare Crystals from Translucers"
+ mod_planet_refiners_exotic_gases_produces_mult:0 "Exotic Gases from Refiners"
+ mod_planet_administrators_produces_mult:0 "Resources from Administrators, Lifters, Bonvivants, Preservers, and Logisticians"
+ 
+ decision_vfb_buildspeed_m:0 "Organize Pioneering Fronts"
+ decision_vfb_buildspeed_m_desc:0 "The Stellar Wharfs have facilitated the logistic influx of goods and people from and to our most inhabited planets, aswell as interplanetary travel. With the right administrative decisions we can gear it into helping in the massive tasks of colonizing new worlds. Gearing its personnel and installations towards construction template and material recieving, dedicating bays towards immigration and healthcare managment and using reminiscent ship docks as assembly lines will quicken the process of effective settlement, if rendering the facility uncapable of performing its usual duties at normal performance."
+ vfb_buildspeed_m:0 "Organized Pioneering"
+ vfb_buildspeed_m_desc:0 "Our Wharfs are geared towards recieving immigrants, assemblying robots, providing healthcare and aiding in infrastructural construction, at heavy logistic, administrative and productive burdens."
+ pm_vfb_buildspeed_m:0 "Organized Pioneering"
+ pm_vfb_buildspeed_m_desc:0 "Our Wharfs are geared towards recieving immigrants, assemblying robots, providing healthcare and aiding in infrastructural construction, at heavy administrative burden."
+ 

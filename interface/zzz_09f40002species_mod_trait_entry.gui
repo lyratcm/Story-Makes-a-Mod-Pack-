@@ -1,0 +1,26 @@
+guiTypes = {
+    containerWindowType = {
+        name = "species_mod_trait_entry"
+        size = {
+            width = 37
+            height = 37
+        }
+        clipping = no
+        buttonType = {
+            name = "trait"
+            position = {
+                x = 4
+                y = 4
+            }
+            quadTextureSprite = "GFX_traits"
+        }
+        iconType = {
+            name = "selected"
+            position = {
+                x = 1
+                y = 1
+            }
+            quadTextureSprite = "GFX_traits_selected"
+        }
+    }
+}

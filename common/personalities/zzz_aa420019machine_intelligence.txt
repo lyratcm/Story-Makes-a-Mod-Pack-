@@ -1,0 +1,95 @@
+machine_intelligence = {
+    aggressiveness = 1.0
+    trade_willingness = 0.8
+    bravery = 1.0
+    combat_bravery = 1.0
+    military_spending = 1.0
+    colony_spending = 1.2
+    federation_acceptance = -25
+    nap_acceptance = 0
+    commercial_pact_acceptance = 0
+    research_agreement_acceptance = 0
+    defensive_pact_acceptance = 0
+    migration_pact_acceptance = -100
+    advanced_start_chance = 50
+    weapon_preferences = weapon_type_energy
+    armor_ratio = 0.4
+    shields_ratio = 0.4
+    hull_ratio = 0.2
+    threat_modifier = 0.75
+    threat_others_modifier = 0.5
+    friction_modifier = 1.25
+    claims_modifier = 1.25
+    behaviour = {
+        conqueror = yes
+        subjugator = no
+        liberator = no
+        opportunist = yes
+        slaver = yes
+        uplifter = no
+        purger = no
+        displacer = yes
+        dominator = no
+        infiltrator = no
+        robot_exploiter = no
+        robot_liberator = yes
+        propagator = no
+        multispecies = no
+        crisis_fighter = yes
+    }
+    allow = {
+        OR = {
+            is_country_type = default
+            is_country_type = ark
+        }
+        has_authority = "auth_machine_intelligence"
+        NOR = {
+            has_valid_civic = "civic_machine_servitor"
+            has_valid_civic = "civic_machine_assimilator"
+            has_valid_civic = "civic_machine_terminator"
+            has_valid_civic = "civic_closed_network"
+            has_valid_civic = "civic_harm_machine"
+            has_origin = origin_research_coop
+            has_origin = origin_research_coop_npc
+        }
+    }
+    weight_modifier = {
+        weight = 1000
+        modifier = {
+            factor = 25
+            has_trait = trait_robot_repurposed_hardware
+        }
+        modifier = {
+            factor = 50
+            has_trait = trait_robot_uncanny
+        }
+        modifier = {
+            factor = 50
+            has_trait = trait_garrison_bot
+        }
+        modifier = {
+            factor = 50
+            has_valid_civic = "civic_machine_factory_overclock"
+        }
+        modifier = {
+            factor = 50
+            has_valid_civic = "civic_machine_efficient_administrators"
+        }
+        modifier = {
+            factor = 100
+            has_valid_civic = "civic_machine_ota_updates"
+        }
+        modifier = {
+            factor = 100
+            has_valid_civic = "civic_machine_unitary_cohesion"
+        }
+        modifier = {
+            factor = 300
+            has_valid_civic = "civic_master_computer"
+        }
+        modifier = {
+            factor = 300
+            has_government = "gov_machine_industrial"
+        }
+    }
+}

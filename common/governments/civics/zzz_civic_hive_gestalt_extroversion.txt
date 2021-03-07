@@ -1,0 +1,11 @@
+lrsk_gov_var_civic_hive_gestalt_extroversion = {
+	potential = { authority = { value = auth_hive_mind } }
+    possible = { civics = { NOR = { value = civic_hive_devouring_swarm } } }
+    #icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_hive.dds"
+	random_weight = { base = 5 }
+	modifier = {
+		diplomacy_upkeep_mult = -0.25
+		country_trust_cap_add = 20
+		country_trust_growth = 0.15
+	}
+}

@@ -1,0 +1,215 @@
+ethic_socialism = {
+	cost = 1
+	category = "soc"
+	category_value = 1
+
+	fanatic_variant = ethic_fanatic_socialism
+
+	tags = {
+	}
+
+	country_modifier = {
+		pop_cat_worker_happiness = 0.05
+		pop_housing_usage_mult = -0.1
+		country_society_tech_research_speed	= 0.05
+		pop_cat_worker_political_power = 0.5
+	}
+
+	random_weight = {
+		value = 100
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_SOCIALISM_POS
+		trigger = {
+			OR = {
+				has_ethic = ethic_socialism
+				has_ethic = ethic_fanatic_socialism
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FACTION_POS
+		trigger = {
+			NOR = {
+				has_ethic = ethic_socialism
+				has_ethic = ethic_fanatic_socialism
+			}
+			has_faction = socialists
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_FACTION_POS
+		trigger = {
+			exists = ruler
+			ruler = { leader_of_faction = socialists }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_TRAIT_FERTILITY_POS
+		trigger = {
+			exists = ruler
+			ruler = { has_trait = "trait_ruler_fertility_preacher" }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CIVIC_POS
+		trigger = {
+			OR = {
+				has_valid_civic = civic_labour_unions
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CONSUMER_GOODS_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					OR = {
+						has_living_standard = { type = living_standard_utopian }
+						has_living_standard = { type = living_standard_good }
+						has_living_standard = { type = living_standard_shared_burden }
+					}
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_SOCIOLOGIST_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_natural_sociologists"
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_COMMUNAL_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_communal"
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_WASTEFUL_NEG
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_wasteful"
+				}
+			}
+		}
+	}
+
+	country_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				is_country_type = default
+				has_ethic = ethic_socialism
+				has_ethic = ethic_fanatic_socialism
+				AND = {
+					is_country_type = primitive
+					capital_scope = {
+						has_observation_outpost = yes
+						observation_outpost = {
+							has_mission = native_indoctrination
+						}
+						observation_outpost_owner = {
+							OR = {
+								has_ethic = ethic_fanatic_socialism
+								has_ethic = ethic_socialism
+							}
+						}
+					}
+				}
+			}
+		}
+		# Effects of indoctrination mission
+		modifier = {
+			factor = 10
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_fanatic_socialism }
+			}
+		}
+		modifier = {
+			factor = 5
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_socialism }
+			}
+		}
+		modifier = {
+			factor = 2
+			NOR = {
+				has_ethic = ethic_socialism
+				has_ethic = ethic_fanatic_socialism
+			}
+			has_faction = socialists
+		}
+		modifier = {
+			factor = 1.5
+			exists = ruler
+			ruler = { leader_of_faction = socialists }
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_socialism
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_socialism
+		}
+	}
+
+	# from = planet
+	pop_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			has_trait = trait_hive_mind
+		}
+		modifier = {
+			factor = 1.5
+			has_trait = "trait_natural_sociologists"
+		}
+		modifier = {
+			factor = 1.5
+			has_trait = "trait_conservational"
+		}
+		modifier = {
+			factor = 0.75
+			has_trait = "trait_wasteful"
+		}
+		modifier = {
+			factor = 1.25
+			OR = {
+				has_living_standard = { type = living_standard_shared_burden }
+				has_living_standard = { type = living_standard_utopian }
+				has_living_standard = { type = living_standard_good }
+			}
+		}
+	}
+}

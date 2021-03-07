@@ -1,0 +1,6 @@
+give_artificial_wombs = {
+	give_technology = {
+		tech = tech_cloning
+		message = no
+	}
+}

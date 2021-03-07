@@ -1,0 +1,16 @@
+civic_free_city_states = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        country_admin_cap_mult = 0.50
+        country_starbase_influence_cost_mult = -0.3
+        pop_government_ethic_attraction = -0.50
+        edict_length_mult = -0.50
+    }
+}

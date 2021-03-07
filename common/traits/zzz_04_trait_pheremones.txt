@@ -1,0 +1,19 @@
+trait_pheremones = {
+    potential_crossbreeding_chance = 0.5
+    cost = 3
+    icon = "gfx/interface/icons/traits/leader_traits/leader_trait_charismatic.dds"
+    initial = no
+    randomized = no
+    opposites = {
+        "trait_charismatic"
+        "trait_repugnant"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    advanced_trait = yes
+    custom_tooltip = TRAIT_PHEREMONES_EFFECT
+    slave_cost = {
+        energy = 25
+    }
+}

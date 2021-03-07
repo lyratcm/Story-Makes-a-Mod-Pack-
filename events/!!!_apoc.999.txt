@@ -1,0 +1,34 @@
+namespace = apoc
+
+country_event = {
+	id = apoc.999
+	title = apoc.110.name
+	desc = {
+		text = apoc.110.desc
+		trigger = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+	}
+	desc = {
+		text = apoc.110.desc.machine
+		trigger = { has_authority = auth_machine_intelligence }
+	}
+	desc = {
+		text = apoc.110.desc.hive
+		trigger = { has_authority = auth_hive_mind }
+	}
+	picture = GFX_evt_planet_beam
+	show_sound = event_radio_chatter
+	location = capital_scope
+
+	is_triggered_only = yes
+
+	option = {
+		name = PLANET_KILLER_CRACKER
+		custom_tooltip = apoc.110.cracker.tooltip
+		hidden_effect = {
+			remove_country_flag = pk_cracker
+		}
+		trigger = {
+			is_pacifist = no
+		}
+	}
+}

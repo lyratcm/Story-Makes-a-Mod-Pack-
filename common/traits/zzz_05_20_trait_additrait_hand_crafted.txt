@@ -1,0 +1,16 @@
+trait_additrait_hand_crafted = {
+    cost = -4
+    opposites = {
+        "trait_robot_custom_made"
+        "trait_robot_mass_produced"
+        "trait_additrait_swarm"
+        "trait_additrait_standard_frame"
+    }
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    modifier = {
+        pop_assembly_speed = -0.30
+    }
+}

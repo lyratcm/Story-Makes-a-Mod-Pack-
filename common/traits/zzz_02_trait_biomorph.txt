@@ -1,0 +1,36 @@
+trait_biomorph = {
+    cost = 0
+    sorting_priority = 35
+    potential_crossbreeding_chance = 100
+    opposites = {
+        "trait_pc_desert_preference"
+        "trait_pc_arid_preference"
+        "trait_pc_savannah_preference"
+        "trait_pc_tropical_preference"
+        "trait_pc_continental_preference"
+        "trait_pc_ocean_preference"
+        "trait_pc_arctic_preference"
+        "trait_pc_tundra_preference"
+        "trait_pc_alpine_preference"
+        "trait_pc_ai_preference"
+        "trait_pc_nuked_preference"
+        "trait_pc_gaia_preference"
+        "trait_pc_ringworld_habitable_preference"
+        "trait_pc_habitat_preference"
+        "trait_pc_machine_preference"
+        "trait_pc_hive_preference"
+        "trait_pc_relic_preference"
+        "trait_pc_city_preference"
+    }
+    initial = no
+    randomized = no
+    modification = no
+    allowed_archetypes = {
+        BIOMORPH
+    }
+    leader_age_min = 5
+    leader_age_max = 10
+    modifier = {
+        pop_environment_tolerance = 0.8
+    }
+}

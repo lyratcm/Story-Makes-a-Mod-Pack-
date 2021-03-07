@@ -1,0 +1,60 @@
+GAPS_pure_water_researcher_gestalt = {
+    category = complex_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_power_plant
+    clothes_texture_index = 2
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        drone_job_check_trigger = yes
+        owner = {
+            is_gestalt = yes
+        }
+    }
+    resources = {
+        category = planet_researchers
+        produces = {
+            physics_research = 6
+            engineering_research = 3
+            society_research = 3
+        }
+        upkeep = {
+            sr_GAPS_water = 10
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_hive_empire = yes
+                }
+            }
+            minerals = 6
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_machine_empire = yes
+                }
+            }
+            energy = 4
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_edict = research_subsidies
+                }
+            }
+            energy = 1
+        }
+    }
+    weight = {
+        weight = @complex_drone_job_weight
+        modifier = {
+            factor = 10
+            exists = owner
+        }
+    }
+}

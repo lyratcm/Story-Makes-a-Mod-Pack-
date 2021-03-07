@@ -1,0 +1,148 @@
+namespace = cara
+
+country_event = {
+	id = cara.4041
+	title = cara.4041.name
+	desc = cara.4041.desc
+	picture = GFX_evt_caravaneers
+	location = from
+	show_sound = event_ship_thrusters
+	
+	immediate = {
+		if = { #cunning event re-use
+			limit = {
+				exists = event_target:welcome_fleet
+			}
+			event_target:welcome_fleet.owner.species = {
+				save_event_target_as = party_host
+			}
+		}
+		else_if = { #cunning event re-use
+			limit = {
+				exists = event_target:caravaneer_neighbor_species
+			}
+			event_target:caravaneer_neighbor_species = {
+				save_event_target_as = party_host
+			}
+		}
+		event_target:pleased_planet = {
+			if = {
+				limit = {
+					any_pop = {
+						is_xenophile = yes	
+						is_organic_species = yes
+					}
+				}
+				random_pop = {
+					limit = {
+						is_xenophile = yes	
+						is_organic_species = yes
+					}
+					save_event_target_as = party_goer
+				}
+			}
+			else_if = {
+				limit = {
+					any_pop = {
+						is_xenophobe = no
+						is_organic_species = yes
+					}
+				}
+				random_pop = {
+					limit = {
+						is_xenophobe = yes	
+						is_organic_species = yes
+					}
+					save_event_target_as = party_goer
+				}
+			}
+			else = {
+				random_pop = {
+					limit = {
+						is_organic_species = yes
+					}
+					save_event_target_as = party_goer
+				}
+			}
+		}
+	
+		event_target:pleased_planet = {
+			if = {
+				limit = { event_target:party_host = { has_species_flag = racket_species_flag } }
+				create_species = {
+					name = "NAME_Caravaneer_Fleet3_species"
+					plural = "NAME_Caravaneer_Fleet3_species_plural"
+					class = MAM
+					portrait = "random"
+					namelist = "MAM4"
+					traits = {
+						trait = "trait_pc_nuked_preference"
+						trait = "trait_psionic"
+						trait = "trait_slow_breeders"
+						trait = "trait_thrifty"
+						trait = "trait_deviants"
+						trait = "trait_fleeting"
+					}
+				}
+				last_created_species = {
+					save_event_target_as = racket_replacement
+				}
+				create_half_species = { species_one = event_target:party_goer.species species_two = event_target:racket_replacement }
+				last_created_species = {
+					change_species_characteristics = { portrait = "mam_rat" }
+					save_event_target_as = cara_hybrid
+				}
+			}
+			else ={
+				create_half_species = { species_one = event_target:party_host species_two = event_target:party_goer.species }
+				last_created_species = {
+					save_event_target_as = cara_hybrid
+				}
+			}
+			while = {
+				count = 3
+				create_pop = {
+					species = last_created
+				}					
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	
+	option = {
+		exclusive_trigger = {
+			is_xenophile = yes
+		}
+		name = cara.4041.phile	
+	}
+	option = {
+		exclusive_trigger = {
+			is_xenophobe = yes
+		}
+		name = cara.4041.phobe
+	}
+	option = {
+		exclusive_trigger = {
+			is_xenophile = no
+			is_xenophobe = no
+		}
+		name = cara.4041.a	
+	}
+	
+	after = {
+		tooltip = {
+			event_target:pleased_planet = {
+				create_half_species = { species_one = event_target:party_host species_two = event_target:party_goer.species }
+				hidden_effect = {
+					while = {
+						count = 3
+						create_pop = {
+							species = last_created
+						}					
+					}
+				}
+			}
+		}
+	}
+}

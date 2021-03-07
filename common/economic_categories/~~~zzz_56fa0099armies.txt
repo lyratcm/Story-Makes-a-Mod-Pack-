@@ -1,0 +1,17 @@
+armies = {
+    use_for_ai_budget = yes
+    generate_add_modifiers = {
+        produces
+        cost
+        upkeep
+    }
+    generate_mult_modifiers = {
+        produces
+        cost
+        upkeep
+    }
+    ai_use_parent_for_resources_upkeep = {
+        energy
+    }
+    parent = country
+}

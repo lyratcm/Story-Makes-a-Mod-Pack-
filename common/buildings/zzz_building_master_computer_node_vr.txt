@@ -1,0 +1,59 @@
+building_master_computer_vr_node = {
+	base_buildtime = 480
+	base_cap_amount = 1
+
+	category = amenity
+
+	potential = {
+		owner = { has_valid_civic = civic_master_computer_virtual_world }
+		NOT = { has_modifier = slave_colony }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	planet_modifier = {
+		job_master_computer_game_master_add = 1
+	}
+
+	destroy_trigger = {
+		NOT = {
+			owner = { has_civic = civic_master_computer_virtual_world }
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 400
+		}			
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	triggered_desc = {
+		text = job_master_computer_game_master_effect_desc
+	}    
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 10
+			free_amenities < 2
+		}
+		modifier = {
+			factor = 0
+			count_owned_pops = { 
+				limit = { 
+					OR = { 
+						is_unemployed = yes 
+						has_job = servant 
+					}
+				}
+				count < 1
+			}
+		}
+	}
+}

@@ -1,0 +1,66 @@
+on_game_start = {
+	events = {
+		z_performance_misc.1		#_额外优化
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		z_performance_misc.200		#_[月检]	贸易优化执行
+		z_performance_misc.25		#_舰队优化自动
+	}
+}
+on_yearly_pulse = {
+	events = {
+		z_performance_misc.20		#_额外优化年检
+	}
+}
+
+
+
+
+on_monthly_pulse_country = {
+	events = {
+	}
+}
+
+on_yearly_pulse_country = {
+	events = {
+	}
+}
+
+
+
+
+# Scope = Planet
+on_colony_destroyed = {
+	events = {
+		z_performance_misc.242		#_动态cap debug
+	}
+}
+
+# This = Pop scope
+# From = planet abducted from
+on_pop_abducted  = {
+	events = {
+		z_performance_misc.241		#_动态cap debug
+	}
+}
+
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_grown = {
+	events = {
+		z_performance_misc.24		#_动态cap
+	}
+}
+
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_assembled = {
+	events = {
+		z_performance_misc.24		#_动态cap
+	}
+}

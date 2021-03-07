@@ -1,0 +1,14 @@
+reset_instar = {
+	IF = {
+		limit = { has_trait = trait_older_form }
+		change_phenotype_targeted = { trait = trait_younger_form }
+	}
+	IF = {
+		limit = { species = { has_trait = trait_rooted_adults_rooted } }
+		modify_species = {
+			species = this
+			remove_trait = trait_rooted_adults_rooted
+			add_trait = trait_rooted_adults
+		}
+	}
+}

@@ -1,0 +1,173 @@
+building_production_center = {
+    base_buildtime = @b2_time
+    base_cap_amount = 1
+    category = manufacturing
+    potential = {
+        exists = owner
+        owner = {
+            is_gestalt = yes
+        }
+        custom_tooltip = {
+            text = SECTOR_UNIQUE_BUILDING
+            exists = sector
+            OR = {
+                is_capital = yes
+                is_sector_capital = yes
+            }
+        }
+    }
+    allow = {
+        has_major_upgraded_capital = yes
+    }
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            owner = {
+                is_gestalt = no
+            }
+            buildings_no_motes = yes
+            NOR = {
+                is_capital = yes
+                is_sector_capital = yes
+            }
+        }
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+            volatile_motes = @b2_rare_cost
+        }
+        upkeep = {
+            energy = @b2_upkeep
+            volatile_motes = @b2_rare_upkeep
+        }
+    }
+    planet_modifier = {
+        planet_metallurgists_produces_mult = 0.15
+        planet_artisans_produces_mult = 0.15
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        job_alloy_drone_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+        }
+        job_fabricator_add = 1
+    }
+    prerequisites = {
+        "tech_global_production_strategy"
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+        }
+        text = job_fabricator_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        text = job_alloy_drone_effect_desc
+    }
+    triggered_desc = {
+        text = building_ministry_production_effect_desc
+    }
+    show_tech_unlock_if = {
+        is_gestalt = yes
+    }
+    on_built = {
+        planet = {
+            owner = {
+                country_event = {
+                    id = onactionpops.5
+                }
+            }
+        }
+    }
+    on_destroy = {
+        planet = {
+            owner = {
+                country_event = {
+                    id = onactionpops.5
+                }
+            }
+        }
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 10
+            owner = {
+                any_owned_planet = {
+                    OR = {
+                        has_building = building_foundry_1
+                        has_building = building_foundry_2
+                        has_building = building_foundry_3
+                        has_building = building_factory_1
+                        has_building = building_factory_2
+                        has_building = building_factory_3
+                        num_districts = {
+                            type = district_arcology_arms_industry
+                            value > 1
+                        }
+                        num_districts = {
+                            type = district_arcology_civilian_industry
+                            value > 1
+                        }
+                        num_districts = {
+                            type = district_hab_foundry
+                            value > 1
+                        }
+                    }
+                    sector = {
+                        is_same_value = prev.prev.prev.sector
+                    }
+                }
+            }
+        }
+        modifier = {
+            weight = 10
+            OR = {
+                has_building = building_foundry_1
+                has_building = building_foundry_2
+                has_building = building_foundry_3
+                has_building = building_factory_1
+                has_building = building_factory_2
+                has_building = building_factory_3
+                num_districts = {
+                    type = district_arcology_arms_industry
+                    value > 1
+                }
+                num_districts = {
+                    type = district_arcology_civilian_industry
+                    value > 1
+                }
+                num_districts = {
+                    type = district_hab_foundry
+                    value > 1
+                }
+            }
+        }
+        modifier = {
+            weight = 1
+            free_building_slots = 0
+        }
+    }
+}

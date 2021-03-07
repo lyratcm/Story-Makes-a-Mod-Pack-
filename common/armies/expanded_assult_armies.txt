@@ -1,0 +1,73 @@
+#Defensive armies can't transport of the planet
+#maintenance is directly scripted here. 0.25 translates to 0.25 monthly cost (excluding other upkeep modifiers)
+#morale_damage = 1		# average morale damage of the army, default: auto (calculated from morale * MORALE_DAMAGE_MULT)
+
+# Mega-Warform
+machine_assault_synth_3 = {
+	damage = 4.0
+	health = 6.0
+	has_morale = no
+	morale_damage = 1.5
+	collateral_damage = 4.0
+	war_exhaustion = 4.0
+	time = 500
+	has_species = no
+
+	icon_frame = 11
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 800
+		}
+
+		upkeep = {
+			energy = 8
+		}
+	}
+
+	potential = {
+		owner = {
+			has_country_flag = synthetic_empire
+		}
+	}
+	
+	prerequisites = { "tech_biomechanics_synth" }
+}
+
+# Merc Armies
+merc_army = {
+	damage = 1.5
+	health = 1.0
+	morale = 1.0
+	morale_damage = 1.00
+	collateral_damage = 1.5
+	war_exhaustion = 0.25
+	time = 90
+	icon_frame = 2
+	has_species = no
+	prerequisites = { "tech_assault_armies" }
+	resources = {
+		category = armies
+		cost = {
+			energy = 100
+		}
+
+		upkeep = {
+			energy = 1.5
+		}
+	}
+
+	show_tech_unlock_if = { 
+		always = no
+	}
+	potential = {
+		planet = {
+			has_branch_office = yes
+			OR = {
+				has_building = building_military_contractors
+				has_building = building_pirate_haven
+			}
+		}
+	}
+}

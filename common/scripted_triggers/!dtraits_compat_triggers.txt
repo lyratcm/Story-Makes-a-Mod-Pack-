@@ -1,0 +1,7 @@
+has_artificial_wombs = {
+	has_technology = tech_cloning
+}
+
+not_using_mod_diagraphers_trait_mod = {
+	always = no
+}

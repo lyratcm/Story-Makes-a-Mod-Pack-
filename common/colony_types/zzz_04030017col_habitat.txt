@@ -1,0 +1,13 @@
+col_habitat = {
+    icon = 12
+    potential = {
+        OR = {
+            uses_district_set = habitat
+            uses_district_set = pdarchive
+            uses_district_set = pdplanethab
+        }
+    }
+    weight_modifier = {
+        base = 500
+    }
+}

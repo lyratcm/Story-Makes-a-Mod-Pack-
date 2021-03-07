@@ -1,0 +1,14 @@
+civic_secure_ships = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        ship_evasion_mult = 0.20
+        ship_emergency_ftl_mult = -0.20
+        ship_shield_mult = 0.15
+        ship_fire_rate_mult = -0.10
+    }
+}

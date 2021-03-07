@@ -1,0 +1,46 @@
+servitor_edict = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = servitor_edict }
+			}
+			influence = 50
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = servitor_edict
+			}
+			influence = 999
+		}
+	}
+
+	modifier = {
+		country_starbase_influence_cost_mult = -0.66
+		ship_weapon_damage = 0.50
+		army_damage_mult = 0.50
+		army_collateral_damage_mult = -1.00
+		starbase_shipyard_build_cost_mult = -0.30
+		starbase_shipyard_build_speed_mult = 0.30
+		country_naval_cap_mult = 1.00
+		country_war_exhaustion_mult = -0.33
+	}
+
+	potential = {
+		is_galactic_community_member = yes
+		has_valid_civic = civic_machine_servitor
+		OR = {
+			is_active_resolution = "resolution_absolute_control"
+			is_active_resolution = "resolution_divinity_crusade_against_the_heretic"
+			is_active_resolution = "resolution_let_them_eat_cake"
+		}
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}

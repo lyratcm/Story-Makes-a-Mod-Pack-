@@ -1,0 +1,5 @@
+static_modifier_am_civics_destructive_panic = {
+    planet_stability_add = -20
+    icon = "gfx/interface/icons/planet_modifiers/pm_burning_settlement.dds"
+    icon_frame = 3
+}

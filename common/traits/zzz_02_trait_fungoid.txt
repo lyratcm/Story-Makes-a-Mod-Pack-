@@ -1,0 +1,22 @@
+trait_fungoid = {
+    cost = 0
+    potential_crossbreeding_chance = 0
+    sorting_priority = 20
+    initial = no
+    randomized = no
+    modification = no
+    forced_happiness = no
+    immortal_leaders = no
+    custom_tooltip = TRAIT_FUNGOID_EFFECT
+    modifier = {
+        pc_ocean_habitability = 0.05
+        pc_tropical_habitability = 0.2
+        pc_continental_habitability = 0.05
+        pc_desert_habitability = -0.05
+        pc_arid_habitability = -0.05
+        pc_savannah_habitability = -0.05
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+}

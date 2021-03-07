@@ -1,0 +1,42 @@
+namespace = anomaly
+
+ship_event = {
+	id = anomaly.6663
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_colonizable = no
+			gpm_has_precursor_modifiers = no
+			has_deposit = no
+			OR = { 
+				# has_modifier = hazardous_weather
+				has_modifier = strong_magnetic_field
+				has_modifier = gpm_strong_magnetic_field_2
+				has_modifier = gpm_strong_magnetic_field_gas_giant
+				has_modifier = gpm_strong_magnetic_field_nb
+				# has_modifier = unstable_tectonics
+				# has_modifier = ultra_rich
+				# has_modifier = mineral_rich
+				# has_modifier = asteroid_impacts
+			}
+			NOR = { 
+				has_deposit = d_energy_7
+				has_deposit = d_energy_8
+				has_deposit = d_energy_9
+				has_deposit = d_energy_10
+				has_deposit = d_guardian_dragon_hoard
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			add_deposit = d_energy_4
+		}
+	}
+}

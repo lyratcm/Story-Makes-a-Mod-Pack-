@@ -1,0 +1,25 @@
+civic_am_civics_urban_parcification_tools = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        civics = {
+            NOT = {
+                value = civic_criminal_heritage
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    description = "tooltip_civic_am_civics_urban_parcification_tools_effects"
+    modifier = {
+        planet_crime_add = -20
+    }
+}

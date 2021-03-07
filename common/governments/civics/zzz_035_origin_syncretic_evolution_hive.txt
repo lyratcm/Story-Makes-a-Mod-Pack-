@@ -1,0 +1,33 @@
+origin_syncretic_evolution_hive = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_syncretic_evolution.dds"
+    picture = GFX_origin_syncretic_evolution
+    potential = {
+        always = yes
+    }
+    possible = {
+        authority = {
+            value = auth_hive_mind
+        }
+        civics = {
+            NOR = {
+                value = civic_hive_devouring_swarm
+                value = civic_closed_collective
+                value = civic_living_hosts
+                value = civic_infestation
+            }
+        }
+    }
+    description = civic_tooltip_syncretic_evolution_effects
+    has_secondary_species = {
+        title = civic_syncretic_evolution_secondary_species
+        traits = {
+            trait = trait_hive_mind
+            trait = trait_syncretic_proles
+        }
+    }
+    advanced_start = yes
+    random_weight = {
+        base = 10
+    }
+}

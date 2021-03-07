@@ -1,0 +1,22 @@
+robot_campaign = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			energy = 1000
+		}
+	}
+
+	modifier = {
+		planet_pop_assembly_mult = 0.10
+	}
+
+	potential = {
+		always = no
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+	}
+}

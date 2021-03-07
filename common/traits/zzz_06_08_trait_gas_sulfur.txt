@@ -1,0 +1,14 @@
+trait_gas_sulfur = {
+    icon = "gfx/interface/icons/traits/trait_gas_sulfur.dds"
+    cost = -2
+    opposites = {
+        "trait_gas_aromatic"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        planet_jobs_unity_produces_mult = -0.1
+        pop_cat_worker_happiness = -0.1
+    }
+}

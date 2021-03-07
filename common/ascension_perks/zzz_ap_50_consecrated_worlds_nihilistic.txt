@@ -1,0 +1,22 @@
+ap_consecrated_worlds_nihilistic = {
+	on_enabled = {
+		custom_tooltip = "allow_edict_consectrated_worlds_nihilistic"
+		custom_tooltip = "describe_edict_consectrated_worlds_nihilistic"
+	}
+
+	potential = {
+		has_valid_civic = civic_physics_cult
+		NOR = {
+			has_ascension_perk = ap_consecrated_worlds_nihilistic
+			has_ascension_perk = ap_consecrated_worlds
+		}
+		OR = {
+			has_ethic = ethic_spiritualist
+			has_ethic = ethic_fanatic_spiritualist
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

@@ -1,0 +1,26 @@
+guiTypes = {
+    containerWindowType = {
+        name = "tradition_entry"
+        size = {
+            width = 44
+            height = 44
+        }
+        verticalScrollbar = "right_vertical_slider"
+        buttonType = {
+            name = "adopt_button"
+            spriteType = "GFX_event_button_452"
+            buttonFont = "cg_16b"
+            clicksound = select_click
+            oversound = no_sound
+        }
+        iconType = {
+            name = "available_tradition"
+            spriteType = "GFX_tradition_available_button"
+            alwaysTransparent = yes
+            position = {
+                x = -22
+                y = -22
+            }
+        }
+    }
+}

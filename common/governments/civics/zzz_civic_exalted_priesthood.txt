@@ -1,0 +1,38 @@
+civic_exalted_priesthood = {
+    description = "civic_tooltip_exalted_priesthood_effects"
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            value = ethic_fanatic_spiritualist
+        }
+        civics = {
+            NOR = {
+                value = civic_merchant_guilds
+                value = civic_aristocratic_elite
+                value = civic_stratocracy
+                value = civic_bureaucracy
+            }
+        }
+    }
+    modifier = {
+        planet_priest_unity_produces_add = 1
+        pop_ethic_spiritualist_attraction_mult = 0.25
+    }
+    random_weight = {
+        base = 5
+    }
+}

@@ -1,0 +1,26 @@
+trait_robot_general_protective = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_robot_general_protective.dds"
+    modifier = {
+        army_morale = 0.25
+        army_disengage_chance_mult = 0.75
+    }
+    leader_trait = {
+        general
+    }
+    leader_class = {
+        general
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_robot_loyalty_circuits
+        }
+    }
+    opposites = {
+        trait_robot_general_protective2
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

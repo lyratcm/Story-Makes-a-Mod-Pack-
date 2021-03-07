@@ -1,0 +1,22 @@
+civic_holding_groups = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_subject_power_penalty_mult = -0.20
+        empire_size_branch_office_mult = -0.15
+        branch_office_value_mult = 0.10
+        country_naval_cap_mult = -0.20
+    }
+}

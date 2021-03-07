@@ -1,0 +1,1125 @@
+###_z modmenu sp	#########################################################################
+
+#_[第1排]
+#_[第2排]
+#_[第3排]
+#_[第4排]
+#_[事件windows]
+
+@sp_mods_hori_1 = 12
+@sp_mods_hori_2 = 106
+@sp_mods_hori_3 = 200
+@sp_mods_hori_4 = 294
+@sp_mods_hori_5 = 388
+@sp_mods_hori_6 = 482
+		
+guiTypes = {
+	#_无按钮	gui_z_mm_sp_option_0
+	containerWindowType = {
+		name = "gui_z_mm_sp_option_0"
+		position = { x=0 y=0 }
+		size = { width = 564 height = 94 }
+		moveable = no
+		buttonType = {
+			name = "option_button"
+			spriteType = "GFX_z_mm_button_evt_option_normal" 
+			scale = 0
+			position = { x=0 y=0 }
+			font = "cg_16b"
+			text = "OPTION_TEXT"
+		}
+		#_ISR
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_isr_1"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_isr_1"
+			scale = 1
+			effect = "z_mm_sp_mods_isr_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_isr_2"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_isr_2"
+			scale = 1
+			effect = "z_mm_sp_mods_isr_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_ISR-手套
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_isr_gautlet_1"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_isr_gautlet_1"
+			scale = 1
+			effect = "z_mm_sp_mods_isr_gautlet_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_isr_gautlet_2"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_isr_gautlet_2"
+			scale = 1
+			effect = "z_mm_sp_mods_isr_gautlet_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_EACDPL
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_eac_dpl_1"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_eac_dpl_1"
+			scale = 1
+			effect = "z_mm_sp_mods_eac_dpl_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_eac_dpl_2"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_eac_dpl_2"
+			scale = 1
+			effect = "z_mm_sp_mods_eac_dpl_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_地形改造候选
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_tcf_1"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_tcf_1"
+			scale = 1
+			effect = "z_mm_sp_mods_tcf_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_tcf_2"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_tcf_2"
+			scale = 1
+			effect = "z_mm_sp_mods_tcf_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_had-ab
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_had_ab_1"
+			position = { x = @sp_mods_hori_5 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_had_ab_1"
+			scale = 1
+			effect = "z_mm_sp_mods_had_ab_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_had_ab_2"
+			position = { x = @sp_mods_hori_5 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_had_ab_2"
+			scale = 1
+			effect = "z_mm_sp_mods_had_ab_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_had-bts
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_had_bts_1"
+			position = { x = @sp_mods_hori_6 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_had_bts_1"
+			scale = 1
+			effect = "z_mm_sp_mods_had_bts_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_had_bts_2"
+			position = { x = @sp_mods_hori_6 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_had_bts_2"
+			scale = 1
+			effect = "z_mm_sp_mods_had_bts_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+	}
+
+
+
+
+	###_[第1排]	################################################
+	#_	gui_z_mm_sp_option_1
+	containerWindowType = {
+		name = "gui_z_mm_sp_option_1"
+		position = { x=0 y=0 }
+		size = { width = 564 height = 94 }
+		moveable = no
+		#_EV
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_ev_1"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_ev_1"
+			scale = 1
+			effect = "z_mm_sp_mods_ev_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_ev_2"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_ev_2"
+			scale = 1
+			effect = "z_mm_sp_mods_ev_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_kuat
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_kuat_1"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_kuat_1"
+			scale = 1
+			effect = "z_mm_sp_mods_kuat_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_kuat_2"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_kuat_2"
+			scale = 1
+			effect = "z_mm_sp_mods_kuat_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_wsg
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_wsg_1"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_wsg_1"
+			scale = 1
+			effect = "z_mm_sp_mods_wsg_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_wsg_2"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_wsg_2"
+			scale = 1
+			effect = "z_mm_sp_mods_wsg_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_wsg_girl
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_wsg_leader_1"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_wsg_leader_1"
+			scale = 1
+			effect = "z_mm_sp_mods_wsg_leader_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		buttonType = {
+			name = "option_button"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_option"
+			scale = 1
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_wsg_leader_2"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_wsg_leader_2"
+			scale = 1
+			effect = "z_mm_sp_mods_wsg_leader_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+	}
+
+
+	###_[第2排]	################################################
+	#_	gui_z_mm_sp_option_2
+	containerWindowType = {
+		name = "gui_z_mm_sp_option_2"
+		position = { x=0 y=0 }
+		size = { width = 564 height = 94 }
+		moveable = no
+		
+		#_mem
+		effectButtonType = {
+			name = "gui_z_mm_mem_button_1"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_mem_button_1"
+			scale = 1
+			effect = "z_mm_mem_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_mem_button_2"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_mem_button_2"
+			scale = 1
+			effect = "z_mm_mem_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_ESC
+		effectButtonType = {
+			name = "gui_z_mm_esc_button_1"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_esc_button_1"
+			scale = 1
+			effect = "z_mm_esc_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_esc_button_2"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_esc_button_2"
+			scale = 1
+			effect = "z_mm_esc_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_DDUC
+		effectButtonType = {
+			name = "gui_z_mm_dduc_button_1"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_dduc_button_1"
+			scale = 1
+			effect = "z_mm_dduc_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_dduc_button_2"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_dduc_button_2"
+			scale = 1
+			effect = "z_mm_dduc_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_RLS
+		effectButtonType = {
+			name = "gui_z_mm_rls_button_1"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_rls_button_1"
+			scale = 1
+			effect = "z_mm_rls_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		buttonType = {
+			name = "option_button"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_option"
+			scale = 1
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_rls_button_2"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_rls_button_2"
+			scale = 1
+			effect = "z_mm_rls_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_ACOT
+		effectButtonType = {
+			name = "gui_z_mm_acot_button_1"
+			position = { x = @sp_mods_hori_5 y = 0 }
+			spriteType = "GFX_z_mm_acot_button_1"
+			scale = 1
+			effect = "z_mm_acot_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_acot_button_2"
+			position = { x = @sp_mods_hori_5 y = 0 }
+			spriteType = "GFX_z_mm_acot_button_2"
+			scale = 1
+			effect = "z_mm_acot_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_SOFE
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_sofe_1"
+			position = { x = @sp_mods_hori_6 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_sofe_1"
+			scale = 1
+			effect = "z_mm_sofe_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_sofe_2"
+			position = { x = @sp_mods_hori_6 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_sofe_2"
+			scale = 1
+			effect = "z_mm_sofe_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+	}
+
+
+	###_[第3排]	################################################
+	#_	gui_z_mm_sp_option_3
+	containerWindowType = {
+		name = "gui_z_mm_sp_option_3"
+		position = { x=0 y=0 }
+		size = { width = 564 height = 94 }
+		moveable = no
+		
+		#_银河大学
+		effectButtonType = {
+			name = "gui_z_mm_tgu_button_1"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_tgu_button_1"
+			scale = 1
+			effect = "z_mm_tgu_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_tgu_button_2"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_tgu_button_2"
+			scale = 1
+			effect = "z_mm_tgu_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_FTM
+		effectButtonType = {
+			name = "gui_z_mm_ftm_button_1"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_ftm_button_1"
+			scale = 1
+			effect = "z_mm_ftm_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_ftm_button_2"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_ftm_button_2"
+			scale = 1
+			effect = "z_mm_ftm_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_天灾管理器
+		effectButtonType = {
+			name = "gui_z_mm_cmn_button_1"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_cmn_button_1"
+			scale = 1
+			effect = "z_mm_cmn_button_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_cmn_button_2"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_cmn_button_2"
+			scale = 1
+			effect = "z_mm_cmn_button_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_cm致命风暴
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_cmdt_1"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_cmdt_1"
+			scale = 1
+			effect = "z_mm_sp_mods_cmdt_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_cmdt_2"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_cmdt_2"
+			scale = 1
+			effect = "z_mm_sp_mods_cmdt_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_HFE
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_had_hfe_1"
+			position = { x = @sp_mods_hori_5 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_had_hfe_1"
+			scale = 1
+			effect = "z_mm_sp_mods_had_hfe_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_had_hfe_2"
+			position = { x = @sp_mods_hori_5 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_had_hfe_2"
+			scale = 1
+			effect = "z_mm_sp_mods_had_hfe_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_更多巨建
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_giga_1"
+			position = { x = @sp_mods_hori_6 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_giga_1"
+			scale = 1
+			effect = "z_mm_sp_mods_giga_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		buttonType = {
+			name = "option_button"
+			position = { x = @sp_mods_hori_6 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_option"
+			scale = 1
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_giga_2"
+			position = { x = @sp_mods_hori_6 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_giga_2"
+			scale = 1
+			effect = "z_mm_sp_mods_giga_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+	}
+
+
+	###_[第4排]	################################################
+	#_	gui_z_mm_sp_option_4
+	containerWindowType = {
+		name = "gui_z_mm_sp_option_4"
+		position = { x=0 y=0 }
+		size = { width = 564 height = 94 }
+		moveable = no
+		
+		#_UAP
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_uap_1"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_uap_1"
+			scale = 1
+			effect = "z_mm_sp_mods_uap_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_uap_2"
+			position = { x = @sp_mods_hori_1 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_uap_2"
+			scale = 1
+			effect = "z_mm_sp_mods_uap_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_complex potv
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_complex_potv_1"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_complex_potv_1"
+			scale = 1
+			effect = "z_mm_sp_mods_complex_potv_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		buttonType = {
+			name = "option_button"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_option"
+			scale = 1
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_complex_potv_2"
+			position = { x = @sp_mods_hori_2 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_complex_potv_2"
+			scale = 1
+			effect = "z_mm_sp_mods_complex_potv_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_betterCheat
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_bcm_1"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_bcm_1"
+			scale = 1
+			effect = "z_mm_sp_mods_bcm_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_bcm_2"
+			position = { x = @sp_mods_hori_3 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_bcm_2"
+			scale = 1
+			effect = "z_mm_sp_mods_bcm_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_Aggresive Crisis E
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_ace_1"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_ace_1"
+			scale = 1
+			effect = "z_mm_sp_mods_ace_1"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_sp_mods_ace_2"
+			position = { x = @sp_mods_hori_4 y = 0 }
+			spriteType = "GFX_z_mm_sp_mods_ace_2"
+			scale = 1
+			effect = "z_mm_sp_mods_ace_2"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+	}
+
+
+
+
+
+
+
+
+	###_	事件windows	#############################################
+	#_未安装提示
+	containerWindowType = {
+		name = "z_mm_sp_mods_tips_gui"
+		size = { width = 520 height = 300 }
+		moveable = no
+		orientation = center
+
+		position = { x = -260 y = -150 }
+        
+        background = { 
+            name = "bg"
+            position = { x = 0 y = 0 }
+            orientation = center
+			quadTextureSprite = "GFX_evt_z_bg_adpt_2"
+			#size = { x = 660 y = 660 }
+            alwaystransparent = no
+        }
+		effectButtonType = {
+			name = "close"
+			spriteType = "GFX_z_mm_button_esc"
+			scale = 0.7
+			orientation = upper_left
+			position = { x= 450 y = 8 }
+			shortcut = "ESCAPE"
+		}
+		
+		containerWindowType = {
+			name = "portrait"
+			size = { width=480 height=240 }
+			orientation = center
+			position = { x = -240 y = -120 }
+			
+			iconType = {
+				name = "portrait"
+				spriteType = "GFX_portrait_gamesetup_mask" 
+				orientation = upper_left
+				position = { x = 3 y = 22 }
+				scale = 0.5
+			}
+			iconType = {
+				name = "black_frame"
+				spriteType = "GFX_diplomacy_portrait_shadow_frame"
+				orientation = upper_left
+				position = { x = 2 y = 20 }
+				scale = 0.5
+			}
+			iconType = {
+				name = "stripes_1"
+				spriteType = "GFX_diplomacy_stripes_2"
+				orientation = upper_left
+				position = { x = 2 y = 20 }
+				scale = 0.5
+			}
+			iconType = {
+				name = "city_frame"
+				spriteType = "GFX_diplomacy_portrait_frame"
+				orientation = upper_left
+				position = { x = 2 y = 20 }
+				scale = 0.5
+			}
+		}
+		instantTextBoxType={
+			name = "alien_message"
+			maxWidth = 490
+			maxHeight = 60
+			orientation = upper_left
+			position = { x= 18 y = 225 }
+			borderSize = { x = 2 y = 2 }
+			format = center
+			scrollbartype = "standardtext_slider"
+			font = "cg_16b"
+			#alwaysTransparent = yes
+		}
+		
+		
+		
+		
+        ### EVENT DIPLO ###
+		containerWindowType = {
+			name = "EVENT_DIPLO"
+			orientation = upper_left
+			position = { x = 0 y = 0 }
+			size = { width=520 height=500 }
+			moveable = no
+			
+			instantTextBoxType={
+				name = "action_title"
+				format = center
+				font = "malgun_goth_24"
+				orientation = upper_left
+				position = { x = 0 y = 10 }
+				maxWidth = 500
+				maxHeight = 50
+				alwaysTransparent = yes
+			}
+		
+			instantTextBoxType={
+				name = "action_desc"
+				font = "cg_16b"
+				orientation = upper_left
+				position = { x = 0 y = 0 }
+				maxWidth = 560
+				maxHeight = 80
+				format = center
+				alwaysTransparent = yes
+				text_color_code = "H"
+			}
+			
+			listboxType = {
+				name = "option_list"
+				position = { x = 0 y = 260 } 
+				size = { x = 560 y = 300 }
+				background = ""
+			}
+		}
+		
+		
+		
+		
+		###_	ALL OF THIS IS HIDDEN OR DISPLACED!	######################################################
+        buttonType = { name = "focus_button" position = { x = -1180 y = -1112 } spriteType = "GFX_fleetview_focus" } # hidden
+		instantTextBoxType = { name = "heading" font = "malgun_goth_24" position = { x = -1120 y = -115 } } # hidden
+		#buttonType = { name = "alien_message_background" size = { x = 0 y = 0 } position = { x = -1110 y = -11430 } spriteType = "GFX_tiles_dark_area_cut_8" } # hidden
+		buttonType = { name = "empire_flag" position = { x = -1125 y = -11235 } spriteType = "GFX_empire_flag_128" } # hidden
+		buttonType = { name = "confirm_button" quadTextureSprite = "GFX_standard_button_142_34_button" } # hidden
+		containerWindowType = {
+			name = "portrait_background"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 }		# hide portrait window
+			#iconType = { name = "event_picture" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+			iconType = { name = "portrait" spriteType = "GFX_portrait_character" } # hidden
+		}
+		
+		iconType = { name = "empire_info_bg" spriteType = "GFX_diplomacy_dark_fade_bg" } # hidden
+		instantTextBoxType={ name = "empire_name" font = "malgun_goth_24" } # hidden 
+		instantTextBoxType={ name = "empire_government_type" font = "cg_16b" } # hidden
+		instantTextBoxType={ name = "empire_personality_type" font = "cg_16b" } # hidden
+		OverlappingElementsBoxType = { name = "empire_ethics_icons" position = { x = -1145 y = -11138 } } # hidden
+		containerWindowType = {
+			name = "leader_details"
+			position = { x = -1125 y = -1175 }
+			containerWindowType = { name = "empire_traits_box" } # hidden
+			instantTextBoxType = { name = "empire_traits_label" font = "cg_16b" } # hidden
+			overlappingElementsBoxType = { name = "leader_traits" } # hidden
+			instantTextBoxType = { name = "leader_name" font = "cg_16b" } # hidden
+			instantTextBoxType = { name = "leader_species" font = "cg_16b" } # hidden
+		}
+		containerWindowType = {
+			name = "opinion_window"
+			position = { x = -1127 y = -11110 }
+			size = { width = 94 height = 30 }
+			iconType = { name = "their_opinion_icon" spriteType = "GFX_diplomacy_opinion" } # hidden
+			instantTextBoxType = { name = "their_opinion" font = "cg_16b" }
+		}
+	}
+	#_御菜单
+	containerWindowType = {
+		name = "zias_setting_gui"
+		size = { width = 1300 height = 800 }
+		moveable = no
+		orientation = upper_left
+		position = { x = 50 y = 50 }
+		containerWindowType = {
+			name = "desc_bg"
+			moveable = no
+			orientation = upper_left
+			position = { x = 730 y = 280 }
+			size = { width = 532 height = 110 } # hide portrait window
+			background = { 
+				name = "bg"
+				position = { x = 0 y = 0 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_evt_z_desc_bg_1"
+				alwaystransparent = no
+			}
+		}
+		instantTextBoxType={
+			name = "alien_message"
+			maxWidth = 560
+			maxHeight = 110
+			position = { x= 716 y = 280 }
+			borderSize = { x = 24 y = 2 }
+			format = left
+			font = "cg_16b"
+			scrollbartype = "z_mm_text_slider"
+			alwaysTransparent = no
+		}
+		#_返回
+        effectButtonType = {
+			name = "close"
+			quadTextureSprite = "GFX_z_mm_button_return"
+			scale = 1
+            orientation = upper_left
+			position = { x= 1163 y = 9 }
+			shortcut = "ESCAPE"
+			clicksound = "back_click"
+			effect = "z_modmenu_return_effect"
+		}
+		
+		###_	ALL OF THIS IS HIDDEN OR DISPLACED!	######################################################
+        buttonType = { name = "focus_button" position = { x = -1180 y = -1112 } spriteType = "GFX_fleetview_focus" } # hidden
+		instantTextBoxType = { name = "heading" font = "malgun_goth_24" position = { x = -1120 y = -115 } } # hidden
+		#buttonType = { name = "alien_message_background" size = { x = 0 y = 0 } position = { x = -1110 y = -11430 } spriteType = "GFX_tiles_dark_area_cut_8" } # hidden
+		buttonType = { name = "empire_flag" position = { x = -1125 y = -11235 } spriteType = "GFX_empire_flag_128" } # hidden
+		buttonType = { name = "confirm_button" quadTextureSprite = "GFX_standard_button_142_34_button" } # hidden
+		containerWindowType = {
+			name = "portrait_background"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 }		# hide portrait window
+			#iconType = { name = "event_picture" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+			iconType = { name = "portrait" spriteType = "GFX_portrait_character" } # hidden
+		}
+		containerWindowType = {
+			name = "portrait"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 } # hide portrait window
+			iconType = { name = "portrait" spriteType = "GFX_portrait_gamesetup_mask"  } # hidden
+			iconType = { name = "black_frame" spriteType = "GFX_diplomacy_portrait_shadow_frame" } # hidden
+			iconType = { name = "stripes_1" spriteType = "GFX_diplomacy_stripes_2" } # hidden
+			iconType = { name = "city_frame" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+		}
+		iconType = { name = "empire_info_bg" spriteType = "GFX_diplomacy_dark_fade_bg" } # hidden
+		instantTextBoxType={ name = "empire_name" font = "malgun_goth_24" } # hidden 
+		instantTextBoxType={ name = "empire_government_type" font = "cg_16b" } # hidden
+		instantTextBoxType={ name = "empire_personality_type" font = "cg_16b" } # hidden
+		OverlappingElementsBoxType = { name = "empire_ethics_icons" position = { x = -1145 y = -11138 } } # hidden
+		containerWindowType = {
+			name = "leader_details"
+			position = { x = -1125 y = -1175 }
+			containerWindowType = { name = "empire_traits_box" } # hidden
+			instantTextBoxType = { name = "empire_traits_label" font = "cg_16b" } # hidden
+			overlappingElementsBoxType = { name = "leader_traits" } # hidden
+			instantTextBoxType = { name = "leader_name" font = "cg_16b" } # hidden
+			instantTextBoxType = { name = "leader_species" font = "cg_16b" } # hidden
+		}
+		containerWindowType = {
+			name = "opinion_window"
+			position = { x = -1127 y = -11110 }
+			size = { width = 94 height = 30 }
+			iconType = { name = "their_opinion_icon" spriteType = "GFX_diplomacy_opinion" } # hidden
+			instantTextBoxType = { name = "their_opinion" font = "cg_16b" }
+		}
+		###_EVENT_DIPLO
+		containerWindowType = {
+			name = "EVENT_DIPLO"
+			position = { x = -2000 y = -5000 }
+			#size = { width=563 height=220 }
+			moveable = no
+			
+			instantTextBoxType={		# Used for GNA_LEADER_NAME because I am stupid and can not find out another way
+				name = "action_title"
+				font = "malgun_goth_24"
+				position = { x = 6600 y = -4300 }
+				maxWidth = 450
+				maxHeight = 60
+				alwaysTransparent = yes
+			}
+			
+			instantTextBoxType={
+				name = "action_desc"
+				font = "cg_16b"
+				position = { x = -4900 y = 0 }
+				maxWidth = 500
+				maxHeight = 180
+				Orientation = "UPPER_LEFT"
+				format = center
+				alwaysTransparent = yes
+				text_color_code = "H"
+			}
+			
+			listboxType = {
+				name = "option_list"
+				position = { x = -1200.5 y = 0} 
+				size = { x = 1 y = 1}
+				orientation = "UPPER_LEFT"
+				background = ""
+			}
+		}
+	}
+	#_通用菜单
+	containerWindowType = {
+		name = "z_mm_sp_mods_common_gui"
+		size = { width = 1300 height = 800 }
+		moveable = no
+		orientation = upper_left
+		position = { x = 50 y = 50 }
+        
+		#_sp_mod按钮slider覆盖
+		containerWindowType = {
+			name = "block"
+			size = { width = 1286 height = 704 }
+			moveable = no
+			orientation = upper_left
+			position = { x = 0 y = 70 }
+			background = { 
+				name = "bg"
+				position = { x = 0 y = 0 }
+				orientation = upper_left
+				spriteType = "GFX_z_modmenu_window_sub_bg_1"
+				alwaystransparent = no
+			}
+		}
+        
+		
+		
+		
+		containerWindowType = {
+			name = "portrait"
+			moveable = no
+			orientation = upper_left
+			position = { x = 726 y = 80 }
+			size = { width = 0 height = 0 } # hide portrait window
+			iconType = {
+				position = { x = 3 y = 2 }
+				scale = 0.56
+				name = "portrait"
+				spriteType = "GFX_portrait_gamesetup_mask" 
+			}
+			iconType = {
+				position = { x = 0 y = 0 }
+				scale = 0.56
+				name = "black_frame"
+				spriteType = "GFX_diplomacy_portrait_shadow_frame"
+			}
+			iconType = {
+				position = { x = 0 y = 0 }
+				scale = 0.56
+				name = "stripes_1"
+				spriteType = "GFX_diplomacy_stripes_2"
+			}
+			iconType = {
+				position = { x = 0 y = 0 }
+				scale = 0.56
+				name = "city_frame"
+				spriteType = "GFX_diplomacy_portrait_frame"
+			}
+		}
+		
+		containerWindowType = {
+			name = "desc_bg"
+			moveable = no
+			orientation = upper_left
+			position = { x = 730 y = 280 }
+			size = { width = 532 height = 110 } # hide portrait window
+			background = { 
+				name = "bg"
+				position = { x = 0 y = 0 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_evt_z_desc_bg_1"
+				alwaystransparent = no
+			}
+		}
+		instantTextBoxType={
+			name = "alien_message"
+			maxWidth = 560
+			maxHeight = 110
+			position = { x= 716 y = 280 }
+			borderSize = { x = 24 y = 2 }
+			format = left
+			font = "cg_16b"
+			scrollbartype = "z_mm_text_slider"
+			alwaysTransparent = no
+		}
+		
+		#_返回
+        effectButtonType = {
+			name = "close"
+			quadTextureSprite = "GFX_z_mm_button_return"
+			scale = 1
+            orientation = upper_left
+			position = { x= 1163 y = 9 }
+			shortcut = "ESCAPE"
+			clicksound = "back_click"
+			effect = "z_modmenu_return_effect"
+		}
+		
+		
+		
+		
+        ### EVENT DIPLO ###
+		containerWindowType = {
+			name = "EVENT_DIPLO"
+			orientation = upper_left
+			position = { x = 705 y = 43 }
+			size = { width = 600 height = 800 }
+			moveable = no
+			
+			instantTextBoxType={		# Used for GNA_LEADER_NAME because I am stupid and can not find out another way
+				name = "action_title"
+				font = "cg_16b"
+				orientation = upper_left
+				position = { x = 6 y = 4 }
+				maxWidth = 450
+				maxHeight = 60
+				alwaysTransparent = yes
+			}
+			
+			instantTextBoxType={
+				name = "action_desc"
+				font = "cg_16b"
+				orientation = upper_left
+				position = { x = 0 y = 0 }
+				maxWidth = 500
+				maxHeight = 180
+				format = center
+				alwaysTransparent = yes
+				text_color_code = "H"
+			}
+			
+			listboxType = {
+				name = "option_list"
+				orientation = upper_left
+				position = { x = 31 y = 355 } 
+				size = { x = 540 y = 355 }
+				scrollbarType = "z_mm_listbox_slider_sub"
+				background = ""
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		###_	ALL OF THIS IS HIDDEN OR DISPLACED!	######################################################
+        buttonType = { name = "focus_button" position = { x = -1180 y = -1112 } spriteType = "GFX_fleetview_focus" } # hidden
+		instantTextBoxType = { name = "heading" font = "malgun_goth_24" position = { x = -1120 y = -115 } } # hidden
+		#buttonType = { name = "alien_message_background" size = { x = 0 y = 0 } position = { x = -1110 y = -11430 } spriteType = "GFX_tiles_dark_area_cut_8" } # hidden
+		buttonType = { name = "empire_flag" position = { x = -1125 y = -11235 } spriteType = "GFX_empire_flag_128" } # hidden
+		buttonType = { name = "confirm_button" quadTextureSprite = "GFX_standard_button_142_34_button" } # hidden
+		containerWindowType = {
+			name = "portrait_background"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 }		# hide portrait window
+			#iconType = { name = "event_picture" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+			iconType = { name = "portrait" spriteType = "GFX_portrait_character" } # hidden
+		}
+		iconType = { name = "empire_info_bg" spriteType = "GFX_diplomacy_dark_fade_bg" } # hidden
+		instantTextBoxType={ name = "empire_name" font = "malgun_goth_24" } # hidden 
+		instantTextBoxType={ name = "empire_government_type" font = "cg_16b" } # hidden
+		instantTextBoxType={ name = "empire_personality_type" font = "cg_16b" } # hidden
+		OverlappingElementsBoxType = { name = "empire_ethics_icons" position = { x = -1145 y = -11138 } } # hidden
+		containerWindowType = {
+			name = "leader_details"
+			position = { x = -1125 y = -1175 }
+			containerWindowType = { name = "empire_traits_box" } # hidden
+			instantTextBoxType = { name = "empire_traits_label" font = "cg_16b" } # hidden
+			overlappingElementsBoxType = { name = "leader_traits" } # hidden
+			instantTextBoxType = { name = "leader_name" font = "cg_16b" } # hidden
+			instantTextBoxType = { name = "leader_species" font = "cg_16b" } # hidden
+		}
+		containerWindowType = {
+			name = "opinion_window"
+			position = { x = -1127 y = -11110 }
+			size = { width = 94 height = 30 }
+			iconType = { name = "their_opinion_icon" spriteType = "GFX_diplomacy_opinion" } # hidden
+			instantTextBoxType = { name = "their_opinion" font = "cg_16b" }
+		}
+	}
+}

@@ -1,0 +1,187 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.320
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:artist_enclave_country
+		has_modifier = enclave_artist_patron
+		has_country_flag = artist_patron
+		NOR = {
+			has_country_flag = enclave_stopped_patronage
+			has_country_flag = enclave_artist_ignores
+			has_country_flag = artist_patron_timer
+		}
+	}
+
+	immediate = {
+		set_timed_country_flag = { flag = artist_patron_timer days = 40 }
+		random_list = {
+			# Newsletter: Generic
+			25 = {
+				modifier = {
+					factor = 2
+					NOT = { has_country_flag = enclave_artist_patron_events }
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						NOT = { has_country_flag = artist_patron }
+						has_country_flag = unsubscribed_from_newsletter
+						check_variable = {
+							which = artist_newsletter
+							value > 6
+						}
+					}
+				}
+				country_event = { id = leviathans.321 days = 500 random = 1000 }
+			}
+			# Ministry of Culture
+			20 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = enclave_artist_patron_event_1
+						NOT = { has_country_flag = artist_patron }
+					}
+				}
+				country_event = { id = leviathans.322 days = 500 random = 1000 }
+			}
+			# Lackluster Update
+			20 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = enclave_artist_patron_event_2
+						NOT = { has_country_flag = artist_patron }
+					}
+				}
+				country_event = { id = leviathans.323 days = 500 random = 1000 }
+			}
+			# Broken Artistry
+			20 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = enclave_artist_patron_event_3
+						NOT = { has_country_flag = artist_patron }
+					}
+				}
+				country_event = { id = leviathans.324 days = 500 random = 1000 }
+			}
+			# Magnum Opus
+			15 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = enclave_artist_patron_event_4_mod
+						NOT = { has_country_flag = artist_patron }
+						AND = {
+							NOT = { has_country_flag = enclave_artist_patron_event_2 }
+							NOT = { has_country_flag = enclave_artist_patron_event_3 }
+						}
+					}
+				}
+				country_event = { id = spaceleviathans.120 days = 500 random = 1000 }
+			}
+			# Newsletter: Death of an Artist
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = enclave_artist_patron_event_5_mod
+						has_country_flag = unsubscribed_from_newsletter
+						NOT = { has_country_flag = artist_patron }
+						NOT = {
+							check_variable = {
+								which = artist_newsletter
+								value > 4
+							}
+						}
+					}
+				}
+				country_event = { id = spaceleviathans.121 days = 500 random = 1000 }
+			}
+			# Progress on Unity Buildings
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = enclave_artist_patron_event_6_mod
+						NOT = { has_country_flag = artist_patron }
+						NOT = { has_country_flag = enclave_artist_patron_events }
+						AND = {
+							OR = {
+								is_regular_empire = yes
+								is_machine_empire = yes
+								is_hive_empire = yes
+							}
+							is_spiritualist = no
+							has_technology = tech_autocurating_vault
+						}
+						AND = {
+							is_spiritualist = yes
+							has_technology = tech_transcendent_faith
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					is_xenophobe = yes
+				}
+				country_event = { id = spaceleviathans.130 days = 500 random = 1000 }
+			}
+			# Advances in Holograms
+			15 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = enclave_artist_patron_event_7_mod
+						NOT = { has_country_flag = artist_patron }
+						NOT = {
+							check_variable = {
+								which = artist_newsletter
+								value > 6
+							}
+						}
+					}
+				}
+				country_event = { id = spaceleviathans.131 days = 500 random = 1000 }
+			}
+			# Nothing Happens
+			30 = {
+				modifier = {
+					factor = 0.20
+					NOT = { has_country_flag = enclave_artist_patron_events }
+				}
+				modifier = {
+					factor = 1.10
+					has_country_flag = enclave_artist_patron_event_1
+				}
+				modifier = {
+					factor = 1.10
+					has_country_flag = enclave_artist_patron_event_2
+				}
+				modifier = {
+					factor = 1.10
+					has_country_flag = enclave_artist_patron_event_3
+				}
+				modifier = {
+					factor = 1.10
+					has_country_flag = enclave_artist_patron_event_4_mod
+				}
+				modifier = {
+					factor = 1.10
+					has_country_flag = enclave_artist_patron_event_6_mod
+				}
+				modifier = {
+					factor = 1.10
+					has_country_flag = enclave_artist_patron_event_7_mod
+				}
+				#DO NOTHING
+			}
+		}
+	}
+}

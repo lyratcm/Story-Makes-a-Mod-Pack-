@@ -1,0 +1,22 @@
+BOO_origin_subterranean_societies = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_default.dds"
+    picture = GFX_evt_underground_city
+    potential = {
+        always = yes
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_industrial
+                value = ethic_industrial
+                value = ethic_fanatic_industrial
+            }
+        }
+    }
+    random_weight = {
+        base = 15
+    }
+    description = "BOO_origin_subterranean_societies_tooltip_effects"
+    advanced_start = yes
+}

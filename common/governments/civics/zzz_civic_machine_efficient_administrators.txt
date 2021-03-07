@@ -1,0 +1,21 @@
+civic_machine_efficient_administrators = {
+    potential = {
+        authority = {
+            value = auth_machine_intelligence
+        }
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_machine_administrator
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_admin_cap_mult = 0.10
+        planet_coordinator_upkeep_mult = -0.1
+    }
+}

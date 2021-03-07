@@ -1,0 +1,24 @@
+trait_garrison_bot = {
+    cost = 1
+    icon = "gfx/interface/icons/governments/civics/civic_machine_warbots.dds"
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    modifier = {
+        army_defense_damage_mult = 0.5
+        army_health = 0.10
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            OR = {
+                has_technology = tech_droid_workers
+                is_machine_empire = yes
+            }
+        }
+    }
+    opposites = {
+        "trait_delicate"
+    }
+}

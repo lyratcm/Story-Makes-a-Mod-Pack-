@@ -1,0 +1,23 @@
+trait_robot_governor_logistic_growth = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_robot_governor_logistic_growth.dds"
+    modifier = {
+        pop_growth_speed = 0.15
+        pop_assembly_speed = 0.15
+    }
+    leader_trait = {
+        governor
+    }
+    leader_class = {
+        governor
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_robot_dynamic_neural_network
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

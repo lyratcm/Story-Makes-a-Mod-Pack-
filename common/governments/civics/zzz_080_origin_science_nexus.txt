@@ -1,0 +1,20 @@
+origin_amo_science_nexus = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_amo_science_nexus.dds"
+	picture = GFX_evt_amo_science_nexus
+
+	potential = {
+		always = yes
+	}
+
+	possible = {
+	}
+
+	description = "origin_tooltip_amo_science_nexus_effects"
+
+	initializers = {
+		system_amo_science_nexus_init
+	}
+
+	advanced_start = no
+}

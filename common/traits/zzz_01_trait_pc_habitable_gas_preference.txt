@@ -1,0 +1,16 @@
+trait_pc_habitable_gas_preference = {
+    icon = "gfx/interface/icons/traits/trait_pc_gas_preference.dds"
+    allowed_archetypes = {
+        GASEOUS
+    }
+    sorting_priority = 30
+    initial = no
+    modification = no
+    randomized = no
+    modifier = {
+        pc_habitable_gas_habitability = 2.00
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

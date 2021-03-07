@@ -1,0 +1,473 @@
+#Tooltips will be generated from these rules when they fail. Use of custom_tooltip is recommended
+#There are still multiple hard-coded rules that apply in addition to these.
+#If rules here evaluate to true, there might still be other rules that make the action unavailable.
+#If a rule here evaluates to false the action will become unavailable
+
+# Root = claimer
+# This = system
+can_add_claim = {
+	hidden_trigger = {
+		if = {
+			limit = {
+				root = { NOT = { is_country_type = default } }
+			}
+			always = yes
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_POLICY
+		OR = {
+			root = {
+				has_policy_flag = unrestricted_wars
+				NOT = { has_valid_civic = civic_closed_collective }
+				NOT = { has_valid_civic = civic_closed_network }
+			}
+			AND = {
+				root = {
+					has_policy_flag = liberation_wars
+					has_authority = auth_democratic
+					has_valid_ai_personality = yes
+					has_ai_personality = democratic_crusaders
+				}
+				owner = { NOT = { has_authority = auth_democratic } }
+			}
+			AND = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+			AND = {
+				exists = owner
+				owner = {
+					any_war = {
+						any_attacker = { is_same_value = prevprev }
+						any_defender = { is_same_value = root }
+					}
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_NOT_VALID_EMPIRE
+		NAND = {
+			exists = owner
+			owner = {
+				NOR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM
+		NAND = {
+			root = { has_valid_civic = civic_hive_devouring_swarm }
+			root = { is_lithoid_empire = no }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM_LITHOID
+		NAND = {
+			root = { has_valid_civic = civic_hive_devouring_swarm }
+			root = { is_lithoid_empire = yes }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_ASSIMILATOR
+		NOT = { root = { has_valid_civic = civic_machine_assimilator } }
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_PURIFIERS
+		NAND = {
+			exists = owner
+			root = { has_valid_civic = civic_fanatic_purifiers }
+			NOT = {	owner = { is_same_species = root } }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_EXTERMINATOR
+		NAND = {
+			exists = owner
+			root = { has_valid_civic = civic_machine_terminator }
+			owner = {
+				NOR = {
+					is_same_species = root
+					has_country_flag = synthetic_empire
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_THEY_THREAT
+		NAND = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_machine_assimilator
+				}
+			}
+			root = {
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_machine_assimilator
+				}
+			}
+		}
+	}
+}
+
+#Root = country
+#This = pop
+can_generate_leader_from_pop = {
+	has_citizenship_rights = yes
+	NOT = { has_trait = trait_syncretic_proles }
+	NOT = { has_trait = trait_nerve_stapled }
+	NOT = { has_trait = trait_memorex_comatos }
+	NOT = { has_trait = trait_infested_basic }
+	OR = {
+		is_robot_pop = no
+		root = { has_technology = tech_synthetic_leaders }
+		root = { has_authority = auth_machine_intelligence }
+		root = { is_mechanical_empire = yes }
+	}
+	OR = {
+		is_same_species = root
+		root = {
+			NAND = {
+				has_origin = origin_necrophage
+				has_trait = trait_necrophage
+			}
+		}
+	}
+}
+
+#Root = planet
+#This = country
+can_release_vassal = {
+	custom_tooltip = {
+		fail_text = default
+		always = yes
+	}
+}
+
+#Root = species
+#This = country
+can_release_vassal_from_species = {
+	root = {
+		is_sapient = yes
+		NOR = {
+			has_trait = trait_nerve_stapled
+			has_trait = trait_syncretic_proles
+			has_trait = trait_memorex_comatos
+			has_trait = trait_infested_basic
+			AND = {
+				prev = { NOT = { has_technology = tech_synthetic_leaders } }
+				has_trait = trait_mechanical
+			}
+		}
+		if = {
+			limit = {
+				prev = {
+					OR = {
+						has_valid_civic = civic_fanatic_purifiers
+						has_valid_civic = civic_machine_assimilator
+						has_valid_civic = civic_hive_devouring_swarm
+					}
+				}
+			}
+			is_same_species = prev
+		}
+		if = {
+			limit = { prev = { has_authority = auth_machine_intelligence } }
+			OR = {
+				has_trait = trait_machine_unit
+				has_citizenship_rights = yes
+				has_citizenship_type = { type = citizenship_limited }
+			}
+		}
+		if = {
+			limit = { prev = { has_authority = auth_hive_mind } }
+			OR = {
+				has_trait = trait_hive_mind
+				has_citizenship_rights = yes
+				has_citizenship_type = { type = citizenship_limited }
+			}
+		}
+	}
+}
+
+#This = country, suject
+#Root = country, overlord
+#From = target solar system
+#This rule is a condition for when subjects that normally cannot colonize outside their borders are allowed to
+subject_can_expand = {
+	root = {
+		OR = {
+			has_valid_civic = civic_feudal_realm
+			has_policy_flag = vassal_expansion_allowed
+		}
+	}
+}
+
+#Root = country, attacker
+#This = country, target
+#This rule is a condition for declaring war
+can_declare_war = {
+	custom_tooltip = {
+		fail_text = "ACTION_DECLARE_WAR_OVERLORD_ON_SUBJECT"
+		NOT = {
+			AND = {
+				OR = {
+					is_subject_type = "vassal"
+					is_subject_type = "duchy"
+					is_subject_type = "charter"
+					is_subject_type = "protectorate"
+					is_subject_type = "signatory"
+					is_subject_type = "scion_signatory"
+				}
+				overlord = {
+					is_same_value = root
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			exists = root
+			ROOT = {
+				has_policy_flag = no_wars
+				OR = {
+					is_subject = no
+					overlord = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = "CAN_DECLARE_WAR_POLICY"
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			exists = root
+			ROOT = {
+				is_ai = yes
+			}
+		}
+		ROOT = {
+			is_at_war = no
+			OR = {
+				NOT = { has_country_flag = ai_no_fed_wars }
+				NOT = {
+					any_country = {
+						is_in_federation_with = ROOT
+						is_ai = no
+					}
+				}
+			}
+		}
+	}
+}
+
+# This = pop
+can_resettle_pop = {
+	IF = { #Done as an IF/ELSE so the tooltip isn't hideous and unreadable
+		limit = { is_shackled_robot = yes }
+		is_shackled_robot = yes
+	}
+	ELSE_IF = {
+		limit = {
+			planet = {
+				OR = {
+					has_modifier = deteriorating_ecosystem
+					has_modifier = catastrophe_approach
+					has_modifier = apocalypse
+					has_modifier = ravenous_locusts
+					has_modifier = doomsday_1
+					has_modifier = doomsday_2
+					has_modifier = doomsday_3
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+		always = yes
+	}
+	ELSE_IF = {
+		limit = {
+			planet = {
+				has_modifier = planet_culture_shock
+			}
+		}
+		OR = {
+			is_same_species = planet.owner
+			planet = {
+				NOT = { has_modifier = planet_culture_shock }
+			}
+		}
+	}
+	ELSE_IF = {
+		limit = { is_enslaved = yes }
+		is_enslaved = yes
+	}
+	ELSE = {
+		owner = {
+			OR = {
+				has_policy_flag = resettlement_allowed
+				is_gestalt = yes
+			}
+		}
+	}
+}
+
+# This = Planet
+can_resettle_planet = {
+	is_controlled_by = owner
+	has_ground_combat = no
+	has_orbital_bombardment = no
+	owner = {
+		OR = {
+			has_policy_flag = resettlement_allowed
+			is_gestalt = yes
+			any_owned_pop = {
+				OR = {
+					is_shackled_robot = yes
+					is_enslaved = yes
+				}
+			}
+			any_owned_planet = {
+				OR = {
+					has_modifier = deteriorating_ecosystem
+					has_modifier = catastrophe_approach
+					has_modifier = apocalypse
+					has_modifier = ravenous_locusts
+					has_modifier = doomsday_1
+					has_modifier = doomsday_2
+					has_modifier = doomsday_3
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		text = "RESETTLE_PLANET_UNDER_COLONIZATION"
+		exists = this
+		is_under_colonization = no
+	}
+}
+
+# This = country
+can_build_branch_offices = {
+	custom_tooltip = {
+		fail_text = BRANCH_OFFICE_NOT_MEGACORP
+		is_megacorp = yes
+	}
+}
+
+# This = country
+can_support_branch_offices = {
+	custom_tooltip = {
+		fail_text = BRANCH_OFFICE_NOT_FALLEN_EMPIRES
+		NOR = {
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+	is_regular_empire = yes
+}
+
+# This = planet
+# Root = country
+can_build_branch_office_on_planet = {
+	custom_tooltip = {
+		fail_text = requires_recipient_not_fanatic_purifiers
+		exists = owner
+		owner = { 
+			OR = {
+				is_same_species = root
+				NOT = { has_civic = civic_fanatic_purifiers }
+			} 
+		}	
+	}	
+	custom_tooltip = {
+		fail_text = BRANCH_OFFICE_NOT_COMMERCIAL_PACT
+		exists = owner
+		NOT = {
+			owner = { is_same_value = root }
+		}
+		OR = {
+			root = { is_criminal_syndicate = yes }
+			owner = { has_commercial_pact = root }
+			owner = { is_in_federation_with = root }
+
+			# allow branch offices in subsidiaries and vice versa
+			root = {
+				is_subject = yes
+				is_subject_type = subsidiary
+				overlord = { is_same_value = owner }
+			}
+			owner = {
+				is_subject = yes
+				is_subject_type = subsidiary
+				overlord = { is_same_value = root }
+			}
+		}
+		OR = {
+			owner = { NOT = { is_megacorp = yes } }
+			# Criminal Syndicates can take root in other corporations
+			root = { is_criminal_syndicate = yes }
+			# allow branch offices in subsidiaries and vice versa
+			root = {
+				is_subject = yes
+				is_subject_type = subsidiary
+				overlord = { is_same_value = owner }
+			}
+			owner = {
+				is_subject = yes
+				is_subject_type = subsidiary
+				overlord = { is_same_value = root }
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = BRANCH_OFFICE_CRIMINAL_HERITAGE_HAS_TRUCE
+		exists = owner
+		OR = {
+			root = { is_criminal_syndicate = no }
+			owner = {
+				NOR = {
+					has_truce = root
+					is_at_war_with = root
+				}
+			}
+		}	
+	}
+	custom_tooltip = {
+		fail_text = BRANCH_OFFICE_CRIMINAL_COOLDOWN
+		exists = owner
+		OR = {
+			root = { is_criminal_syndicate = no }
+			AND = {
+				root = { is_criminal_syndicate = yes }
+				NOT = { has_planet_flag = criminal_branch_closed_cooldown_planet@root }
+			}
+		}
+	}
+}
+
+# This = country
+# Checked by is_criminal_syndicate trigger
+is_criminal_syndicate_rule = {
+	is_megacorp = yes
+	has_valid_civic = civic_criminal_heritage
+}

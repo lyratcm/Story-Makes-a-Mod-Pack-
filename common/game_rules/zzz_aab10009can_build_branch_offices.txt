@@ -1,0 +1,10 @@
+can_build_branch_offices = {
+    custom_tooltip = {
+        fail_text = BRANCH_OFFICE_NOT_MEGACORP
+        OR = {
+            is_megacorp = yes
+            has_valid_civic = civic_mutualistic_behavior
+            has_valid_civic = civic_machine_servitor
+        }
+    }
+}

@@ -1,0 +1,34 @@
+trait_leader_wisdom_of_the_ages = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_leader_wisdom_of_the_ages.dds"
+    opposites = {
+        leader_trait_adaptable
+        leader_trait_stubborn
+    }
+    leader_potential_add = {
+        NOT = {
+            leader_class = ruler
+        }
+        NOT = {
+            from = {
+                has_ethic = "ethic_gestalt_consciousness"
+            }
+        }
+        has_trait = trait_venerable
+    }
+    self_modifier = {
+        leader_skill_levels = 2
+        species_leader_exp_gain = 0.50
+    }
+    leader_class = {
+        admiral
+        scientist
+        general
+        governor
+    }
+    leader_trait = all
+    ai_weight = {
+        weight = 500
+    }
+}

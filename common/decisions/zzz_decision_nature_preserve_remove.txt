@@ -1,0 +1,31 @@
+decision_remove_nature_preserve = {
+	owned_planets_only = yes
+	icon = decision_politics
+	
+	enactment_time = 30
+	resources = {
+		category = decisions
+		cost = {
+			energy = 100
+		}
+	}
+	
+	potential = {
+		exists = owner
+		OR = {
+			owner = { NOT = { has_civic = civic_environmentalist } }
+			habitable_structure = yes
+			is_planet_class = pc_machine
+			is_planet_class = pc_city
+		}
+		has_deposit = d_nature_preserve
+	}
+	
+	effect = {
+		remove_deposit = d_nature_preserve
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

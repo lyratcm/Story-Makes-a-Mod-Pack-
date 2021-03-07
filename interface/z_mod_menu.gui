@@ -1,0 +1,1127 @@
+###_z modmenu	#########################################################################
+#_[z_fw_sub]
+#_[z_mm_csp_btns]
+#_[主要]
+
+
+guiTypes = {
+	containerWindowType = {
+		name = "z_modmenu_window"
+		size = { width = 1300 height = 800 }
+		moveable = no
+		orientation = upper_left
+		position = { x = 50 y = 50 }
+		
+		###_UI隐藏动画似乎只对硬代码UI有效
+		#show_position = { x = 35 y = 40 }
+        #hide_position = { x = -1050 y = 40 }
+		#show_animation_type = decelerated
+		#hide_animation_type = accelerated
+		#animation_time = 200
+		
+        effectButtonType = { 
+			name = "z_modmenu_window_bg"
+			scale = 1
+			orientation = upper_left
+			position = { x = 9 y = 42 }
+			spriteType = "GFX_z_modmenu_window_bg"
+			effect = "z_mm_bg_frames"
+            alwaystransparent = no
+        }
+        effectButtonType = { 
+			name = "z_modmenu_window_frame"
+			scale = 1
+			orientation = upper_left
+			position = { x = 9 y = 42 }
+			spriteType = "GFX_z_modmenu_window_frame"
+			effect = "z_mm_bg_frames"
+            alwaystransparent = yes
+        }
+		
+		#_title
+	#	instantTextBoxType = {
+	#		name = "gui_z_mm_1"
+	#		position = { x = 16 y = 48 }
+	#		textureFile = ""
+	#		font = "cg_16b"
+	#		borderSize = {x = 0 y = 0}
+	#		text = "z_modmenu.1.name"
+	#		maxWidth = 377
+	#		maxHeight = 17
+	#		fixedSize = yes
+	#		format = left
+	#	}
+		effectButtonType = {
+			name = "gui_z_mm_title_mian"
+			orientation = upper_left
+			position = { x = 16 y = 48 }
+			scale = 1
+			spriteType = "GFX_z_mm_btn_false_text_cg_16b"
+			effect = "z_mm_bg_frames"
+			text = "z_modmenu.1.name"
+			buttonFont = "cg_16b"
+			format = left
+			alwaysTransparent = yes
+		}
+		
+		
+		
+		
+		###_top	#########################################################################
+		#_misc按钮
+		containerWindowType = {
+			name = "z_modmenu_window_top"
+			size = { width = 1500 height = 50 }
+			moveable = no
+			orientation = upper_left
+			position = { x = 204 y = 9 }
+			
+			effectButtonType = { 
+				name = "z_modmenu_top_bg"
+				scale = 1
+				orientation = upper_left
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_z_modmenu_window_bg_top"
+				effect = "z_mm_bg_frames"
+				alwaystransparent = yes
+			}
+			
+			#_自动矿站
+			effectButtonType = {
+				name = "gui_z_mm_misc_button_auto_x"
+				scale = 1
+				orientation = upper_left
+				position = { x = 865 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_auto_x"
+				effect = "z_mm_autosatation_button_off"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			effectButtonType = {
+				name = "gui_z_mm_misc_button_auto_100"
+				scale = 1
+				orientation = upper_left
+				position = { x = 865 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_auto_100"
+				effect = "z_mm_autosatation_button_100"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			effectButtonType = {
+				name = "gui_z_mm_misc_button_auto_600"
+				scale = 1
+				orientation = upper_left
+				position = { x = 864 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_auto_600"
+				effect = "z_mm_autosatation_button_600"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_full sensor toggler
+			effectButtonType = {
+				name = "gui_z_mm_misc_button_full_sensor_on"
+				scale = 1
+				orientation = upper_left
+				position = { x = 768 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_full_sensor_on"
+				effect = "z_mm_full_sensor_button_on"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			effectButtonType = {
+				name = "gui_z_mm_misc_button_full_sensor_off"
+				scale = 1
+				orientation = upper_left
+				position = { x = 768 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_full_sensor_off"
+				effect = "z_mm_full_sensor_button_off"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_pote webway toggler
+			effectButtonType = {
+				name = "gui_z_mm_misc_button_pote_webway_on"
+				scale = 1
+				orientation = upper_left
+				position = { x = 672 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_pote_webway_on"
+				effect = "z_pote_webway_button_on"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			effectButtonType = {
+				name = "gui_z_mm_misc_button_pote_webway_off"
+				scale = 1
+				orientation = upper_left
+				position = { x = 672 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_pote_webway_off"
+				effect = "z_pote_webway_button_off"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_pf
+			effectButtonType = {
+				name = "gui_z_mm_pf_button_manual"
+				scale = 1
+				orientation = upper_left
+				position = { x = 576 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_pf"
+				effect = "z_mm_pf_button_manual"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			effectButtonType = {
+				name = "gui_z_mm_pf_button_manual_own"
+				scale = 1
+				orientation = upper_left
+				position = { x = 480 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_pf_own"
+				effect = "z_mm_pf_button_manual_own"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_pf2
+			effectButtonType = {
+				name = "gui_z_mm_pf2_button_merge_ai_species"
+				scale = 1
+				orientation = upper_left
+				position = { x = 384 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_pf2"
+				effect = "z_mm_pf2_button_merge_ai_species"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_pf2 flt
+			effectButtonType = {
+				name = "gui_z_mm_pf2_button_merge_fleet"
+				scale = 1
+				orientation = upper_left
+				position = { x = 288 y = 0 }
+				spriteType = "GFX_z_mm_misc_button_pf2_flt"
+				effect = "z_mm_pf2_button_merge_fleet"
+				clicksound = interface
+				oversound = mouse_over
+			}
+		}
+		
+		#_退出
+		effectButtonType = {
+			name = "close"
+			spriteType = "GFX_z_mm_button_exit"
+			scale = 1
+			orientation = upper_left
+			position = { x= 1163 y = 9 }
+			shortcut = "ESCAPE"
+			clicksound = "back_click"
+			effect = "z_modmenu_close_effect"
+		}
+		
+		
+		
+		
+		###_框架设置	#########################################################################
+		##_misc button
+		#_作者
+		effectButtonType = {
+			name = "gui_z_fw_misc_author"
+			scale = 1
+			orientation = upper_left
+			position = { x = 554 y = 52 }
+			spriteType = "GFX_z_fw_misc_author"
+			effect = "z_mm_framework_btn_misc_author"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_指南
+		effectButtonType = {
+			name = "gui_z_fw_misc_guide"
+			scale = 1
+			orientation = upper_left
+			position = { x = 554 y = 116 }
+			spriteType = "GFX_z_fw_misc_guide"
+			effect = "z_mm_framework_btn_misc_guide"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_wip
+		effectButtonType = {
+			name = "gui_z_fw_misc_wip"
+			scale = 1
+			orientation = upper_left
+			position = { x = 554 y = 180 }
+			spriteType = "GFX_z_fw_misc_wip"
+			effect = "z_mm_framework_btn_misc_wip"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		
+		##_main button
+		#_框架设置
+		effectButtonType = {
+			name = "gui_z_mm_framework_button_1"
+			scale = 1
+			orientation = upper_left
+			position = { x = 60 y = 80 }
+			spriteType = "GFX_z_mm_framework_button_1"
+			effect = "z_mm_framework_button_1"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_框架设置_无尽整合
+		effectButtonType = {
+			name = "gui_z_mm_framework_button_2"
+			scale = 1
+			orientation = upper_left
+			position = { x = 60 y = 80 }
+			spriteType = "GFX_z_mm_framework_button_2"
+			effect = "z_mm_framework_button_2"
+			clicksound = interface
+			oversound = mouse_over
+		}
+	#	#_misc modmenu
+	#	effectButtonType = {
+	#		name = "gui_z_mm_misc_modmenu_button"
+	#		orientation = upper_left
+	#		scale = 1
+	#		position = { x = 422 y = 450 }
+	#		spriteType = "GFX_z_mm_misc_modmenu_button"
+	#		effect = "z_mm_misc_modmenu_button"
+	#		clicksound = interface
+	#		oversound = mouse_over
+	#	}
+		#_战争
+		effectButtonType = {
+			name = "gui_z_mm_fw_button_battle_setting"
+			scale = 1
+			orientation = upper_left
+			position = { x = 619 y = 50 }
+			spriteType = "GFX_z_mm_fw_button_battle_setting"
+			effect = "z_mm_fw_button_battle_setting"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_z_fw_button_battle_dd_fp
+		effectButtonType = {#_自适应
+			name = "gui_z_mm_fw_button_battle_fp_adpt_on"
+			scale = 1
+			orientation = upper_left
+			position = { x = 619 y = 166 }
+			spriteType = "GFX_z_mm_fw_button_battle_fp_adpt_on"
+			effect = "z_mm_fw_button_battle_fp_adpt_on"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {#_周期
+			name = "gui_z_mm_fw_button_battle_fp_adpt_periodic"
+			scale = 1
+			orientation = upper_left
+			position = { x = 619 y = 166 }
+			spriteType = "GFX_z_mm_fw_button_battle_fp_adpt_periodic"
+			effect = "z_mm_fw_button_battle_fp_adpt_periodic"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {#_关
+			name = "gui_z_mm_fw_button_battle_fp_adpt_off"
+			scale = 1
+			orientation = upper_left
+			position = { x = 619 y = 166 }
+			spriteType = "GFX_z_mm_fw_button_battle_fp_adpt_off"
+			effect = "z_mm_fw_button_battle_fp_adpt_off"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_微调
+		effectButtonType = {
+			name = "gui_z_mm_fw_button_battle_dd_fp_up"
+			scale = 1
+			orientation = upper_left
+			position = { x = 642 y = 130 }
+			spriteType = "GFX_z_mm_fw_button_battle_dd_fp_up"
+			effect = "z_mm_fw_button_battle_dd_fp_up"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		effectButtonType = {
+			name = "gui_z_mm_fw_button_battle_dd_fp_down"
+			scale = 1
+			orientation = upper_left
+			position = { x = 619 y = 130 }
+			spriteType = "GFX_z_mm_fw_button_battle_dd_fp_down"
+			effect = "z_mm_fw_button_battle_dd_fp_down"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		
+		
+		
+		
+		###_	z_fw_sub	#########################################################################
+		#_		pf/pf2/sts/天灾之主/全知之眼/产业革命
+		#_horiz+53
+		@sub_modules_vert_1 = 270
+		@sub_modules_vert_2 = 324
+		@sub_modules_scale = 0.98
+		
+		#_[pf]
+		effectButtonType = {
+			name = "gui_z_mm_pf_button"
+			position = { x = 15 y = @sub_modules_vert_1 }
+			spriteType = "GFX_z_mm_pf_button"
+			scale = @sub_modules_scale
+			effect = "z_mm_pf_button"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_[pf2]+53
+		effectButtonType = {
+			name = "gui_z_mm_pf2_button"
+			position = { x = 68 y = @sub_modules_vert_2 }
+			spriteType = "GFX_z_mm_pf2_button"
+			scale = @sub_modules_scale
+			effect = "z_mm_pf2_button"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_[sts]
+		effectButtonType = {
+			name = "gui_z_mm_statistic_button"
+			position = { x = 121 y = @sub_modules_vert_1 }
+			spriteType = "GFX_z_mm_statistic_button"
+			scale = @sub_modules_scale
+			effect = "z_mm_statistic_button"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_[天灾之主]
+		effectButtonType = {
+			name = "gui_z_mm_cm_button"
+			position = { x = 174 y = @sub_modules_vert_2 }
+			spriteType = "GFX_z_mm_cm_button"
+			scale = @sub_modules_scale
+			effect = "z_mm_cm_button"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_[全知之眼]
+		effectButtonType = {
+			name = "gui_z_mm_sub_lctr_button"
+			position = { x = 227 y = @sub_modules_vert_1 }
+			spriteType = "GFX_z_mm_sub_lctr_button"
+			scale = @sub_modules_scale
+			effect = "z_mm_sub_lctr_button"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		#_[产业革命]
+		effectButtonType = {
+			name = "gui_z_mm_sub_pr_button"
+			position = { x = 280 y = @sub_modules_vert_2 }
+			spriteType = "GFX_z_mm_sub_pr_button"
+			scale = @sub_modules_scale
+			effect = "z_mm_sub_pr_button"
+			orientation = upper_left
+			clicksound = interface
+			oversound = mouse_over
+		}
+		
+		
+	#	extendedScrollbarType = {
+	#		name = "z_right_vertical_slider_s"
+	#		position = { x = 674 y = 1 }
+	#		size = { width = 18 height = 284 }
+	#		startValue = 0
+	#
+	#		background = {
+	#			name = "Background"	
+	#			quadTextureSprite = "GFX_tiled_window_transparent"
+	#		}
+	#		
+	#		track = {
+	#			name = "Track"
+	#			quadTextureSprite = "GFX_ncp_scroll_bg"
+	#			position = { x = 3 y = 0 }
+	#		}	
+	#		
+	#		slider = {
+	#			name = "Slider"	
+	#			quadTextureSprite = "GFX_ncp_scroll_slider_small"
+	#			position = { x = -2 y = 0 }
+	#		}
+	#	}
+		
+		
+		###_[z_mm_csp_btns]	#########################################################################
+		#_sp_title
+		effectButtonType = {
+			name = "gui_z_mm_title_sp_mods"
+			orientation = upper_left
+			position = { x = 711 y = 46 }
+			scale = 1
+			spriteType = "GFX_z_mm_btn_false_text_cg_16b"
+			effect = "z_mm_btn_title_sp_mods"
+			text = "z_modmenu.3.name"
+			buttonFont = "cg_16b"
+			format = left
+			alwaysTransparent = yes
+		}
+		@sp_mods_hori_1 = 12
+		@sp_mods_hori_2 = 106
+		@sp_mods_hori_3 = 200
+		@sp_mods_hori_4 = 294
+		@sp_mods_hori_5 = 388
+		@sp_mods_hori_6 = 482
+		@sp_mods_vert_1 = 4
+		@sp_mods_vert_2 = 98
+		@sp_mods_vert_3 = 192
+		@sp_mods_vert_4 = 286
+		@sp_mods_vert_5 = 380
+		@sp_mods_vert_6 = 474
+		@sp_mods_vert_7 = 568
+		@sp_mods_vert_8 = 662
+		
+		#_csp_title
+	#	instantTextBoxType = {
+	#		name = "gui_z_mm_tips_csp_title"
+	#		position = { x = 16 y = 454 }
+	#		textureFile = ""
+	#		font = "cg_16b"
+	#		borderSize = {x = 0 y = 0}
+	#		text = "z_mm_tips_csp_title"
+	#		maxWidth = 377
+	#		maxHeight = 17
+	#		fixedSize = yes
+	#		format = left
+	#	}
+		effectButtonType = {
+			name = "gui_z_mm_title_csp_buttons"
+			orientation = upper_left
+			position = { x = 16 y = 454 }
+			scale = 1
+			spriteType = "GFX_z_mm_btn_false_text_cg_16b"
+			effect = "z_mm_bg_frames"
+			text = "z_mm_tips_csp_title"
+			buttonFont = "cg_16b"
+			format = left
+			alwaysTransparent = yes
+		}
+		
+		#_JRANT
+		containerWindowType = {
+			name = "z_mm_csp_jrant"
+			size = { width = 160 height = 60 }
+			orientation = upper_left
+			position = { x = 20 y = 490 }
+			#verticalScrollBar = "right_vertical_slider_s"
+        
+		#	effectButtonType = {
+		#		name = "gui_z_mm_csp_bg_jrant_triggered"
+		#		orientation = upper_left
+		#		position = { x = 0 y = 0 }
+		#		quadTextureSprite = "GFX_z_mm_csp_mods_bg_adpt"
+		#		size = { x = 148 y = 54 }
+		#		effect = "z_mm_bg_frames"
+		#		alwaysTransparent = yes
+		#	}
+			#_解放手册-tile
+			effectButtonType = {
+				name = "gui_z_mm_csp_btn_misc_tile"
+				scale = 1.15
+				orientation = upper_left
+				position = { x = 10 y = 4 }
+				spriteType = "GFX_z_mm_csp_btn_misc_tile"
+				effect = "z_mm_csp_btn_misc_tile"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_解放手册-stability
+			effectButtonType = {
+				name = "gui_z_mm_csp_btn_misc_stability"
+				scale = 1.15
+				orientation = upper_left
+				position = { x = 60 y = 4 }
+				spriteType = "GFX_z_mm_csp_btn_misc_stability"
+				effect = "z_mm_csp_btn_misc_stability"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_解放手册-agenda
+			effectButtonType = {
+				name = "gui_z_mm_csp_btn_misc_agenda"
+				scale = 1.15
+				orientation = upper_left
+				position = { x = 110 y = 4 }
+				spriteType = "GFX_z_mm_csp_btn_misc_agenda"
+				effect = "z_mm_csp_btn_misc_agenda"
+				clicksound = interface
+				oversound = mouse_over
+			}
+		}
+		
+		#_FTM
+		containerWindowType = {
+			name = "z_mm_csp_ftm"
+			size = { width = 192 height = 54 }
+			orientation = upper_left
+			position = { x = 190 y = 490 }
+			#verticalScrollBar = "right_vertical_slider_s"
+        
+			#_transfer
+			effectButtonType = {
+				name = "gui_z_mm_csp_btn_ftm_transfer"
+				scale = 1.15
+				orientation = upper_left
+				position = { x = 10 y = 4 }
+				spriteType = "GFX_z_mm_csp_btn_ftm_transfer"
+				effect = "z_mm_csp_btn_ftm_transfer"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_market
+			effectButtonType = {
+				name = "gui_z_mm_csp_btn_ftm_sell"
+				scale = 1.15
+				orientation = upper_left
+				position = { x = 60 y = 4 }
+				spriteType = "GFX_z_mm_csp_btn_ftm_sell"
+				effect = "z_mm_csp_btn_ftm_sell"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_rent
+			effectButtonType = {
+				name = "gui_z_mm_csp_btn_ftm_rent"
+				scale = 1.15
+				orientation = upper_left
+				position = { x = 110 y = 4 }
+				spriteType = "GFX_z_mm_csp_btn_ftm_rent"
+				effect = "z_mm_csp_btn_ftm_rent"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_auction
+			effectButtonType = {
+				name = "gui_z_mm_csp_btn_ftm_auction"
+				scale = 1.15
+				orientation = upper_left
+				position = { x = 160 y = 4 }
+				spriteType = "GFX_z_mm_csp_btn_ftm_auction"
+				effect = "z_mm_csp_btn_ftm_auction"
+				clicksound = interface
+				oversound = mouse_over
+			}
+		}
+		
+		#_Z_FW_MISC
+		containerWindowType = {
+			name = "z_fw_csp_misc"
+			size = { width = 192 height = 54 }
+			orientation = upper_left
+			position = { x = 410 y = 490 }
+			#verticalScrollBar = "right_vertical_slider_s"
+        
+			#_舰队拆解
+			effectButtonType = {
+				name = "gui_z_fw_csp_btn_misc_fleet_dismantle_on"
+				orientation = upper_left
+				position = { x = 10 y = 4 }
+				spriteType = "GFX_z_fw_csp_btn_misc_fleet_dismantle_on"
+				effect = "z_fw_csp_btn_misc_fleet_dismantle_on"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			effectButtonType = {
+				name = "gui_z_fw_csp_btn_misc_fleet_dismantle_off"
+				orientation = upper_left
+				position = { x = 10 y = 4 }
+				spriteType = "GFX_z_fw_csp_btn_misc_fleet_dismantle_off"
+				effect = "z_fw_csp_btn_misc_fleet_dismantle_off"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_法令隐藏
+			effectButtonType = {
+				name = "gui_z_fw_csp_btn_misc_edt_show"
+				orientation = upper_left
+				position = { x = 60 y = 4 }
+				spriteType = "GFX_z_fw_csp_btn_misc_edt_show"
+				effect = "z_fw_csp_btn_misc_edt_show"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			effectButtonType = {
+				name = "gui_z_fw_csp_btn_misc_edt_hide"
+				orientation = upper_left
+				position = { x = 60 y = 4 }
+				spriteType = "GFX_z_fw_csp_btn_misc_edt_hide"
+				effect = "z_fw_csp_btn_misc_edt_hide"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			#_[z_mui主按钮隐藏]
+			effectButtonType = {
+				name = "gui_z_fw_csp_btn_misc_mui_button_show"
+				orientation = upper_left
+				position = { x = 110 y = 4 }
+				spriteType = "GFX_z_fw_csp_btn_misc_mui_button_show"
+				effect = "z_fw_csp_btn_misc_mui_button_show"
+				clicksound = interface
+				oversound = mouse_over
+			}
+			effectButtonType = {
+				name = "gui_z_fw_csp_btn_misc_mui_button_hide"
+				orientation = upper_left
+				position = { x = 110 y = 4 }
+				spriteType = "GFX_z_fw_csp_btn_misc_mui_button_hide"
+				effect = "z_fw_csp_btn_misc_mui_button_hide"
+				clicksound = interface
+				oversound = mouse_over
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		###_	ALL OF THIS IS HIDDEN OR DISPLACED!	######################################################
+        buttonType = { name = "focus_button" position = { x = -1180 y = -1112 } spriteType = "GFX_fleetview_focus" } # hidden
+		instantTextBoxType = { name = "heading" font = "malgun_goth_24" position = { x = -1120 y = -115 } } # hidden
+		#buttonType = { name = "alien_message_background" size = { x = 0 y = 0 } position = { x = -1110 y = -11430 } spriteType = "GFX_tiles_dark_area_cut_8" } # hidden
+		instantTextBoxType={ name = "alien_message" font = "malgun_goth_24" } # hidden 
+		buttonType = { name = "empire_flag" position = { x = -1125 y = -11235 } spriteType = "GFX_empire_flag_128" } # hidden
+		buttonType = { name = "confirm_button" quadTextureSprite = "GFX_standard_button_142_34_button" } # hidden
+		containerWindowType = {
+			name = "portrait_background"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 }		# hide portrait window
+			#iconType = { name = "event_picture" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+			iconType = { name = "portrait" spriteType = "GFX_portrait_character" } # hidden
+		}
+		containerWindowType = {
+			name = "portrait"
+			position = { x = -1117 y = -1145 }
+			size = { width = 0 height = 0 } # hide portrait window
+			iconType = { name = "portrait" spriteType = "GFX_portrait_gamesetup_mask"  } # hidden
+			iconType = { name = "black_frame" spriteType = "GFX_diplomacy_portrait_shadow_frame" } # hidden
+			iconType = { name = "stripes_1" spriteType = "GFX_diplomacy_stripes_2" } # hidden
+			iconType = { name = "city_frame" spriteType = "GFX_diplomacy_portrait_frame" } # hidden
+		}
+		iconType = { name = "empire_info_bg" spriteType = "GFX_diplomacy_dark_fade_bg" } # hidden
+		instantTextBoxType={ name = "empire_name" font = "malgun_goth_24" } # hidden 
+		instantTextBoxType={ name = "empire_government_type" font = "cg_16b" } # hidden
+		instantTextBoxType={ name = "empire_personality_type" font = "cg_16b" } # hidden
+		OverlappingElementsBoxType = { name = "empire_ethics_icons" position = { x = -1145 y = -11138 } } # hidden
+		containerWindowType = {
+			name = "leader_details"
+			position = { x = -1125 y = -1175 }
+			containerWindowType = { name = "empire_traits_box" } # hidden
+			instantTextBoxType = { name = "empire_traits_label" font = "cg_16b" } # hidden
+			overlappingElementsBoxType = { name = "leader_traits" } # hidden
+			instantTextBoxType = { name = "leader_name" font = "cg_16b" } # hidden
+			instantTextBoxType = { name = "leader_species" font = "cg_16b" } # hidden
+		}
+		containerWindowType = {
+			name = "opinion_window"
+			position = { x = -1127 y = -11110 }
+			size = { width = 94 height = 30 }
+			iconType = { name = "their_opinion_icon" spriteType = "GFX_diplomacy_opinion" } # hidden
+			instantTextBoxType = { name = "their_opinion" font = "cg_16b" }
+		}
+        ### EVENT DIPLO ###
+		
+		containerWindowType = {
+			name = "EVENT_DIPLO"
+			orientation = upper_left
+			position = { x = 690 y = 65 }
+			size = { width = 575 height = 752 }
+			moveable = no
+			
+			instantTextBoxType={		# Used for GNA_LEADER_NAME because I am stupid and can not find out another way
+				name = "action_title"
+				font = "malgun_goth_24"
+				orientation = upper_left
+				position = { x = 0 y = 0 }
+				maxWidth = 450
+				maxHeight = 60
+				alwaysTransparent = yes
+			}
+			
+			instantTextBoxType={
+				name = "action_desc"
+				font = "cg_16b"
+				orientation = upper_left
+				position = { x = 0 y = 0 }
+				maxWidth = 500
+				maxHeight = 180
+				format = center
+				alwaysTransparent = yes
+				text_color_code = "H"
+			}
+			
+			listboxType = {
+				name = "option_list"
+				orientation = upper_left
+				position = { x = 10 y = 10} 
+				size = { x = 576 y = 700 }
+				scrollbarType = "z_mm_listbox_slider"
+				background = ""
+			}
+		}
+	}
+	
+	
+	
+	
+	###_[主要]
+	containerWindowType = {
+		name = "frontendgui"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 100% }
+		iconType = {
+			name = "game_logo"
+			position = { x = 140 y = 60 }
+			quadTextureSprite = "gfx_game_logo"
+			orientation = "UPPER_LEFT"
+		}
+		containerWindowType = {
+			id = "press_to_continue"
+			name = "press_to_continue"
+			position = { x = 0 y = 0 }
+			size = { width = 1280 height = 720 }
+			orientation = center
+			instantTextBoxType = {
+				name = "press"
+				font = "malgun_goth_24"
+				text = "PRESS"
+				position = { x = -100 y = -9 }
+				maxWidth = 80
+				maxHeight = 35
+				fixedSize = yes
+				format = right
+			}
+			iconType = {
+				name = "button"
+				position = { x = -13 y = -10 }
+				quadTextureSprite = "GFX_controller_icon_a"
+				orientation = "CENTER_CENTER"
+			}
+			instantTextBoxType = {
+				name = "to_continue"
+				font = "malgun_goth_24"
+				text = "TO_CONTINUE"
+				position = { x = 20 y = -9 }
+				maxWidth = 400
+				maxHeight = 35
+				fixedSize = yes
+				format = left
+			}
+		}
+		containerWindowType = {
+			name = "menu"
+			position = { x = 17 y = 0 }
+			size = { width = 1280 height = 720 }
+			orientation = center_down
+			instantTextBoxType = {
+				name = "version"
+				font = "cg_16b"
+				text = "1337"
+				position = { x = -480 y = -22 }		#_	-38
+				maxWidth = 300
+				maxHeight = 20
+				fixedSize = yes
+				format = left
+			}
+			#_无尽群星备用
+			buttonType = {
+				name = "z_version"
+				quadTextureSprite = "GFX_invisible"
+				position = { x = -480 y = -38 }
+				size = { x = 990 y = 16 }
+				#orientation = center_down
+				buttonFont = "cg_16b"
+				buttonText = "z_ic_tips_main"
+				pdx_tooltip = ""
+				format = left
+				oversound = mouse_over
+				web_link = "https://steamcommunity.com/sharedfiles/filedetails/?id=2029367962"
+			}
+			#_版本号
+			buttonType = {
+				name = "version_button"
+				spriteType = "GFX_invisible"
+				size = { x = 300 y = 20 }
+				position = { x = -600 y = -38 }
+				no_clicksound = yes
+			}
+			containerWindowType = {
+				name = "buttons"
+				buttonType = {
+					id = "start"
+					name = "start"
+					quadTextureSprite = "GFX_white_stripe_button"
+					position = { x = -640 y = -150 }
+					shortcut = "n"
+					oversound = mouse_over
+					navRight = "multiplayer"
+					defaultSelection = yes
+					clicksound = confirm_click
+				}
+				instantTextBoxType ={
+					name = "start_new_game"
+					font = "malgun_goth_24"
+					text = "FRONT_START"
+					position = { x = -637 y = -140 }
+					maxWidth = 400
+					maxHeight = 35
+					fixedSize = yes
+					format = left
+					alwaysTransparent = yes
+				}
+				buttonType = {
+					id = "multiplayer"
+					name = "multiplayer"
+					quadTextureSprite = "GFX_white_stripe_button"
+					position = { x = -430 y = -150 }
+					shortcut = "m"
+					oversound = mouse_over
+					navLeft = "start"
+					navRight = "load"
+					clicksound = confirm_click
+				}
+				instantTextBoxType = {
+					name = "multi_player_text"
+					font = "malgun_goth_24"
+					text = "FRONT_MULTIPLAYER"
+					position = { x = -427 y = -140 }
+					maxWidth = 400
+					maxHeight = 35
+					fixedSize = yes
+					format = left
+					alwaysTransparent = yes
+				}
+				buttonType = {
+					id = "load"
+					name = "load"
+					quadTextureSprite = "GFX_white_stripe_button"
+					position = { x = -220 y = -150 }
+					shortcut = "l"
+					oversound = mouse_over
+					navLeft = "multiplayer"
+					navRight = "credits"
+					clicksound = confirm_click
+				}
+				instantTextBoxType = {
+					name = "load_game_text"
+					font = "malgun_goth_24"
+					text = "FRONT_LOAD"
+					position = { x = -216 y = -140 }
+					maxWidth = 400
+					maxHeight = 35
+					fixedSize = yes
+					format = left
+					alwaysTransparent = yes
+				}
+				buttonType = {
+					id = "credits"
+					name = "credits"
+					quadTextureSprite = "GFX_white_stripe_button"
+					position = { x = -10 y = -150 }
+					shortcut = "c"
+					oversound = mouse_over
+					navLeft = "load"
+					navRight = "settings"
+					clicksound = confirm_click
+				}
+				instantTextBoxType = {
+					name = "credits_text"
+					font = "malgun_goth_24"
+					text = "FRONT_CREDITS"
+					position = { x = -05 y = -140 }
+					maxWidth = 400
+					maxHeight = 35
+					fixedSize = yes
+					format = left
+					alwaysTransparent = yes
+				}
+				buttonType = {
+					id = "settings"
+					name = "settings"
+					quadTextureSprite = "GFX_white_stripe_button"
+					position = { x = 200 y = -150 }
+					shortcut = "s"
+					oversound = mouse_over
+					navLeft = "credits"
+					navRight = "quit"
+					clicksound = confirm_click
+				}
+				instantTextBoxType = {
+					name = "settings_text"
+					font = "malgun_goth_24"
+					text = "FRONT_SETTINGS"
+					position = { x = 206 y = -140 }
+					maxWidth = 400
+					maxHeight = 35
+					fixedSize = yes
+					format = left
+					alwaysTransparent = yes
+				}
+				buttonType = {
+					id = "quit"
+					name = "quit"
+					quadTextureSprite = "GFX_white_stripe_button"
+					position = { x = 410 y = -150 }
+					shortcut = "e"
+					oversound = mouse_over
+					navLeft = "settings"
+					actionShortCut = "cancel"
+				}
+				instantTextBoxType = {
+					name = "quit_text"
+					font = "malgun_goth_24"
+					text = "FRONT_QUIT"
+					position = { x = 416 y = -140 }
+					maxWidth = 400
+					maxHeight = 35
+					fixedSize = yes
+					format = left
+					alwaysTransparent = yes
+				}
+			}
+			iconType = {
+				name = "engine_logo"
+				position = { x = 515 y = -110 }
+				quadTextureSprite = "GFX_clausewitz_logo"
+				#orientation = "LOWER_RIGHT"
+				scale = 1.0
+			}
+			iconType = {
+				name = "pi_logo"
+				position = { x = -570 y = -100 }
+				quadTextureSprite = "GFX_pi_logo"
+				#orientation = "LOWER_RIGHT"
+				scale = 0.7
+			}
+			iconType = {
+				name = "pds_logo"
+				position = { x = -641 y = -105 }
+				quadTextureSprite = "GFX_pds_logo"
+				scale = 0.53
+			}
+			### Move buttons over here instead
+			@button_links_y = -55
+			buttonType = {
+				name = "privacy"
+				quadTextureSprite = "GFX_front_menu_privacy"
+				position = { x = 280 y = @button_links_y }
+				pdx_tooltip = "PRIVACY_POLICY"
+			}
+			buttonType = {
+				name = "homepage"
+				quadTextureSprite = "GFX_front_menu_homepage"
+				position = { x = 360 y = @button_links_y }
+				pdx_tooltip = "HOMEPAGE"
+				web_link = "http://www.stellarisgame.com/"
+			}
+			buttonType = {
+				name = "forum"
+				quadTextureSprite = "GFX_front_menu_forum"
+				position = { x = 400 y = @button_links_y }
+				pdx_tooltip = "FORUM"
+				web_link = "https://forum.paradoxplaza.com/forum/index.php?forums/stellaris.900/"
+			}
+			buttonType = {
+				name = "facebook"
+				quadTextureSprite = "GFX_front_menu_facebook"
+				position = { x = 440 y = @button_links_y }
+				pdx_tooltip = "FACEBOOK"
+				web_link = "https://www.facebook.com/StellarisGame"
+			}
+			buttonType = {
+				name = "twitter"
+				quadTextureSprite = "GFX_front_menu_twitter"
+				position = { x = 480 y = @button_links_y }
+				pdx_tooltip = "TWITTER"
+				web_link = "http://twitter.com/StellarisGame"
+			}
+		}
+		### load save
+		containerWindowType = {
+			name = "load_save"
+			position = { x = 0 y = 0 }
+			size = { width = 1024 height = 720 }
+			orientation = upper_left
+			instantTextBoxType = {
+				name = "title"
+				position = { x = 180 y = 40 }
+				font = "cg_16b"
+				borderSize = {x = 4 y = 4 }
+				text = "FRONT_SAVE_GAMES"
+				orientation = "UPPER_LEFT"
+				format = left
+				maxWidth = 200
+				maxHeight = 100
+			}
+			buttonType = {
+				name = "launch"
+				quadTextureSprite = "GFX_button"
+				position = { x = -200 y = -200 }
+				orientation = "LOWER_RIGHT"
+				buttonText = "FRONT_LAUNCH"
+				buttonFont = "cg_16b"
+			}
+			buttonType = {
+				name = "back"
+				quadTextureSprite = "GFX_button"
+				position = { x = -400 y = -200 }
+				orientation = "LOWER_RIGHT"
+				buttonText = "FRONT_BACK"
+				buttonFont = "cg_16b"
+			}
+			listboxType = {
+				name = "list"
+				position = { x = 100 y = 80 }
+				size = { x = 220 y = 260 }
+				horizontal = 0
+				scrollbarType = "standardlistbox_slider"
+				borderSize = {x = 20 y = 20 }
+				orientation = "UPPER_LEFT"
+			}
+		}
+		### DEBUG
+		buttonType = {
+			name = "portrait_room"
+			spriteType = "GFX_portrait_room"
+			orientation = "CENTER"
+			position = { x = -476 y = -10 }
+		}
+		buttonType = {
+			name = "portrait_planet"
+			spriteType = "GFX_portrait_planet_character"
+			orientation = "CENTER"
+			position = { x = -100 y = -320 }
+		}
+		buttonType = {
+			name = "portrait_character"
+			spriteType = "GFX_portrait_character"
+			orientation = "CENTER"
+			position = { x = -500 y = -350 }
+		}
+		containerWindowType = {
+			name = "blocker"
+			position = { x = 0 y = 0 }
+			size = { width = 100% height = 100% }
+			background = {
+				name = "hitbox"
+				spriteType = "GFX_ship_designer_blocker"
+			}
+		}
+	}
+}

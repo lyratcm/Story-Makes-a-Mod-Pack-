@@ -1,0 +1,60 @@
+civic_shared_burden = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            value = ethic_fanatic_socialism
+            OR = {
+                text = civic_tooltip_pluralist
+                has_ethic = ethic_pluralist
+                has_ethic = ethic_fanatic_pluralist
+            }
+        }
+        authority = {
+            OR = {
+                value = auth_direct_democratic
+                value = auth_democratic
+            }
+        }
+        civics = {
+            NOT = {
+                value = civic_welfare_state
+            }
+            NOT = {
+                value = eco_civic_consumerist
+            }
+        }
+        origin = {
+            NOR = {
+                value = origin_private_colony
+            }
+        }
+    }
+    modifier = {
+        pop_growth_speed = 0.1
+        job_labour_hero_per_pop = 0.05
+        country_society_tech_research_speed = 0.05
+        country_leader_pool_size = 2
+        leaders_upkeep_mult = -0.2
+        pop_demotion_time_mult = -1
+        planet_pops_unemployed_consumer_goods_upkeep_add = 2
+        planet_districts_cities_upkeep_mult = 0.3
+    }
+    random_weight = {
+        base = 1
+    }
+    description = "civic_tooltip_shared_burden_effects"
+}

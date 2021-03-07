@@ -1,0 +1,109 @@
+# Copy of Purifier personality
+
+master_computer_purifier = {
+	aggressiveness = 2.0
+	trade_willingness = 0.5
+	bravery = 1.0
+	combat_bravery = 1.25
+
+	military_spending = 1.2
+	colony_spending = 1.2
+
+	federation_acceptance = -1000
+	migration_pact_acceptance = -1000
+
+	advanced_start_chance = 100
+
+	weapon_preferences = weapon_type_energy
+	armor_ratio = 0.4
+	shields_ratio = 0.5
+	hull_ratio = 0.1
+
+	threat_modifier = 0
+	threat_others_modifier = 0
+	friction_modifier = 0
+	claims_modifier = 0
+
+	behaviour = {
+		conqueror = yes
+		subjugator = no
+		liberator = no
+		opportunist = yes
+		slaver = yes
+		uplifter = no
+		purger = yes
+		displacer = no
+		dominator = yes
+		infiltrator = no
+		robot_exploiter = yes
+		robot_liberator = no
+		propagator = no
+		multispecies = no #lol
+		crisis_fighter = no
+		attack_neutrals = yes
+	}
+
+	allow = {
+		is_country_type = default
+		has_valid_civic = civic_master_computer_purifier
+	}
+
+	weight_modifier = {
+		weight = 10000
+	}
+}
+
+master_computer_data_thieves = {
+	aggressiveness = 1.75
+	trade_willingness = 1
+	bravery = 1.25
+	combat_bravery = 1.25
+
+	military_spending = 1.1
+	colony_spending = 1.0
+
+	federation_acceptance = -25
+	nap_acceptance = -50
+	commercial_pact_acceptance = -25
+	defensive_pact_acceptance = -25
+	migration_pact_acceptance = 0
+
+	advanced_start_chance = 75
+
+	weapon_preferences = weapon_type_kinetic
+	armor_ratio = 0.4
+	shields_ratio = 0.4
+	hull_ratio = 0.2
+
+	threat_modifier = 0.5
+	threat_modifier = 0.75
+	friction_modifier = 1.0
+	claims_modifier = 1.5
+
+	behaviour = {
+		conqueror = yes
+		subjugator = no
+		liberator = no
+		opportunist = yes
+		slaver = no
+		uplifter = yes
+		purger = no
+		displacer = no
+		infiltrator = no
+		dominator = yes
+		robot_exploiter = yes
+		robot_liberator = no
+		propagator = no
+		multispecies = yes
+		crisis_fighter = yes
+	}
+
+	allow = {
+		is_country_type = default
+		has_valid_civic = civic_master_computer_datavore
+	}
+
+	weight_modifier = {
+		weight = 10000
+	}
+}

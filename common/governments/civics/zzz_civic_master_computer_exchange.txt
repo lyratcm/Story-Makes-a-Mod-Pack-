@@ -1,0 +1,21 @@
+civic_master_computer_exchange = {
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_master_computer_censor
+                value = civic_master_computer_datavore
+            }
+        }
+    }
+    modifier = {
+        num_tech_alternatives_add = 1
+    }
+    random_weight = {
+        base = 1
+    }
+}

@@ -1,0 +1,970 @@
+###_z performance plus	#####################################################################
+
+#_[全物种合并]
+#_[舰队合并]
+
+
+
+
+#_[country] 清除严格人口限制planet flag[debug]
+z_pf2_eft_extreme_pop_restrict_debug = {
+	if = {
+		limit = {
+			OR = {
+				NOR = {
+					has_global_flag = z_pf2_dynamic_cap_strict
+					has_global_flag = z_pf2_dynamic_cap_low
+					has_global_flag = z_pf2_dynamic_cap_high
+				}
+				is_ai = yes		#_ai不该有严格人口限制
+			}
+		}
+		every_owned_planet = {
+			limit = { has_planet_flag = z_pf2_extreme_pop_restrict }
+			remove_planet_flag = z_pf2_extreme_pop_restrict
+		}
+	}
+}
+
+#_[country] 添加禁用AI物种改造modifier/debug	<禁用,被game_rules取代>
+z_pf2_eft_ai_species_mod_check = {
+	remove_modifier = z_pf2_disable_ai_species_mod
+	if = {
+		limit = {#_禁用
+			is_ai = yes		#_仅用于AI
+			NOR = {
+				has_global_flag = z_pf2_ai_species_mod		#_
+				has_modifier = z_pf2_disable_ai_species_mod
+			}
+		}
+		add_modifier = { modifier = z_pf2_disable_ai_species_mod days = -1 }
+	}
+}
+
+
+
+
+#_[country] habitats建造上限检测
+#_<z_performance_misc.21>		yearly_check
+#_variable	[z_pf2_var_owned_habitats]
+z_pf2_eft_ai_habitats_limit_check = {
+	if = {
+		limit = {#_普通 7
+			has_global_flag = z_pf2_ai_habitat_limited
+			NOT = { has_origin = origin_void_dwellers }
+			#count_owned_megastructure = {#_不应检测巨建数目,应当检测栖息地星球数目
+			#	count >	6
+			#	limit = { is_megastructure_type = habitat_0 }
+			#}
+		}
+		#_初始化参数
+		set_variable = { which = z_pf2_var_owned_habitats value = 0 }
+		every_owned_planet = {
+			limit = { is_planet_class = pc_habitat }
+			prev = { change_variable = { which = z_pf2_var_owned_habitats value = 1 } }
+		}
+		#_设置最大上限
+		if = {
+			limit = { check_variable = { which = z_pf2_var_owned_habitats value > 6 } }
+			remove_country_flag = z_pf2_country_habitat_cd
+			set_timed_country_flag = { flag = z_pf2_country_habitat_cd days = 720 }
+		}
+	}
+	else_if = {#_虚空居者 15
+		limit = {
+			OR = {
+				has_global_flag = z_pf2_ai_habitat_optimized
+				has_global_flag = z_pf2_ai_habitat_limited
+			}
+			has_origin = origin_void_dwellers
+			#count_owned_megastructure = {#_不应检测巨建数目,应当检测栖息地星球数目
+			#	count >	14
+			#	limit = { is_megastructure_type = habitat_0 }
+			#}
+		}
+		#_初始化参数
+		set_variable = { which = z_pf2_var_owned_habitats value = 0 }
+		every_owned_planet = {
+			limit = { is_planet_class = pc_habitat }
+			prev = { change_variable = { which = z_pf2_var_owned_habitats value = 1 } }
+		}
+		#_设置最大上限
+		if = {
+			limit = { check_variable = { which = z_pf2_var_owned_habitats value > 14 } }
+			remove_country_flag = z_pf2_country_habitat_cd
+			set_timed_country_flag = { flag = z_pf2_country_habitat_cd days = 720 }
+		}
+	}
+}
+
+#_[planet] 清除habitats
+z_pf2_eft_clean_habitats = {
+	if = {
+		limit = { is_colony = yes }
+		every_owned_pop = {
+			kill_pop = yes
+		}
+		remove_all_districts = yes
+		remove_all_buildings = yes
+	}
+	spawn_habitat_cracker_effect = yes
+	remove_planet = yes
+}
+
+
+
+
+
+
+
+
+###_[全物种合并]	#####################################################################
+#_[country]	合并effect
+z_merge_common_species = {
+	z_merge_full_citizenship_species = yes
+	z_merge_limited_citizenship_species = yes
+	z_merge_organic_trophy_species = yes
+	z_merge_slavery_species_common = yes
+	z_merge_slavery_species_indentured = yes
+}
+
+#_[country]	全公民权物种整合
+z_merge_full_citizenship_species = {
+	###_主物种
+	owner_species = { save_event_target_as = z_full_species_1 }
+	if = {
+		limit = {
+			any_owned_pop_species = { is_subspecies = event_target:z_full_species_1 }
+		}
+		random_owned_pop_species = {
+			limit = { is_subspecies = event_target:z_full_species_1 }
+			save_event_target_as = z_full_species_1
+		}
+	}
+	###_主物种-智械
+	if = {
+		limit = { event_target:z_full_species_1 = { is_robotic_species = yes } }
+		every_owned_pop = {
+			limit = {
+				z_pf2_full_citizen_ship = yes
+				is_robotic_species = yes
+				NOT = { is_exact_same_species = event_target:z_full_species_1 }
+			}
+			change_species = event_target:z_full_species_1
+		}
+		if = {#_有机
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+				}
+				species = { save_event_target_as = z_full_species_2 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_2 }
+				}
+				change_species = event_target:z_full_species_2
+			}
+		}
+		else_if = {#_石质
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+				}
+				species = { save_event_target_as = z_full_species_3 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_3 }
+				}
+				change_species = event_target:z_full_species_3
+			}
+		}
+		else_if = {#_其他
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+				}
+				species = { save_event_target_as = z_full_species_4 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_4 }
+				}
+				change_species = event_target:z_full_species_4
+			}
+		}
+	}
+	###_主物种-有机
+	else_if = {
+		limit = { event_target:z_full_species_1 = { z_pf2_is_organic = yes } }
+		every_owned_pop = {
+			limit = {
+				z_pf2_full_citizen_ship = yes
+				z_pf2_is_organic = yes
+				NOT = { is_exact_same_species = event_target:z_full_species_1 }
+			}
+			change_species = event_target:z_full_species_1
+		}
+		if = {#_智械
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+				}
+				species = { save_event_target_as = z_full_species_2 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_2 }
+				}
+				change_species = event_target:z_full_species_2
+			}
+		}
+		else_if = {#_石质
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+				}
+				species = { save_event_target_as = z_full_species_3 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_3 }
+				}
+				change_species = event_target:z_full_species_3
+			}
+		}
+		else_if = {#_其他
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+				}
+				species = { save_event_target_as = z_full_species_4 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_4 }
+				}
+				change_species = event_target:z_full_species_4
+			}
+		}
+	}
+	###_主物种-石质
+	else_if = {
+		limit = { event_target:z_full_species_1 = { is_lithoid = yes } }
+		every_owned_pop = {
+			limit = {
+				z_pf2_full_citizen_ship = yes
+				is_lithoid = yes
+				NOT = { is_exact_same_species = event_target:z_full_species_1 }
+			}
+			change_species = event_target:z_full_species_1
+		}
+		if = {#_有机
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+				}
+				species = { save_event_target_as = z_full_species_2 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_2 }
+				}
+				change_species = event_target:z_full_species_2
+			}
+		}
+		else_if = {#_智械
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+				}
+				species = { save_event_target_as = z_full_species_3 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_3 }
+				}
+				change_species = event_target:z_full_species_3
+			}
+		}
+		else_if = {#_其他
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+				}
+				species = { save_event_target_as = z_full_species_4 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_mod_species = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_4 }
+				}
+				change_species = event_target:z_full_species_4
+			}
+		}
+	}
+	###_主物种-其他
+	else_if = {
+		limit = { event_target:z_full_species_1 = { z_pf2_is_mod_species = yes } }
+		every_owned_pop = {
+			limit = {
+				z_pf2_full_citizen_ship = yes
+				z_pf2_is_mod_species = yes
+				NOT = { is_exact_same_species = event_target:z_full_species_1 }
+			}
+			change_species = event_target:z_full_species_1
+		}
+		if = {#_有机
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+				}
+				species = { save_event_target_as = z_full_species_2 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					z_pf2_is_organic = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_2 }
+				}
+				change_species = event_target:z_full_species_2
+			}
+		}
+		else_if = {#_智械
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+				}
+				species = { save_event_target_as = z_full_species_3 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_3 }
+				}
+				change_species = event_target:z_full_species_3
+			}
+		}
+		else_if = {#_石质
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+				}
+				species = { save_event_target_as = z_full_species_4 }
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_lithoid = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_4 }
+				}
+				change_species = event_target:z_full_species_4
+			}
+		}
+	}
+}
+
+#_[country]	有限公民权物种整合
+z_merge_limited_citizenship_species = {
+	###_智械
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_robotic_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_robotic_species = yes
+			}
+			species = { save_event_target_as = z_limited_species_1 }
+		}
+		every_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_robotic_species = yes
+			}
+			change_species = event_target:z_limited_species_1
+		}
+	}
+	###_有机
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_limited }
+				z_pf2_is_organic = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				z_pf2_is_organic = yes
+			}
+			species = { save_event_target_as = z_limited_species_2 }
+		}
+		every_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				z_pf2_is_organic = yes
+			}
+			change_species = event_target:z_limited_species_2
+		}
+	}
+	###_石质
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_lithoid = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_lithoid = yes
+			}
+			species = { save_event_target_as = z_limited_species_3 }
+		}
+		every_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_lithoid = yes
+			}
+			change_species = event_target:z_limited_species_3
+		}
+	}
+	###_其他
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_limited }
+				z_pf2_is_mod_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				z_pf2_is_mod_species = yes
+			}
+			species = { save_event_target_as = z_limited_species_4 }
+		}
+		every_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				z_pf2_is_mod_species = yes
+			}
+			change_species = event_target:z_limited_species_4
+		}
+	}
+}
+
+#_[country]	有机展示品物种整合
+z_merge_organic_trophy_species = {
+	###_有机
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				z_pf2_is_organic = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				z_pf2_is_organic = yes
+			}
+			species = { save_event_target_as = z_trophy_species_2 }
+		}
+		every_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				z_pf2_is_organic = yes
+			}
+			change_species = event_target:z_trophy_species_2
+		}
+	}
+	###_石质
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				is_lithoid = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				is_lithoid = yes
+			}
+			species = { save_event_target_as = z_trophy_species_3 }
+		}
+		every_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				is_lithoid = yes
+			}
+			change_species = event_target:z_trophy_species_3
+		}
+	}
+	###_其他
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				z_pf2_is_mod_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				z_pf2_is_mod_species = yes
+			}
+			species = { save_event_target_as = z_trophy_species_4 }
+		}
+		every_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_organic_trophy }
+				z_pf2_is_mod_species = yes
+			}
+			change_species = event_target:z_trophy_species_4
+		}
+	}
+}
+
+#_[country]	奴隶物种整合
+z_merge_slavery_species_common = {
+	###_智械
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_robotic_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_robotic_species = yes
+			}
+			species = { save_event_target_as = z_slavery_species_1 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_robotic_species = yes
+			}
+			change_species = event_target:z_slavery_species_1
+		}
+	}
+	###_有机
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_common = yes
+				z_pf2_is_organic = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				z_pf2_is_organic = yes
+			}
+			species = { save_event_target_as = z_slavery_species_2 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				z_pf2_is_organic = yes
+			}
+			change_species = event_target:z_slavery_species_2
+		}
+	}
+	###_石质
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_lithoid = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_lithoid = yes
+			}
+			species = { save_event_target_as = z_slavery_species_3 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_lithoid = yes
+			}
+			change_species = event_target:z_slavery_species_3
+		}
+	}
+	###_其他
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_common = yes
+				z_pf2_is_mod_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				z_pf2_is_mod_species = yes
+			}
+			species = { save_event_target_as = z_slavery_species_4 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				z_pf2_is_mod_species = yes
+			}
+			change_species = event_target:z_slavery_species_4
+		}
+	}
+}
+
+#_[country]	奴隶物种整合-契约
+z_merge_slavery_species_indentured = {
+	###_智械
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				is_robotic_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				is_robotic_species = yes
+			}
+			species = { save_event_target_as = z_slavery_species_indentured_1 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				is_robotic_species = yes
+			}
+			change_species = event_target:z_slavery_species_indentured_1
+		}
+	}
+	###_有机
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				z_pf2_is_organic = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				z_pf2_is_organic = yes
+			}
+			species = { save_event_target_as = z_slavery_species_indentured_2 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				z_pf2_is_organic = yes
+			}
+			change_species = event_target:z_slavery_species_indentured_2
+		}
+	}
+	###_石质
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				is_lithoid = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				is_lithoid = yes
+			}
+			species = { save_event_target_as = z_slavery_species_indentured_3 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				is_lithoid = yes
+			}
+			change_species = event_target:z_slavery_species_indentured_3
+		}
+	}
+	###_其他
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				z_pf2_is_mod_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				z_pf2_is_mod_species = yes
+			}
+			species = { save_event_target_as = z_slavery_species_indentured_4 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_indentured = yes
+				z_pf2_is_mod_species = yes
+			}
+			change_species = event_target:z_slavery_species_indentured_4
+		}
+	}
+}
+
+
+
+
+###_机器物种合并
+#_[country]	全公民权智械整合
+z_merge_full_citizenship_robotic = {
+	#_主物种为智械
+	if = {
+		#_设置主物种
+		limit = { owner_species = { is_robotic_species = yes } }
+		owner_species = { save_event_target_as = z_full_species_1 }
+		if = {
+			limit = {
+				any_owned_pop_species = { is_subspecies = event_target:z_full_species_1 }
+			}
+			random_owned_pop_species = {
+				limit = { is_subspecies = event_target:z_full_species_1 }
+				save_event_target_as = z_full_species_1
+			}
+		}
+		#_合并其他全公民权智械
+		if = {
+			limit = {
+				any_owned_pop = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+				}
+			}
+			every_owned_pop = {
+				limit = {
+					z_pf2_full_citizen_ship = yes
+					is_robotic_species = yes
+					NOT = { is_exact_same_species = event_target:z_full_species_1 }
+				}
+				change_species = event_target:z_full_species_1
+			}
+		}
+	}
+	#_主物种非智械
+	else_if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_full_citizen_ship = yes
+				is_robotic_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_full_citizen_ship = yes
+				is_robotic_species = yes
+			}
+			species = { save_event_target_as = z_full_species_1 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_full_citizen_ship = yes
+				is_robotic_species = yes
+			}
+			change_species = event_target:z_full_species_1
+		}
+	}
+}
+
+#_[country]	有限公民权物种整合
+z_merge_limited_citizenship_robotic = {
+	###_智械
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_robotic_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_robotic_species = yes
+			}
+			species = { save_event_target_as = z_limited_species_1 }
+		}
+		every_owned_pop = {
+			limit = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_robotic_species = yes
+			}
+			change_species = event_target:z_limited_species_1
+		}
+	}
+}
+
+#_[country]	机械仆役整合
+z_merge_slavery_robotic = {
+	###_智械
+	if = {
+		limit = {
+			any_owned_pop = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_robotic_species = yes
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_robotic_species = yes
+			}
+			species = { save_event_target_as = z_slavery_species_1 }
+		}
+		every_owned_pop = {
+			limit = {
+				z_pf2_slavery_citizen_ship_common = yes
+				is_robotic_species = yes
+			}
+			change_species = event_target:z_slavery_species_1
+		}
+	}
+}
+
+
+
+
+###_[舰队合并]	#############################################
+#_[cntr]
+z_pf2_eft_cntr_flt_opt_execute = {
+	every_country = {
+		limit = {
+			is_ai = yes
+			NOT = { has_country_flag = z_pf2_flg_cntr_flt_opt_cd }
+		}
+		#_普通
+		if = {
+			limit = { z_pf2_trgr_cntr_flt_normal = yes }
+			country_event = { id = z_performance_misc.250 }
+		}
+		#_堕落
+		else_if = {
+			limit = { z_pf2_trgr_cntr_flt_fallen = yes }
+			country_event = { id = z_performance_misc.2501 }
+		}
+	}
+}

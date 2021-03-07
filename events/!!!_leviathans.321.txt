@@ -1,0 +1,151 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.321
+	title = leviathans.321.name
+	desc = {
+		trigger = {
+			text = "leviathans.321.desc"
+			text = "newline"
+			success_text = {
+				text = "leviathans.321.desc.a"
+				check_variable = {
+					which = artist_newsletter
+					value = 1
+				}
+			}
+			success_text = {
+				text = "leviathans.321.desc.b"
+				check_variable = {
+					which = artist_newsletter
+					value = 2
+				}
+			}
+			success_text = {
+				text = "leviathans.321.desc.c"
+				check_variable = {
+					which = artist_newsletter
+					value = 3
+				}
+			}
+			success_text = {
+				text = "leviathans.321.desc.d"
+				check_variable = {
+					which = artist_newsletter
+					value = 4
+				}
+			}
+			success_text = {
+				text = "leviathans.321.desc.e"
+				check_variable = {
+					which = artist_newsletter
+					value = 5
+				}
+			}
+			success_text = {
+				text = "leviathans.321.desc.f"
+				check_variable = {
+					which = artist_newsletter
+					value = 6
+				}
+			}
+			success_text = {
+				text = "leviathans.321.desc.g"
+				check_variable = {
+					which = artist_newsletter
+					value = 7
+				}
+			}
+		}
+	}
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:artist_enclave_country
+		has_modifier = enclave_artist_patron
+		has_country_flag = artist_patron
+		NOR = {
+			has_country_flag = enclave_stopped_patronage
+			has_country_flag = enclave_artist_ignores
+		}
+		check_variable = {
+			which = artist_newsletter
+			value < 7
+		}
+	}
+
+	immediate = {
+		set_country_flag = enclave_artist_patron_events
+		if = {
+			limit = {
+				check_variable = {
+					which = artist_newsletter
+					value < 1
+				}
+			}
+			set_variable = {
+				which = artist_newsletter
+				value = 1
+			}
+		}
+		else = {
+			change_variable = {
+				which = artist_newsletter
+				value = 1
+			}
+		}
+		random_system = {
+			limit = {
+				any_system_planet = {
+					has_planet_flag = guardians_artists_planet
+				}
+				root = {
+					intel_level = {
+						level > none
+						system = prev
+					}
+				}
+			}
+			save_event_target_as = this_planet
+		}
+	}
+
+	option = {
+		name = leviathans.321.a
+		#response_text = leviathans.321.a.reply
+		add_resource = {
+			energy = -500
+			influence = 50
+		}
+		allow = {
+			resource_stockpile_compare = { resource = energy value >= 500 }
+		}
+	}
+	option = {
+		name = leviathans.321.c
+		#response_text = leviathans.321.c.reply
+	}	
+	option = {
+		name = leviathans.321.b
+		trigger = { is_ai = no }
+		#response_text = leviathans.321.b.reply
+		hidden_effect = {
+			set_country_flag = unsubscribed_from_newsletter
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			country_event = { id = leviathans.320 days = 60 random = 30 }
+		}
+	}
+}

@@ -1,0 +1,15 @@
+civic_virtual_society = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 1
+    }
+    modifier = {
+        pop_happiness = 0.2
+        pop_environment_tolerance = 0.10
+        pop_growth_speed = -0.1
+    }
+}

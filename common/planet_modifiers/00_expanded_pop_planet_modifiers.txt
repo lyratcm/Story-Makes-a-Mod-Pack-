@@ -1,0 +1,55 @@
+pm_delicate_ecosystem = {
+	spawn_chance = {
+		modifier = {
+			add = 8
+			is_planet_class = "pc_desert"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_tropical"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_arid"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_continental"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_ocean"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_tundra"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_arctic"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_alpine"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_savannah"
+		}				
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_delicate_ecosystem"
+		}
+		
+		modifier = {
+			factor = 0
+			num_modifiers > 3
+		}
+		modifier = {
+			factor = 0
+			has_global_flag = EcologyMod_active
+		}
+	}
+	
+	modifier = "delicate_ecosystem"
+}

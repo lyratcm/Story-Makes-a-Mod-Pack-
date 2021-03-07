@@ -1,0 +1,295 @@
+namespace = z_lctr_relic
+#_d		[z_lctr_d_r]
+
+
+
+
+#_以国家为基础spawn		<初始传感器遗珍挖掘地,产生特殊项目定位>
+#_plnt_flg	[z_lctr_flg_plnt_r]
+country_event = {
+	id = z_lctr_relic.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				closest_system = {
+					limit = {
+						NOT = { has_star_flag = z_fw_flg_sstm_r }	#_禁止同星系生成
+						has_owner = no
+						has_access_fleet = root
+						any_system_planet = {
+							has_owner = no
+							is_colony = no
+							has_anomaly = no
+							NOR = {
+								exists = archaeological_site
+								has_planet_flag = hatchling_egg
+							}
+							OR = {
+								is_planet_class = pc_molten
+								is_planet_class = pc_barren
+								is_planet_class = pc_barren_cold
+								is_planet_class = pc_toxic
+								is_planet_class = pc_frozen
+								is_planet_class = pc_nuked
+							}
+						}
+					}
+					set_timed_star_flag = { flag = z_fw_flg_sstm_r days = 1 }
+					min_steps = 2
+					max_steps = 17
+					random_system_planet = {
+						limit = {
+							has_owner = no
+							is_colony = no
+							has_anomaly = no
+							NOR = {
+								exists = archaeological_site
+								has_planet_flag = hatchling_egg
+							}
+							OR = {
+								is_planet_class = pc_molten
+								is_planet_class = pc_barren
+								is_planet_class = pc_barren_cold
+								is_planet_class = pc_toxic
+								is_planet_class = pc_frozen
+								is_planet_class = pc_nuked
+							}
+						}
+						set_name = "NAME_z_lctr_r_site_planet_0"	#_星球改名
+						clear_deposits = yes
+						set_planet_flag = z_lctr_flg_plnt_r
+						create_archaeological_site = z_lctr_site
+						every_country = {
+							limit = { is_ai = no }
+							begin_event_chain = {
+								event_chain = z_lctr_chain_site
+								target = this
+							}
+							#_通知
+							country_event = { id = z_lctr_relic.10 days = 4 random = 3 }
+							prev = {
+								enable_special_project = {
+									name = Z_LCTR_SP_SITE
+									location = THIS
+									owner = prev
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+#_[z_lctr_relic.1] 开始
+country_event = {
+	id = z_lctr_relic.10
+	title = "z_lctr_relic.exordium.name"
+	desc = "z_lctr_relic.exordium.desc"
+	picture = GFX_evt_z_lctr_r_1
+	show_sound = event_finding_loot
+	is_triggered_only = yes
+	option = { name = CURIOUS }
+}
+
+
+
+
+# Stage 1 - 深渊
+fleet_event = {
+	id = z_lctr_relic.21
+	title = "z_lctr_relic.abyss.name"
+	desc = "z_lctr_relic.abyss.desc"
+	picture = GFX_evt_z_lctr_r_0
+	show_sound = event_wind_ruins
+	location = from
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = CURIOUS
+		small_artifact_reward = yes
+		hidden_effect = { z_lctr_eft_flt_story = yes }
+	}
+}
+# Stage 2 - 苍雪山与熵魔
+fleet_event = {
+	id = z_lctr_relic.22
+	title = "z_lctr_relic.entropius.name"
+	desc = "z_lctr_relic.entropius.desc"
+	picture = GFX_evt_zro_3
+	show_sound = event_dig_site
+	location = from
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = CURIOUS
+		small_artifact_reward = yes
+		hidden_effect = { z_lctr_eft_flt_story = yes }
+	}
+}
+# Stage 3 - 上古的战争
+fleet_event = {
+	id = z_lctr_relic.23
+	title = "z_lctr_relic.war.name"
+	desc = "z_lctr_relic.war.desc"
+	picture = GFX_evt_small_space_battle
+	show_sound = event_screams
+	location = from
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = CURIOUS
+		small_artifact_reward = yes
+		hidden_effect = { z_lctr_eft_flt_story = yes }
+	}
+}
+# Stage 4 - 银心与熵雾
+fleet_event = {
+	id = z_lctr_relic.24
+	title = "z_lctr_relic.core.name"
+	desc = "z_lctr_relic.core.desc"
+	picture = GFX_evt_ruined_system
+	show_sound = event_screams
+	location = from
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = CURIOUS
+		small_artifact_reward = yes
+		hidden_effect = { z_lctr_eft_flt_story = yes }
+	}
+}
+# Stage 5 - 传感器矩阵
+#_plnt_flg	[z_fw_flg_plnt_r_hok]
+fleet_event = {
+	id = z_lctr_relic.25
+	title = "z_lctr_relic.matrix.name"
+	desc = "z_lctr_relic.matrix.desc"
+	picture = GFX_evt_z_lctr_r_2
+	show_sound = event_finding_loot
+	location = from
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = z_lctr_relic.matrix.a
+		custom_tooltip = minor_artifacts_found
+		#large_artifact_reward = yes
+		locked_random_list = {
+			33 = {
+				owner = { add_resource = { minor_artifacts = 10 } }
+			}
+			33 = {
+				owner = { add_resource = { minor_artifacts = 20 } }
+			}
+			33 = {
+				owner = { add_resource = { minor_artifacts = 30 } }
+			}
+		}
+		#destroy_archaeological_site = from
+		hidden_effect = {
+			#_添加重启deposit
+			solar_system = {
+				random_system_planet = {
+					limit = { has_planet_flag = z_lctr_flg_plnt_r }
+					add_deposit = z_lctr_d_r
+					set_name = "NAME_z_lctr_r_site_planet"	#_星球改名
+				}
+			}
+			#_国家-结局
+			owner = {
+				country_event = { id = z_lctr_relic.251 days = 23 }
+				z_lctr_eft_cntr_story_chain_clean = yes		#_清理定位chain
+			}
+			#_其他国家	结束chain/挖掘通知
+			every_country = {
+				limit = { has_event_chain = z_lctr_chain_site }
+				end_event_chain = z_lctr_chain_site
+				if = {
+					limit = { NOT = { is_same_value = root.owner } }
+					country_event = { id = z_lctr_relic.252 }
+				}
+			}
+		}
+	}
+}
+#_[z_lctr_relic.25] 尾声-风暴将至
+country_event = {
+	id = z_lctr_relic.251
+	title = "z_lctr_relic.epilogue.name"
+	desc = "z_lctr_relic.epilogue.desc"
+	picture = GFX_evt_z_lctr_r_2
+	show_sound = event_finding_loot
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { NOT = { has_relic = z_lctr_r_adv_sensor } }
+			add_relic = z_lctr_r_adv_sensor
+		}
+	}
+	option = { name = z_lctr_relic.epilogue.a }
+}
+#_[z_lctr_relic.25]	遗迹已被别人挖掘
+country_event = {
+	id = z_lctr_relic.252
+	title = "z_lctr_relic.lost.name"
+	desc = "z_lctr_relic.lost.desc"
+	picture = GFX_evt_relic_world_building
+	show_sound = event_dig_site
+	is_triggered_only = yes
+	option = {
+		name = z_lctr_no_target	#_pity
+	}
+}

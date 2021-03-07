@@ -1,0 +1,187 @@
+﻿l_simp_chinese:
+###_功能 额外优化 ################################################################################################
+
+#_指南
+ z_mm_tips_pf2_btn_misc_guide: "§G无尽群星：§!额外优化\n注意：所有优化功能都是可以随时调整的，仔细阅读使用说明并选择适合你的优化方式。\n\n动态人口限制：此功能根据星球可用工作数目限制人口增长，防止星球充满失业人口。注意：开启后，殖民地新增一个决策可以进一步限制人口增长。\n\n星球人口上限：过多的人口意味着极慢的游戏速度，此功能根据星球大小与类型设置一个最大人口上限。注意：可能与部分新增星球类型的mod冲突，如果遇到请在steam页面汇报。\n\n贸易路线优化：贸易路线是卡顿原因之一，此功能可关闭贸易路线并以其他方式补充贸易收入。\n\n轨道栖息地限制：轨道栖息地意味着大量人口和恐怖的后期卡顿，此功能给予你3种方式对其进行优化。\n\n环世界优化：过多的环世界也是卡顿的原因，此功能禁止AI建造环世界基址。\n\n禁用自我进化：自我进化会导致物种过度增多，增加卡顿。\n\n禁用杂交飞升：杂交飞升会导致物种过度增多，增加卡顿。\n\n禁止物种改造：禁止AI进行任何物种改造，物种改造意味着更多物种，恐怖的后期卡顿。\n\n手动功能：橙色按钮皆为手动功能，可以合并物种或清除轨道栖息地。"
+
+#_main
+ z_modmenu_performance2: "§G无尽群星：额外已优化§!"
+ z_performance2_title: "§G无尽群星：§!额外优化设置"
+ z_performance2_title_desc: "设置无尽群星提供的各种§Y额外优化功能§!\n§Y注意：§!如同人口检测优化，此类优化都会对游戏性有微小的影响。如果您不知道您在做什么，建议保持默认状态，不要调整。"
+ z_mm_performance2_desc: "设置无尽群星提供的各种§Y额外优化功能§!，§Y点击右上角指南查看详细介绍。§!\n§Y注意：§!如同人口检测优化，此类优化都会对游戏性有微小的影响。如果您不知道您在做什么，建议保持默认状态，不要调整。"
+#_状态检视
+ z_performance2_title_desc.a1: "\n贸易优化 §H已关闭§!"
+ z_performance2_title_desc.a2: "\n贸易优化 §G已开启§!"
+ z_performance2_title_desc.i1: "动态人口限制 §H已禁用§!"
+ z_performance2_title_desc.i2: "动态人口限制 §G低§!"
+ z_performance2_title_desc.i3: "动态人口限制 §G高§!"
+ z_performance2_title_desc.h1: "星球人口上限 §G已启用§!"
+ z_performance2_title_desc.h2: "星球人口上限 §H已禁用§!"
+ z_performance2_title_desc.b1: "AI轨道栖息地 §H无改动§!"
+ z_performance2_title_desc.b2: "AI轨道栖息地 §R已禁止§!"
+ z_performance2_title_desc.b3: "AI轨道栖息地 §G已优化§!"
+ z_performance2_title_desc.c1: "自我进化 §H已开启§!"
+ z_performance2_title_desc.c2: "自我进化 §G已关闭§!"
+ z_performance2_title_desc.d1: "AI杂交飞升 §H已允许§!"
+ z_performance2_title_desc.d2: "AI杂交飞升 §G已禁止§!"
+ z_performance2_title_desc.e1: "AI基因飞升 §H无改动§!"
+ z_performance2_title_desc.e2: "AI基因飞升 §G已优化§!"
+ z_performance2_title_desc.e3: "AI物种改造 §G已禁止§!"
+ z_performance2_title_desc.e4: "AI物种改造 §H已允许§!"
+ 
+ z_performance2_title_desc.x1: "当前全星系舰船数量 §G[root.z_global_ships_var]§!"
+ z_performance2_title_desc.x1b: "当前全星系舰船数量 §R0§!"
+ z_performance2_title_desc.x2: "当前全星系总人口 §G[root.z_galaxy_pop_var]§!"
+ z_performance2_title_desc.x2b: "当前全星系总人口 §R0§!"
+ z_performance2_title_desc.x3: "当前全星系失业人口 §G[root.z_galaxy_pop_unemployed_var]§!"
+ 
+###_贸易路线
+ z_performance_misc.11.a1: "贸易路线检测 §H未改动§!"
+ z_performance_misc.11.a1.tooltip: "使用原版游戏设置，开启AI贸易系统，§Y每日贸易路线检测§!在后期星门网络建成时将严重延缓游戏速度。\n\n§Y原版游戏默认设定。§!"
+ z_performance_misc.11.a2: "贸易路线检测 §G已优化§!"
+ z_performance_misc.11.a2.tooltip: "使用无尽群星优化，关闭AI贸易系统，并增加固定能源产出buff作为补偿，减少§Y每日贸易路线检测§!产生的运算压力。\n\n§Y注意：尽管有补偿buff，但是并不能精确模拟贸易收益，会轻微影响游戏性。§!"
+ z_performance_misc.11.a3: "贸易路线检测 §R已禁用§!"
+ z_performance_misc.11.a3.tooltip: "使用极限模式，关闭全部贸易系统(包括玩家)，并增加固定能源产出buff作为补偿，减少§Y每日贸易路线检测§!产生的运算压力。\n\n§Y注意：尽管有补偿buff，但是并不能精确模拟贸易收益，会轻微影响游戏性。§!"
+ 
+###_动态人口限制
+ z_performance_misc.11.i0: "动态人口限制 §H已禁用§!"
+ z_performance_misc.11.i0.tooltip: "使用原版游戏设置，关闭动态人口限制，无业人口数量不会影响星球人口出生/装配/迁入速率。\n\n§Y注意：大量闲置人口增长将严重减少星球稳定性，而不受控制的人口增长会让后期人口过多，影响游戏流畅性。§!"
+ z_performance_misc.11.i1: "动态人口限制 §B极低§!"
+ z_performance_misc.11.i1.tooltip: "启用动态人口限制并设置为极低。越多的无业人口，星球人口出生/装配/迁入速率，从4无业人口开始限制人口增长，最多允许8无业人口存在。\n\n§Y这与游戏原本无限制的人口增长机制有所不同§!"
+ z_performance_misc.11.i2: "动态人口限制 §G低§!"
+ z_performance_misc.11.i2.tooltip: "启用动态人口限制并设置为低，越多的无业人口，星球人口出生/装配/迁入速率，从5无业人口开始限制人口增长，最多允许12无业人口存在。\n\n§Y这与游戏原本无限制的人口增长机制有所不同§!"
+ z_performance_misc.11.i3: "动态人口限制 §B高§!"
+ z_performance_misc.11.i3.tooltip: "使用无尽群星设置，启用动态人口限制并设置为高。越多的无业人口，星球人口出生/装配/迁入速率，从6无业人口开始限制人口增长，最多允许20无业人口存在。\n\n§Y这与游戏原本无限制的人口增长机制有所不同§!"
+#_[decision]
+ z_pf2_dec_extreme_pop_restrict_on:0 "严格人口限制§H已开启§!"
+ z_pf2_dec_extreme_pop_restrict_on_desc:0 "决定是否开启严格人口限制."
+ z_pf2_extreme_pop_restrict_on:0 "无业人口超过1将导致星球人口停止增长。"
+ z_pf2_dec_extreme_pop_restrict_off:0 "严格人口限制§G已关闭§!"
+ z_pf2_dec_extreme_pop_restrict_off_desc:0 "$z_pf2_dec_extreme_pop_restrict_on_desc$"
+ z_pf2_extreme_pop_restrict_off:0 "不开启严格人口限制."
+
+###_星球人口上限
+ z_performance_misc.11.h1: "星球人口上限 §G已启用§!"
+ z_performance_misc.11.h1.tooltip: "使用无尽群星设置，启用星球人口上限。按星球大小限制人口，越大的星球可以承载越多的人口。\n\n§Y注意：如果你安装有carrying capacity MOD，此功能无效。开启限制可能会一定程度影响游戏性，因为人口到达一定程度就会停止增长§!"
+ z_performance_misc.11.h2: "星球人口上限 §H已禁用§!"
+ z_performance_misc.11.h2.tooltip: "使用原版游戏设置，关闭星球人口上限，只要有可能，星球人口会无限增长。\n\n§Y注意：不受控制的人口增长会让后期人口过多，严重影响游戏流畅性。§!"
+ 
+ z_performance_misc.11.j1: "星球人口上限提升 §H无§!"
+ z_performance_misc.11.j1.tooltip: "没有额外提升。"
+ z_performance_misc.11.j2: "星球人口上限提升 §G30§!"
+ z_performance_misc.11.j2.tooltip: "所有星球人口上限获得额外提升。"
+ z_performance_misc.11.j3: "星球人口上限提升 §G60§!"
+ z_performance_misc.11.j3.tooltip: "$z_performance_misc.11.j2.tooltip$"
+ z_performance_misc.11.j4: "星球人口上限提升 §G90§!"
+ z_performance_misc.11.j4.tooltip: "$z_performance_misc.11.j2.tooltip$"
+ z_performance_misc.11.j5: "星球人口上限提升 §G120§!"
+ z_performance_misc.11.j5.tooltip: "$z_performance_misc.11.j2.tooltip$"
+#_[deposit]
+ z_trade_normal_energy: "§G无尽群星§!: 贸易收入补偿"
+ z_trade_normal_energy_desc: "补偿因贸易优化带来的贸易收入损失"
+ z_trade_megacorp_energy: "$z_trade_normal_energy$"
+ z_trade_megacorp_energy_desc: "$z_trade_normal_energy_desc$"
+ z_trade_normal_goods: "$z_trade_normal_energy$"
+ z_trade_normal_goods_desc: "$z_trade_normal_energy_desc$"
+ z_trade_megacorp_goods: "$z_trade_normal_energy$"
+ z_trade_megacorp_goods_desc: "$z_trade_normal_energy_desc$"
+ 
+ z_pf2_d_dynamic_cap_1: "§G无尽群星§!: 动态人口限制"
+ z_pf2_d_dynamic_cap_1_desc: "根据星球失业人数与拥堵程度决定人口增长率。"
+ z_pf2_d_dynamic_cap_2: "$z_pf2_d_dynamic_cap_1$"
+ z_pf2_d_dynamic_cap_2_desc: "$z_pf2_d_dynamic_cap_1_desc$"
+ z_pf2_d_dynamic_cap_3: "$z_pf2_d_dynamic_cap_1$"
+ z_pf2_d_dynamic_cap_3_desc: "$z_pf2_d_dynamic_cap_1_desc$"
+ z_pf2_d_dynamic_cap_4: "$z_pf2_d_dynamic_cap_1$"
+ z_pf2_d_dynamic_cap_4_desc: "$z_pf2_d_dynamic_cap_1_desc$"
+ z_pf2_d_dynamic_cap_5: "$z_pf2_d_dynamic_cap_1$"
+ z_pf2_d_dynamic_cap_5_desc: "$z_pf2_d_dynamic_cap_1_desc$"
+ z_pf2_d_dynamic_cap_6: "$z_pf2_d_dynamic_cap_1$"
+ z_pf2_d_dynamic_cap_6_desc: "$z_pf2_d_dynamic_cap_1_desc$"
+ z_pf2_d_dynamic_cap_7: "$z_pf2_d_dynamic_cap_1$"
+ z_pf2_d_dynamic_cap_7_desc: "$z_pf2_d_dynamic_cap_1_desc$"
+ z_pf2_d_dynamic_cap_8: "$z_pf2_d_dynamic_cap_1$"
+ z_pf2_d_dynamic_cap_8_desc: "$z_pf2_d_dynamic_cap_1_desc$"
+
+
+#_AI轨道栖息地
+ z_performance_misc.11.b1: "AI轨道栖息地建设 §G已限制§!"
+ z_performance_misc.11.b1.tooltip: "使用无尽群星优化方案，AI轨道栖息地数量将被限制。可随时改变设置，但无法清除已经建设的轨道栖息地。§YAI在被允许建造轨道栖息地的情况下会无节制地建造，增加系统压力。采用此优化设置将参考已有的轨道栖息地数量为AI设置一个建造CD, 既保证游戏性又能够防止AI无节制地建设轨道栖息地。§!"
+ z_performance_misc.11.b2: "AI轨道栖息地建设 §H无改动§!"
+ z_performance_misc.11.b2.tooltip: "使用原版游戏设置，允许AI建设轨道栖息地。可随时改变设置，但无法清除已经建设的轨道栖息地。§YAI在被允许建造轨道栖息地的情况下会无节制地建造，增加系统压力。§!"
+ z_performance_misc.11.b3: "AI轨道栖息地建设 §R完全禁止§!"
+ z_performance_misc.11.b3.tooltip: "禁止AI建设轨道栖息地。可随时改变设置，但无法清除已经建设的轨道栖息地。§YAI在被允许建造轨道栖息地的情况下会无节制地建造，增加系统压力。而禁止AI建造轨道栖息地会对游戏性有一定影响。§!"
+ z_performance_misc.11.b4: "AI轨道栖息地建设 §B最佳优化方案§!"
+ z_performance_misc.11.b4.tooltip: "使用无尽群星默认优化方案，虚空居者AI的轨道栖息地数量将被限制，非虚空居者AI禁止建造轨道栖息地。可随时改变设置，但无法清除已经建设的轨道栖息地。§YAI在被允许建造轨道栖息地的情况下会无节制地建造，增加系统压力。而禁止AI建造轨道栖息地会对游戏性有一定影响。§!"
+#_AI环世界
+ z_performance_misc.11.g1: "AI环世界基址建设 §H已允许§!"
+ z_performance_misc.11.g1.tooltip: "使用原版设置，AI将随意建造环世界基址。§Y一旦资金和条件达标，AI将不遗余力地建设环世界，这将会是使AI拥有大量人口并造成卡顿。§!"
+ z_performance_misc.11.g2: "AI环世界基址建设 §G已禁止§!"
+ z_performance_misc.11.g2.tooltip: "使用无尽群星优化方案，AI不会建造环世界基址。§Y原版的可移居星球加各种mod buff可以给AI提供足够的产出。同时此项功能不会影响AI升级已有的环世界或修复损坏的环世界。§!"
+#_自我进化
+ z_performance_misc.11.c1: "环境适应性自我进化 §G已关闭§!"
+ z_performance_misc.11.c1.tooltip: "使用无尽群星优化方案，关闭自我进化。§Y为了适应环境进行自我进化，产生新物种，这会增加潜在的系统压力。§!"
+ z_performance_misc.11.c2: "环境适应性自我进化 §H已开启§!"
+ z_performance_misc.11.c2.tooltip: "使用原版游戏设置，开启自我进化。§Y为了适应环境进行自我进化，产生新物种，这会增加潜在的系统压力。§!"
+#_AI物种杂交
+ z_performance_misc.11.d1: "AI物种杂交 §G已禁止§!"
+ z_performance_misc.11.d1.tooltip: "使用无尽群星优化方案，禁止AI进行物种杂交。会对含有杂交特性的mod生效，如Unofficial Hive DLC: Forgotten Queens。§Y杂交飞升将产生大量子物种，这会严重地增加系统负担。§!"
+ z_performance_misc.11.d2: "AI物种杂交 §H已允许§!"
+ z_performance_misc.11.d2.tooltip: "使用原版游戏设置，允许AI进行物种杂交。会对含有杂交特性的mod生效，如Unofficial Hive DLC: Forgotten Queens。§Y杂交飞升将产生大量子物种，这会严重地增加系统负担。§!"
+#_AI基因飞升优化  [停用]
+ z_performance_misc.11.e1: "AI基因飞升 §G已禁止§!"
+ z_performance_misc.11.e1.tooltip: "使用无尽群星优化方案，使AI使用优化基因飞升。无法将已经开启的原版基因飞升替换为优化基因飞升，请在游戏开始时做好决定。§Y基因飞升的AI将不断创造子物种，严重增加系统负担。无尽群星优化的基因飞升禁止AI基因改造，并赋予AI补偿buff。§!"
+ z_performance_misc.11.e2.tooltip: "使用原版游戏设置，使AI使用原版基因飞升。无法将已经开启的原版基因飞升替换为优化基因飞升，请在游戏开始时做好决定。§Y基因飞升的AI将不断创造子物种，严重增加系统负担。无尽群星优化的基因飞升禁止AI基因改造，并赋予AI补偿buff。§!"
+ z_performance_misc.11.e2: "AI基因飞升 §H已允许§!"
+#_禁用物种改造
+ z_pf2_disable_ai_species_mod: "§G无尽群星§!: 禁用AI物种改造"
+ z_pf2_disable_ai_species_mod_desc: "无论有机还是智械, 统统保持原本的样子."
+ z_performance_misc.11.e3: "AI物种改造 §H已允许§!"
+ z_performance_misc.11.e3.tooltip: "使用原版游戏设置，AI的物种改造不受限制。只要条件允许，AI将不断创造子物种，严重增加系统负担。"
+ z_performance_misc.11.e5: "AI物种改造 §G已限制§!"
+ z_performance_misc.11.e5.tooltip: "使用无尽群星优化方案，AI的物种改造受到限制。每一个AI物种之下最多允许存在2个子物种，相对于原版更加优化。"
+ z_performance_misc.11.e4: "AI物种改造 §B已禁止§!"
+ z_performance_misc.11.e4.tooltip: "使用无尽群星优化方案，AI的物种改造将被禁用。不允许AI进行任何物种改良。"
+#_舰队合并
+ z_performance_misc.11.k1: "AI舰队优化效率 已设为§G较高§!"
+ z_performance_misc.11.k1.tooltip: "使用手动舰队优化或者自动舰队优化执行时将尽可能多地将小型舰船合并为大型舰船。"
+ z_performance_misc.11.k2: "AI舰队优化效率 已设为§B标准§!"
+ z_performance_misc.11.k2.tooltip: "使用手动舰队优化或者自动舰队优化执行时将保留少量小型舰船。"
+ z_performance_misc.11.k3: "AI舰队优化效率 已设为§H较低§!"
+ z_performance_misc.11.k3.tooltip: "使用手动舰队优化或者自动舰队优化执行时将保留大量小型舰船。"
+ z_performance_misc.11.k4: "AI舰队优化自动化 §G已开启§!"
+ z_performance_misc.11.k4.tooltip: "每年对所有可优化的舰队自动执行优化，优化效率遵循上一选项的设定。"
+ z_performance_misc.11.k5: "AI舰队优化自动化 §H已关闭§!"
+ z_performance_misc.11.k5.tooltip: "无自动舰队优化。"
+#_物种整合
+ z_performance_misc.11.f1: "§G物种整合-AI帝国§!"
+ z_performance_misc.11.f1.tooltip: "将所有AI§Y普通帝国§!和§Y巅峰帝国§!中多余的物种进行整合，以加快人口统计速度。\n所有拥有§G完整公民权§!的pop将被替换为该帝国的§B主物种§!\n所有拥有§G居留权§!的pop将被替换为该帝国中随机拥有居留权的物种\n所有§G奴隶§!pop将被替换为该帝国中随机奴隶物种。"
+ z_performance_misc.11.f1b.tooltip: "将所有AI§Y普通帝国§!和§Y巅峰帝国§!中多余的物种进行整合，以加快人口统计速度。\n所有拥有§G完整公民权§!的pop将被替换为该帝国的§B主物种§!\n所有拥有§G居留权§!的pop将被替换为该帝国中随机拥有居留权的物种\n所有§G奴隶§!pop将被替换为该帝国中随机奴隶物种\n\n§Y注意：此功能可以直接通过mod面板顶部快捷按钮触发。§!"
+#_物种整合-国内
+ z_performance_misc.11.f2: "§G物种整合-自身§!"
+ z_performance_misc.11.f2.tooltip: "将所有帝国内多余的物种进行整合，以加快人口统计速度。\n所有拥有§G完整公民权§!的pop将被替换为§B主物种§!\n所有拥有§G居留权§!的pop将被替换为随机拥有居留权的物种\n所有§G奴隶§!pop将被替换为随机奴隶物种。"
+#_智械整合-国内
+ z_performance_misc.11.f4: "§G智械整合-自身§!"
+ z_performance_misc.11.f4.tooltip: "将所有帝国内多余的智械物种进行整合。\n所有拥有§G完整公民权§!的智械pop将被合并\n所有拥有§G居留权§!的智械pop将被合并为随机拥有居留权的智械\n所有§G机械仆役§!pop将被合并为随机机械仆役物种。"
+#_手动舰队合并
+ z_performance_misc.11.f5: "§GAI舰队优化§!"
+ z_performance_misc.11.f5.tooltip: "立即对所有可优化的AI舰队执行优化，按照AI的科技水平和优化效率设定合并AI舰队，使其尽可能多地使用大型船只以减少全局舰船数量。"
+#_清除轨道栖息地
+ z_performance_misc.11.f3: "§G实验性功能：清理轨道栖息地§!"
+ z_performance_misc.11.f3.tooltip: "摧毁所有非§B虚空居者§!帝国的轨道栖息地。§Y注意：慎用！§!"
+ 
+#_清除舰队模板
+# z_performance_misc.11.i1: "清除空舰队模板§G已启用§!/当前§H已禁用§!"
+# z_performance_misc.11.i1.tooltip: "使用无尽群星优化方案，清除空舰队模板。"
+# z_performance_misc.11.i2: "清除空舰队模板§H已禁用§!/当前§G已启用§!"
+# z_performance_misc.11.i2.tooltip: "使用原版游戏设置，不清除空舰队模板。"
+ 
+#_utility
+ z_performance_misc.11.x: "§B初始化设定§!"
+ z_performance_misc.11.x.tooltip: "采用无尽群星的设定"
+ z_performance_misc.11.x1: "§H原版游戏默认设定§!"
+ z_performance_misc.11.x1.tooltip: "采用原版游戏的设定"
+ z_performance_misc.11.x2: "退到ModMenu"
+ z_performance_misc.11.x2.tooltip: "退到主选单"
+ z_performance_misc.11.x3: "退出"
+ z_performance_misc.11.x3.tooltip: "退出设置"

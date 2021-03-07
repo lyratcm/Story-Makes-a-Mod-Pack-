@@ -1,0 +1,17 @@
+Trait_GAPS_Lunar = {
+    icon = "gfx/interface/icons/traits/Trait_GAPS_Lunar.dds"
+    cost = 1
+    initial = yes
+    randomized = yes
+    modification = yes
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+        PRESAPIENT
+    }
+    custom_tooltip = Trait_GAPS_Lunar_Effect
+    modifier = {
+    }
+}

@@ -1,0 +1,38 @@
+caretaker_seceded_empire_setup_leaders = {
+    create_leader = {
+        class = governor
+        species = owner_main_species
+        name = random
+        skill = 5
+        traits = {
+            trait = leader_trait_architectural_interest
+        }
+    }
+    create_leader = {
+        class = scientist
+        species = owner_main_species
+        name = random
+        skill = 5
+        traits = {
+            trait = leader_trait_custom_AI_assistant
+        }
+    }
+    create_leader = {
+        class = scientist
+        species = owner_main_species
+        name = random
+        skill = 5
+        traits = {
+            trait = leader_trait_custom_AI_assistant
+        }
+    }
+    create_leader = {
+        class = scientist
+        species = owner_main_species
+        name = random
+        skill = 5
+        traits = {
+            trait = leader_trait_custom_AI_assistant
+        }
+    }
+}

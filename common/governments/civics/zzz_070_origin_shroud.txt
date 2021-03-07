@@ -1,0 +1,24 @@
+origin_pd_shroud = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_pd_shroud_start.dds"
+	picture = GFX_origin_pd_shroud_start
+	description = "origin_tooltip_pd_shroud_start_effects"
+	starting_colony = pc_pdshroud
+	habitability_preference = pc_pdshroud
+	preferred_planet_class_neighbor = no
+	max_once_global = yes
+	random_weight = { base = 1 }
+	possible = {
+		ethics = {
+			NOT = { value = ethic_gestalt_consciousness }
+			OR = {
+				text = civic_tooltip_spiritualist
+				value = ethic_spiritualist
+				value = ethic_fanatic_spiritualist
+			}
+		}
+	}
+	#traits = { trait = trait_latent_psionic }
+	#flags = { custom_start_screen }
+	#advanced_start = yes
+}

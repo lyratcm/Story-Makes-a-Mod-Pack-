@@ -1,0 +1,33 @@
+decision_radiotrophic_no_colony = {
+	icon = decision_radiotrophic
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+			sr_rad_bloom = 500
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		habitable_planet = yes
+		has_owner = no
+		FROM = { owner = {  any_owned_planet = { is_planet_class = pc_irradiated } } }
+		NOT = { is_planet_class = pc_irradiated }
+		NOT = { is_planet_class = pc_nuked }
+		NOT = { has_modifier = pdintrotorads }
+	}
+
+	effect = {
+		add_modifier = { modifier = pdintrotorads days = 1800 }
+		hidden_effect = { planet_event = { id = pdengine.49 days = 1800 } }
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+		}
+	}
+}

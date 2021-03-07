@@ -1,0 +1,1207 @@
+###_额外优化 deposits	#############################################################################
+
+
+###_贸易收益替代	#####################################################################################
+z_trade_normal_energy = {
+	is_for_colonizeable = yes
+	category = deposit_cat_energy
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+	#_贸易补贴
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 1 } }
+		country_base_energy_produces_add = 60
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 2 } }
+		country_base_energy_produces_add = 70
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 3 } }
+		country_base_energy_produces_add = 80
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 4 } }
+		country_base_energy_produces_add = 90
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 5 } }
+		country_base_energy_produces_add = 100
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 6 } }
+		country_base_energy_produces_add = 110
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 7 } }
+		country_base_energy_produces_add = 120
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 8 } }
+		country_base_energy_produces_add = 130
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 9 } }
+		country_base_energy_produces_add = 140
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 10 } }
+		country_base_energy_produces_add = 150
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 11 } }
+		country_base_energy_produces_add = 160
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 12 } }
+		country_base_energy_produces_add = 170
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 13 } }
+		country_base_energy_produces_add = 180
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 14 } }
+		country_base_energy_produces_add = 190
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 15 } }
+		country_base_energy_produces_add = 200
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 16 } }
+		country_base_energy_produces_add = 210
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 17 } }
+		country_base_energy_produces_add = 220
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 18 } }
+		country_base_energy_produces_add = 230
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 19 } }
+		country_base_energy_produces_add = 240
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 20 } }
+		country_base_energy_produces_add = 250
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 21 } }
+		country_base_energy_produces_add = 260
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 22 } }
+		country_base_energy_produces_add = 270
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 23 } }
+		country_base_energy_produces_add = 280
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 24 } }
+		country_base_energy_produces_add = 290
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 25 } }
+		country_base_energy_produces_add = 300
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 26 } }
+		country_base_energy_produces_add = 310
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 27 } }
+		country_base_energy_produces_add = 320
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 28 } }
+		country_base_energy_produces_add = 330
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 29 } }
+		country_base_energy_produces_add = 340
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 30 } }
+		country_base_energy_produces_add = 350
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 31 } }
+		country_base_energy_produces_add = 410
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 32 } }
+		country_base_energy_produces_add = 420
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 33 } }
+		country_base_energy_produces_add = 430
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 34 } }
+		country_base_energy_produces_add = 440
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 35 } }
+		country_base_energy_produces_add = 450
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 36 } }
+		country_base_energy_produces_add = 460
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 37 } }
+		country_base_energy_produces_add = 470
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 38 } }
+		country_base_energy_produces_add = 480
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 39 } }
+		country_base_energy_produces_add = 490
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 40 } }
+		country_base_energy_produces_add = 500
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets > 40 } }
+		country_base_energy_produces_add = 550
+	}
+}
+
+z_trade_megacorp_energy = {
+	is_for_colonizeable = yes
+	category = deposit_cat_energy
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+	#_贸易补贴
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 1 } }
+		country_base_energy_produces_add = 45
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 2 } }
+		country_base_energy_produces_add = 60
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 3 } }
+		country_base_energy_produces_add = 75
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 4 } }
+		country_base_energy_produces_add = 90
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 5 } }
+		country_base_energy_produces_add = 105
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 6 } }
+		country_base_energy_produces_add = 150
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 7 } }
+		country_base_energy_produces_add = 165
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 8 } }
+		country_base_energy_produces_add = 180
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 9 } }
+		country_base_energy_produces_add = 195
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 10 } }
+		country_base_energy_produces_add = 210
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 11 } }
+		country_base_energy_produces_add = 255
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 12 } }
+		country_base_energy_produces_add = 270
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 13 } }
+		country_base_energy_produces_add = 285
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 14 } }
+		country_base_energy_produces_add = 300
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 15 } }
+		country_base_energy_produces_add = 315
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 16 } }
+		country_base_energy_produces_add = 345
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 17 } }
+		country_base_energy_produces_add = 360
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 18 } }
+		country_base_energy_produces_add = 375
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 19 } }
+		country_base_energy_produces_add = 390
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 20 } }
+		country_base_energy_produces_add = 405
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 21 } }
+		country_base_energy_produces_add = 435
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 22 } }
+		country_base_energy_produces_add = 450
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 23 } }
+		country_base_energy_produces_add = 465
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 24 } }
+		country_base_energy_produces_add = 480
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 25 } }
+		country_base_energy_produces_add = 495
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 26 } }
+		country_base_energy_produces_add = 525
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 27 } }
+		country_base_energy_produces_add = 540
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 28 } }
+		country_base_energy_produces_add = 555
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 29 } }
+		country_base_energy_produces_add = 570
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 30 } }
+		country_base_energy_produces_add = 585
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 31 } }
+		country_base_energy_produces_add = 615
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 32 } }
+		country_base_energy_produces_add = 630
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 33 } }
+		country_base_energy_produces_add = 645
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 34 } }
+		country_base_energy_produces_add = 660
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 35 } }
+		country_base_energy_produces_add = 675
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 36 } }
+		country_base_energy_produces_add = 705
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 37 } }
+		country_base_energy_produces_add = 720
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 38 } }
+		country_base_energy_produces_add = 735
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 39 } }
+		country_base_energy_produces_add = 750
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 40 } }
+		country_base_energy_produces_add = 765
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets > 40 } }
+		country_base_energy_produces_add = 800
+	}
+}
+
+z_trade_normal_goods = {
+	is_for_colonizeable = yes
+	category = deposit_cat_energy
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+	#_贸易补贴
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 1 } }
+		country_base_consumer_goods_produces_add = 15
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 2 } }
+		country_base_consumer_goods_produces_add = 18
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 3 } }
+		country_base_consumer_goods_produces_add = 20
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 4 } }
+		country_base_consumer_goods_produces_add = 23
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 5 } }
+		country_base_consumer_goods_produces_add = 25
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 6 } }
+		country_base_consumer_goods_produces_add = 55
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 7 } }
+		country_base_consumer_goods_produces_add = 60
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 8 } }
+		country_base_consumer_goods_produces_add = 65
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 9 } }
+		country_base_consumer_goods_produces_add = 70
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 10 } }
+		country_base_consumer_goods_produces_add = 75
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 11 } }
+		country_base_consumer_goods_produces_add = 80
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 12 } }
+		country_base_consumer_goods_produces_add = 85
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 13 } }
+		country_base_consumer_goods_produces_add = 90
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 14 } }
+		country_base_consumer_goods_produces_add = 95
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 15 } }
+		country_base_consumer_goods_produces_add = 100
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 16 } }
+		country_base_consumer_goods_produces_add = 105
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 17 } }
+		country_base_consumer_goods_produces_add = 110
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 18 } }
+		country_base_consumer_goods_produces_add = 115
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 19 } }
+		country_base_consumer_goods_produces_add = 120
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 20 } }
+		country_base_consumer_goods_produces_add = 125
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 21 } }
+		country_base_consumer_goods_produces_add = 130
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 22 } }
+		country_base_consumer_goods_produces_add = 135
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 23 } }
+		country_base_consumer_goods_produces_add = 140
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 24 } }
+		country_base_consumer_goods_produces_add = 145
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 25 } }
+		country_base_consumer_goods_produces_add = 150
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 26 } }
+		country_base_consumer_goods_produces_add = 155
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 27 } }
+		country_base_consumer_goods_produces_add = 160
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 28 } }
+		country_base_consumer_goods_produces_add = 165
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 29 } }
+		country_base_consumer_goods_produces_add = 170
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 30 } }
+		country_base_consumer_goods_produces_add = 175
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 31 } }
+		country_base_consumer_goods_produces_add = 205
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 32 } }
+		country_base_consumer_goods_produces_add = 210
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 33 } }
+		country_base_consumer_goods_produces_add = 215
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 34 } }
+		country_base_consumer_goods_produces_add = 220
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 35 } }
+		country_base_consumer_goods_produces_add = 225
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 36 } }
+		country_base_consumer_goods_produces_add = 230
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 37 } }
+		country_base_consumer_goods_produces_add = 235
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 38 } }
+		country_base_consumer_goods_produces_add = 240
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 39 } }
+		country_base_consumer_goods_produces_add = 245
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 40 } }
+		country_base_consumer_goods_produces_add = 250
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets > 40 } }
+		country_base_consumer_goods_produces_add = 275
+	}
+}
+
+z_trade_megacorp_goods = {
+	is_for_colonizeable = yes
+	category = deposit_cat_energy
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+	#_贸易补贴
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 1 } }
+		country_base_consumer_goods_produces_add = 23
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 2 } }
+		country_base_consumer_goods_produces_add = 30
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 3 } }
+		country_base_consumer_goods_produces_add = 38
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 4 } }
+		country_base_consumer_goods_produces_add = 45
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 5 } }
+		country_base_consumer_goods_produces_add = 53
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 6 } }
+		country_base_consumer_goods_produces_add = 75
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 7 } }
+		country_base_consumer_goods_produces_add = 83
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 8 } }
+		country_base_consumer_goods_produces_add = 90
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 9 } }
+		country_base_consumer_goods_produces_add = 98
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 10 } }
+		country_base_consumer_goods_produces_add = 105
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 11 } }
+		country_base_consumer_goods_produces_add = 128
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 12 } }
+		country_base_consumer_goods_produces_add = 135
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 13 } }
+		country_base_consumer_goods_produces_add = 143
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 14 } }
+		country_base_consumer_goods_produces_add = 150
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 15 } }
+		country_base_consumer_goods_produces_add = 158
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 16 } }
+		country_base_consumer_goods_produces_add = 173
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 17 } }
+		country_base_consumer_goods_produces_add = 180
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 18 } }
+		country_base_consumer_goods_produces_add = 188
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 19 } }
+		country_base_consumer_goods_produces_add = 195
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 20 } }
+		country_base_consumer_goods_produces_add = 203
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 21 } }
+		country_base_consumer_goods_produces_add = 218
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 22 } }
+		country_base_consumer_goods_produces_add = 225
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 23 } }
+		country_base_consumer_goods_produces_add = 233
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 24 } }
+		country_base_consumer_goods_produces_add = 240
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 25 } }
+		country_base_consumer_goods_produces_add = 258
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 26 } }
+		country_base_consumer_goods_produces_add = 263
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 27 } }
+		country_base_consumer_goods_produces_add = 270
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 28 } }
+		country_base_consumer_goods_produces_add = 278
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 29 } }
+		country_base_consumer_goods_produces_add = 285
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 30 } }
+		country_base_consumer_goods_produces_add = 298
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 31 } }
+		country_base_consumer_goods_produces_add = 308
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 32 } }
+		country_base_consumer_goods_produces_add = 315
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 33 } }
+		country_base_consumer_goods_produces_add = 323
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 34 } }
+		country_base_consumer_goods_produces_add = 330
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 35 } }
+		country_base_consumer_goods_produces_add = 338
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 36 } }
+		country_base_consumer_goods_produces_add = 353
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 37 } }
+		country_base_consumer_goods_produces_add = 360
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 38 } }
+		country_base_consumer_goods_produces_add = 368
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 39 } }
+		country_base_consumer_goods_produces_add = 375
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets = 40 } }
+		country_base_consumer_goods_produces_add = 383
+	}
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { num_owned_planets > 40 } }
+		country_base_consumer_goods_produces_add = 400
+	}
+}
+
+
+
+
+###_动态人口限制	#####################################################################################
+#_strict
+z_dynamic_capcity_0 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	#_restrict dec
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = z_pf2_extreme_pop_restrict
+			free_housing < -1
+			count_pops = { limit = { is_unemployed = yes } count > 1 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+	
+	#_house
+	triggered_planet_modifier = {
+		potential = { free_housing = -3 }
+		modifier = {
+			pop_growth_speed_reduction = 0.1
+			planet_pop_assembly_reduction = 0.1
+			pop_growth_from_immigration = -0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -4 }
+		modifier = {
+			pop_growth_speed_reduction = 0.3
+			planet_pop_assembly_reduction = 0.3
+			pop_growth_from_immigration = -0.3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -5 }
+		modifier = {
+			pop_growth_speed_reduction = 0.9
+			planet_pop_assembly_reduction = 0.9
+			pop_growth_from_immigration = -0.9
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -6 }
+		modifier = {
+			pop_growth_speed_reduction = 2.7
+			planet_pop_assembly_reduction = 2.7
+			pop_growth_from_immigration = -2.7
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -7 }
+		modifier = {
+			pop_growth_speed_reduction = 8.1
+			planet_pop_assembly_reduction = 8.1
+			pop_growth_from_immigration = -8.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing <= -8 }
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+	
+	#_unemployed
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 3 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.1
+			planet_pop_assembly_reduction = 0.1
+			pop_growth_from_immigration = -0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 4 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.3
+			planet_pop_assembly_reduction = 0.3
+			pop_growth_from_immigration = -0.3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 5 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.9
+			planet_pop_assembly_reduction = 0.9
+			pop_growth_from_immigration = -0.9
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 6 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 2.7
+			planet_pop_assembly_reduction = 2.7
+			pop_growth_from_immigration = -2.7
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 7 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 8.1
+			planet_pop_assembly_reduction = 8.1
+			pop_growth_from_immigration = -8.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count >= 8 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+}
+
+#_low
+z_dynamic_capcity_1 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	#_restrict dec
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = z_pf2_extreme_pop_restrict
+			free_housing < -1
+			count_pops = { limit = { is_unemployed = yes } count > 1 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+	
+	#_house
+	triggered_planet_modifier = {
+		potential = { free_housing = -5 }
+		modifier = {
+			pop_growth_speed_reduction = 0.1
+			planet_pop_assembly_reduction = 0.1
+			pop_growth_from_immigration = -0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -6 }
+		modifier = {
+			pop_growth_speed_reduction = 0.2
+			planet_pop_assembly_reduction = 0.2
+			pop_growth_from_immigration = -0.2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -7 }
+		modifier = {
+			pop_growth_speed_reduction = 0.4
+			planet_pop_assembly_reduction = 0.4
+			pop_growth_from_immigration = -0.4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -8 }
+		modifier = {
+			pop_growth_speed_reduction = 0.8
+			planet_pop_assembly_reduction = 0.8
+			pop_growth_from_immigration = -0.8
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -9 }
+		modifier = {
+			pop_growth_speed_reduction = 1.6
+			planet_pop_assembly_reduction = 1.6
+			pop_growth_from_immigration = -1.6
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -10 }
+		modifier = {
+			pop_growth_speed_reduction = 3.2
+			planet_pop_assembly_reduction = 3.2
+			pop_growth_from_immigration = -3.2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing = -11 }
+		modifier = {
+			pop_growth_speed_reduction = 6.4
+			planet_pop_assembly_reduction = 6.4
+			pop_growth_from_immigration = -6.4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { free_housing <= -12 }
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+	
+	#_unemployed
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 5 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.1
+			planet_pop_assembly_reduction = 0.1
+			pop_growth_from_immigration = -0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 6 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.2
+			planet_pop_assembly_reduction = 0.2
+			pop_growth_from_immigration = -0.2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 7 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.4
+			planet_pop_assembly_reduction = 0.4
+			pop_growth_from_immigration = -0.4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 8 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.8
+			planet_pop_assembly_reduction = 0.8
+			pop_growth_from_immigration = -0.8
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 9 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 1.6
+			planet_pop_assembly_reduction = 1.6
+			pop_growth_from_immigration = -1.6
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 10 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 3.2
+			planet_pop_assembly_reduction = 3.2
+			pop_growth_from_immigration = -3.2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count = 11 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 6.4
+			planet_pop_assembly_reduction = 6.4
+			pop_growth_from_immigration = -6.4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count >= 12 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+}
+
+#_high
+z_dynamic_capcity_2 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	#_restrict dec
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = z_pf2_extreme_pop_restrict
+			free_housing < -1
+			count_pops = { limit = { is_unemployed = yes } count > 1 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+	
+	#_house
+	triggered_planet_modifier = {
+		potential = {
+			free_housing >= -7
+			free_housing < -5
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.1
+			planet_pop_assembly_reduction = 0.1
+			pop_growth_from_immigration = -0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			free_housing >= -9
+			free_housing < -7
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.2
+			planet_pop_assembly_reduction = 0.2
+			pop_growth_from_immigration = -0.2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			free_housing >= -11
+			free_housing < -9
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.4
+			planet_pop_assembly_reduction = 0.4
+			pop_growth_from_immigration = -0.4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			free_housing >= -13
+			free_housing < -11
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.8
+			planet_pop_assembly_reduction = 0.8
+			pop_growth_from_immigration = -0.8
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			free_housing >= -15
+			free_housing < -13
+		}
+		modifier = {
+			pop_growth_speed_reduction = 1.6
+			planet_pop_assembly_reduction = 1.6
+			pop_growth_from_immigration = -1.6
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			free_housing >= -17
+			free_housing < -15
+		}
+		modifier = {
+			pop_growth_speed_reduction = 3.2
+			planet_pop_assembly_reduction = 3.2
+			pop_growth_from_immigration = -3.2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			free_housing >= -19
+			free_housing < -17
+		}
+		modifier = {
+			pop_growth_speed_reduction = 6.4
+			planet_pop_assembly_reduction = 6.4
+			pop_growth_from_immigration = -6.4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			free_housing < -19
+		}
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+	
+	#_unemployed
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count > 5 }
+			count_pops = { limit = { is_unemployed = yes } count <= 7 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.1
+			planet_pop_assembly_reduction = 0.1
+			pop_growth_from_immigration = -0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count > 7 }
+			count_pops = { limit = { is_unemployed = yes } count <= 9 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.2
+			planet_pop_assembly_reduction = 0.2
+			pop_growth_from_immigration = -0.2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count > 9 }
+			count_pops = { limit = { is_unemployed = yes } count <= 11 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.4
+			planet_pop_assembly_reduction = 0.4
+			pop_growth_from_immigration = -0.4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count > 11 }
+			count_pops = { limit = { is_unemployed = yes } count <= 13 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.8
+			planet_pop_assembly_reduction = 0.8
+			pop_growth_from_immigration = -0.8
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count > 13 }
+			count_pops = { limit = { is_unemployed = yes } count <= 15 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 1.6
+			planet_pop_assembly_reduction = 1.6
+			pop_growth_from_immigration = -1.6
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count > 15 }
+			count_pops = { limit = { is_unemployed = yes } count <= 17 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 3.2
+			planet_pop_assembly_reduction = 3.2
+			pop_growth_from_immigration = -3.2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count > 17 }
+			count_pops = { limit = { is_unemployed = yes } count <= 19 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 6.4
+			planet_pop_assembly_reduction = 6.4
+			pop_growth_from_immigration = -6.4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			count_pops = { limit = { is_unemployed = yes } count > 19 }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 17
+			planet_pop_assembly_reduction = 17
+			pop_growth_from_immigration = -17
+		}
+	}
+}

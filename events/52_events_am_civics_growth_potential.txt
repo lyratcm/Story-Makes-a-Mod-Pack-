@@ -1,0 +1,24 @@
+
+
+###############################################################################
+### Civic: Corporate Growth                                                 ###
+###############################################################################
+
+namespace = events_am_civics_corporate_growth
+
+planet_event = {
+	id = events_am_civics_corporate_growth.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_valid_civic = civic_am_civics_corporate_growth
+		}
+	}
+
+	immediate = {
+		add_district = district_city
+		add_modifier = { modifier = "static_modifier_am_civics_corporate_growth" years = 10 }
+	}
+}

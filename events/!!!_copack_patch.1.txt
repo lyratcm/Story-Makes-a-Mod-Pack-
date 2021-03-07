@@ -1,0 +1,16 @@
+namespace = copack_patch
+
+event = {
+	id = copack_patch.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:complex_event_country = {
+			set_variable = {
+				which = latest_copack_version
+				value = 1.021
+			}
+		}
+	}
+}

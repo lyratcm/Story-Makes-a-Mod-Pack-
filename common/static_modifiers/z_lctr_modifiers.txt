@@ -1,0 +1,11 @@
+###_高级定位器 modifier
+
+
+###_开启
+z_lctr_mod_cntr_sensor = {
+	icon = GFX_z_lctr_mod_r_adv_sensor
+	icon_frame = 1
+	ship_sensor_range_add = 1
+	planet_sensor_range_add = 2
+	country_energy_produces_mult = -0.1
+}

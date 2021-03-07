@@ -1,0 +1,10 @@
+guiTypes = {
+    @pop_strata = 572
+    positionType = {
+        name = "pop_category_base_collapsed_size"
+        position = {
+            x = @pop_strata
+            y = 35
+        }
+    }
+}

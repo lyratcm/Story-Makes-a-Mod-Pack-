@@ -1,0 +1,20 @@
+trait_pc_hive_preference = {
+    icon = "gfx/interface/icons/traits/trait_pc_hive_preference.dds"
+    modification = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        PRESAPIENT
+        LITHOID
+    }
+    sorting_priority = 30
+    modifier = {
+        pc_hive_habitability = 1.0
+        pc_bioforge_habitability = 1.0
+        pc_pdhive2_habitability = 0.20
+        pc_pdhive1_habitability = 0.10
+        pop_environment_tolerance = 0.50
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

@@ -1,0 +1,37 @@
+master_ai_activation = {
+	length = 0
+	icon = "GFX_edict_type_time"
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 200
+		}
+	}
+
+	effect = {
+		country_event = { id = ap.4 }
+		hidden_effect = {
+			add_modifier = {
+				modifier = "master_ai_offline" 
+				days = 3650
+			}
+			generate_master_ai = yes
+		}
+		custom_tooltip = CAUSES_AI_OFFLINE
+	}
+	
+	potential = {
+		has_country_flag = master_ai_complete
+	}
+	
+	allow = {
+		NOT = {
+			has_modifier = master_ai_offline
+		}
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+	}
+}

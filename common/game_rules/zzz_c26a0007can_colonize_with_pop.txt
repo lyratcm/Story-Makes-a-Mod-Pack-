@@ -1,0 +1,32 @@
+can_colonize_with_pop = {
+    has_colonization_control = {
+        value = no
+        country = root
+    }
+    NOR = {
+        has_trait = trait_subsapient_form
+        has_trait = trait_rooted_adults_rooted
+        has_trait = trait_living_architecture
+        has_trait = trait_dimorphic_male
+    }
+    OR = {
+        NOT = {
+            has_trait = trait_self_modified
+        }
+        is_same_species = root
+    }
+    if = {
+        limit = {
+            OR = {
+                has_culture_shock = yes
+                is_sapient = no
+            }
+        }
+        custom_tooltip = {
+            always = no
+        }
+    }
+    else = {
+        always = yes
+    }
+}

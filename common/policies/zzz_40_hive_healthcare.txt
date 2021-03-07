@@ -1,0 +1,69 @@
+hive_healthcare = {
+    potential = {
+        has_authority = auth_hive_mind
+    }
+    option = {
+        name = "no_healthcare"
+        modifier = {
+            pop_growth_speed = -0.05
+            pop_amenities_usage_mult = -0.10
+        }
+        policy_flags = {
+            no_healthcare
+        }
+        AI_weight = {
+            factor = 1
+            modifier = {
+                factor = 0
+                has_valid_ai_personality = yes
+                has_ai_personality = open_hive_mind
+            }
+            modifier = {
+                factor = 5
+                has_valid_civic = civic_hive_devouring_swarm
+            }
+            modifier = {
+                factor = 5
+                NOT = {
+                    any_owned_planet = {
+                        free_housing > 1
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = "basic_healthcare"
+        policy_flags = {
+            basic_healthcare
+        }
+        AI_weight = {
+            factor = 2
+        }
+    }
+    option = {
+        name = "extensive_healthcare"
+        modifier = {
+            pop_growth_speed = 0.05
+            pop_amenities_usage_mult = 0.10
+        }
+        policy_flags = {
+            extensive_healthcare
+        }
+        AI_weight = {
+            factor = 1
+            modifier = {
+                factor = 3
+                has_valid_ai_personality = yes
+                has_ai_personality = open_hive_mind
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    has_civic = civic_infestation
+                    has_civic = civic_living_hosts
+                }
+            }
+        }
+    }
+}

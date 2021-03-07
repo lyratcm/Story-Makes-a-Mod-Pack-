@@ -1,0 +1,41 @@
+root_random_pop = {
+	if = {
+		limit = {
+			any_owned_pop = {
+				has_trait = trait_potential_living_architecture
+				OR = {
+					is_pop_category = ruler
+					is_pop_category = specialist
+					is_pop_category = complex_drone
+					is_pop_category = precursor
+				}
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				has_trait = trait_potential_living_architecture
+				OR = {
+					is_pop_category = ruler
+					is_pop_category = specialist
+					is_pop_category = complex_drone
+					is_pop_category = precursor
+				}
+			}
+			modify_species = {
+				remove_trait = trait_potential_living_architecture
+				add_trait = trait_living_architecture
+				change_scoped_species = yes
+			}
+		}
+	}
+	else = {
+		random_owned_pop = {
+			limit = { has_trait = trait_potential_living_architecture }
+			modify_species = {
+				remove_trait = trait_potential_living_architecture
+				add_trait = trait_living_architecture
+				change_scoped_species = yes
+			}
+		}	
+	}
+}

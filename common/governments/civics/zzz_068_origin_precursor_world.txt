@@ -1,0 +1,24 @@
+origin_gpm_precursor_world = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_gpm_precursor_world.dds"
+	picture = GFX_origin_gpm_precursor_world
+	max_once_global = yes
+	
+	possible = {
+		authority = { NOT = { value = auth_machine_intelligence } }
+	}
+	
+	description = "origin_tooltip_gpm_precursor_world_effects"
+	
+	flags = { gpm_precursor_world_start }
+	
+	advanced_start = yes
+	
+	random_weight = {
+		base = 5
+	}
+
+	traits = {
+		trait = trait_gpm_forgotten_species
+	}
+}

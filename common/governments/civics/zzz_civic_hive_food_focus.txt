@@ -1,0 +1,13 @@
+civic_hive_food_focus = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        district_farming_max = 3
+        planet_pops_organics_food_upkeep_mult = -0.10
+        planet_district_farming_build_speed_mult = 0.20
+    }
+}

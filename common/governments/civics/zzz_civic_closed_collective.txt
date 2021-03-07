@@ -1,0 +1,41 @@
+civic_closed_collective = {
+	modification = no	
+	potential = { authority = { value = auth_hive_mind } }
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_hive_devouring_swarm
+				value = civic_hive_empath
+				value = civic_harm_hive
+				value = civic_living_hosts
+				value = civic_infestation
+				value = civic_hive_strength_of_legions
+				value = civic_hive_subspace_ephapse
+				value = civic_hive_memorialist
+			}
+		}
+		origin = {
+			NOR = {
+				value = origin_common_ground
+				value = origin_common_ground_npc
+				value = origin_scion
+				value = origin_hegemon
+				value = origin_symbiote
+				value = origin_syncretic_evolution_hive
+				value = origin_syncretic_livestock
+				value = origin_syncretic_livestock_lithoid
+			}
+		}
+	}
+	
+	random_weight = { base = 1 }
+	
+	modifier = {
+		country_unity_produces_mult = 0.20
+		planet_jobs_produces_mult = 0.05
+		country_edict_cap_add = 1
+		envoys_add = -1
+	}
+	
+	description = civic_tooltip_closed_collective_effects
+}

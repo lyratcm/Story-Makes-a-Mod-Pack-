@@ -1,0 +1,183 @@
+namespace = action
+planet_event = {
+    id = action.68
+    is_triggered_only = yes
+    hide_window = yes
+    immediate = {
+        if = {
+            limit = {
+                is_planet_class = pc_machine
+            }
+            every_deposit = {
+                limit = {
+                    NOR = {
+                        is_deposit_type = d_dust_caverns
+                        is_deposit_type = d_dust_desert
+                        is_deposit_type = d_bubbling_swamp
+                        is_deposit_type = d_fuming_bog
+                        is_deposit_type = d_crystalline_caverns
+                        is_deposit_type = d_crystal_forest
+                        is_deposit_type = d_crystal_reef
+                        is_deposit_type = d_betharian_deposit
+                        is_deposit_type = d_alien_pets_deposit
+                        is_deposit_type = d_tree_of_life_home
+                        is_deposit_type = d_tree_of_life_colony
+                        is_deposit_type = d_holy_mountain
+                        is_deposit_type = d_exploited_homeworld
+                        is_deposit_type = d_chrysanthemum
+                        is_deposit_type = d_lost_colony
+                        is_deposit_type = d_united_nations
+                        is_deposit_type = d_default
+                        is_deposit_type = d_default_hive
+                        is_deposit_type = d_default_machine
+                        is_deposit_type = d_ego_statue
+                        is_deposit_type = d_ancient_palace
+                        is_deposit_type = d_preserve_habitability
+                        is_deposit_type = d_ship_graveyard_start
+                        is_deposit_type = d_ship_wreckage
+                    }
+                }
+                remove_deposit = yes
+            }
+            remove_modifier = "natural_beauty"
+            remove_modifier = "atmospheric_aphrodisiac"
+            remove_modifier = "atmospheric_hallucinogen"
+            remove_modifier = "lush_planet"
+            if = {
+                limit = {
+                    any_owned_pop = {
+                        NOR = {
+                            has_trait = trait_cybernetic
+                            has_trait = trait_machine_unit
+                            has_trait = trait_mechanical
+                        }
+                    }
+                }
+                add_deposit = d_organic_slurry
+                every_owned_pop = {
+                    limit = {
+                        NOR = {
+                            has_trait = trait_cybernetic
+                            has_trait = trait_machine_unit
+                            has_trait = trait_mechanical
+                        }
+                    }
+                    if = {
+                        limit = {
+                            planet.owner = {
+                                has_valid_civic = civic_machine_terminator
+                            }
+                        }
+                        planet.owner = {
+                            add_resource = {
+                                unity = 100
+                            }
+                        }
+                    }
+                    kill_pop = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                is_planet_class = pc_hive
+            }
+            every_deposit = {
+                limit = {
+                    NOR = {
+                        is_deposit_type = d_dust_caverns
+                        is_deposit_type = d_dust_desert
+                        is_deposit_type = d_bubbling_swamp
+                        is_deposit_type = d_fuming_bog
+                        is_deposit_type = d_crystalline_caverns
+                        is_deposit_type = d_crystal_forest
+                        is_deposit_type = d_crystal_reef
+                        is_deposit_type = d_betharian_deposit
+                        is_deposit_type = d_alien_pets_deposit
+                        is_deposit_type = d_tree_of_life_home
+                        is_deposit_type = d_tree_of_life_colony
+                    }
+                }
+                remove_deposit = yes
+            }
+            remove_modifier = "natural_beauty"
+            remove_modifier = "atmospheric_aphrodisiac"
+            remove_modifier = "atmospheric_hallucinogen"
+            remove_modifier = "lush_planet"
+        }
+        if = {
+            limit = {
+                exists = owner
+                owner = {
+                    has_origin = origin_terraformer
+                }
+                NOT = {
+                    has_modifier = terraformer_homeworld
+                }
+            }
+            add_modifier = {
+                modifier = terraformer_homeworld
+                days = -1
+            }
+        }
+        remove_modifier = "bleak_planet"
+        remove_modifier = "dangerous_wildlife"
+        remove_modifier = "hazardous_weather"
+        remove_modifier = "wild_storms"
+        remove_modifier = "irradiated_planet"
+        remove_modifier = "dune_world"
+        remove_modifier = "karstic_world"
+        remove_modifier = "young_world"
+        remove_modifier = "boundless_ocean"
+        remove_modifier = "swamp_world"
+        remove_modifier = "fog_world"
+        remove_modifier = "exotic_world"
+        remove_modifier = "boreal_world"
+        remove_modifier = "megaflora"
+        remove_modifier = "tempest_world"
+        remove_modifier = "geothermal_world"
+        remove_modifier = "glacial_world"
+        remove_modifier = "incessant_thunderstorm"
+        remove_modifier = "terrible_hurricanes"
+        remove_modifier = "heavy_sandstorms"
+        remove_modifier = "heavy_blizzards"
+        remove_modifier = "giant_waves"
+        remove_modifier = "prolonged_drought"
+        remove_modifier = "monstrous_avalanches"
+        remove_modifier = "toxic_atmosphere"
+        remove_modifier = "heavy_wear"
+        if = {
+            limit = {
+                NOT = {
+                    is_planet_class = pc_gaia
+                }
+                OR = {
+                    is_active_resolution = "resolution_ecology_environmental_control_board"
+                    is_active_resolution = "resolution_ecology_paradise_initiative"
+                }
+            }
+            from.owner = {
+                set_timed_country_flag = {
+                    flag = resolution_breached_terraformed
+                    days = 3600
+                }
+            }
+        }
+        if = {
+            limit = {
+                exists = mining_station
+            }
+            mining_station = {
+                delete_fleet = this
+            }
+        }
+        if = {
+            limit = {
+                exists = research_station
+            }
+            research_station = {
+                delete_fleet = this
+            }
+        }
+    }
+}

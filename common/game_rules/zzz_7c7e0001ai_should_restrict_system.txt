@@ -1,0 +1,78 @@
+ai_should_restrict_system = {
+    OR = {
+        AND = {
+            root = {
+                is_country_type = fallen_empire
+            }
+            exists = owner
+            owner = {
+                OR = {
+                    is_country_type = awakened_marauders
+                    is_country_type = dormant_marauders
+                }
+            }
+        }
+        AND = {
+            root = {
+                OR = {
+                    is_country_type = awakened_marauders
+                    is_country_type = marauder_raiders
+                }
+            }
+            exists = owner
+            owner = {
+                is_country_type = fallen_empire
+            }
+        }
+        AND = {
+            root = {
+                OR = {
+                    is_country_type = fallen_empire
+                    is_country_type = awakened_marauders
+                    is_country_type = marauder_raiders
+                }
+            }
+            any_fleet_in_system = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_country_type = guardian_dragon
+                        is_country_type = guardian_stellarite
+                        is_country_type = guardian_wraith
+                        is_country_type = guardian_horror
+                        is_country_type = guardian_fortress
+                        is_country_type = guardian_dreadnought
+                        is_country_type = guardian_elderly_tiyanki
+                        is_country_type = guardian_hatchling
+                        is_country_type = guardian_scavenger_bot
+                    }
+                }
+            }
+        }
+        AND = {
+            root = {
+                OR = {
+                    is_country_type = fallen_empire
+                    is_country_type = awakened_marauders
+                    is_country_type = marauder_raiders
+                }
+            }
+            OR = {
+                has_star_flag = crystal_home_system
+                has_star_flag = amoeba_home_system
+                has_star_flag = drone_home_system
+            }
+            any_fleet_in_system = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_country_type = crystal
+                        is_country_type = amoeba
+                        is_country_type = amoeba_garrison
+                        is_country_type = drone
+                    }
+                }
+            }
+        }
+    }
+}

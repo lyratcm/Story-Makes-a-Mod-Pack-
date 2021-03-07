@@ -1,0 +1,144 @@
+interference = {
+    potential = {
+        has_met_primitives = yes
+    }
+    option = {
+        name = "interference_passive"
+        policy_flags = {
+            interference_passive
+        }
+        on_enabled = {
+            hidden_effect = {
+                set_country_flag = encountered_first_primitive
+            }
+        }
+        valid = {
+            OR = {
+                is_subject_type = signatory
+                is_subject_type = scion_signatory
+                NOR = {
+                    has_ethic = "ethic_fanatic_xenophobe"
+                    has_valid_civic = "civic_fanatic_purifiers"
+                    has_valid_civic = "civic_hive_devouring_swarm"
+                    has_valid_civic = "civic_machine_terminator"
+                }
+            }
+        }
+        AI_weight = {
+            modifier = {
+                factor = 0.1
+                is_galactic_community_member = yes
+                OR = {
+                    is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+                    is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+                    is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+                }
+            }
+        }
+    }
+    option = {
+        name = "interference_active"
+        policy_flags = {
+            interference_active
+        }
+        on_enabled = {
+            hidden_effect = {
+                set_country_flag = encountered_first_primitive
+            }
+        }
+        modifier = {
+        }
+        valid = {
+            NOR = {
+                is_subject_type = signatory
+                is_subject_type = scion_signatory
+                has_valid_civic = "civic_fanatic_purifiers"
+                has_valid_civic = "civic_hive_devouring_swarm"
+                has_valid_civic = civic_closed_collective
+                has_valid_civic = civic_closed_network
+            }
+        }
+        AI_weight = {
+            modifier = {
+                factor = 2
+                has_valid_ai_personality = yes
+                OR = {
+                    has_ai_personality_behaviour = infiltrator
+                    has_ai_personality_behaviour = dominator
+                }
+            }
+            modifier = {
+                factor = 0
+                has_valid_ai_personality = yes
+                NOR = {
+                    has_ai_personality_behaviour = infiltrator
+                    has_ai_personality_behaviour = dominator
+                }
+                NOT = {
+                    is_galactic_community_member = yes
+                    OR = {
+                        is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+                        is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+                        is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = "interference_full"
+        potential = {
+        }
+        valid = {
+            NOT = {
+                is_subject_type = signatory
+            }
+            NOT = {
+                is_subject_type = scion_signatory
+            }
+            NOR = {
+                has_ethic = "ethic_pacifist"
+                has_ethic = "ethic_fanatic_pacifist"
+                has_valid_civic = civic_closed_collective
+                has_valid_civic = civic_closed_network
+            }
+        }
+        policy_flags = {
+            interference_full
+        }
+        on_enabled = {
+            hidden_effect = {
+                set_country_flag = encountered_first_primitive
+            }
+        }
+        modifier = {
+        }
+        AI_weight = {
+            modifier = {
+                factor = 3
+                has_valid_ai_personality = yes
+                OR = {
+                    has_ai_personality_behaviour = infiltrator
+                    has_ai_personality_behaviour = dominator
+                }
+            }
+            modifier = {
+                factor = 0
+                has_valid_ai_personality = yes
+                NOR = {
+                    has_ai_personality_behaviour = infiltrator
+                    has_ai_personality_behaviour = dominator
+                }
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    has_ethic = "ethic_pacifist"
+                    has_ethic = "ethic_fanatic_pacifist"
+                    has_ai_personality = open_hive_mind
+                    has_ai_personality = open_machine_intelligence
+                }
+            }
+        }
+    }
+}

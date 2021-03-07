@@ -1,0 +1,12 @@
+namespace = action
+
+planet_event = {
+	id = action.65
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { always = no	}
+
+	immediate = {
+	}
+}

@@ -1,0 +1,40 @@
+randomize_undefined_phenotype = {
+	IF = {
+		limit = { has_trait = trait_has_subsapient_form }
+		random_list = {
+			60 = {
+				modify_species = {
+					species = this
+					remove_trait = trait_has_subsapient_form
+					add_trait = trait_subsapient_form
+				}
+			}
+			30 = {
+				modify_species = {
+					species = this
+					remove_trait = trait_has_subsapient_form
+					add_trait = trait_sapient_form
+				}
+			}
+		}
+	}
+	ELSE_IF = {
+		limit = { has_trait = trait_multihive }
+		random_list = {
+			90 = {
+				modify_species = {
+					species = this
+					remove_trait = trait_multihive
+					add_trait = trait_multihive_drone
+				}
+			}
+			10 = {
+				modify_species = {
+					species = this
+					remove_trait = trait_multihive
+					add_trait = trait_multihive_core
+				}
+			}
+		}
+	}
+}

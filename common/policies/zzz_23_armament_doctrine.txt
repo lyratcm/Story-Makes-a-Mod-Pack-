@@ -1,0 +1,51 @@
+armament_doctrine = {
+	potential = {
+		is_country_type = default
+		is_ai = no
+	}
+
+	option = {
+		name = "balanced_focus"
+		policy_flags = { balanced_focus }
+	}
+
+	option = {
+		name = "kinetic_focus"
+		policy_flags = { kinetic_focus }
+		modifier = {
+			weapon_type_kinetic_weapon_damage_mult = 0.2
+			weapon_type_kinetic_weapon_fire_rate_mult = 0.2
+			weapon_type_energy_weapon_damage_mult = -0.1
+			weapon_type_explosive_weapon_damage_mult = -0.1
+			weapon_type_strike_craft_weapon_damage_mult = -0.1
+		}
+		ai_weight = { factor = 0 }		
+	}
+
+	option = {
+		name = "energy_focus"
+		policy_flags = { energy_focus }
+		modifier = {
+			weapon_type_kinetic_weapon_damage_mult = -0.1
+			weapon_type_energy_weapon_damage_mult = 0.2
+			weapon_type_energy_weapon_fire_rate_mult = 0.2
+			weapon_type_explosive_weapon_damage_mult = -0.1
+			weapon_type_strike_craft_weapon_damage_mult = -0.1
+		}
+		ai_weight = { factor = 0 }
+	}
+
+	option = {
+		name = "guided_munitions_focus"
+		policy_flags = { guided_munitions_focus }
+		modifier = {
+			weapon_type_kinetic_weapon_damage_mult = -0.1
+			weapon_type_energy_weapon_damage_mult = -0.1
+			weapon_type_explosive_weapon_damage_mult = 0.2
+			weapon_type_explosive_weapon_fire_rate_mult = 0.2
+			weapon_type_strike_craft_weapon_damage_mult = 0.2
+			weapon_type_strike_craft_weapon_fire_rate_mult = 0.2
+		}
+		ai_weight = { factor = 0 }		
+	}
+}

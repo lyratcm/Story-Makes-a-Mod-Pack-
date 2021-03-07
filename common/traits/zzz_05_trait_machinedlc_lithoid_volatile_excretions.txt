@@ -1,0 +1,24 @@
+trait_machinedlc_lithoid_volatile_excretions = {
+    cost = 2
+    initial = no
+    opposites = {
+        "trait_machinedlc_lithoid_gaseous_byproducts"
+        "trait_machinedlc_lithoid_scintillating"
+    }
+    allowed_archetypes = {
+        MACHINE
+        BIOMACHINE
+    }
+    custom_tooltip = trait_machinedlc_lithoid_volatile_excretions_effect
+    species_potential_add = {
+        exists = from
+        from = {
+            has_authority = auth_machine_intelligence
+            has_valid_civic = civic_machine_rock_body
+        }
+        host_has_dlc = "Lithoids Species Pack"
+    }
+    slave_cost = {
+        energy = 100
+    }
+}

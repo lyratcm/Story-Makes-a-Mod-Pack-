@@ -1,0 +1,37 @@
+auth_master_computer = {
+    has_heir = no
+    election_type = none
+    can_reform = no
+    valid_for_released_vassal = no
+    potential = {
+        country_type = {
+            value = default
+        }
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_materialist
+                value = ethic_materialist
+                value = ethic_fanatic_materialist
+            }
+        }
+    }
+    random_weight = {
+        modifier = {
+            factor = 0
+            has_global_flag = game_started
+        }
+    }
+    country_modifier = {
+        planet_stability_add = 10
+        country_base_influence_produces_add = 0.5
+        all_technology_research_speed = 0.05
+        pop_factions_produces_mult = -0.33
+        empire_size_penalty_mult = 0.75
+    }
+    tags = {
+        MASTER_COMPUTER_RULER
+        MASTER_COMPUTER_FACTIONS
+    }
+}

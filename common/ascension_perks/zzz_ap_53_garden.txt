@@ -1,0 +1,28 @@
+ap_esap_garden = {
+	on_enabled = {
+		custom_tooltip = ap_esap_garden_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_3"
+			num_ascension_perks > 2
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_garden_req_1"
+			Not = {
+				has_ascension_perk = ap_esap_mining	
+			}
+		}
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_garden
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

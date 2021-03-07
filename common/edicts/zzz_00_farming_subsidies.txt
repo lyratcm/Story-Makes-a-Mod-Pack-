@@ -1,0 +1,77 @@
+farming_subsidies = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = farming_subsidies }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = farming_subsidies
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_farmers_produces_mult = 0.20
+		custom_tooltip = edict_farming_subsidies_tooltip
+		show_only_custom_tooltip = no
+	}
+	
+	potential = {
+		NOR = {
+			AND = {
+				has_authority = auth_hive_mind
+				is_lithoid_empire = no
+			}
+			AND = {
+				has_valid_civic = civic_agrarian_idyll
+				is_lithoid_empire = no
+			}
+			has_valid_civic = civic_agribusiness
+		}
+	}
+
+	prerequisites = {
+		"tech_food_processing_1"
+	}
+	
+	show_tech_unlock_if = {
+		NOR = {
+			AND = {
+				has_authority = auth_hive_mind
+				is_lithoid_empire = no
+			}
+			AND = {
+				has_valid_civic = civic_agrarian_idyll
+				is_lithoid_empire = no
+			}
+			has_valid_civic = civic_agribusiness
+		}
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+		modifier = {
+			factor = 5
+			ROOT = {
+				country_uses_food = yes
+				has_monthly_income = {
+					resource = food
+					value < 1
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			ROOT = { country_uses_food = no }
+		}
+	}
+}

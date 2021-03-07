@@ -1,0 +1,30 @@
+origin_pioneer = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_pioneer.dds"
+    picture = GFX_origin_pioneer
+    potential = {
+        always = no
+    }
+    flags = {
+        custom_start_screen
+    }
+    playable = {
+        host_has_dlc = Utopia
+    }
+    possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+    }
+    description = "origin_tooltip_pioneer_effects"
+    flags = {
+    }
+    traits = {
+    }
+    advanced_start = yes
+    random_weight = {
+        base = 5
+    }
+}

@@ -1,0 +1,5 @@
+static_modifier_am_civics_planet_decay_6 = {
+    pop_environment_tolerance = -0.90
+    icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+    icon_frame = 3
+}

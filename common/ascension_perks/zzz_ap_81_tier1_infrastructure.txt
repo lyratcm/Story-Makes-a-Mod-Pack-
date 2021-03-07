@@ -1,0 +1,54 @@
+ap_esap_ct1_infrastructure = {
+	on_enabled = {
+		custom_tooltip = ap_esap_ct1_infrastructure_tooltip
+		hidden_effect = {
+			every_owned_planet = {
+				if = {
+					limit = { 
+						num_free_districts = { 
+							type = any
+							value < 1
+						} 
+					}
+					add_modifier = {
+						modifier = "mod_esap_ct1_infrastructure"
+						days = -1
+					}
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_infrastructure_req_1"
+			capital_scope = {
+				num_buildings = { 
+					type = any
+					value > 9 
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_infrastructure_req_2"
+			Not = {
+				has_ascension_perk = ap_esap_ct3_not_infrastructure
+			}
+		}
+	}
+
+	modifier = {
+		planet_max_buildings_add = 1
+		planet_non_artificial_max_districts_add = 1
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct1_infrastructure
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

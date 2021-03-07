@@ -1,0 +1,43 @@
+decision_milhab = {
+	icon = decision_milhab
+	owned_planets_only = yes
+	
+	#prerequisites = {
+	#	"tech_terrestrial_sculpting"		
+	#}
+
+	enactment_time = 1
+	resources = {
+		category = decisions
+		cost = {
+			energy = 250
+		}
+	}
+	
+	potential = { 
+		OR = {
+			is_planet_class = pc_pd_barren_hab
+			is_planet_class = pc_pd_barren_cold_hab
+			is_planet_class = pc_pd_frozen_hab
+			is_planet_class = pc_pd_molten_hab
+			is_planet_class = pc_pd_asteroid_hab
+			is_planet_class = pc_pd_toxic_hab
+			is_planet_class = pc_pd_hothouse_hab
+			is_planet_class = pc_pd_gas_giant_hab
+		}
+		NOT = { has_planet_flag = pd_hab_d2 }
+	}
+
+	effect = {
+		custom_tooltip = decision_mil_hab_effects_short
+		hidden_effect = {
+			set_planet_flag = pd_mil_hab
+			IF = { limit = { NOT = { has_planet_flag = pd_hab_d1 } } set_planet_flag = pd_hab_d1 }
+			ELSE_IF = { limit = { has_planet_flag = pd_hab_d1 } set_planet_flag = pd_hab_d2 }
+		}
+	}    
+	
+	ai_weight = { 
+		weight = 1
+	}
+}

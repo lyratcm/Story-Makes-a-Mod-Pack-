@@ -1,0 +1,213 @@
+namespace = master_computer
+
+# On game start country: kill ruler, make robot
+country_event = {
+    id = master_computer.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_authority = auth_master_computer
+    }
+
+    immediate = {
+        ruler = {
+            kill_leader = { show_notification = no }
+        }
+        create_species = {
+            name = "Master Computer"
+            class = ROBOT
+            namelist = MASTER_COMPUTER
+            traits = {  }
+        }
+        create_leader = {
+            class = ruler
+            species = last_created_species
+            leader_age_min = 25
+            leader_age_max = 145
+            event_leader = yes
+            traits = {
+                trait = trait_master_computer_ruler # replace with a special one
+            }
+            effect = {
+                set_leader_flag = master_computer_ruler
+                IF = {
+                    limit = {
+                        owner = { has_country_flag = master_computer_human }
+                    }
+                    set_name = Providence
+                }
+            }
+        }
+        set_leader = last_created_leader
+        capital_scope = {
+            set_master_computer_capital = yes
+        }
+    }
+}
+
+# On leader spawned
+country_event = {
+    id = master_computer.2
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_valid_civic = civic_master_computer_mm_integrator
+        FROM.species = { is_organic_species = yes }
+    }
+
+    immediate = {
+        FROM = {
+            if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+				break = yes
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+				break = yes
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+				break = yes
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+				break = yes
+			}
+        }
+    }
+}
+
+# Trigger when leader dies - in case that happens
+country_event = {
+    id = master_computer.3
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_authority = auth_master_computer
+        from = {
+            leader_class = ruler
+        }
+    }
+
+    immediate = {
+        country_event = {
+            id = master_computer.1
+        }
+    }
+}
+
+# Flipping capital on pulse and ruler
+country_event = {
+    id = master_computer.4
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_authority = auth_master_computer
+    }
+
+    immediate = {
+        every_owned_planet = {
+            limit = {
+                has_master_computer_capital = no
+            }
+            set_master_computer_capital = yes
+        }
+        IF = {
+            limit = {
+                ruler = {
+                    NOT = { has_leader_flag = master_computer_ruler }
+                }
+            }
+            country_event = {
+                id = master_computer.1
+            }
+        }
+    }
+}
+
+# Datavore reward
+
+@techgain = 15
+@techgainFE = 30
+@techgainAE = 35
+@techgainCRIS = 30
+@techgainHORDE = 20
+@techgainMAR = 15
+
+country_event = {
+    id = master_computer.5
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_valid_civic = civic_master_computer_datavore
+        FROMFROMFROM = {
+            OR = {
+                is_ship_class = shipclass_military
+                is_ship_class = shipclass_military_special
+                is_ship_class = shipclass_military_station
+            }
+        }
+    }
+
+    immediate = {
+        # log = ".5 engaged for datavores"
+        master_computer_give_reward_for_ship = yes
+    }
+}
+
+# Starting event to flag
+event = {
+    id = master_computer.100
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = master_computer_authority_enabled
+    }
+}
+
+# Testing event
+country_event = {
+    id = master_computer.1000
+    title = FASCINATING
+    desc = FASCINATING
+
+    picture = GFX_PV_GB_progressbar
+
+    is_triggered_only = yes
+
+    option = {
+        name = OK
+        add_monthly_resource_mult = {
+            resource = alloys
+            value = 0.5            
+        }
+    }
+    option = {
+        name = OK
+        add_monthly_resource_mult = {
+            resource = alloys
+            value = 1.0            
+        }
+    }
+    option = {
+        name = OK
+        add_monthly_resource_mult = {
+            resource = alloys
+            value = 1.5            
+        }
+    }
+}

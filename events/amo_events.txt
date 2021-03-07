@@ -1,0 +1,87 @@
+namespace = megaorigin
+
+country_event = {
+	id = megaorigin.0
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_origin = origin_amo_art_installation
+			has_origin = origin_amo_sentry_array
+			has_origin = origin_amo_dyson_sphere
+			has_origin = origin_amo_science_nexus
+			has_origin = origin_amo_matter_decompressor
+			has_origin = origin_amo_interstellar_assembly
+		}
+	}
+	immediate = {
+		add_research_option = tech_mega_engineering
+			capital_scope = {
+				amo_add_fragments_effect = yes
+				planet_event = {
+					id = megaorigin.1
+					days = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_origin = origin_amo_sentry_array
+			}
+			country_event = {
+				id = megaorigin.100
+				days = 1
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = megaorigin.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = { 
+					has_deposit = d_megastructure_fragment
+					has_deposit = d_megastructure_fragment_small
+					has_deposit = d_megastructure_fragment_reactor
+				}
+			}
+			amo_add_fragments_effect = yes
+		}
+	}
+}
+
+country_event = {
+	id = megaorigin.100
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				set_star_flag = amo_home_1
+				every_neighbor_system = {
+					every_system_planet = {
+						surveyed = {
+							set_surveyed = yes
+							surveyor = root
+						}
+					}
+					every_neighbor_system = {
+						every_system_planet = {
+							random = {
+								chance = 33
+								surveyed = {
+									set_surveyed = yes
+									surveyor = root
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

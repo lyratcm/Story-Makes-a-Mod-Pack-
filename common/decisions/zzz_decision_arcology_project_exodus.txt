@@ -1,0 +1,50 @@
+decision_exodus_restore_arcology = {
+	owned_planets_only = yes
+	icon = decision_arcology_project
+
+	enactment_time = 1800
+	resources = {
+		category = decisions
+		cost = {
+			minerals = 10000
+			influence = 150
+		}
+	}
+	
+	potential = {
+		is_planet_class = pc_city
+		exists = owner
+		owner = { has_origin = origin_exodus }
+		has_planet_flag = exodus_origin_project_flag
+		NOT = { has_planet_flag = exodus_origin_project_complete }
+	}
+	allow = {
+		owner = { has_technology = tech_housing_1 }
+	}
+	
+	effect = {
+		#Clear up problems on the planet
+		custom_tooltip = decision_exodus_restore_arcology_effects
+		hidden_effect = {		
+			remove_modifier = exodus_1
+			remove_modifier = exodus_resource_1
+			remove_modifier = exodus_resource_2
+			remove_modifier = exodus_resource_3
+			remove_modifier = exodus_pop_1
+			remove_modifier = exodus_pop_2
+			remove_modifier = exodus_pop_3
+			remove_deposit = d_overloaded_infrastructure_3
+			#remove_deposit = d_hydroponic_arcology
+			add_deposit = d_plentiful_stockpile
+			add_deposit = d_renewed_city
+			
+			set_planet_flag = exodus_origin_project_complete
+			planet_event = { id =  exodus.27 }
+			
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

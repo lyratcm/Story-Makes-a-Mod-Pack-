@@ -1,0 +1,64 @@
+can_resettle_pop = {
+    IF = {
+        limit = {
+            OR = {
+                has_trait = trait_living_architecture
+                has_trait = trait_rooted_adults_rooted
+            }
+        }
+        always = no
+    }
+    ELSE_IF = {
+        limit = {
+            is_shackled_robot = yes
+        }
+        always = yes
+    }
+    ELSE_IF = {
+        limit = {
+            planet = {
+                OR = {
+                    has_modifier = deteriorating_ecosystem
+                    has_modifier = catastrophe_approach
+                    has_modifier = apocalypse
+                    has_modifier = ravenous_locusts
+                    has_modifier = doomsday_1
+                    has_modifier = doomsday_2
+                    has_modifier = doomsday_3
+                    has_modifier = doomsday_4
+                    has_modifier = doomsday_5
+                }
+            }
+        }
+        always = yes
+    }
+    ELSE_IF = {
+        limit = {
+            planet = {
+                has_modifier = planet_culture_shock
+            }
+        }
+        OR = {
+            is_same_species = planet.owner
+            planet = {
+                NOT = {
+                    has_modifier = planet_culture_shock
+                }
+            }
+        }
+    }
+    ELSE_IF = {
+        limit = {
+            is_enslaved = yes
+        }
+        is_enslaved = yes
+    }
+    ELSE = {
+        owner = {
+            OR = {
+                has_policy_flag = resettlement_allowed
+                is_gestalt = yes
+            }
+        }
+    }
+}

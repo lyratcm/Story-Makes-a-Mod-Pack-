@@ -1,0 +1,10 @@
+Creature = {
+    lorem = {
+        name = Creture
+        plural = Creturei
+        home_planet = "Crett"
+        home_system = "Cretta"
+        name_list = "HUM2"
+    }
+
+}

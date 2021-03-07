@@ -1,0 +1,41 @@
+civic_confederation_of_industries = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        authority = {
+            value = auth_cooperative
+        }
+        ethics = {
+            OR = {
+                text = civic_tooltip_industrial
+                value = ethic_industrial
+                value = ethic_fanatic_industrial
+            }
+            OR = {
+                text = civic_tooltip_egalitarian
+                value = ethic_egalitarian
+                value = ethic_fanatic_egalitarian
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_robber_barons
+                value = civic_public_state_enterprises
+                value = civic_chaebol
+                value = civic_gospel_of_the_masses
+                value = civic_criminal_heritage
+            }
+        }
+    }
+    random_weight = {
+        base = 7
+    }
+    description = "civic_tooltip_confederation_of_industries_effects"
+}

@@ -1,0 +1,5 @@
+amo_add_fragments_effect = {
+	add_deposit = d_megastructure_fragment
+	add_deposit = d_megastructure_fragment_small
+	add_deposit = d_megastructure_fragment_reactor
+}

@@ -1,0 +1,42 @@
+decision_esap_industry_deactivate = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_esap_industry_deactivate
+	
+	resources = {
+		category = decisions
+		cost = {
+			minerals = 360
+		}
+	}
+	
+	potential = {
+		Or = {
+			has_modifier = mod_esap_industry
+			has_modifier = mod_esap_industry_hive
+			has_modifier = mod_esap_industry_machines
+		}
+	}
+	
+	effect = {
+		if = {
+			limit = { has_modifier = mod_esap_industry }
+			custom_tooltip = decision_esap_industry_deactivate_tooltip
+			hidden_effect = { remove_modifier = "mod_esap_industry" }
+		}
+		if = {
+			limit = { has_modifier = mod_esap_industry_hive }
+			custom_tooltip = decision_esap_industry_deactivate_tooltip
+			hidden_effect = { remove_modifier = "mod_esap_industry_hive" }
+		}
+		if = {
+			limit = { has_modifier = mod_esap_industry_machines }
+			custom_tooltip = decision_esap_industry_deactivate_tooltip
+			hidden_effect = { remove_modifier = "mod_esap_industry_machines" }
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

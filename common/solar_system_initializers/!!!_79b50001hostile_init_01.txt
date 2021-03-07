@@ -1,0 +1,358 @@
+hostile_init_01 = {
+    class = "rl_standard_stars"
+    usage = misc_system_init
+    usage_odds = {
+        base = 6
+        modifier = {
+            factor = 0.1
+            NOT = {
+                is_in_cluster = resource_cluster_1
+            }
+        }
+        modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+        modifier = {
+            factor = 0
+            is_bottleneck_system = yes
+        }
+    }
+    max_instances = 1
+    flags = {
+        hostile_system
+        blue_system
+        shield_system
+    }
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = {
+            min = @standard_min
+            max = @standard_max
+        }
+        has_ring = no
+    }
+    change_orbit = {
+        min = 20
+        max = 60
+    }
+    planet = {
+        count = 1
+        orbit_distance = 0
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        flags = {
+            hot_zone
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+            flags = {
+                hot_zone
+            }
+        }
+    }
+    planet = {
+        count = 1
+        orbit_distance = 20
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        size = {
+            min = 12
+            max = 16
+        }
+        has_ring = no
+        class = "pc_broken"
+        init_effect = {
+            prevent_anomaly = yes
+            set_deposit = d_physics_8
+        }
+    }
+    planet = {
+        count = 1
+        orbit_distance = {
+            min = 20
+            max = 25
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 25
+            max = 30
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 30
+            max = 35
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 2
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 35
+            max = 40
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 40
+            max = 45
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 45
+            max = 50
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 50
+            max = 60
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 2
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 60
+            max = 70
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 70
+            max = 80
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    init_effect = {
+        create_crystal_country = yes
+        random_system_planet = {
+            limit = {
+                is_star = no
+            }
+            event_target:crystal_country = {
+                create_fleet = {
+                    name = "NAME_Sapphire_Lurkers"
+                    effect = {
+                        set_owner = event_target:crystal_country
+                        while = {
+                            count = 7
+                            create_ship = {
+                                name = ""
+                                design = "NAME_Large_Crystal_Entity_Blue"
+                            }
+                        }
+                        while = {
+                            count = 9
+                            create_ship = {
+                                name = ""
+                                design = "NAME_Medium_Crystal_Entity_Blue"
+                            }
+                        }
+                        while = {
+                            count = 20
+                            create_ship = {
+                                name = ""
+                                design = "NAME_Small_Crystal_Entity_Blue"
+                            }
+                        }
+                        set_location = PREVPREV
+                        set_fleet_stance = aggressive
+                        set_aggro_range_measure_from = self
+                        set_aggro_range = 150
+                    }
+                }
+            }
+        }
+    }
+}

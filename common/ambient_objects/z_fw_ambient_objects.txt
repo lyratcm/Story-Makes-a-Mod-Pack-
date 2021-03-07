@@ -1,0 +1,106 @@
+###_无尽群星 ambient objects	############################################################################
+
+#_[巨建dismantle]
+
+
+
+
+###_[test]
+ambient_object = {
+	name = "z_testing_object"
+	entity = "z_fw_test_entity"
+	selectable = no
+	show_name = no
+}
+
+
+
+
+###_[shield]
+#_supreme large shield
+ambient_object = {
+	name = "z_fw_fortress_shield"
+	entity = "planet_shield_effect_entity"	#_vanilla行星护盾
+	selectable = no
+	show_name = no
+}
+
+
+
+
+###_[BOOM]
+#_green
+ambient_object = {
+	name = "z_fw_star_explosion_green"
+	entity = "z_fw_star_explosion_green_entity"
+	selectable = no
+	show_name = no
+}
+
+
+
+
+###_[巨建dismantle]	####################################
+#_拆解器	entity引用了废弃mega的
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle"
+	entity = "z_fw_misc_mega_dismantle_entity"
+	selectable = no
+	show_name = no
+}
+#_marker
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_1"
+	entity = "z_fw_fx_ambt_mega_dismantle_1_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_2"
+	entity = "z_fw_fx_ambt_mega_dismantle_2_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_3"
+	entity = "z_fw_fx_ambt_mega_dismantle_3_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_4"
+	entity = "z_fw_fx_ambt_mega_dismantle_4_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_5"
+	entity = "z_fw_fx_ambt_mega_dismantle_5_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_6"
+	entity = "z_fw_fx_ambt_mega_dismantle_6_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_7"
+	entity = "z_fw_fx_ambt_mega_dismantle_7_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_8"
+	entity = "z_fw_fx_ambt_mega_dismantle_8_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_mega_dismantle_9"
+	entity = "z_fw_fx_ambt_mega_dismantle_9_entity"
+	selectable = no
+	show_name = no
+}
+

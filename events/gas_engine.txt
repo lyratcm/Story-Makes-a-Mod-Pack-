@@ -1,0 +1,20 @@
+namespace = gasengine
+
+#Gas Start Homeworld Spawning
+event = {
+	id = gasengine.01
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+
+		# Altered Gas Giant
+		every_planet = { 
+			limit = { 
+			is_planet_class = pc_habitable_gas 
+			is_homeworld = yes 
+			}
+		generate_gas_start_deposits_and_blockers = yes
+		}
+	}
+}

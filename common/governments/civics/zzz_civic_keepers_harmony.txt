@@ -1,0 +1,41 @@
+civic_keepers_harmony = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            value = ethic_fanatic_green
+            OR = {
+                text = civic_tooltip_spiritualist
+                value = ethic_spiritualist
+                value = ethic_fanatic_spiritualist
+            }
+        }
+        civics = {
+            NOT = {
+                value = civic_environmentalist
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        pop_environment_tolerance = 0.1
+        planet_pops_upkeep_mult = -0.15
+        pop_amenities_usage_mult = -0.2
+        planet_max_districts_add = -1
+    }
+}

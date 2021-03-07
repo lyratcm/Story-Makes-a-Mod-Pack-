@@ -1,0 +1,30 @@
+dark_matter_research = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		cost = {
+			sr_dark_matter = 25
+		}
+	}
+
+	modifier = {
+		all_technology_research_speed = 0.10
+	}
+	
+	prerequisites = {
+		"tech_mine_dark_matter"
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictHighPrio
+			ROOT = {
+				resource_stockpile_compare = { resource = sr_dark_matter value > 300 }
+				has_monthly_income = { resource = sr_dark_matter value > 3 }
+				is_at_war = no
+			}
+		}
+	}
+}

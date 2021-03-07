@@ -1,0 +1,208 @@
+#_设置edict覆盖	####################################################################################
+
+#_[ISR]		无限战争
+#_[ESC]
+#_[ACOT]
+#_[EACDPL]
+#_[tcf]		地改候选
+#_[MEM]
+#_[bc]		Bettercheat
+#_[更多巨建]
+
+###_其他开局事件信息
+#_[PD]		仅主机
+
+
+
+#_[ISR]	/id_menu_edicts.txt
+#ig_options_menu_edict = {
+#	length = 0
+#	edict_cap_usage = 0
+#	potential = {
+#		NAND =  {
+#			has_global_flag = ig_menu_opened_first_time
+#			has_country_flag = z_fw_flg_cntr_edt_hide
+#		}
+#	}
+#	allow = { is_ai = no }
+#	effect = {
+#		hidden_effect = {
+#			country_event = { id = ig_menu.0 }
+#		}
+#    }
+#	ai_weight = { weight = 0 }
+#}
+#ig_cheat_menu_edict = {
+#	length = 0
+#	edict_cap_usage = 0
+#	potential = {
+#		has_global_flag = ig_cheats_enabled
+#		NAND =  {
+#			has_global_flag = ig_menu_opened_first_time
+#			has_country_flag = z_fw_flg_cntr_edt_hide
+#		}
+#	}
+#	allow = { is_ai = no }
+#	effect = {
+#		hidden_effect = {
+#			country_event = { id = ig_cheats.0 }
+#		}
+#    }
+#	ai_weight = { weight = 0 }
+#}
+
+
+#_[EACDPL]	/eac_aw_dpl_edicts.txt
+eac_aw_dpl_options = {
+	length = 0
+	edict_cap_usage = 0
+	potential = {
+		has_global_flag = eac_aw_dpl_installed
+		NOT = { has_country_flag = z_fw_flg_cntr_edt_hide }
+	}
+	allow = {
+		is_ai = no
+		custom_tooltip = {#_主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+    effect = { hidden_effect = { country_event = { id = eac_aw_dpl_options.10 } } }
+	ai_weight = { weight = 0 }
+}
+
+#_[ESC]	/nhsc_country_edicts.txt
+nhsc_mod_control_edict2 = {
+	length = 0
+	edict_cap_usage = 0
+
+	potential = {
+		exists = owner
+		owner = { is_ai = no }
+		has_global_flag = nhsc_v30
+		NOT = { has_country_flag = z_fw_flg_cntr_edt_hide }
+	}
+	allow = {
+		is_ai = no
+		NOT = { has_global_flag = ESC_MENU_ACTIVE }
+		custom_tooltip = {#_主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = { country_event = { id = esc_options.1 } }
+}
+
+#_[ACOT]	/acot_country_edicts.txt
+acot_mod_menu_edict = {
+	length = 0
+	resources = { category = edicts cost = { } }
+	potential = {
+	#	is_ai = no
+		has_global_flag = acot_activated
+		NOT = { has_country_flag = z_fw_flg_cntr_edt_hide }
+	}
+	allow = {
+		is_ai = no
+		custom_tooltip = {#_主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+
+	effect = { country_event = { id = acot_mod_options.1 } }
+}
+
+#_[SOFE]
+origin_mod_menu_edict = {
+	length = 0
+
+	potential = {
+	#	owner = { is_ai = no }
+		has_global_flag = sofe_activated
+		NOT = { has_country_flag = z_fw_flg_cntr_edt_hide }
+	}
+	allow = {
+		is_ai = no
+		custom_tooltip = {#_主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+
+	effect = { country_event = { id = sofe_options.1 } }
+}
+
+
+#_[tcf]	/00_tcf_campaigns.txt
+terraforming_candidates_menu = {
+	potential = {
+		has_global_flag = terraforming_candidate_finder_installed
+		NOT = { has_country_flag = z_fw_flg_cntr_edt_hide }
+	}
+	allow = {
+		is_ai = no
+		custom_tooltip = {#_主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = {
+			country_event = { id = tcf.9 }	#_terraforming_candidate_finder_installed设置
+			country_event = { id = tcf_menu.1 }
+		}
+	}
+	ai_weight = { weight = 0 }	
+}
+
+
+#_[MEM]	/mem_options_edict.txt
+mem_options_menu = {
+	length = 0
+	edict_cap_usage = 0
+	potential = {
+		has_global_flag = mem_more_events_mod
+		NOT = { has_country_flag = z_fw_flg_cntr_edt_hide }
+	}
+	allow = {
+		is_ai = no
+		custom_tooltip = {#_主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = { hidden_effect = { country_event = { id = mem_options.4 } } }
+	ai_weight = { weight = 0 }	
+}
+
+#_[bc]	/bc_base_edict.txt
+bc_edict_1 = {
+    length = 0	#_-1
+    edict_cap_usage = 0
+	potential = { always = no }	#_is_ai = no
+	allow = { is_ai = no }
+    effect = { country_event = { id = bccheatmenu.999 } }
+}
+
+
+#_[更多巨建]	只有主机能开
+#_flg_cntr		[giga_host]	只有主机能获得
+giga_custom_menu = {
+	icon = "GFX_giga_menu_icon"
+	length = 0
+	resources = { category = edicts }
+	potential = {
+		has_country_flag = giga_host
+		NOT = { has_country_flag = z_fw_flg_cntr_edt_hide }	#_
+	}
+	allow = {
+		is_ai = no
+		custom_tooltip = {#_主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = { country_event = { id = giga_menu.1 } }
+	ai_weight = { weight = 0 }
+}

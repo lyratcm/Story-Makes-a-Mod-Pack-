@@ -1,0 +1,36 @@
+vfb_enricher = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_vfb_manufactory
+    clothes_texture_index = 3
+    icon = vfb_enricher
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        specialist_job_check_trigger = yes
+        hidden_trigger = {
+            exists = owner
+        }
+        or = {
+            has_job = vfb_enricher
+            z_pop_job_trigger = yes
+        }
+    }
+    planet_modifier = {
+    }
+    resources = {
+        category = planet_metallurgists
+        produces = {
+            alloys = 4
+        }
+        upkeep = {
+            energy = 8
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+    }
+}

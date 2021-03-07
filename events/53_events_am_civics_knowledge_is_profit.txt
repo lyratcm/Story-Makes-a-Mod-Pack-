@@ -1,0 +1,29 @@
+
+
+###############################################################################
+### Civic: Knowledge is Profit                                              ###
+###############################################################################
+
+namespace = am_civics_knowledge_is_profit_events
+
+### Grants resources when a system is surveyed for Knowledge Merchants Civic
+ship_event = {
+	id = am_civics_knowledge_is_profit_events.1
+	hide_window = yes
+
+	is_triggered_only = yes
+	trigger = {
+		owner = {
+			has_valid_civic = civic_am_civics_knowledge_is_profit
+		}
+	}
+
+	immediate = {
+		owner = {
+			add_resource = { 
+				energy = 50
+				influence = 5
+			}	
+		}
+	}
+}

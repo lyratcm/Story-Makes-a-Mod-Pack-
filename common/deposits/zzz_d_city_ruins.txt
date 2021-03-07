@@ -1,0 +1,48 @@
+d_city_ruins = {
+	time = 360
+	
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_relic
+			has_modifier = "ancient_world"
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = -2
+	}
+	
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 1200
+		}
+	}
+
+	drop_weight = {
+		weight = @blocker_high
+		modifier = {
+			factor = 3
+			has_modifier = "ancient_world"
+		}
+		modifier = {
+			factor = 2
+			has_modifier = "depleted_world"
+		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
+		modifier = {
+			factor = 0.1
+			has_modifier = "lava_world"
+		}
+	}
+}

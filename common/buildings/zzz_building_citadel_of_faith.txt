@@ -1,0 +1,191 @@
+building_citadel_of_faith = {
+    base_buildtime = @b2_time
+    base_cap_amount = 1
+    category = unity
+    potential = {
+        exists = owner
+        building_basic_income_check = yes
+        owner = {
+            is_spiritualist = yes
+        }
+        NOT = {
+            has_modifier = slave_colony
+        }
+    }
+    allow = {
+        has_fully_upgraded_capital = yes
+        buildings_upgrade_allow = yes
+    }
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            owner = {
+                is_spiritualist = no
+            }
+            has_modifier = slave_colony
+            buildings_no_crystals = yes
+        }
+    }
+    convert_to = {
+        building_autocurating_vault
+        building_alpha_hub
+        building_corporate_vault
+        building_hive_primary_confluence
+    }
+    planet_modifier = {
+        job_high_priest_add = 1
+        pop_ethic_spiritualist_attraction_mult = 0.20
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOR = {
+                    has_valid_civic = civic_private_militaries
+                    has_valid_civic = civic_defenders_faith
+                    has_valid_civic = civic_death_cult
+                    has_valid_civic = civic_death_cult_corporate
+                }
+            }
+        }
+        modifier = {
+            job_priest_add = @b2_jobs
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_private_militaries
+                NOR = {
+                    has_valid_civic = civic_death_cult
+                    has_valid_civic = civic_death_cult_corporate
+                }
+            }
+        }
+        modifier = {
+            job_chaplain_add = @b2_jobs
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_defenders_faith
+                NOR = {
+                    has_valid_civic = civic_death_cult
+                    has_valid_civic = civic_death_cult_corporate
+                }
+            }
+        }
+        modifier = {
+            job_templar_add = @b2_jobs
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_death_cult
+                    has_valid_civic = civic_death_cult_corporate
+                }
+            }
+        }
+        modifier = {
+            job_death_priest_add = 3
+            job_mortal_initiate_add = 3
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_spiritual_seekers
+            }
+        }
+        modifier = {
+            job_transcend_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_theocracy = yes
+            }
+        }
+        modifier = {
+            job_high_priest_add = 1
+        }
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+            rare_crystals = @b2_rare_cost
+        }
+        upkeep = {
+            energy = @b2_upkeep
+            rare_crystals = @b2_rare_upkeep
+        }
+    }
+    prerequisites = {
+        "tech_transcendent_faith"
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                NOR = {
+                    has_valid_civic = civic_defenders_faith
+                    has_valid_civic = civic_private_militaries
+                }
+            }
+        }
+        text = job_priest_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_private_militaries
+            }
+        }
+        text = job_chaplain_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_spiritual_seekers
+            }
+        }
+        text = job_transcend_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_defenders_faith
+            }
+        }
+        text = job_templar_effect_desc
+    }
+    triggered_desc = {
+        text = job_high_priest_effect_desc
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 1
+            buildings_has_crystals = yes
+            owner = {
+                has_monthly_income = {
+                    resource = consumer_goods
+                    value > 8
+                }
+            }
+        }
+    }
+}

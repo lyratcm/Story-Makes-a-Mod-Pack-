@@ -1,0 +1,173 @@
+###_z modmenu intro	#####################################################################
+###_[button effects 只读 root的东西]
+
+#_global_flag	[z_framework_activated]
+
+
+
+
+###_[完成模式选择]	confirm/设置开局flg
+z_mm_button_intro_confirm = {
+    potential = { has_country_flag = z_mm_framework_mode_selected }
+	#allow = { hidden_trigger = { has_country_flag = z_mm_framework_mode_selected } }
+	effect = {
+		hidden_effect = {
+			remove_country_flag = z_mm_framework_mode_selected
+			#_选择框架
+			if = {
+				limit = { has_global_flag = z_framework_activated }
+				#_无尽relic
+				set_country_flag = z_fw1_start_monument
+				set_country_flag = z_fw1_start_relic
+				#_框架相关功能
+				remove_global_flag = z_fw_flg_glbl_wg_cb_disabled	#_[新战争类型-启用]
+				set_global_flag = z_fw_core_weap_tech_linkage		#_[战争-武器科技联动]初始化
+				set_global_flag = z_fw_core_battle_dd_common		#_[战争-dd-基础调整]初始化
+				remove_global_flag = z_fw_core_battle_dd_ptw		#_[战争-dd-清除弱者]初始化
+				set_global_flag = z_fw_core_battle_dd_fleet_power	#_[战争-dd-战力强化]初始化
+				#_[战争-dd-战力强化]难度初始化
+				remove_global_flag = z_fw_core_battle_dd_fp_adpt_hard
+				remove_global_flag = z_fw_core_battle_dd_fp_adpt_easy
+				set_global_flag = z_fw_core_battle_dd_fp_adpt_standard
+				#_z_pf2初始化
+				remove_global_flag = z_pf2_dynamic_cap_strict		#_[后期优化]动态人口限制
+				remove_global_flag = z_pf2_dynamic_cap_low
+				remove_global_flag = z_pf2_dynamic_cap_high
+				set_global_flag = z_pf2_flg_glbl_flt_opt_automatic	#_[后期优化]舰队
+				#_开局事件
+				z_mm_lock_menu = yes
+				country_event = { id = z_modmenu.1 }
+				z_mm_lock_setting_panel = yes
+			#	country_event = { id = z_fw1_misc.1 }	#_开局设置
+				country_event = { id = z_fw1_misc.100 }	#_开局指南
+			}
+			#_未选择框架
+			else = {
+				set_global_flag = z_fw_flg_glbl_wg_cb_disabled		#_[新战争类型-禁用]
+				#_[战争-dd-战力强化]难度初始化
+				remove_global_flag = z_fw_core_battle_dd_fp_adpt_hard
+				remove_global_flag = z_fw_core_battle_dd_fp_adpt_easy
+				set_global_flag = z_fw_core_battle_dd_fp_adpt_standard
+			}
+		}
+		custom_tooltip = z_mm_tip_intro_confirm
+	}
+}
+z_mm_button_intro_confirm_bg = {
+    potential = { has_country_flag = z_mm_framework_mode_selected }
+	allow = { always = no }
+	effect = {
+	}
+}
+
+
+#_其他玩家_欢迎模式 confirm
+z_mm_button_intro_confirm_none = {
+    potential = { always = yes }
+	effect = {
+		hidden_effect = {
+			remove_country_flag = z_mm_framework_mode_selected
+		}
+		custom_tooltip = z_mm_tip_intro_confirm
+	}
+}
+
+
+
+
+###_主机_欢迎模式
+z_mm_button_intro_welcome = {
+    potential = { always = yes }	#_通知未结束
+	effect = {
+		hidden_effect = { country_event = { id = z_modmenu.120 } }
+		custom_tooltip = z_mm_tip_intro_welcome
+	}
+}
+###_模式-modmenu
+z_mm_button_intro_menu_mode_on = {
+	potential = {
+		has_country_flag = z_mm_framework_mode_selected
+		NOR = {
+			has_global_flag = z_framework_overwrite	#_无尽整合
+			has_global_flag = z_framework_activated
+		}
+	}
+	allow = { always = yes }
+	effect = {
+		hidden_effect = { set_country_flag = z_mm_framework_mode_selected }
+		custom_tooltip = z_mm_tip_intro_menu_mode_on
+	}
+}
+z_mm_button_intro_menu_mode_off = {
+	potential = {
+		OR = {
+			AND = {
+				has_country_flag = z_mm_framework_mode_selected
+				has_global_flag = z_framework_activated
+			}
+			NOT = { has_country_flag = z_mm_framework_mode_selected }
+		}
+		NOT = { has_global_flag = z_framework_overwrite }	#_无尽整合
+	}
+	allow = { always = yes }
+	effect = {
+		hidden_effect = {
+			set_country_flag = z_mm_framework_mode_selected
+			remove_global_flag = z_framework_activated
+		}
+		custom_tooltip = z_mm_tip_intro_menu_mode_off
+	}
+}
+
+
+###_模式-framework
+z_mm_button_intro_fw_mode_on = {
+	potential = {
+		has_country_flag = z_mm_framework_mode_selected
+		has_global_flag = z_framework_activated
+		NOT = { has_global_flag = z_framework_overwrite }	#_无尽整合
+	}
+	allow = { always = yes }
+	effect = {
+		hidden_effect = { set_country_flag = z_mm_framework_mode_selected }
+		custom_tooltip = z_mm_tip_intro_fw_mode_on
+	}
+}
+z_mm_button_intro_fw_mode_off = {
+	potential = {
+		OR = {
+			AND = {
+				has_country_flag = z_mm_framework_mode_selected
+				NOT = { has_global_flag = z_framework_activated }
+			}
+			NOT = { has_country_flag = z_mm_framework_mode_selected }
+		}
+		NOT = { has_global_flag = z_framework_overwrite }	#_无尽整合
+	}
+	allow = { always = yes }
+	effect = {
+		hidden_effect = {
+			set_country_flag = z_mm_framework_mode_selected
+			set_global_flag = z_framework_activated
+		}
+		custom_tooltip = z_mm_tip_intro_fw_mode_off
+	}
+}
+
+
+###_模式-无尽整合-只能选择framework
+z_mm_button_intro_fw_mode_ic = {
+	potential = { has_global_flag = z_framework_overwrite }	#_无尽整合
+	allow = { always = yes }
+	effect = {
+		hidden_effect = {
+			set_country_flag = z_mm_framework_mode_selected
+			set_global_flag = z_framework_activated
+			every_country = {#_隐藏额外法令
+				limit = { is_ai = no }
+				set_country_flag = z_fw_flg_cntr_edt_hide
+			}
+		}
+		custom_tooltip = z_mm_tip_intro_fw_mode_ic
+	}
+}

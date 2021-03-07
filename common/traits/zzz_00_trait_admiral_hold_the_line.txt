@@ -1,0 +1,22 @@
+trait_admiral_hold_the_line = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_admiral_hold_the_line.dds"
+    modifier = {
+        ship_home_territory_fire_rate_mult = 0.33
+    }
+    leader_trait = {
+        admiral
+    }
+    leader_class = {
+        admiral
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_intrepid
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

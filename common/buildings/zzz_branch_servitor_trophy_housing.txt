@@ -1,0 +1,43 @@
+building_trophy_housing = {
+	base_buildtime = 500
+	base_cap_amount = 2
+	
+	branch_office_building = yes
+
+	prerequisites = { "tech_offworld_trophy" }
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_machine_servitor
+		}
+		owner = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+	}
+	
+	planet_modifier = {
+		job_offworld_trophy_add = 5
+		pop_ethic_xenophile_attraction_mult = 0.25
+		pop_ethic_materialist_attraction_mult = 0.25
+		pop_ethic_pacifist_attraction_mult = 0.25
+		planet_bio_trophies_produces_mult = 0.30
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 1000
+		}
+		produces = {
+			unity = 5
+			society_research = 20
+		}		
+		upkeep = {
+			energy = 10
+			consumer_goods = 5
+		}
+	}
+}

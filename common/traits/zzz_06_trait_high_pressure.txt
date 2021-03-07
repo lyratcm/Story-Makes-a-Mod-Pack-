@@ -1,0 +1,22 @@
+trait_high_pressure = {
+    icon = "gfx/interface/icons/traits/trait_high_pressure.dds"
+    cost = 4
+    advanced_trait = yes
+    initial = no
+    randomized = no
+    opposites = {
+        "trait_high_enegry"
+        "trait_five_bond"
+        "trait_neural_multiplex"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        pop_environment_tolerance = 0.20
+        planet_jobs_minerals_produces_mult = 0.6
+    }
+    slave_cost = {
+        energy = 200
+    }
+}

@@ -1,0 +1,29 @@
+trait_robot_artificers = {
+    cost = 2
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            OR = {
+                has_authority = auth_machine_intelligence
+                has_technology = tech_synthetic_workers
+            }
+            NOT = {
+                has_policy_flag = ai_outlawed
+            }
+        }
+    }
+    modifier = {
+        planet_jobs_alloys_produces_mult = 0.15
+        planet_jobs_consumer_goods_produces_mult = 0.15
+        planet_jobs_volatile_motes_produces_mult = 0.15
+        planet_jobs_exotic_gases_produces_mult = 0.15
+        planet_jobs_rare_crystals_produces_mult = 0.15
+    }
+}

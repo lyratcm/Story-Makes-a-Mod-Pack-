@@ -1,0 +1,90 @@
+building_master_computer_hab_capital_1 = {
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	icon = building_master_computer_capital_1
+
+	category = government
+	
+	potential = {
+        is_planet_class = pc_habitat
+        exists = owner
+        owner = {
+            has_authority = auth_master_computer
+        }
+    }
+    
+    destroy_trigger = {
+        exists = owner
+        owner = {
+            NOT = { has_authority = auth_master_computer }
+        }
+    }
+
+    convert_to = {
+        building_hab_capital
+    }
+	
+	resources = {
+		category = planet_buildings
+		upkeep = {
+			energy = 3
+			alloys = 5
+		}		
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 3
+		planet_amenities_add = 3	
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }		
+		}
+		job_roboticist_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_authority = auth_master_computer
+			}
+		}
+		job_master_computer_admin_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_swapped_tradition = tr_domination_master_computer_deus_ex_machina
+			}
+		}
+		job_master_computer_admin_add = 1		
+	}
+	
+	triggered_desc = {
+		text = job_master_computer_admin_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_mechanical_empire = yes }		
+		}
+		text = job_roboticist_effect_desc
+	}		
+
+	upgrades = {
+		"building_master_computer_hab_capital_2"
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+}

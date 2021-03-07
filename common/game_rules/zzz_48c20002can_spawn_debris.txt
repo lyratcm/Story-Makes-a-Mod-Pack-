@@ -1,0 +1,45 @@
+can_spawn_debris = {
+    root = {
+        OR = {
+            is_country_type = default
+            is_country_type = default_ev
+            is_country_type = teif_primitive
+            is_country_type = ascended_empire
+            is_country_type = lost_empire
+        }
+    }
+    exists = owner
+    owner = {
+        NAND = {
+            OR = {
+                has_global_flag = z_fw_flg_glbl_tech_overwhelm
+                has_global_flag = stability_MOD_installed
+            }
+            relative_power = {
+                who = root
+                category = technology
+                value >= superior
+            }
+        }
+        NAND = {
+            OR = {
+                is_country_type = fallen_empire
+                is_country_type = awakened_fallen_empire
+            }
+            has_global_flag = z_cm_fallen_technology
+        }
+        NOR = {
+            has_ascension_perk = ap_enigmatic_engineering
+            has_civic = civic_hive_strong_connection
+            has_ethic = ethic_fanatic_communism
+            has_country_flag = fallen_empire_6_human_2
+            is_country_type = default_ev
+            is_country_type = wg_crisis_country
+            is_khan_country_type = yes
+            has_government = "gov_eternal_continuum"
+            has_valid_civic = civic_sofe_pursuit_answer
+            is_country_type = original_empire
+            is_country_type = original_empire_passive
+        }
+    }
+}

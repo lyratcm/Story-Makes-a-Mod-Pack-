@@ -1,0 +1,57 @@
+megastructures = {
+    use_for_ai_budget = yes
+    ai_use_parent_for_resources_upkeep = {
+        energy
+        consumer_goods
+    }
+    parent = country
+    generate_mult_modifiers = {
+        cost
+        produces
+        upkeep
+    }
+    generate_add_modifiers = {
+        cost
+        produces
+        upkeep
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_science_nexus_1
+        modifier_types = {
+            add
+        }
+        trigger = {
+            is_megastructure_type = think_tank_1
+        }
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_science_nexus_2
+        modifier_types = {
+            add
+        }
+        trigger = {
+            is_megastructure_type = think_tank_2
+        }
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_science_nexus_3
+        modifier_types = {
+            add
+        }
+        trigger = {
+            OR = {
+                is_megastructure_type = think_tank_3
+                is_megastructure_type = think_tank_restored
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_science_nexus_4
+        modifier_types = {
+            add
+        }
+        trigger = {
+            is_megastructure_type = think_tank_4
+        }
+    }
+}

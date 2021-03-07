@@ -1,0 +1,10 @@
+civic_mineral_hoarders = {
+	potential = { authority = { value = auth_hive_mind } }
+	
+	random_weight = { base = 5 }
+	
+	modifier = {
+		planet_miners_minerals_produces_add = 1
+		station_gatherers_produces_mult = 0.10
+	}
+}

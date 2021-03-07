@@ -1,0 +1,29 @@
+lrsk_gov_var_civic_mc_gig_economy = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    description = "civic_tooltip_lrsk_gov_var_civic_mc_gig_economy_effects"
+    possible = {
+        ethics = {
+            NOR = {
+                text = civic_tooltip_not_egalitarian
+                value = ethic_egalitarian
+                value = ethic_fanatic_egalitarian
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        pop_resettlement_cost_mult = -0.5
+        pop_cat_specialist_happiness = 0.05
+        pop_cat_ruler_happiness = 0.05
+    }
+}

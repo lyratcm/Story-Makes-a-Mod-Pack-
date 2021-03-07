@@ -1,0 +1,18 @@
+﻿l_english:
+ trait_extremely_adaptive_upgrade: "$trait_extremely_adaptive"
+ trait_extremely_adaptive_upgrade_desc: "$trait_extremely_adaptive_desc"
+ trait_very_strong_upgrade: "$trait_very_strong"
+ trait_very_strong_upgrade_desc: "$trait_very_strong_desc"
+ trait_venerable_upgrade: "$trait_venerable"
+ trait_venerable_upgrade_desc: "$trait_venerable_desc"
+
+ trait_extremely_dextrous_upgrade: "$trait_extremely_dextrous"
+ trait_extremely_dextrous_upgrade_desc: "$trait_extremely_dextrous_desc"
+ trait_big_upgrade: "$trait_big"
+ trait_big_upgrade_desc: "$trait_big_desc"
+ trait_tiny_upgrade: "$trait_tiny"
+ trait_tiny_upgrade_desc: "$trait_tiny_desc"
+ trait_big_upgrade_lithoid: "$trait_big"
+ trait_big_upgrade_lithoid_desc: "$trait_big_desc"
+ trait_tiny_upgrade_lithoid: "$trait_tiny"
+ trait_tiny_upgrade_lithoid_desc: "$trait_tiny_desc"

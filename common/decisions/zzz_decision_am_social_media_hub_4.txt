@@ -1,0 +1,54 @@
+decision_am_civics_building_social_media_hub_4 = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+		}
+		cost = {
+			trigger = { 
+				planet = { has_planet_flag = decision_am_civics_building_social_media_hub_1_flag }
+			}
+			influence = 25
+		}
+		cost = {
+			trigger = { 
+				planet = { has_planet_flag = decision_am_civics_building_social_media_hub_2_flag }
+			}
+			influence = 25
+		}
+		cost = {
+			trigger = { 
+				planet = { has_planet_flag = decision_am_civics_building_social_media_hub_3_flag }
+			}
+			influence = 25
+		}
+		cost = {
+			trigger = { 
+				planet = { has_planet_flag = decision_am_civics_building_social_media_hub_4_flag }
+			}
+			influence = 25
+		}
+		cost = {
+			trigger = { 
+				planet = { has_planet_flag = decision_am_civics_building_social_media_hub_5_flag }
+			}
+			influence = 25
+		}
+	}
+
+	potential = {
+		has_building = building_am_civics_social_media_hub 
+		NOT = { has_planet_flag = decision_am_civics_building_social_media_hub_4_flag }
+	}
+
+	effect = {
+		custom_tooltip = decision_am_civics_building_social_media_hub_4_effect
+		hidden_effect = { set_planet_flag = decision_am_civics_building_social_media_hub_4_flag }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

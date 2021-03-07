@@ -1,0 +1,196 @@
+namespace = gas_origin
+# Gas Relic Event - Planet 0 Setup
+
+country_event = {
+	id = gas_origin_start
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_gas_species
+	}
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				random_system_planet = {
+					limit = {
+						is_homeworld = yes
+						NOT = { exists = archaeological_site }
+					}
+					create_archaeological_site = gas_site_homeworld
+				}
+			}
+		}
+	}
+	
+}
+fleet_event = { 
+	id = gas_origin.1
+	title = "gas_origin.1.name"
+	desc = gas_origin.1.desc
+	picture = GFX_gas_ai
+	show_sound = event_wind_ruins
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = gas_origin.1.a
+		owner = {
+		give_technology = {
+			tech = tech_corvette_hull_1
+			}
+		}
+	}
+}
+fleet_event = { 
+	id = gas_origin.2
+	title = "gas_origin.2.name"
+	desc = gas_origin.2.desc
+	picture = GFX_gas_ai
+	show_sound = event_wind_ruins
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = gas_origin.2.a
+		owner = {
+		     give_technology = {
+			tech = tech_ship_armor_1
+			}
+		}
+	}
+}
+fleet_event = { 
+	id = gas_origin.3
+	title = "gas_origin.3.name"
+	desc = gas_origin.3.desc
+	picture = GFX_gas_ai
+	show_sound = event_wind_ruins
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = gas_origin.3.a
+		owner = {
+		     add_resource = {
+                physics_research = 1000
+             }
+		}
+	}
+}
+fleet_event = { 
+	id = gas_origin.4
+	title = "gas_origin.4.name"
+	desc = gas_origin.4.desc
+	picture = GFX_gas_corridor
+	show_sound = event_wind_ruins
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = gas_origin.4.a
+		owner = {
+		     add_resource = {
+                physics_research = 1000
+             }
+		}
+	}
+}
+fleet_event = { 
+	id = gas_origin.5
+	title = "gas_origin.5.name"
+	desc = gas_origin.5.desc
+	picture = GFX_gas_corridor
+	show_sound = event_wind_ruins
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = gas_origin.5.a
+		small_artifact_reward = yes
+	}
+}
+fleet_event = { 
+	id = gas_origin.6
+	title = "gas_origin.6.name"
+	desc = gas_origin.6.desc
+	picture = GFX_shielded_shroud
+	show_sound = event_scanner
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = gas_origin.6.a
+		add_resource = {
+                physics_research = 1000
+             }
+	}
+}
+fleet_event = { 
+	id = gas_origin.7
+	title = "gas_origin.7.name"
+	desc = gas_origin.7.desc
+	picture = GFX_gas_ai_story_image
+	show_sound = event_alien_signal
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = gas_origin.7.a
+		owner = {
+			add_relic = r_gas_relic
+		}
+	}
+}
+
+# Gas Relic Event - Event 1 Setup
+#country_event = {
+#	id = gas_origin_second
+#	hide_window = yes
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		has_origin = origin_gas_species
+#	}
+#
+#	immediate = {
+#		capital_scope = {
+#			if = {
+#				limit = {
+#					has_moon = yes
+#					OR = { is_planet_class = pc_shielded }
+#				}
+#				random_moon = {
+#					create_archaeological_site = gas_site_shielded
+#				}
+#				root = {
+#					set_country_flag = gas_site_moon
+#				}
+#			}
+#		}
+#	}
+#}
+

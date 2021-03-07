@@ -1,0 +1,21 @@
+trait_primitive_cybernetic = {
+    cost = 0
+    opposites = {
+        "trait_cybernetic"
+        "trait_latent_psionic"
+        "trait_psionic"
+    }
+    initial = no
+    randomized = no
+    modification = no
+    icon = "gfx/interface/icons/traits/trait_cybernetic.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    modifier = {
+        pop_environment_tolerance = 0.10
+        army_damage_mult = 0.05
+        leader_age = 20
+    }
+}

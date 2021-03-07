@@ -1,0 +1,22 @@
+system_blocks_sensors = {
+    root = {
+        NOR = {
+            has_modifier = z_lctr_mod_cntr_sensor
+        }
+    }
+    OR = {
+        is_inside_nebula = yes
+        has_modifier = space_storm
+        has_star_flag = lcluster
+        has_star_flag = sealed_system
+        has_star_flag = wg_sealed_system
+        has_star_flag = fallen_sol_system
+        root = {
+            is_country_type = teif_primitive
+        }
+        has_star_flag = ag_no_sensor_system
+        has_star_flag = bok_globules
+        has_star_flag = star_flag_GAPS_sealed_system
+        is_ws_system = yes
+    }
+}

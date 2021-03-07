@@ -1,0 +1,11 @@
+lrsk_gov_var_civic_hive_builder_caste = {
+	potential = { authority = { value = auth_hive_mind } }
+    #icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_hive.dds"
+	random_weight = { base = 5 }
+	modifier = {
+    	planet_building_build_speed_mult = 0.1
+    	starbase_building_build_speed_mult = 0.1
+    	starbase_shipyard_build_speed_mult = 0.1
+    	job_maintenance_drone_per_pop = 0.05
+	}
+}

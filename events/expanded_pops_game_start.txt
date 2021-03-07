@@ -1,0 +1,1611 @@
+############################
+#
+# Expanded gamestart Events
+#
+############################
+
+namespace = gamestartpop
+
+# Game Start Events
+country_event = {
+	id = gamestartpop.1
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = expanded_pops_active }
+	}
+	
+	immediate = {
+		set_global_flag = expanded_pops_active
+		every_planet = {
+			limit = {
+				OR = {
+					is_colony = yes
+					is_homeworld = yes
+				}
+				has_modifier = young_world
+			}
+			remove_modifier = young_world
+		}
+		# mod compatibility
+		if = {
+			limit = {
+				any_country = {
+					OR = {
+						has_ethic = ethic_atheism 
+						has_ethic = ethic_agnosticism 
+						has_ethic = ethic_deism 
+						has_ethic = ethic_polytheism 
+						has_ethic = ethic_animatism 
+						has_ethic = ethic_animism 
+					}
+				}
+			}
+			set_global_flag = void_pantheon_active
+		}
+		# Governments
+		every_country = {
+            limit = {
+				OR = {
+					has_origin = origin_syncretic_livestock
+					has_origin = origin_syncretic_livestock_lithoid
+				}
+            }
+			every_owned_pop = {
+				limit = {
+					species = {
+						OR = {
+							has_trait = trait_delicious
+							has_trait = trait_dense
+						}
+					}
+				}
+				set_citizenship_type = {
+					country = prev
+					type = citizenship_slavery
+				}
+				set_slavery_type = {
+					country = prev
+					type = slavery_livestock
+				}
+			}
+        }
+		every_country = {
+            limit = {
+				exists = capital_scope
+				has_origin = origin_extant_creators
+            }
+			enable_on_market = consumer_goods
+			every_owned_pop = {
+				limit = {
+					species = {
+						has_trait = trait_mechanist
+					}
+				}
+				set_citizenship_type = {
+					country = prev
+					type = citizenship_limited
+				}
+				unemploy_pop = yes
+			}
+			capital_scope = { check_planet_employment = yes }
+        }
+		every_country = {
+            limit = {
+				exists = capital_scope
+				has_origin = origin_syncretic_evolution_hive
+            }
+			every_owned_pop = {
+				limit = {
+					species = {
+						has_trait = trait_syncretic_proles
+					}
+				}
+				set_citizenship_type = {
+					country = prev
+					type = citizenship_full
+				}
+				unemploy_pop = yes
+			}
+			capital_scope = { check_planet_employment = yes }
+        }
+		every_country = {
+			limit = {
+				has_civic = civic_philosopher_king
+			}
+			country_event = { id = civicsexpanded.33 }
+		}
+		
+		# Fungal Colony
+		every_country = {
+			limit = {
+				any_owned_pop  = { pop_has_trait = trait_fungal_colony }
+			}
+			capital_scope = {
+				add_deposit = "d_venerable_elder_site"
+			}
+		}
+		
+		# Fallen Empires
+		every_country = {
+			limit = { is_country_type = fallen_empire }
+			if = {
+				limit = {
+					OR = {
+						is_xenophile = yes
+						is_xenophobe = yes
+					}
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_ageless
+				}
+			}
+			if = {
+				limit = { is_spiritualist = yes }
+				set_country_flag = has_chosen_one
+				random_owned_leader = {
+					limit = { leader_class = ruler }
+					add_trait = leader_trait_ruler_chosen
+					add_ruler_trait = leader_trait_ruler_chosen  
+					remove_trait = leader_trait_ruler_psionic
+				}
+			}
+		}
+		# check for cosmic religion
+		random_country = {
+			limit = { is_gestalt = no }
+			country_event = { id = gamestartpop.3 days = 5 }
+		}
+		
+		# ethics check
+		every_country = {
+            limit = {
+				is_country_type = default
+			}
+			country_event = { id = gamestartpop.9 days = 1 }
+		}
+		# Coporate Dominion Check
+		if = { 
+			limit = { host_has_dlc = "Megacorp" }
+			every_country = {
+				limit = { has_valid_civic = civic_corporate_dominion }
+				country_event = { id = gamestartpop.8 days = 3 random = 8 }
+			}
+		}
+		every_planet = {
+			limit = { habitable_planet = yes has_modifier = delicate_ecosystem }
+			planet_event = { id = gamestartpop.7 days = 1 }
+		}
+		every_country = {
+			limit = {
+				is_ai = yes
+				is_country_type = default
+			}
+			country_event = { id = gamestartpop.6 days = 60 random = 60 }
+		}
+		every_planet = {
+			limit = {
+				OR = {
+					is_planet_class = pc_gas_giant
+					is_planet_class = pc_ice_giant
+				}
+				is_moon = yes
+			}
+			clear_planet_modifiers = yes
+			change_pc = pc_toxic
+			reroll_planet_modifiers = yes
+		}
+	}
+}
+
+event = {
+	id = gamestartpop.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_country = {
+			if = { 
+				limit = { 
+					has_civic = civic_idealistic_foundation
+					NOT = { has_country_flag = has_idealistic_foundation }
+				} 
+				set_country_flag = has_idealistic_foundation
+			}
+			if = { 
+				limit = { 
+					has_civic = civic_shared_burden
+					NOT = { has_country_flag = has_shared_burden }
+				} 
+				set_country_flag = has_shared_burden
+			}
+			if = { 
+				limit = { 
+					has_civic = civic_imperial_cult
+					NOT = { has_country_flag = has_imperial_cult }
+				} 
+				set_country_flag = has_imperial_cult
+			}
+			if = { 
+				limit = { 
+					OR = {
+						has_civic = civic_aristocratic_elite
+						has_civic = civic_royal_trading_company
+					}
+					NOT = { has_country_flag = has_aristocratic_elite }
+				} 
+				set_country_flag = has_aristocratic_elite
+			}
+			if = { 
+				limit = { 
+					has_civic = civic_corp_philosopher_king
+					NOT = { has_country_flag = has_corp_philosopher_king }
+				} 
+				set_country_flag = has_corp_philosopher_king
+			}
+			if = {
+				limit = {
+					has_origin = origin_research_coop
+				}
+				country_event = { id = gamestartpop.5 }
+			}
+			if = {
+				limit = {
+					has_origin = origin_private_colony
+				}
+				country_event = { id = gamestartpop.10 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = gamestartpop.3
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_modifier = em_animism
+					has_modifier = em_monotheism
+					has_modifier = em_polytheism
+					has_modifier = em_pantheism
+					has_modifier = em_secularism
+					has_modifier = em_atheism
+					has_modifier = em_materialism
+					has_modifier = em_god_emperor
+				}
+			}
+			set_global_flag = cosmic_religion_active
+		}
+	}
+}
+
+country_event = {
+	id = gamestartpop.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Resources
+		add_resource = { food = 100	}
+		# Governments
+		if = {
+			limit = {
+				exists = home_planet
+				has_origin = origin_post_apocalyptic
+			}
+			home_planet = {
+				add_deposit = d_underground_vault_start
+				remove_building = building_research_lab_1
+				create_pop = {
+					species = owner_main_species
+				}
+				check_planet_employment = yes
+			}
+		}
+		if = {
+			limit = {
+				exists = capital_scope
+				has_origin = origin_delicate_ecosystem
+			}
+			capital_scope = {
+				if = {
+					limit = { has_global_flag = eco_fragile_ecosystem }
+					add_modifier = { modifier = eco_fragile_ecosystem days = -1 }
+					if = {
+						limit = { is_dry = yes }
+						add_deposit = d_eco_tall_grass_prairie
+					}
+					if = {
+						limit = { is_wet = yes }
+						add_deposit = d_eco_old_growth_forest
+					}
+					if = {
+						limit = { is_cold = yes }
+						add_deposit = d_eco_peatland
+					}
+				}
+				else = { add_modifier = { modifier = delicate_ecosystem days = -1 } }
+			}
+		}
+		if = {
+            limit = {
+               has_origin = origin_terraformer
+            }
+			give_technology = { message = no tech = tech_terrestrial_sculpting }
+			capital_scope = {
+				add_modifier = { modifier = terraformer_homeworld days = -1 }
+			}
+        }
+		if = {
+			limit = {
+				exists = capital_scope
+				has_origin = origin_exploited_homeworld
+			}
+			give_technology = { message = no tech = tech_mining_1 }
+			give_technology = { message = no tech = tech_space_mining_1 }
+			if = {
+				limit = {
+					capital_scope = { is_wet = yes }
+				}
+				capital_scope = { change_pc = pc_arid }
+				every_owned_pop = {
+					modify_species = {
+						species = this
+						add_trait = trait_homeworld_exploited_wet
+						add_traits_at_start_of_list = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					capital_scope = {
+						is_cold = yes
+						NOT = { is_planet_class = pc_arctic }
+					}
+				}
+				capital_scope = { change_pc = pc_arctic }
+				every_owned_pop = {
+					modify_species = {
+						species = this
+						add_trait = trait_homeworld_exploited_cold
+						add_traits_at_start_of_list = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					capital_scope = {
+						is_planet_class = pc_arctic
+					}
+				}
+				capital_scope = { change_pc = pc_tundra }
+				every_owned_pop = {
+					modify_species = {
+						species = this
+						add_trait = trait_homeworld_exploited_cold_2
+						add_traits_at_start_of_list = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					capital_scope = { NOT = { is_planet_class = pc_arid } }
+				}
+				capital_scope = { change_pc = pc_arid }
+				every_owned_pop = {
+					modify_species = {
+						species = this
+						add_trait = trait_homeworld_exploited_dry
+						add_traits_at_start_of_list = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					capital_scope = { is_planet_class = pc_arid }
+				}
+				capital_scope = { change_pc = pc_desert }
+				every_owned_pop = {
+					modify_species = {
+						species = this
+						add_trait = trait_homeworld_exploited_dry_2
+						add_traits_at_start_of_list = yes
+					}
+				}
+			}
+			capital_scope = {
+				add_deposit = d_exploited_homeworld
+			}
+			country_event = { id = countryexpanded.20 days = 10 random = 20}
+		}
+		if = {
+            limit = {
+               has_origin = origin_ancient_dynasty
+            }
+			give_technology = { message = no tech = tech_planetary_unification }
+			capital_scope = {
+				add_deposit = d_ancient_palace
+			}
+        }
+		if = {
+            limit = {
+				exists = capital_scope
+				has_origin = origin_subterranean_evolution
+				country_uses_food = yes
+            }
+			give_technology = { message = no tech = tech_deep_sinkhole }
+			capital_scope = {
+				set_planet_flag = planet_sub_expanded
+				set_planet_flag = planet_sub_expanded_2
+				add_deposit = "d_underground_farm"
+				add_deposit = "d_underground_mine"
+				add_deposit = "d_underground_generator"
+			}
+        }
+		if = {
+            limit = {
+				exists = capital_scope
+				has_origin = origin_subterranean_evolution
+				is_lithoid_empire = yes
+				country_uses_food = no
+            }
+			give_technology = { message = no tech = tech_deep_sinkhole }
+			capital_scope = {
+				set_planet_flag = planet_sub_expanded
+				set_planet_flag = planet_sub_expanded_2
+				add_deposit = "d_underground_mine"
+				add_deposit = "d_underground_mine"
+				add_deposit = "d_underground_generator"
+			}
+        }
+		if = {
+            limit = {
+				exists = capital_scope
+				has_origin = origin_subterranean_evolution
+				is_lithoid_empire = no
+				country_uses_food = no
+            }
+			give_technology = { message = no tech = tech_deep_sinkhole }
+			capital_scope = {
+				set_planet_flag = planet_sub_expanded
+				set_planet_flag = planet_sub_expanded_2
+				add_deposit = "d_underground_mine"
+				add_deposit = "d_underground_generator"
+				add_deposit = "d_underground_generator"
+			}
+        }
+		if = {
+			limit = {
+				exists = home_planet
+				has_origin = origin_holy_mountain
+			}
+			add_modifier = { modifier = has_holy_mountain days = -1 }
+			add_research_option = tech_mine_rare_crystals
+			home_planet = {
+				add_deposit = d_holy_mountain
+				create_pop = {
+					species = owner_main_species
+				}
+				check_planet_employment = yes
+			}
+		}
+		if = {
+            limit = {
+				has_origin = origin_primitive_cyborgs
+            }
+			give_technology = { message = no tech = tech_powered_exoskeletons }
+			give_technology = { message = no tech = tech_administrative_ai }
+        }
+		if = {
+            limit = {
+				has_origin = origin_militarist
+            }
+			add_research_option = tech_ground_defense_planning
+			every_owned_pop = {
+				limit = {
+					OR = {
+						is_enslaved = yes
+						is_pop_category = worker
+					}
+					NOT = { has_job = soldier }
+				}
+				add_modifier = { modifier = temp_uni_worker_mod days = 7200 }
+			}
+        }
+		if = {
+            limit = {
+				has_origin = origin_symbiote
+            }
+			every_owned_leader = {
+				if = {
+					limit = {
+						leader_class = general
+						NOR = {
+							has_trait = leader_trait_general_brainslug
+						}
+					}
+					add_trait = leader_trait_general_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = {
+						leader_class = admiral
+						NOR = {
+							has_trait = leader_trait_admiral_brainslug
+						}
+					}
+					add_trait = leader_trait_admiral_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = {
+						leader_class = governor
+						NOR = {
+							has_trait = leader_trait_governor_brainslug
+						}
+					}
+					add_trait = leader_trait_governor_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = {
+						leader_class = scientist
+						NOR = {
+							has_trait = leader_trait_scientist_brainslug
+						}
+					}
+					add_trait = leader_trait_scientist_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = {
+						leader_class = ruler
+						NOR = {
+							has_trait = leader_trait_ruler_brainslug
+						}
+					}
+					add_trait = leader_trait_ruler_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+			}
+			every_pool_leader = {
+				if = {
+					limit = {
+						leader_class = general
+						NOR = {
+							has_trait = leader_trait_general_brainslug
+						}
+					}
+					add_trait = leader_trait_general_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = {
+						leader_class = admiral
+						NOR = {
+							has_trait = leader_trait_admiral_brainslug
+						}
+					}
+					add_trait = leader_trait_admiral_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = {
+						leader_class = governor
+						NOR = {
+							has_trait = leader_trait_governor_brainslug
+						}
+					}
+					add_trait = leader_trait_governor_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = {
+						leader_class = scientist
+						NOR = {
+							has_trait = leader_trait_scientist_brainslug
+						}
+					}
+					add_trait = leader_trait_scientist_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = {
+						leader_class = ruler
+						NOR = {
+							has_trait = leader_trait_ruler_brainslug
+						}
+					}
+					add_trait = leader_trait_ruler_brainslug
+					add_ruler_trait = leader_trait_ruler_brainslug
+				}
+			}
+        }
+		if = {
+            limit = {
+				OR = {
+					is_megacorp = yes
+					has_valid_civic = civic_merchant_guilds
+					has_valid_civic = eco_civic_consumerist
+				}
+            }
+			give_technology = { message = no tech = tech_space_trading }
+        }
+		if = {
+            limit = {
+                OR = {
+                    has_civic = civic_warrior_culture
+                    has_civic = civic_private_military_companies
+                    has_civic = civic_hive_strength_of_legions
+                    has_civic = civic_machine_warbots
+                }
+            }
+			add_research_option = tech_centralized_command
+        }
+		if = {
+            limit = {
+				exists = home_planet
+				has_civic = civic_environmentalist
+            }
+			home_planet = {
+				if = {
+					limit = { has_global_flag = EcologyMod_active }
+					add_deposit = d_eco_city_park
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				else = { add_deposit = d_nature_preserve }
+				create_pop = {
+					species = owner_main_species
+				}
+				create_pop = {
+					species = owner_main_species
+				}
+				check_planet_employment = yes
+			}
+        }
+		if = {
+            limit = {
+				OR = {
+					has_valid_civic = civic_efficient_bureaucracy
+					has_valid_civic = civic_byzantine_bureaucracy
+					has_valid_civic = civic_byzantine_bureaucracy_corp
+					has_valid_civic = civic_hive_divided_attention
+					has_valid_civic = civic_machine_efficient_administrators
+				}
+            }
+			add_research_option = tech_adaptive_bureaucracy
+        }
+		if = {
+            limit = {
+				exists = home_planet
+				has_civic = civic_reanimated_armies
+            }
+			home_planet = {
+				add_building = building_dread_encampment
+				create_pop = {
+					species = owner_main_species
+				}
+				check_planet_employment = yes
+			}
+        }
+		if = {
+            limit = {
+				exists = home_planet
+				has_civic = civic_natural_hunters
+            }
+			give_technology = { message = no tech = tech_dangerous_wildlife }
+			home_planet = {
+				add_deposit = d_hunting_preserve
+				create_pop = {
+					species = owner_main_species
+				}
+				check_planet_employment = yes
+			}
+        }
+		if = {
+			limit = {
+				OR = {
+					has_civic = civic_iron_despot
+					has_civic = civic_corp_iron_despot
+				}
+			}
+			create_species = {
+				is_mod = yes
+				name = NAME_Supercomputer
+				namelist = this
+				plural = NAME_Supercomputers
+				class = "ROBOT"
+				portrait = "ai_crisis_2"
+				traits = {
+					trait = "trait_mechanical"
+				}
+				
+				effect = {
+					if = {
+						limit = {
+							prev = {
+								OR = {
+									is_authoritarian = yes
+									is_militarist = yes
+									is_xenophobe = yes
+								}
+							}
+						}
+						change_species_characteristics = { portrait = "ai_crisis_1" }
+					}
+					
+					save_event_target_as = new_robotic_species
+				}
+			}
+			ruler = {
+				change_species = event_target:new_robotic_species
+				change_leader_portrait = species
+				add_trait = leader_trait_ruler_iron_despot
+				add_ruler_trait = leader_trait_ruler_iron_despot
+				set_skill = 10
+				if = {
+					limit = { ROOT = { is_ai = yes } }
+					set_name = random
+				}
+			}
+			give_technology = { message = no tech = tech_administrative_ai }
+			give_technology = { message = no tech = tech_self_aware_logic }
+		}
+		if = {
+			limit = { has_civic = civic_shroud_pact }
+			create_species = {
+				is_mod = yes
+				name = NAME_Shroud_Being
+				plural = NAME_Shroud_Beings
+				namelist = Extradimensional
+				class = EXD
+				portrait = exd1
+				traits = random
+				
+				effect = {
+					save_event_target_as = new_shroud_species
+				}
+			}
+			ruler = {
+				change_species = event_target:new_shroud_species
+				change_leader_portrait = species
+				add_trait = leader_trait_ruler_shroud_pact
+				add_ruler_trait = leader_trait_ruler_shroud_pact
+				set_skill = 5
+				if = {
+					limit = { ROOT = { is_ai = yes } }
+					set_name = random
+				}
+			}
+			every_owned_leader = {
+				limit = { leader_class = governor }
+				change_species = event_target:new_shroud_species
+				change_leader_portrait = exd1
+				add_trait = leader_trait_governor_shroud_pact
+				add_ruler_trait = leader_trait_ruler_shroud_pact
+				set_skill = 5
+				set_name = random
+			}
+			every_pool_leader = {
+				limit = { leader_class = governor }
+				change_species = event_target:new_shroud_species
+				change_leader_portrait = exd1
+				add_trait = leader_trait_governor_shroud_pact
+				add_ruler_trait = leader_trait_ruler_shroud_pact
+				set_skill = 5
+				set_name = random
+			}
+			give_technology = { message = no tech = tech_psionic_theory }
+		}
+		if = {
+            limit = {
+				has_civic = civic_hmo
+            }
+			give_technology = { message = no tech = tech_genome_mapping }
+			give_technology = { message = no tech = tech_frontier_health }
+        }
+		if = {
+            limit = {
+				OR = {
+					has_civic = civic_biological_engineering
+					has_civic = civic_biological_engineering_hive
+				}
+            }
+			give_technology = { message = no tech = tech_genome_mapping }
+        }
+		if = {
+            limit = {
+				has_civic = civic_modular_construction
+            }
+			give_technology = { message = no tech = tech_powered_exoskeletons }
+			give_technology = { message = no tech = tech_robomodding_m }
+        }
+		if = {
+			limit = {
+				exists = home_planet
+				has_civic = civic_master_computer
+			}
+			home_planet = {
+				add_deposit = d_master_computer
+				create_pop = {
+					species = owner_main_species
+				}
+				check_planet_employment = yes
+			}
+		}
+		# Traits
+		if = {
+			limit = {
+				exists = home_planet
+				is_lithoid_empire = yes
+				owner_species = {
+					has_trait = trait_lithoid_eternal
+				}
+			}
+			home_planet = {
+				add_deposit = d_hibernating_lithoids
+			}
+		}
+	}
+}
+
+# Research Network Setup
+country_event = {
+	id = gamestartpop.5
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		years_passed < 5
+	}
+
+	immediate = {
+		set_country_flag = first_contact_event
+		set_country_flag = Story2 # Already encountered spacefarers
+		add_tradition = tr_diplomacy_adopt
+		add_tradition = tr_diplomacy_the_federation
+
+		if = {
+			limit = { num_guaranteed_colonies >= 2 }
+			capital_scope = {
+				solar_system = {
+					closest_system = {
+						limit = { has_star_flag = neighbor_t1_first_colony }
+						random_system_planet = {
+							limit = { has_planet_flag = prescripted_ideal }
+							save_event_target_as = fed_planet_1
+							federation_origin_planet_setup = yes
+						}
+					}
+					closest_system = {
+						limit = { has_star_flag = neighbor_t2_second_colony }
+						random_system_planet = {
+							limit = { has_planet_flag = prescripted_ideal }
+							save_event_target_as = fed_planet_2
+							federation_origin_planet_setup = yes
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { num_guaranteed_colonies >= 1 }
+			capital_scope = {
+				solar_system = {
+					closest_system = {
+						limit = { has_star_flag = neighbor_t1_first_colony }
+						random_system_planet = {
+							limit = { has_planet_flag = prescripted_ideal }
+							save_event_target_as = fed_planet_1
+							federation_origin_planet_setup = yes
+						}
+					}
+					closest_system = {
+						limit = {
+							NOT = { has_star_flag = neighbor_t1_first_colony }
+							has_owner = no
+							any_system_planet = {
+								is_ringworld = no
+								is_asteroid = no
+								is_star = no
+								is_moon = no
+							}
+						}
+						if = {
+							limit = {
+								any_system_planet = { habitable_planet = yes }
+							}
+							random_system_planet = {
+								limit = { habitable_planet = yes }
+								save_event_target_as = fed_planet_2
+								set_planet_size = 16
+							}
+						}
+						else = {
+							random_system_planet = {
+								limit = {
+									is_ringworld = no
+									is_asteroid = no
+									is_star = no
+									is_moon = no
+								}
+								save_event_target_as = fed_planet_2
+								federation_origin_planet_setup = yes
+							}
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { num_guaranteed_colonies = 0 }
+			capital_scope = {
+				solar_system = {
+					closest_system = {
+						limit = { has_owner = no }
+						set_star_flag = fed_origin_system_1
+						if = {
+							limit = {
+								any_system_planet = { habitable_planet = yes }
+							}
+							random_system_planet = {
+								limit = { habitable_planet = yes }
+								save_event_target_as = fed_planet_1
+								set_planet_size = 16
+							}
+						}
+						else = {
+							random_system_planet = {
+								limit = {
+									is_ringworld = no
+									is_asteroid = no
+									is_star = no
+									is_moon = no
+								}
+								save_event_target_as = fed_planet_1
+								federation_origin_planet_setup = yes
+							}
+						}
+					}
+					closest_system = {
+						limit = {
+							NOT = { has_star_flag = fed_origin_system_1 }
+							has_owner = no
+							any_system_planet = {
+								is_ringworld = no
+								is_asteroid = no
+								is_star = no
+								is_moon = no
+							}
+						}
+						if = {
+							limit = {
+								any_system_planet = { habitable_planet = yes }
+							}
+							random_system_planet = {
+								limit = { habitable_planet = yes }
+								save_event_target_as = fed_planet_2
+								set_planet_size = 16
+							}
+						}
+						else = {
+							random_system_planet = {
+								limit = {
+									is_ringworld = no
+									is_asteroid = no
+									is_star = no
+									is_moon = no
+								}
+								save_event_target_as = fed_planet_2
+								federation_origin_planet_setup = yes
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+
+		# First Member
+		event_target:fed_planet_1 = {
+			solar_system = { generate_home_system_resources = yes }
+			create_species = {
+				name = random
+				class = random_non_machine
+				portrait = random
+				traits = random
+				homeworld = this
+				effect = {
+					save_event_target_as = fed_planet_1_species
+				}
+			}
+			create_research_coop_member_1 = yes
+			create_colony = {
+				owner = event_target:fed_member_1
+				species = event_target:fed_planet_1_species
+				ethos = owner
+			}
+			generate_start_deposits_and_blockers = yes
+			generate_start_buildings_and_districts = yes
+			generate_start_pops = yes
+			solar_system = {
+				create_starbase = {
+					size = starbase_starport
+					module = shipyard
+					building = crew_quarters
+					owner = event_target:fed_member_1
+					effect = {
+						set_starbase_module = {
+							slot = 1
+							module = trading_hub
+						}
+					}
+				}
+			}
+		}
+
+		# Second Member
+		event_target:fed_planet_2 = {
+			solar_system = { generate_home_system_resources = yes }
+			create_species = {
+				name = random
+				class = MACHINE
+				portrait = random
+				traits = {
+					trait = trait_machine_unit
+					trait = random_traits
+				}
+				homeworld = this
+				effect = {
+					save_event_target_as = fed_planet_2_species
+				}
+			}
+			create_research_coop_member_2 = yes
+			create_colony = {
+				owner = event_target:fed_member_2
+				species = event_target:fed_planet_2_species
+			}
+			generate_start_deposits_and_blockers = yes
+			generate_start_buildings_and_districts = yes
+			generate_start_pops = yes
+			solar_system = {
+				create_starbase = {
+					size = starbase_starport
+					module = shipyard
+					building = crew_quarters
+					owner = event_target:fed_member_2
+					effect = {
+						set_starbase_module = {
+							slot = 1
+							module = trading_hub
+						}
+					}
+				}
+			}
+		}
+		event_target:fed_member_1 = {
+			create_starting_leaders = yes
+			country_event = { id = game_start.9 }
+			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
+			join_alliance = { who = root override_requirements = yes }
+			set_name = random # Fixes some naming issues
+		}
+		event_target:fed_member_2 = {
+			create_starting_leaders = yes
+			country_event = { id = game_start.9 }
+			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
+			join_alliance = { who = root override_requirements = yes }
+			set_name = random # Fixes some naming issues
+			every_owned_pop = {
+				clear_ethos = yes
+			}
+		}
+		event_target:fed_member_1 = {
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_common_ground
+			}
+		}
+		event_target:fed_member_2 = {
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_common_ground
+			}
+		}
+		add_opinion_modifier = {
+			who = event_target:fed_member_1
+			modifier = opinion_common_ground
+		}
+		add_opinion_modifier = {
+			who = event_target:fed_member_2
+			modifier = opinion_common_ground
+		}
+		federation = {
+			set_federation_type = research_federation
+			set_name = random
+			add_federation_experience = 2000
+		}
+		set_federation_leader = root
+	}
+}
+
+
+country_event = {
+	id = gamestartpop.6
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_owned_planet = {
+			limit = {
+				NOT = { free_amenities > 0 }
+				free_building_slots > 0
+			}
+			if = {
+				limit = {
+					ROOT = {
+						is_regular_empire = yes
+						NOT = { has_valid_civic = civic_warrior_culture }
+					}
+				}
+				add_building = building_holo_theatres
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+				check_planet_employment = yes
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						is_regular_empire = yes
+						has_valid_civic = civic_warrior_culture
+					}
+				}
+				add_building = building_combat_arena
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+				check_planet_employment = yes
+			}
+			else_if = {
+				limit = {
+					ROOT = { is_hive_empire = yes }
+				}
+				add_district_and_planet_size_if_needed_effect = { district = district_hive }
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+				last_created_pop = {
+					clear_ethos = yes
+				}
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+				last_created_pop = {
+					clear_ethos = yes
+				}
+				check_planet_employment = yes
+			}
+			else_if = {
+				limit = {
+					ROOT = { is_machine_empire = yes }
+				}
+				add_district_and_planet_size_if_needed_effect = { district = district_nexus }
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+				last_created_pop = {
+					clear_ethos = yes
+				}
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+				last_created_pop = {
+					clear_ethos = yes
+				}
+				check_planet_employment = yes
+			}
+		}
+	}
+}
+
+
+planet_event = {
+	id = gamestartpop.7
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_global_flag = EcologyMod_active
+				has_modifier = delicate_ecosystem
+			}
+			remove_modifier = delicate_ecosystem
+			if = {
+				limit = {
+					NOR = {
+						has_modifier = eco_species_rich
+						has_modifier = eco_resilient_ecosystem
+						has_modifier = eco_fragile_ecosystem
+					}
+				}
+				add_modifier = { modifier = eco_fragile_ecosystem days = -1 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = gamestartpop.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_government = gov_trade_league }
+			change_government = {
+				authority = auth_corporate
+				civics = {
+					civic = civic_free_traders
+					civic = random
+				}
+			}
+		}
+		else = {
+			change_government = {
+				authority = auth_corporate
+				civics = random
+			}
+		}
+	}
+}
+
+# Pop Ethics
+country_event = {
+	id = gamestartpop.9
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { is_pacifist = yes }
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_pacifist
+			}
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_pacifist
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_pacifist }
+				random_owned_pop = {
+					limit = { is_gov_ethic_pop = no }
+					pop_change_ethic = ethic_pacifist
+				}
+			}
+		}
+		if = {
+			limit = { is_militarist = yes }
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_militarist
+			}
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_militarist
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_militarist }
+				random_owned_pop = {
+					limit = { is_gov_ethic_pop = no }
+					pop_change_ethic = ethic_militarist
+				}
+			}
+		}
+		if = {
+			limit = { is_materialist = yes }
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_materialist
+			}
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_materialist
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_materialist }
+				random_owned_pop = {
+					limit = { is_gov_ethic_pop = no }
+					pop_change_ethic = ethic_materialist
+				}
+			}
+		}
+		if = {
+			limit = { is_spiritualist = yes }
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_spiritualist
+			}
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_spiritualist
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_spiritualist }
+				random_owned_pop = {
+					limit = { is_gov_ethic_pop = no }
+					pop_change_ethic = ethic_spiritualist
+				}
+			}
+		}
+		if = {
+			limit = { is_egalitarian = yes }
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_egalitarian
+			}
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_egalitarian
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_egalitarian }
+				random_owned_pop = {
+					limit = { is_gov_ethic_pop = no }
+					pop_change_ethic = ethic_egalitarian
+				}
+			}
+		}
+		if = {
+			limit = { is_authoritarian = yes }
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_authoritarian
+			}
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_authoritarian
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_authoritarian }
+				random_owned_pop = {
+					limit = { is_gov_ethic_pop = no }
+					pop_change_ethic = ethic_authoritarian
+				}
+			}
+		}
+		if = {
+			limit = { is_xenophile = yes }
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_xenophile
+			}
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_xenophile
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_xenophile }
+				random_owned_pop = {
+					limit = { is_gov_ethic_pop = no }
+					pop_change_ethic = ethic_xenophile
+				}
+			}
+		}
+		if = {
+			limit = { is_xenophobe = yes }
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_xenophobe
+			}
+			random_owned_pop = {
+				limit = { is_gov_ethic_pop = no }
+				pop_change_ethic = ethic_xenophobe
+			}
+			if = {
+				limit = { has_ethic = ethic_fanatic_xenophobe }
+				random_owned_pop = {
+					limit = { is_gov_ethic_pop = no }
+					pop_change_ethic = ethic_xenophobe
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = human_2 }
+			random_owned_pop = {
+				limit = { pop_has_ethic = ethic_xenophile }
+				pop_change_ethic = ethic_xenophobe
+			}
+			random_owned_pop = {
+				limit = { pop_has_ethic = ethic_xenophile }
+				pop_change_ethic = ethic_xenophobe
+			}
+			random_owned_pop = {
+				limit = { pop_has_ethic = ethic_xenophile }
+				pop_change_ethic = ethic_xenophobe
+			}
+			random_owned_pop = {
+				limit = { pop_has_ethic = ethic_egalitarian }
+				pop_change_ethic = ethic_militarist
+			}
+			random_owned_pop = {
+				limit = { pop_has_ethic = ethic_egalitarian }
+				pop_change_ethic = ethic_militarist
+			}
+			random_owned_pop = {
+				limit = { pop_has_ethic = ethic_egalitarian }
+				pop_change_ethic = ethic_militarist
+			}
+			random_owned_pop = {
+				limit = { pop_has_ethic = ethic_egalitarian }
+				pop_change_ethic = ethic_authoritarian
+			}
+		}
+	}
+}
+
+# Private Colonization Inititive Setup
+country_event = {
+	id = gamestartpop.10
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		years_passed < 5
+	}
+
+	immediate = {
+		set_country_flag = first_contact_event
+		if = {
+			limit = { num_guaranteed_colonies >= 1 }
+			capital_scope = {
+				solar_system = {
+					closest_system = {
+						limit = { has_star_flag = neighbor_t1_first_colony }
+						random_system_planet = {
+							limit = { has_planet_flag = prescripted_ideal }
+							save_event_target_as = fed_planet_1
+							private_colony_origin_planet_setup = yes
+							if = {
+								limit = { habitable_planet = no }
+								set_planet_size = 16
+								change_pc = pc_gaia
+							}
+							planet_event = { id = gamestartpop.11 days = 1 }
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { num_guaranteed_colonies = 0 }
+			capital_scope = {
+				solar_system = {
+					closest_system = {
+						limit = { has_owner = no }
+						set_star_flag = fed_origin_system_1
+						if = {
+							limit = {
+								any_system_planet = { habitable_planet = yes }
+							}
+							random_system_planet = {
+								limit = { habitable_planet = yes }
+								save_event_target_as = fed_planet_1
+								private_colony_origin_planet_setup = yes
+								if = {
+									limit = { habitable_planet = no }
+									set_planet_size = 16
+									change_pc = pc_gaia
+								}
+								planet_event = { id = gamestartpop.11 days = 1 }
+							}
+						}
+						else = {
+							random_system_planet = {
+								limit = {
+									is_ringworld = no
+									is_asteroid = no
+									is_star = no
+									is_moon = no
+								}
+								save_event_target_as = fed_planet_1
+								private_colony_origin_planet_setup = yes
+								if = {
+									limit = { habitable_planet = no }
+									set_planet_size = 16
+									change_pc = pc_gaia
+								}
+								planet_event = { id = gamestartpop.11 days = 1 }
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		owner_species = { save_event_target_as = fed_planet_1_species }
+		
+		# Create Neighbor
+		event_target:fed_planet_1 = {
+			solar_system = { generate_home_system_resources = yes }
+			create_private_colony = yes
+			create_colony = {
+				owner = event_target:fed_member_1
+				species = event_target:fed_planet_1_species
+				ethos = owner
+			}
+			generate_start_deposits_and_blockers = yes
+			generate_start_buildings_and_districts = yes
+			generate_start_pops = yes
+			solar_system = {
+				create_starbase = {
+					size = starbase_starport
+					module = shipyard
+					building = crew_quarters
+					owner = event_target:fed_member_1
+					effect = {
+						set_starbase_module = {
+							slot = 1
+							module = trading_hub
+						}
+					}
+				}
+			}
+		}
+		
+		event_target:fed_member_1 = {
+			create_starting_leaders = yes
+			country_event = { id = game_start.9 }
+			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
+			set_name = random # Fixes some naming issues
+		}
+		
+		if = {
+			limit = { is_megacorp = yes }
+			owner_species = {
+				set_species_homeworld = event_target:fed_planet_1
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = gamestartpop.11
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		owner = {
+			establish_communications_no_message = FROM
+		}
+	}
+}

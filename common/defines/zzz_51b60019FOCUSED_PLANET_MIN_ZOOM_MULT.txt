@@ -1,0 +1,3 @@
+NCamera = {
+    FOCUSED_PLANET_MIN_ZOOM_MULT = 1.5
+}

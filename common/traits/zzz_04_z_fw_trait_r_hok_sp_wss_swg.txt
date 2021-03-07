@@ -1,0 +1,21 @@
+z_fw_trait_r_hok_sp_wss_swg = {
+    cost = 0
+    potential_crossbreeding_chance = 0
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        STARSHIPGIRLS
+    }
+    modifier = {
+        planet_jobs_produces_mult = 0.05
+        ship_hull_regen_add_perc = 0.5
+        ship_armor_regen_add_perc = 0.5
+    }
+    slave_cost = {
+        energy = 100
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

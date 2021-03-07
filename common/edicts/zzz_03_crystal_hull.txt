@@ -1,0 +1,26 @@
+crystal_hull = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = ship_edicts
+		cost = {
+			rare_crystals = 50
+		}
+	}
+
+	modifier = {
+		ship_hull_mult = 0.25
+	}
+	
+	prerequisites = {
+		"tech_crystal_armor_1"
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictLowPrio
+			is_at_war = yes
+		}
+	}
+}

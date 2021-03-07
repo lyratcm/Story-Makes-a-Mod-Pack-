@@ -1,0 +1,32 @@
+trait_leader_negligible_senescence = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_leader_negligible_senescence.dds"
+    opposites = {
+        leader_trait_resilient
+    }
+    leader_potential_add = {
+        NOT = {
+            leader_class = ruler
+        }
+        NOT = {
+            from = {
+                has_ethic = "ethic_gestalt_consciousness"
+            }
+        }
+        has_trait = trait_robust
+    }
+    self_modifier = {
+        leader_age = 50
+    }
+    leader_class = {
+        admiral
+        scientist
+        general
+        governor
+    }
+    leader_trait = all
+    ai_weight = {
+        weight = 500
+    }
+}

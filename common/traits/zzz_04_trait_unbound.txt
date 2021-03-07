@@ -1,0 +1,26 @@
+trait_unbound = {
+    cost = 3
+    initial = yes
+    modification = yes
+    randomized = yes
+    opposites = {
+        "trait_nerve_stapled"
+        "trait_hive_mind"
+    }
+    potential_crossbreeding_chance = 1.0
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_jobs_produces_mult = 0.05
+        pop_ethic_egalitarian_attraction_mult = 0.25
+        planet_jobs_slave_produces_mult = -0.30
+        pop_cat_slave_happiness = -0.50
+    }
+    slave_cost = {
+        energy = -200
+    }
+}

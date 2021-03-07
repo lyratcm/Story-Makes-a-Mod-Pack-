@@ -1,0 +1,179 @@
+building_individualist_colony = {
+	base_buildtime = @b2_time
+	category = government
+	icon = building_paradise_dome
+	category = amenity
+	
+	potential = {
+		has_building = building_individualist_enclave
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+		any_pop = { is_free_pop_gestalt = yes }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			is_planet_class = pc_machine
+			is_planet_class = pc_hive
+			NOT = { any_pop = { is_free_pop_gestalt = yes } }
+			owner = {
+				OR = {
+					is_gestalt = no
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_closed_collective
+					has_valid_civic = civic_machine_servitor
+					has_valid_civic = civic_machine_consciousness
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_closed_network
+					has_valid_civic = civic_infestation
+					has_valid_civic = civic_living_hosts
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_paradise_dome
+		building_communal_housing_large
+	}
+		
+	planet_modifier = {
+		planet_housing_add = 16
+		planet_amenities_no_happiness_add = 8
+		job_supplier_add = 2
+		job_laborer_gestalt_add = 2
+		job_enforcer_gestalt_add = 1
+	}
+	
+	#triggered_planet_modifier = {
+	#	potential = {
+	#		exists = planet
+	#		planet = {
+	#			NOT = { is_planet_class = pc_habitat }
+	#			NOT = { is_planet_class = pc_city }
+	#			NOT = { is_planet_class = pc_relic }
+	#			any_pop = {
+	#				is_free_pop_gestalt = yes
+	#				is_lithoid = no
+	#			}
+	#		}
+	#	}
+	#	modifier = {
+	#		job_farmer_gestalt_add = 4
+	#	}
+	#}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_harm_hive
+					has_valid_civic = civic_harm_machine
+				}
+			}
+		}
+		modifier = {
+			job_researcher_gestalt_add = 2
+			job_entertainer_gestalt_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_technology = tech_housing_1 
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_technology = tech_housing_2 
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = 8
+		}
+	}
+	
+	prerequisites = {
+		"tech_housing_2"
+	}
+	show_tech_unlock_if = {
+		is_gestalt = yes
+		NOR = {
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_closed_collective
+			has_valid_civic = civic_machine_servitor
+			has_valid_civic = civic_machine_consciousness
+			has_valid_civic = civic_machine_assimilator
+			has_valid_civic = civic_machine_terminator
+			has_valid_civic = civic_closed_network
+			has_valid_civic = civic_infestation
+			has_valid_civic = civic_living_hosts
+		}
+	}
+	
+	triggered_desc = {
+		text = individualist_enclave_effect_desc
+	}
+	triggered_desc = {
+		text = job_administrator_gestalt_effect_desc
+	}
+	triggered_desc = {
+		text = job_enforcer_gestalt_effect_desc
+	}
+	triggered_desc = {
+		text = job_supplier_effect_desc
+	}
+	#triggered_desc = {
+	#	text = job_farmer_gestalt_effect_desc
+	#}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_harm_hive
+					has_valid_civic = civic_harm_machine
+				}
+			}
+		}	
+		text = job_researcher_gestalt_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_harm_hive
+					has_valid_civic = civic_harm_machine
+				}
+			}
+		}	
+		text = job_entertainer_gestalt_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

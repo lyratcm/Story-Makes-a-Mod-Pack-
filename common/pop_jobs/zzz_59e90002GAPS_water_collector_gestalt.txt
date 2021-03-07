@@ -1,0 +1,49 @@
+GAPS_water_collector_gestalt = {
+    category = complex_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_power_plant
+    clothes_texture_index = 2
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        drone_job_check_trigger = yes
+        owner = {
+            is_gestalt = yes
+        }
+    }
+    resources = {
+        category = planet_farmers
+        produces = {
+            sr_GAPS_water = 1
+        }
+        produces = {
+            trigger = {
+                is_lithoid = no
+                is_robotic_species = no
+            }
+            food = 1
+        }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+                is_robotic_species = no
+            }
+            minerals = 1
+        }
+        produces = {
+            trigger = {
+                is_lithoid = no
+                is_robotic_species = yes
+            }
+            energy = 1
+        }
+    }
+    weight = {
+        weight = @complex_drone_job_weight
+        modifier = {
+            factor = 10
+            exists = owner
+        }
+    }
+}

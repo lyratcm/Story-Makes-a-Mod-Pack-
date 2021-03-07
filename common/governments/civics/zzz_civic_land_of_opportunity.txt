@@ -1,0 +1,10 @@
+civic_mem_land_of_opportunity = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/civic_agrarian_idyll.dds"
+	potential = {
+		country_type = { value = primitive }
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
+	
+	modifier = { }
+}

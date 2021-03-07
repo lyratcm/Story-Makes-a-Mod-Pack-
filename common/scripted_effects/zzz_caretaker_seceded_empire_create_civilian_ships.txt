@@ -1,0 +1,40 @@
+caretaker_seceded_empire_create_civilian_ships = {
+    create_fleet = {
+        effect = {
+            set_owner = event_target:caretaker_secession_empire
+            create_ship = {
+                name = random
+                random_existing_design = constructor
+                prefix = no
+            }
+            set_location = $FLEET_TARGET$
+        }
+    }
+    create_fleet = {
+        effect = {
+            set_owner = event_target:caretaker_secession_empire
+            create_ship = {
+                name = random
+                random_existing_design = science
+                prefix = no
+            }
+            set_location = $FLEET_TARGET$
+            save_event_target_as = caretaker_initial_surveyor
+        }
+    }
+    create_leader = {
+        class = scientist
+        species = owner_main_species
+        name = random
+        skill = 5
+        traits = {
+            trait = leader_trait_custom_AI_assistant
+        }
+        effect = {
+            save_event_target_as = caretaker_surveyor_leader
+        }
+    }
+    event_target:caretaker_initial_surveyor = {
+        assign_leader = event_target:caretaker_surveyor_leader
+    }
+}

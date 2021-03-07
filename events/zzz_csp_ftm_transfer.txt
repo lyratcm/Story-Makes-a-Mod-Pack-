@@ -1,0 +1,19 @@
+namespace = ftm_transfer
+
+###placeholder###
+country_event = {
+	id = ftm_transfer.1
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	option = { name = z_modmenu_pity }
+}
+country_event = {
+	id = ftm_transfer.14
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	option = { name = z_modmenu_pity }
+}

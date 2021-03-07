@@ -1,0 +1,22 @@
+origin_techno_world = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_pdtechno.dds"
+	picture = GFX_origin_pd_techno
+	starting_colony = pc_technoorganic
+	habitability_preference = pc_technoorganic
+	preferred_planet_class_neighbor = no
+	description = "origin_tooltip_techno_world_effects"
+	random_weight = { base = 0 }
+	initializers = { pd_origin_init_technoorganic }
+	traits = { trait = trait_organic_fourschildren }
+	possible = { 
+		authority = { NOT = { value = auth_machine_intelligence } } 
+		civics = { 
+			NOT = { value = civic_fanatic_purifiers } 
+			NOT = { value = civic_barbaric_despoilers }
+			NOT = { value = civic_hive_devouring_swarm }
+		}
+	}
+	flags = { custom_start_screen }
+	#max_once_global = yes
+}

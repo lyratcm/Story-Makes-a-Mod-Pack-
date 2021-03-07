@@ -1,0 +1,41 @@
+vfb_functionary = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_vfb_plaza
+    clothes_texture_index = 1
+    icon = vfb_functionary
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        ruler_job_check_trigger = yes
+        hidden_trigger = {
+            exists = owner
+        }
+        or = {
+            has_job = vfb_functionary
+            z_pop_job_trigger = yes
+        }
+    }
+    planet_modifier = {
+        planet_stability_add = 10
+    }
+    country_modifier = {
+        country_admin_cap_add = 10
+    }
+    resources = {
+        category = planet_administrators
+        produces = {
+        }
+        upkeep = {
+            consumer_goods = 2
+            unity = 2
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+    }
+}

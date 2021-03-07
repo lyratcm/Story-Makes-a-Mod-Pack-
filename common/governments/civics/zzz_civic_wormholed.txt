@@ -1,0 +1,12 @@
+Civic_GAPS_Wormholed = {
+    icon = "gfx/interface/icons/civics/Civic_GAPS_Wormholed.dds"
+    potential = {
+        always = no
+    }
+    modification = no
+    random_weight = {
+        base = 0
+    }
+    modifier = {
+    }
+}

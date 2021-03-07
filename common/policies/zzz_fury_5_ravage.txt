@@ -1,0 +1,26 @@
+est_fury_5_ravage = {
+
+	potential = {
+		has_swapped_tradition = tr_est_fury_5
+	}
+	
+	option = {
+		name = "est_fury_5_ravage_on"	
+		policy_flags = {
+			est_fury_5_ravage_on
+		}		
+		AI_weight = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = "est_fury_5_ravage_off"	
+		policy_flags = {
+			est_fury_5_ravage_off
+		}	
+		AI_weight = {
+			factor = 0
+		}
+	}
+}

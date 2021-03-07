@@ -1,0 +1,35 @@
+civic_living_god = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_spiritualist
+                value = ethic_spiritualist
+                value = ethic_fanatic_spiritualist
+                text = civic_tooltip_authoritarian
+                value = ethic_authoritarian
+                value = ethic_fanatic_authoritarian
+            }
+        }
+        authority = {
+            OR = {
+                value = auth_dictatorial
+                value = auth_imperial
+                value = auth_corporate
+            }
+        }
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        planet_building_build_speed_mult = 0.20
+        country_unity_produces_mult = 0.10
+        army_morale = 0.10
+        pop_growth_from_immigration = -0.3
+        planet_immigration_pull_mult = -0.50
+        leader_skill_levels = -1
+    }
+}

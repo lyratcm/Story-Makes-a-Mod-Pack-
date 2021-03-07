@@ -1,0 +1,25 @@
+trait_robot_custom_made = {
+    cost = -2
+    opposites = {
+        "trait_robot_mass_produced"
+        "trait_additrait_swarm"
+        "trait_additrait_standard_frame"
+        "trait_additrait_hand_crafted"
+    }
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    modifier = {
+        pop_assembly_speed = -0.15
+    }
+    ai_weight = {
+        weight = 400
+        modifier = {
+            factor = 0
+            NOT = {
+                has_country_flag = make_robots_custom_made
+            }
+        }
+    }
+}

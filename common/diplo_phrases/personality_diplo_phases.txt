@@ -1,0 +1,3622 @@
+### 
+# FROM is the actor ie the initiator of the diplomatic action
+# ROOT is the recipient of the diplomatic action
+
+greetings = {
+	### Modded Personalities ###
+	
+	# Xenophobic Protectionists
+	EI_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	EI_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	EI_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+	}
+	EI_HOSTILE_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	EI_HOSTILE_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			is_same_species = FROM
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	EI_HOSTILE_GREETING_06 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	EI_HOSTILE_GREETING_07 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				OR = {
+					has_policy_flag = purge_allowed
+					has_policy_flag = slavery_allowed
+				}
+			}
+		}
+	}
+	EI_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		}
+	}
+	EI_DOMINEERING_GREETING_02 = {
+		weight = {
+			weight = 2
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			FROM = { NOT = { has_authority = auth_machine_intelligence } }
+		}
+	}
+	EI_DOMINEERING_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			FROM = {
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}
+	}
+	EI_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	EI_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	EI_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	EI_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	EI_THREATENED_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	EI_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	EI_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	EI_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	EI_WAR_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+	}
+	EI_WAR_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	EI_WAR_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	EI_WAR_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	EI_WAR_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	EI_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	EI_VASSAL_GREETING_DISLOYAL_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	EI_VASSAL_GREETING_DISLOYAL_02 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	EI_VASSAL_GREETING_DISLOYAL_03 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = egalitarian_imperialists
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	
+	# Decadant Technocracy
+	DT_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	DT_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			allows_slavery = no
+			FROM = {
+				any_owned_pop = {
+					is_enslaved = yes
+					is_robot_pop = no
+				}
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	DT_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_same_species = FROM }
+			NOT = { ruler = { is_same_species = FROM } }
+			NOT = {
+				FROM = {
+					ruler = { is_same_species = prevprev }
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				NOT = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	DT_HOSTILE_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	DT_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			FROM = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	DT_DOMINEERING_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+		}
+	}
+	DT_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			FROM = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	DT_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			FROM = {
+				is_robot_empire = no
+				any_owned_pop = { is_robot_pop = yes }
+			}
+		}
+	}
+	DT_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	DT_NEUTRAL_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	DT_NEUTRAL_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			FROM = {
+				has_policy_flag = robots_outlawed
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	DT_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	DT_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	DT_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	DT_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	DT_FRIENDLY_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			OR = {
+				has_ai_personality = decadent_technocracy
+				has_ai_personality = decadent_hierarchy
+			}
+			FROM = {
+				OR = {
+					has_civic = civic_slaver_guilds
+					owner_species = { has_trait = trait_decadent }
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	DT_WAR_GREETING_01 = {
+		weight = {
+			weight = 5
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			is_at_war_with = FROM
+			FROM = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	DT_WAR_GREETING_02 = {
+		weight = {
+			weight = 5
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			is_at_war_with = FROM
+			FROM = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	DT_WAR_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			is_at_war_with = FROM
+			FROM = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+		}
+	}
+	DT_WAR_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	DT_WAR_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	DT_WAR_GREETING_06 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	DT_WAR_GREETING_07 = {
+		weight = {
+			weight = 5
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			has_technology = tech_droid_workers
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	DT_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	DH_VASSAL_GREETING_02 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			OR = {
+				has_ai_personality = decadent_hierarchy
+				has_ai_personality = decadent_technocracy
+			}
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	DT_VASSAL_GREETING_DISLOYAL_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+			FROM = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	DT_VASSAL_GREETING_DISLOYAL_02 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = decadent_technocracy
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	
+	# Knowledge Seekers
+	KS_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = { 
+				NOT = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	KS_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	KS_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = { 
+				NOT = { 
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	KS_HOSTILE_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	KS_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+		}
+	}
+	KS_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	KS_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	KS_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	KS_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	KS_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	KS_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	KS_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			FROM = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	KS_FRIENDLY_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			is_in_federation_with = FROM
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	KS_WAR_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			is_at_war_with = FROM
+		}
+	}
+	KS_WAR_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			is_at_war_with = FROM
+		}
+	}
+	KS_WAR_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	KS_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	KS_VASSAL_GREETING_DISLOYAL_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = knowledge_seekers
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	
+	# Closed Hive
+	CH_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			FROM = {
+				NOT = { has_authority = auth_hive_mind }
+				NOT = { has_authority = auth_machine_intelligence }
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	CH_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			FROM = {
+				OR = {
+					has_authority = auth_hive_mind
+					has_authority = auth_machine_intelligence
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	CH_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	CH_HOSTILE_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				NOR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+	}
+	CH_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+		}
+	}
+	CH_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			FROM = {
+				NOR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+	}
+	CH_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			FROM = {
+				NOR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	CH_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	CH_NEUTRAL_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	CH_NEUTRAL_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	CH_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	CH_THREATENED_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	CH_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	CH_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+				FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+				NOT = { is_species_class = ROBOT }
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	CH_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_at_war_with = FROM }
+			FROM = { NOT = { has_authority = auth_hive_mind } }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	CH_FRIENDLY_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	CH_FRIENDLY_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+					has_valid_civic = civic_closed_collective
+					has_valid_civic = civic_closed_network
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	CH_WAR_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			is_at_war_with = FROM
+		}
+	}
+	CH_WAR_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			is_at_war_with = FROM
+		}
+	}
+	CH_WAR_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			is_at_war_with = FROM
+			FROM = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	CH_WAR_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+			FROM = {
+				NOT = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	CH_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	CH_VASSAL_GREETING_DISLOYAL_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = closed_hive_mind
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	
+	# Open Hive Mind
+	OC_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	OC_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	OC_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	OC_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+		}
+	}
+	OC_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	OC_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+				FROM = {
+					NOT = {
+						has_authority = auth_machine_intelligence
+						is_species_class = ROBOT
+					}
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	OC_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	OC_NEUTRAL_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	OC_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	OC_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	OC_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	OC_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			is_in_federation_with = FROM	
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	OC_FRIENDLY_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	OC_FRIENDLY_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	OC_WAR_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			is_at_war_with = FROM
+		}
+	}
+	OC_WAR_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			is_at_war_with = FROM
+		}
+	}
+	OC_WAR_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			is_at_war_with = FROM
+			FROM = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	OC_WAR_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = open_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			is_at_war_with = FROM
+		}
+	}
+	
+	# Warrior_Scholar
+	TW_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 2
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	TW_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			relative_power = {
+				who = from
+				category = technology
+				value > equivalent
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	TW_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			relative_power = {
+				who = from
+				category = technology
+				value <= equivalent
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	TW_HOSTILE_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			relative_power = {
+				who = from
+				category = technology
+				value <= equivalent
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	TW_HOSTILE_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			relative_power = {
+				who = from
+				category = technology
+				value > equivalent
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	TW_HOSTILE_GREETING_06 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	TW_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			relative_power = {
+				who = from
+				category = technology
+				value > equivalent
+			}
+			OR = {
+				is_domineering_to = FROM
+			}
+		}
+	}
+	TW_DOMINEERING_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			relative_power = {
+				who = from
+				category = technology
+				value <= equivalent
+			}
+			OR = {
+				is_domineering_to = FROM
+			}
+		}
+	}
+	TW_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			relative_power = {
+				who = from
+				category = technology
+				value > equivalent
+			}
+			is_neutral_to = FROM
+		}
+	}
+	TW_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			FROM = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			relative_power = {
+				who = from
+				category = technology
+				value <= equivalent
+			}
+		}
+	}
+	TW_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 2
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	TW_NEUTRAL_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	TW_NEUTRAL_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	TW_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	TW_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			relative_power = {
+				who = from
+				category = technology
+				value <= equivalent
+			}
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TW_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_at_war = no
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TW_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_at_war = yes
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TW_FRIENDLY_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TW_FRIENDLY_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TW_WAR_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			is_at_war_with = FROM
+			relative_power = {
+				who = from
+				category = technology
+				value > equivalent
+			}
+		}
+	}
+	TW_WAR_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			is_at_war_with = FROM
+		}
+	}
+	TW_WAR_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			is_at_war_with = FROM
+		}
+	}
+	TW_WAR_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			is_at_war_with = FROM
+			relative_power = {
+				who = from
+				category = technology
+				value <= equivalent
+			}
+		}
+	}
+	TW_WAR_GREETING_05 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			is_at_war_with = FROM
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+	}
+	TW_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+			FROM = {
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}
+	}
+	TW_VASSAL_GREETING_DISLOYAL_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = technological_warriors
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	
+	# Peacekeeping Interventionists
+	VB_KEEPERS_FRIENDLY_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	VB_KEEPERS_FRIENDLY_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	VB_KEEPERS_FRIENDLY_03 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	#Neutral greetings
+	VB_KEEPERS_NEUTRAL_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	VB_KEEPERS_NEUTRAL_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	VB_KEEPERS_NEUTRAL_03 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	VB_KEEPERS_NEUTRAL_04 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+	}
+	#Hostile greetings
+	VB_KEEPERS_HOSTILE_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	VB_KEEPERS_HOSTILE_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	VB_KEEPERS_HOSTILE_03 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	#Greeting while at war
+	VB_KEEPERS_WAR_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			is_at_war_with = FROM 
+		}
+	}
+	VB_KEEPERS_WAR_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			is_at_war_with = FROM 
+		}
+	}
+	VB_KEEPERS_WAR_03 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			is_at_war_with = FROM 
+		}
+	}
+	#Keepers as vassals
+	VB_KEEPERS_VASSAL_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	VB_KEEPERS_VASSAL_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	VB_KEEPERS_VASSAL_03 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	#Keepers as disloyal vassals
+	VB_KEEPERS_DISLOYAL_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM 
+		}
+	}
+	VB_KEEPERS_DISLOYAL_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM 
+		}
+	}
+	VB_KEEPERS_DISLOYAL_03 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_keepers_of_peace
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM 
+		}
+	}
+	
+	# Sneering Technocrats
+	TECH_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	TECH_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_same_species = FROM }
+			NOT = { ruler = { is_same_species = FROM } }
+			NOT = {
+				FROM = {
+					ruler = { is_same_species = prevprev }
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				NOT = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	TECH_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			FROM = {
+				NOR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				NOT = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	TECH_HOSTILE_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	TECH_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+		}
+	}
+	TECH_DOMINEERING_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			FROM = { 
+				OR = { 
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	TECH_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	TECH_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	TECH_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	TECH_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	TECH_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TECH_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TECH_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TECH_FRIENDLY_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	TECH_WAR_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			is_at_war_with = FROM
+		}
+	}
+	TECH_WAR_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			is_at_war_with = FROM
+		}
+	}
+	TECH_WAR_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	TECH_WAR_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+		}
+	}
+	TECH_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+			FROM = {
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}
+	}
+	TECH_VASSAL_GREETING_DISLOYAL_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	TECH_VASSAL_GREETING_DISLOYAL_02 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			has_ai_personality = vb_sneering_technocrats
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+		}
+	}
+	
+	#Ambitious Unifiers Diplo
+	#Friendly greetings
+	VB_UNIFIERS_FRIENDLY_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	
+	VB_UNIFIERS_FRIENDLY_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	
+	VB_UNIFIERS_FRIENDLY_03 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	
+	#Neutral greetings
+	
+	VB_UNIFIERS_NEUTRAL_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	
+	VB_UNIFIERS_NEUTRAL_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	
+	VB_UNIFIERS_NEUTRAL_03 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	
+	VB_UNIFIERS_NEUTRAL_04 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+	}
+	
+	#Hostile greetings
+	
+	VB_UNIFIERS_HOSTILE_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	
+	VB_UNIFIERS_HOSTILE_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+	}
+	
+	#Greeting while at war
+	
+	VB_UNIFIERS_WAR_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			is_at_war_with = FROM 
+		}
+	}
+	
+	VB_UNIFIERS_WAR_02 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			is_at_war_with = FROM 
+		}
+	}
+	
+	#UNIFIERS as disloyal vassals
+	VB_UNIFIERS_DISLOYAL_01 = {
+		weight = {
+			weight = 3
+		}
+		
+		trigger = {
+			has_ai_personality = vb_ambitious_unifiers
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM 
+		}
+	}
+	
+	# Impelled Infestors
+	II_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			FROM = {
+				has_civic = civic_machine_assimilator
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	II_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			FROM = {
+				has_civic = civic_machine_servitor
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	II_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			FROM = {
+				OR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	II_HOSTILE_GREETING_04 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			FROM = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	II_HOSTILE_GREETING_05 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	II_HOSTILE_GREETING_06 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	II_HOSTILE_GREETING_07 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = from }
+			OR = {
+				is_hostile_to = from
+				is_unfriendly_to = from
+			}
+			from = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_HOSTILE_GREETING_08 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			FROM = {
+				has_valid_civic = civic_fanatic_purifiers
+			}
+			NOT = { is_at_war_with = FROM }
+			NAND = {
+				exists = overlord
+				overlord = { is_same_value = FROM }
+			}
+		}
+	}
+	II_HOSTILE_GREETING_09 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			FROM = {
+				OR = {
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_infestation
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = from
+				is_unfriendly_to = from
+			}
+		}
+	}
+	II_HOSTILE_GREETING_10 = {
+		weight = {
+			weight = 500
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			FROM = {
+				has_valid_civic = civic_hive_devouring_swarm
+			}
+			NOT = { is_at_war_with = FROM }
+			NAND = {
+				exists = overlord
+				overlord = { is_same_value = FROM }
+			}
+		}
+	}
+	II_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			from = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_DOMINEERING_GREETING_02 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			from = {
+				has_authority = auth_hive_mind
+				NOT = { has_valid_civic = civic_infestation }
+			}
+		}
+	}
+	II_DOMINEERING_GREETING_03 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			from = {
+				has_authority = auth_hive_mind
+				has_valid_civic = civic_infestation
+			}
+		}
+	}
+	II_DOMINEERING_GREETING_04 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			from = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_DOMINEERING_GREETING_05 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+				NOT = { is_species_class = ROBOT }
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+		}
+	}
+	II_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 200
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	II_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 200
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	II_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			from = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_NEUTRAL_GREETING_04 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	II_NEUTRAL_GREETING_05 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+				NOT = { is_species_class = ROBOT }
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	II_NEUTRAL_GREETING_06 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	II_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+			from = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_THREATENED_GREETING_02 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	II_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+			from = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+			from = {
+				has_authority = auth_hive_mind
+				NOT = { has_valid_civic = civic_infestation }
+			}
+		}
+	}
+	II_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+			from = {
+				has_authority = auth_hive_mind
+				has_valid_civic = civic_infestation
+			}
+		}
+	}
+	II_FRIENDLY_GREETING_04 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = from }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+			from = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_FRIENDLY_GREETING_05 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+				FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+				NOT = { is_species_class = ROBOT }
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	II_FRIENDLY_GREETING_06 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	II_FRIENDLY_GREETING_07 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	II_FRIENDLY_GREETING_08 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			is_in_federation_with = FROM
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	II_WAR_GREETING_01 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			is_at_war_with = FROM
+			from = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_WAR_GREETING_02 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			is_at_war_with = FROM
+		}
+	}
+	II_WAR_GREETING_03 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			is_at_war_with = FROM
+			from = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_WAR_GREETING_04 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			is_at_war_with = FROM
+			from = {
+				OR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_WAR_GREETING_05 = {
+		weight = {
+			weight = 200
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+			FROM = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+		}
+	}
+	II_WAR_GREETING_06 = {
+		weight = {
+			weight = 200
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			NOT = { is_same_species = FROM }
+			is_at_war_with = FROM
+			FROM = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_WAR_GREETING_07 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			is_at_war_with = FROM
+			FROM = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_WAR_GREETING_08 = {
+		weight = {
+			weight = 300
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			is_at_war_with = FROM
+			FROM = {
+				OR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+		}
+	}
+	II_VASSAL_GREETING_02 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+			from = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_VASSAL_GREETING_03 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+			from = {
+				OR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_VASSAL_GREETING_DISLOYAL_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+			from = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	II_VASSAL_GREETING_DISLOYAL_02 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			has_ai_personality = infested_hive_mind
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+			from = {
+				OR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	
+	
+	### Vanilla Personalities ###
+	
+	# Devouring Swarm
+	DS_GEN_GREETING_01 = {
+		weight = {
+			weight = 4
+		}
+		trigger = {
+			has_ai_personality = devouring_swarm
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { exists = overlord }
+			species_portrait = pla11
+			FROM = { NOT = { has_authority = auth_machine_intelligence } }
+		}
+	}
+	TO_DS_GEN_GREETING_01 = {
+		weight = {
+			weight = 4
+		}
+		trigger = {
+			NOT = { exists = overlord }
+			NOT = { has_authority = auth_machine_intelligence }
+			FROM = {
+				has_valid_civic = "civic_hive_devouring_swarm"
+				NOT = { is_same_species = prev }
+				NOT = { is_at_war_with = prev }
+				species_portrait = pla11
+			}
+		}
+	}
+	
+	# Honorbound Warriors
+	HW_HI_WAR_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			OR = {
+				has_ai_personality = honorbound_warriors
+				has_ai_personality = hegemonic_imperialists
+			}
+			is_at_war_with = FROM
+			NOR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+			relative_power = {
+				who = from
+				value >= equivalent
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+	}
+	HW_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 10
+		}
+		trigger = {
+			OR = {
+				has_ai_personality = honorbound_warriors
+				has_ai_personality = hegemonic_imperialists
+			}
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+			FROM = {
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}
+	}
+	
+	# Democratic Crusaders
+	DC_HOSTILE_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			OR = {
+				has_ai_personality = democratic_crusaders
+				AND = {
+					has_ai_personality = egalitarian_imperialists
+					has_election_type = democratic
+				}
+			}
+			NOT = { has_valid_civic = civic_shared_burden }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			FROM = {
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}
+	}
+}

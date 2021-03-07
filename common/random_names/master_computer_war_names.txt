@@ -1,0 +1,36 @@
+war_name_parts_list = {
+	key = "master_computer_datavore_names"
+	parts = {
+		"Data Probe" = 1
+		"Hijack Attempt" = 1
+		"Privacy Violation" = 1
+		"Privacy Invasion" = 1
+		"Breach Attempt" = 1
+		"Hack" = 1
+		"System Invasion" = 1
+		"Disruption Attempt" = 1
+		"Breach" = 1
+		"Disruption" = 1
+		"Hijack" = 1
+		"System Infiltration" = 1
+		"Infiltration" = 1
+	}
+}
+
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_master_computer_steal_information
+                owner = attacker
+            }
+			attacker = {
+			}
+			defender = {
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <master_computer_datavore_names>"
+}

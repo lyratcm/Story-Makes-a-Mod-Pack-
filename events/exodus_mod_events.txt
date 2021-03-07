@@ -1,0 +1,745 @@
+################################
+#
+# Exodus Events
+#
+###############################
+
+namespace = exodus
+
+### Exodus
+event = {
+	id = exodus.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Exodus Mod
+		every_playable_country = {
+			limit = { has_origin = origin_exodus }
+			country_event = { id = exodus.10 }
+		}
+	}
+}
+# Set Up
+country_event = {
+	id = exodus.10
+	hide_window = yes
+
+	is_triggered_only = yes
+	trigger = {
+		#NOT = { has_planet_flag = exodus_origin_project_complete }
+		NOT = { has_country_flag = exodus_origin_setup_complete }
+	}
+	immediate = {
+		save_event_target_as = exodus_owner
+		capital_scope = {
+			add_modifier = {
+				modifier = exodus_1
+			}
+			set_planet_size = 20
+			clear_deposits = yes
+			remove_all_districts = yes
+			
+			change_pc = pc_city
+			set_planet_entity = {
+				entity = "city_planet_entity"
+				graphical_culture = owner
+			}
+			
+			add_deposit = d_overloaded_infrastructure
+			add_deposit = d_overloaded_infrastructure_2
+			add_deposit = d_overloaded_infrastructure_3
+			add_deposit = d_hydroponic_arcology
+			add_deposit = d_dwindling_stockpile
+			
+			add_district = district_arcology_housing
+			add_district = district_arcology_housing
+			add_district = district_arcology_housing
+			if = {
+				limit = { owner = { is_megacorp = no } }
+				add_building = building_commercial_zone
+			}
+			
+			
+			while = {
+				limit = { num_pops < 36 }
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+			}
+			
+			planet_event = { id = exodus.11 days = 360 }
+		}
+		set_country_flag = exodus_origin_setup_complete
+	}
+}
+###############################################################################
+# Resource Events
+###############################################################################
+# Resource 1
+planet_event = {
+	id = exodus.11
+	title = "exodus.11.name"
+	desc = "exodus.11.desc"
+	picture = GFX_evt_ship_offloading_cargo
+	show_sound = event_planetary_riot
+	location = root
+
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_planet_flag = exodus_origin_project_complete }
+	}
+	
+	immediate = {
+		add_modifier = {modifier = exodus_resource_1}
+		remove_deposit = d_dwindling_stockpile
+		planet_event = { id = exodus.41 days = 360 random = 30 }
+		planet_event = { id = exodus.12 days = 1000 random = 100 }
+	}
+
+	option = {
+		name = exodus_11.egalitarian
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_egalitarian
+				} 
+			}
+		}
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.authoritarian
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_authoritarian
+				} 
+			}
+		}
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.pacifist
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_pacifist
+					has_ethic = ethic_pacifist
+				} 
+			}
+		}
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.militarist
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_militarist
+					has_ethic = ethic_militarist
+				} 
+			}
+		}
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.materialist
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_materialist
+					has_ethic = ethic_materialist
+				} 
+			}
+		}
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.spiritualist
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_spiritualist 
+					has_ethic = ethic_spiritualist 
+				} 
+			}
+		}
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.xenophobe
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_xenophobe
+				} 
+			}
+		}
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.xenophile
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_xenophile
+				} 
+			}
+		}
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.corporate
+		trigger = { owner = { has_authority = auth_corporate } }
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+	
+	option = {
+		name = exodus_11.default
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_1}
+			remove_deposit = d_dwindling_stockpile
+		}
+	}
+}
+
+# Resource 2
+planet_event = {
+	id = exodus.12
+	title = "exodus.12.name"
+	desc = "exodus.12.desc"
+	picture = GFX_evt_financial_instruments
+	show_sound = event_planetary_riot
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_planet_flag = exodus_origin_project_complete }
+	}
+
+	immediate = {
+		remove_modifier = exodus_resource_1
+		add_modifier = {modifier = exodus_resource_2}
+		
+		planet_event = { id = exodus.42 days = 360 random = 30 }
+		planet_event = { id = exodus.13 days = 1800 random = 100 }
+	}
+
+	option = {
+		trigger = { owner = { has_authority = auth_corporate } }
+		name = exodus_12.corporate
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_2}
+			#add_modifier = {modifier = exodus_pop_2}
+		}
+	}
+	
+	option = {
+		name = exodus_12.a
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_2}
+			#add_modifier = {modifier = exodus_pop_2}
+		}
+	}
+}
+
+# Resource 3
+planet_event = {
+	id = exodus.13
+	title = "exodus.13.name"
+	desc = "exodus.13.desc"
+	picture = GFX_evt_city_ruins
+	show_sound = event_structural_collapse
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_planet_flag = exodus_origin_project_complete }
+	}
+
+	immediate = {
+		remove_modifier = exodus_resource_2
+		add_modifier = {modifier = exodus_resource_3}
+		#add_modifier = {modifier = exodus_pop_3}
+		planet_event = { id = exodus.43 days = 360 random = 30 }
+	}
+
+	option = {
+		name = exodus_13.a
+		tooltip = {
+			add_modifier = {modifier = exodus_resource_3}
+			
+		}
+	}
+}
+###############################################################################
+# Pop Events
+###############################################################################
+#First Pop Debuff
+planet_event = {
+	id = exodus.41
+	title = "exodus.41.name"
+	desc = "exodus.41.desc"
+	picture = GFX_evt_announcement
+	show_sound = event_planetary_riot
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_planet_flag = exodus_origin_project_complete }
+	}
+
+	immediate = {
+		add_modifier = {modifier = exodus_pop_1}
+	}
+
+	option = {
+		trigger = { owner = { has_authority = auth_corporate } }
+		name = exodus_41.corporate
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_1}
+		}
+	}
+	
+	option = {
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_spiritualist 
+					has_ethic = ethic_spiritualist 
+				} 
+			}
+		}
+		name = exodus_41.spiritualist
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_1}
+		}
+	}
+	
+	option = {
+		name = exodus_41.a
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_1}
+		}
+	}
+}
+
+#Second Pop Debuff
+planet_event = {
+	id = exodus.42
+	title = "exodus.42.name"
+	desc = "exodus.42.desc"
+	picture = GFX_evt_busy_spaceport
+	show_sound = event_planetary_riot
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_planet_flag = exodus_origin_project_complete }
+	}
+
+	immediate = {
+		remove_modifier = exodus_pop_1
+		add_modifier = {modifier = exodus_pop_2}
+	}
+	
+	option = {
+		trigger = { owner = { has_authority = auth_corporate } }
+		name = exodus_42.corporate
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_2}
+		}
+	}
+	
+	option = {
+		name = exodus_42.a
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_2}
+		}
+	}
+}
+
+#Third Pop Debuff
+planet_event = {
+	id = exodus.43
+	title = "exodus.43.name"
+	desc = "exodus.43.desc"
+	picture = GFX_evt_night_raid
+	show_sound = event_planetary_riot
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_planet_flag = exodus_origin_project_complete }
+	}
+
+	immediate = {
+		remove_modifier = exodus_pop_2
+		add_modifier = {modifier = exodus_pop_3}
+	}
+
+	option = {
+		trigger = { owner = { has_authority = auth_corporate } }
+		name = exodus_43.corporate
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_3}
+		}
+	}
+	option = {
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_authoritarian 
+					has_ethic = ethic_authoritarian 
+				} 
+			}
+		}
+		name = exodus_43.authoritarian
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_3}
+		}
+	}
+	option = {
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_militarist 
+					has_ethic = ethic_militarist 
+				} 
+			}
+		}
+		name = exodus_43.militarist
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_3}
+		}
+	}
+	option = {
+		trigger = { owner = { has_civic = civic_shared_burden } }
+		name = exodus_43.sharedburden
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_3}
+		}
+	}
+	
+	option = {
+		name = exodus_43.a
+		tooltip = {
+			add_modifier = {modifier = exodus_pop_3}
+		}
+	}
+}
+###############################################################################
+# Project / Decision
+###############################################################################
+# Exodus Trigger special project
+planet_event = {
+	id = exodus.25
+	title = "exodus.25.name"
+	desc = "exodus.25.desc"
+	picture = GFX_evt_board_meeting
+	show_sound = event_conversation
+	location = root
+
+	is_triggered_only = yes
+	
+	immediate = {
+		enable_special_project = {
+			name = "EXODUS_PROJECT"
+			location = this
+			owner = root
+		}
+	}
+	option = {
+		name = exodus_25.a
+		tooltip = {
+			enable_special_project = {
+				name = "EXODUS_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+}
+
+# Exodus 5: special project outcome
+planet_event = {
+	id = exodus.26
+	title = "exodus.26.name"
+	desc = "exodus.26.desc"
+	picture = GFX_evt_board_meeting
+	show_sound = event_conversation
+	location = root
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_planet_flag = exodus_origin_project_flag
+		owner = {add_research_option = tech_housing_1}
+		random_list = {
+			1 = {
+				owner = { 
+					add_tech_progress = {
+						tech = tech_housing_1
+						progress = 0.25
+					}
+				}
+			}
+			3 = {
+				owner = { 
+					add_tech_progress = {
+						tech = tech_housing_1
+						progress = 0.50
+					}
+				}
+			}
+			1 = {
+				owner = { 
+					add_tech_progress = {
+						tech = tech_housing_1
+						progress = 0.75
+					}
+				}
+			}
+		
+		}
+	}
+
+	option = {
+		name = exodus_26.a
+		tooltip = {
+			owner = { add_research_option = tech_housing_1 }
+		}
+	}
+}
+
+planet_event = {
+	id = exodus.27
+	title = "exodus.27.name"
+	desc = "exodus.27.desc"
+	
+	picture = GFX_evt_tradestation_interior
+	show_sound = event_celebration
+	location = root
+
+	is_triggered_only = yes
+	
+	immediate = {
+		add_modifier = { modifier = exodus_reward }
+		owner = {
+			add_resource = {
+				volatile_motes = 50
+				rare_crystals = 50
+				exotic_gases = 50
+			}
+		}
+	}
+	
+	option = {
+		trigger = { owner = { has_authority = auth_corporate } }
+		name = exodus_27.corporate
+		tooltip = {
+			add_modifier = { modifier = exodus_reward }
+			owner = {
+			add_resource = {
+				volatile_motes = 50
+				rare_crystals = 50
+				exotic_gases = 50
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = exodus_27.a
+		tooltip = {
+			add_modifier = { modifier = exodus_reward }
+			owner = {
+			add_resource = {
+				volatile_motes = 50
+				rare_crystals = 50
+				exotic_gases = 50
+				}
+			}
+		}
+	}
+	
+}
+##########################################################################
+##Colony Acquisition
+##########################################################################
+# Exodus Colonized Planet (HIDDEN)
+planet_event = {
+	id = exodus.31
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_origin = origin_exodus
+			NOT = { has_country_flag = exodus_colonized_first_planet }
+		}
+	}
+
+	immediate = {
+		owner = { set_country_flag = exodus_colonized_first_planet }
+		planet_event = { id = exodus.32 days = 1850 }
+	}
+}
+
+# Exodus Colonized Planet
+planet_event = {
+	id = exodus.32
+	title = "exodus.32.name"
+	desc = "exodus.32.desc"
+	picture = GFX_evt_news_room
+	show_sound = event_mystic_reveal
+	location = root
+
+	is_triggered_only = yes
+	
+	immediate = {
+		planet_event = { id = exodus.25 days = 60 }
+	}
+	
+	option = {
+		name = exodus_32.a
+		owner = {
+			add_modifier = {
+				modifier = "exodus_first_colony" 
+				days = 1800
+			}
+		}
+	}
+}
+
+# Exodus Captured Planet (HIDDEN)
+planet_event = {
+	id = exodus.33
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_origin = origin_exodus
+			NOT = { has_country_flag = exodus_colonized_first_planet }
+		}
+	}
+
+	immediate = {
+		owner = { set_country_flag = exodus_colonized_first_planet }
+		planet_event = { id = exodus.34 days = 5 }
+	}
+}
+
+# Exodus Captured Planet
+planet_event = {
+	id = exodus.34
+	title = "exodus.34.name"
+	desc = "exodus.34.desc"
+	picture = GFX_evt_news_room
+	show_sound = event_mystic_reveal
+	location = root
+
+	is_triggered_only = yes
+	
+	immediate = {
+		planet_event = { id = exodus.25 days = 60 }
+	}
+	
+	option = {
+		name = exodus_34.a
+		owner = {
+			add_modifier = {
+				modifier = "exodus_first_colony" 
+				days = 1800
+			}
+		}
+	}
+}
+###########################################################################################
+# skip event
+###########################################################################################
+planet_event = {
+	id = exodus.skip #for people who like their origins to pack a little whallop
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = { set_country_flag = exodus_colonized_first_planet }
+		set_planet_flag = exodus_origin_project_complete
+		
+		add_modifier = { modifier = exodus_reward }
+		owner = {
+			add_resource = {
+				volatile_motes = 50
+				rare_crystals = 50
+				exotic_gases = 50
+			}
+		}
+		
+		remove_modifier = exodus_1
+		remove_modifier = exodus_resource_1
+		remove_modifier = exodus_resource_2
+		remove_modifier = exodus_resource_3
+		remove_modifier = exodus_pop_1
+		remove_modifier = exodus_pop_2
+		remove_modifier = exodus_pop_3
+		remove_deposit = d_dwindling_stockpile
+		remove_deposit = d_overloaded_infrastructure
+		remove_deposit = d_overloaded_infrastructure_2
+		remove_deposit = d_overloaded_infrastructure_3
+		add_deposit = d_plentiful_stockpile
+		add_deposit = d_renewed_city
+		
+	}
+}

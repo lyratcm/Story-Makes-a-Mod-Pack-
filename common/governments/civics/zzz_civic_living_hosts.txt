@@ -1,0 +1,9 @@
+civic_living_hosts = {
+    modification = no
+    playable = {
+        host_has_dlc = "Apocalypse"
+    }
+    potential = {
+        always = no
+    }
+}

@@ -1,0 +1,12 @@
+leader_generals = {
+    parent = leaders
+    generate_mult_modifiers = {
+        cost
+        upkeep
+    }
+    generate_add_modifiers = {
+        cost
+        upkeep
+        produces
+    }
+}

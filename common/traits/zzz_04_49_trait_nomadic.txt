@@ -1,0 +1,34 @@
+trait_nomadic = {
+    cost = 1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_sedentary"
+        "trait_machine_unit"
+        "trait_deeply_rooted"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pop_growth_from_immigration = 0.15
+        pop_resettlement_cost_mult = -0.25
+    }
+    ai_weight = {
+        weight = 100
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_adaptive
+                has_trait = trait_adaptive_lithoid
+                has_trait = trait_extremely_adaptive
+                has_trait = trait_robust
+            }
+        }
+    }
+}

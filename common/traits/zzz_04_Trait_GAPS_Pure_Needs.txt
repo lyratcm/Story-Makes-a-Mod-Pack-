@@ -1,0 +1,44 @@
+Trait_GAPS_Pure_Needs = {
+    icon = "gfx/interface/icons/traits/Trait_GAPS_Pure_Needs.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        MACHINE
+        PLANTOID
+        PRESAPIENT
+        ROBOT
+    }
+    cost = 0
+    initial = no
+    randomized = no
+    modification = yes
+    sorting_priority = 30
+    species_potential_add = {
+        exists = from
+        from = {
+            has_origin = Origin_GAPS_Aquaifiers
+            OR = {
+                has_technology = tech_gene_tailoring
+                has_technology = tech_robomodding_m
+            }
+        }
+    }
+    modifier = {
+        planet_pops_consumer_goods_upkeep_mult = -0.25
+        pop_amenities_usage_mult = -0.25
+        pop_category_precursor_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_xeno_ward_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_pre_sapients_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_bio_trophy_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_slave_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_robot_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_drones_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_workers_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_specialists_sr_GAPS_water_upkeep_add = 0.25
+        pop_category_rulers_sr_GAPS_water_upkeep_add = 0.25
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

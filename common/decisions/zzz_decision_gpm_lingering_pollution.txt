@@ -1,0 +1,44 @@
+decision_gpm_lingering_pollution = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_lingering_polution
+	enactment_time = 180
+
+    resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+			exotic_gases = 250
+		}
+	}
+
+    potential = {
+		# owner = { is_regular_empire = yes }
+		has_modifier = gpm_lingering_pollution
+	}
+	
+	allow = {
+		has_modifier = gpm_lingering_pollution
+	}
+
+    effect = {
+		remove_modifier = gpm_lingering_pollution
+		add_deposit = d_black_soil
+		if = { limit = { has_deposit = gpm_d_garbage_patch }
+			remove_deposit = gpm_d_garbage_patch
+			add_deposit = gpm_d_surface_mineral_veins
+		}
+		if = { limit = { has_deposit = gpm_d_industrial_ruins }
+			remove_deposit = gpm_d_garbage_patch
+			add_deposit = d_underground_generator
+		}
+		if = { limit = { has_deposit = gpm_d_radioactive_dump }
+			remove_deposit = gpm_d_garbage_patch
+			add_deposit = d_organic_landfill
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

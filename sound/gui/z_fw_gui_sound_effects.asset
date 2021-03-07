@@ -1,0 +1,29 @@
+
+soundeffect = {
+	name = z_fw_sfx_ui_mouse_over
+	sounds = {
+		sound = z_fw_sfx_ui_mouse_over
+	}
+	volume = 0.25
+	max_audible = 1
+	max_audible_behaviour = fail
+}
+soundeffect = {
+	name = z_fw_sfx_ui_click
+	sounds = {
+		sound = z_fw_sfx_ui_click
+	}
+	volume = 0.45
+	max_audible = 1
+	max_audible_behaviour = fail
+}
+soundeffect = {
+	name = z_fw_sfx_menu_sc
+	sounds = {
+		sound = z_fw_sfx_menu_sc
+	}
+	volume = 0.25
+	max_audible = 1
+	max_audible_behaviour = fail
+}
+

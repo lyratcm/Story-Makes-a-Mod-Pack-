@@ -1,0 +1,14 @@
+civic_hive_tech_driven = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        num_tech_alternatives_add = 1
+        all_technology_research_speed = 0.10
+        tech_cost_empire_size_mult = -0.25
+        country_admin_cap_mult = -0.10
+    }
+}

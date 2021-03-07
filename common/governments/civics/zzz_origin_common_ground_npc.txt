@@ -1,0 +1,30 @@
+origin_common_ground_npc = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_common_ground.dds"
+    picture = GFX_origin_common_ground
+    playable = {
+        always = no
+    }
+    possible = {
+        authority = {
+            NOR = {
+                value = auth_cooperative
+                value = auth_corporate
+                value = auth_private
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_befrienders
+                value = civic_hive_devouring_swarm
+                value = civic_closed_collective
+                value = civic_infestation
+                value = civic_living_hosts
+            }
+        }
+    }
+    description = origin_tooltip_common_ground_npc_effects
+    random_weight = {
+        base = 0
+    }
+}

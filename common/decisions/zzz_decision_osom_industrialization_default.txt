@@ -1,0 +1,67 @@
+osom_decision_subterranean_industrialization = {
+	owned_planets_only = yes
+	icon = decision_mining_station
+	sound = event_construction
+
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+			energy = 1000
+			minerals = 1000
+		}
+	}
+
+	allow = {
+		owner = {
+		has_ascension_perk = "osom_ap_subterranean_mastery"
+		is_gestalt = no
+		}
+		NOT = { 
+			has_modifier = "osom_planet_subterranean_fortifications_gestalt"
+			has_modifier = "osom_planet_subterranean_fortifications"
+			has_modifier = "osom_planet_subterranean_industrialization_gestalt"
+			has_modifier = "osom_planet_subterranean_industrialization"
+			has_modifier = "osom_planet_subterranean_agriculture"
+			has_modifier = "osom_planet_subterranean_agriculture_gestalt"
+			has_modifier = "osom_planet_subterranean_geothermal"
+			has_modifier = "osom_planet_subterranean_geothermal_gestalt"
+		}
+	}
+	
+	potential = {
+		owner = {
+			has_ascension_perk = "osom_ap_subterranean_mastery"
+			is_gestalt = no
+		}
+		has_modifier = osom_planet_subterranean_5
+		NOT = { 
+			has_modifier = "osom_planet_subterranean_fortifications_gestalt"
+			has_modifier = "osom_planet_subterranean_fortifications"
+			has_modifier = "osom_planet_subterranean_industrialization_gestalt"
+			has_modifier = "osom_planet_subterranean_industrialization"
+			has_modifier = "osom_planet_subterranean_agriculture"
+			has_modifier = "osom_planet_subterranean_agriculture_gestalt"
+			has_modifier = "osom_planet_subterranean_geothermal"
+			has_modifier = "osom_planet_subterranean_geothermal_gestalt"
+		}
+	}
+	
+	effect = {
+		add_modifier = { 
+			modifier = "osom_planet_subterranean_industrialization" 
+			days = -1 
+		}
+		hidden_effect = {
+			remove_modifier = "osom_planet_subterranean_fortifications" 
+			remove_modifier = "osom_planet_subterranean_agriculture"
+			remove_modifier = "osom_planet_subterranean_geothermal" 
+		}
+	}
+	
+	ai_weight = {
+		weight = 5
+	}
+}

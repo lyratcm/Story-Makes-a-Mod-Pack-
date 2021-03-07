@@ -1,0 +1,12 @@
+namespace = action
+
+event = {
+	id = action.64
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { always = no }
+
+	immediate = {
+    }
+}

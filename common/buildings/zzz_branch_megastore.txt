@@ -1,0 +1,43 @@
+building_megastore = {
+	base_buildtime = 480
+	base_cap_amount = 1
+	icon = building_galactic_stock_exchange
+	
+	branch_office_building = yes
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_criminal_syndicate = no
+			has_valid_civic = civic_megastore
+		}
+	}
+	
+	planet_modifier = {
+		branch_office_value_mult = 0.10
+		job_store_manager_add = 1
+		job_clerk_add = 2
+	}	
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 400
+			consumer_goods = 100
+		}
+		produces = {
+			energy = 12
+		}
+		upkeep = {
+			consumer_goods = 2
+		}
+	}
+	
+	ai_weight = {
+		weight = 250
+		modifier = {
+			factor = 2
+			num_pops >= 50
+		}
+	}#Check resource income for a need
+}

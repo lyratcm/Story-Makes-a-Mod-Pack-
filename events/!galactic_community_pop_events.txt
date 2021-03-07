@@ -1,0 +1,186 @@
+################################
+#
+# Galactic Community Events
+#
+###############################
+
+namespace = galcom
+
+# Proposal to form the Galactic Community
+country_event = {
+	id = galcom.2
+	title = "galcom.2.name"
+	desc = {
+		trigger = {
+			NOT = { has_global_flag = galcom_form_failed }
+		}
+		text = galcom.2a.desc
+	}
+	desc = {
+		trigger = {
+			has_global_flag = galcom_form_failed
+		}
+		text = galcom.2b.desc
+	}
+	picture = GFX_evt_galactic_community
+	show_sound = event_vote
+
+	is_triggered_only = yes
+
+	option = {
+		name = galcom.2.a
+		custom_tooltip = galcom_2_aye
+		hidden_effect = {
+			set_country_flag = galcom_form_aye
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 3
+				has_ethic = ethic_xenophile
+			}
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_xenophile
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					has_civic = civic_diplomatic_corps
+					has_civic = civic_public_relations_specialists
+					has_civic = civic_hive_empath
+					has_civic = civic_machine_emotions
+					has_civic = civic_machine_servitor
+					has_civic = civic_harm_hive
+					has_civic = civic_harm_machine
+				}
+			}
+		}
+	}
+	option = {
+		name = galcom.2.b
+		custom_tooltip = galcom_2_nay
+		hidden_effect = {
+			set_country_flag = galcom_form_nay
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 3
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_civic = civic_infestation
+					has_civic = civic_living_hosts
+				}
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					has_ethic = ethic_fanatic_xenophobe
+					has_civic = civic_closed_collective
+					has_civic = civic_closed_network
+				}
+			}
+		}
+	}
+}
+
+# Invitation to join Galactic Community
+country_event = {
+	id = galcom.16
+	title = "galcom.5.name"
+	desc = "galcom.16.desc"
+	picture = GFX_evt_galactic_community
+	show_sound = event_galactic_community
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_galactic_community_member = no
+		NOT = { has_country_flag = galcom_form_nay }
+	}
+
+	immediate = {
+		if = {
+			limit = { is_homicidal = yes }
+			set_country_flag = galcom_form_nay
+		}
+	}
+
+	option = {
+		name = galcom.16.a
+		allow = {
+			is_homicidal = no
+		}
+		add_to_galactic_community = yes
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 3
+				has_ethic = ethic_xenophile
+			}
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_xenophile
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					has_civic = civic_diplomatic_corps
+					has_civic = civic_public_relations_specialists
+					has_civic = civic_hive_empath
+					has_civic = civic_machine_emotions
+					has_civic = civic_machine_servitor
+					has_civic = civic_harm_hive
+					has_civic = civic_harm_machine
+				}
+			}
+		}
+	}
+	option = {
+		name = galcom.16.b
+		trigger = {
+			is_homicidal = no
+		}
+		hidden_effect = {
+			set_country_flag = galcom_form_nay
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 3
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_civic = civic_infestation
+					has_civic = civic_living_hosts
+				}
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					has_ethic = ethic_fanatic_xenophobe
+					has_civic = civic_closed_collective
+					has_civic = civic_closed_network
+				}
+			}
+		}
+	}
+	option = {
+		name = SCUM
+		trigger = {
+			has_civic = civic_fanatic_purifiers
+		}
+	}
+	option = {
+		name = anomaly.3089.b
+		trigger = {
+			has_civic = civic_machine_terminator
+		}
+	}
+	option = {
+		name = anomaly.180.e
+		trigger = {
+			has_civic = civic_hive_devouring_swarm
+		}
+	}
+}

@@ -1,0 +1,30 @@
+civic_royal_trading_company = {
+	modification = no
+	description = "civic_tooltip_royal_trading_company_effects"
+	potential = {
+		authority = {
+			OR = {
+				value = auth_corporate
+				value = auth_cooperative
+				value = auth_private
+			}
+		}
+	}
+	modifier = {
+		governor_skill_levels = 1
+	}
+	possible = {
+		authority = {
+			value = auth_private
+		}
+		civics = {
+			NOR = {
+				value = civic_criminal_heritage
+				value = civic_gospel_of_the_masses
+				value = civic_technocracy_corp
+				value = civic_byzantine_bureaucracy_corp
+			}
+		}		
+	}
+	random_weight = { base = 2 }
+}

@@ -1,0 +1,6 @@
+can_release_vassal = {
+    custom_tooltip = {
+        fail_text = default
+        always = yes
+    }
+}

@@ -1,0 +1,30 @@
+decision_gpm_carnivorous_flies = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_carnivorous_flies
+	enactment_time = 180
+
+    resources = {
+		category = decisions
+		cost = {
+			volatile_motes = 250
+		}
+	}
+
+    potential = {
+		# owner = { is_regular_empire = yes }
+		has_modifier = gpm_carnivorous_flies
+	}
+	
+	allow = {
+		has_modifier = gpm_carnivorous_flies
+	}
+
+    effect = {
+		remove_modifier = gpm_carnivorous_flies
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

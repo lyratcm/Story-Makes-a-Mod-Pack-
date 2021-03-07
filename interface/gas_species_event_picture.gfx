@@ -1,0 +1,43 @@
+
+spriteTypes = {
+	spriteType = {
+		name = "GFX_origin_gas_species"
+		texturefile = "gfx/event_pictures/origins/origin_gas_species.dds"
+		alwaystransparent = yes
+	}	
+	#spriteType = {
+		#name = "GFX_pc_habitable_gas"
+		#texturefile = "gfx/portraits/environments/pc_gas_habitable1_sky.dds"
+		#alwaystransparent = yes
+	#}
+	spriteType = {
+		name = "GFX_ap_gas_terraform"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_gas_terraform.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_gas_relic"
+		texturefile = "gfx/interface/icons/relics/gas_relic.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_shielded_shroud"
+		texturefile = "gfx/event_pictures/shielded_shroud.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_gas_ai"
+		texturefile = "gfx/event_pictures/gas_ai_planet.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_gas_corridor"
+		texturefile = "gfx/event_pictures/gas_corridor.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_gas_ai_story_image"
+		texturefile = "gfx/event_pictures/gas_ai_story_image.dds"
+		alwaystransparent = yes
+	}
+}

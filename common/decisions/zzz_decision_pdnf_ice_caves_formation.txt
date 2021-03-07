@@ -1,0 +1,73 @@
+decision_ice_caves_formation = {
+	owned_planets_only = yes
+	sound = event_construction
+	icon = decision_shelter_project_cold
+	
+	enactment_time = 1000
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				planet_size < 10
+			}
+			influence = 50
+			energy = 2500
+		}
+		cost = {
+			trigger = {
+				planet_size >= 10
+				planet_size < 15
+			}
+			influence = 100
+			energy = 5000
+		}
+		cost = {
+			trigger = {
+				planet_size >= 15
+				planet_size < 20
+			}
+			influence = 150
+			energy = 7500
+		}	
+		cost = {
+			trigger = {
+				planet_size >= 20
+			}
+			influence = 200
+			energy = 10000
+		}
+	}
+	
+	potential = {
+		has_modifier = cryokarst_world
+		NOT = { has_modifier = cryokarst_world_exp_3 }
+	}
+	
+	effect = {
+		custom_tooltip = decision_ice_caves_formation_effect_desc
+		hidden_effect = {
+			random_list = {
+				# Project completed
+				70 = {
+					planet_event = { id = newfrontiers_decision_event.29 days = 1 }
+				}
+				# Cave Flooding 1
+				10 = {
+					planet_event = { id = newfrontiers_decision_event.30 days = 1 }
+				}
+				# Cave Flooding 2
+				10 = {
+					planet_event = { id = newfrontiers_decision_event.31 days = 1 }
+				}
+				# Cave Flooding 3
+				10 = {
+					planet_event = { id = newfrontiers_decision_event.32 days = 1 }
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

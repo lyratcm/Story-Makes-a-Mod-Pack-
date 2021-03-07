@@ -1,0 +1,12 @@
+civic_privatized_space_inderstries = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        country_naval_cap_mult = 0.05
+    }
+    description = "civic_tooltip_private_prospectors_effects"
+}

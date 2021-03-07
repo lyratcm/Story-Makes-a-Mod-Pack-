@@ -1,0 +1,6 @@
+living_architecture_planet_modifier = {
+	planet_buildings_minerals_cost_add = -200
+	planet_buildings_food_cost_add = 100
+	planet_districts_cities_minerals_cost_add = -200
+	planet_districts_cities_food_cost_add = 100
+}

@@ -1,0 +1,265 @@
+guiTypes = {
+    containerWindowType = {
+        name = "z_sts_modmenu_gui"
+        size = {
+            width = 1300
+            height = 800
+        }
+        moveable = no
+        orientation = upper_left
+        position = {
+            x = 50
+            y = 50
+        }
+        containerWindowType = {
+            name = "block"
+            size = {
+                width = 1286
+                height = 704
+            }
+            moveable = no
+            orientation = upper_left
+            position = {
+                x = 0
+                y = 70
+            }
+            background = {
+                name = "bg"
+                position = {
+                    x = 0
+                    y = 0
+                }
+                orientation = upper_left
+                spriteType = "GFX_z_modmenu_window_sub_bg_1"
+                alwaystransparent = no
+            }
+        }
+        iconType = {
+            name = "z_mm_event_picture"
+            orientation = upper_left
+            position = {
+                x = 740
+                y = 80
+            }
+            spriteType = "GFX_evt_z_sts_modmenu"
+            scale = 0.85
+            alwaysTransparent = yes
+        }
+        instantTextBoxType = {
+            name = "alien_message"
+            maxWidth = 500
+            maxHeight = 40
+            position = {
+                x = 735
+                y = 160
+            }
+            borderSize = {
+                x = 2
+                y = 2
+            }
+            format = center
+            font = "cg_16b"
+            alwaysTransparent = yes
+        }
+        buttonType = {
+            name = "close"
+            position = {
+                x = 1250
+                y = 37
+            }
+            quadTextureSprite = "GFX_close"
+            shortcut = "ESCAPE"
+            clicksound = "back_click"
+        }
+        containerWindowType = {
+            name = "EVENT_DIPLO"
+            orientation = upper_left
+            position = {
+                x = 705
+                y = 43
+            }
+            size = {
+                width = 600
+                height = 800
+            }
+            moveable = no
+            instantTextBoxType = {
+                name = "action_title"
+                font = "cg_16b"
+                orientation = upper_left
+                position = {
+                    x = 6
+                    y = 4
+                }
+                maxWidth = 450
+                maxHeight = 60
+                alwaysTransparent = yes
+            }
+            instantTextBoxType = {
+                name = "action_desc"
+                font = "cg_16b"
+                orientation = upper_left
+                position = {
+                    x = 0
+                    y = 0
+                }
+                maxWidth = 500
+                maxHeight = 180
+                format = center
+                alwaysTransparent = yes
+                text_color_code = "H"
+            }
+            listboxType = {
+                name = "option_list"
+                orientation = upper_left
+                position = {
+                    x = 31
+                    y = 165
+                }
+                size = {
+                    x = 540
+                    y = 560
+                }
+                scrollbarType = "z_statistics_listbox_slider"
+                background = ""
+            }
+        }
+        buttonType = {
+            name = "focus_button"
+            position = {
+                x = -1180
+                y = -1112
+            }
+            spriteType = "GFX_fleetview_focus"
+        }
+        instantTextBoxType = {
+            name = "heading"
+            font = "malgun_goth_24"
+            position = {
+                x = -1120
+                y = -115
+            }
+        }
+        buttonType = {
+            name = "empire_flag"
+            position = {
+                x = -1125
+                y = -11235
+            }
+            spriteType = "GFX_empire_flag_128"
+        }
+        buttonType = {
+            name = "confirm_button"
+            quadTextureSprite = "GFX_standard_button_142_34_button"
+        }
+        containerWindowType = {
+            name = "portrait_background"
+            position = {
+                x = -1117
+                y = -1145
+            }
+            size = {
+                width = 0
+                height = 0
+            }
+            iconType = {
+                name = "portrait"
+                spriteType = "GFX_portrait_character"
+            }
+        }
+        containerWindowType = {
+            name = "portrait"
+            position = {
+                x = -1117
+                y = -1145
+            }
+            size = {
+                width = 0
+                height = 0
+            }
+            iconType = {
+                name = "portrait"
+                spriteType = "GFX_portrait_gamesetup_mask"
+            }
+            iconType = {
+                name = "black_frame"
+                spriteType = "GFX_diplomacy_portrait_shadow_frame"
+            }
+            iconType = {
+                name = "stripes_1"
+                spriteType = "GFX_diplomacy_stripes_2"
+            }
+            iconType = {
+                name = "city_frame"
+                spriteType = "GFX_diplomacy_portrait_frame"
+            }
+        }
+        iconType = {
+            name = "empire_info_bg"
+            spriteType = "GFX_diplomacy_dark_fade_bg"
+        }
+        instantTextBoxType = {
+            name = "empire_name"
+            font = "malgun_goth_24"
+        }
+        instantTextBoxType = {
+            name = "empire_government_type"
+            font = "cg_16b"
+        }
+        instantTextBoxType = {
+            name = "empire_personality_type"
+            font = "cg_16b"
+        }
+        OverlappingElementsBoxType = {
+            name = "empire_ethics_icons"
+            position = {
+                x = -1145
+                y = -11138
+            }
+        }
+        containerWindowType = {
+            name = "leader_details"
+            position = {
+                x = -1125
+                y = -1175
+            }
+            containerWindowType = {
+                name = "empire_traits_box"
+            }
+            instantTextBoxType = {
+                name = "empire_traits_label"
+                font = "cg_16b"
+            }
+            overlappingElementsBoxType = {
+                name = "leader_traits"
+            }
+            instantTextBoxType = {
+                name = "leader_name"
+                font = "cg_16b"
+            }
+            instantTextBoxType = {
+                name = "leader_species"
+                font = "cg_16b"
+            }
+        }
+        containerWindowType = {
+            name = "opinion_window"
+            position = {
+                x = -1127
+                y = -11110
+            }
+            size = {
+                width = 94
+                height = 30
+            }
+            iconType = {
+                name = "their_opinion_icon"
+                spriteType = "GFX_diplomacy_opinion"
+            }
+            instantTextBoxType = {
+                name = "their_opinion"
+                font = "cg_16b"
+            }
+        }
+    }
+}

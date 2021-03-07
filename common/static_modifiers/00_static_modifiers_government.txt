@@ -1,0 +1,178 @@
+##########################################################################
+# Country modifiers
+##########################################################################
+
+befriender_migration_1 = {
+	country_unity_produces_mult = 0.05
+}
+befriender_migration_2 = {
+	country_unity_produces_mult = 0.10
+}
+befriender_migration_3 = {
+	country_unity_produces_mult = 0.15
+}
+befriender_migration_4 = {
+	country_unity_produces_mult = 0.20
+}
+befriender_migration_5 = {
+	country_unity_produces_mult = 0.25
+}
+
+idealistic_foundation_influence = {
+	country_base_influence_produces_add = 0.5
+}
+
+philosopher_king_wise_leader = {
+	planet_stability_add = 5
+}
+
+liberty_beacon = {
+	country_unity_produces_mult = 0.05
+}
+
+media_war_claims = {
+	country_claim_influence_cost_mult = -0.1
+}
+
+zeal_war_won = {
+	pop_happiness = 0.1
+	country_unity_produces_mult = 0.1
+}
+
+vassal_navy_tax = {
+	country_naval_cap_mult = -0.10
+}
+vassal_navy_1 = {
+	country_naval_cap_add = 25
+}
+vassal_navy_2 = {
+	country_naval_cap_add = 50
+}
+vassal_navy_3 = {
+	country_naval_cap_add = 75
+}
+vassal_navy_4 = {
+	country_naval_cap_add = 100
+}
+vassal_navy_5 = {
+	country_naval_cap_add = 125
+}
+
+synthetic_empire_modifiers = {
+	pop_growth_speed_reduction = 0.5
+}
+
+has_holy_mountain = {
+	planet_jobs_unity_produces_mult = 0.10
+	pop_ethic_spiritualist_attraction_mult = 0.10
+	pop_happiness = 0.05
+}
+
+lost_holy_mountain = {
+	pop_government_ethic_attraction = -0.50
+	planet_jobs_unity_produces_mult = -0.25
+	pop_happiness = -0.25
+}
+
+scion_missionaries = {
+	pop_ethic_spiritualist_attraction_mult = 0.5
+}
+
+starvation_fearing_low_food = {
+	planet_stability_add = -10
+	planet_crime_no_happiness_add = 5
+}
+
+recently_deposed_ruler = {
+	planet_stability_add = -5
+}
+
+##########################################################################
+# Planet modifiers
+##########################################################################
+
+delicate_ecosystem = {
+	pop_environment_tolerance = -0.10
+	planet_max_districts_add = -2
+	district_generator_max = -2
+	district_mining_max = -2
+	planet_jobs_society_research_produces_mult = 0.25
+	icon = "gfx/interface/icons/planet_modifiers/pm_bleak.dds"
+	icon_frame = 2
+}
+
+terraformer_homeworld = {
+	planet_max_districts_add = 1
+	pop_environment_tolerance = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+}
+
+life_seeded_mod = {
+	planet_amenities_mult = 0.25
+	planet_immigration_pull_add = 100
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+}
+
+temp_uni_mod = {
+	planet_stability_add = 10
+	planet_jobs_produces_mult = 0.20
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+}
+
+befriender_xeno_happiness = {
+	pop_happiness = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+}
+
+corvee_public_works = {
+	planet_structures_cost_mult = -0.05
+	planet_building_build_speed_mult = 0.15
+	job_corvee_labor_add = 5
+	job_corvee_labor_per_pop = 0.05
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 1
+}
+
+private_development = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
+	icon_frame = 1
+	planet_structures_cost_mult = -0.1
+}
+
+remote_colony = {
+	icon = "gfx/interface/icons/planet_modifiers/capital.dds"
+	icon_frame = 3
+	planet_stability_add = -5
+}
+
+very_remote_colony = {
+	icon = "gfx/interface/icons/planet_modifiers/capital.dds"
+	icon_frame = 3
+	planet_stability_add = -10
+}
+
+scion_studying_hive_mind = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_faith_in_science.dds"
+	icon_frame = 3
+	planet_jobs_produces_mult = -0.05
+}
+
+##########################################################################
+# Pop modifiers
+##########################################################################
+
+pop_shadow_ruler = {
+	pop_political_power = 0.5
+	pop_happiness = 0.1
+}
+
+temp_uni_worker_mod = {
+	pop_political_power = -0.2
+	pop_happiness = -0.2
+}
+
+recently_infested = {
+	planet_jobs_produces_mult = -0.5
+}

@@ -1,0 +1,1582 @@
+namespace = z_performance_misc
+
+#_[z_modmenu]
+#_[动态人口限制]
+#_[舰队优化]	巡洋舰/战列舰/堕落战巡/堕落泰坦
+
+###_框架引用
+	#_country_flag	[z_fw_plnt_capacity_disabled]
+	#_country_event	[z_fw_core_country.2]		[星球人口限制]renew
+	#_country_event	[z_fw_core_country.20]		[星球人口限制]debug
+
+###_其他引用
+	#_eft		[z_pf2_eft_ai_habitats_limit_check]		habitats上限debug
+
+
+
+
+#_初始modifier 游戏开始
+event = {
+	id = z_performance_misc.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = z_performance2_installed			#_MOD安装
+		set_global_flag = z_pf2_trade_optimized				#_开启贸易优化
+		set_global_flag = z_pf2_ai_habitat_optimized		#_AI栖息地-优化
+		set_global_flag = z_pf2_no_self_evolution			#_关闭自适应进化
+		set_global_flag = z_pf2_no_ai_hybird				#_禁止AI杂交飞升
+		set_global_flag = z_pf2_dynamic_cap_high			#_动态人口上限
+		every_country = {
+			limit = { z_is_playable_country = yes }
+			country_event = { id = z_performance_misc.21 days = 7 random = 4 }	#_贸易优化/动态人口 初始化
+		}
+	}
+}
+###_万用初始化
+country_event = {
+	id = z_performance_misc.101
+	hide_window = yes
+	fire_only_once = yes
+	trigger = { is_ai = no }
+	mean_time_to_happen = { days = 23 }
+	
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = z_performance2_installed } }
+			set_global_flag = z_performance2_installed
+			###_z setting
+			set_global_flag = z_pf2_trade_optimized				#_开启贸易优化
+			set_global_flag = z_pf2_ai_habitat_optimized		#_AI栖息地CD化
+			set_global_flag = z_pf2_no_self_evolution			#_关闭自适应进化
+			set_global_flag = z_pf2_no_ai_hybird				#_禁止AI杂交飞升
+			set_global_flag = z_pf2_dynamic_cap_high			#_动态人口上限
+		}
+	}
+}
+
+
+
+
+###_[z_modmenu]
+country_event = {
+	id = z_performance_misc.11
+	title = z_performance2_title
+	picture = GFX_evt_z_performance_misc
+	is_triggered_only = yes
+	
+	#_优化状态检视
+	desc = {
+		trigger = {
+			success_text = {
+				text = z_performance2_title_desc
+				has_global_flag = z_performance2_installed
+			}
+			success_text = {#_船只数量
+				text = z_performance2_title_desc.x1
+				has_global_flag = z_performance2_installed
+			}
+			success_text = {#_总人口数
+				text = z_performance2_title_desc.x2
+				has_global_flag = z_performance2_installed
+			}
+			success_text = {#_失业人口数
+				text = z_performance2_title_desc.x3
+				has_global_flag = z_performance2_installed
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = z_global_ships_var value = 0 }
+			set_variable = { which = z_galaxy_pop_var value = 0 }				#_pop
+			set_variable = { which = z_galaxy_pop_unemployed_var value = 0 }		#_unemployed pop
+			every_ship = {
+				root = {
+					change_variable = { which = z_global_ships_var value = 1 }
+				}
+			}
+			#_population
+			every_galaxy_pop = {
+				if = {#_失业
+					limit = { is_unemployed = yes }
+					root = {
+						change_variable = { which = z_galaxy_pop_var value = 1 }
+						change_variable = { which = z_galaxy_pop_unemployed_var value = 1 }
+					}
+				}
+				else = {#_就业
+					root = {
+						change_variable = { which = z_galaxy_pop_var value = 1 }
+					}
+				}
+			}
+		}
+	}
+
+	#_贸易 原版
+	option = {
+		name = z_performance_misc.11.a1
+		custom_tooltip = z_performance_misc.11.a1.tooltip
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_trade_optimized
+				has_global_flag = z_pf2_trade_disabled
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_trade_optimized
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_贸易 优化
+	option = {
+		name = z_performance_misc.11.a2
+		custom_tooltip = z_performance_misc.11.a2.tooltip
+		trigger = { has_global_flag = z_pf2_trade_optimized }
+		hidden_effect = {
+			remove_global_flag = z_pf2_trade_optimized
+			set_global_flag = z_pf2_trade_disabled
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_贸易 禁止
+	option = {
+		name = z_performance_misc.11.a3
+		custom_tooltip = z_performance_misc.11.a3.tooltip
+		trigger = { has_global_flag = z_pf2_trade_disabled }
+		hidden_effect = {
+			remove_global_flag = z_pf2_trade_disabled
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_动态人口上限-禁用
+	option = {
+		name = z_performance_misc.11.i0
+		custom_tooltip = z_performance_misc.11.i0.tooltip
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_dynamic_cap_strict
+				has_global_flag = z_pf2_dynamic_cap_low
+				has_global_flag = z_pf2_dynamic_cap_high
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_dynamic_cap_strict
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_动态人口上限-极低
+	option = {
+		name = z_performance_misc.11.i1
+		custom_tooltip = z_performance_misc.11.i1.tooltip
+		trigger = { has_global_flag = z_pf2_dynamic_cap_strict }
+		hidden_effect = {
+			remove_global_flag = z_pf2_dynamic_cap_strict
+			set_global_flag = z_pf2_dynamic_cap_low
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_动态人口上限-低
+	option = {
+		name = z_performance_misc.11.i2
+		custom_tooltip = z_performance_misc.11.i2.tooltip
+		trigger = { has_global_flag = z_pf2_dynamic_cap_low }
+		hidden_effect = {
+			remove_global_flag = z_pf2_dynamic_cap_low
+			set_global_flag = z_pf2_dynamic_cap_high
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_动态人口上限-高
+	option = {
+		name = z_performance_misc.11.i3
+		custom_tooltip = z_performance_misc.11.i3.tooltip
+		trigger = { has_global_flag = z_pf2_dynamic_cap_high }
+		hidden_effect = {
+			remove_global_flag = z_pf2_dynamic_cap_high
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_星球承载上限-关闭
+	option = {
+		name = z_performance_misc.11.h1
+		custom_tooltip = z_performance_misc.11.h1.tooltip
+		trigger = { NOT = { has_global_flag = z_fw_plnt_capacity_disabled } }
+		hidden_effect = {
+			set_global_flag = z_fw_plnt_capacity_disabled
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_星球承载上限-开启
+	option = {
+		name = z_performance_misc.11.h2
+		custom_tooltip = z_performance_misc.11.h2.tooltip
+		trigger = { has_global_flag = z_fw_plnt_capacity_disabled }
+		hidden_effect = {
+			remove_global_flag = z_fw_plnt_capacity_disabled
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_星球承载上限提升-无
+	option = {
+		name = z_performance_misc.11.j1
+		custom_tooltip = z_performance_misc.11.j1.tooltip
+		trigger = {
+			NOR = {
+				has_global_flag = z_fw_planet_cap_1
+				has_global_flag = z_fw_planet_cap_2
+				has_global_flag = z_fw_planet_cap_3
+				has_global_flag = z_fw_planet_cap_4
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_planet_cap_1
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_星球承载上限提升+4
+	option = {
+		name = z_performance_misc.11.j2
+		custom_tooltip = z_performance_misc.11.j2.tooltip
+		trigger = { has_global_flag = z_fw_planet_cap_1 }
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_1
+			set_global_flag = z_fw_planet_cap_2
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_星球承载上限提升+8
+	option = {
+		name = z_performance_misc.11.j3
+		custom_tooltip = z_performance_misc.11.j3.tooltip
+		trigger = { has_global_flag = z_fw_planet_cap_2 }
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_2
+			set_global_flag = z_fw_planet_cap_3
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_星球承载上限提升+12
+	option = {
+		name = z_performance_misc.11.j4
+		custom_tooltip = z_performance_misc.11.j4.tooltip
+		trigger = { has_global_flag = z_fw_planet_cap_3 }
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_3
+			set_global_flag = z_fw_planet_cap_4
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_星球承载上限提升+16
+	option = {
+		name = z_performance_misc.11.j5
+		custom_tooltip = z_performance_misc.11.j5.tooltip
+		trigger = { has_global_flag = z_fw_planet_cap_4 }
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_4
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_ai轨道站 已限制
+	option = {
+		name = z_performance_misc.11.b1
+		custom_tooltip = z_performance_misc.11.b1.tooltip
+		trigger = { has_global_flag = z_pf2_ai_habitat_limited }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_habitat_limited
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_ai轨道站 当前vanilla
+	option = {
+		name = z_performance_misc.11.b2
+		custom_tooltip = z_performance_misc.11.b2.tooltip
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_ai_habitat_ban
+				has_global_flag = z_pf2_ai_habitat_limited
+				has_global_flag = z_pf2_ai_habitat_optimized
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_ai_habitat_ban
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_ai轨道站 已禁用
+	option = {
+		name = z_performance_misc.11.b3
+		custom_tooltip = z_performance_misc.11.b3.tooltip
+		trigger = { has_global_flag = z_pf2_ai_habitat_ban }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_habitat_ban
+			set_global_flag = z_pf2_ai_habitat_optimized
+			every_country = {
+				limit = { is_ai = yes }
+				z_pf2_eft_ai_habitats_limit_check = yes		#_habitats上限debug
+			}
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_ai轨道站 已优化<轨道居者---限制/其他---禁用>
+	option = {
+		name = z_performance_misc.11.b4
+		custom_tooltip = z_performance_misc.11.b4.tooltip
+		trigger = { has_global_flag = z_pf2_ai_habitat_optimized }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_habitat_optimized
+			set_global_flag = z_pf2_ai_habitat_limited
+			every_country = {
+				limit = { is_ai = yes }
+				z_pf2_eft_ai_habitats_limit_check = yes		#_habitats上限debug
+			}
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_ai环世界 允许建造基址
+	option = {
+		name = z_performance_misc.11.g1
+		custom_tooltip = z_performance_misc.11.g1.tooltip
+		trigger = { has_global_flag = z_pf2_ai_ring_world_allowed }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_ring_world_allowed
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_ai环世界 禁止建造基址
+	option = {
+		name = z_performance_misc.11.g2
+		custom_tooltip = z_performance_misc.11.g2.tooltip
+		trigger = { NOT = { has_global_flag = z_pf2_ai_ring_world_allowed } }
+		hidden_effect = {
+			set_global_flag = z_pf2_ai_ring_world_allowed
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_自我进化 开启
+	option = {
+		name = z_performance_misc.11.c1
+		custom_tooltip = z_performance_misc.11.c1.tooltip
+		trigger = { has_global_flag = z_pf2_no_self_evolution }
+		hidden_effect = {
+			remove_global_flag = z_pf2_no_self_evolution
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_自我进化 禁止
+	option = {
+		name = z_performance_misc.11.c2
+		custom_tooltip = z_performance_misc.11.c2.tooltip
+		trigger = { NOT = { has_global_flag = z_pf2_no_self_evolution } }
+		hidden_effect = {
+			set_global_flag = z_pf2_no_self_evolution
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_杂交飞升 允许
+	option = {
+		name = z_performance_misc.11.d1
+		custom_tooltip = z_performance_misc.11.d1.tooltip
+		trigger = { has_global_flag = z_pf2_no_ai_hybird }
+		hidden_effect = {
+			remove_global_flag = z_pf2_no_ai_hybird
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_杂交飞升 禁止
+	option = {
+		name = z_performance_misc.11.d2
+		custom_tooltip = z_performance_misc.11.d2.tooltip
+		trigger = { NOT = { has_global_flag = z_pf2_no_ai_hybird } }
+		hidden_effect = {
+			set_global_flag = z_pf2_no_ai_hybird
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_物种改造-允许
+	option = {
+		name = z_performance_misc.11.e3
+		custom_tooltip = z_performance_misc.11.e3.tooltip
+		trigger = { has_global_flag = z_pf2_ai_species_mod }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_species_mod
+			set_global_flag = z_pf2_ai_species_mod_limit
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_物种改造-限制
+	option = {
+		name = z_performance_misc.11.e5
+		custom_tooltip = z_performance_misc.11.e5.tooltip
+		trigger = { has_global_flag = z_pf2_ai_species_mod_limit }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_species_mod_limit
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_物种改造-禁用
+	option = {
+		name = z_performance_misc.11.e4
+		custom_tooltip = z_performance_misc.11.e4.tooltip
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_ai_species_mod
+				has_global_flag = z_pf2_ai_species_mod_limit
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_ai_species_mod
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_舰队优化-高优化
+	option = {
+		name = z_performance_misc.11.k1
+		custom_tooltip = z_performance_misc.11.k1.tooltip
+		trigger = { has_global_flag = z_pf2_flg_glbl_flt_opt_high }
+		hidden_effect = {
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_high
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_舰队优化-中优化
+	option = {
+		name = z_performance_misc.11.k2
+		custom_tooltip = z_performance_misc.11.k2.tooltip
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_flg_glbl_flt_opt_high
+				has_global_flag = z_pf2_flg_glbl_flt_opt_low
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_flg_glbl_flt_opt_low
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_舰队优化-低优化
+	option = {
+		name = z_performance_misc.11.k3
+		custom_tooltip = z_performance_misc.11.k3.tooltip
+		trigger = { has_global_flag = z_pf2_flg_glbl_flt_opt_low }
+		hidden_effect = {
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_low
+			set_global_flag = z_pf2_flg_glbl_flt_opt_high
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_舰队优化-自动年度
+	option = {
+		name = z_performance_misc.11.k4
+		custom_tooltip = z_performance_misc.11.k4.tooltip
+		trigger = { has_global_flag = z_pf2_flg_glbl_flt_opt_automatic }
+		hidden_effect = {
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_automatic
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_舰队优化-非自动
+	option = {
+		name = z_performance_misc.11.k5
+		custom_tooltip = z_performance_misc.11.k5.tooltip
+		trigger = { NOT = { has_global_flag = z_pf2_flg_glbl_flt_opt_automatic } }
+		hidden_effect = {
+			set_global_flag = z_pf2_flg_glbl_flt_opt_automatic
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_手动多余物种清理-试验
+	option = {
+		name = z_performance_misc.11.f1
+		custom_tooltip = z_performance_misc.11.f1.tooltip
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = yes
+					z_pf2_trgr_cntr_spcs_normal = yes
+				}
+				z_merge_common_species = yes
+			}
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_合并帝国内物种-测试
+	option = {
+		name = z_performance_misc.11.f2
+		custom_tooltip = z_performance_misc.11.f2.tooltip
+		hidden_effect = {
+			z_merge_common_species = yes
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_合并帝国内智械-测试
+	option = {
+		name = z_performance_misc.11.f4
+		custom_tooltip = z_performance_misc.11.f4.tooltip
+		hidden_effect = {
+			z_merge_full_citizenship_robotic = yes
+			z_merge_limited_citizenship_robotic = yes
+			z_merge_slavery_robotic = yes
+			
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_舰队合并
+	option = {
+		name = z_performance_misc.11.f5
+		custom_tooltip = z_performance_misc.11.f5.tooltip
+		hidden_effect = {
+			z_pf2_eft_cntr_flt_opt_execute = yes
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_摧毁AI栖息地-测试
+	option = {
+		name = z_performance_misc.11.f3
+		custom_tooltip = z_performance_misc.11.f3.tooltip
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = yes
+					NOT = { has_origin = origin_void_dwellers }
+				}
+				every_owned_planet = {
+					limit = {
+						is_planet_class = pc_habitat
+						is_capital = no
+					}
+					z_pf2_eft_clean_habitats = yes
+				}
+			}
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_MOD初始化
+	option = {
+		name = z_performance_misc.11.x
+		custom_tooltip = z_performance_misc.11.x.tooltip
+		hidden_effect = {
+			set_global_flag = z_pf2_trade_optimized					#_贸易优化
+			remove_global_flag = z_pf2_trade_disabled	
+			remove_global_flag = z_pf2_ai_habitat_optimized			#_AI栖息地---优化
+			remove_global_flag = z_pf2_ai_habitat_ban				#_AI栖息地---禁止
+			remove_global_flag = z_pf2_ai_habitat_limited			#_AI栖息地---限制
+			remove_global_flag = z_pf2_ai_ring_world_allowed		#_AI环世界
+			set_global_flag = z_pf2_no_self_evolution				#_关闭自适应进化
+			set_global_flag = z_pf2_no_ai_hybird					#_禁止AI杂交飞升
+			remove_global_flag = z_pf2_ai_species_mod				#_AI物种改造
+			remove_global_flag = z_pf2_ai_species_mod_limit
+			remove_global_flag = z_pf2_dynamic_cap_strict			#_动态人口上限
+			remove_global_flag = z_pf2_dynamic_cap_low
+			set_global_flag = z_pf2_dynamic_cap_high
+			remove_global_flag = z_fw_plnt_capacity_disabled		#_星球人口上限
+			remove_global_flag = z_fw_planet_cap_1
+			remove_global_flag = z_fw_planet_cap_2
+			remove_global_flag = z_fw_planet_cap_3
+			remove_global_flag = z_fw_planet_cap_4
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_automatic	#_舰队合并
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_high
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_low
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	#_原版游戏默认
+	option = {
+		name = z_performance_misc.11.x1
+		custom_tooltip = z_performance_misc.11.x1.tooltip
+		hidden_effect = {
+			remove_global_flag = z_pf2_trade_optimized				#_贸易优化
+			remove_global_flag = z_pf2_trade_disabled
+			remove_global_flag = z_pf2_ai_habitat_optimized			#_AI栖息地---优化
+			remove_global_flag = z_pf2_ai_habitat_ban				#_AI栖息地---禁止
+			remove_global_flag = z_pf2_ai_habitat_limited			#_AI栖息地---限制
+			set_global_flag = z_pf2_ai_ring_world_allowed			#_AI环世界
+			remove_global_flag = z_pf2_no_self_evolution
+			remove_global_flag = z_pf2_no_ai_hybird
+			set_global_flag = z_pf2_ai_species_mod					#_AI物种改造
+			remove_global_flag = z_pf2_ai_species_mod_limit
+			remove_global_flag = z_pf2_dynamic_cap_strict			#_动态人口上限
+			remove_global_flag = z_pf2_dynamic_cap_low
+			remove_global_flag = z_pf2_dynamic_cap_high
+			set_global_flag = z_fw_plnt_capacity_disabled
+			remove_global_flag = z_fw_planet_cap_1
+			remove_global_flag = z_fw_planet_cap_2
+			remove_global_flag = z_fw_planet_cap_3
+			remove_global_flag = z_fw_planet_cap_4
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_automatic	#_舰队合并
+			country_event = { id = z_performance_misc.11 }
+		}
+	}
+	
+	#_关闭设置
+	option = {
+		name = z_performance_misc.11.x3
+		custom_tooltip = z_performance_misc.11.x3.tooltip
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes		#_z mm
+			every_country = {
+				country_event = { id = z_performance_misc.21 }	#_贸易优化/动态人口debug
+				country_event = { id = z_fw_core_country.20 }	#_[星球人口限制]debug---立刻
+				country_event = { id = z_fw_core_country.2 }	#_[星球人口限制]renew---立刻
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+###_[触发器]每次设置后	额外优化[debug]
+#_[on_yearly_pulse]
+event = {
+	id = z_performance_misc.20
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_country = {
+			limit = { z_is_playable_country = yes }
+			country_event = { id = z_performance_misc.21 days = 1 random = 6 }
+		}
+	}
+}
+#_[on_monthly_pulse]	贸易优化执行/
+event = {
+	id = z_performance_misc.200
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		#_[贸易优化执行]
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = z_pf2_trade_optimized
+					has_global_flag = z_pf2_trade_disabled
+				}
+			}
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = default
+						is_country_type = prikki			#_远星
+						is_country_type = ascended_empire	#_ZOFE
+						is_country_type = lost_empire		#_ZOFE
+					}
+					is_gestalt = no
+					OR = {
+						AND = {
+							is_ai = yes
+							has_global_flag = z_pf2_trade_optimized
+						}
+						has_global_flag = z_pf2_trade_disabled
+					}
+				}
+				country_event = { id = z_performance_misc.23 days = 1 random = 6 }
+			}
+		}
+	}
+}
+	
+#_[z_performance_misc.20<年度>/开局/每次更改设置]
+#_年度debug=[添加禁用AI物种改造modifier/habitats年度debug/严格人口限制debug/动态人口限制debug]
+country_event = {
+	id = z_performance_misc.21
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = prikki					#_远星
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+			is_country_type = ascended_empire			#_ZOFE
+			is_country_type = lost_empire				#_ZOFE
+			is_country_type = original_empire			#_SOFE
+			is_country_type = original_empire_passive	#_SOFE
+		}
+	}
+
+	immediate = {
+		###_[添加禁用AI物种改造modifier]
+	#	z_pf2_eft_ai_species_mod_check = yes
+		###_[habitats年度debug]		每年检测habitats数量并添加上限
+		z_pf2_eft_ai_habitats_limit_check = yes
+		###_[严格人口限制debug]		清除严格人口限制flg
+		z_pf2_eft_extreme_pop_restrict_debug = yes
+		###_[动态人口限制debug]		清除d,清除严格人口限制flg
+		every_owned_planet = {
+			z_pf2_eft_plnt_dynamic_cap_debug = yes		#_动态cap debug
+			planet_event = { id = z_performance_misc.24 days = 1 random = 4 }	#_动态cap
+		}
+	}
+}
+
+
+###_添加habitats建造CD	<mega_habitat---on_build_complete>
+#_年度debug_eft[z_pf2_eft_ai_habitats_limit_check]
+#_variable	[z_pf2_var_owned_habitats]
+country_event = {
+	id = z_performance_misc.22
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_global_flag = z_pf2_ai_habitat_optimized
+			has_global_flag = z_pf2_ai_habitat_limited
+		}
+	}
+	
+	immediate = {
+		###_虚空居者
+		if = {
+			limit = { has_origin = origin_void_dwellers }
+			#_检测栖息地星球数目决定建设cd
+			set_variable = { which = z_pf2_var_owned_habitats value = 0 }
+			every_owned_planet = {
+				limit = { is_planet_class = pc_habitat }
+				prev = { change_variable = { which = z_pf2_var_owned_habitats value = 1 } }
+			}
+			#_12 12years
+			if = {
+				limit = { check_variable = { which = z_pf2_var_owned_habitats value > 12 } }
+				set_timed_country_flag = { flag = z_pf2_country_habitat_cd days = 4400 }
+			}
+			#_9 6years
+			else_if = {
+				limit = { check_variable = { which = z_pf2_var_owned_habitats value > 9 } }
+				set_timed_country_flag = { flag = z_pf2_country_habitat_cd days = 2200 }
+			}
+			#_6 3years
+			else_if = {
+				limit = { check_variable = { which = z_pf2_var_owned_habitats value > 6 } }
+				set_timed_country_flag = { flag = z_pf2_country_habitat_cd days = 1100 }
+			}
+		}
+		###_普通
+		else_if = {
+			limit = { NOT = { has_global_flag = z_pf2_ai_habitat_optimized } }
+			#_检测栖息地星球数目决定建设cd
+			set_variable = { which = z_pf2_var_owned_habitats value = 0 }
+			every_owned_planet = {
+				limit = { is_planet_class = pc_habitat }
+				prev = { change_variable = { which = z_pf2_var_owned_habitats value = 1 } }
+			}
+			#_7 12years
+			if = {
+				limit = { check_variable = { which = z_pf2_var_owned_habitats value > 6 } }
+				set_timed_country_flag = { flag = z_pf2_country_habitat_cd days = 4400 }
+			}
+			#_5 6years
+			else_if = {
+				limit = { check_variable = { which = z_pf2_var_owned_habitats value > 4 } }
+				set_timed_country_flag = { flag = z_pf2_country_habitat_cd days = 2200 }
+			}
+			#_3 3years
+			else_if = {
+				limit = { check_variable = { which = z_pf2_var_owned_habitats value > 2 } }
+				set_timed_country_flag = { flag = z_pf2_country_habitat_cd days = 1100 }
+			}
+		}
+	}
+}
+
+
+
+
+#_[z_performance_misc.200]
+#_[贸易优化执行]	月度统计 Flag要按插在country_type中
+country_event = {
+	id = z_performance_misc.23
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {#_贸易月度统计
+		if = {
+			limit = { is_ai = yes }
+			z_pf2_eft_trade_compensation = yes
+		}
+		else = {
+			z_pf2_eft_trade_compensation = yes
+		#	z_pf2_eft_trade_transfer_player = yes
+		}
+	}
+}
+
+
+
+
+###_[动态人口限制]
+#_[动态人口限制]普通执行
+#_触发	[人口增长][debug.21][年度扫星]
+planet_event = {
+	id = z_performance_misc.24
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_colony = yes
+		#_动态人口限制开启
+		OR = {
+			has_global_flag = z_pf2_dynamic_cap_strict
+			has_global_flag = z_pf2_dynamic_cap_low
+			has_global_flag = z_pf2_dynamic_cap_high
+		}
+	}
+
+	immediate = {
+		z_pf2_eft_plnt_dynamic_cap = yes	#_动态cap
+	}
+}
+#_[动态人口限制] 掠夺
+#_触发	掠夺人口时
+pop_event = {
+	id = z_performance_misc.241
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		from = { z_pf2_eft_plnt_dynamic_cap = yes }	#_动态cap
+	}
+}
+#_[动态人口限制] debug-清除残留deposit
+#_触发	殖民地毁灭
+planet_event = {
+	id = z_performance_misc.242
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		z_pf2_eft_plnt_dynamic_cap_debug = yes	#_动态cap-debug
+	}
+}
+
+
+
+
+###_[舰队优化]	[id=25]	##############################################################################
+#_glbl_flg	[z_pf2_flg_glbl_flt_opt_automatic]
+#_glbl_flg	[z_pf2_flg_glbl_flt_opt_high][z_pf2_flg_glbl_flt_opt_low]
+#_cntr_flg	[z_pf2_flg_cntr_flt_opt_cd]
+
+
+#_[on_monthly_pulse]
+#_glbl_flg	[z_pf2_flg_glbl_flt_opt_automatic]
+event = {
+	id = z_performance_misc.25
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { has_global_flag = z_pf2_flg_glbl_flt_opt_automatic }
+	immediate = {
+		every_country = {
+			limit = {
+				is_ai = yes
+				OR = {
+					is_at_war = yes
+					NOT = { has_country_flag = z_pf2_flg_cntr_flt_opt_cd }
+				}
+			}
+			#_[日常]	和平状态,设置CD=91
+			if = {
+				limit = { is_at_war = no }
+				set_timed_country_flag = { flag = z_pf2_flg_cntr_flt_opt_cd days = 91 }
+			}
+			#_普通
+			if = {
+				limit = { z_pf2_trgr_cntr_flt_normal = yes }
+				country_event = { id = z_performance_misc.250 }
+			}
+			#_堕落
+			else_if = {
+				limit = { z_pf2_trgr_cntr_flt_fallen = yes }
+				country_event = { id = z_performance_misc.2501 }
+			}
+		}
+	}
+}
+
+#_[z_pf2_eft_cntr_flt_opt_execute][z_performance_misc.25]
+#_cntr_flg	[z_pf2_flg_cntr_flt_opt_cd]
+country_event = {
+	id = z_performance_misc.250
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		set_timed_country_flag =  { flag = z_pf2_flg_cntr_flt_opt_cd days = 7 }
+		switch = {
+			trigger = has_technology
+			tech_battleships = {
+				every_owned_fleet = {
+					limit = { fleet_size > 8 }
+					fleet_event = { id = z_performance_misc.252 days = 4 random = 3 }
+				}
+			}
+			tech_cruisers = {
+				every_owned_fleet = {
+					limit = { fleet_size > 8 }
+					fleet_event = { id = z_performance_misc.251 days = 4 random = 3 }
+				}
+			}
+		}
+	}
+}
+#_[z_pf2_eft_cntr_flt_opt_execute][z_performance_misc.25]
+#_cntr_flg	[z_pf2_flg_cntr_flt_opt_cd]
+country_event = {
+	id = z_performance_misc.2501
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		set_timed_country_flag =  { flag = z_pf2_flg_cntr_flt_opt_cd days = 7 }
+		every_owned_fleet = {
+			limit = { fleet_size > 12 }
+			fleet_event = { id = z_performance_misc.253 days = 4 random = 3 }
+		}
+	}
+}
+
+#_巡洋舰	fleet_size > 8
+fleet_event = {
+	id = z_performance_misc.251
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		#_高优化	8		4
+		if = {
+			limit = { has_global_flag = z_pf2_flg_glbl_flt_opt_high }
+			#_护卫舰=8
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = corvette }
+						count > 8
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = corvette }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = cruiser
+				}
+				fleet_event = { id = z_performance_misc.251 }
+			}
+			#_驱逐舰=4
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						count > 4
+					}
+				}
+				while = {
+					count = 2
+					random_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = cruiser
+				}
+				fleet_event = { id = z_performance_misc.251 }
+			}
+		}
+		#_中优化	24		12
+		else_if = {
+			limit = {
+				NOR = {
+					has_global_flag = z_pf2_flg_glbl_flt_opt_high
+					has_global_flag = z_pf2_flg_glbl_flt_opt_low
+				}
+			}
+			#_护卫舰=24
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = corvette }
+						count > 24
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = corvette }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = cruiser
+				}
+				fleet_event = { id = z_performance_misc.251 }
+			}
+			#_驱逐舰=12
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						count > 12
+					}
+				}
+				while = {
+					count = 2
+					random_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = cruiser
+				}
+				fleet_event = { id = z_performance_misc.251 }
+			}
+		}
+		#_低优化	60		24
+		else = {
+			#_护卫舰=60
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = corvette }
+						count > 60
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = corvette }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = cruiser
+				}
+				fleet_event = { id = z_performance_misc.251 }
+			}
+			#_驱逐舰=24
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						count > 24
+					}
+				}
+				while = {
+					count = 2
+					random_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = cruiser
+				}
+				fleet_event = { id = z_performance_misc.251 }
+			}
+		}
+	}
+}
+
+#_战列舰	fleet_size > 8
+fleet_event = {
+	id = z_performance_misc.252
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		#_高优化	12/8		6/4		4
+		if = {
+			limit = { has_global_flag = z_pf2_flg_glbl_flt_opt_high }
+			#_护卫舰=12
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = corvette }
+						count > 12
+					}
+				}
+				while = {
+					count = 8
+					random_owned_ship = {
+						limit = { is_ship_size = corvette }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = battleship
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+			#_护卫舰=8
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = corvette }
+						count > 8
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = corvette }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = cruiser
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+			#_驱逐舰=6
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						count > 6
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = battleship
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+			#_驱逐舰=4
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						count > 4
+					}
+				}
+				while = {
+					count = 2
+					random_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = cruiser
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+			#_巡洋舰=4
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = cruiser }
+						count > 4
+					}
+				}
+				while = {
+					count = 2
+					random_owned_ship = {
+						limit = { is_ship_size = cruiser }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = battleship
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+		}
+		#_中优化	24		12		12
+		else_if = {
+			limit = {
+				NOR = {
+					has_global_flag = z_pf2_flg_glbl_flt_opt_high
+					has_global_flag = z_pf2_flg_glbl_flt_opt_low
+				}
+			}
+			#_护卫舰=24
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = corvette }
+						count > 24
+					}
+				}
+				while = {
+					count = 8
+					random_owned_ship = {
+						limit = { is_ship_size = corvette }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = battleship
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+			#_驱逐舰=12
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						count > 12
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = battleship
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+			#_巡洋舰=12
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = cruiser }
+						count > 12
+					}
+				}
+				while = {
+					count = 2
+					random_owned_ship = {
+						limit = { is_ship_size = cruiser }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = battleship
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+		}
+		#_低优化	60		24
+		else = {
+			#_护卫舰=60
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = corvette }
+						count > 60
+					}
+				}
+				while = {
+					count = 8
+					random_owned_ship = {
+						limit = { is_ship_size = corvette }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = battleship
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+			#_驱逐舰=24
+			else_if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						count > 24
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = destroyer }
+						delete_ship = this
+					}
+				}
+				create_ship = {
+					name = random
+					random_existing_design = battleship
+				}
+				fleet_event = { id = z_performance_misc.252 }
+			}
+		}
+	}
+}
+
+#_堕落战巡	fleet_size > 12	6*护航舰
+#_v_eft_flt	[create_fallen_empire_large_ship]
+fleet_event = {
+	id = z_performance_misc.253
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		#_高优化	6
+		if = {
+			limit = { has_global_flag = z_pf2_flg_glbl_flt_opt_high }
+			#_护航舰=6
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = small_ship_fallen_empire }
+						count > 5
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = small_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_large_ship = yes
+				fleet_event = { id = z_performance_misc.253 }
+			}
+			else = { fleet_event = { id = z_performance_misc.2531 } }	#_小船合并完成开始泰坦合并
+		}
+		#_中优化	12
+		else_if = {
+			limit = {
+				NOR = {
+					has_global_flag = z_pf2_flg_glbl_flt_opt_high
+					has_global_flag = z_pf2_flg_glbl_flt_opt_low
+				}
+			}
+			#_护航舰=12
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = small_ship_fallen_empire }
+						count > 11
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = small_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_large_ship = yes
+				fleet_event = { id = z_performance_misc.253 }
+			}
+			else = { fleet_event = { id = z_performance_misc.2531 } }
+		}
+		#_低优化	24
+		else = {
+			#_护航舰=24
+			if = {
+				limit = {
+					count_owned_ship = {
+						limit = { is_ship_size = small_ship_fallen_empire }
+						count > 23
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = small_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_large_ship = yes
+				fleet_event = { id = z_performance_misc.253 }
+			}
+			else = { fleet_event = { id = z_performance_misc.2531 } }
+		}
+	}
+}
+
+#_堕落泰坦	[z_performance_misc.253]
+#_v_eft_flt	[create_fallen_empire_titan]
+fleet_event = {
+	id = z_performance_misc.2531
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		#_高优化	3
+		if = {
+			limit = { has_global_flag = z_pf2_flg_glbl_flt_opt_high }
+			if = {#_3
+				limit = {
+					fleet_size > 223	#_泰坦64+小船8*20
+					count_owned_ship = {
+						limit = { is_ship_size = massive_ship_fallen_empire }
+						count < 3
+					}
+					count_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						count > 3
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_titan = yes
+				fleet_event = { id = z_performance_misc.2531 }
+			}
+			else_if = {#_2
+				limit = {
+					fleet_size > 191	#_泰坦32+小船8*20
+					count_owned_ship = {
+						limit = { is_ship_size = massive_ship_fallen_empire }
+						count < 2
+					}
+					count_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						count > 3
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_titan = yes
+				fleet_event = { id = z_performance_misc.2531 }
+			}
+			else_if = {#_1
+				limit = {
+					fleet_size > 159	#_小船8*20
+					count_owned_ship = {
+						limit = { is_ship_size = massive_ship_fallen_empire }
+						count < 1
+					}
+					count_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						count > 3
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_titan = yes
+				fleet_event = { id = z_performance_misc.2531 }
+			}
+		}
+		#_中优化	2
+		else_if = {
+			limit = {
+				NOR = {
+					has_global_flag = z_pf2_flg_glbl_flt_opt_high
+					has_global_flag = z_pf2_flg_glbl_flt_opt_low
+				}
+			}
+			if = {#_2
+				limit = {
+					fleet_size > 223	#_泰坦32+小船8*24
+					count_owned_ship = {
+						limit = { is_ship_size = massive_ship_fallen_empire }
+						count < 2
+					}
+					count_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						count > 3
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_titan = yes
+				fleet_event = { id = z_performance_misc.2531 }
+			}
+			else_if = {#_1
+				limit = {
+					fleet_size > 191	#_小船8*24
+					count_owned_ship = {
+						limit = { is_ship_size = massive_ship_fallen_empire }
+						count < 1
+					}
+					count_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						count > 3
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_titan = yes
+				fleet_event = { id = z_performance_misc.2531 }
+			}
+		}
+		#_低优化	1
+		else = {
+			if = {#_1
+				limit = {
+					fleet_size > 223	#_小船8*28
+					count_owned_ship = {
+						limit = { is_ship_size = massive_ship_fallen_empire }
+						count < 1
+					}
+					count_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						count > 3
+					}
+				}
+				while = {
+					count = 4
+					random_owned_ship = {
+						limit = { is_ship_size = large_ship_fallen_empire }
+						delete_ship = this
+					}
+				}
+				create_fallen_empire_titan = yes
+				fleet_event = { id = z_performance_misc.2531 }
+			}
+		}
+	}
+}

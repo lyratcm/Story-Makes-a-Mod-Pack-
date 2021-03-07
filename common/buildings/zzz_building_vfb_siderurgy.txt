@@ -1,0 +1,248 @@
+building_vfb_siderurgy = {
+    category = government
+    base_buildtime = 360
+    base_cap_amount = 1
+    icon = building_vfb_siderurgy
+    potential = {
+        NOT = {
+            has_building = building_vfb_siderurgy
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_siderurgy
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_siderurgy
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+        }
+        planet = {
+            OR = {
+                num_buildings = {
+                    type = building_foundry_1
+                    value >= 2
+                }
+                num_buildings = {
+                    type = building_foundry_2
+                    value >= 2
+                }
+                num_buildings = {
+                    type = building_foundry_3
+                    value >= 2
+                }
+            }
+        }
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        planet = {
+            AND = {
+                num_buildings = {
+                    type = building_foundry_1
+                    value < 2
+                }
+                num_buildings = {
+                    type = building_foundry_2
+                    value < 2
+                }
+                num_buildings = {
+                    type = building_foundry_3
+                    value < 2
+                }
+            }
+        }
+        planet = {
+            num_pops < 10
+        }
+    }
+    country_modifier = {
+    }
+    planet_modifier = {
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+        }
+        text = vfb_siderurgy_addon_effect_desc
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        planet_metallurgists_produces_mult = 0.1
+        job_foundry_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+            planet = {
+                OR = {
+                    num_buildings = {
+                        type = building_foundry_1
+                        value >= 3
+                    }
+                    num_buildings = {
+                        type = building_foundry_2
+                        value >= 3
+                    }
+                    num_buildings = {
+                        type = building_foundry_3
+                        value >= 3
+                    }
+                }
+            }
+        }
+        planet_metallurgists_produces_mult = 0.05
+        job_foundry_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+            planet = {
+                OR = {
+                    num_buildings = {
+                        type = building_foundry_1
+                        value >= 4
+                    }
+                    num_buildings = {
+                        type = building_foundry_2
+                        value >= 4
+                    }
+                    num_buildings = {
+                        type = building_foundry_3
+                        value >= 4
+                    }
+                }
+            }
+        }
+        planet_metallurgists_produces_mult = 0.05
+        job_foundry_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        planet_metallurgists_produces_mult = 0.1
+        job_alloy_drone_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+            planet = {
+                OR = {
+                    num_buildings = {
+                        type = building_foundry_1
+                        value >= 3
+                    }
+                    num_buildings = {
+                        type = building_foundry_2
+                        value >= 3
+                    }
+                    num_buildings = {
+                        type = building_foundry_3
+                        value >= 3
+                    }
+                }
+            }
+        }
+        planet_metallurgists_produces_mult = 0.05
+        job_alloy_drone_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+            planet = {
+                OR = {
+                    num_buildings = {
+                        type = building_foundry_1
+                        value >= 4
+                    }
+                    num_buildings = {
+                        type = building_foundry_2
+                        value >= 4
+                    }
+                    num_buildings = {
+                        type = building_foundry_3
+                        value >= 4
+                    }
+                }
+            }
+        }
+        planet_metallurgists_produces_mult = 0.05
+        job_alloy_drone_add = 1
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            alloys = 400
+        }
+        upkeep = {
+            energy = 16
+        }
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 10
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value < 10
+                }
+            }
+        }
+        modifier = {
+            weight = 100
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = minerals
+                    value > 160
+                }
+            }
+        }
+        modifier = {
+            weight = 100
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value > 160
+                }
+            }
+        }
+    }
+}

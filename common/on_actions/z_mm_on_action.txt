@@ -1,0 +1,11 @@
+on_game_start = {
+	events = {
+		z_modmenu.10
+	}
+}
+
+on_game_start_country = {
+	events = {
+	#	UniqueAscensionPerksMenuEvents.1	#_检测sp_uap是否安装
+	}
+}

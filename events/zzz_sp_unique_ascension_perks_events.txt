@@ -1,0 +1,35 @@
+#_unique_ascesnsion_perks_events.txt
+
+namespace = UniqueAscensionPerksMenuEvents
+
+###placeholder###
+country_event = {
+	id = UniqueAscensionPerksMenuEvents.1
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { set_global_flag = z_mm_flg_sp_mods_uap_non }
+}
+
+#_未安装
+country_event = {
+	id = UniqueAscensionPerksMenuEvents.7777
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_sp_mods_tips_gui"
+	picture_event_data = {
+		portrait = shroud1
+		room = z_mm_evt_tips_room
+	}
+	
+	option = {
+        custom_gui = "z_mm_button_evt_sub_red"
+		name = z_modmenu_pity
+	}
+}

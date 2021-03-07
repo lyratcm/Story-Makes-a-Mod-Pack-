@@ -1,0 +1,70 @@
+fund_underground_railroad = {
+	length = 360
+	resources = {
+		category = campaigns
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		has_technology = tech_planetary_unification
+		allows_slavery = no
+		OR = {
+			has_policy_flag = refugees_only_citizens
+			has_policy_flag = refugees_allowed
+		}
+	}
+	
+	allow = {
+		any_relation = {
+			has_communications = PREV
+			allows_slavery = yes
+			any_owned_planet = {
+				any_pop = { is_enslaved = yes }
+				NOT = { has_modifier = underground_railroad }
+			}
+		}
+	}
+	
+	effect = {
+		custom_tooltip = fund_underground_railroad_tooltip_effect
+		hidden_effect = {
+			random_relation = {
+				limit = {
+					has_communications = PREV
+					allows_slavery = yes
+					any_owned_planet = {
+						any_pop = { is_enslaved = yes }
+						NOT = { has_modifier = underground_railroad }
+					}
+				}
+				save_event_target_as = slaver_country
+				random_owned_planet = {
+					limit = {
+						any_pop = { is_enslaved = yes }
+						NOT = { has_modifier = underground_railroad }
+					}
+					save_event_target_as = slaver_planet
+					set_planet_flag = outside_underground_railroad
+					planet_event = { id = refugeeexpanded.29 }
+				}
+			}
+			country_event = { id = refugeeexpanded.32 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictLowPrio
+			OR = {
+				is_egalitarian = yes
+				is_xenophile = yes
+			}
+			is_xenophobe = no
+			is_authoritarian = no
+		}
+	}
+}

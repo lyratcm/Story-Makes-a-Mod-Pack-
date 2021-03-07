@@ -1,0 +1,2 @@
+﻿l_english:
+ job_smuggler_effect_desc:1000 "£job_smuggler£ $job_smuggler_plural$ produce £consumer_goods£ §Y$consumer_goods$§! and increase $MOD_PLANET_IMMIGRATION_PULL_ADD$ significantly reducing £mod_trade_value_add£ §Y$TRADE_VALUE$§!"

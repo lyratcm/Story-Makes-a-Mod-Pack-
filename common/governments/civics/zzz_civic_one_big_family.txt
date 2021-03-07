@@ -1,0 +1,32 @@
+civic_one_big_family = {
+	description = "civic_tooltip_one_big_family_effects"
+	modification = no
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+		origin = { value = origin_caretaker }
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_egalitarian
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}
+		}
+		civics = {
+			NOT = { value = civic_shared_burden }
+			NOT = { value = civic_beacon_of_liberty }
+			NOT = { value = civic_meritocracy }
+			NOT = { value = civic_idealistic_foundation }
+			NOT = { value = civic_free_haven }
+		}
+	}
+	modifier = {
+		job_caretaker_ward_per_pop = 0.05
+		pop_demotion_time_mult = -0.25
+	}
+	random_weight = {
+		base = 0
+	}
+}

@@ -1,0 +1,5 @@
+static_modifier_am_civics_planet_decay_10 = {
+    pop_environment_tolerance = -1.50
+    icon = "gfx/interface/icons/planet_modifiers/pm_exploding_planet.dds"
+    icon_frame = 3
+}

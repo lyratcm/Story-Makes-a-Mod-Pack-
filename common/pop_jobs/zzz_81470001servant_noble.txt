@@ -1,0 +1,124 @@
+servant_noble = {
+    category = worker
+    building_icon = building_luxury_residence
+    clothes_texture_index = 2
+    icon = servant
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        OR = {
+            is_enslaved = no
+            can_take_servant_job = no
+        }
+        is_non_sapient_robot = no
+        is_shackled_robot = no
+    }
+    resources = {
+    }
+    triggered_pop_modifier = {
+        potential = {
+            is_organic_species = yes
+        }
+        pop_housing_usage_add = -0.5
+    }
+    planet_modifier = {
+        planet_amenities_add = 4
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            planet_amenities_add = 1.6
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_global_flag = expanded_pops_active
+            is_robot_pop = yes
+            exists = owner
+            owner = {
+                has_relic = r_three_londor
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            planet_amenities_add = -0.8
+        }
+    }
+    weight = {
+        weight = @clerk_job_weight
+        modifier = {
+            weight = 2
+            has_job = servant_noble
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            factor = 0.8
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            factor = 0.25
+            has_trait = trait_decadent
+        }
+        modifier = {
+            factor = 0.9
+            has_trait = trait_syncretic_proles
+        }
+        modifier = {
+            factor = 0
+            OR = {
+                is_pop_category = specialist
+                is_pop_category = ruler
+            }
+        }
+    }
+}

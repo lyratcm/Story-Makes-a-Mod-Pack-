@@ -1,0 +1,141 @@
+###_z performance2
+
+#_[国家类型]
+#_[轨道栖息地限制]
+#_[物种整合]
+
+
+
+
+###_[国家类型]	################################
+#_[cntr]
+z_pf2_trgr_cntr_spcs_normal = {
+	OR = {
+		is_country_type = default
+		is_country_type = ascended_empire	#_ZOFE
+		is_country_type = lost_empire		#_ZOFE
+	}
+}
+#_[cntr]
+z_pf2_trgr_cntr_flt_normal = {
+	OR = {
+		is_country_type = default
+		is_country_type = prikki					#_远星
+		is_country_type = ascended_empire			#_ZOFE
+		is_country_type = lost_empire				#_ZOFE
+		is_country_type = default_ev				#_EV
+	}
+}
+z_pf2_trgr_cntr_flt_fallen = {
+#	OR = {
+#		is_country_type = fallen_empire
+#		is_country_type = awakened_fallen_empire
+#	}
+	OR = {#_vanilla
+		has_country_flag = fallen_empire_machine
+		has_country_flag = fallen_empire_1
+		has_country_flag = fallen_empire_2
+		has_country_flag = fallen_empire_3
+		has_country_flag = fallen_empire_4
+	}
+}
+
+
+
+
+###_[轨道栖息地限制]	################################
+#_[system]	from=[country]
+z_pf2_habitats_no_ai_weight = {
+	OR = {
+		has_global_flag = z_pf2_ai_habitat_ban		#_ai禁用flag
+		AND = {
+			has_global_flag = z_pf2_ai_habitat_optimized	#_最佳设置
+			from = { NOT = { has_origin = origin_void_dwellers } }	#_非虚空居者
+		}
+		from = {#_建造国
+			has_origin = origin_void_dwellers
+			resource_stockpile_compare = {
+				resource = alloys
+				value < 4500
+			}
+			resource_stockpile_compare = {
+				resource = influence
+				value < 300
+			}
+		}
+		from = { has_country_flag = z_pf2_country_habitat_cd }
+	}
+}
+
+#_[system]	from=[country]
+#_<possible>
+z_pf2_habitats_impossible = {
+	from = {
+		is_ai = yes
+		OR = {
+			has_global_flag = z_pf2_ai_habitat_ban		#_ai禁用flag
+			AND = {
+				has_global_flag = z_pf2_ai_habitat_optimized	#_最佳设置
+				NOT = { has_origin = origin_void_dwellers }		#_非虚空居者
+			}
+			has_country_flag = z_pf2_country_habitat_cd
+		}
+	}
+}
+
+#_[system]	from=[country]
+z_pf2_ring_world_no_ai_weight = {
+	NOT = { has_global_flag = z_pf2_ai_ring_world_allowed }		#_允许ai建造环世界基址
+}
+
+
+
+
+
+###_[物种整合]	################################
+
+#_[pop]
+z_pf2_full_citizen_ship = {
+	OR = {
+		has_citizenship_type = { type = citizenship_full }
+		has_citizenship_type = { type = citizenship_full_machine }
+	}
+}
+
+#_[pop]
+z_pf2_slavery_citizen_ship_common = {
+	NOT = { has_slavery_type = { type = slavery_indentured } }
+	OR = {
+		has_citizenship_type = { type = citizenship_slavery }
+		has_citizenship_type = { type = citizenship_robot_servitude }
+	}
+}
+#_[pop]
+z_pf2_slavery_citizen_ship_indentured = {
+	has_slavery_type = { type = slavery_indentured }
+	OR = {
+		has_citizenship_type = { type = citizenship_slavery }
+		has_citizenship_type = { type = citizenship_robot_servitude }
+	}
+}
+
+
+#_[pop]
+z_pf2_is_organic = {
+	species = {
+		is_archetype = BIOLOGICAL
+	}
+}
+
+#_[pop]
+z_pf2_is_mod_species = {
+	species = {
+		NOR = {
+			is_archetype = BIOLOGICAL
+			is_archetype = ROBOT
+			is_archetype = MACHINE
+			is_archetype = LITHOID
+		}
+	}
+}
+

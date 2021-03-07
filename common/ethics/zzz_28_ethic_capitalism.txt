@@ -1,0 +1,230 @@
+ethic_capitalism = {
+	cost = 1
+	category = "soc"
+	category_value = 3
+
+	fanatic_variant = ethic_fanatic_capitalism
+
+	category_opposite = yes
+
+	tags = {
+	}
+
+	country_modifier = {
+		trade_value_mult = 0.1
+		country_trade_fee = -0.05
+		species_leader_exp_gain = 0.1
+		pop_cat_worker_political_power = -0.5
+	}
+
+	random_weight = {
+		value = 100
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CAPITALISM_POS
+		trigger = {
+			OR = {
+				has_ethic = ethic_capitalism
+				has_ethic = ethic_fanatic_capitalism
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FACTION_POS
+		trigger = {
+			NOR = {
+				has_ethic = ethic_capitalism
+				has_ethic = ethic_fanatic_capitalism
+			}
+			has_faction = bankers
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_FACTION_POS
+		trigger = {
+			exists = ruler
+			ruler = { leader_of_faction = bankers }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_TRAIT_INVESTOR_POS
+		trigger = {
+			exists = ruler
+			ruler = { has_trait = "trait_ruler_investor" }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CIVIC_POS
+		trigger = {
+			OR = {
+				has_valid_civic = civic_corporate_dominion
+				has_valid_civic = civic_beacon_of_liberty
+				has_valid_civic = civic_merchant_guilds
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CONSUMER_GOODS_NEG
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					OR = {
+						has_living_standard = { type = living_standard_utopian }
+						has_living_standard = { type = living_standard_good }
+						has_living_standard = { type = living_standard_shared_burden }
+					}
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_THRIFTY_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_thrifty"
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_WASTEFUL_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_wasteful"
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_SOLITARY_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_solitary"
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CONSERVATIONAL_NEG
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_conservational"
+				}
+			}
+		}
+	}
+
+	country_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				is_country_type = default
+				has_ethic = ethic_capitalism
+				has_ethic = ethic_fanatic_capitalism
+				AND = {
+					is_country_type = primitive
+					capital_scope = {
+						has_observation_outpost = yes
+						observation_outpost = {
+							has_mission = native_indoctrination
+						}
+						observation_outpost_owner = {
+							OR = {
+								has_ethic = ethic_fanatic_capitalism
+								has_ethic = ethic_capitalism
+							}
+						}
+					}
+				}
+			}
+		}
+		# Effects of indoctrination mission
+		modifier = {
+			factor = 10
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_fanatic_capitalism }
+			}
+		}
+		modifier = {
+			factor = 5
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_capitalism }
+			}
+		}
+		modifier = {
+			factor = 2
+			NOR = {
+				has_ethic = ethic_capitalism
+				has_ethic = ethic_fanatic_capitalism
+			}
+			has_faction = bankers
+		}
+		modifier = {
+			factor = 1.5
+			exists = ruler
+			ruler = { leader_of_faction = bankers }
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_capitalism
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_capitalism
+		}
+	}
+
+	# from = planet
+	pop_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			has_trait = trait_hive_mind
+		}
+		modifier = {
+			factor = 1.5
+			has_trait = "trait_thrifty"
+		}
+		modifier = {
+			factor = 0.75
+			has_trait = "trait_conservational"
+		}
+		modifier = {
+			factor = 1.5
+			has_trait = "trait_wasteful"
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				has_living_standard = { type = living_standard_utopian }
+				has_living_standard = { type = living_standard_good }
+				has_living_standard = { type = living_standard_shared_burden }
+			}
+		}
+	}
+}

@@ -1,0 +1,1899 @@
+############################
+#
+# Expanded refugee Events
+#
+############################
+
+namespace = refugeeexpanded
+
+### Refugees ###
+# Starvation kills a pop
+country_event = {
+	id = refugeeexpanded.1
+	title = "refugeeexpanded.1.name"
+	desc = "refugeeexpanded.1.desc"
+	picture = GFX_evt_dead_city
+	show_sound = event_ghost_town
+	location = ROOT
+	
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire
+			is_country_type = lost_empire
+		}
+		OR = {
+			NOT = { resource_stockpile_compare = { resource = food value > 1 } }
+			AND = {
+				has_edict = food_rationing
+				NOT = { resource_stockpile_compare = { resource = food value > 500 } }
+			}
+		}
+		NOT = { has_country_flag = recent_starvation }
+		any_owned_planet = {
+			num_pops > 3
+			any_pop = { is_robot_pop = no is_lithoid = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		modifier = {
+			factor = 0.75
+			has_monthly_income = { resource = food value < -5 } 
+		}
+		modifier = {
+			factor = 0.5
+			has_monthly_income = { resource = food value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			has_monthly_income = { resource = food value < -15 }
+		}
+		modifier = {
+			factor = 0.5
+			has_monthly_income = { resource = food value < -20 }
+		}
+		modifier = {
+			factor = 0.5
+			has_monthly_income = { resource = food value < -25 }
+		}
+	}
+	
+	option = {
+		name = "TERRIBLE"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+			}
+		}
+		hidden_effect = {
+			set_timed_country_flag = {
+				flag = recent_starvation
+				days = 180
+			}
+		}
+		random_owned_planet = {
+			limit = {
+				num_pops > 3
+				any_pop = { is_robot_pop = no is_lithoid = no }
+			}
+			save_event_target_as = the_planet
+			random_pop = {
+				limit = {
+					is_robot_pop = no
+					is_lithoid = no
+					OR = {
+						is_pop_category = specialist
+						is_pop_category = worker
+						is_pop_category = simple_drone
+						is_enslaved = yes
+						is_being_purged = yes
+					}
+				}
+				if = {
+					limit = {
+						is_being_purged = yes
+						ROOT = { has_valid_civic = civic_fanatic_purifiers }
+					}
+					ROOT = {
+						add_monthly_resource_mult = {
+							resource = unity
+							value = 1.5
+							min = 5
+							max = 100
+						}
+					}
+				}
+				kill_pop = yes
+			}
+			if = {
+				limit = { num_pops > 6 }
+				random_pop = {
+					limit = {
+						is_robot_pop = no
+						is_lithoid = no
+						OR = {
+							is_pop_category = specialist
+							is_pop_category = worker
+							is_pop_category = simple_drone
+							is_enslaved = yes
+							is_being_purged = yes
+						}
+					}
+					if = {
+						limit = {
+							is_being_purged = yes
+							ROOT = { has_valid_civic = civic_fanatic_purifiers }
+						}
+						ROOT = {
+							add_monthly_resource_mult = {
+								resource = unity
+								value = 1.5
+								min = 5
+								max = 100
+							}
+						}
+					}
+					kill_pop = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = "refugeeexpanded.1.b"
+		trigger = { has_valid_civic = civic_hive_devouring_swarm }
+		hidden_effect = {
+			set_timed_country_flag = {
+				flag = recent_starvation
+				days = 180
+			}
+		}
+		random_owned_planet = {
+			limit = {
+				num_pops > 3
+				any_pop = { is_robot_pop = no is_lithoid = no }
+			}
+			save_event_target_as = the_planet
+			ROOT = {
+				add_resource = { food = 50 }
+				add_monthly_resource_mult = {
+					resource = society_research
+					value = 1
+					min = 1
+					max = 100
+				}
+			}
+			random_pop = {
+				limit = { is_robot_pop = no is_lithoid = no }
+				kill_pop = yes
+			}
+			if = {
+				limit = { num_pops > 6 }
+				ROOT = {
+					add_resource = { food = 50 }
+					add_monthly_resource_mult = {
+						resource = society_research
+						value = 1
+						min = 1
+						max = 100
+					}
+				}
+				random_pop = {
+					limit = { is_robot_pop = no is_lithoid = no }
+					kill_pop = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = "refugeeexpanded.1.c"
+		trigger = { has_valid_civic = civic_machine_terminator }
+		hidden_effect = {
+			set_timed_country_flag = {
+				flag = recent_starvation
+				days = 180
+			}
+		}
+		random_owned_planet = {
+			limit = {
+				num_pops > 0
+				any_pop = { is_robot_pop = no is_lithoid = no }
+			}
+			save_event_target_as = the_planet
+			ROOT = {
+				add_resource = { energy = 50 }
+				add_monthly_resource_mult = {
+					resource = unity
+					value = 2
+					min = 5
+					max = 100
+				}
+			}
+			random_pop = {
+				limit = { is_robot_pop = no is_lithoid = no }
+				kill_pop = yes
+			}
+			if = {
+				limit = { num_pops > 6 }
+				ROOT = {
+					add_resource = { energy = 50 }
+					add_monthly_resource_mult = {
+						resource = unity
+						value = 2
+						min = 5
+						max = 100
+					}
+				}
+				random_pop = {
+					limit = { is_robot_pop = no is_lithoid = no }
+					kill_pop = yes
+				}
+			}
+		}
+	}
+}
+
+### Refugee Flees Starvation ###
+pop_event = {
+	id = refugeeexpanded.2
+	hide_window = yes
+	
+	trigger = {
+		is_valid_refugee_pop = yes
+		is_robot_pop = no
+		is_lithoid = no
+		OR = {
+			is_being_purged = no # use normal purge refugee instead
+			has_purge_type = { type = purge_displacement }
+		}
+		exists = owner
+		owner = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+			}
+		}
+		owner = {
+			OR = {
+				resource_stockpile_compare = { resource = food value < 2 }
+				AND = {
+					NOT = { has_monthly_income = { resource = food value > 0 } }
+					resource_stockpile_compare = { resource = food value < 100 }
+				}
+				AND = {
+					has_edict = food_rationing
+					has_monthly_income = { resource = food value <= 5 }
+					resource_stockpile_compare = { resource = food value < 500 }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 100
+			is_valid_migration_pop = yes
+		}
+		modifier = {
+			factor = 5
+			planet = {
+				OR = {
+					has_modifier = penal_colony
+					has_modifier = slave_colony
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			is_enslaved = yes
+		}
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			exists = planet
+			planet = {
+				NOT = { has_modifier = underground_railroad }
+			}
+		}
+		modifier = {
+			factor = 5
+			NOR = {
+				is_pop_category = worker
+				is_enslaved = yes
+			}
+		}
+		modifier = {
+			factor = 2
+			has_trait = trait_conformists
+		}
+		modifier = {
+			factor = 4
+			has_trait = trait_obedient
+		}
+		
+		modifier = {
+			factor = 0.25
+			exists = owner
+			owner = {
+				has_country_flag = recent_starvation
+				OR = {
+					resource_stockpile_compare = { resource = food value < 2 }
+					AND = {
+						NOT = { has_monthly_income = { resource = food value > 0 } }
+						resource_stockpile_compare = { resource = food value < 100 }
+					}
+					AND = {
+						has_edict = food_rationing
+						has_monthly_income = { resource = food value <= 5 }
+						resource_stockpile_compare = { resource = food value < 500 }
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 40
+			exists = owner
+			owner = {
+				resource_stockpile_compare = { resource = food value > 50 }
+			}
+		}
+	}
+	
+	immediate = {
+		set_pop_flag = pop_escaped_starvation
+		if = {
+			limit = {
+				exists = owner
+				owner = { is_ai = no }
+			}
+			owner = { country_event = { id = refugeeexpanded.3 } }
+		}
+		save_event_target_as = refugee_pop #Must be saved for refugee_pop_effect to work
+		refugee_pop_effect = yes
+	}
+}
+# Inform owner of pop fleeing starvation
+country_event = {
+	id = refugeeexpanded.3
+	title = "refugeeexpanded.3.name"
+	desc = "refugeeexpanded.3.desc"
+	picture = GFX_evt_unknown_ships
+	show_sound = event_ghost_town
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+	}
+}
+
+### Refugee Flees War ###
+pop_event = {
+	id = refugeeexpanded.4
+	hide_window = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+			}
+		}
+		is_valid_refugee_pop = yes
+		OR = {
+			planet = { has_orbital_bombardment = yes }
+			planet = { is_occupied_flag = yes }
+			has_modifier = pop_recently_conquered
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 5
+			planet = {
+				OR = {
+					has_modifier = penal_colony
+					has_modifier = slave_colony
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			is_enslaved = yes
+		}
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			exists = planet
+			planet = {
+				NOT = { has_modifier = underground_railroad }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			happiness < 0.4
+			is_enslaved = no
+		}
+		modifier = {
+			factor = 2
+			has_trait = trait_conformists
+		}
+		modifier = {
+			factor = 4
+			has_trait = trait_obedient
+		}
+	}
+	
+	immediate = {
+		save_event_target_as = refugee_pop #Must be saved for refugee_pop_effect to work
+		if = {
+			limit = {
+				NOT = { has_modifier = pop_recently_conquered }
+				is_enslaved = no
+				is_being_purged = no
+				exists = owner
+				owner = {
+					any_owned_planet = {
+						habitability = { who = event_target:refugee_pop value >= 0.4 }
+						free_housing >= 1
+						is_under_colonization = no
+						is_controlled_by = owner
+						has_orbital_bombardment = no
+						is_occupied_flag = no
+					}
+				}
+			}
+			random_list = {
+				4 = {
+					owner = {
+						random_owned_planet = {
+							limit = {
+								habitability = { who = event_target:refugee_pop value >= 0.4 }
+								free_housing >= 1
+								is_under_colonization = no
+								is_controlled_by = owner
+								has_orbital_bombardment = no
+								is_occupied_flag = no
+							}
+							resettle_pop = {
+								pop = event_target:refugee_pop
+								planet = this
+							}
+						}
+					}
+				}
+				1 = {
+					set_pop_flag = pop_escaped_war
+					refugee_pop_effect = yes
+				}
+			}
+		}
+		else = {
+			set_pop_flag = pop_escaped_war
+			refugee_pop_effect = yes
+		}
+	}
+}
+
+# Inform original owner
+country_event = {
+	id = refugeeexpanded.6
+	title = "refugeeexpanded.6.name"
+	desc = "refugeeexpanded.6.desc"
+	picture = GFX_evt_unknown_ships
+	show_sound = event_ghost_town
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = UNFORTUNATE
+	}
+}
+
+### Refugee Flees Poverty/Crime/Slavery
+pop_event = {
+	id = refugeeexpanded.7
+	hide_window = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+			}
+		}
+		is_being_purged = no
+		is_valid_refugee_pop = yes
+		OR = {
+			AND = {
+				is_enslaved = yes
+				NOR = {
+					happiness > 0.4
+					pop_has_ethic = ethic_authoritarian
+				}
+			}
+			AND = {
+				has_living_standard = { type = living_standard_subsistence }
+				planet = { planet_crime >= 25 }
+			}
+			AND = {
+				planet = { planet_crime >= 75 }
+				is_pop_category = worker
+			}
+			AND = {
+				is_enslaved = no
+				planet = {
+					OR = {
+						has_modifier = doomsday_4
+						has_modifier = doomsday_5
+					}
+					owner = {
+						NOT = { num_owned_planets >1 }
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
+			is_valid_migration_pop = yes
+			planet = {
+				NOR = {
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			is_enslaved = yes
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_slaver_guilds
+					has_valid_civic = civic_indentured_assets
+				}
+			}
+		}
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			planet = {
+				has_building = building_slave_processing
+			}
+		}
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			exists = planet
+			planet = {
+				NOT = { has_modifier = underground_railroad }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			is_enslaved = yes
+			exists = owner
+			owner = {
+				any_relation = {
+					has_communications = PREV
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			is_enslaved = yes
+		}
+		modifier = {
+			factor = 0.75
+			happiness < 0.4
+		}
+		modifier = {
+			factor = 5
+			NOT = { is_pop_category = worker }
+			planet = {
+				NOR = {
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+		modifier = {
+			factor = 20
+			planet = {
+				OR = {
+					has_modifier = penal_colony
+					has_modifier = slave_colony
+				}
+			}
+		}
+		modifier = {
+			factor = 0.95
+			planet = { planet_crime >= 50 }
+		}
+		modifier = {
+			factor = 0.9
+			planet = { planet_crime >= 70 }
+		}
+		modifier = {
+			factor = 0.9
+			planet = { planet_crime >= 80 }
+		}
+		modifier = {
+			factor = 0.85
+			planet = { planet_crime >= 90 }
+		}
+		modifier = {
+			factor = 10
+			is_enslaved = no
+			planet = {
+				has_modifier = crime_lord_deal 
+				NOR = {
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			has_trait = trait_conformists
+		}
+		modifier = {
+			factor = 4
+			has_trait = trait_obedient
+		}
+		modifier = {
+			factor = 0.05
+			planet = {
+				OR = {
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		save_event_target_as = refugee_pop #Must be saved for refugee_pop_effect to work
+		if = {
+			limit = { is_enslaved = yes }
+			if = {
+				limit = {
+					exists = owner
+					owner = { is_ai = no }
+				}
+				owner = { country_event = { id = refugeeexpanded.6 } }
+			}
+			set_pop_flag = pop_escaped_slavery
+			save_event_target_as = refugee_pop
+			refugee_pop_effect = yes
+		}
+		else_if = {
+			limit = {
+				is_enslaved = no
+				planet = {
+					OR = {
+						has_modifier = doomsday_4
+						has_modifier = doomsday_5
+					}
+					owner = {
+						NOT = { num_owned_planets >1 }
+					}
+				}
+			}
+			set_pop_flag = pop_escaped_doomsday
+			refugee_pop_effect = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { has_living_standard = { type = living_standard_subsistence } }
+				owner = {
+					any_owned_planet = {
+						habitability = { who = event_target:refugee_pop value >= 0.4 }
+						free_housing >= 1
+						is_under_colonization = no
+						is_controlled_by = owner
+						has_orbital_bombardment = no
+						is_occupied_flag = no
+						planet = { planet_crime < 45 }
+					}
+				}
+			}
+			random_list = {
+				4 = {
+					owner = {
+						random_owned_planet = {
+							limit = {
+								habitability = { who = event_target:refugee_pop value >= 0.4 }
+								free_housing >= 1
+								is_under_colonization = no
+								is_controlled_by = owner
+								has_orbital_bombardment = no
+								is_occupied_flag = no
+								planet = { planet_crime < 45 }
+							}
+							resettle_pop = {
+								pop = event_target:refugee_pop
+								planet = this
+							}
+						}
+					}
+				}
+				1 = {
+					set_pop_flag = pop_escaped_poverty
+					refugee_pop_effect = yes
+				}
+			}
+		}
+		else = {
+			set_pop_flag = pop_escaped_poverty
+			refugee_pop_effect = yes
+		}
+	}
+}
+
+# Inform of enclave refugees
+planet_event = {
+	id = refugeeexpanded.8
+	title = "refugeeexpanded.8.name"
+	desc = "refugeeexpanded.8.desc"
+	picture = GFX_evt_unknown_ships
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = refugees.1.a
+		custom_tooltip = refugeeexpanded.8.a.tooltip
+	}
+}
+planet_event = {
+	id = refugeeexpanded.9
+	title = "refugeeexpanded.8.name"
+	desc = "refugeeexpanded.9.desc"
+	picture = GFX_evt_unknown_ships
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = refugees.1.a
+		custom_tooltip = refugeeexpanded.8.a.tooltip
+	}
+}
+planet_event = {
+	id = refugeeexpanded.10
+	title = "refugeeexpanded.8.name"
+	desc = "refugeeexpanded.10.desc"
+	picture = GFX_evt_unknown_ships
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = refugees.1.a
+		custom_tooltip = refugeeexpanded.8.a.tooltip
+	}
+}
+
+### Crime ###
+# Crime Lords get their revenge
+planet_event = {
+	id = refugeeexpanded.11
+	title = refugeeexpanded.11.name
+	desc = refugeeexpanded.11.desc
+	picture = GFX_evt_burning_settlement
+	show_sound = event_criminal_activity
+	location = root
+	
+	is_triggered_only = yes
+	
+	pre_triggers = {
+		has_owner = yes
+		has_ground_combat = no
+	}
+	trigger = {
+		planet_crime >= 20
+	}
+	
+	immediate = {
+		add_planet_devastation = 40
+	}
+	
+	option = {
+		name = TERRIBLE
+		tooltip = { add_planet_devastation = 40 }
+	}
+	
+}
+
+### Slavery ###
+# Slaver steals a pop
+country_event = {
+	id = refugeeexpanded.20
+	title = "refugeeexpanded.20.name"
+	desc = "refugeeexpanded.20.desc"
+	picture = GFX_evt_pirate_armada
+	location = event_target:slaver_planet
+	
+	trigger = {
+		has_policy_flag = slavery_allowed
+		is_country_type = default
+		resource_stockpile_compare = { resource = energy value > 500 }
+		NOR = {
+			has_ethic = ethic_pacifist
+			has_ethic = ethic_fanatic_pacifist
+			has_ethic = ethic_xenophile
+			has_ethic = ethic_fanatic_xenophile
+			has_ethic = ethic_gestalt_consciousness
+			is_at_war = yes
+		}
+		any_relation = {
+			has_communications = ROOT
+			is_country_type = default
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_defensive_pact = ROOT
+				has_diplo_migration_treaty = ROOT
+				has_non_aggression_pact = ROOT
+				is_in_federation_with = ROOT
+				has_association_status = ROOT
+				is_guaranteeing = ROOT
+				ROOT = { is_guaranteeing = PREV }
+				has_modifier = rich_pirates
+			}
+			any_owned_pop = {
+				is_robot_pop = no
+				has_culture_shock = no
+				is_sapient = yes
+				NOT = { has_trait = trait_hive_mind }
+				ROOT = {
+					any_owned_planet = {
+						habitability = { who = PREVPREV value > 0.2 }
+						is_under_colonization = no
+						is_controlled_by = owner
+						has_orbital_bombardment = no
+					}
+				}
+			}
+			any_system_within_border = {
+				ROOT = {
+					any_system_within_border = {
+						distance = {
+							source = prevprev
+							use_bypasses = no
+							min_jumps = 1
+							max_jumps = 10
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 60
+		modifier = {
+			factor = 0.66
+			OR = {
+				has_valid_civic = civic_barbaric_despoilers
+				is_criminal_syndicate = yes
+			}
+		}
+	}
+	
+	immediate = {
+		random_relation = {
+			limit = {
+				has_communications = ROOT
+				is_country_type = default
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_defensive_pact = ROOT
+					has_diplo_migration_treaty = ROOT
+					has_non_aggression_pact = ROOT
+					is_in_federation_with = ROOT
+					has_association_status = ROOT
+					is_guaranteeing = ROOT
+					ROOT = { is_guaranteeing = PREV }
+					has_modifier = rich_pirates
+				}
+				any_owned_pop = {
+					is_robot_pop = no
+					has_culture_shock = no
+					is_sapient = yes
+					NOT = { has_trait = trait_hive_mind }
+					has_citizenship_type = { type = citizenship_slavery country = ROOT }
+					ROOT = {
+						any_owned_planet = {
+							habitability = { who = PREVPREV value > 0.2 }
+							is_under_colonization = no
+							is_controlled_by = owner
+							has_orbital_bombardment = no
+						}
+					}
+				}
+				any_system_within_border = {
+					ROOT = {
+						any_system_within_border = {
+							distance = {
+								source = prevprev
+								use_bypasses = no
+								min_jumps = 1
+								max_jumps = 10
+							}
+						}
+					}
+				}
+			}
+			save_event_target_as = slaver_victim_country
+			random_owned_pop = {
+				limit = {
+					is_robot_pop = no
+					has_culture_shock = no
+					is_sapient = yes
+					NOT = { has_trait = trait_hive_mind }
+					has_citizenship_type = { type = citizenship_slavery country = ROOT }
+					ROOT = {
+						any_owned_planet = {
+							habitability = { who = PREVPREV value > 0.2 }
+							is_under_colonization = no
+							is_controlled_by = owner
+							has_orbital_bombardment = no
+						}
+					}
+				}
+				save_event_target_as = slaver_victim_pop
+				ROOT = {
+					random_owned_planet = {
+						limit = {
+							habitability = { who = PREVPREV value > 0.2 }
+							is_under_colonization = no
+							is_controlled_by = owner
+							has_orbital_bombardment = no
+						}
+						save_event_target_as = slaver_planet
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = refugeeexpanded.20.a
+		add_resource = { energy = -250 }
+		event_target:slaver_planet = {
+			resettle_pop = {
+				pop = event_target:slaver_victim_pop
+				planet = this
+			}
+		}
+		event_target:slaver_victim_pop = {
+			set_citizenship_type = { type = citizenship_slavery country = ROOT }
+		}
+		hidden_effect = {
+			event_target:slaver_victim_country = {
+				country_event = { id = refugeeexpanded.21 }
+			}
+		}
+	}
+	option = {
+		name = refugeeexpanded.20.b
+		trigger = { is_ai = no }
+	}
+}
+
+country_event = {
+	id = refugeeexpanded.21
+	title = "refugeeexpanded.21.name"
+	desc = "refugeeexpanded.21.desc"
+	picture = GFX_evt_pirate_armada
+	location = event_target:slaver_planet
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_opinion_modifier = {
+			who = FROM
+			modifier = opinion_stole_pops
+		}
+		add_modifier = {
+			modifier = rich_pirates
+			days = 3600
+		}
+		add_modifier = {
+			modifier = pop_stolen
+			days = 1800
+		}
+		random_owned_pop = { pop_change_ethic = ethic_xenophobe }
+		random_owned_pop = { pop_change_ethic = ethic_xenophobe }
+		random_owned_pop = { pop_change_ethic = ethic_militarist }
+		random_owned_pop = { pop_change_ethic = ethic_militarist }
+	}
+	
+	option = {
+		name = "TERRIBLE"
+		custom_tooltip = refugeeexpanded.21.a.tooltip
+		tooltip = {
+			add_opinion_modifier = {
+				who = FROM
+				modifier = opinion_stole_pops
+			}
+			add_modifier = {
+				modifier = rich_pirates
+				days = 3600
+			}
+			add_modifier = {
+				modifier = pop_stolen
+				days = 1800
+			}
+		}
+	}
+}
+
+# Abolitionist movement starts on planet
+planet_event = {
+	id = refugeeexpanded.22
+	title = "refugeeexpanded.22.name"
+	desc = "refugeeexpanded.22.desc"
+	picture = GFX_evt_alien_segregation
+	show_sound = event_public_unrest
+	location = ROOT
+	
+	pre_triggers = {
+		has_owner = yes
+		has_ground_combat = no
+		is_occupied_flag = no
+	}
+	
+	trigger = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			any_owned_pop = { is_enslaved = yes }
+			is_at_war = no
+			is_homicidal = no
+		}
+		NOR = {
+			has_modifier = small_abolitionist_movement
+			has_modifier = medium_abolitionist_movement
+			has_modifier = large_abolitionist_movement
+			has_planet_flag = abolitionist_support_change
+		}
+		OR = {
+			any_pop = {
+				is_enslaved = no
+				pop_has_ethic = ethic_egalitarian
+				NOT = { has_trait = "trait_decadent" }
+			}
+			AND = {
+				owner = {
+					any_relation = {
+						has_communications = PREV
+						is_egalitarian = yes
+						allows_slavery = no
+						NOR = {
+							is_hostile = PREV
+							is_domineering_to = PREV
+							is_rival = PREV
+						}
+					}
+				}
+				any_pop = {
+					is_enslaved = no
+					OR = {
+						pop_has_ethic = ethic_xenophile
+						pop_has_ethic = ethic_pacifist
+					}
+					NOT = { has_trait = "trait_decadent" }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 75
+		modifier = {
+			factor = 8
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_slaver_guilds
+					has_valid_civic = civic_indentured_assets
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			exists = owner
+			owner = {
+				has_ethic = ethic_authoritarian
+			}
+		}
+		modifier = {
+			factor = 6
+			exists = owner
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_modifier = underground_railroad
+			exists = owner
+			owner = {
+				NOR = {
+					has_valid_civic = civic_slaver_guilds
+					has_valid_civic = civic_indentured_assets
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			exists = owner
+			owner = {
+				NOR = {
+					has_valid_civic = civic_slaver_guilds
+					has_valid_civic = civic_indentured_assets
+				}
+				any_relation = {
+					has_communications = PREV
+					is_egalitarian = yes
+					allows_slavery = no
+					NOR = {
+						is_hostile = PREV
+						is_domineering_to = PREV
+						is_rival = PREV
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		add_modifier = { modifier = small_abolitionist_movement days = -1 }
+		set_timed_planet_flag = { flag = abolitionist_support_change days = 3600 }
+		random_pop = { pop_change_ethic = ethic_egalitarian }
+	}
+	
+	option = {
+		name = UNFORTUNATE
+		tooltip = { add_modifier = { modifier = small_abolitionist_movement days = -1 } }
+	}
+}
+
+# abolitionists stop if no more slavery
+country_event = {
+	id = refugeeexpanded.23
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_gestalt = no
+		is_homicidal = no
+		last_changed_policy = slavery
+		has_policy_flag = slavery_not_allowed
+		any_owned_planet = {
+			OR = {
+				has_modifier = small_abolitionist_movement
+				has_modifier = medium_abolitionist_movement
+				has_modifier = large_abolitionist_movement
+			}
+		}
+	}
+	
+	immediate = {
+		set_country_flag = had_abolitionist_events
+		remove_modifier = failed_abolitionist_raid
+		remove_modifier = abolitionist_literature
+		every_owned_planet = {
+			limit = {
+				OR = {
+					has_modifier = small_abolitionist_movement
+					has_modifier = medium_abolitionist_movement
+					has_modifier = large_abolitionist_movement
+				}
+			}
+			set_planet_flag = had_abolitionist_events_planet
+		}
+		every_owned_planet = {
+			remove_modifier = small_abolitionist_movement
+			remove_modifier = medium_abolitionist_movement
+			remove_modifier = large_abolitionist_movement
+			remove_modifier = abolitionist_broken
+			remove_modifier = underground_railroad
+			remove_planet_flag = has_underground_railroad
+		}
+	}
+}
+
+# abolitionist gateway
+country_event = {
+	id = refugeeexpanded.24
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_planet = {
+			OR = {
+				has_modifier = small_abolitionist_movement
+				has_modifier = medium_abolitionist_movement
+				has_modifier = large_abolitionist_movement
+			}
+		}
+	}
+	
+	immediate = {
+		random_owned_planet = {
+			limit = {
+				OR = {
+					has_modifier = small_abolitionist_movement
+					has_modifier = medium_abolitionist_movement
+					has_modifier = large_abolitionist_movement
+				}
+			}
+			planet_event = { id = refugeeexpanded.50 }
+		}
+	}
+}
+
+# movement gets bigger
+planet_event = {
+	id = refugeeexpanded.25
+	title = "refugeeexpanded.25.name"
+	desc = "refugeeexpanded.25.desc"
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_public_unrest
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			any_owned_pop = { is_enslaved = yes }
+		}
+		NOT = { has_planet_flag = abolitionist_support_change }
+		OR = {
+			AND = {
+				has_modifier = small_abolitionist_movement
+				count_pops = {
+					limit = { 
+						is_enslaved = no
+						NOT = { has_trait = "trait_decadent" }
+						OR = {
+							pop_has_ethic = ethic_egalitarian
+							AND = {
+								owner = {
+									any_relation = {
+										has_communications = PREV
+										is_egalitarian = yes
+										allows_slavery = no
+										NOR = {
+											is_hostile = PREV
+											is_domineering_to = PREV
+											is_rival = PREV
+										}
+									}
+								}
+								OR = {
+									pop_has_ethic = ethic_xenophile
+									pop_has_ethic = ethic_pacifist
+								}
+							}
+						}
+					}
+					count > 10
+				}
+			}
+			AND = {
+				has_modifier = medium_abolitionist_movement
+				count_pops = {
+					limit = { 
+						is_enslaved = no
+						NOT = { has_trait = "trait_decadent" }
+						OR = {
+							pop_has_ethic = ethic_egalitarian
+							AND = {
+								owner = {
+									any_relation = {
+										has_communications = PREV
+										is_egalitarian = yes
+										allows_slavery = no
+										NOR = {
+											is_hostile = PREV
+											is_domineering_to = PREV
+											is_rival = PREV
+										}
+									}
+								}
+								OR = {
+									pop_has_ethic = ethic_xenophile
+									pop_has_ethic = ethic_pacifist
+								}
+							}
+						}
+					}
+					count > 25
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_modifier = small_abolitionist_movement }
+			remove_modifier = small_abolitionist_movement
+			add_modifier = { modifier = medium_abolitionist_movement days = -1 }
+		}
+		else = {
+			remove_modifier = medium_abolitionist_movement
+			add_modifier = { modifier = large_abolitionist_movement days = -1 }
+		}
+		set_timed_planet_flag = { flag = abolitionist_support_change days = 3600 }
+		random_pop = { pop_change_ethic = ethic_egalitarian }
+	}
+	
+	option = {
+		name = UNFORTUNATE
+		tooltip = {
+			if = {
+				limit = { has_modifier = small_abolitionist_movement }
+				remove_modifier = small_abolitionist_movement
+				add_modifier = { modifier = medium_abolitionist_movement days = -1 }
+			}
+			else = {
+				remove_modifier = medium_abolitionist_movement
+				add_modifier = { modifier = large_abolitionist_movement days = -1 }
+			}
+		}
+	}
+}
+
+# movement spreads to another planet
+planet_event = {
+	id = refugeeexpanded.26
+	title = "refugeeexpanded.26.name"
+	desc = "refugeeexpanded.26.desc"
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_public_unrest
+	location = event_target:new_abolitionist_planet
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			any_owned_pop = { is_enslaved = yes }
+			any_owned_planet = {
+				NOR = {
+					has_modifier = small_abolitionist_movement
+					has_modifier = medium_abolitionist_movement
+					has_modifier = large_abolitionist_movement
+					has_planet_flag = abolitionist_support_change
+				}
+				OR = {
+					any_pop = {
+						is_enslaved = no
+						pop_has_ethic = ethic_egalitarian
+						NOT = { has_trait = "trait_decadent" }
+					}
+					AND = {
+						owner = {
+							any_relation = {
+								has_communications = PREV
+								is_egalitarian = yes
+								allows_slavery = no
+								NOR = {
+									is_hostile = PREV
+									is_domineering_to = PREV
+									is_rival = PREV
+								}
+							}
+						}
+						any_pop = {
+							is_enslaved = no
+							OR = {
+								pop_has_ethic = ethic_xenophile
+								pop_has_ethic = ethic_pacifist
+							}
+							NOT = { has_trait = "trait_decadent" }
+						}
+					}
+				}
+			}
+		}
+		has_modifier = large_abolitionist_movement
+		count_pops = {
+			limit = { 
+				is_enslaved = no
+				NOT = { has_trait = "trait_decadent" }
+				OR = {
+					pop_has_ethic = ethic_egalitarian
+					AND = {
+						owner = {
+							any_relation = {
+								has_communications = PREV
+								is_egalitarian = yes
+								allows_slavery = no
+								NOR = {
+									is_hostile = PREV
+									is_domineering_to = PREV
+									is_rival = PREV
+								}
+							}
+						}
+						OR = {
+							pop_has_ethic = ethic_xenophile
+							pop_has_ethic = ethic_pacifist
+						}
+					}
+				}
+			}
+			count > 40
+		}
+	}
+	
+	immediate = {
+		owner = {
+			random_owned_planet = {
+				limit = {
+					NOR = {
+						has_modifier = small_abolitionist_movement
+						has_modifier = medium_abolitionist_movement
+						has_modifier = large_abolitionist_movement
+						has_planet_flag = abolitionist_support_change
+					}
+					OR = {
+						any_pop = {
+							is_enslaved = no
+							pop_has_ethic = ethic_egalitarian
+							NOT = { has_trait = "trait_decadent" }
+						}
+						AND = {
+							owner = {
+								any_relation = {
+									has_communications = PREV
+									is_egalitarian = yes
+									allows_slavery = no
+									NOR = {
+										is_hostile = PREV
+										is_domineering_to = PREV
+										is_rival = PREV
+									}
+								}
+							}
+							any_pop = {
+								is_enslaved = no
+								NOT = { has_trait = "trait_decadent" }
+								OR = {
+									pop_has_ethic = ethic_xenophile
+									pop_has_ethic = ethic_pacifist
+								}
+							}
+						}
+					}
+				}
+				save_event_target_as = new_abolitionist_planet
+				add_modifier = { modifier = small_abolitionist_movement days = -1 }
+				set_timed_planet_flag = { flag = abolitionist_support_change days = 3600 }
+				random_pop = { pop_change_ethic = ethic_egalitarian }
+			}
+		}
+	}
+	
+	option = {
+		name = TERRIBLE
+		tooltip = {
+			event_target:new_abolitionist_planet = {
+				add_modifier = { modifier = small_abolitionist_movement days = -1 }
+			}
+		}
+	}
+}
+
+# movement gets smaller
+planet_event = {
+	id = refugeeexpanded.27
+	title = "refugeeexpanded.27.name"
+	desc = "refugeeexpanded.27.desc"
+	picture = GFX_evt_alien_segregation
+	show_sound = event_public_unrest
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			any_owned_pop = { is_enslaved = yes }
+		}
+		NOT = { has_planet_flag = abolitionist_support_change }
+		OR = {
+			has_modifier = small_abolitionist_movement
+			has_modifier = medium_abolitionist_movement
+			has_modifier = large_abolitionist_movement
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_modifier = large_abolitionist_movement }
+			remove_modifier = large_abolitionist_movement
+			add_modifier = { modifier = medium_abolitionist_movement days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = medium_abolitionist_movement }
+			remove_modifier = medium_abolitionist_movement
+			add_modifier = { modifier = small_abolitionist_movement days = -1 }
+		}
+		else = {
+			remove_modifier = small_abolitionist_movement
+		}
+		add_modifier = { modifier = abolitionist_broken days = 1800 }
+		set_timed_planet_flag = { flag = abolitionist_support_change days = 3600 }
+	}
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			if = {
+				limit = { has_modifier = large_abolitionist_movement }
+				remove_modifier = large_abolitionist_movement
+				add_modifier = { modifier = medium_abolitionist_movement days = -1 }
+			}
+			else_if = {
+				limit = { has_modifier = medium_abolitionist_movement }
+				remove_modifier = medium_abolitionist_movement
+				add_modifier = { modifier = small_abolitionist_movement days = -1 }
+			}
+			else = {
+				remove_modifier = small_abolitionist_movement
+			}
+			add_modifier = { modifier = abolitionist_broken days = 1800 }
+		}
+	}
+}
+
+# John Brown's Raid
+planet_event = {
+	id = refugeeexpanded.28
+	title = "refugeeexpanded.28.name"
+	desc = "refugeeexpanded.28.desc"
+	picture = GFX_evt_burning_settlement
+	show_sound = event_air_raid_siren
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			any_owned_pop = { is_enslaved = yes }
+			NOT = { has_country_flag = john_brown_raid }
+			NOT = { has_modifier = failed_abolitionist_raid }
+		}
+		has_modifier = large_abolitionist_movement
+		OR = {
+			has_building = building_stronghold
+			has_building = building_fortress
+			has_building = building_citadel
+		}
+	}
+	
+	immediate = {
+		add_planet_devastation = 10
+		owner = {
+			set_country_flag = john_brown_raid
+			add_modifier = { modifier = failed_abolitionist_raid days = 18000 }
+			random_owned_pop = { pop_change_ethic = ethic_egalitarian }
+			random_owned_pop = { pop_change_ethic = ethic_egalitarian }
+		}
+	}
+	
+	option = {
+		name = TERRIBLE
+		tooltip = {
+			add_planet_devastation = 10
+			owner = {
+				add_modifier = { modifier = failed_abolitionist_raid days = 18000 }
+			}
+		}
+	}
+}
+
+# Underground Railroad Established
+planet_event = {
+	id = refugeeexpanded.29
+	title = "refugeeexpanded.29.name"
+	desc = {
+		text = "refugeeexpanded.29.desc"
+		trigger = { NOT = { has_planet_flag = has_underground_railroad } }
+	}
+	desc = {
+		text = "refugeeexpanded.29.desc.b"
+		trigger = { has_planet_flag = has_underground_railroad }
+	}
+	picture = GFX_evt_dark_alley
+	show_sound = event_criminal_activity
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+		}
+		any_pop = { is_enslaved = yes }
+		OR = {
+			has_modifier = small_abolitionist_movement
+			has_modifier = medium_abolitionist_movement
+			has_modifier = large_abolitionist_movement
+			has_planet_flag = outside_underground_railroad
+		}
+		NOT = { has_modifier = underground_railroad }
+	}
+	
+	immediate = {
+		add_modifier = { modifier = underground_railroad days = -1 }
+		set_planet_flag = has_underground_railroad
+		remove_planet_flag = outside_underground_railroad
+	}
+	
+	option = {
+		name = TERRIBLE
+		tooltip = {
+			add_modifier = { modifier = underground_railroad days = -1 }
+		}
+	}
+}
+
+# Underground Railroad Shut Down
+planet_event = {
+	id = refugeeexpanded.30
+	title = "refugeeexpanded.30.name"
+	desc = "refugeeexpanded.30.desc"
+	picture = GFX_evt_dark_alley
+	show_sound = event_criminal_activity
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			allows_slavery = yes
+		}
+		has_modifier = underground_railroad
+	}
+	
+	immediate = {
+		remove_modifier = underground_railroad
+		random_list = {
+			3 = {
+				planet_event = { id = refugeeexpanded.29 days = 360 random = 1800 }
+			}
+			1 = {
+			}
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			remove_modifier = underground_railroad
+		}
+	}
+}
+
+# Uncle Tom's Cabin
+planet_event = {
+	id = refugeeexpanded.31
+	title = "refugeeexpanded.31.name"
+	desc = "refugeeexpanded.31.desc"
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_public_unrest
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			any_owned_pop = { is_enslaved = yes }
+			NOT = { has_country_flag = uncle_toms_cabin }
+			NOT = { has_modifier = abolitionist_literature }
+		}
+		has_modifier = large_abolitionist_movement
+	}
+	
+	immediate = {
+		owner = {
+			set_country_flag = uncle_toms_cabin
+			add_modifier = { modifier = abolitionist_literature days = 18000 }
+			random_owned_pop = { pop_change_ethic = ethic_egalitarian }
+			random_owned_pop = { pop_change_ethic = ethic_egalitarian }
+			random_owned_pop = { pop_change_ethic = ethic_egalitarian }
+		}
+	}
+	
+	option = {
+		name = UNFORTUNATE
+		tooltip = {
+			owner = {
+				add_modifier = { modifier = abolitionist_literature days = 18000 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = refugeeexpanded.32
+	title = "refugeeexpanded.32.name"
+	desc = refugeeexpanded.32.desc
+	picture = GFX_evt_alien_segregation
+	show_sound = event_radio_chatter
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			event_target:slaver_planet = { add_modifier = { modifier = underground_railroad days = -1 } }
+		}
+	}
+}
+
+# abolitionists come back if slavery does
+country_event = {
+	id = refugeeexpanded.49
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_gestalt = no
+		is_homicidal = no
+		last_changed_policy = slavery
+		has_policy_flag = slavery_allowed
+		any_owned_planet = {
+			has_planet_flag = had_abolitionist_events_planet
+		}
+	}
+	
+	immediate = {
+		remove_country_flag = had_abolitionist_events
+		every_owned_planet = {
+			limit = {
+				has_planet_flag = had_abolitionist_events_planet
+			}
+			add_modifier = { modifier = small_abolitionist_movement days = -1 }
+			remove_planet_flag = had_abolitionist_events_planet
+		}
+	}
+}
+
+# abolitionist planet gateway
+planet_event = {
+	id = refugeeexpanded.50
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			350 = {
+				# nothing happens
+			}
+			# movement gets bigger
+			30 = {
+				planet_event = { id = refugeeexpanded.25 days = 10 random = 340 }
+			}
+			# movement spreads
+			10 = {
+				planet_event = { id = refugeeexpanded.26 days = 10 random = 340 }
+				modifier = {
+					factor = 0.75
+					owner = { is_authoritarian = yes }
+				}
+			}
+			# movement gets smaller
+			10 = {
+				planet_event = { id = refugeeexpanded.27 days = 10 random = 340 }
+				modifier = {
+					factor = 4
+					owner = {
+						OR = {
+							has_valid_civic = civic_slaver_guilds
+							has_valid_civic = civic_indentured_assets
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					owner = {
+						OR = {
+							has_valid_civic = civic_police_state
+							has_valid_civic = civic_corp_security
+						}
+						NOR = {
+							has_valid_civic = civic_slaver_guilds
+							has_valid_civic = civic_indentured_assets
+						}
+					}
+				}
+			}
+			# John Brown's Raid
+			3 = {
+				planet_event = { id = refugeeexpanded.28 days = 10 random = 340 }
+			}
+			# abolitionists create underground railroad
+			50 = {
+				modifier = {
+					factor = 0
+					has_modifier = underground_railroad
+				}
+				planet_event = { id = refugeeexpanded.29 days = 10 random = 340 }
+			}
+			# underground railroad shut down temporarily
+			10 = {
+				modifier = {
+					factor = 0
+					NOT = { has_modifier = underground_railroad }
+				}
+				modifier = {
+					factor = 4
+					owner = {
+						OR = {
+							has_valid_civic = civic_slaver_guilds
+							has_valid_civic = civic_indentured_assets
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					owner = {
+						OR = {
+							has_valid_civic = civic_police_state
+							has_valid_civic = civic_corp_security
+						}
+						NOR = {
+							has_valid_civic = civic_slaver_guilds
+							has_valid_civic = civic_indentured_assets
+						}
+					}
+				}
+				planet_event = { id = refugeeexpanded.30 days = 10 random = 340 }
+			}
+			# uncle tom's cabin
+			3 = {
+				planet_event = { id = refugeeexpanded.31 days = 10 random = 340 }
+			}
+			# abolitionists try to get workers on their side
+			# convince slaveowners to free slaves (possible?)
+			# abolitionists found country to send freed slaves to
+			# abolitionist movement demands slavery outlawed
+		}
+	}
+}

@@ -1,0 +1,113 @@
+decision_sanctify_singularity = {
+	icon = decision_surreal_visions
+	sound = event_administrative_work
+	
+	resources = {
+		category = decisions
+		cost = {
+			influence = 75
+		}
+	}
+
+	potential = {
+		exists = space_owner
+		space_owner = { is_same_value = from }
+		from = {
+			has_valid_civic = civic_physics_cult
+			has_ascension_perk = ap_consecrated_worlds_nihilistic
+		}
+		is_planet_class = pc_black_hole
+		NOR = {
+			has_planet_flag = sanctified@from
+			has_modifier = sanctify_1
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			from = {
+				check_variable = {
+					which = num_sanctified_worlds
+					value < 3
+				}
+			}
+			fail_text = sanctified_worlds_too_many
+		}
+	}
+
+	effect = {
+		add_modifier = {
+			modifier = "sanctify_1"
+			days = -1
+		}
+		hidden_effect = { #make similar to cw ap
+			set_planet_flag = sanctified@from
+			from = {
+				if = {
+					limit = { check_variable = { which = num_sanctified_worlds value < 1 }	}
+					set_variable = {
+						which = num_sanctified_worlds
+						value = 0
+					}
+				}
+				change_variable = {
+					which = num_sanctified_worlds
+					value = 1
+				}
+				if = {
+					limit = {
+						check_variable = {
+							which = num_sanctified_worlds
+							value < 1
+						}
+					}
+					add_modifier = {
+						modifier = "sanctify_1_empire"
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							which = num_sanctified_worlds
+							value = 1
+						}
+					}
+					add_modifier = {
+						modifier = "sanctify_2_empire"
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							which = num_sanctified_worlds
+							value = 2
+						}
+					}
+					add_modifier = {
+						modifier = "sanctify_3_empire"
+					}
+				}
+				else = {
+					add_modifier = {
+						modifier = "sanctify_1_empire"
+					}
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			habitable_planet = yes
+			NOT = {
+				space_owner = {
+					any_owned_species = {
+						prevprev = { habitability = { who = prev value > 0.35 }	}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+civic_machine_emotions = {
+	playable = { host_has_dlc = "Federations" }
+	potential = {
+		authority = { value = auth_machine_intelligence }
+	}
+	possible = {
+		civics = {
+			NOT = {
+				value = civic_machine_terminator
+				value = civic_machine_assimilator
+				value = civic_closed_network
+			}
+		}
+	}
+
+	description = "civic_tooltip_emotions_effects"
+	modifier = {
+		envoys_add = 2
+		diplo_weight_mult = 0.1
+	}
+}

@@ -1,0 +1,32 @@
+origin_immortal_messiah = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_immortal_messiah.dds"
+    picture = GFX_origin_immortal_messiah
+    potential = {
+        always = no
+    }
+    playable = {
+        host_has_dlc = "Utopia"
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_spiritualist
+                value = ethic_spiritualist
+                value = ethic_fanatic_spiritualist
+            }
+        }
+        authority = {
+            OR = {
+                text = civic_tooltip_dic_imp
+                value = auth_dictatorial
+                value = auth_imperial
+            }
+        }
+    }
+    description = "origin_tooltip_immortal_messiah_effects"
+    advanced_start = yes
+    random_weight = {
+        base = 2
+    }
+}

@@ -1,0 +1,164 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# blocked_modifier - applied to planet only when deposit blocker has been cleared
+# constant_modifier - applied to planet always
+# blocker = <key/any/none> - default any
+# station = station class in orbit to gather
+
+###############################
+#   Exodus Mod Deposits   #
+###############################
+
+# Starting Deposits
+
+d_hydroponic_arcology = {
+	is_for_colonizeable = yes
+	icon = "d_central_spire"
+	potential = { always = no }
+	planet_modifier = {
+			job_farmer_add = 5
+			planet_housing_add = -5
+	}
+	resources = {
+		category = planet_deposits
+		upkeep = {
+			energy = 5
+		}
+	}
+	drop_weight = {
+		weight = 0
+	}
+	
+}
+
+#Starting Blockers
+
+d_overloaded_infrastructure = {
+	
+	time = 1000
+	icon = "d_slums"
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+	potential = { always = no }
+	resources = {
+		#category = deposit_blockers
+		cost = {
+			minerals = 1000
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+	
+	planet_modifier = {
+			planet_housing_add = -10
+			
+	}
+	prerequisites = { "tech_housing_1" }
+}
+
+d_overloaded_infrastructure_2 = {
+	icon = "d_city_ruins_2"
+	is_for_colonizeable = yes
+	
+	time = 1000
+	category = deposit_cat_blockers
+	potential = { always = no }
+	resources = {
+		#category = deposit_blockers
+		cost = {
+			energy = 5000
+			minerals = 5000
+			
+		}
+	}
+	drop_weight = {
+		weight = 0
+	}
+	planet_modifier = {
+		planet_max_districts_add = -10
+	}
+	prerequisites = { "tech_housing_2" }
+}
+
+d_overloaded_infrastructure_3 = {
+	icon = "d_city_ruins"
+	is_for_colonizeable = yes
+	potential = { always = no }
+	planet_modifier = {
+		planet_max_districts_add = -5
+	}
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_dwindling_stockpile = {
+	icon = "d_station_junk"
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	potential = { always = no }
+	resources = {
+		category = planet_deposits
+		produces = {
+			minerals = 25
+		}
+	}
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_plentiful_stockpile = {
+	icon = "d_station_cargo"
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	potential = { always = no }
+	resources = {
+		category = planet_deposits
+		produces = {
+			trigger = {
+				planet = { has_district = district_arcology_arms_industry	}
+			}
+			volatile_motes = 2
+			minerals = 5
+		}
+		produces = {
+			trigger = {
+				planet = { has_district = district_arcology_civilian_industry }
+			}
+			rare_crystals = 2
+			minerals = 5
+		}
+		produces = {
+			trigger = {
+				OR = {
+					planet = { has_district = district_arcology_leisure }
+					planet = { has_district = district_arcology_trade }
+				}
+			}
+			exotic_gases = 2
+			minerals = 5
+		}
+		
+	}
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_renewed_city = {
+	icon = "d_city"
+	is_for_colonizeable = yes
+	#category = deposit_cat_rare
+	potential = { always = no }
+	planet_modifier = {
+		planet_max_districts_add = 5
+	}
+	drop_weight = {
+		weight = 0
+	}
+	
+}

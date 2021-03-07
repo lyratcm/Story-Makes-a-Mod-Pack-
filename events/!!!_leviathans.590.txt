@@ -1,0 +1,437 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.590
+	title = leviathans.590.name
+	desc = {
+		trigger = { NOT = { has_country_flag = curator_archon_permitted } }
+		text = leviathans.590.desc
+	}
+	desc = {
+		trigger = { has_country_flag = curator_archon_permitted }
+		text = acot_diplo.archon.desc
+	}
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_curator_window"
+
+	picture_event_data = {
+		portrait = event_target:curators
+		room = enclave_curator_room
+	}
+
+	immediate = {
+		set_country_flag = curator_enclave_diplomacy_engaged
+		event_target:curators = {
+			owner_species = { save_event_target_as = curator_species }
+		}
+		if = {
+			limit = { NOT = { exists = event_target:acot_curator_species_1 } }
+			event_target:curators = {
+				owner_species = { save_event_target_as = acot_curator_species_1 }
+			}
+		}
+		if = {
+			limit = { NOT = { exists = event_target:acot_curator_species_2 } }
+			event_target:curators = {
+				owner_species = { save_event_target_as = acot_curator_species_2 }
+			}
+		}
+		if = {
+			limit = { NOT = { exists = event_target:acot_curator_species_3 } }
+			event_target:curators = {
+				owner_species = { save_event_target_as = acot_curator_species_3 }
+			}
+		}
+		if = {
+			limit = { NOT = { exists = event_target:acot_curator_species_4 } }
+			event_target:curators = {
+				owner_species = { save_event_target_as = acot_curator_species_4 }
+			}
+		}
+		if = {
+			limit = { NOT = { exists = event_target:acot_curator_species_5 } }
+			event_target:curators = {
+				owner_species = { save_event_target_as = acot_curator_species_5 }
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = curator_enclave_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = leviathans.590.a
+		response_text = leviathans.590.a.reply
+		custom_gui = "enclave_curator_option"
+		trigger = {
+			NOT = {
+				has_country_flag = curator_archon_permitted
+			}
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 1000 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_curators }
+			}
+			custom_tooltip = {
+				fail_text = acot_curator_hire_scientist_fail
+				NOT = { has_country_flag = curator_scientist_delay }
+			}
+		}
+		set_timed_country_flag = {
+			flag = curator_scientist_delay
+			years = 10
+		}
+		add_resource = { energy = -1000 }
+		custom_tooltip = opinion20
+		hidden_effect = {
+			set_country_flag = curator_scientist_recruited
+			event_target:curators = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+			random_list = {
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_1
+						name = "NAME_Professor_Zarg"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 41
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_2
+						name = "NAME_The_Mentat"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 45
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_3
+						name = "NAME_Kix_the_Brilliant"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 43
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_4
+						name = "NAME_Sensei_Borkaz"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 47
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_5
+						name = "NAME_Doctor_Xib"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 42
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name =   acot_diplo.archon.a
+		response_text =  acot_diplo.archon.a.reply
+		custom_gui = "enclave_curator_option"
+		trigger = {
+			has_country_flag = curator_archon_permitted
+			has_global_flag = acot_activated
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 1000 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_curators }
+			}
+			custom_tooltip = {
+				fail_text = acot_curator_hire_scientist_fail
+				NOT = { has_country_flag = curator_scientist_delay }
+			}
+		}
+		set_timed_country_flag = {
+			flag = curator_scientist_delay
+			years = 10
+		}
+		add_resource = { energy = -1000 }
+		custom_tooltip = opinion20
+		hidden_effect = {
+			set_country_flag = curator_scientist_recruited
+			event_target:curators = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+			random_list = {
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_1
+						name = "Curator Professor"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 41
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_2
+						name = "Curator Professor"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 45
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_3
+						name = "Curator Professor"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 43
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_4
+						name = "Curator Professor"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 47
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_5
+						name = "Curator Professor"
+						skill = 5
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_ruler_erudite
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+					last_created_leader = {
+						set_age = 42
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name =   acot_diplo.archon.b
+		response_text =  acot_diplo.archon.b.reply
+		custom_gui = "enclave_curator_option"
+		trigger = {
+			has_country_flag = curator_archon_permitted
+			has_global_flag = acot_activated
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 100000 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_curators }
+			}
+			custom_tooltip = {
+				fail_text = acot_curator_hire_archon_fail
+				NOT = { has_country_flag = curator_archon_delay }
+			}
+		}
+		set_timed_country_flag = {
+			flag = curator_archon_delay
+			years = 30
+		}
+		add_resource = { energy = -100000 }
+		hidden_effect = {
+			set_country_flag = curator_scientist_recruited
+			random_list = {
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_1
+						name = "Curator Archon"
+						skill = 10
+						immortal = yes
+						leader_age_min = 100000
+						leader_age_max = 500000
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_acot_curator_archon
+							trait = leader_trait_scientist_erudite
+							trait = leader_trait_scientist_cyborg
+							trait = leader_trait_scientist_psionic
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_2
+						name = "Curator Archon"
+						skill = 10
+						immortal = yes
+						leader_age_min = 100000
+						leader_age_max = 500000
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_acot_curator_archon
+							trait = leader_trait_scientist_erudite
+							trait = leader_trait_scientist_cyborg
+							trait = leader_trait_scientist_psionic
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_3
+						name = "Curator Archon"
+						skill = 10
+						immortal = yes
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_acot_curator_archon
+							trait = leader_trait_scientist_erudite
+							trait = leader_trait_scientist_cyborg
+							trait = leader_trait_scientist_psionic
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_4
+						name = "Curator Archon"
+						skill = 10
+						immortal = yes
+						leader_age_min = 100000
+						leader_age_max = 500000
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_acot_curator_archon
+							trait = leader_trait_scientist_erudite
+							trait = leader_trait_scientist_cyborg
+							trait = leader_trait_scientist_psionic
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+				}
+				20 = {
+					create_leader = {
+						class = scientist
+						species = event_target:acot_curator_species_5
+						name = "Curator Archon"
+						skill = 10
+						immortal = yes
+						leader_age_min = 100000
+						leader_age_max = 500000
+						traits = {
+							trait = leader_trait_curator
+							trait = leader_trait_acot_curator_archon
+							trait = leader_trait_scientist_erudite
+							trait = leader_trait_scientist_cyborg
+							trait = leader_trait_scientist_psionic
+						}
+						event_leader = yes	# prevents this leader from leading factions and winning elections
+					}
+				}
+			}
+		}
+	}
+
+	option = { # Back
+		name = leviathans.506.d
+		custom_gui = "enclave_curator_option"
+		hidden_effect = {
+			country_event = { id = leviathans.505 }
+		}
+	}
+	option = { # Sign Off
+		name = leviathans.506.e
+		custom_gui = "enclave_curator_option"
+		default_hide_option = yes
+	}
+}

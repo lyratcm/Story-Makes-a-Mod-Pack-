@@ -1,0 +1,68 @@
+namespace = cara
+
+country_event = {
+	id = cara.1251
+	title = cara_fleet1_redeals.title
+	desc = fleet1redealdesc1
+	desc = fleet1redealdesc2
+	desc = fleet1redealdesc3
+	desc = fleet1redealdesc4
+	desc = fleet1redealdesc5
+
+	diplomatic = yes
+	is_triggered_only = yes
+	custom_gui = "enclave_caravaneer_window"
+
+	picture_event_data = {
+		portrait = event_target:caravaneer_fleet1_country
+		room = ethic_spaceship_room
+	}
+
+	trigger = {
+		caravaneer_fleet1_active_diplo = no
+	}
+
+	immediate = {
+		remove_country_flag = cara_fleet1_getback
+		cara_generate_deal1 = yes
+	}
+
+	option = {
+		name = cara_fleet1_take_deal
+		allow = { cara_allow_deal1 = yes }
+		cara_execute_deal1 = yes
+		response_text = "cara_fleet1_dealtaken"
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = cara_fleet1_exit
+		default_hide_option = yes
+		custom_gui = "enclave_caravaneer_option"
+		hidden_effect = {
+			remove_country_flag = fleet1dealcost1
+			remove_country_flag = fleet1dealcost2
+			remove_country_flag = fleet1dealcost3
+			remove_country_flag = fleet1dealcost4
+			remove_country_flag = fleet1dealcost5
+			remove_country_flag = fleet1dealcost6
+			remove_country_flag = fleet1dealcost7
+			remove_country_flag = fleet1dealcost8
+			remove_country_flag = fleet1dealcost9
+			remove_country_flag = fleet1dealproduct1
+			remove_country_flag = fleet1dealproduct2
+			remove_country_flag = fleet1dealproduct3
+			remove_country_flag = fleet1dealproduct4
+			remove_country_flag = fleet1dealproduct5
+			remove_country_flag = fleet1dealproduct6
+			remove_country_flag = fleet1dealproduct7
+			remove_country_flag = fleet1dealproduct8
+			remove_country_flag = fleet1dealproduct9
+			remove_country_flag = fleet1dealproduct10
+			remove_country_flag = fleet1dealproduct11
+			remove_country_flag = fleet1dealproduct12
+			remove_country_flag = fleet1dealproduct13
+			remove_country_flag = fleet1dealproduct14
+		}
+	}
+}

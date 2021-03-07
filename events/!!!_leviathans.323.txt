@@ -1,0 +1,76 @@
+namespace = leviathans
+
+#I became a patron and all I got was this t-shirt
+country_event = {
+	id = leviathans.323
+	title = leviathans.323.name
+	desc = leviathans.323.desc
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:artist_enclave_country
+		has_modifier = enclave_artist_patron
+		has_country_flag = artist_patron
+		NOR = {
+			has_country_flag = enclave_stopped_patronage
+			has_country_flag = enclave_artist_ignores
+		}
+	}
+
+	immediate = {
+		set_country_flag = enclave_artist_patron_events
+		set_country_flag = enclave_artist_patron_event_2
+		random_system = {
+			limit = {
+				any_system_planet = {
+					has_planet_flag = guardians_artists_planet
+				}
+				root = {
+					intel_level = {
+						level > none
+						system = prev
+					}
+				}
+			}
+			save_event_target_as = this_planet
+		}
+	}
+	option = {
+		name = leviathans.323.a
+		custom_tooltip = opinion10
+		response_text = leviathans.323.a.reply
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+			country_event = { id = leviathans.320 days = 100 random = 25 }
+		}
+	}
+	option = {
+		name = leviathans.323.b
+		add_resource = { energy = 1000 }
+		custom_tooltip = opinion-3
+		remove_modifier = enclave_artist_patron
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = -3
+				}
+			}
+		}
+		response_text = leviathans.323.b.reply
+	}
+}

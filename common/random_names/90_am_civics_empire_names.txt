@@ -1,0 +1,15 @@
+
+
+# Locust Megacorporation
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_valid_civic = "civic_am_civics_locust_capitalism"
+		}
+	}
+	format = "format.olig_corp.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <oligarchic_corp>"
+}

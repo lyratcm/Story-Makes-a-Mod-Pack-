@@ -1,0 +1,31 @@
+decision_end_lockdown = {
+	owned_planets_only = yes
+	icon = decision_penal_colony
+	sound = event_administrative_work
+
+	enactment_time = 0
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+	
+	potential = {
+		has_modifier = under_lockdown
+	}
+	
+	allow = {
+	}
+	
+	effect = {	
+		custom_tooltip = decision_end_lockdown_tt
+		hidden_effect = {
+			remove_modifier = under_lockdown
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

@@ -1,0 +1,27 @@
+namespace = stability
+
+###placeholder###
+country_event = {
+	id = stability.995
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	option = { name = z_modmenu_pity }
+}
+country_event = {
+	id = stability.997
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	option = { name = z_modmenu_pity }
+}
+country_event = {
+	id = stability.998
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	option = { name = z_modmenu_pity }
+}

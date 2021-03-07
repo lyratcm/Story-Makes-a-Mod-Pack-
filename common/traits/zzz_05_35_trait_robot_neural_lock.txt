@@ -1,0 +1,13 @@
+trait_robot_neural_lock = {
+    cost = -2
+    opposites = {
+        "trait_robot_propaganda_machines"
+        "trait_robot_rapid_communication"
+    }
+    allowed_archetypes = {
+        MACHINE
+    }
+    modifier = {
+        planet_jobs_unity_produces_mult = -0.30
+    }
+}

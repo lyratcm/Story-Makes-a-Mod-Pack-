@@ -1,0 +1,515 @@
+############################
+#
+# Leader Events
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+namespace = leader
+
+#### LEADER LEVEL UP EVENTS ####
+
+#Gatekeeper fired from on_action on_leader_level_up
+country_event = {
+	id = leader.20
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		from = {
+			if = {
+				limit = {
+					leader_class = scientist
+					num_traits < 3
+					NOR = {
+						has_leader_flag = has_gained_level_trait
+						is_researching_area = society
+						is_researching_area = engineering
+						is_researching_area = physics
+					}
+				}
+				random_list = {
+					90 = { }
+					10 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}						
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_trait = yes
+						set_leader_flag = has_gained_level_trait
+					}
+				}
+			}
+			if = {
+				limit = {
+					leader_class = admiral
+					num_traits < 3
+					NOT = { has_leader_flag = has_gained_level_trait }
+				}
+				random_list = {
+					90 = { }
+					10 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}						
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_trait = yes
+						set_leader_flag = has_gained_level_trait
+					}
+				}
+			}
+			if = {
+				limit = {
+					leader_class = governor
+					num_traits < 3
+					NOT = { has_leader_flag = has_gained_level_trait }
+					#exists = planet
+				}
+				random_list = {
+					80 = { }
+					20 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}						
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_trait = yes
+						set_leader_flag = has_gained_level_trait
+					}
+				}
+			}
+			if = {
+				limit = {
+					leader_class = general
+					num_traits < 3
+					NOT = { has_leader_flag = has_gained_level_trait }
+				}
+				random_list = {
+					80 = { }
+					20 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}						
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_trait = yes
+						set_leader_flag = has_gained_level_trait
+					}
+				}
+			}
+			if = {
+				limit = {
+					leader_class = ruler
+					num_traits < 3
+					NOT = { has_leader_flag = has_gained_level_trait }
+				}
+				random_list = {
+					80 = { }
+					20 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}						
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_trait = yes
+						set_leader_flag = has_gained_level_trait
+					}
+				}
+			}
+		}
+	}
+}
+
+#Admiral gains new trait
+country_event = {
+	id = leader.22
+	title = leader.22.name
+	desc = {
+		trigger = {
+			hidden:fromfrom = {
+				switch = {
+					trigger = has_leader_flag
+					gained_leader_trait_adaptable = { text = leader.newtrait }
+					gained_leader_trait_resilient = { text = leader.newtrait }
+					gained_leader_trait_stubborn = { text = leader.stubborn }
+					gained_leader_trait_substance_abuser = { text = leader.substanceabuser }
+					gained_leader_trait_arrested_development = { text = leader.arresteddevelopment }
+					gained_leader_trait_trickster = { text = leader.newtrait }
+					gained_leader_trait_fleet_logistician = { text = leader.newtrait }
+					gained_leader_trait_engineer = { text = leader.newtrait }
+					gained_leader_trait_aggressive = { text = leader.newtrait }
+					gained_leader_trait_cautious = { text = leader.newtrait }
+					gained_leader_trait_scout = { text = leader.newtrait }
+					gained_leader_trait_unyielding = { text = leader.newtrait }
+					gained_leader_trait_gale_speed = { text = leader.newtrait }
+					gained_leader_trait_lethargic = { text = leader.lethargic }
+					gained_leader_trait_rigid_programming = { text = leader.newtrait }
+					gained_leader_trait_maintenance_loop = { text = leader.newtrait }
+					gained_leader_trait_strategist = { text = leader.newtrait }
+					gained_leader_trait_tactician = { text = leader.newtrait }
+					default = { text = "leader.21.fallback" }
+				}
+			}
+		}
+	}
+	location = event_target:current_location
+	picture = GFX_evt_star_chart
+	is_triggered_only = yes
+
+	immediate = {
+		fromfrom = {
+			if = {
+				limit = { exists = fleet }
+				fleet = {
+					random_owned_ship = { save_event_target_as = current_location }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = OK
+		tooltip = {
+			fromfrom = {
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_adaptable }
+					add_trait = leader_trait_adaptable
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_resilient }
+					add_trait = leader_trait_resilient
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_stubborn }
+					add_trait = leader_trait_stubborn
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_substance_abuser }
+					add_trait = leader_trait_substance_abuser
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_arrested_development }
+					add_trait = leader_trait_arrested_development
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_trickster }
+					add_trait = leader_trait_trickster
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_fleet_logistician }
+					add_trait = leader_trait_fleet_logistician
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_engineer }
+					add_trait = leader_trait_engineer
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_aggressive }
+					add_trait = leader_trait_aggressive
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_cautious }
+					add_trait = leader_trait_cautious
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_scout }
+					add_trait = leader_trait_scout
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_unyielding }
+					add_trait = leader_trait_unyielding
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_gale_speed }
+					add_trait = leader_trait_gale_speed
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_lethargic }
+					add_trait = leader_trait_lethargic
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_rigid_programming }
+					add_trait = leader_trait_rigid_programming
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_maintenance_loop }
+					add_trait = leader_trait_maintenance_loop
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_strategist }
+					add_trait = leader_trait_strategist
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_tactician }
+					add_trait = leader_trait_tactician
+				}
+			}
+		}
+	}
+}
+
+#Ruler gains new trait
+country_event = {
+	id = leader.25
+	title = leader.25.name
+	desc = {
+		trigger = {
+			hidden:fromfrom = {
+				switch = {
+					trigger = has_leader_flag
+					gained_leader_trait_adaptable = { text = leader.newtrait }
+					gained_leader_trait_resilient = { text = leader.newtrait }
+					gained_leader_trait_stubborn = { text = leader.stubborn }
+					gained_leader_trait_rigid_programming = { text = leader.newtrait }
+					gained_leader_trait_substance_abuser = { text = leader.substanceabuser }
+					gained_leader_trait_arrested_development = { text = leader.arresteddevelopment }
+					gained_trait_ruler_corvette_focus = { text = leader.newtrait }
+					gained_trait_ruler_destroyer_focus = { text = leader.newtrait }
+					gained_trait_ruler_cruiser_focus = { text = leader.newtrait }
+					gained_trait_ruler_battleship_focus = { text = leader.newtrait }
+					gained_trait_ruler_recruiter = { text = leader.newtrait }
+					gained_trait_ruler_fortifier = { text = leader.newtrait }
+					gained_trait_ruler_logistic_understanding = { text = leader.newtrait }
+					gained_trait_ruler_military_pioneer = { text = leader.newtrait }
+					gained_trait_ruler_warlike = { text = leader.newtrait }
+					gained_trait_ruler_architectural_sense = { text = leader.newtrait }
+					gained_trait_ruler_frontier_spirit = { text = leader.newtrait }
+					gained_trait_ruler_world_shaper = { text = leader.newtrait }
+					gained_trait_ruler_home_in_the_sky = { text = leader.newtrait }
+					gained_trait_ruler_industrialist = { text = leader.newtrait }
+					gained_trait_ruler_eye_for_talent = { text = leader.newtrait }
+					gained_trait_ruler_deep_connections = { text = leader.newtrait }
+					gained_trait_ruler_charismatic = { text = leader.newtrait }
+					gained_trait_ruler_champion_of_the_people = { text = leader.newtrait }
+					gained_trait_ruler_expansionist = { text = leader.newtrait }
+					gained_trait_ruler_fertility_preacher = { text = leader.newtrait }
+					gained_trait_ruler_investor = { text = leader.newtrait }
+					gained_trait_ruler_explorer = { text = leader.newtrait }
+					gained_leader_trait_fleet_organizer = { text = leader.newtrait }
+					gained_leader_trait_reformer_gestalt = { text = leader.newtrait }
+					gained_trait_ruler_from_the_ranks_gestalt = { text = leader.newtrait }
+					default = { text = "leader.21.fallback" }
+				}
+			}
+		}
+	}
+	location = event_target:current_planet
+	picture = GFX_evt_throne_room
+	is_triggered_only = yes
+
+	trigger = {
+		exists = capital_scope
+	}
+
+	immediate = {
+		capital_scope = {
+			save_event_target_as = current_planet
+		}
+	}
+
+	option = {
+		name = OK
+		tooltip = {
+			fromfrom = {
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_adaptable }
+					add_trait = leader_trait_adaptable
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_resilient }
+					add_trait = leader_trait_resilient
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_stubborn }
+					add_trait = leader_trait_stubborn
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_rigid_programming }
+					add_trait = leader_trait_rigid_programming
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_substance_abuser }
+					add_trait = leader_trait_substance_abuser
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_arrested_development }
+					add_trait = leader_trait_arrested_development
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_corvette_focus }
+					add_trait = trait_ruler_corvette_focus
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_destroyer_focus }
+					add_trait = trait_ruler_destroyer_focus
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_cruiser_focus }
+					add_trait = trait_ruler_cruiser_focus
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_battleship_focus }
+					add_trait = trait_ruler_battleship_focus
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_recruiter }
+					add_trait = trait_ruler_recruiter
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_fortifier }
+					add_trait = trait_ruler_fortifier
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_logistic_understanding }
+					add_trait = trait_ruler_logistic_understanding
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_military_pioneer }
+					add_trait = trait_ruler_military_pioneer
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_warlike }
+					add_trait = trait_ruler_warlike
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_architectural_sense }
+					if = {
+						limit = { ROOT = { has_ethic = "ethic_gestalt_consciousness"  } }
+						add_trait = trait_ruler_architectural_sense_gestalt
+					}
+					else = {
+						add_trait = trait_ruler_architectural_sense
+					}
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_frontier_spirit }
+					add_trait = trait_ruler_frontier_spirit
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_world_shaper }
+					add_trait = trait_ruler_world_shaper
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_home_in_the_sky }
+					add_trait = trait_ruler_home_in_the_sky
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_industrialist }
+					add_trait = trait_ruler_industrialist
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_eye_for_talent }
+					if = {
+						limit = { ROOT = { has_ethic = "ethic_gestalt_consciousness"  } }
+						add_trait = trait_ruler_pooled_knowledge
+					}
+					else = {
+						add_trait = trait_ruler_eye_for_talent
+					}
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_deep_connections }
+					if = {
+						limit = { ROOT = { has_ethic = "ethic_gestalt_consciousness"  } }
+						add_trait = trait_ruler_deep_connections_gestalt
+					}
+					else = {
+						add_trait = trait_ruler_deep_connections
+					}
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_charismatic }
+					if = {
+						limit = { ROOT = { has_ethic = "ethic_gestalt_consciousness"  } }
+						add_trait = trait_ruler_subsumed_will
+					}
+					else = {
+						add_trait = trait_ruler_charismatic
+					}
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_champion_of_the_people }
+					if = {
+						limit = { ROOT = { has_ethic = "ethic_gestalt_consciousness"  } }
+						add_trait = trait_ruler_one_mind
+					}
+					else = {
+						add_trait = trait_ruler_champion_of_the_people
+					}
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_expansionist }
+					add_trait = trait_ruler_expansionist
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_fertility_preacher }
+					add_trait = trait_ruler_fertility_preacher
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_investor }
+					add_trait = trait_ruler_investor
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_explorer }
+					add_trait = trait_ruler_explorer
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_fleet_organizer }
+					if = {
+						limit = { ROOT = { has_ethic = "ethic_gestalt_consciousness"  } }
+						add_trait = leader_trait_fleet_organizer_gestalt
+					}
+					else = {
+						add_trait = leader_trait_fleet_organizer
+					}
+				}
+				if = { 
+					limit = { has_leader_flag = gained_leader_trait_reformer_gestalt }
+					add_trait = leader_trait_reformer_gestalt
+				}
+				if = { 
+					limit = { has_leader_flag = gained_trait_ruler_from_the_ranks_gestalt }
+					add_trait = trait_ruler_from_the_ranks_gestalt
+				}
+			}
+		}
+	}
+}

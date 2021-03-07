@@ -1,0 +1,15 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_tr_prosperity_arcadian_housing"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_arcadian_housing.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_arcadian_housing_lithoid"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_arcadian_housing_lithoid.dds"
+	}
+	spriteType = {
+		name = "GFX_tr_harmony_unity_of_self_hive"
+		textureFile = "gfx/interface/icons/traditions/tr_harmony_unity_of_self_hive.dds"
+	}
+}

@@ -1,0 +1,43 @@
+guiTypes = {
+    containerWindowType = {
+        name = "planet_army_ground_combat_entry"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = 35
+            height = 35
+        }
+        iconType = {
+            name = "army_bg"
+            spriteType = "GFX_army_bg"
+            position = {
+                x = 0
+                y = 0
+            }
+            alwaysTransparent = yes
+            frame = 1
+        }
+        iconType = {
+            name = "army_icon"
+            position = {
+                x = 0
+                y = 0
+            }
+            spriteType = "GFX_army_icons"
+        }
+        iconType = {
+            name = "army_hp"
+            spriteType = "GFX_ship_life_radial_progress"
+            position = {
+                x = 36
+                y = -42
+            }
+            orientation = "UPPER_LEFT"
+            rotation = 3.14159
+            frame = 100
+            alwaysTransparent = yes
+        }
+    }
+}

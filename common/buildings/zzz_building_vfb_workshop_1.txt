@@ -1,0 +1,90 @@
+building_vfb_workshop = {
+    category = government
+    base_buildtime = 180
+    base_cap_amount = 1
+    icon = building_vfb_workshop
+    add_to_first_building_slot = yes
+    potential = {
+        NOR = {
+            has_building = building_vfb_workshop
+            has_building = building_vfb_manufactory
+            has_building = building_vfb_constructor
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_workshop
+            OR = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+                has_origin = origin_extant_creators
+                has_origin = origin_symbiote
+                has_valid_civic = civic_mutualistic_behavior
+                has_valid_civic = civic_harm_hive
+                has_valid_civic = civic_harm_machine
+            }
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_workshop
+    }
+    destroy_trigger = {
+        OR = {
+            OR = {
+                has_modifier = slave_colony
+                has_modifier = resort_colony
+            }
+            owner = {
+                NOR = {
+                    NOT = {
+                        has_ethic = ethic_gestalt_consciousness
+                    }
+                    has_origin = origin_extant_creators
+                    has_origin = origin_symbiote
+                    has_valid_civic = civic_mutualistic_behavior
+                    has_valid_civic = civic_harm_hive
+                    has_valid_civic = civic_harm_machine
+                }
+            }
+        }
+    }
+    planet_modifier = {
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_artisan_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_artisan_drone_add = 1
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = 200
+        }
+        upkeep = {
+            energy = 1
+        }
+    }
+    upgrades = {
+        building_vfb_manufactory
+    }
+    ai_weight = {
+        weight = 1000
+        factor = 5
+    }
+}

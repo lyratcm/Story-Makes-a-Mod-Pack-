@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_5 = 201
+    @y_1 = 55
+    positionType = {
+        name = "tr_domination_judgment_corps"
+        position = {
+            x = @x_5
+            y = @y_1
+        }
+    }
+}

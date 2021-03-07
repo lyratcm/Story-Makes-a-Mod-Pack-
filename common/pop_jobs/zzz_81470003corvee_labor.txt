@@ -1,0 +1,105 @@
+corvee_labor = {
+    category = worker
+    condition_string = WORKER_JOB_TRIGGER
+    building_icon = building_primitive_factory
+    icon = primitive_laborer
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        worker_job_check_trigger = yes
+        is_non_sapient_robot = no
+        is_shackled_robot = no
+    }
+    planet_modifier = {
+        planet_amenities_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_global_flag = expanded_pops_active
+            is_robot_pop = yes
+            exists = owner
+            owner = {
+                has_relic = r_three_londor
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            planet_amenities_add = -0.4
+        }
+    }
+    resources = {
+        category = planet_jobs
+        produces = {
+            minerals = 1
+        }
+    }
+    weight = {
+        weight = @special_job_weight
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            factor = 1.25
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            factor = 0.9
+            has_trait = trait_repugnant
+        }
+        modifier = {
+            factor = 0.5
+            OR = {
+                has_trait = trait_delicate
+                has_trait = trait_weak
+                has_trait = mem_caretakers_trait
+            }
+        }
+    }
+}

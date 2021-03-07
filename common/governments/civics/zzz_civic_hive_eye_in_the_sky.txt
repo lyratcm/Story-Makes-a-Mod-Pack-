@@ -1,0 +1,8 @@
+civic_hive_eye_in_the_sky = {
+	potential = { authority = { value = auth_hive_mind } }
+	random_weight = { base = 2 }
+	modifier = {
+		ship_weapon_range_mult = 0.10
+		planet_crime_add = -15
+	}
+}

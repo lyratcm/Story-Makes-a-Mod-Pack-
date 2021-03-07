@@ -1,0 +1,33 @@
+civic_naval_contractors = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_militarist
+                value = ethic_militarist
+                value = ethic_fanatic_militarist
+            }
+        }
+    }
+    modifier = {
+        country_naval_cap_mult = 0.15
+        admiral_skill_levels = 1
+        country_command_limit_add = 10
+    }
+}

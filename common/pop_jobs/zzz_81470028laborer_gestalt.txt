@@ -1,0 +1,151 @@
+laborer_gestalt = {
+    category = resident_gestalt
+    condition_string = WORKER_JOB_TRIGGER
+    building_icon = building_primitive_factory
+    clothes_texture_index = 2
+    icon = primitive_laborer
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        is_free_pop_gestalt = yes
+    }
+    planet_modifier = {
+        planet_amenities_no_happiness_add = 3
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 1.6
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_global_flag = expanded_pops_active
+            is_robot_pop = yes
+            exists = owner
+            owner = {
+                has_relic = r_three_londor
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = -0.8
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            weight = 2
+            OR = {
+                planet = {
+                    free_amenities < 6
+                }
+                has_job = entertainer_gestalt
+            }
+        }
+        modifier = {
+            factor = 1.25
+            OR = {
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_robot_efficient_processors
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_adaptable_evolution_robot
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_ageless
+        }
+        modifier = {
+            factor = 2.5
+            has_trait = trait_sleepless
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_charismatic
+        }
+        modifier = {
+            factor = 0.8
+            has_trait = trait_repugnant
+        }
+        modifier = {
+            factor = 1.25
+            has_trait = trait_brainslug
+        }
+        modifier = {
+            factor = 1.1
+            OR = {
+                has_trait = trait_presapient_natural_intellectuals
+                has_trait = trait_mem_surveyor_freebotomites
+                has_trait = mem_ashes_survivors
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robot_propaganda_machines
+                has_trait = trait_traditional
+            }
+        }
+        modifier = {
+            factor = 0.5
+            has_trait = trait_quarrelsome
+        }
+        modifier = {
+            factor = 3
+            has_job = entertainer_gestalt
+        }
+        modifier = {
+            factor = 0.1
+            NOT = {
+                has_job = entertainer_gestalt
+            }
+            planet = {
+                free_amenities > 5
+            }
+        }
+    }
+}

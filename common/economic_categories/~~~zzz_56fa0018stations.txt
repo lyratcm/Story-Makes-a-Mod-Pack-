@@ -1,0 +1,17 @@
+stations = {
+    use_for_ai_budget = yes
+    ai_use_parent_for_resources_upkeep = {
+        energy
+    }
+    generate_mult_modifiers = {
+        produces
+        cost
+        upkeep
+    }
+    generate_add_modifiers = {
+        produces
+        cost
+        upkeep
+    }
+    parent = country
+}

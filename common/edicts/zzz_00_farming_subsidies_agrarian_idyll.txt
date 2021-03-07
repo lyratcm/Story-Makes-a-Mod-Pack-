@@ -1,0 +1,55 @@
+farming_subsidies_agrarian_idyll = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = farming_subsidies }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = farming_subsidies
+			}
+			influence = 100
+		}
+	}
+	
+	potential = {
+		OR = {
+			AND = {
+				has_valid_civic = civic_agrarian_idyll
+				is_lithoid_empire = no
+			}
+			has_valid_civic = civic_agribusiness
+		}
+	}
+
+	modifier = {
+		planet_farmers_produces_mult = 0.25
+		custom_tooltip = edict_farming_subsidies_tooltip
+		show_only_custom_tooltip = no
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+		modifier = {
+			factor = 5
+			ROOT = {
+				country_uses_food = yes
+				has_monthly_income = {
+					resource = food
+					value < 1
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			ROOT = { country_uses_food = no }
+		}
+	}
+}

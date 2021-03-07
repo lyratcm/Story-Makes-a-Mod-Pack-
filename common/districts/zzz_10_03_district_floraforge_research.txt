@@ -1,0 +1,45 @@
+district_pdfloraforge_research = {
+    base_buildtime = 600
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        uses_district_set = pdfloraforge
+    }
+    potential = {
+        uses_district_set = pdfloraforge
+        owner = {
+            exists = owner
+            is_hive_empire = yes
+        }
+    }
+    resources = {
+        category = planet_districts
+        cost = {
+            minerals = 1000
+            exotic_gases = 50
+        }
+        upkeep = {
+            energy = 5
+            exotic_gases = 2
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 10
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        modifier = {
+            job_brain_drone_add = 10
+        }
+    }
+    triggered_desc = {
+        text = job_brain_drone_effect_desc
+    }
+    ai_weight = {
+        weight = 1
+    }
+}

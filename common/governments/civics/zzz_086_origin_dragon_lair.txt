@@ -1,0 +1,30 @@
+origin_dragon_lair = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_dragon_lair.dds"
+	picture = GFX_origin_dragon_lair
+	max_once_global = yes
+
+	potential = {
+		always = no
+	}
+
+	playable = {
+		OR = {
+			host_has_dlc = "Leviathans Story Pack"
+			host_has_dlc = "Distant Stars Story Pack"
+			host_has_dlc = "Ancient Relics Story Pack"
+		}
+	}
+
+	possible = {
+	}
+
+	description = "origin_tooltip_dragon_lair_effects"
+	#flags = { custom_start_screen }
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 1
+	}
+}

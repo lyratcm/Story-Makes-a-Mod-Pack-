@@ -1,0 +1,83 @@
+###_z fw 挖掘地	#######################################################################################
+
+# site_type_name = {				# Key of the site, used for name lookup etc.
+#	picture = <sprite key>		# GFX_* sprite key for the sites image
+#	desc = <triggered event desc>	# Description generator for the site, with scope this=archaeological site.
+#	max_instances = <int>			# Max instances of this type a galaxy can have, only checked when using 'create_archaeological_site = random'
+#	weight = <scriptable value>		# Weight used for random weight, only used when using 'create_archaeological_site = random'. scriptable value type is defined either by '<int>' or '<mean time to happen>'.
+#	stages = <int>					# Should match number of defined stages below.
+#	potential = <trigger>			# Trigger checking if a scope with this=fleet ,from=archaeological site is potential to excavate (this will add/remove this option without giving the player a reason).
+#	allow = <trigger>				# Trigger checking if a scope with this=fleet ,from=archaeological site is allowed to excavate (this will toggle enable/disabled mode on buttons etc).
+#	visible = <trigger>				# Trigger that checks if a scope with this=country can see the from=archaeological site
+#	stage = {						# Stage definition, order dependent.
+#		difficulty = <interval int> 	# min max interval type. interval is defined either by '<int>' or '{ min = <int> max=<int> }' where the later will randomize a value between min and max.
+#		icon = <string>				# rune icon gfx type.
+#		event = <string>			# event to fire when finished the state.
+#	}
+#	stage = {...}					# Second stage, the total number of 'stage' entries should match value of 'stages'
+#	on_roll_failed = <effect>			# Effect to fire when a roll fails, with scope this=fleet ,from=archaeological site.
+#	on_create = <effect>			# Effect to fire upon site creation, with scope this=archaeological site.
+#	on_visible = <effect>			# Effect to fire upon site visible, with scope this=country, from=archaeological site.
+#}
+
+
+
+###_探测矩阵
+z_lctr_site = {
+	desc = "z_lctr_site_intro"
+	picture = GFX_evt_z_lctr_r_1
+	stages = 5
+	max_instances = 1
+	weight = 0
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+		owner = { NOT = { has_relic = z_lctr_r_adv_sensor } }	#_[z_lctr_relic.251]给relic事件自带debug
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+	on_visible = {
+		country_event = { id = story.5 days = 30 }
+		if = {#_清除目标定位
+			limit = { has_event_chain = z_lctr_chain_site }
+			end_event_chain = z_lctr_chain_site
+		}
+	}
+
+	stage = {
+		difficulty = 1
+		icon = GFX_z_acolg_runes_blue_01
+		event = z_lctr_relic.21
+	}
+
+	stage = {
+		difficulty = 2
+		icon = GFX_z_acolg_runes_blue_02
+		event = z_lctr_relic.22
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_z_acolg_runes_blue_03
+		event = z_lctr_relic.23
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_z_acolg_runes_blue_04
+		event = z_lctr_relic.24
+	}
+
+	stage = {
+		difficulty = 5
+		icon = GFX_z_acolg_runes_blue_05
+		event = z_lctr_relic.25
+	}
+
+	on_roll_failed = {
+		from = {#_舰队
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

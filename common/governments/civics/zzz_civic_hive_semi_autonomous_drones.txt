@@ -1,0 +1,18 @@
+civic_hive_semi_autonomous_drones = {
+	modification = no
+	potential = { authority = { value = auth_hive_mind } }
+	possible = {
+		civics = {
+			NOT = {
+				value = civic_hive_total_control
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		ship_experience_gain_mult = 0.2
+		army_experience_gain_mult = 0.2
+		all_technology_research_speed = 0.05
+		country_unity_produces_mult = -0.10
+	}
+}

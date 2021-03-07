@@ -1,0 +1,27 @@
+civic_master_computer_censor = {
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+
+    possible = {
+        ethics = {
+			NOR = {
+				text = civic_tooltip_not_egalitarian
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}			
+		}
+        civics = {
+            NOT = { value = civic_master_computer_exchange }
+        }
+    }
+
+    modifier = {
+        country_unity_produces_mult = 0.10
+        pop_government_ethic_attraction = 0.33
+    }
+
+    random_weight = { base = 5 }
+}

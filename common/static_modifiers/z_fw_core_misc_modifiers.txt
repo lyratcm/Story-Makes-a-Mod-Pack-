@@ -1,0 +1,48 @@
+###_z fw core modifiers misc	#########################################################################
+
+#_[战争随机buff]
+z_fw_mod_cntr_ai_war_1 = {
+	icon = GFX_z_fw_mod_fury
+	#_国家
+	planet_building_build_speed_mult = 0.5
+	stations_produces_mult = 0.5
+	planet_jobs_produces_mult = 0.25
+	shipsize_constructor_build_speed_mult = 0.5
+	shipsize_science_build_speed_mult = 0.5
+}
+z_fw_mod_cntr_ai_war_2 = {
+	icon = GFX_z_fw_mod_fury
+	#_国家
+	planet_building_build_speed_mult = 1.0
+	stations_produces_mult = 1.0
+	planet_jobs_produces_mult = 0.5
+	shipsize_constructor_build_speed_mult = 1.0
+	shipsize_science_build_speed_mult = 1.0
+}
+z_fw_mod_cntr_ai_war_3 = {
+	icon = GFX_z_fw_mod_fury
+	#_国家
+	planet_building_build_speed_mult = 1.5
+	stations_produces_mult = 1.5
+	planet_jobs_produces_mult = 0.75
+	shipsize_constructor_build_speed_mult = 1.5
+	shipsize_science_build_speed_mult = 1.5
+}
+z_fw_mod_cntr_ai_war_4 = {
+	icon = GFX_z_fw_mod_fury
+	#_国家
+	planet_building_build_speed_mult = 2.0
+	stations_produces_mult = 2.0
+	planet_jobs_produces_mult = 1.0
+	shipsize_constructor_build_speed_mult = 2.0
+	shipsize_science_build_speed_mult = 2.0
+}
+z_fw_mod_cntr_ai_war_5 = {
+	icon = GFX_z_fw_mod_fury
+	#_国家
+	planet_building_build_speed_mult = 2.5
+	stations_produces_mult = 2.5
+	planet_jobs_produces_mult = 1.5
+	shipsize_constructor_build_speed_mult = 2.5
+	shipsize_science_build_speed_mult = 2.5
+}

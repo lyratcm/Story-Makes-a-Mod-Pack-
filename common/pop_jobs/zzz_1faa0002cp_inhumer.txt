@@ -1,0 +1,28 @@
+cp_inhumer = {
+    category = worker
+    condition_string = WORKER_JOB_TRIGGER
+    building_icon = building_public_relations_office
+    clothes_texture_index = 2
+    icon = primitive_laborer
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        complex_worker_job_check_trigger = yes
+    }
+    planet_modifier = {
+        planet_stability_add = 2
+        planet_amenities_add = -3
+    }
+    resources = {
+        category = planet_jobs
+        produces = {
+            energy = 6
+        }
+    }
+    weight = {
+        weight = @clerk_job_weight
+    }
+}

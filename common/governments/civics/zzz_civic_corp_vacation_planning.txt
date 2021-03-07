@@ -1,0 +1,23 @@
+lrsk_gov_var_civic_mc_vacay_planning = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    description = "civic_tooltip_lrsk_gov_var_civic_mc_vacay_planning_effects"
+    possible = {
+        ethics = {
+            value = ethic_fanatic_xenophile
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        pop_amenities_usage_mult = -0.10
+    }
+}

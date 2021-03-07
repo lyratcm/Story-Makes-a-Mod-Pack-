@@ -1,0 +1,157 @@
+@high = 16
+@med = 8
+@low = 4
+
+@high_rare = 0.5
+@mid_rare = 0.25
+@low_rare = 0.1
+
+@planet_type_bonus = 1.5
+
+@blocker_high = 10
+@blocker_low = 5
+
+# ENERGY
+
+habitable_energy_deposit = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+		
+	category = deposit_cat_energy
+	
+	planet_modifier = { 
+		district_generator_max = 7
+	}
+	
+	potential = {
+		is_planet_class = pc_habitable_gas
+	}
+	
+	drop_weight = {
+		weight = @med
+		modifier = {
+			factor = @planet_type_bonus
+			is_planet_class = pc_habitable_gas
+		}
+	}
+}
+
+# MINERAL
+
+habitable_minerals_deposit = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+	
+	category = deposit_cat_minerals
+	
+	planet_modifier = { 
+		district_mining_max = 5
+	}
+	
+	potential = {
+		is_planet_class = pc_habitable_gas
+	}
+	
+	drop_weight = {
+		weight = @med
+		modifier = {
+			factor = @planet_type_bonus
+			is_planet_class = pc_habitable_gas
+		}
+	}
+}
+
+#GAS
+
+habitable_gas_deposit = {
+	is_for_colonizeable = yes
+	
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		building_gas_extractors_max = 2
+	}
+	
+	potential = {
+		is_planet_class = pc_habitable_gas
+	}
+	
+	drop_weight = {
+		weight = @high_rare
+		modifier = {
+			factor = @planet_type_bonus
+			is_planet_class = pc_habitable_gas
+		}
+	}
+}
+
+#FOOD
+
+habitable_space_deposit = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+	
+	category = deposit_cat_food
+	
+	planet_modifier = { 
+		district_farming_max = 6
+	}
+	
+	potential = {
+		is_planet_class = pc_habitable_gas
+	}
+	
+	drop_weight = {
+		weight = @high
+		modifier = {
+			factor = @planet_type_bonus
+			is_planet_class = pc_habitable_gas
+		}
+	}
+}
+
+habitable_gas_wildlife = {
+	time = 270
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		is_planet_class = pc_habitable_gas
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -2
+	}
+
+	drop_weight = {
+		weight = @blocker_high
+		modifier = {
+			factor = 2
+			is_planet_class = pc_habitable_gas
+		}
+		modifier = {
+			factor = 0.5
+			planet_size < 15
+		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+
+}

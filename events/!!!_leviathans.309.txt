@@ -1,0 +1,72 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.309
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.5
+					OR = {
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_materialist
+					}
+				}
+				country_event = { id = leviathans.310 days = 250 random = 25 }
+			}
+			10 = {
+				modifier = {
+					factor = 1.5
+					OR = {
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_xenophile
+						has_ethic = ethic_fanatic_pacifist
+						has_ethic = ethic_pacifist
+					}
+				}
+				country_event = { id = leviathans.311 days = 150 random = 25 }
+			}
+			5 = {
+				modifier = {
+					factor = 1.5
+					OR = {
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_materialist
+					}
+				}
+				country_event = { id = leviathans.312 days = 300 random = 50 }
+			}
+			10 = {
+				modifier = {
+					factor = 1.5
+					OR = {
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_xenophile
+						has_ethic = ethic_fanatic_pacifist
+						has_ethic = ethic_pacifist
+					}
+				}
+				modifier = {
+					factor = 0.25
+					has_megacorp = yes
+					OR = {
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_xenophobe
+					}
+				}
+				country_event = { id = spaceleviathans.100 days = 200 random = 100 }
+			}
+			10 = {
+				capital_scope = {
+					planet_event = { id = spaceleviathans.102 days = 250 random = 100 }
+				}
+			}
+			55 = { }
+		}
+	}
+}

@@ -1,0 +1,296 @@
+GAPS_tiyanki_reporter = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_GAPS_Fawning_Den
+    clothes_texture_index = 1
+    possible = {
+        ruler_job_check_trigger = yes
+    }
+    pop_modifier = {
+        planet_pops_upkeep_mult = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 0
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+            planet_jobs_unity_produces_mult = 0.005
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 1
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 2
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 3
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 4
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 5
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 6
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 7
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 8
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 9
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 10
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 11
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 12
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 13
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 14
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 15
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 16
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 17
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 18
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                check_variable = {
+                    which = "Country_Variable_GAPS_Number_If_Tiyanki_Alive"
+                    value > 19
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_worker_produces_mult = 0.01
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+    }
+}

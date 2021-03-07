@@ -1,0 +1,401 @@
+﻿l_english:
+###_测试
+ z_modmenu.11.name: "§G无尽群星§!: 测试"
+ z_modmenu.11.desc: "这不是你该触碰的东西!"
+ z_modmenu_test_1: "失业人口刷新-失业"
+ z_modmenu_test_2: "失业人口刷新-分类"
+ z_modmenu_test_3: "失业人口刷新-物种"
+ z_modmenu_test_4: "失业人口刷新-强制检测派系"
+ z_modmenu_test_5: "失业人口刷新-刷新"
+ z_modmenu_test_6: "测试物体-创建-首都"
+ z_modmenu_test_7: "获取测试relic"
+ z_modmenu_test_8: "10级科考古学家"
+ z_modmenu_test_9: "在母星系恒星基地创建战斗测试靶机"
+ z_modmenu_test_10: "在母星系恒星基地创建超级测试靶机"
+ z_modmenu_test_11: "event_target"
+ 
+ z_modmenu_test_enemy_1: "母星-创建敌对测试舰队-肃正协议"
+
+
+
+
+###_欢迎与群介绍/主选单
+ z_mm_tips_misc_welcome: "Welcome to Infinite Stellaris!\nIf you want to support my work, §YRate§! this mod on Steam workshop. Or you can §YDonate through§! Paypal with the link on Steam workshop page of this mod."
+ z_ic_tips_main:0 "Welcome to Infinite Stellaris!"
+
+###_作者
+ z_modmenu.141.name: "§GInfinite Stellaris:§! Author Information"
+ z_mm_misc_alipay: "Two-bar-codes not for English User.\n§YMaking mod is not easy, please support the author.\nSearch §GInfinite Stellaris Framework§! in Steam Workshop to get the newest mod upgrade, £energy£§HRate, Favorite, Subscribe and Award§! to give the me more development motivation.\nThanks!!!§!"
+ z_modmenu.141.desc: "Hello everyone, and this is Infini7e, author of Infinite Stellaris series.\nThe Infinite Stellaris series is committed to providing high-quality art materials, efficient new game mechanism, convenient UI setting panels, and powerful late game optimization to bring you a better gaming experience. \nThe ultimate goal of Infinite Stellaris is to unify various elements and other high-quality mods and establish a brand new game system --- the Infinite Stellaris Collections."
+ z_mm_misc_qq: ""
+
+###_guide
+ z_mm_evt_guide_name: "§GInfinite Stellaris:§! §YGuide to mod setting panel§!"
+ z_mm_tips_guide_top: "§YTop buttons: shortcut for common functions of the framework and sub-modules.§!"
+ z_mm_tips_guide_fw_setting: "§YFrame settings: Infinite Stellairs Framework comes with its own function settings, including Planet population capacity, Supreme cheating systems, and Framework switch.§!"
+ z_mm_tips_guide_fw_misc: "§YBasic Funtion Buttons and Battle Settings"
+ z_mm_tips_guide_fw_battle: "§YInfinite Stellaris: Core Battle Setting§!"
+ z_mm_tips_guide_sub: "§YInfinite Stellaris: Sub-modules setting menu buttons, you can open all the sub-module menus of Infintie Stellaris series here. You can search for §BInfinite Stellaris Collection§! to get all the sub-module mods in the workshop.§!"
+ z_mm_tips_guide_sp_mian: "§YInfinite Stellaris: Custom Functional Buttons Area, Infinite Stellaris will provide customized shortcut buttons for some mods to proform some express functions without opening the settings menu.§! \n§B Modders of steam, if you have some functional buttons that are frequently used and do not need to be opened through the mod menu, this mod panel will provide support for them. Contact me at steam.§!"
+ z_mm_tips_guide_modmenu: "§YOpen this setting panel through the button at the bottom of the left bar§!"
+ z_mm_tips_guide_sp: "§YInfinite Stellaris: Sub-function area. 3rd-party mods of which the setting menus are supported by Infinite Stellaris list here. And you when you open setting menus from 3rd-party mods or sub module setting menus of Infinite Stellaris, the detailed setting are also displayed here. §!\n§B Modder of steam please note that if you intend to let Infinite Stellaris Framework provide shortcut button support for your mod, please contact me.§!"
+ z_mm_tips_guide_sp_map: "§Y7 new map modes offered by the framework§!"
+ 
+ z_mm_tips_framework_contents: "§YInfinite Stellaris Framework provides data, mechanism and UI support for all the sub modules of the series. At the same time, it comes with a large number of new game contents including Easter egg relics, Dynamic difficulty system, Planet population capacity, New map mode, New war mode, Technology linkage system, Automatic Station construction, Universal compatibility and Supreme cheating system. If you don’t need these new features, you can just disable the framework by clicking the big LOGO. Even if the framework is disabled, it still provides all basic support for sub-modules and 3rd-party mods. \nSome compatible mods such as Strategic resources, Habitat types and Modifier fix have been integrated, and they have been customized for this mod.§!"
+ z_mm_tips_guide_sp_misc: "§YShortcut buttons bar for 3rd-party mods§!"
+
+
+
+
+###_IS panel-start
+ z_mm_tip_intro_welcome: "Choose the mode, start the game!"
+ 
+ z_modmenu_start_mode_choose: "§GInfinite Stellaris§! Mode Selector"
+ z_mm_tips_framework_modmenu: "\n\nThis mode will not activate §BInfinite Stellaris Framework§!, and this mod will be a pure setting panel for the supported mods. All other new contents of §BInfinite Stellaris Framework§! will be disabled except for the new map modes. If you want to reactivate these new functions during the game, please click on LOGO in the settings panel to open §BFramework Settings§!, and activate the framework.\n\nIf you choose this mode, please carefully review the options in the upcoming start game settings window."
+ z_mm_tip_intro_menu_mode_on: "§HModmenu Panel Mode§! Selected$z_mm_tips_framework_modmenu$"
+ z_mm_tip_intro_menu_mode_off: "Select §HModmenu Panel Mode§!$z_mm_tips_framework_modmenu$"
+ 
+ z_mm_tips_framework_full: "\n\nThis mode will activate §BInfinite Stellaris Framework§! and new features will be enabled. If you want to deactivate the framework during the game, click on LOGO in the settings panel to open §BFramework Settings§! and deactivate the framework. \n\nThe new features from the framework are:\nNew Map Modes/ New War Types/ New Relics and Story/ Automatic Constructor (Build Obital Stations)/ Sentinel Array Switcher/ Infinite Dynamic Difficulty System/ Weapon Technology Linkage System/ Advanced Cheating System, etc. In the future, there will be new features added continuously."
+ z_mm_tip_intro_fw_mode_on: "§GInfintie Stellaris Framework Mode§! Selected$z_mm_tips_framework_full$$z_mm_tips_framework_full$"
+ z_mm_tip_intro_fw_mode_off: "Select §GInfintie Stellaris Framework Mode§!$z_mm_tips_framework_full$$z_mm_tips_framework_full$"
+ z_mm_tip_intro_fw_mode_ic: "§GInfintie Stellaris Collection Mode§!$z_mm_tips_framework_full$"
+ 
+ z_mm_tip_intro_confirm: "Selection Completed, start the game!"
+
+###_IS panel
+ z_modmenu_button: "§GInfinite Stellaris: Mod Menu§!"
+ z_modmenu_button_white: "IS Mod Menu Panel"
+ z_modmenu.1.name: "Infinite Stellaris MOD Customization Menu"
+ z_modmenu.2.name: "Sub Mods of Infinite Stellaris"
+ z_modmenu.3.name: "§GInfinite Stellaris§!: Supported Mods"
+ z_modmenu.1.desc: "Detailed setting for all IC sub mods."
+ z_modmenu_exit: "§RCancel§!"
+ z_modmenu_return: "Return"
+ z_modmenu_return_desc: "Return to §GInfinite Stellaris Modmenu Panel§!"
+ z_modmenu_empty: ""
+
+ z_modmenu_start_title: "§GInfinite Stellaris Modmenu Panel§! Initialized"
+ z_modmenu_start_title_desc: "§YDo you know?§!, you can access the modmenu panel by toggling the shortcut button in the bottom of left navigation bar. Or you can access it through an edict.\n\nIn Infinite Stellaris modmenu panel, you can access all Infintie Stellaris sub modules and some supported mods. There are also some key function buttons included in the modmenu panel. Make proper use of this modmenu, and your game experience will be better.\n\n§GInfinite Stellaris§! core frameworks is the fundation of §BInfinite Collection§! now part of it has been integrated in this modmenu panel. But most function of the frameworks is initially disabled unless you are using Infintie Collection or enable them by toggling the big logo button."
+ z_modmenu.12.a1: "Glory to §YInfinite Stellaris§!!"
+ z_modmenu.12.a3: "$z_modmenu.12.a1$"
+ z_modmenu.12.a3.tooltip: "Start the game with new buildings, war types and start game assistance from Infintie Stellaris frameworks."
+ z_modmenu.12.a2: "Excellent, but I only want the §YModmenu Panel§!."
+ z_modmenu.12.a2.tooltip: "Start the game without new content from Infinite Stellaris frameworks."
+ z_modmenu.12.a4: "Excellent, but I only want the §YModmenu Panel§! and never touch any frameworks setting."
+ z_modmenu.12.a4.tooltip: "Start the game without new content from Infinite Stellaris frameworks, and also disable frameworks settings in the game.\nIf you really cannot control your hands to touch any frameworks setting or use any cheating fucntion, this is you choice!"
+ 
+###_tooltips
+ z_mm_tips_mid_game_passed: "§YMid-Game Stage§! has passed"
+ z_mm_tips_wip: "This feature is §Yunder development§!"
+ z_mm_tips_esc_to_unlock: "The setting panel is locked for now, press the ESC keyboard button to exit the submenu and unlock the panel."
+ z_mm_tips_mp_not_host: "Only §HHost§! can use this setting under §HMultiplayer Mode§!."
+ z_mm_tips_framework_off: "§GInfinite Stellaris Framework§! is not activated"
+ z_mm_tips_framework_disabled: "You have chosen to completely disabled the frameworks setting, there is no regret.\n\nOf course, if you have to regret it, ask the author to get the console code."
+
+ z_mm_tips_pr_installed: "§BProduction Revolution§! detected, and this fuction is disabled."
+ z_mm_tips_sub_mod_not_activited: "This sub module is not properly installed and cannot be toggled."
+ z_mm_tips_sub_no_pf_pr: "§GPop Manager§! not activated or you have not completed §Bthe First Production Revolution§! from §GProduction Revolution MOD§!."
+ z_mm_tips_sub_no_pf: "§GPop Manager§! not activated."
+ z_mm_tips_sub_no_pf2: "§GLate Game Booster§! not activated."
+ z_mm_tips_sub_no_sts: "§GPerformance Statistics§! not activated."
+ z_mm_tips_sub_no_cm: "§GCrisis Master§! not activated."
+ z_mm_tips_sub_no_pr: "§GProduction Revolution§! not activated."
+ z_mm_tips_pote_not_activited: "§BProtector of the Empire§! has not yet been released."
+ z_mm_tips_sub_modmenu_on: "Multiple submodule windows toggled is not allowed."
+
+
+
+
+
+
+
+
+###_功能edict  ############################################################################################
+#_z modmenu开启设置
+ edict_z_modmenu_edt: "§GInfinite Stellaris§!: Customization Menu"
+ edict_z_modmenu_edt_desc: "Open Infinite Collection Customization Menu. Detailed setting for all IC sub mods."
+#_初始化modmenu
+ edict_z_modmenu_initialization_edt: "§GInfinite Stellaris§!: modmenu initialization"
+ edict_z_modmenu_initialization_edt_desc: "If you have installed the Infinite Stellaris mod menu, but there is no shortcut button in the leftbar or edict to open the menu, please use this edict to initialize the mod."
+#_修复modmenu 按钮
+ edict_z_modmenu_restoration_edt: "§GInfinite Stellaris§!: modmenu button restoration"
+ edict_z_modmenu_restoration_edt_desc: "If your modmenu shortcut button is grayed out, please use this command to fix it."
+ 
+ 
+ 
+ 
+###_mod未安装提示 ############################################################################################
+ z_modmenu_no_mod: "§RThis mod is not activited§!"
+ z_modmenu_no_mod_desc: "It may be because of improper installation."
+ z_modmenu_pity: "OH NOOOOOOOO..."
+ 
+ 
+ 
+ 
+###_FRAMEWORK FUNCTION  ############################################################################################
+
+##_MAIN BUTTONS
+#_battle variables
+ z_mm_fw_loc_core_dd_fp_lv_0: "0"
+ z_mm_fw_loc_core_dd_fp_lv: "[event_target:z_fw_tgt_global_event.z_fw_core_battle_dd_var]"
+ z_mm_fw_button_battle_fp_adpt_on_desc: "$z_modmenu.133.d10$\n\n$z_modmenu.133.d10.tooltip$\n\nDynamic Difficulty §GLV[root.z_fw_loc_cntr_core_dd_fp_lv]§!"
+ z_mm_fw_button_battle_fp_adpt_periodic_desc: "$z_modmenu.133.d10a$\n\n$z_modmenu.133.d10a.tooltip$\n\nDynamic Difficulty §GLV[root.z_fw_loc_cntr_core_dd_fp_lv]§!"
+ z_mm_fw_button_battle_fp_adpt_off_desc: "$z_modmenu.133.d9$\n\n$z_modmenu.133.d9.tooltip$\n\nDynamic Difficulty §GLV[root.z_fw_loc_cntr_core_dd_fp_lv]§!"
+ z_mm_fw_button_battle_dd_fp_up_desc: "Dynamic Difficulty: Fleet Power Bouns - Express Adjustment Button\nYou can set the number of levels changed by each click in the war settings (the blue cross sword button above)."
+ z_mm_fw_button_battle_dd_fp_down_desc: "$z_mm_fw_button_battle_dd_fp_up_desc$"
+ z_mm_fw_tips_dd_fp_fail_desc: "Currently unavailable, you need to enable §GInfinite Stellaris Battle Settings (the Blue Crossing Sword Button Above) - Dynamic Difficulty: Fleet Power Bouns§!."
+#_z_mm_btn_fw
+ z_mm_tips_fw_btn_misc_author:0 "§GInfinite Stellaris§!: Instruction to author and related mods"
+ z_mm_tips_fw_btn_misc_guide:0 "§GInfinite Stellaris§!: User's Guide\n\n§YMods Setting Panel user guide§! and §YIntroduction to Infinite Stellaris framework Function§!, move the mouse to the corresponding position to get detailed introductions of a certain funciton."
+ 
+#_evts z modmenu
+ z_mm_desc_framework:0 "$z_modmenu.13.name$\n\n$z_modmenu.13.desc$"
+ z_modmenu.13.name:0 "§GInfinite Stellaris§!: Framework Customization Menu"
+ z_modmenu.13.desc:0 "This is the customization menu of the original contents of the Infinite Stellaris Core Framework, and you can toggle on some core functions including adaptive difficulty system, cheat menu, etc."
+ z_modmenu.13.cheat_allowed:0 "Multiplayer Cheating Mode §HAllowed§!"
+ z_modmenu.13.cheat_disallowed:0 "Multiplayer Cheating Mode §HDisallowed§!"
+ z_mm_tips_cheat_disallowed_mp:0 "The host does not allow cheating in multiplayer mode"
+ 
+ z_modmenu.13.a1:0 "Cheating Mode §HEnabled§!"
+ z_modmenu.13.a1.tooltip:0 "The cheating mode allows the use of many powerful cheating relic, cures the skunk plague, and earns desire points."
+ z_modmenu.13.a2:0 "Cheating Mode §GDisabled§!"
+ z_modmenu.13.a2.tooltip:0 "$z_modmenu.13.a1.tooltip$"
+ z_mm_tips_cheating_disabled:0 "Cheating mode is not enabled."
+ 
+ z_fw_evts_tech_overwhelm_on:0 "Technology Overhelm §HEnabled§!"
+ z_fw_tips_tech_overwhelm_on:0 "If the owner of the spacecraft you destroyed is far more technological than yours, you will not be able to interpret their wreckage and reverse the technology."
+ z_fw_evts_tech_overwhelm_off:0 "Technology Overhelm §GDisabled§!"
+ z_fw_tips_tech_overwhelm_off:0 "Vanilla setting, the technological strength gap will not affect wreckage reversing."
+ z_modmenu.13.b1:0 "Acquire §H$z_fw_r_monument$§!"
+ z_modmenu.13.b1.tooltip:0 "You don't have $z_fw_r_monument$ now, but you can get it directly through this command."
+ 
+ z_modmenu.cheat_hok_cure:0 "Cheating: Cure the skunk plague"
+ z_modmenu.cheat_hok_cure.tooltip:0 "Get a $z_fw_r_cheat_cure_hok_base$, with which you can completely remove all skunk viruses in the galaxy. The infected skunks will return to their original species, and there will be no virus residues hidden on any planet."
+ z_fw_r_cheat_cure_hok_base:0 "Skunk Plague Treatment Injector"
+ z_fw_r_cheat_cure_hok:0 "§GInfinite Stellaris§!: $z_fw_r_cheat_cure_hok_base$"
+ z_fw_r_cheat_cure_hok_desc:0 "Our universe is sick, terrifying plague has swept the entire galaxy, and all living creatures are being corrupted. Their bodies were alienated, their spirits were distorted, and they became a group of indescribable...cute skunk girls. \nWhat the hell is this? This is obviously a blessing from heaven, god, Litte Kogasa, the Lord of Infinite Dark Energy, let me become a cute skunk girl and be (this is madness)...cough cough, be purified by the sacred dark energy flame! \nEverything will be restored to its original state, because §BDark energy, Omnipotent!!!§!. \nGod bless! \nBlessed by Nurgle! \nAmen!"
+ z_fw_tips_r_cheat_cure_hok:0 "Completely remove all skunk viruses in the galaxy, the infected skunks will return to their original species, and there will be no virus residues hidden on any planet."
+ 
+ z_modmenu.13.b2:0 "Cheating: $z_fw_desire_point_var$ §G+3§!"
+ z_modmenu.13.b3:0 "Cheating: $z_fw_desire_point_var$ §G+30§!"
+ z_modmenu.13.c1:0 "Infintie Stellaris Frameworks §GEnabled§!"
+ z_modmenu.13.c1.tooltip:0 "The original content of Infintie Stellaris, if you use Infintie Collection, it will be automatically switched, adding new buildings, new war goals, start game assistance and the Desire of Stars, etc."
+ z_modmenu.13.c2:0 "Infintie Stellaris Frameworks §HDisabled§!"
+ z_modmenu.13.c2.tooltip:0 "$z_modmenu.13.c1.tooltip$"
+ z_modmenu.13.c3:0 "Get initial technologies"
+ z_modmenu.13.c3.tooltip:0 "In Infinite Stellaris system some non-initial techs will be set as initial techs, such as Automatic Exploration."
+ z_modmenu.13.c4:0 "Refresh Infinite Stellaris Easter Egg Relics"
+ z_modmenu.13.c4.tooltip:0 "The original relics of the Infinite Stellaris will be initialized and separated among the galaxy, this function can only be used once."
+ z_fw_evt_r_koh_plague_enabled:0 "Spontaneous Infection of Headhunter skunks §GEnabled§!"
+ z_fw_evt_r_koh_plague_disabled:0 "Spontaneous Infection of Headhunter skunks §HDisabled§!"
+ z_fw_tips_r_koh_plague_infection:0 "This will determine whether the headhunter is contagious in the non-delivery state. If it is prohibited, only one wave of infection will be performed after delivery by construction ships, otherwise it will continue to try to infect and assimilate other non-skunk species. Note: It should be set as default, and turning it off will break some of its functions."
+ z_modmenu.13.c5:0 "Planet Capacity Settings"
+ z_modmenu.13.c5.tooltip:0 "Activate the planetary population capacity setting, if you have §BPerformance Plus§! Or §GDistricts Revolution§! activated, this setting will be enabled by default."
+ z_modmenu.13.c6:0 "§GInfintie Stellaris§!: Battle settings"
+ z_modmenu.13.c6.tooltip:0 "Activate the Infinite Stellaris battle details settings."
+ 
+ z_fw_misc.tips_res_stock1:0 "Additional Resource Stockpile Bonus: §GNone§!"
+ z_fw_misc.tips_res_stock2:0 "Additional Resource Stockpile Bonus: §Y50000§!"
+ z_fw_misc.tips_res_stock3:0 "Additional Resource Stockpile Bonus: §Y500000§!"
+ z_fw_misc.tips_res_stock4:0 "Additional Resource Stockpile Bonus: §Y5000000§!"
+ z_fw_misc.tips_res_stock:0 "Added additional resource stock modifier for all empires. Note: This will change the balance of the game, use it with caution."
+ 
+ z_modmenu.132.name:0 "$z_modmenu.13.c5$"
+ z_modmenu.132.desc:0 "Add population capacity to all planets, and each colony planet will limit its maximum population according to factors such as the size of the planet and the characteristics of the owner. If you have installed §BPerformance Plus§! Or §GDistricts Revolution§!, this setting will be enabled by default."
+ z_modmenu.132.h1: "Planet population capacity §GActivated§!"
+ z_modmenu.132.h1.tooltip: "Using IC optimization setting, activate Planet population capacity. Total population of a planet will be restricted by planet size and planet class.\n\n§YAttention: If you have subscribed Carrying Capacity MOD, this function will be automatically disabled. Activited Planet population capacity will make some differences in game machenics, for there will be no unrestricted population growth any more.§!"
+ z_modmenu.132.h2: "Planet population capacity §HDeactivated§!"
+ z_modmenu.132.h2.tooltip: "Using vanilla game default, deactivate Planet population capacity. If possible, the population of a planet will continue increasing.\n\n§YAttention: unrestricted population growth cause serious lag in the late game, for there are too many pops will be checked everyday.§!"
+ z_modmenu.132.j1: "Extra planet pops capacity §HNone§!"
+ z_modmenu.132.j1.tooltip: "No additional population capacity."
+ z_modmenu.132.j2: "Extra planet pops capacity §G30§!"
+ z_modmenu.132.j2.tooltip: "All planets get additonal population capacity."
+ z_modmenu.132.j3: "Extra planet pops capacity §G60§!"
+ z_modmenu.132.j3.tooltip: "$z_modmenu.132.j2.tooltip$"
+ z_modmenu.132.j4: "Extra planet pops capacity §G90§!"
+ z_modmenu.132.j4.tooltip: "$z_modmenu.132.j2.tooltip$"
+ z_modmenu.132.j5: "Extra planet pops capacity §G120§!"
+ z_modmenu.132.j5.tooltip: "$z_modmenu.132.j2.tooltip$"
+ 
+ z_fw_tips_btn_battle_setting:0 "$z_modmenu.13.c6$\n\n$z_modmenu.133.desc$"
+ z_modmenu.133.name:0 "$z_modmenu.13.c6$"
+ z_modmenu.133.desc:0 "Set all parameters of the changes made to battle by Infinite Stellaris\nSuch as §YBattle Maneuver/ Dynamic Difficulty§!, etc."
+ z_fw_desc_battle_dd_fp_lv_0:0 "Dynamic Difficulty §HN/A§!"
+ z_fw_desc_battle_dd_fp_lv:0 "Dynamic Difficulty §GLV[root.z_fw_loc_cntr_core_dd_fp_lv]§!"
+ z_modmenu.133.war1:0 "New War Type §HDisabled§!"
+ z_modmenu.133.war2:0 "New War Type §GEnabled§!"
+ z_modmenu.133.war.tooltip:0 "This will determine whether the new war goals and casus belli offered by Infinite Stellaris are allowed to be used."
+ z_modmenu.133.a1: "Immersive Space Battle: Maneuver §HDisabled§!"
+ z_modmenu.133.a1.tooltip: "Disable battle speed adjustment, the ship's combat movement speed is same to its cruise speed."
+ z_modmenu.133.a2: "Immersive Space Battle: Maneuver §GEnabled§!"
+ z_modmenu.133.a2.tooltip: "Enable battle speed adjustment, the ship's movement speed is halved after entering combat to make it differ from cruise speed."
+ z_modmenu.133.b1: "Ship Component Technologies Linkage §HDisabled§!"
+ z_modmenu.133.b1.tooltip: "No technologies linkage.\n\n§YNote: If you don’t know what this feature means, please enable technology linkage."
+ z_modmenu.133.b2: "Ship Component Technologies Linkage §GEnabled§!"
+ z_modmenu.133.b2.tooltip: "After unlocking some ship component technologies, it will automatically unlock component technology of the same type and the same tier level if you have unlocked the necessary prerequisites of the that technology. For example, when you acquire ACOT's alpha laser weapon, the advanced laser weapon of ESC3.0 will be automatically added.\n\n§YCurrently support ESC3.0 and ACOT."
+ 
+ z_modmenu.133.c1: "Overflow Cleaner §HDisabled§!"
+ z_modmenu.133.c1.tooltip: "Do not clean up data overflow units."
+ z_modmenu.133.c2: "Overflow Cleaner §GEnabled§!"
+ z_modmenu.133.c2.tooltip: "Automatically clean up data overflow units."
+ 
+ z_modmenu.133.e1: "Dynamic Difficulty: Basic Adjustment §HDisabled§!"
+ z_modmenu.133.e1.tooltip: "No basic adjustment.\n\n§YNote: In moded game, the difficulty of the game may be too low.§!"
+ z_modmenu.133.e2: "Dynamic Difficulty: Basic Adjustment §GEnabled§!"
+ z_modmenu.133.e2.tooltip: "According to the game time and AI type, all AIs are strengthened and given economic assistance. The later the game period, the more powerful they will become. Suitable for most moded game, suggest to enable."
+ 
+ z_modmenu.133.f1: "Dynamic Difficulty: Purge the Weak §HDisabled§!"
+ z_modmenu.133.f1.tooltip: "No weak AI purger.\n\n§YNote: Will reduce the difficulty.§!"
+ z_modmenu.133.f2: "Dynamic Difficulty: Purge the Weak §GEnabled§!"
+ z_modmenu.133.f2.tooltip: "If the naval strength is too weak for a common empire or a fallen empire, they will be strengthened until their fleet reaches a certain size.\n\n§YIntegrated support for ZOFE.§!"
+ 
+ z_fw_tips_core_battle_dd_fp_off: "Dynamic Difficulty: Fleet Power Bouns §Rnot activited§!"
+ z_modmenu.133.d1: "Dynamic Difficulty: Fleet Power Bouns §HDisabled§!"
+ z_modmenu.133.d1.tooltip: "No fleet power bouns.\n\n§YNote: Does not have any effect on powerful crisis.§!"
+ z_modmenu.133.d2: "Dynamic Difficulty: Fleet Power Bouns §GEnabled§!"
+ z_modmenu.133.d2.tooltip: "Each level of Fleet Power Bouns will enhance the fleet power of a certain AI, up to lv2500.\n\n§YNote: Does not have any effect on powerful crisis.§!"
+ 
+ z_modmenu.133.d9: "Dynamic Difficulty: Fleet Power Automation §HDisabled§!"
+ z_modmenu.133.d9.tooltip: "AI fleet power bouns will not be automatically upgraded, but you can manually upgrade it."
+ z_modmenu.133.d10: "Dynamic Difficulty: Fleet Power Bouns Automation §GAdaptive§!"
+ z_modmenu.133.d10.tooltip: "The AI fleet power bouns will be automatically upgraded according to the player's strength to maintain its combat effectiveness."
+ z_modmenu.133.d10a: "Dynamic Difficulty: Fleet Power Bouns Automation §GPeriodic§!"
+ z_modmenu.133.d10a.tooltip: "he AI fleet power bouns will be automatically upgraded according to the Automation Difficulty setting every year to maintain the challenge."
+ 
+ z_modmenu.133.automation.tooltip: "Set the Dynamic Difficulty: Fleet Power Bouns Automation Difficulty Level. It works on the adaptive and periodic method at the same time.\n\nNote: CD will be refreshed automatically after setting.\n§HWhen using adaptive method, the higher the difficulty level, the higher the trigger frequency.§!"
+ z_modmenu.133.d11: "Dynamic Difficulty: Fleet Power Bouns Automation Difficulty §RCrazy§!"
+ z_modmenu.133.d11.tooltip: "$z_modmenu.133.automation.tooltip$\n§GUnder this difficult setting, Periodic Method reaching the highest level in 125 years.§!"
+ z_modmenu.133.d12: "Dynamic Difficulty: Fleet Power Bouns Automation Difficulty §HHard§!"
+ z_modmenu.133.d12.tooltip: "$z_modmenu.133.automation.tooltip$\n§GUnder this difficult setting, Periodic Method reaching the highest level in 250 years.§!"
+ z_modmenu.133.d13: "Dynamic Difficulty: Fleet Power Bouns Automation Difficulty §BStandard§!"
+ z_modmenu.133.d13.tooltip: "Infinite Stellaris Default. $z_modmenu.133.automation.tooltip$\n§GUnder this difficult setting, Periodic Method reaching the highest level in 500 years.§!"
+ z_modmenu.133.d14: "Dynamic Difficulty: Fleet Power Bouns Automation Difficulty §GEasy§!"
+ z_modmenu.133.d14.tooltip: "$z_modmenu.133.automation.tooltip$\n§GUnder this difficult setting, Periodic Method reaching the highest level in 1250 years.§!"
+ 
+ z_modmenu.133.d3: "Dynamic Difficulty Fleet Power Bouns Level §G+1§!"
+ z_modmenu.133.d4: "Dynamic Difficulty Fleet Power Bouns Level §G+10§!"
+ z_modmenu.133.d5: "Dynamic Difficulty Fleet Power Bouns Level §G+50§!"
+ z_modmenu.133.d5a: "Dynamic Difficulty Fleet Power Bouns Level §G+250§!"
+ z_modmenu.133.d6: "Dynamic Difficulty Fleet Power Bouns Level §G-1§!"
+ z_modmenu.133.d7: "Dynamic Difficulty Fleet Power Bouns Level §G-10§!"
+ z_modmenu.133.d8: "Dynamic Difficulty Fleet Power Bouns Level §G-50§!"
+ z_modmenu.133.d8a: "Dynamic Difficulty Fleet Power Bouns Level §G-250§!"
+ 
+ z_modmenu.133.g.tooltip: "Set the number of level to be changed each time the "+" "-" Fleet Battle Power Bonus express adjustment button is toggled. You can see the two buttons on the main setting panel."
+ z_modmenu.133.g1: "Dynamic Difficulty: Fleet Power Bouns - Express Adjustment Levels §G1§!"
+ z_modmenu.133.g2: "Dynamic Difficulty: Fleet Power Bouns - Express Adjustment Levels §G5§!"
+ z_modmenu.133.g3: "Dynamic Difficulty: Fleet Power Bouns - Express Adjustment Levels §G10§!"
+ z_modmenu.133.g4: "Dynamic Difficulty: Fleet Power Bouns - Express Adjustment Levels §G50§!"
+ 
+#_evts z modmenu misc
+ z_modmenu.130.name:0 "Supreme relics obtained"
+ z_modmenu.130.desc:0 "$z_fw_r_celestial_orrey$, $z_fw_r_cheat_quantum_beacon$, $z_fw_r_cheat_hyper_blade$, $z_fw_r_cheat_mega_sword$ and $z_fw_r_cheat_fury$ obtained."
+ z_modmenu.not_host:0 "You are not the HOST"
+ z_modmenu.not_host.desc:0 "Only HOST of this game is allowed to use this option."
+ z_modmenu.131.name:0 "Cheater appears"
+ z_modmenu.131.desc:0 "It's shameful that [event_target:z_fw_tgt_country_last_cheater.GetName] has just toggled the cheating function of §GInfinite Stellaris§!, and we all know this is multiplay game!"
+ z_modmenu.cheat_allowed:0 "Cheat Allowed"
+ z_modmenu.cheat_allowed.desc:0 "The host has unlocked the cheating mode, click the LOGO to open the framework settings and view the cheating options."
+
+
+
+
+###_TOP BUTTONS
+ z_mm_autostation_desc: "§BAutomatic Mining/Research Station§!:\n\nSet the basic conditions of mineral stockpile that allow the automatic construction of the space station, or switch off the automatic station function. A fully-automated construction ship will be created in any system inside your border to build orbital station there if your minerals stockpile is above lower limit condition."
+ z_mm_tips_autostation_desc: "§YEmpire Energy Income§! §G>5§!"
+ z_mm_full_sensor_desc: "§BFull Sensor Switcher§!: \n\nYou can choose to turn on or off the full sensor function. Of course, it will only take effect if you have the condition like §YSentinel Array§!, or it make no sense.\n\nNote: The full sensor view will cause severe frame loss in the Galaxy map mode because the system has too many UI objects to calculate." 
+ z_mm_full_sensor_desc: "§BProtector of the Empire - Webway Switcher§!：\n\nYou can choose to activate or disable the webway system. Building §Y$sm_warp_fluctuator$§! at the starbase will allow the fleet to enter the webway system and quickly shuttle through your territory.\n\nNote: Every time a fleet passes through the webway, it will consume energy."
+ z_mm_pf_manual_job_check_button: "$edict_z_performance_manual_edt$\n$edict_z_performance_manual_edt_desc$\n\nPerform §BProduction Revolution§! Checking to all empires\n§BProduction Parameters§! will be counted, and §HPops
+/Manpower Transfer§! will be carried out."
+ z_mm_pf_manual_job_own_button: "$edict_z_pf_edt_manual_own$\n$edict_z_pf_edt_manual_own_desc$\n\nPerform §BProduction Revolution§! Checking\n§BProduction Parameters§! will be counted, and §HPops
+/Manpower Transfer§! will be carried out."
+ z_mm_pf_manual_job_checking: "Manually job check ongoing."
+ z_mm_pf2_merge_ai_species_button: "$z_performance_misc.11.f1$\n$z_performance_misc.11.f1.tooltip$"
+ z_mm_pf2_ai_species_merging: "Merging AI species ongoing."
+ z_mm_pf2_merge_ai_flt_button: "$z_performance_misc.11.f5$\n$z_performance_misc.11.f5.tooltip$"
+
+
+
+
+
+
+
+ 
+###_SUB MODULES
+ z_mm_performance_desc: "§GInfintie Stellaris§!: Performance\nA mod which optimizes the job checking system to improve late game performance. Sub mod of Infinite Stellaris Project."
+ z_mm_pf2_desc: "§GInfintie Stellaris§!: Performance Plus\nA mod that optimizes the game in all aspects to improve late game performance. Sub mod of Infinite Stellaris Project."
+ z_mm_statistic_desc: "§GInfintie Stellaris§!: Performance Statistics\nA mod for game data statistics, which provides reference for optimization and debugging. Sub mod of Infinite Stellaris Project."
+ z_mm_cm_desc: "§GInfintie Stellaris§!: Crisis Master\nA powerful crisis manager and crisis expansion mod which make crisis and the War in Haven more challenging and interesting. Sub mod of Infinite Stellaris Project."
+ z_mm_lctr_desc: "§GInfinite Stellaris:§! Advanced Locator\nA powerful positioning system that can display systems containing specific targets on Galaxy map as points of interest. This will make it easy for you to find some special systems. Please follow the instructions after opening the sub-module menu."
+ z_mm_pr_desc: "§GInfinite Stellaris:§! Production Revolution\nThe population system and methods system have been reworked to greatly reduce the number of pops. The unemployed pops will be transfered into planetary manpower. The higher the planetary manpower, the higher the output bonus. \nAt the same time, new structures and production ascensions give you new economic choices, and the simplification of pop management, manpower structures and planetary social structure will free your hands while adding more mental entertainment to you."
+ 
+#_misc mods
+ z_misc_modmenu_button:0 "§GInfinite Stellaris§!: Supported Customization Menu"
+ z_misc_modmenu_button.tooltip:0 "§HOpen§! Supported Mod Customization Menu"
+ z_misc_modmenu.1.name:0 "$z_misc_modmenu_button$"
+ z_misc_modmenu.1.desc:0 "Only when supported mods are activited, those customization button will appear."
+ z_misc_modmenu_desc:0 "$z_misc_modmenu_button$\n$z_misc_modmenu.1.desc$"
+
+
+
+
+###_SUPPORT MODS
+ z_mm_sp_ig_desc: "§BZer0's Infinity Stones: Redux§! Setting Menu\nAdd infinite war and related events, and you can use it after opening the infinite war setting menu once through the edict."
+ z_mm_sp_ig_cht_desc: "§BZer0's Infinity Stones: Redux§! Gautlet Cheat Menu\nThe infinite Gautlet cheat menu can only be open after enabling the cheating function in §BInfinite Stones Redux Setting Menu§!."
+ z_mm_tips_isr_cheat_on: "Enable Cheat Menu first"
+ z_mm_sp_eac_dpl_desc: "§BAt War: Defense Platform Longevity§! Setting Menu"
+ z_mm_sp_tcf_desc: "§BTerraforming Candidate Finder§! Setting Menu"
+ z_mm_sp_mods_had_ab_desc: "§BAutoBuild (only space stations)§! Setting Menu. Another mod that automatically builds space station, which has overlapping functions with the §GAutomatic Construction Ship§! from the Infinite Stellaris Framework, so choose one to use."
+ z_mm_sp_mods_had_bts_desc: "§BBoard That Ship!§! Debug Button. Restore all disabled ships."
+ 
+ z_mm_sm_dduc_desc: "§BDynamic Difficulty - Ultimate Customization§!\nThis mod allows you to adjust the strength of all enemies in the game, including resources and combat power, giving you more challenges."
+ z_mm_sm_mem_desc: "§BMore Events Mod§!\nThis mod adds new anomalies and events to your game, focusing on spicing up the game after exploration has slowed down."
+ z_mm_sm_esc_desc: "§BExtra Ship Components§!\nThis mod aims to provide an extended and expanded technology tree, adding advanced weapons, shields and armor."
+ z_mm_sm_rls_desc: "§BRuler Level System§!\nRLS let every Ruler has their own level system! Make ruler role playing like a rpg game."
+ z_mm_sm_acot_desc: "§BAncient Cache of Technologies§!\nThis mod introduces a large varieties of new technologies based on the enigmatic dark matter/dark energies. From ship weapons, to buildings, to armies or planetary decisions."
+ z_mm_sp_sofe_desc: "§BSin of the Fallen Empires§! Settings"
+ 
+ z_mm_sm_cmn_desc: "§BCrisis Manager Unofficial§!\nThis mod allows you to set the details of all original crisis, including the endgame crisis, mid-term threat, and end of the circle. §RNote: conflict with the Crisis Master, choose one or another.§!"
+ z_mm_sp_mods_cmdt_desc: "§BA Deadly Tempest§! Settings\nThis mod add a lot of new stuff to Gray Tempest. §RNote: conflict with the Crisis Master, choose one or another.§!"
+ z_mm_sm_ftm_desc: "§BFleet Transfer Mod§!\nThis mod has 4 functions: fleet transfer, fleet market, fleet lease, fleet auction. Allows you to have more ways to manage your fleet and establish a multinational arms supply mechanism."
+ z_mm_sp_hfe_desc: "§BHuman Fallen Empires§! Setting Menu\nThis gorgeous mod pharaoh aims to add new content and game features, search it on steam for details."
+ z_mm_sp_giga_desc: "§BGigastructural Engineering & More§! Settings"
+ z_mm_sp_ev_desc: "§BThe Empty Vagrant§! Setting Menu\nA mod that tries to simulate a fleet civilization without planets, search it on steam for details."
+ z_mm_sp_kuat_desc: "§BSTAR WARS:EXECUTOR AND KUAT§! Setting Menu\nThis MOD adds Super Star Destroyer Enforcer class and powerful turbo laser weapons. At the same time, the producer of the executors-Quart Power Dock Company will also generally exist on the map as a fallen empire in the game, with a large number of playable events and extremely challenging. Search STAR WARS:EXECUTOR AND KUAT on steam workshop for details."
+ z_mm_sp_wsg_desc: "§BWarship Girls R And MIST Species§! Crisis Setting\nAllows you to reset the difficult of crisis, but please use it with caution."
+ z_mm_sp_wsg_leader_desc: "§BWarship Girls R And MIST Species: Communicate with Paper Girls§!\nAvailable after getting the Shimakaze, allowing you to communicate with various paper girls."
+ z_mm_tips_sp_wsg_shimakaze: "Available after getting the Shimakaze."
+ 
+ z_mm_sp_uap_desc: "§BUnique Ascension Perks§! Setting\nAdd some new interesting unique ascensions."
+ z_mm_sp_complex_potv_desc: "§BPantheons of the Void§! Religious Tree\nIn this mod you will be able to chose your religious system in the empire creation screen, this selection will determine what your empire supports as faith. Faith or Religious systems go from Atheism to Animatism."
+ z_mm_sp_bcm_desc: "§BBetterCheats§! Setting Menu\nYou will have a variety of new cheating options, covering almost any resource type and game category."
+ z_mm_sp_ace_desc: "§BAggressive Crisis Engine§! \nA collaborative Stellaris mod with new crisis AI and a great amount of crisis improvements."
+
+
+
+
+###_CSP SUPPORT mods
+ z_mm_tips_csp_title: "Custom Supported Buttons"
+ z_mm_csp_common:0 "\n\n§BCustom supported mod§!, the framework provides special support for this type of mods. There will be independent custom setting menus and basic compatibility support so that it can coexist harmoniously with other custom supported mods."
+ z_mm_csp_ev_desc: "§BEmpty Vagrant§!\nThis mod provides a brand-new gameplay system to build a nomadic space empire without any planetary colony, and also a brand-new rebellion system and a terrifying monster crisis is waiting for you.$z_mm_csp_common$"
+ 
+ z_mm_tips_csp_misc_fleet_dismantle_on: "Fleet Destruction: §GEnabled§!"
+ z_mm_tips_csp_misc_fleet_dismantle_off: "Fleet Destruction: §HDisabled§!"
+ z_mm_tips_csp_misc_fleet_dismantle: "Fleet Destruction: After enabling it, select any fleet and order it to move to orbit of capital planet (to use moving command and right click on the capital planet), select "set as the target fleet" in the pop-up event. After the setting is completed, the fleet will become a neutral target and add fragile buffs. Using any of your own fleets to destroy this fleet will generate ship wreckage and allow reverse engineering on it."
+ 
+ z_mm_tips_csp_misc_edt_show: "Setting Edicts of Supported Mods §GShown§!"
+ z_mm_tips_csp_misc_edt_hide: "Setting Edicts of Supported Mods §HHidden§!\n\nSettings menu edicts form some mods are hidden to keep the list clean."
+#_[z_mui主按钮隐藏]
+ z_mm_tips_csp_misc_mui_button_show: "Dark Blue UI main bottom button: §GShown§!"
+ z_mm_tips_csp_misc_mui_button_hide: "Dark Blue UI main bottom button: §HHidden§!\n\nHide the opening button of the Infinite Stellaris mod setting panel in the middle bottom of main UI, in case some people don't like the big button."
+ 
+ z_mm_tips_csp_stability_mod_non:0 "Need §B1st Liberation Manual:The Empire in fallen§! to be activated, search it in steam if you need it."
+ z_mm_tips_csp_ftm_non:0 "Need §BFleet Transfer Mod§! to be activated, search it in steam if you need it."
+ z_mm_tips_csp_ftm_transfer:0 "FTM Fleet Transfer"
+ z_mm_tips_csp_ftm_sell:0 "FTM Fleet Market"
+ z_mm_tips_csp_ftm_rent:0 "FTM Fleet Rent"
+ z_mm_tips_csp_ftm_auction:0 "FTM Fleet Auction"
+
+
+
+

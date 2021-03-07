@@ -1,0 +1,7 @@
+civic_shroud_pact = {
+    modification = no
+    description = "civic_shroud_pact_effects"
+    potential = {
+        always = no
+    }
+}

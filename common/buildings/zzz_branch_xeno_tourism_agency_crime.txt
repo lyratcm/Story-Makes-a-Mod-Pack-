@@ -1,0 +1,59 @@
+building_xeno_tourism_agency_crime = {
+	base_buildtime = 600
+	base_cap_amount = 1
+	icon = building_xeno_tourism_agency
+	
+	branch_office_building = yes
+	
+	prerequisites = { "tech_xeno_tourism_agency" }
+	
+	show_tech_unlock_if = { 
+		is_criminal_syndicate = yes
+	}
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_criminal_syndicate = yes
+		}
+		owner = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+	}
+	
+	allow = {
+		num_pops >= 50
+	}
+	
+	country_modifier = {
+		planet_immigration_pull_mult = 0.33
+	}
+	
+	planet_modifier = {
+		trade_value_mult = 0.1
+		planet_crime_add = 60
+		planet_emigration_push_add = 25
+	}
+	
+	triggered_desc = {
+		text = building_xeno_tourism_agency_crime_effect_desc
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = 50
+		}	
+		upkeep = {
+			energy = 5
+			rare_crystals = 1
+		}		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

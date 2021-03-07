@@ -1,0 +1,41 @@
+namespace = anomaly
+
+ship_event = {
+	id = anomaly.165
+	title = "anomaly.165.name"
+	desc = "anomaly.165.desc"
+	picture = GFX_evt_mining_station
+	show_sound = event_mystic_reveal
+	location = fromfrom
+	
+	is_triggered_only = yes
+
+	immediate = {
+		owner = {
+			add_event_chain_counter = {
+				event_chain = "old_gods_chain"
+				counter = "shrines_searched"
+				amount = 1
+			}
+		}
+	}
+
+	option = {
+		name = FASCINATING
+		small_artifact_reward = yes
+		hidden_effect = {
+			fromfrom = { destroy_ambient_object = this }
+			owner = {
+				if = {
+					limit = {
+						has_completed_event_chain_counter = {
+							event_chain = old_gods_chain
+							counter = shrines_searched
+						}
+					}
+					country_event = { id = anomaly.168 }
+				}
+			}
+		}
+	}
+}

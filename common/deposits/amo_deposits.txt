@@ -1,0 +1,47 @@
+d_megastructure_fragment = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			alloys = 6
+		}
+	}
+}
+
+d_megastructure_fragment_small = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			alloys = 3
+		}
+	}
+}
+
+d_megastructure_fragment_reactor = {
+	is_for_colonizeable = yes
+	icon = "d_reactor"
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			trigger = {
+				owner = {
+					has_technology = tech_mine_living_metal
+				}
+			}
+			sr_living_metal = 1
+		}
+	}
+}

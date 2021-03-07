@@ -1,0 +1,17 @@
+trait_venerable_lithoid = {
+    cost = 3
+    icon = "gfx/interface/icons/traits/trait_venerable.dds"
+    potential_crossbreeding_chance = 1.0
+    modifier = {
+        leader_age = 120
+    }
+    opposites = {
+        "trait_lithoid_eternal"
+        "trait_enduring_lithoid"
+        "trait_fleeting_lithoid"
+        "trait_ageless"
+    }
+    allowed_archetypes = {
+        LITHOID
+    }
+}

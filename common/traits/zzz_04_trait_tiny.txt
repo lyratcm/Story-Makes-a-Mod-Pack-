@@ -1,0 +1,52 @@
+trait_tiny = {
+    cost = 8
+    initial = no
+    modification = no
+    randomized = no
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_small"
+        "trait_big"
+        "trait_slow_metabolism"
+        "trait_very_slow_metabolism"
+        "trait_tiny"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    custom_tooltip = TRAIT_TINY_EFFECT
+    modifier = {
+        planet_pops_food_upkeep_mult = -0.75
+        pop_housing_usage_mult = -0.9
+        pop_growth_speed = 0.2
+        army_damage_mult = -0.75
+        army_health = -0.6
+        planet_jobs_worker_produces_mult = -0.2
+        planet_jobs_consumer_goods_produces_mult = 0.2
+        planet_jobs_alloys_produces_mult = 0.2
+        leader_age = -35
+        pop_decline_speed = 0.6
+    }
+    slave_cost = {
+        energy = 300
+    }
+    ai_weight = {
+        weight = 100
+        modifier = {
+            factor = 0.25
+            is_materialist = yes
+            root = {
+                NOT = {
+                    has_citizenship_type = {
+                        country = prev
+                        type = citizenship_slavery
+                    }
+                }
+            }
+        }
+        modifier = {
+            factor = 4
+            has_valid_civic = civic_environmentalist
+        }
+    }
+}

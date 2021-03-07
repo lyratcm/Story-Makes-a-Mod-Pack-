@@ -1,0 +1,9 @@
+lrsk_gov_var_civic_hive_vigorous_introversion = {
+	potential = { authority = { value = auth_hive_mind } }
+    #icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_hive.dds"
+	random_weight = { base = 5 }
+	modifier = {
+		army_health = 0.1
+    	pop_growth_speed = 0.1
+	}
+}

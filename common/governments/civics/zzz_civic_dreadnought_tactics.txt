@@ -1,0 +1,17 @@
+civic_dreadnought_tactics = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        ship_weapon_damage = 0.20
+        ships_upkeep_mult = -0.2
+        country_naval_cap_add = 50
+        ship_speed_mult = -0.20
+        ship_evasion_mult = -0.10
+    }
+}

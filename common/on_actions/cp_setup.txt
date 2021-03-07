@@ -1,0 +1,21 @@
+on_game_start_country = {
+	events = {
+		cp_setup_event.1
+	}
+}
+on_colonized = {
+	events = {
+		cp_setup_event.2
+	}
+}
+on_monthly_pulse_country = {
+	events = {
+		cp_setup_event.3
+		cp_setup_event.4
+	}
+}
+on_leader_death = {
+	events = {
+		cp_setup_event.5
+	}
+}

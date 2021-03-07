@@ -1,0 +1,20 @@
+origin_absolute_zero = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origin_absolute_zero.dds"
+    picture = GFX_evt_origin_absolute_zero
+    potential = {
+        always = no
+    }
+    description = "origin_tooltip_absolute_zero_effects"
+    flags = {
+        custom_start_screen
+    }
+    initializers = {
+        absolute_zero_system
+    }
+    modifier = {
+    }
+    random_weight = {
+        base = 0
+    }
+}

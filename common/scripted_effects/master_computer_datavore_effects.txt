@@ -1,0 +1,160 @@
+@smallfactor = 0.15
+@smallrewardcap = 45
+@midfactor = 0.3
+@midrewardcap = 60
+@maxfactor = 0.45
+@maxrewardcap = 75
+
+
+master_computer_give_reward_for_ship = {
+    IF = {
+        limit = {
+            master_computer_is_in_datavore_war = no
+            from = {
+                is_country_type = default
+            }
+        }
+        # # log = "[This.GetName] receives reward for regular"
+        add_monthly_resource_mult = {
+            resource = physics_research
+            value = @midfactor
+            max = @midrewardcap
+        }
+        add_monthly_resource_mult = {
+            resource = society_research
+            value = @midfactor
+            max = @midrewardcap
+        }
+        add_monthly_resource_mult = {
+            resource = engineering_research
+            value = @midfactor
+            max = @midrewardcap
+        }
+    }
+    ELSE_IF = {
+        limit = {
+            OR = {
+                master_computer_is_in_datavore_war = yes
+                from = {
+                    OR = {
+                        is_crisis_faction = yes
+                        is_country_type = fallen_empire
+                        is_country_type = awakened_fallen_empire
+                    }
+                }
+            }
+        }
+        # log = "[This.GetName] gets max reward"
+        add_monthly_resource_mult = {
+            resource = physics_research
+            value = @maxfactor
+            max = @maxrewardcap
+        }
+        add_monthly_resource_mult = {
+            resource = society_research
+            value = @maxfactor
+            max = @maxrewardcap
+        }
+        add_monthly_resource_mult = {
+            resource = engineering_research
+            value = @maxfactor
+            max = @maxrewardcap
+        }
+    }
+    ELSE_IF = {
+        limit = {
+            from = {
+                OR = {
+                    is_country_type = marauder_raiders
+                    is_country_type = awakened_marauders
+                    is_country_type = dormant_marauders
+                    is_country_type = ruined_marauders
+                }
+            }
+        }
+        # log = "[This.GetName] gets min reward"
+        add_monthly_resource_mult = {
+            resource = physics_research
+            value = @smallfactor
+            max = @smallrewardcap
+        }
+        add_monthly_resource_mult = {
+            resource = society_research
+            value = @smallfactor
+            max = @smallrewardcap
+        }
+        add_monthly_resource_mult = {
+            resource = engineering_research
+            value = @smallfactor
+            max = @smallrewardcap
+        }
+    }
+}
+
+# IF = {
+#     limit = {
+#         FROM = { is_country_type = default }
+#     }
+#     # log = "Reward added to [This.GetName]"
+#     add_resource = {
+#         physics_research = @techgain
+#         society_research = @techgain
+#         engineering_research = @techgain
+#     }
+# }
+# ELSE_IF = {
+#     limit = {
+#         FROM = { is_country_type = fallen_empire }
+#     }
+#     add_resource = {
+#         physics_research = @techgainFE
+#         society_research = @techgainFE
+#         engineering_research = @techgainFE
+#     }
+# }
+# ELSE_IF = {
+#     limit = {
+#         FROM = { is_country_type = awakened_fallen_empire }
+#     }
+#     add_resource = {
+#         physics_research = @techgainAE
+#         society_research = @techgainAE
+#         engineering_research = @techgainAE
+#     }
+# }
+# ELSE_IF = {
+#     limit = {
+#         FROM = { is_country_type = awakened_marauders }
+#     }
+#     add_resource = {
+#         physics_research = @techgainHORDE
+#         society_research = @techgainHORDE
+#         engineering_research = @techgainHORDE
+#     }
+# }
+# ELSE_IF = {
+#     limit = {
+#         FROM = { is_crisis_faction = yes }
+#     }
+#     add_resource = {
+#         physics_research = @techgainCRIS
+#         society_research = @techgainCRIS
+#         engineering_research = @techgainCRIS
+#     }
+# }
+# ELSE_IF = {
+#     limit = {
+#         FROM = {
+#             OR = {
+#                 is_country_type = marauder_raiders
+#                 is_country_type = dormant_marauders
+#                 is_country_type = ruined_marauders
+#             }
+#         }
+#     }
+#     add_resource = {
+#         physics_research = @techgainMAR
+#         society_research = @techgainMAR
+#         engineering_research = @techgainMAR
+#     }
+# }

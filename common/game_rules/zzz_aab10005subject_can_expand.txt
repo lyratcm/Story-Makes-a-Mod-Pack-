@@ -1,0 +1,8 @@
+subject_can_expand = {
+    root = {
+        OR = {
+            has_valid_civic = civic_feudal_realm
+            has_policy_flag = vassal_expansion_allowed
+        }
+    }
+}

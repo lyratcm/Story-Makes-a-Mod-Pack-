@@ -1,0 +1,66 @@
+building_corp_robot_crime = {
+
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	icon = building_robot_assembly_plant
+	
+	branch_office_building = yes
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_origin = origin_mechanists
+			is_criminal_syndicate = yes
+		}
+		exists = owner
+		exists = planet
+		planet = { NOT = { has_planet_flag = cloning_vats_adv } }
+		owner = { NOT = { has_policy_flag = robots_outlawed } }
+	}
+	
+	allow = {
+		exists = owner
+		owner = { has_technology = tech_robotic_workers }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		exists = planet
+		OR = {
+			planet = { has_planet_flag = cloning_vats_adv }
+			owner = { has_policy_flag = robots_outlawed }
+			owner = { NOT = { has_technology = tech_robotic_workers } }
+		}
+	}
+	
+	planet_modifier = {
+		job_roboticist_corp_add = 1
+		trade_value_add = 10
+		planet_crime_add = 50
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 800
+		}	
+		produces = {
+			energy = 12
+			engineering_research = 12
+		}	
+	}
+
+	ai_weight = {
+		weight = 500
+		modifier = {
+			factor = 0
+			exists = owner
+			owner = {
+				OR = {
+					NOT = { has_technology = tech_robotic_workers }
+					has_policy_flag = robots_outlawed
+				}
+			}
+		}
+	}
+}

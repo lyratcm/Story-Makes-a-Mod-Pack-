@@ -1,0 +1,26 @@
+trait_cybernetic = {
+    cost = 0
+    opposites = {
+        "trait_primitive_cybernetic"
+        "trait_latent_psionic"
+        "trait_psionic"
+    }
+    improves_leaders = yes
+    initial = no
+    randomized = no
+    modification = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pc_machine_habitability = 0.40
+        pop_environment_tolerance = 0.20
+        army_damage_mult = 0.1
+        leader_age = 40
+        pop_decline_speed = -0.3
+        planet_jobs_produces_mult = 0.05
+    }
+}

@@ -1,0 +1,38 @@
+#_[esc]
+
+
+
+###_[esc]	/nhsc_decisions.txt		###########################
+decision_nhsc_mod_menu = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = { energy = 0 }
+	}
+
+	potential = {
+		is_capital = yes
+		NOT = { has_global_flag = ESC_MENU_ACTIVE }
+		# only human players are allowed to use this
+		exists = owner
+		owner = { is_ai = no }
+		
+		#_z_mm
+		has_global_flag = nhsc_v30
+		owner = { NOT = { has_country_flag = z_fw_flg_cntr_edt_hide } }
+	}
+	allow = {
+		owner = { is_ai = no }
+		custom_tooltip = {#_主机
+			hidden_trigger = { owner = { z_fw_trgr_cntr_host_mp = yes } }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+
+	effect = {
+		owner = {
+			country_event = { id = esc_options.1 days = 0 }
+		}
+	}
+}

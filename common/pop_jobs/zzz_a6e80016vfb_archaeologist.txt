@@ -1,0 +1,37 @@
+vfb_archaeologist = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_vfb_museum
+    clothes_texture_index = 1
+    icon = vfb_archaeologist
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        ruler_job_check_trigger = yes
+        hidden_trigger = {
+            exists = owner
+        }
+        or = {
+            has_job = vfb_archaeologist
+            z_pop_job_trigger = yes
+        }
+    }
+    planet_modifier = {
+    }
+    resources = {
+        category = planet_researchers
+        produces = {
+            minor_artifacts = 0.10
+            unity = 8
+        }
+        upkeep = {
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+    }
+}

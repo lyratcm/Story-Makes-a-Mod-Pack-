@@ -1,0 +1,55 @@
+ap_esap_ct1_war = {
+	on_enabled = {
+		custom_tooltip = ap_esap_ct1_war_tooltip
+		hidden_effect = {
+			every_owned_leader = {
+				owner = {
+					country_event = {
+						id = esap_combination_t1.1
+						scopes = { 
+							from = prev
+						}
+					}
+				}
+			}
+			every_pool_leader = {
+				owner = {
+					country_event = {
+						id = esap_combination_t1.1
+						scopes = { 
+							from = prev
+						}
+					}
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_war_req_1"
+			max_naval_capacity > 99
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_war_req_2"
+			Not = {
+				has_ascension_perk = ap_esap_ct3_not_war
+			}
+		}
+	}
+
+	modifier = {
+		ship_experience_gain_mult = 0.50
+		army_experience_gain_mult = 0.50
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct1_war
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

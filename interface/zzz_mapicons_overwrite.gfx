@@ -1,0 +1,118 @@
+###_Z GRAPHIC 2 MINICIFICATION ++++	############################################################
+
+spriteTypes = {
+	#_z_graphic_2 Ñ¡Ôñ¿ò³ß´ç
+	SpriteType = {
+		name = "GFX_z_graphic_icon_type_bg"
+	#	size= {x=24 y=24 }
+		texturefile = "gfx/interface/system/z_map_gui_type_2_bg.dds"
+		alwaystransparent = no
+		effectFile = "gfx/FX/buttonstate.lua"
+	#	borderSize = { x=5 y=5 }
+		#_flick
+		animation = {
+			animationmaskfile = "gfx/interface/system/z_map_gui_type_2_fx_mask.dds"			
+			animationtexturefile = "gfx/interface/system/z_map_gui_type_2_fx.dds"	
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 3				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"		#add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	#_z_graphic_2 ÐÇÇòÑ¡Ôñ³ß´ç
+	corneredTileSpriteType = {
+		name = "GFX_z_graphic_icon_fonts_bg"
+		size= {x=72 y=20 }
+		texturefile = "gfx/interface/system/z_map_gui_fonts_bg.dds"
+		borderSize = { x=30 y=9 }
+	}
+	#_z_graphic_2 xx
+	SpriteType = {
+		name = "GFX_z_map_gui_frame_sb"
+		texturefile = "gfx/interface/system/z_map_gui_frame_sb.dds"
+		alwaystransparent = yes
+		#_È¦
+		animation = {
+			animationmaskfile = "gfx/interface/system/z_map_gui_frame_sb_fx_mask.dds"			
+			animationtexturefile = "gfx/interface/system/z_map_gui_frame_sb_fx.dds"	
+			animationrotation = 0.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 8				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"		#add, multiply, overlay
+			animationtype = "rotating"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	SpriteType = {
+		name = "GFX_z_map_gui_frame_loc"
+		texturefile = "gfx/interface/system/z_map_gui_frame_loc.dds"
+		alwaystransparent = yes
+		animation = {
+			animationmaskfile = "gfx/interface/system/z_map_gui_frame_loc_fx_mask.dds"
+			animationtexturefile = "gfx/interface/system/z_map_gui_frame_loc_fx.dds"
+			animationrotation = 180.0
+			animationlooping = yes
+			animationtime = 3.0
+			animationdelay = 0.0
+			animationblendmode = "add"		#add, multiply, overlay
+			animationtype = "scrolling"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	SpriteType = {
+		name = "GFX_z_map_gui_frame_bps"
+		texturefile = "gfx/interface/system/z_map_gui_frame_bps.dds"
+		alwaystransparent = yes
+		#_flick
+		animation = {
+			animationmaskfile = "gfx/interface/system/z_map_gui_frame_sb_fx_mask.dds"			
+			animationtexturefile = "gfx/interface/system/z_map_gui_frame_bps_fx.dds"	
+			animationrotation = 0.0			# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 4				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"		#add, multiply, overlay
+			animationtype = "rotating"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+
+	#_Ñª/¼×/¶Ü ³ß´ç
+	progressbartype = {
+		name = "GFX_fleet_health_bar"
+		color = { 1.0 1.0 1.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		textureFile1 = "gfx/interface/system/map_gui_health.dds"
+		textureFile2 = "gfx/interface/system/map_gui_empty.dds"
+		size = { x = 25 y = 3 }			#_20 2
+		effectFile = "gfx/FX/progress_startend.lua"
+	}
+
+	progressbartype = {
+		name = "GFX_fleet_armor_bar"
+		color = { 1.0 1.0 1.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		textureFile1 = "gfx/interface/system/map_gui_armor.dds"
+		textureFile2 = "gfx/interface/system/map_gui_empty.dds"
+		size = { x = 25 y = 3 }			#_20 2
+		effectFile = "gfx/FX/progress_startend.lua"
+	}
+	
+	progressbartype = {
+		name = "GFX_fleet_shield_bar"
+		color = { 1.0 1.0 1.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		textureFile1 = "gfx/interface/system/map_gui_shield.dds"
+		textureFile2 = "gfx/interface/system/map_gui_empty.dds"
+		size = { x = 25 y = 3 }			#_20 2
+		effectFile = "gfx/FX/progress_startend.lua"
+	}
+}

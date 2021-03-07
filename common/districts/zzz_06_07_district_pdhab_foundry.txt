@@ -1,0 +1,107 @@
+@hab_cost = 500
+@hab_maintenance = 2
+district_pdhab_foundry = {
+    base_buildtime = 240
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        has_planet_flag = pd_foundry_hab
+    }
+    potential = {
+        has_planet_flag = pd_foundry_hab
+    }
+    resources = {
+        category = planet_districts_hab_trade
+        cost = {
+            minerals = @hab_cost
+        }
+        upkeep = {
+            energy = @hab_maintenance
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        modifier = {
+            job_alloy_drone_add = 3
+            planet_housing_add = 3
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+        }
+        modifier = {
+            job_fabricator_add = 3
+            planet_housing_add = 3
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+                is_fallen_empire_spiritualist = no
+            }
+        }
+        modifier = {
+            job_foundry_add = 3
+            planet_housing_add = 3
+        }
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+        }
+        text = job_fabricator_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        text = job_alloy_drone_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+                is_fallen_empire_spiritualist = no
+            }
+        }
+        text = job_foundry_effect_desc
+    }
+    ai_weight = {
+        weight = 1
+        modifier = {
+            weight = 9000
+            OR = {
+                has_district = district_pdhab_foundry
+                owner = {
+                    has_monthly_income = {
+                        resource = alloys
+                        value < 6
+                    }
+                }
+            }
+        }
+    }
+    ai_resource_production = {
+        consumer_goods = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

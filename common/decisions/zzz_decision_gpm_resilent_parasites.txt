@@ -1,0 +1,110 @@
+decision_gpm_resilent_parasites = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_resilient_parasites
+	enactment_time = 180
+
+    resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops < 10
+			}
+			consumer_goods = 1000
+		}
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 10
+				num_pops < 20
+			}
+			consumer_goods = 1100
+		}
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 20
+				num_pops < 30
+			}
+			consumer_goods = 1200
+		}	
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 30
+				num_pops < 40
+			}
+			consumer_goods = 1300
+		}	
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 40
+				num_pops < 50
+			}
+			consumer_goods = 1400
+		}			
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 50
+				num_pops < 60
+			}
+			consumer_goods = 1500
+		}
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 60
+				num_pops < 70
+			}
+			consumer_goods = 1600
+		}			
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 70
+				num_pops < 85
+			}
+			consumer_goods = 1700
+		}
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 85
+				num_pops < 100
+			}
+			consumer_goods = 1800
+		}
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = yes }
+				num_pops >= 100
+			}
+			consumer_goods = 2000
+		}
+		cost = {
+			trigger = {
+				owner = { is_regular_empire = no }
+			}
+			energy = 2000
+		}
+	}
+
+    potential = {
+		has_modifier = gpm_resilent_parasites
+	}
+	
+	allow = {
+		has_modifier = gpm_resilent_parasites
+	}
+
+    effect = {
+		remove_modifier = gpm_resilent_parasites
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

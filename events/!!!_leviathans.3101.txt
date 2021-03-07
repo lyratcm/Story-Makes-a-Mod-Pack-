@@ -1,0 +1,57 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.3101
+	hide_window = yes
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = guardian_dreadnought
+		has_country_flag = automated_dreadnought_country
+		FROMFROM = { is_ship_size = npc_warship_01 }
+	}
+	
+	immediate = {
+		FROMFROM = {
+			solar_system = { save_event_target_as = guardians_dreadnought_system }
+			create_ambient_object = {
+				type = "dreadnought_object"
+				location = THIS
+			}
+			last_created_ambient_object = { save_global_event_target_as = disabled_dreadnought_object }
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = THIS
+			}
+			last_created_ambient_object = { set_ambient_object_flag = dreadnought_debris }
+		}
+		FROM = {
+			country_event = { id = leviathans.3102 }
+		}
+		destroy_country = yes
+		every_country = {
+			limit = { 
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_modifier = automated_dreadnought_weak_points
+			}
+			remove_modifier = "automated_dreadnought_weak_points"
+		}
+		every_country = {
+			limit = {
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_event_chain = curator_poi_chain
+				event_target:guardians_dreadnought_system = {
+					is_point_of_interest = {
+						id = curator_poi_dreadnought
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_dreadnought
+			end_curator_chain = yes
+		}
+	}
+}

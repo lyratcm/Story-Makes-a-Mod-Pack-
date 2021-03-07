@@ -1,0 +1,26 @@
+trait_general_blitz = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_general_blitz.dds"
+    modifier = {
+        army_damage_mult = 0.75
+        army_morale_damage_mult = 0.75
+        army_collateral_damage_mult = 0.50
+        army_health = -0.50
+        army_morale = -0.50
+    }
+    leader_trait = {
+        general
+    }
+    leader_class = {
+        general
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_time_lords
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

@@ -1,0 +1,20 @@
+###_z fw 音效类别	#############################################################
+
+category = {
+	name = "Effects"
+	soundeffects = {
+		####### UI SFX
+		z_fw_sfx_ui_mouse_over
+		z_fw_sfx_ui_click
+	}
+	
+	compressor =  {
+		enabled = yes
+		pregain = 4.0
+		postgain = -2.2
+		ratio = 3.0
+		threshold = -25
+		attacktime = 0.30
+		releasetime = 0.8
+	}
+}

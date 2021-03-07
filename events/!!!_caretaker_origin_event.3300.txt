@@ -1,0 +1,67 @@
+namespace = caretaker_origin_event
+country_event = {
+    id = caretaker_origin_event.3300
+    is_triggered_only = yes
+    diplomatic = yes
+    trigger = {
+        has_origin = origin_caretaker
+        has_country_flag = caretaker_secession_granted
+        any_playable_country = {
+            has_country_flag = caretaker_seceded_country
+        }
+        event_target:caretaker_secession_empire = {
+            OR = {
+                is_loyal_to = ROOT
+                is_friendly_to = ROOT
+                is_cordial_to = ROOT
+                is_protective_to = ROOT
+            }
+        }
+    }
+    title = caretaker_origin_event.3300.name
+    desc = caretaker_origin_event.3300.desc
+    picture_event_data = {
+        portrait = event_target:caretaker_secession_empire
+        planet_background = event_target:caretaker_secession_empire
+        graphical_culture = event_target:caretaker_secession_empire
+        city_level = event_target:caretaker_secession_empire
+        room = event_target:caretaker_secession_empire
+    }
+    option = {
+        name = caretaker_origin_event.3300.option.a
+        custom_tooltip = caretaker_origin_event.3300.option.a.tooltip
+        hidden_effect = {
+            capital_scope = {
+                while = {
+                    count = 5
+                    create_pop = {
+                        species = ROOT
+                    }
+                }
+            }
+            country_event = {
+                id = caretaker_origin_event.3301
+                days = 1800
+                random = 720
+            }
+        }
+    }
+    option = {
+        name = caretaker_origin_event.3300.option.b
+        custom_tooltip = caretaker_origin_event.3300.option.b.tooltip
+        hidden_effect = {
+            event_target:caretaker_secession_empire = {
+                add_opinion_modifier = {
+                    who = ROOT
+                    modifier = caretaker_gift_rejected
+                }
+            }
+            set_country_flag = caretaker_seceded_country_gift_rejected
+            country_event = {
+                id = caretaker_origin_event.3301
+                days = 3600
+                random = 720
+            }
+        }
+    }
+}

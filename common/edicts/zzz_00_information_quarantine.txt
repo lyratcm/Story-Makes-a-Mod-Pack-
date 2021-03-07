@@ -1,0 +1,39 @@
+information_quarantine = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = information_quarantine }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = information_quarantine
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_stability_add = 5
+		pop_government_ethic_attraction = 0.5
+	}	
+	
+	potential = {
+		#is_authoritarian = yes
+		OR = {
+			has_policy_flag = state_media
+			has_policy_flag = corporate_media
+		}
+		NOT = { has_valid_civic = civic_media_conglomerate }
+	}
+	
+	ai_weight = {
+		weight = @EdictLowPrio
+	}	
+}

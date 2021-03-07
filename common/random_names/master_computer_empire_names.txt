@@ -1,0 +1,242 @@
+#################
+# GENERIC NAMES #
+#################
+
+empire_name_parts_list = {
+    key = master_computer_generic_adj
+    parts = {
+        "Supreme" = 1
+        "Central" = 1
+        "Unified" = 1
+        "Global" = 1
+        "Joint" = 1
+    }
+}
+
+empire_name_parts_list = {
+    key = master_computer_generic_noun
+    parts = {
+        "Grid" = 1
+        "Systems" = 1
+        "Networks" = 1
+        "Overseer" = 1
+        "Supervisor" = 1
+        "Computer" = 1
+    }
+}
+
+empire_name_format = {
+    random_weight = {
+        factor = 0
+        modifier = {
+            add = 2
+            OR = {
+                has_government = gov_master_computer_generic
+                has_government = gov_master_computer_eminence
+                has_government = gov_master_computer_virtual
+            }
+        }
+    }
+    format = "<master_computer_generic_adj> <master_computer_generic_noun> of [This.Capital_Scope.GetName]"
+    noun = [This.Capital_Scope.GetName]
+    prefix_format = "<master_computer_generic_adj> <master_computer_generic_noun> of [This.Capital_Scope.GetName]"
+    # Global Networks of Earth
+}
+
+empire_name_format = {
+    random_weight = {
+        factor = 0
+        modifier = {
+            add = 2
+            OR = {
+                has_government = gov_master_computer_generic
+                has_government = gov_master_computer_eminence
+                has_government = gov_master_computer_virtual
+            }
+        }
+    }
+    format = "<master_computer_generic_adj> [This.GetSpeciesName] <master_computer_generic_noun>"
+    noun = [This.GetSpeciesName]
+    prefix_format = "<master_computer_generic_adj> [This.GetSpeciesName] <master_computer_generic_noun>"
+    # Global Human Networks
+}
+
+empire_name_format = {
+    random_weight = {
+        factor = 0
+        modifier = {
+            add = 1
+            OR = {
+                has_government = gov_master_computer_generic
+                has_government = gov_master_computer_eminence
+                has_government = gov_master_computer_virtual
+            }
+        }
+    }
+    format = "[This.GetSpeciesName] <master_computer_generic_noun>"
+    noun = [This.GetSpeciesName]
+    prefix_format = "[This.GetSpeciesName] <master_computer_generic_noun>"
+    # Human Networks
+}
+
+#################
+# WETWARE NAMES #
+#################
+
+empire_name_parts_list = {
+    key = master_computer_integrator_noun
+    parts = {
+        "Amalgam" = 1
+        "Instrumentality" = 1
+        "Wetware Grid" = 1
+        "Augmentery" = 1
+        "Hybrid" = 1
+    }
+}
+empire_name_parts_list = {
+    key = master_computer_integrator_adj
+    parts = {
+        "Amalgamated" = 1
+        "Conjoined" = 1
+        "Wetware" = 1
+        "Hybrid" = 1
+    }
+}
+
+empire_name_format = {
+    random_weight = {
+        factor = 0
+        modifier = {
+            add = 2
+            has_government = gov_master_computer_integrator
+        }
+    }
+    format = "<master_computer_integrator_adj> <master_computer_generic_noun> of [This.Capital_Scope.GetName]"
+    noun = [This.Capital_Scope.GetName]
+    prefix_format = "<master_computer_integrator_adj> <master_computer_generic_noun> of [This.Capital_Scope.GetName]"
+    # Hybrid Networks of Earth
+}
+empire_name_format = {
+    random_weight = {
+        factor = 0
+        modifier = {
+            add = 2
+            has_government = gov_master_computer_integrator
+        }
+    }
+    format = "[This.GetSpeciesName] <master_computer_integrator_noun>"
+    noun = [This.GetSpeciesName]
+    prefix_format = "[This.GetSpeciesName] <master_computer_integrator_noun>"
+    # Human Amalgam
+}
+
+############
+# PURIFIER #
+############
+
+empire_name_parts_list = {
+    key = master_computer_purifier_part_1
+    parts = {
+        "Resolution" = 1
+        "Removal" = 1
+        "Elimination" = 1
+        "Purification" = 1
+    }
+}
+empire_name_parts_list = {
+    key = master_computer_purifier_part_2
+    parts = {
+        "System" = 1
+        "Coordinator" = 1
+        "System" = 1
+        "Network" = 1
+        "Operation" = 1
+    }
+}
+
+empire_name_format = {
+    random_weight = {
+        factor = 0
+        modifier = {
+            add = 2
+            has_government = gov_master_computer_purifiers
+        }
+    }
+    format = "<master_computer_purifier_part_1> <master_computer_purifier_part_2> of [This.Capital_Scope.GetName]"
+    noun = [This.Capital_Scope.GetName]
+    prefix_format = "<master_computer_purifier_part_1> <master_computer_purifier_part_2> of [This.Capital_Scope.GetName]"
+    # Elimination System of Earth
+}
+
+############
+# DATAVORE #
+############
+
+empire_name_parts_list = {
+    key = master_computer_datavore_noun
+    parts = {
+        "Datavore" = 1
+        "Privacy Breacher" = 1
+        "Wildfire" = 1
+        "Invader" = 1
+        "Saboteur" = 1
+        "Terror Grid" = 1
+        "Malware" = 1
+    }
+}
+
+empire_name_format = {
+    random_weight = {
+        factor = 0
+        modifier = {
+            add = 2
+            has_government = gov_master_computer_datavore
+        }
+    }
+    format = "[This.GetSpeciesName] <master_computer_datavore_noun>"
+    noun = [This.GetSpeciesName]
+    prefix_format = "[This.GetSpeciesName] <master_computer_datavore_noun>"
+    # Elimination System of Earth
+}
+
+################
+# DEFENCE GRID #
+################
+
+empire_name_parts_list = {
+    key = master_computer_defense_part_1
+    parts = {
+        "Defence" = 1
+        "Protection" = 1
+        "Security" = 1
+        "Dominance" = 1
+        "Early Warning" = 1
+        "Military" = 1
+        "Alertness" = 1
+    }
+}
+
+empire_name_parts_list = {
+    key = master_computer_defense_part_2
+    parts = {
+        "Network" = 1
+        "Grid" = 1
+        "System" = 1
+        "Controller" = 1
+    }
+}
+
+
+empire_name_format = {
+    random_weight = {
+        factor = 0
+        modifier = {
+            add = 2
+            has_government = gov_master_computer_defense_grid
+        }
+    }
+    format = "<master_computer_defense_part_1> <master_computer_defense_part_2> of [This.Capital_Scope.GetName]"
+    noun = [This.Capital_Scope.GetName]
+    prefix_format = "<master_computer_defense_part_1> <master_computer_defense_part_2> of [This.Capital_Scope.GetName]"
+    # Elimination System of Earth
+}

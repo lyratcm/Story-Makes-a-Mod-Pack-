@@ -1,0 +1,19 @@
+lrsk_gov_var_civic_mc_sci_mgnt = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    description = "civic_tooltip_lrsk_gov_var_civic_mc_sci_mgnt_effects"
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        planet_pops_organics_food_upkeep_mult = -0.1
+        planet_jobs_worker_produces_mult = 0.1
+    }
+}

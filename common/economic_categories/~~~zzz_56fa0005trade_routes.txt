@@ -1,0 +1,11 @@
+trade_routes = {
+    parent = trade
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+}

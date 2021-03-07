@@ -1,0 +1,19 @@
+trait_additrait_ephemeral = {
+    cost = -2
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        leader_age = -20
+    }
+    opposites = {
+        "trait_venerable"
+        "trait_enduring"
+        "trait_fleeting"
+        "trait_additrait_immune"
+        "trait_fungal_colony"
+        "trait_ancient"
+        "trait_seasonal"
+        "trait_ageless"
+    }
+}

@@ -1,0 +1,44 @@
+decision_abolish_planetary_evacuation = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_planetary_evacuation
+
+	resources = {
+		category = decisions
+	}
+	
+	potential = {
+		has_modifier = planetary_evacuation
+	}
+	
+	effect = {
+		custom_tooltip = decision_abolish_planetary_evacuation_effect_desc
+		hidden_effect = {
+			remove_modifier = planetary_evacuation
+		}
+	}
+	
+	ai_weight = {
+		weight = 100	
+		modifier = {
+			factor = 0
+			OR = {
+				has_modifier = apocalypse
+				has_modifier = moon_collision
+				has_modifier = moon_fall
+				has_modifier = orbit_reduction
+				has_modifier = orbit_increase
+				has_modifier = volcanic_activity
+				has_modifier = doomsday_1
+				has_modifier = doomsday_2
+				has_modifier = doomsday_3
+				has_modifier = doomsday_4
+				has_modifier = doomsday_5
+				AND = {
+					solar_system = { has_star_flag = star_disaster }
+					NOT = { has_modifier = secret_disaster }
+				}
+			}
+		}
+	}
+}

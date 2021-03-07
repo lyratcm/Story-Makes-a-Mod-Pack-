@@ -1,0 +1,39 @@
+zro_pilots = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = ship_edicts
+		cost = {
+			sr_zro = 50
+		}
+	}
+	
+	show_tech_unlock_if = {
+		is_robot_empire = no
+	}
+	
+	potential = {
+		is_robot_empire = no
+	}
+
+	modifier = {
+		ship_sensor_range_add = 1
+		ship_hyperlane_range_add = 2
+		ship_evasion_mult = 0.10
+		ship_speed_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_mine_zro"
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictMedPrio
+			root = {
+				is_at_war = yes
+			}
+		}
+	}
+}

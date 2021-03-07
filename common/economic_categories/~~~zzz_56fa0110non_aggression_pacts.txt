@@ -1,0 +1,11 @@
+non_aggression_pacts = {
+    parent = diplomacy
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+}

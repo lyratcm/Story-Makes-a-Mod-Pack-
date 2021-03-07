@@ -1,0 +1,26 @@
+civic_public_relations_specialists = {
+    playable = {
+        host_has_dlc = "Federations"
+    }
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        envoys_add = 2
+        diplo_weight_mult = 0.1
+    }
+}

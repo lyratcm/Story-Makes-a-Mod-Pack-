@@ -1,0 +1,14 @@
+civic_master_computer_efficient = {
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+
+    modifier = {
+        country_edict_cap_add = 2
+        empire_size_penalty_mult = -0.50
+    }
+
+    random_weight = { base = 5 }
+}

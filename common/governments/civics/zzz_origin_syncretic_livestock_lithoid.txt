@@ -1,0 +1,8 @@
+origin_syncretic_livestock_lithoid = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_syncretic_livestock.dds"
+    picture = GFX_syncretic_livestock_lithoid
+    potential = {
+        always = no
+    }
+}

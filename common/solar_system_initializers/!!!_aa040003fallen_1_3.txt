@@ -1,0 +1,207 @@
+fallen_1_3 = {
+    usage = fallen_empire_init
+    name = "NAME_Beacon_of_Infinity"
+    class = "sc_g"
+    planet = {
+        class = pc_g_star
+        orbit_distance = 0
+    }
+    change_orbit = 45
+    planet = {
+        class = "pc_ringworld_habitable"
+        name = "NAME_Palatial_District"
+        orbit_angle = 30
+        orbit_distance = 0
+        modifiers = none
+        init_effect = {
+            set_planet_flag = fallen_empire_world
+            prevent_anomaly = yes
+            set_owner = root
+            set_controller = root
+            add_building = building_ancient_palace
+            add_building = building_fe_stronghold
+            add_building = building_fe_dome
+            add_building = building_fe_dome
+            while = {
+                count = 5
+                add_district = district_rw_city
+            }
+            while = {
+                count = 50
+                create_pop = {
+                    species = owner_main_species
+                }
+            }
+            while = {
+                count = 50
+                create_pop = {
+                    species = event_target:fe_servants
+                }
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_tech"
+        name = "NAME_Ring_Section_B"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_seam"
+        name = "NAME_Ring_Section_C"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_habitable"
+        name = "NAME_Trade_District"
+        orbit_angle = 30
+        orbit_distance = 0
+        modifiers = none
+        init_effect = {
+            set_planet_flag = fallen_empire_world
+            prevent_anomaly = yes
+            set_owner = ROOT
+            add_building = building_ancient_palace
+            add_building = building_fe_stronghold
+            add_building = building_class_4_singularity
+            add_building = building_class_4_singularity
+            add_building = building_class_4_singularity
+            add_building = building_class_4_singularity
+            while = {
+                count = 2
+                add_district = district_rw_city
+            }
+            while = {
+                count = 3
+                add_district = district_rw_generator
+            }
+            while = {
+                count = 9
+                create_pop = {
+                    species = owner_main_species
+                }
+            }
+            while = {
+                count = 80
+                create_pop = {
+                    species = event_target:fe_servants
+                }
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_tech"
+        name = "NAME_Ring_Section_E"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_seam"
+        name = "NAME_Ring_Section_F"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_habitable"
+        name = "NAME_Industrial_District"
+        orbit_angle = 30
+        orbit_distance = 0
+        modifiers = none
+        init_effect = {
+            set_planet_flag = fallen_empire_world
+            prevent_anomaly = yes
+            set_owner = ROOT
+            add_building = building_ancient_palace
+            add_building = building_fe_stronghold
+            add_building = building_affluence_center
+            add_building = building_affluence_center
+            add_building = building_dimensional_fabricator
+            add_building = building_dimensional_fabricator
+            add_building = building_dimensional_fabricator
+            add_building = building_nano_forge
+            add_building = building_nano_forge
+            while = {
+                count = 5
+                add_district = district_rw_city
+            }
+            while = {
+                count = 9
+                create_pop = {
+                    species = owner_main_species
+                }
+            }
+            while = {
+                count = 35
+                create_pop = {
+                    species = event_target:fe_servants
+                }
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_tech"
+        name = "NAME_Ring_Section_H"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_seam"
+        name = "NAME_Ring_Section_I"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_habitable"
+        name = "NAME_Agrarian_District"
+        orbit_angle = 30
+        orbit_distance = 0
+        modifiers = none
+        init_effect = {
+            set_planet_flag = fallen_empire_world
+            prevent_anomaly = yes
+            set_owner = ROOT
+            add_building = building_ancient_palace
+            add_building = building_fe_stronghold
+            add_building = building_nourishment_center
+            add_building = building_nourishment_center
+            add_building = building_nourishment_center
+            add_building = building_nourishment_center
+            while = {
+                count = 2
+                add_district = district_rw_city
+            }
+            while = {
+                count = 3
+                add_district = district_rw_farming
+            }
+            while = {
+                count = 9
+                create_pop = {
+                    species = owner_main_species
+                }
+            }
+            while = {
+                count = 80
+                create_pop = {
+                    species = event_target:fe_servants
+                }
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_tech"
+        name = "NAME_Ring_Section_K"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_seam"
+        name = "NAME_Ring_Section_L"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    init_effect = {
+        create_fe_citadel = yes
+    }
+}

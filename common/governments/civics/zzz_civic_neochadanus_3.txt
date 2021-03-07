@@ -1,0 +1,19 @@
+mem_neochadanus_civic_3 = {
+	icon = "gfx/interface/icons/governments/civics/civic_agrarian_idyll.dds"
+	playable = { has_global_flag = MEM_FAKE_FLAG }
+	potential = {
+		country_type = {
+			value = mem_neochadanus_ascendant
+		}
+	}
+	possible = {
+		country_type = {
+			value = mem_neochadanus_ascendant
+		}
+	}
+	random_weight = {}
+	modifier = {
+		starbase_shipyard_build_speed_mult = 0.33
+		building_time_mult = 0.33
+	}
+}

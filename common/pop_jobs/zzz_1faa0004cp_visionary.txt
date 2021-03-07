@@ -1,0 +1,29 @@
+cp_visionary = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_stone_palace
+    clothes_texture_index = 3
+    icon = bio_trophy
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        complex_worker_job_check_trigger = yes
+    }
+    resources = {
+        category = planet_jobs
+        upkeep = {
+            food = 30
+            minerals = 30
+            energy = 30
+        }
+        produces = {
+            influence = 1
+        }
+    }
+    weight = {
+        weight = @clerk_job_weight
+    }
+}

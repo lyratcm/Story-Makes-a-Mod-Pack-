@@ -1,0 +1,194 @@
+namespace = civicsexpanded
+country_event = {
+    id = civicsexpanded.30
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        every_country = {
+            limit = {
+                has_valid_civic = civic_befrienders
+            }
+            country_event = {
+                id = civicsexpanded.31
+            }
+        }
+        every_country = {
+            limit = {
+                NOT = {
+                    has_valid_civic = civic_befrienders
+                }
+            }
+            remove_befriender_migration_modifiers = yes
+            every_owned_planet = {
+                limit = {
+                    has_modifier = befriender_xeno_happiness
+                }
+                remove_modifier = befriender_xeno_happiness
+            }
+        }
+        every_country = {
+            limit = {
+                is_overlord = yes
+            }
+            country_event = {
+                id = civicsexpanded.32
+            }
+        }
+        every_country = {
+            limit = {
+                NOT = {
+                    is_overlord = yes
+                }
+            }
+            remove_vassal_navy_modifiers = yes
+        }
+        every_country = {
+            limit = {
+                NOR = {
+                    is_subject_type = vassal
+                    is_subject_type = duchy
+                }
+                has_modifier = vassal_navy_tax
+            }
+            remove_modifier = vassal_navy_tax
+        }
+        every_country = {
+            limit = {
+                OR = {
+                    is_subject_type = vassal
+                    is_subject_type = duchy
+                }
+                NOT = {
+                    has_modifier = vassal_navy_tax
+                }
+            }
+            add_modifier = {
+                modifier = vassal_navy_tax
+                days = -1
+            }
+        }
+        every_country = {
+            limit = {
+                OR = {
+                    has_valid_civic = civic_philosopher_king
+                    has_modifier = philosopher_king_wise_leader
+                }
+            }
+            if = {
+                limit = {
+                    has_valid_civic = civic_philosopher_king
+                    NOT = {
+                        has_modifier = philosopher_king_wise_leader
+                    }
+                    any_owned_leader = {
+                        leader_class = ruler
+                        has_skill > 4
+                    }
+                }
+                add_modifier = {
+                    modifier = philosopher_king_wise_leader
+                    days = -1
+                }
+            }
+            else_if = {
+                limit = {
+                    has_modifier = philosopher_king_wise_leader
+                    OR = {
+                        NOT = {
+                            has_valid_civic = civic_philosopher_king
+                        }
+                        NOT = {
+                            any_owned_leader = {
+                                leader_class = ruler
+                                has_skill > 4
+                            }
+                        }
+                    }
+                }
+                remove_modifier = philosopher_king_wise_leader
+            }
+        }
+        every_country = {
+            limit = {
+                OR = {
+                    has_valid_civic = civic_shadow_council
+                    has_valid_civic = civic_shadow_council_megacorp
+                    any_owned_pop = {
+                        has_modifier = pop_shadow_ruler
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_valid_civic = civic_shadow_council
+                        has_valid_civic = civic_shadow_council_megacorp
+                    }
+                    NOT = {
+                        any_owned_pop = {
+                            is_pop_category = ruler
+                            has_modifier = pop_shadow_ruler
+                        }
+                    }
+                    exists = capital_scope
+                }
+                capital_scope = {
+                    random_pop = {
+                        limit = {
+                            is_pop_category = ruler
+                        }
+                        add_modifier = {
+                            modifier = pop_shadow_ruler
+                            days = -1
+                        }
+                    }
+                }
+                every_owned_pop = {
+                    limit = {
+                        NOT = {
+                            is_pop_category = ruler
+                        }
+                        has_modifier = pop_shadow_ruler
+                    }
+                    remove_modifier = pop_shadow_ruler
+                }
+            }
+            else = {
+                every_owned_pop = {
+                    limit = {
+                        has_modifier = pop_shadow_ruler
+                    }
+                    remove_modifier = pop_shadow_ruler
+                }
+            }
+        }
+        every_country = {
+            limit = {
+                OR = {
+                    has_valid_civic = civic_media_conglomerate
+                    has_modifier = media_war_claims
+                }
+            }
+            if = {
+                limit = {
+                    has_valid_civic = civic_media_conglomerate
+                    is_at_war = yes
+                }
+                if = {
+                    limit = {
+                        NOT = {
+                            has_modifier = media_war_claims
+                        }
+                    }
+                    add_modifier = {
+                        modifier = media_war_claims
+                        days = -1
+                    }
+                }
+            }
+            else = {
+                remove_modifier = media_war_claims
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+#exodus mod on_actions to fire relevant events
+on_game_start = {
+	events = {
+		exodus.1
+	}
+}
+
+on_colonization_started = {
+	events = {
+		exodus.31
+	}
+	
+}
+
+#Fired whenever a new owner is set for a planet, and the planet was aggressively conquered
+#Fired in ADDITION to on_planet_transfer
+#From = Country scope (new owner)
+#This = Planet scope
+on_planet_conquer = {
+	events = {
+		exodus.33
+	}
+}

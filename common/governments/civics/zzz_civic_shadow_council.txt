@@ -1,0 +1,42 @@
+civic_shadow_council = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        authority = {
+            OR = {
+                text = civic_tooltip_dem_oli_dic
+                value = auth_democratic
+                value = auth_oligarchic
+                value = auth_dictatorial
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_iron_despot
+                value = civic_shroud_pact
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_election_influence_cost_mult = -0.75
+        planet_jobs_ruler_produces_mult = 0.10
+        pop_cat_ruler_happiness = 0.05
+        pop_cat_ruler_political_power = 2
+    }
+}

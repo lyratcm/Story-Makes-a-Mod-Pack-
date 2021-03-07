@@ -1,0 +1,24 @@
+autofab_advisor = {
+	icon = "GFX_edict_type_policy"
+	length = 0
+	resources = {
+		category = campaigns
+		cost = {
+		}
+	}
+
+	modifier = {
+	}
+	
+	potential = {
+		has_origin = origin_autofab
+	}
+	
+	effect = {
+		country_event = { id = autofab.0 }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

@@ -1,0 +1,30 @@
+ap_esap_ct2_diplomacy_finance = {
+	on_enabled = {
+		custom_tooltip = ap_esap_ct2_diplomacy_finance_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct2_diplomacy_finance_req_1"
+			has_ascension_perk = ap_esap_ct1_diplomacy
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct2_diplomacy_finance_req_2"
+			has_ascension_perk = ap_esap_ct1_finance
+		}
+	}
+
+	modifier = {
+		job_merchant_add = 1
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct2_diplomacy_finance
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

@@ -1,0 +1,37 @@
+trait_deviants = {
+    cost = -1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_eusocial"
+        "trait_conformists"
+        "trait_iconoclasts"
+        "trait_hive_mind"
+        "trait_machine_unit"
+        "trait_additrait_iconoclastic"
+        "trait_additrait_free_spirits"
+        "trait_obedient"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pop_government_ethic_attraction = -0.15
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_deviants@prev
+                }
+            }
+        }
+    }
+}

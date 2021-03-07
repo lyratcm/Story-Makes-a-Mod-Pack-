@@ -1,0 +1,659 @@
+### JOB TRIGGERS ###
+ruler_job_check_trigger = {
+	if = {
+		limit = {
+			exists = owner
+			owner = {
+				has_origin = origin_necrophage
+				has_trait = trait_necrophage
+			}
+		}
+		custom_tooltip = {
+			text = RULER_JOB_NECROPHAGE_TRIGGER
+			has_trait = trait_necrophage
+			is_enslaved = no
+			is_being_purged = no
+			is_being_assimilated = no
+		}
+	}
+	else = {
+		custom_tooltip = RULER_JOB_TRIGGER
+		hidden_trigger = {
+			exists = owner
+			OR = {
+				is_pop_category = ruler
+				is_pop_category = specialist
+				NOT = { years_passed > 1 }
+			}
+			is_enslaved = no
+			is_being_purged = no
+			is_being_assimilated = no
+			NOT = { has_trait = trait_syncretic_proles }
+			NOT = { has_trait = trait_nerve_stapled }
+			NOT = { has_trait = trait_presapient_docile_livestock }
+			OR = {
+				NOT = { has_trait = trait_mechanical }
+				AND = {
+					owner = { has_technology = tech_synthetic_workers }
+					owner = { has_policy_flag = ai_full_rights }
+				}
+			}
+			NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+			if = {
+				limit = {
+					divinity_right_to_work_job_check_trigger_exempt = no
+				}
+				divinity_right_to_work_job_check_trigger_ruler = yes
+			}
+		}
+	}
+}
+
+complex_specialist_job_check_trigger = {
+	specialist_job_check_trigger = yes
+	hidden_trigger = {
+		exists = owner
+		OR = {
+			NOT = { has_trait = trait_mechanical }
+			owner = { has_country_flag = synthetic_empire }
+			AND = {
+				owner = { has_technology = tech_synthetic_workers }
+				owner = { NOT = { has_policy_flag = ai_outlawed } }
+			}
+		}
+	}
+}
+
+specialist_job_check_trigger = {
+	custom_tooltip = SPECIALIST_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		exists = planet
+		worker_promotion_check_trigger = yes
+		OR = {
+			is_enslaved = no
+			has_slavery_type = { type = slavery_indentured }
+			planet = { has_modifier = slave_colony }
+			AND = {
+				NOT = { host_has_dlc = "Utopia" }
+				is_same_species = owner_main_species
+				owner = {
+					OR = {
+						has_valid_civic = civic_indentured_assets
+						has_valid_civic = civic_slaver_guilds
+					}
+				}
+			}
+		}
+		is_being_purged = no
+		is_being_assimilated = no
+		NOT = { has_trait = trait_syncretic_proles }
+		NOT = { has_trait = trait_nerve_stapled }
+		NOT = { has_trait = trait_presapient_docile_livestock }
+		OR = {
+			NOT = { has_trait = trait_mechanical }
+			owner = { has_technology = tech_droid_workers }
+		}
+		NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+		if = {
+			limit = {
+				divinity_right_to_work_job_check_trigger_exempt = no
+			}
+			divinity_right_to_work_job_check_trigger_specialist = yes
+		}
+	}
+}
+
+entertainer_job_check_trigger = {
+	custom_tooltip = SPECIALIST_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		worker_promotion_check_trigger = yes
+		OR = {
+			is_enslaved = no
+			has_slavery_type = { type = slavery_domestic }
+			AND = {
+				has_slavery_type = { type = slavery_indentured }
+				owner = {
+					has_valid_civic = civic_indentured_assets
+				}
+			}
+			AND = {
+				NOT = { host_has_dlc = "Utopia" }
+				is_same_species = owner_main_species
+				owner = {
+					OR = {
+						has_valid_civic = civic_indentured_assets
+						has_valid_civic = civic_slaver_guilds
+					}
+				}
+			}
+		}
+		is_being_purged = no
+		is_being_assimilated = no
+		NOT = { has_trait = trait_syncretic_proles }
+		NOT = { has_trait = trait_nerve_stapled }
+		NOT = { has_trait = trait_presapient_docile_livestock }
+		OR = {
+			NOT = { has_trait = trait_mechanical }
+			owner = { has_technology = tech_droid_workers }
+		}
+		NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+		if = {
+			limit = {
+				divinity_right_to_work_job_check_trigger_exempt = no
+			}
+			divinity_right_to_work_job_check_trigger_specialist = yes
+		}
+	}
+}
+
+battle_thrall_job_check_trigger = {
+	custom_tooltip = SPECIALIST_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		worker_promotion_check_trigger = yes
+		OR = {
+			is_enslaved = no
+			has_slavery_type = { type = slavery_military }
+			AND = {
+				has_slavery_type = { type = slavery_indentured }
+				owner = {
+					has_valid_civic = civic_indentured_assets
+				}
+			}
+			AND = {
+				NOT = { host_has_dlc = "Utopia" }
+				is_same_species = owner_main_species
+				owner = {
+					OR = {
+						has_valid_civic = civic_indentured_assets
+						has_valid_civic = civic_slaver_guilds
+					}
+				}
+			}
+		}
+		is_being_purged = no
+		is_being_assimilated = no
+		NOT = { has_trait = trait_syncretic_proles }
+		NOT = { has_trait = trait_nerve_stapled }
+		NOT = { has_trait = trait_presapient_docile_livestock }
+		OR = {
+			NOT = { has_trait = trait_mechanical }
+			owner = { has_technology = tech_droid_workers }
+		}
+		NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+		if = {
+			limit = {
+				divinity_right_to_work_job_check_trigger_exempt = no
+			}
+			divinity_right_to_work_job_check_trigger_specialist = yes
+		}
+	}
+}
+
+complex_worker_job_check_trigger = {
+	worker_job_check_trigger = yes
+	hidden_trigger = {	
+		exists = owner
+		OR = {
+			NOT = { has_trait = trait_mechanical }
+			owner = { has_technology = tech_droid_workers }
+		}
+	}
+}
+
+worker_job_check_trigger = {
+	custom_tooltip = WORKER_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		OR = {
+			is_being_purged = no
+			has_purge_type = { type = purge_displacement }
+			has_purge_type = { type = purge_neutering }
+			is_pop_category = criminal
+		}
+		is_being_assimilated = no
+		NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+		NAND = {
+			has_citizenship_type = { type = citizenship_slavery }
+			OR = {
+				has_slavery_type = { type = slavery_livestock }
+				has_slavery_type = { type = slavery_matrix }
+			}
+		}
+		if = {
+			limit = {
+				divinity_right_to_work_job_check_trigger_exempt = no
+			}
+			divinity_right_to_work_job_check_trigger_worker = yes
+		}
+	}
+}
+
+can_take_servant_job = {
+	OR = {
+		is_domestic_robot = yes
+		is_domestic_servant = yes
+		AND = {
+			is_enslaved = yes
+			NOT = { has_slavery_type = { type = slavery_military } }
+			NOT = { has_slavery_type = { type = slavery_livestock } }
+			OR = {
+				is_unemployed = yes
+				has_job = servant
+			}
+			OR = {
+				owner = { has_civic = civic_slaver_guilds }
+				owner = { has_civic = civic_indentured_assets }
+			}
+		}
+	}
+}
+
+complex_drone_job_check_trigger = {
+	custom_tooltip = DRONE_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		owner = { is_gestalt = yes }
+		simple_drone_promotion_check_trigger = yes
+		has_citizenship_rights = yes
+		is_free_resident_pop_gestalt = no
+		is_being_purged = no
+		is_enslaved = no
+		is_being_assimilated = no
+		NOT = { has_trait = trait_syncretic_proles }
+		NOT = { has_trait = trait_nerve_stapled }
+		NOT = { has_trait = trait_presapient_docile_livestock }	
+	}
+}
+
+drone_job_check_trigger = {
+	custom_tooltip = DRONE_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		owner = { is_gestalt = yes }
+		is_being_purged = no
+		is_being_assimilated = no
+		NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+		NAND = {
+			has_citizenship_type = { type = citizenship_slavery }
+			OR = {
+				has_slavery_type = { type = slavery_livestock }
+				has_slavery_type = { type = slavery_matrix }
+			}
+		}
+	}
+}
+
+can_generate_crime = {
+	is_shackled_robot_species_rights = no
+	NOT = { has_trait = trait_nerve_stapled }
+	NOT = { has_trait = trait_memorex_comatos }
+}
+
+### POP TRIGGERS ###
+is_organic_species = {
+	species = {
+		OR = {
+			is_archetype = BIOLOGICAL
+			is_archetype = REPTILIAN
+			is_archetype = FUNGOID
+			is_archetype = PLANTOID
+			is_archetype = half_species
+			is_archetype = half_species_special
+			is_archetype = half_aberration
+			is_archetype = half_perfect
+			is_archetype = half_amalgamated
+			is_archetype = LITHOID
+			# original trigger did not include pre-sapient classes
+		}
+	}
+}
+
+is_valid_symbiote_pop = {
+	exists = planet
+	planet = { any_pop = { has_trait = trait_brainslug } }
+	is_enslaved = no
+	is_being_purged = no
+	NOR = {
+		has_trait = trait_brainslug
+		has_trait = trait_hive_mind
+		has_trait = trait_cybernetic
+		has_trait = trait_mechanical
+		has_trait = trait_machine_unit
+		is_species_class = ROBOT
+		has_ethic = ethic_xenophobe
+		has_ethic = ethic_egalitarian
+	}
+}
+
+### REFUGEE TRIGGERS ###
+is_valid_refugee_pop = {
+	is_robot_pop = no
+	has_culture_shock = no
+	NOR = {
+		has_trait = trait_hive_mind 
+		has_trait = trait_nerve_stapled
+	}
+	owner = {
+		any_relation = {
+			OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+			NOT = { has_policy_flag = refugees_not_allowed }
+			prevprev = { #this ensures Pop scope, as root will not always be pop scope
+				OR = { 
+					has_citizenship_type = { type = citizenship_full country = prev }
+					prev = { has_policy_flag = refugees_allowed }
+				}						
+				NOR = {
+					has_citizenship_type = { type = citizenship_slavery country = prev }
+					has_citizenship_type = { type = citizenship_purge country = prev }
+				}
+			}
+			any_owned_planet = {
+				is_under_colonization = no
+				is_controlled_by = owner
+				has_orbital_bombardment = no
+				habitability = { who = prevprevprev value >= 0.2 }
+			}
+		}
+	}
+}
+
+has_any_habitability = {
+	OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+	has_communications = prev
+	NOT = { has_policy_flag = refugees_not_allowed } 
+	event_target:refugee_pop = {
+		OR = { 
+			has_citizenship_type = { type = citizenship_full country = prev }
+			prev = { has_policy_flag = refugees_allowed }
+		}
+		NOR = {
+			has_citizenship_type = { type = citizenship_slavery country = prev }
+			has_citizenship_type = { type = citizenship_purge country = prev }
+		}
+	}	
+	any_owned_planet = {
+		is_under_colonization = no
+		is_controlled_by = owner
+		has_orbital_bombardment = no
+	}
+}
+
+### EMPIRE TRIGGERS ###
+
+is_unfriendly = {
+	OR = {
+		has_valid_civic = civic_fanatic_purifiers
+		has_valid_civic = civic_machine_terminator
+		has_valid_civic = civic_hive_devouring_swarm
+		has_valid_civic = civic_barbaric_despoilers
+		has_valid_civic = civic_living_hosts
+		has_valid_civic = civic_infestation
+	}
+}
+
+has_total_war_cb = {
+	OR = {
+		#attacker checks
+		AND = {
+			OR = {
+				is_country_type = default
+				is_country_type = awakened_fallen_empire
+				is_country_type = fallen_empire
+			}
+			OR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_infestation
+				has_valid_civic = civic_machine_assimilator
+				AND = {
+					has_valid_civic = civic_machine_terminator
+					from = {
+						NOR = {
+							has_country_flag = synthetic_empire
+							has_authority = auth_machine_intelligence
+						}
+					}
+				}
+				AND = {
+					has_valid_civic = civic_fanatic_purifiers
+					NOT = { is_same_species = from }
+				}
+			}
+		}
+		#end threat checks
+		AND = {
+			is_country_type = default
+			NOR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_assimilator
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_infestation
+			}
+			from = {
+				OR = {
+					is_country_type = awakened_fallen_empire
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_infestation
+				}
+			}
+		}
+	}
+}
+
+is_megacorp = {
+	OR = {
+		has_authority = auth_corporate
+		has_authority = auth_cooperative
+		has_authority = auth_private
+	}
+}
+
+is_autocracy = { #Power of one
+	OR = {
+		has_ethic = ethic_gestalt_consciousness
+		has_authority = auth_imperial
+		has_authority = auth_dictatorial
+		has_authority = auth_private
+	}
+}
+
+is_oligarchy = { #Power of few
+	OR = {
+		has_authority = auth_oligarchic
+		has_authority = auth_corporate
+	}
+}
+
+is_democracy = { #Power of many
+	has_authority = auth_democratic
+	has_authority = auth_cooperative
+}
+
+has_spiritualist_government = {
+	OR = {
+		has_government = gov_theocratic_monarchy
+		has_government = gov_theocratic_dictatorship
+		has_government = gov_theocratic_oligarchy
+		has_government = gov_theocratic_republic
+		has_government = gov_divine_empire
+		has_government = gov_holy_tribunal
+		has_government = gov_mortal_empire
+		has_government = gov_grim_council
+		has_government = gov_megachurch
+		has_government = gov_private_megachurch
+		has_government = gov_sacrificial_megachurch
+		has_government = gov_private_sacrificial_megachurch
+		has_government = gov_celestial_choir
+		has_government = gov_celestial_theocracy
+		has_government = gov_celestial_monarchy
+	}
+}
+
+has_militarist_government = {
+	OR = {
+		has_government = gov_star_empire
+		has_government = gov_military_dictatorship
+		has_government = gov_military_junta
+		has_government = gov_military_commissariat
+		has_government = gov_martial_empire
+		has_government = gov_martial_dictatorship
+		has_government = gov_war_council
+		has_government = gov_assembly_of_clans
+		has_government = gov_citizen_stratocracy
+		has_government = gov_citizen_republic
+		has_government = gov_benevolent_empire
+		has_government = gov_compassionate_order
+		has_government = gov_friendship_committee
+		has_government = gov_harmony_assembly
+	}
+}
+
+has_pacifist_government = {
+	OR = {
+		has_government = gov_irenic_monarchy
+		has_government = gov_irenic_dictatorship
+		has_government = gov_irenic_bureaucracy
+		has_government = gov_moral_democracy
+		has_government = gov_celestial_empire
+		has_government = gov_enlightened_iron_despot
+	}
+}
+
+has_materialist_government = {
+	OR = {
+		has_government = gov_despotic_hegemony
+		has_government = gov_totalitarian_regime
+		has_government = gov_executive_committee
+		has_government = gov_direct_democracy
+		has_government = gov_illuminated_autocracy
+		has_government = gov_technocratic_dictatorship
+		has_government = gov_science_directorate
+		has_government = gov_rational_consensus
+		has_government = gov_iron_despot
+		has_government = gov_totalitarian_iron_despot
+		has_government = gov_plutocratic_iron_despot
+	}
+}
+
+wears_clothes = { # The species uses the portrait that wears clothes
+	OR = {
+		species_portrait = human
+		species_portrait = humanoid_02
+		species_portrait = humanoid_03
+		species_portrait = humanoid_04
+		species_portrait = humanoid_05
+		species_portrait = humanoid_hp_01
+		species_portrait = humanoid_hp_02
+		species_portrait = humanoid_hp_06
+		species_portrait = humanoid_hp_07
+		species_portrait = humanoid_hp_08
+		species_portrait = humanoid_hp_09
+		species_portrait = humanoid_hp_10
+		species_portrait = humanoid_hp_11
+		species_portrait = humanoid_hp_12
+		species_portrait = humanoid_hp_13
+		species_portrait = mam5
+		species_portrait = mam13
+		species_portrait = mam10
+		species_portrait = mam14
+		species_portrait = mam4
+		species_portrait = mam9
+		species_portrait = mam11
+		species_portrait = mam6
+		species_portrait = mam3
+		species_portrait = mam12
+		species_portrait = mam7
+		species_portrait = mam15
+		species_portrait = mam2
+		species_portrait = mam8
+		species_portrait = mam1
+		species_portrait = mam16
+		species_portrait = mam17
+		species_portrait = rep1
+		species_portrait = rep2
+		species_portrait = rep3
+		species_portrait = rep4
+		species_portrait = rep5
+		species_portrait = rep6
+		species_portrait = rep7
+		species_portrait = rep8
+		species_portrait = rep9
+		species_portrait = rep10
+		species_portrait = rep11
+		species_portrait = rep12
+		species_portrait = rep13
+		species_portrait = rep15
+		species_portrait = rep16
+		species_portrait = avi1
+		species_portrait = avi2
+		species_portrait = avi4
+		species_portrait = avi5
+		species_portrait = avi6
+		species_portrait = avi8
+		species_portrait = avi9
+		species_portrait = avi10
+		species_portrait = avi11
+		species_portrait = avi12
+		species_portrait = avi13
+		species_portrait = avi14
+		species_portrait = avi15
+		species_portrait = avi16
+		species_portrait = art7
+		species_portrait = art6
+		species_portrait = art8
+		species_portrait = art9
+		species_portrait = art10
+		species_portrait = mol1
+		species_portrait = mol2
+		species_portrait = mol3
+		species_portrait = mol4
+		species_portrait = mol5
+		species_portrait = mol11
+		species_portrait = mol12
+		species_portrait = mol13
+		species_portrait = mol14
+		species_portrait = mol15
+		species_portrait = fun6
+		species_portrait = fun7
+		species_portrait = fun8
+		species_portrait = fun9
+		species_portrait = fun10
+		species_portrait = pla6
+		species_portrait = pla7
+		species_portrait = pla8
+		species_portrait = pla9
+		species_portrait = pla10
+	}
+}
+
+is_scion_subject = {
+	OR = {
+		is_subject_type = scion
+		is_subject_type = scion_dominion
+		is_subject_type = scion_satellite
+		is_subject_type = scion_signatory
+		is_subject_type = scion_auxiliary
+	}
+}
+
+is_scion_subject_normal = { # auxiliary is a special case
+	OR = {
+		is_subject_type = scion
+		is_subject_type = scion_dominion
+		is_subject_type = scion_satellite
+		is_subject_type = scion_signatory
+	}
+}
+
+### PLANET TRIGGERS ###
+
+
+### BUILDING TRIGGERS ###

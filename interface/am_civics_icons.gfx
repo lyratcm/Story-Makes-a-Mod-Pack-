@@ -1,0 +1,8 @@
+
+
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_starbase_building_am_civics_tourist_quarters"
+		texturefile = "gfx/interface/icons/modules/starbase_building_am_civics_tourist_quarters.dds"
+	}
+}

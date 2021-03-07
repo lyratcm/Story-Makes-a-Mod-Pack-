@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_5 = 201
+    @y_2 = 125
+    positionType = {
+        name = "tr_supremacy_great_game"
+        position = {
+            x = @x_5
+            y = @y_2
+        }
+    }
+}

@@ -1,0 +1,183 @@
+############################
+#
+# Colony Events
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+namespace = colony
+
+### Seismic Disturbances
+planet_event = {
+	id = colony.50
+	title = "colony.50.name"
+	desc = "colony.50.desc"
+	picture = GFX_evt_in_the_dark
+	show_sound = event_air_raid_siren
+	location = ROOT
+	trackable = yes
+	
+	trigger = {
+		has_owner = yes
+		original_owner = yes
+		is_homeworld = no
+		owner = { is_ai = no }
+		#owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		has_ground_combat = no
+		is_occupied_flag = no
+		num_pops > 0
+		is_capital = no
+		NOR = {
+			has_global_flag = seismic_disturbance_global
+			has_planet_flag = colony_event
+			has_planet_flag = planet_sub_expanded
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			has_modifier = underground_world
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = { save_event_target_as = subterranean_planet_owner }
+		set_global_flag = seismic_disturbance_global
+		set_planet_flag = seismic_disturbance
+		set_planet_flag = colony_event
+		add_deposit = d_underground_farm_blocked
+		add_deposit = d_underground_mine_blocked
+		add_deposit = d_underground_generator_blocked
+	}
+	
+	option = {
+		name = colony.50.a
+		begin_event_chain = {
+			event_chain = "subterranean_civilization_chain"
+			target = ROOT
+		}
+		enable_special_project = {
+			name = "SEISMIC_DISTURBANCE_1_PROJECT" #Establish Communications
+			location = this
+			owner = root
+		}
+		enable_special_project = {
+			name = "SEISMIC_DISTURBANCE_2_PROJECT" #Preemptive Strike
+			location = this
+			owner = root
+		}
+		
+	}
+	option = {
+		name = distar.216.a.exter
+		exclusive_trigger = { owner = { is_homicidal = yes } }
+		begin_event_chain = {
+			event_chain = "subterranean_civilization_chain"
+			target = ROOT
+		}
+		enable_special_project = {
+			name = "SEISMIC_DISTURBANCE_2_PROJECT" #Preemptive Strike
+			location = this
+			owner = root
+		}
+		
+	}
+}
+
+# Colony Consumed
+country_event = {
+	id = colony.185
+	title = "colony.185.name"
+	desc = "colony.185.desc"
+	picture = GFX_evt_shattered_planet
+	show_sound = event_structural_collapse
+	location = FROM
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			is_lithoid_empire = yes
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+
+		from = {
+			num_free_districts = { type = any value <= 0 }
+		}
+	}
+
+	immediate = {
+		from = {
+			every_owned_pop = {
+				if = {
+					limit = { is_being_purged = no }
+					resettle_pop = {
+						pop = this
+						planet = owner.capital_scope
+					}
+				}
+				else = {
+					ROOT = {
+						add_resource = {
+							food = 600
+							society_research = 200
+						}
+					}
+					kill_pop = yes
+				}
+			}
+			change_planet_size = -3
+			if = {
+				limit = { planet_size < 11 }
+				reroll_planet_modifiers = yes
+				change_pc = pc_shattered
+			}
+			else = {
+				random_list = {
+					1 = {
+						change_pc = pc_shattered
+						reroll_planet_modifiers = yes
+					}
+					3 = {
+						change_pc = pc_barren
+						reroll_planet_modifiers = yes
+						add_modifier = { modifier = "terraforming_candidate" days = -1 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EXCELLENT
+		add_monthly_resource_mult = {
+			resource = minerals
+			value = 10
+			min = @tier3materialmin
+			max = @tier3materialmax
+		}
+		add_monthly_resource_mult = {
+			resource = alloys
+			value = 6
+			min = @tier3materialmin
+			max = @tier3materialmax
+		}
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = @tier5researchreward
+			min = @tier5researchmin
+			max = @tier5researchmax
+		}
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @tier5unityreward
+			min = @tier5unitymin
+			max = 20000
+		}
+		add_resource = { rare_crystals = 500 }
+		add_resource = { exotic_gases = 500 }
+		add_resource = { volatile_motes = 500 }
+	}
+}

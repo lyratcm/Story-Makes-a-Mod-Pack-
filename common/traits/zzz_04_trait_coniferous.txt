@@ -1,0 +1,37 @@
+trait_coniferous = {
+    potential_crossbreeding_chance = 1
+    cost = 1
+    modification = no
+    allowed_archetypes = {
+        PLANTOID
+        half_species
+    }
+    custom_tooltip = TRAIT_CONIFEROUS_EFFECT
+    opposites = {
+        "trait_succulent"
+    }
+    modifier = {
+        pc_desert_habitability = -0.1
+        pc_arid_habitability = -0.1
+        pc_outback_habitability = -0.1
+        pc_savannah_habitability = -0.1
+        pc_steppe_habitability = -0.1
+        pc_sandsea_habitability = -0.1
+        pc_oasis_habitability = -0.1
+        pc_mesa_habitability = -0.1
+        pc_hadesert_habitability = -0.1
+        pc_prairie_habitability = -0.1
+        pc_med_habitability = -0.1
+        pc_antarctic_habitability = 0.2
+        pc_arctic_habitability = 0.2
+        pc_alpine_habitability = 0.2
+        pc_highland_habitability = 0.2
+        pc_tundra_habitability = 0.2
+        pc_swamp_habitability = 0.2
+        pc_frozen_desert_habitability = 0.2
+        pc_glacial_habitability = 0.2
+        pc_boreal_habitability = 0.2
+        pc_mushroom_habitability = 0.2
+        pc_snow_habitability = 0.2
+    }
+}

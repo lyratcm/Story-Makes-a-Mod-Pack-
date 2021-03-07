@@ -1,0 +1,115 @@
+economic_policy = {
+    potential = {
+        NOT = {
+            has_ethic = ethic_gestalt_consciousness
+        }
+    }
+    option = {
+        name = "economic_policy_civilian"
+        policy_flags = {
+            economic_policy_civilian
+        }
+        modifier = {
+            planet_jobs_consumer_goods_produces_mult = 0.15
+            planet_jobs_alloys_produces_mult = -0.25
+        }
+        AI_weight = {
+            weight = 0
+            modifier = {
+                weight = 15
+                is_at_war = no
+                OR = {
+                    has_monthly_income = {
+                        resource = consumer_goods
+                        value < 25
+                    }
+                    AND = {
+                        has_civic = civic_megastore
+                        has_monthly_income = {
+                            resource = alloys
+                            value > 100
+                        }
+                    }
+                }
+                OR = {
+                    resource_stockpile_compare = {
+                        resource = consumer_goods
+                        value < 5000
+                    }
+                    AND = {
+                        has_civic = civic_megastore
+                        resource_stockpile_compare = {
+                            resource = consumer_goods
+                            value < 10000
+                        }
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = "economic_policy_balanced"
+        policy_flags = {
+            economic_policy_balanced
+        }
+        modifier = {
+        }
+        AI_weight = {
+            factor = 1
+            modifier = {
+                factor = 10
+                has_valid_ai_personality = yes
+                is_ai = yes
+                is_galactic_community_member = yes
+                is_active_resolution = "resolution_rulesofwar_demobilization_initiative"
+            }
+        }
+    }
+    option = {
+        name = "economic_policy_military"
+        policy_flags = {
+            economic_policy_military
+        }
+        in_breach_of = {
+             {
+                key = resolution_rulesofwar_demobilization_initiative
+            }
+        }
+        modifier = {
+            planet_jobs_consumer_goods_produces_mult = -0.25
+            planet_jobs_alloys_produces_mult = 0.15
+        }
+        AI_weight = {
+            weight = 0
+            modifier = {
+                weight = 20
+                or = {
+                    is_at_war = yes
+                    is_authoritarian = yes
+                }
+                NOT = {
+                    has_civic = civic_megastore
+                }
+                resource_stockpile_compare = {
+                    resource = consumer_goods
+                    value > 2500
+                }
+                resource_stockpile_compare = {
+                    resource = alloys
+                    value < 10000
+                }
+                has_monthly_income = {
+                    resource = alloys
+                    value < 100
+                }
+            }
+            modifier = {
+                factor = 0.1
+                has_valid_ai_personality = yes
+                is_ai = yes
+                is_galactic_community_member = yes
+                is_active_resolution = "resolution_rulesofwar_demobilization_initiative"
+            }
+        }
+    }
+}

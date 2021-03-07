@@ -1,0 +1,42 @@
+﻿l_simp_chinese:
+
+###_z fw buildings  ################################################################################
+
+#_basic
+ z_fw_b_basic_advanced: "通过对无法理解的神秘现象进行深入研究, 我们能够自由地转换能量与物质, 这将极大地提升帝国的生产力."
+ 
+ z_fw_b_mining: "全自动化采矿基地"
+ z_fw_b_mining_1: "$z_fw_b_mining$ LV1"
+ z_fw_b_mining_1_desc: "这个庞大采矿设施是全自动的, 尽管产出潜力可能比不上普通的采矿工业区, 但是不需要过多人员维护, 随时都可以投入生产."
+ z_fw_b_mining_2: "$z_fw_b_mining$ LV2"
+ z_fw_b_mining_2_desc: "$z_fw_b_mining_1_desc$"
+ z_fw_b_mining_3: "$z_fw_b_mining$ LV3"
+ z_fw_b_mining_3_desc: "$z_fw_b_mining_1_desc$"
+ z_fw_b_mining_4: "$z_fw_b_mining$ LV4"
+ z_fw_b_mining_4_desc: "$z_fw_b_mining_1_desc$"
+ z_fw_b_mining_5: "$z_fw_b_mining$ LV5"
+ z_fw_b_mining_5_desc: "$z_fw_b_mining_1_desc$\n$z_fw_b_basic_advanced$"
+ 
+ z_fw_b_energy: "全自动化能源基地"
+ z_fw_b_energy_1: "$z_fw_b_energy$ LV1"
+ z_fw_b_energy_1_desc: "这个庞大能源设施是全自动的, 尽管产出潜力可能比不上普通的能源中心, 但是不需要过多人员维护, 随时都可以投入生产."
+ z_fw_b_energy_2: "$z_fw_b_energy$ LV2"
+ z_fw_b_energy_2_desc: "$z_fw_b_energy_1_desc$"
+ z_fw_b_energy_3: "$z_fw_b_energy$ LV3"
+ z_fw_b_energy_3_desc: "$z_fw_b_energy_1_desc$"
+ z_fw_b_energy_4: "$z_fw_b_energy$ LV4"
+ z_fw_b_energy_4_desc: "$z_fw_b_energy_1_desc$"
+ z_fw_b_energy_5: "$z_fw_b_energy$ LV5"
+ z_fw_b_energy_5_desc: "$z_fw_b_energy_1_desc$\n$z_fw_b_basic_advanced$"
+ 
+ z_fw_b_farm: "全自动化水培农场"
+ z_fw_b_farm_1: "$z_fw_b_farm$ LV1"
+ z_fw_b_farm_1_desc: "这个巨大的农业设施是全自动的, 尽管产出潜力可能比不上普通的农业区, 但是不需要过多人员维护, 随时都可以投入生产."
+ z_fw_b_farm_2: "$z_fw_b_farm$ LV2"
+ z_fw_b_farm_2_desc: "$z_fw_b_farm_1_desc$"
+ z_fw_b_farm_3: "$z_fw_b_farm$ LV3"
+ z_fw_b_farm_3_desc: "$z_fw_b_farm_1_desc$"
+ z_fw_b_farm_4: "$z_fw_b_farm$ LV4"
+ z_fw_b_farm_4_desc: "$z_fw_b_farm_1_desc$"
+ z_fw_b_farm_5: "$z_fw_b_farm$ LV5"
+ z_fw_b_farm_5_desc: "$z_fw_b_farm_1_desc$\n$z_fw_b_basic_advanced$"

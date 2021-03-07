@@ -1,0 +1,25 @@
+#_[战争_fp_lv]
+
+
+
+
+#_[战争_fp_lv]
+defined_text = { # Country/leader/pop/species scope
+	name = z_fw_loc_cntr_core_dd_fp_lv
+	#_0
+	text = {
+		trigger = {
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = { check_variable = { which = z_fw_core_battle_dd_var value = 0 } }
+		}
+		localization_key = z_mm_fw_loc_core_dd_fp_lv_0
+	}
+	#_0+
+	text = {
+		trigger = {
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = { check_variable = { which = z_fw_core_battle_dd_var value > 0 } }
+		}
+		localization_key = z_mm_fw_loc_core_dd_fp_lv
+	}
+}

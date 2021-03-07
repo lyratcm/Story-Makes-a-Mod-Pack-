@@ -1,0 +1,88 @@
+GAPS_Multitask_Refiner_Drone = {
+    category = complex_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_chemical_plant
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        drone_job_check_trigger = yes
+    }
+    resources = {
+        category = planet_GAPS_Multitask_Jobs
+        produces = {
+            volatile_motes = 1
+            rare_crystals = 1
+            exotic_gases = 1
+        }
+        upkeep = {
+            minerals = 15
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            owner = {
+                has_civic = Civic_GAPS_Multitaskers
+            }
+        }
+        modifier = {
+            planet_jobs_produces_mult = 0.25
+            planet_pops_upkeep_mult = -0.25
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            owner = {
+                NOT = {
+                    has_civic = Civic_GAPS_Multitaskers
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_produces_mult = -0.25
+            planet_pops_upkeep_mult = 0.25
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            has_trait = trait_weak
+        }
+        modifier = {
+            planet_jobs_produces_mult = -0.025
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            has_trait = trait_strong
+        }
+        modifier = {
+            planet_jobs_produces_mult = 0.025
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            has_trait = trait_very_strong
+        }
+        modifier = {
+            planet_jobs_produces_mult = 0.025
+        }
+    }
+    weight = {
+        weight = @complex_drone_job_weight
+        modifier = {
+            factor = 2
+        }
+        modifier = {
+            factor = 0.9
+            exists = owner
+            years_passed < 1
+            owner = {
+                has_valid_civic = civic_machine_assimilator
+            }
+            has_trait = trait_cybernetic
+        }
+    }
+}

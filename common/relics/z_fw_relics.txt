@@ -1,0 +1,379 @@
+###_z fw---relics	##########################################################################
+
+#_vanila variables
+@activation_cost = 150
+@triumph_duration = 3600
+@triumph_duration_short = 1800
+@triumph_duration_veryshort = 900
+
+#_[cure_hok]
+
+
+
+
+#_星辰纪念碑
+z_fw_r_monument = {
+	activation_duration = 3600
+	portrait = "GFX_z_fw_r_monument"
+	sound = "relic_activation_khans_throne"
+
+	ai_weight = {
+		weight = 0
+	}
+	
+	#resources = {
+	#	category = relics
+	#	cost = {
+	#	}
+	#}
+
+	#triggered_country_modifier = {
+	#	potential = {
+	#		always = yes
+	#	}
+	#	country_claim_influence_cost_mult = -0.20
+	#}
+
+	score = 0
+
+	active_effect = {
+		custom_tooltip = z_fw_r_monument_effect
+		hidden_effect = {
+			change_variable = { which = z_fw_desire_point_var value = -3 }
+			set_timed_country_flag = { flag = z_fw_r_monument_activited days = 3600 }
+			if = {
+				limit = { mid_game_years_passed < -1 }
+				add_modifier = {
+					modifier = "z_fw_mod_desire_crusade_early"
+					days = 3600
+				}
+			}
+			else_if = {
+				limit = {
+					mid_game_years_passed >= -1
+					end_game_years_passed < -1	
+				}
+				add_modifier = {
+					modifier = "z_fw_mod_desire_crusade_mid"
+					days = 3600
+				}
+			}
+			else_if = {
+				limit = { end_game_years_passed >= -1 }
+				add_modifier = {
+					modifier = "z_fw_mod_desire_crusade_late"
+					days = 3600
+				}
+			}
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "z_fw_r_monument_activited"
+			hidden_trigger = {
+				NOT = { has_country_flag = z_fw_r_monument_activited }
+			}
+		}
+		custom_tooltip = {
+			fail_text = "z_fw_desire_point_required"
+			hidden_trigger = {
+				is_ai = no
+				check_variable = { which = z_fw_desire_point_var value >= 3 }
+			}
+		}
+	}
+}
+
+
+
+
+#_cheat-璀璨星图
+z_fw_r_celestial_orrey = {
+	activation_duration = 360
+	portrait = "GFX_z_fw_r_celestial_orrey"
+	sound = "relic_activation_blade_of_the_huntress"
+
+	ai_weight = {
+		weight = 0
+	}
+
+	score = 0
+
+	active_effect = {
+		custom_tooltip = z_fw_r_celestial_orrey_effect
+		hidden_effect = {
+			every_country = {
+				set_closed_borders = {
+					who = root
+					status = no
+					forced = 1
+				}
+			}
+			set_timed_country_flag = { flag = z_fw_r_celestial_orrey_activited days = 360 }
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "z_fw_r_celestial_orrey_activited"
+			hidden_trigger = {
+				NOT = { has_country_flag = z_fw_r_celestial_orrey_activited }
+			}
+		}
+	}
+}
+
+
+#_cheat-量子星炬
+z_fw_r_cheat_quantum_beacon = {
+	activation_duration = 3600
+	portrait = "GFX_z_fw_r_cheat_quantum_beacon"
+	sound = "relic_activation_blade_of_the_huntress"
+
+	ai_weight = {
+		weight = 0
+	}
+
+	score = 0
+
+	#_默认
+	triggered_country_modifier = {
+		potential = {
+			NOT = { has_country_flag = z_fw_r_cheat_quantum_beacon_activited }
+		}
+		modifier = {
+			ship_speed_mult = 0.1
+			ship_emergency_ftl_mult = -0.1
+			ship_disengage_chance_mult = 0.1
+			ship_windup_mult = -0.1
+			ship_winddown_mult = -0.1
+			ship_jumpdrive_cooldown_mult = -0.1
+			ship_ftl_jumpdrive_range_mult = 1.0
+		}
+	}
+	#_开启
+	triggered_country_modifier = {
+		potential = {
+			has_country_flag = z_fw_r_cheat_quantum_beacon_activited
+		}
+		modifier = {
+			ship_speed_mult = 1
+			ship_emergency_ftl_mult = -1
+			ship_disengage_chance_mult = 1
+			ship_windup_mult = -0.5
+			ship_winddown_mult = -0.5
+			ship_jumpdrive_cooldown_mult = -0.9
+			ship_ftl_jumpdrive_range_mult = 10
+		}
+	}
+
+	active_effect = {
+		custom_tooltip = z_fw_r_cheat_quantum_beacon_effect
+		hidden_effect = {
+			every_country = {
+				set_closed_borders = {
+					who = root
+					status = no
+					forced = 10
+				}
+			}
+			set_timed_country_flag = { flag = z_fw_r_cheat_quantum_beacon_activited days = 3600 }
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "z_fw_r_cheat_quantum_beacon_activited"
+			hidden_trigger = {
+				NOT = { has_country_flag = z_fw_r_cheat_quantum_beacon_activited }
+			}
+		}
+	}
+}
+
+
+#_cheat-维度解构剑
+#_global_flag		[z_fw_flg_glo_r_cht_hyper_on]	维度解构剑[glbl已激活]
+#_country_flag		[z_fw_flg_cntr_r_cht_hyper_on]	维度解构剑[激活者]
+z_fw_r_cheat_hyper_blade = {
+	activation_duration = 0
+	portrait = "GFX_z_fw_r_cheat_hyper_blade"
+	sound = "relic_activation_blade_of_the_huntress"
+
+	ai_weight = {
+		weight = 0
+	}
+	score = 0
+	
+	active_effect = {
+		custom_tooltip = z_fw_tips_r_hyper_blade_effect
+		hidden_effect = { country_event = { id = z_fw1_misc.321 } }
+	}
+
+	possible = {
+		#_如果有国家激活维度解构剑,所有维度解构剑都无法使用,除了激活者
+		custom_tooltip = {
+			fail_text = z_fw_tips_r_hyper_blade_activated	#_有pc激活了一个r_cht_hyper
+			hidden_trigger = {
+				OR = {
+					NOT = { has_global_flag = z_fw_flg_glo_r_cht_hyper_on }
+					has_country_flag = z_fw_flg_cntr_r_cht_hyper_on
+				}
+			}
+		}
+	}
+}
+
+
+#_cheat-物质湮灭剑
+z_fw_r_cheat_mega_sword = {
+	activation_duration = 0
+	portrait = "GFX_z_fw_cheat_mega_sword"
+	sound = "relic_activation_blade_of_the_huntress"
+
+	ai_weight = {
+		weight = 0
+	}
+	score = 0
+	
+	active_effect = {
+		custom_tooltip = z_fw_tips_r_cht_mega_sword_effect
+		hidden_effect = { country_event = { id = z_fw1_misc.331 } }
+	}
+
+	possible = { always = yes }
+}
+
+
+#_cheat-怒
+z_fw_r_cheat_fury = {
+	activation_duration = 0
+	portrait = "GFX_z_fw_r_cheat_fury"
+	sound = "relic_activation_ether_drake_trophy"
+
+	ai_weight = {
+		weight = 0
+	}
+	score = 0
+	
+	active_effect = {
+		custom_tooltip = z_fw_tips_r_cht_fury_effect
+		hidden_effect = { country_event = { id = z_fw1_misc.341 } }
+	}
+
+	possible = { always = yes }
+}
+
+
+#_cheat-暗能量解药
+z_fw_r_cheat_cure_hok = {
+	activation_duration = 0
+	portrait = "GFX_z_fw_r_cheat_cure_hok"
+	sound = "relic_activation_blade_of_the_huntress"
+
+	ai_weight = {
+		weight = 0
+	}
+	score = 0
+	
+	active_effect = {
+		custom_tooltip = z_fw_tips_r_cheat_cure_hok
+		hidden_effect = {
+			remove_relic = z_fw_r_cheat_cure_hok
+			#_治愈
+			every_country = {
+				limit = { any_owned_species = { z_fw_r_koh_is_species_karyl = yes } }
+				every_owned_species = {
+					limit = { z_fw_r_koh_is_species_karyl = yes }
+					prev = {
+						random_owned_species = {
+							limit = {
+								z_fw_r_koh_is_species_karyl = no
+								prevprev = { is_subspecies = prev }
+							}
+							save_event_target_as = z_fw_tgt_spcs_hok_cure_base
+						}
+						every_owned_pop = { change_species = event_target:z_fw_tgt_spcs_hok_cure_base }
+					}
+				}
+			}
+			every_planet = {
+				limit =  {
+					OR = {
+						has_planet_flag = z_fw_flg_plnt_r_hok_infection
+						has_planet_flag = z_fw_flg_plnt_r_hok_infected
+						has_planet_flag = z_fw_flg_plnt_r_hok_carrier
+					}
+				}
+				set_timed_planet_flag = { flag = z_fw_flg_plnt_r_hok_stop_temp days = 50 }	#_瘟疫残留
+				remove_planet_flag = z_fw_flg_plnt_r_hok_infection
+				remove_planet_flag = z_fw_flg_plnt_r_hok_infected
+				remove_planet_flag = z_fw_flg_plnt_r_hok_carrier	#_清除感染源
+				add_modifier = { modifier = z_fw_r_hok_stop_growth days = 31 }		#_刷新pop增长
+			}
+			event_target:z_fw_tgt_global_event = { set_country_flag = z_fw_flg_r_koh_plague_disable }
+		}
+	}
+
+	possible = { always = yes }
+}
+
+
+
+
+
+
+
+
+#_head of karyl
+#_country_flag	[z_fw_r_head_of_karyl_activited]
+z_fw_r_head_of_karyl = {
+	activation_duration = 3600
+	portrait = "GFX_z_fw_r_karyl_head"
+	sound = "relic_activation_head_of_zarqlan"
+
+	ai_weight = {
+		weight = 100
+	}
+
+	resources = {
+		category = relics
+		# Activation cost
+		cost = {
+			influence = @activation_cost
+		}
+	}
+
+	score = 100
+
+	active_effect = {
+		custom_tooltip = z_fw_r_head_of_karyl_effect
+		custom_tooltip = relic_triumph_cooldown
+		hidden_effect = {
+			add_modifier = {#_遗珍光
+				modifier = "relic_activation_cooldown"
+				days = @triumph_duration
+			}
+			set_timed_country_flag = { flag = z_fw_r_head_of_karyl_activited days = 3600 }
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_relic_no_cooldown"
+			NOT = { has_modifier = relic_activation_cooldown }
+		}
+		hidden_trigger = {
+			NAND = {#_开禁止感染 AI无法使用
+				is_ai = yes
+				exists = event_target:z_fw_tgt_global_event
+				event_target:z_fw_tgt_global_event = { has_country_flag = z_fw_flg_r_koh_plague_disable }
+			}
+		}
+	}
+}

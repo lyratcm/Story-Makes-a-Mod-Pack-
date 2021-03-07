@@ -1,0 +1,241 @@
+@Undergrounder_Cost = 300
+@Undergrounder_Upkeep = 1
+district_GAPS_Underground_Generator = {
+    icon = district_GAPS_Underground_Generator
+    base_buildtime = 240
+    is_capped_by_modifier = yes
+    min_for_deposits_on_planet = 1
+    max_for_deposits_on_planet = 50
+    show_on_uncolonized = {
+        exists = owner
+    }
+    potential = {
+        exists = owner
+        has_deposit = d_GAPS_Great_Dig
+        OR = {
+            owner = {
+                has_origin = Origin_GAPS_The_Undergrounder
+            }
+            has_district = district_GAPS_Underground_Generator
+        }
+    }
+    planet_modifier = {
+        planet_max_districts_add = 1
+        district_GAPS_Underground_Districts_max = -1
+    }
+    resources = {
+        category = planet_districts
+        cost = {
+            minerals = @Undergrounder_Cost
+        }
+        upkeep = {
+            energy = @Undergrounder_Upkeep
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_country_flag = Flag_Country_GAPS_Undergrounder_Studied_Subterraneans
+            }
+        }
+        modifier = {
+            district_generator_max = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        modifier = {
+            job_GAPS_Underground_technician_drone_add = 3
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+        }
+        modifier = {
+            job_GAPS_Underground_technician_drone_add = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+                is_fallen_empire_spiritualist = no
+            }
+        }
+        modifier = {
+            job_GAPS_Underground_technician_add = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_fallen_empire_spiritualist = yes
+            }
+        }
+        modifier = {
+            job_GAPS_Underground_fe_acolyte_generator_add = 2
+        }
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+            }
+        }
+        text = job_GAPS_Underground_technician_drone_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+                is_fallen_empire_spiritualist = no
+            }
+        }
+        text = job_GAPS_Underground_technician_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_fallen_empire_spiritualist = yes
+            }
+        }
+        text = job_GAPS_Underground_fe_acolyte_generator_effect_desc
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 3
+            OR = {
+                free_jobs < 2
+                AND = {
+                    districts_good_energy = yes
+                    free_jobs < 5
+                }
+                any_owned_pop = {
+                    is_unemployed = yes
+                    NOT = {
+                        has_citizenship_type = {
+                            type = citizenship_organic_trophy
+                        }
+                    }
+                    NOR = {
+                        is_pop_category = specialist
+                        is_pop_category = ruler
+                    }
+                }
+            }
+            owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value < 150
+                }
+                has_monthly_income = {
+                    resource = minerals
+                    value > 50
+                }
+            }
+        }
+        modifier = {
+            weight = 3
+            free_jobs < 2
+            num_free_districts = {
+                type = district_mining
+                value = 0
+            }
+            owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value < 250
+                }
+            }
+        }
+        modifier = {
+            weight = 250
+            years_passed > 4
+            OR = {
+                free_jobs < 3
+                any_owned_pop = {
+                    is_unemployed = yes
+                    NOT = {
+                        has_citizenship_type = {
+                            type = citizenship_organic_trophy
+                        }
+                    }
+                    NOR = {
+                        is_pop_category = specialist
+                        is_pop_category = ruler
+                    }
+                }
+            }
+            OR = {
+                owner = {
+                    country_uses_food = no
+                }
+                owner = {
+                    has_monthly_income = {
+                        resource = food
+                        value > 0
+                    }
+                }
+                num_free_districts = {
+                    type = district_farming
+                    value = 0
+                }
+            }
+            OR = {
+                owner = {
+                    has_monthly_income = {
+                        resource = energy
+                        value < -10
+                    }
+                }
+                owner = {
+                    has_monthly_income = {
+                        resource = minerals
+                        value > 50
+                    }
+                }
+                num_free_districts = {
+                    type = district_mining
+                    value = 0
+                }
+            }
+        }
+        modifier = {
+            factor = 3
+            owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value < 0
+                }
+            }
+        }
+        modifier = {
+            factor = 10
+            owner = {
+                has_deficit = energy
+            }
+        }
+    }
+    ai_resource_production = {
+        energy = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

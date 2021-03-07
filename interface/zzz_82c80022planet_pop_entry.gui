@@ -1,0 +1,113 @@
+guiTypes = {
+    containerWindowType = {
+        name = "planet_pop_entry"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = 55
+            height = 55
+        }
+        containerWindowType = {
+            name = "portrait"
+            size = {
+                width = 55
+                height = 55
+            }
+            position = {
+                x = 0
+                y = 0
+            }
+            clipping = yes
+            buttonType = {
+                name = "pop_background"
+                spriteType = "GFX_planet_background"
+                position = {
+                    x = 1
+                    y = 2
+                }
+                scale = 0.55
+                oversound = "no_sound"
+            }
+            iconType = {
+                name = "pop_background_frame"
+                spriteType = "GFX_planet_background_frame"
+                scale = 0.55
+                alwaysTransparent = yes
+            }
+            iconType = {
+                name = "building_icon"
+                position = {
+                    x = -10
+                    y = -3
+                }
+                scale = 0.66
+                spriteType = "GFX_building_unknown"
+                alwaysTransparent = yes
+            }
+            iconType = {
+                name = "portrait"
+                quadTextureSprite = "GFX_portrait_character"
+                position = {
+                    x = -23
+                    y = -2
+                }
+                scale = 0.15
+                alwaysTransparent = yes
+            }
+            iconType = {
+                name = "pop_status"
+                spriteType = "GFX_pop_status"
+                position = {
+                    x = 0
+                    y = 33
+                }
+                scale = 0.71
+            }
+            iconType = {
+                name = "pop_mod"
+                spriteType = "GFX_pop_mod"
+                position = {
+                    x = 0
+                    y = 0
+                }
+                scale = 0.71
+            }
+            iconType = {
+                name = "num_frame"
+                spriteType = "GFX_deposit_num_frame"
+                position = {
+                    x = 1
+                    y = 1
+                }
+                alwaysTransparent = yes
+            }
+            instantTextBoxType = {
+                name = "amount"
+                font = "cg_16b"
+                text = "5"
+                position = {
+                    x = -10
+                    y = 2
+                }
+                maxWidth = 40
+                maxHeight = 20
+                fixedSize = yes
+                text_color_code = "Y"
+                format = center
+                alwaysTransparent = yes
+            }
+        }
+        iconType = {
+            name = "selected_pop_icon"
+            spriteType = "GFX_selected_building"
+            position = {
+                x = 0
+                y = 0
+            }
+            scale = 0.54
+            alwaysTransparent = yes
+        }
+    }
+}

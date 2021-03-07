@@ -1,0 +1,12 @@
+lrsk_gov_var_civic_machine_optimized_expansion = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        planet_colony_development_speed_mult = 0.15
+        country_starbase_influence_cost_mult = -0.05
+    }
+}

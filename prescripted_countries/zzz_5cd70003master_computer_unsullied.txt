@@ -1,0 +1,57 @@
+master_computer_unsullied = {
+    name = "Unsullied of Haldrea"
+    adjective = "Haldrean"
+    spawn_enabled = yes
+    ship_prefix = HUS
+    species = {
+        class = "MOL"
+        portrait = "mol4"
+        name = "Haldrean"
+        plural = "Haldreans"
+        adjective = "Haldrean"
+        name_list = "MOL3"
+        trait = "trait_extremely_adaptive"
+        trait = "trait_sedentary"
+        trait = "trait_weak"
+    }
+    room = machine_room
+    authority = "auth_master_computer"
+    civics = {
+        "civic_master_computer_matchmaker"
+        "civic_master_computer_purifier"
+    }
+    government = "gov_master_computer_purifiers"
+    ethic = "ethic_fanatic_xenophobe"
+    ethic = "ethic_materialist"
+    planet_name = "Haldrea"
+    planet_class = "pc_ocean"
+    system_name = "Halos"
+    initializer = ""
+    graphical_culture = "molluscoid_01"
+    city_graphical_culture = "molluscoid_01"
+    empire_flag = {
+        icon = {
+            category = "ornate"
+            file = "flag_ornate_14.dds"
+        }
+        background = {
+            category = "backgrounds"
+            file = "triangle_split.dds"
+        }
+        colors = {
+            "light_orange"
+            "dark_blue"
+            "null"
+            "null"
+        }
+    }
+    ruler = {
+        gender = female
+        name = "Purificarum"
+        portrait = "mol4"
+        texture = 0
+        hair = 0
+        clothes = 4
+        leader_class = "ruler"
+    }
+}

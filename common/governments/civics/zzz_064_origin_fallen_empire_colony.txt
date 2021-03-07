@@ -1,0 +1,31 @@
+origin_gpm_fallen_empire_colony = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_gpm_fallen_empire_colony.dds"
+	picture = GFX_origin_gpm_fallen_empire_colony
+	max_once_global = yes
+	
+	starting_colony = pc_gaia
+
+	
+	possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+    }
+	
+	description = "origin_tooltip_gpm_fallen_empire_colony_effects"
+	
+	flags = { gpm_fallen_empire_colony }
+	
+	advanced_start = yes
+	
+	random_weight = {
+		base = 5
+	}
+
+	traits = {
+		trait = trait_gpm_high_status
+	}
+}

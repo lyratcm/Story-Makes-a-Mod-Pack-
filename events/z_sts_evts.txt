@@ -1,0 +1,418 @@
+namespace = z_statistic
+
+#_初始modifier 游戏开始
+event = {
+	id = z_statistic.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = z_statistic_installed			#_MOD安装
+	}
+}
+###_万用初始化
+#	country_event = {
+#		id = z_statistic.101
+#		hide_window = yes
+#		fire_only_once = yes
+#		trigger = { is_ai = no }
+#		mean_time_to_happen = { days = 23 }
+#		
+#		immediate = {
+#			if = {
+#				limit = { NOT = { has_global_flag = z_statistic_installed } }
+#				set_global_flag = z_statistic_installed
+#			}
+#		}
+#	}
+
+
+
+
+#_z_modmenu
+country_event = {
+	id = z_statistic.11
+	title = z_statistic_title
+	desc = z_statistic_title_desc
+	picture = GFX_evt_z_statistic
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			###_初始化
+			set_variable = { which = z_system_var value = 0 }							#_system
+			set_variable = { which = z_route_system_var value = 0 }						#_trade routes passed
+
+			set_variable = { which = z_primitive_var value = 0 }						#_primitive
+			set_variable = { which = z_playable_country_var value = 0 }					#_country
+			set_variable = { which = z_fallen_empire_var value = 0 }					#_fe
+			set_variable = { which = z_routes_25_country_var value = 0 }				#_counry trade routes >= 25
+			set_variable = { which = z_routes_50_country_var value = 0 }				#_counry trade routes >= 50
+			set_variable = { which = z_routes_100_country_var value = 0 }				#_counry trade routes >= 100
+			set_variable = { which = z_species_25_country_var value = 0 }				#_counry species >= 25
+			set_variable = { which = z_species_50_country_var value = 0 }				#_counry species >= 50
+			set_variable = { which = z_species_sub_country_var value = 0 }				#_too sub 25
+			set_variable = { which = z_species_hybrid_country_var value = 0 }			#_too hybrid 25
+			set_variable = { which = z_species_biological_country_var value = 0 }		#_too many biological species
+			set_variable = { which = z_species_robotic_country_var value = 0 }			#_too many robotic species
+			
+			set_variable = { which = z_playable_army_var value = 0 }					#_armies of playable countries
+			set_variable = { which = z_non_playable_army_var value = 0 }				#_armies of none playable countries
+			
+			set_variable = { which = z_habitable_var value = 0 }						#_h planets
+			set_variable = { which = z_habitats_var value = 0 }							#_habitats
+			
+			set_variable = { which = z_colony_var value = 0 }							#_colony
+			set_variable = { which = z_colonized_planet_var value = 0 }					#_colony_planet
+			set_variable = { which = z_colonized_habitat_var value = 0 }				#_habitat
+			set_variable = { which = z_colonized_ringworld_var value = 0 }				#_habitat
+
+			set_variable = { which = z_total_pop_var value = 0 }						#_pop
+			set_variable = { which = z_total_pop_unemployed_var value = 0 }				#_unemployed
+			set_variable = { which = z_total_pop_shunks value = 0 }						#_臭鼬
+
+			set_variable = { which = z_combatant_ships_var value = 0 }					#_ships in combat
+			set_variable = { which = z_global_ships_var value = 0 }						#_ships
+			set_variable = { which = z_default_ships_var value = 0 }					#_default 全部船只
+			set_variable = { which = z_default_ships_civilian_var value = 0 }			#_default 民船
+			set_variable = { which = z_default_ships_defence_var value = 0 }			#_default 防御平台
+			set_variable = { which = z_default_starbase_var value = 0 }					#_default 星基
+			#set_variable = { which = z_default_ships_transport_var value = 0 }			#_default country transports
+			set_variable = { which = z_default_ships_military_var value = 0 }			#_default country military ships
+			set_variable = { which = z_fallen_ships_var value = 0 }						#_fallen ships
+			set_variable = { which = z_fallen_defence_var value = 0 }					#_fallen 防御与星基
+			set_variable = { which = z_crisis_ships_var value = 0 }						#_end crisis ships
+			set_variable = { which = z_crisis_fleets_var value = 0 }					#_end crisis fleets
+			set_variable = { which = z_threat_ships_var value = 0 }					#_中期威胁 ships
+			set_variable = { which = z_threat_fleets_var value = 0 }					#_中期威胁 fleets
+			set_variable = { which = z_other_ships_var value = 0 }						#_other ships
+
+
+			###_system
+			every_system = {
+				root = { change_variable = { which = z_system_var value = 1 } }
+				if = {
+					limit = {
+						has_trade_route = yes
+						OR = {
+							has_megastructure = gateway_final
+							has_megastructure = gateway_restored
+							has_natural_wormhole = yes
+							has_megastructure = lgate_base
+						}
+					}
+					root = { change_variable = { which = z_route_system_var value = 1 } }		#_trade routes passed
+				}
+			}
+			#_country
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = default
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+						is_country_type = prikki
+						is_country_type = ascended_empire		#_ZOFE
+						is_country_type = lost_empire			#_ZOFE
+					}
+				}
+				root = {
+					change_variable = { which = z_playable_country_var value = 1 }			#_country
+				}
+				
+				#_armies
+				every_owned_army = {
+					root = { change_variable = { which = z_playable_army_var value = 1 } }				#_armies of playable countries
+				}
+				###_trade routes
+				if = {
+					limit = { num_trade_routes >= 25 }
+					root = { change_variable = { which = z_routes_25_country_var value = 1 } }			#_counry trade routes >= 25
+				}
+				###_all species
+				if = {
+					limit = { count_owned_pop_species = { count >= 25 } }
+					root = {
+						change_variable = { which = z_species_25_country_var value = 1 }				#_counry species >= 25
+					}
+				}
+				###_hybrid and sub species
+				if = {
+					limit = { count_exact_species = { count >= 15 limit = { is_subspecies = prev } } }
+					root = { change_variable = { which = z_species_sub_country_var value = 1 } }		#_too sub 15
+				}
+				if = {
+					limit = { count_exact_species = { count >= 15 limit = { is_half_species = any } } }
+					root = { change_variable = { which = z_species_hybrid_country_var value = 1 } }		#_too hybrid 15
+				}
+				###_biology
+				if = {
+					limit = {
+						count_exact_species = {
+							count >= 15
+							limit = {
+								NOR = {
+									is_archetype = ROBOT
+									is_archetype = MACHINE
+								}
+							}
+						}
+					}
+					root = { change_variable = { which = z_species_biological_country_var value = 1 } }		#_too many biological species 15
+				}
+				else = {
+					limit = {
+						count_exact_species = {
+							count >= 10
+							limit = {
+								OR = {
+									is_archetype = ROBOT
+									is_archetype = MACHINE
+								}
+							}
+						}
+					}
+					root = { change_variable = { which = z_species_robotic_country_var value = 1 } }		#_too many robotic species 10
+				}
+			}
+			
+			#_primitive
+			every_country = {
+				limit = { is_primitive = yes }
+				root = {
+					change_variable = { which = z_primitive_var value = 1 }
+				}
+			}
+
+			#_armies
+			every_country = {
+				limit = {
+					NOR = {
+						is_country_type = default
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+						is_country_type = prikki
+						is_country_type = ascended_empire		#_ZOFE
+						is_country_type = lost_empire			#_ZOFE
+					}
+				}
+				every_owned_army = {
+					root = { change_variable = { which = z_non_playable_army_var value = 1 } }		#_armies of none playable countries
+				}
+			}
+
+
+			#_colony
+			every_planet = {
+				limit = { is_colony = yes }
+				root = {
+					change_variable = { which = z_colonized_planet_var value = 1 }
+				}
+				if = {
+					limit = { is_planet_class = pc_habitat }
+					root = {
+						change_variable = { which = z_colonized_habitat_var value = 1 }		#_habitat
+					}
+				}
+			}
+
+			#_population
+			every_galaxy_pop = {
+				if = {#_失业
+					limit = { is_unemployed = yes }
+					root = {
+						change_variable = { which = z_total_pop_var value = 1 }
+						change_variable = { which = z_total_pop_unemployed_var value = 1 }
+					}
+				}
+				else = {#_在职
+					root = {
+						change_variable = { which = z_total_pop_var value = 1 }
+					}
+				}
+			}
+
+			#_ships
+			every_ship = {
+				root = { change_variable = { which = z_global_ships_var value = 1 } }
+				if = {
+					limit = { is_in_combat = yes }
+					root = { change_variable = { which = z_combatant_ships_var value = 1 } }	#_ships in combat
+				}
+				if = {
+					limit = {
+						owner = {
+							OR = {
+								is_country_type = default
+								is_country_type = prikki
+								is_country_type = ascended_empire		#_ZOFE
+								is_country_type = lost_empire			#_ZOFE
+							}
+						}
+					}
+					root = { change_variable = { which = z_default_ships_var value = 1 } }		#_default country ships
+					if = {
+						limit = {
+							OR = {
+								is_ship_class = shipclass_colonizer
+								is_ship_class = shipclass_constructor
+								is_ship_class = shipclass_science_ship
+							}
+						}
+						root = { change_variable = { which = z_default_ships_civilian_var value = 1 } }		#_default country civilian ships
+					}
+					else_if = {
+						limit = {
+							OR = {
+								is_ship_class = shipclass_military_station
+								is_ship_class = shipclass_starbase
+							}
+						}
+						root = { change_variable = { which = z_default_ships_defence_var value = 1 } }		#_default country defence
+					}
+					#else_if = {
+					#	limit = { is_ship_class = shipclass_transport }
+					#	root = { change_variable = { which = z_default_ships_transport_var value = 1 } }	#_default country transports
+					#}
+					else_if = {
+						limit = { NOT = { is_ship_class = shipclass_transport } }
+						root = { change_variable = { which = z_default_ships_military_var value = 1 } }		#_default country military ships
+					}
+				}
+				else_if = {
+					limit = {
+						owner = {
+							OR = {
+								is_country_type = fallen_empire
+								is_country_type = awakened_fallen_empire
+							}
+						}
+					}
+					root = { change_variable = { which = z_fallen_ships_var value = 1 } }		#_fallen ships
+				}
+				else_if = {
+					limit = {
+						owner = {
+							OR = {
+								is_country_type = swarm
+								is_country_type = sentinels
+								is_country_type = extradimensional
+								is_country_type = extradimensional_2
+								is_country_type = extradimensional_3
+								is_country_type = gate_builders
+								is_country_type = ai_empire
+								is_country_type = cybrex_empire
+							}
+						}
+					}
+					root = { change_variable = { which = z_crisis_ships_var value = 1 } }		#_end crisis ships
+				}
+				else_if = {
+					limit = {
+						owner = {
+							OR = {
+								is_country_type = dormant_marauders
+								is_country_type = ruined_marauders
+								is_country_type = awakened_marauders
+								is_country_type = marauder_raiders
+								is_country_type = gray_goo
+							}
+						}
+					}
+					root = { change_variable = { which = z_threat_ships_var value = 1 } }		#_mid threat ships
+				}
+				else = {
+					root = { change_variable = { which = z_other_ships_var value = 1 } }		#_other ships
+				}
+			}
+
+			#_fleets-crisis
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = swarm
+						is_country_type = sentinels
+						is_country_type = extradimensional
+						is_country_type = extradimensional_2
+						is_country_type = extradimensional_3
+						is_country_type = gate_builders
+						is_country_type = ai_empire
+						is_country_type = cybrex_empire
+					}
+				}
+				every_owned_fleet = {
+					root = { change_variable = { which = z_crisis_fleets_var value = 1 } }		#_end crisis fleets
+				}
+			}
+			#_fleets-threat
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = dormant_marauders
+						is_country_type = ruined_marauders
+						is_country_type = awakened_marauders
+						is_country_type = marauder_raiders
+						is_country_type = gray_goo
+					}
+				}
+				every_owned_fleet = {
+					root = { change_variable = { which = z_threat_fleets_var value = 1 } }		#_mid threat fleets
+				}
+			}
+		}
+	}
+	after = {
+		hidden_effect = {
+			###_初始化
+			set_variable = { which = z_system_var value = 0 }							#_system
+			set_variable = { which = z_route_system_var value = 0 }						#_trade routes passed
+
+			set_variable = { which = z_playable_country_var value = 0 }					#_country
+			set_variable = { which = z_playable_army_var value = 0 }					#_armies of playable countries
+			set_variable = { which = z_routes_25_country_var value = 0 }				#_counry trade routes >= 25
+			set_variable = { which = z_species_25_country_var value = 0 }				#_counry species >= 25
+			set_variable = { which = z_species_sub_country_var value = 0 }				#_too sub 15
+			set_variable = { which = z_species_hybrid_country_var value = 0 }			#_too hybrid 15
+			set_variable = { which = z_species_biological_country_var value = 0 }		#_too many biological species
+			set_variable = { which = z_species_robotic_country_var value = 0 }			#_too many robotic species
+			
+			set_variable = { which = z_primitive_var value = 0 }						#_primitive
+			set_variable = { which = z_non_playable_army_var value = 0 }				#_armies of none playable countries
+			set_variable = { which = z_colonized_planet_var value = 0 }					#_colony
+			set_variable = { which = z_colonized_habitat_var value = 0 }				#_habitat
+
+			set_variable = { which = z_total_pop_var value = 0 }						#_pop
+			set_variable = { which = z_total_pop_unemployed_var value = 0 }				#_unemployed
+
+			set_variable = { which = z_global_ships_var value = 0 }						#_ships
+			set_variable = { which = z_combatant_ships_var value = 0 }					#_ships in combat
+			set_variable = { which = z_default_ships_var value = 0 }					#_default country ships
+			set_variable = { which = z_default_ships_civilian_var value = 0 }			#_default country civilian ships
+			set_variable = { which = z_default_ships_defence_var value = 0 }			#_default country defence
+			#set_variable = { which = z_default_ships_transport_var value = 0 }			#_default country transports
+			set_variable = { which = z_default_ships_military_var value = 0 }			#_default country military ships
+			set_variable = { which = z_fallen_ships_var value = 0 }						#_fallen ships
+			set_variable = { which = z_crisis_ships_var value = 0 }						#_end crisis ships
+			set_variable = { which = z_threat_ships_var value = 0 }					#_mid threat ships
+			set_variable = { which = z_other_ships_var value = 0 }						#_other ships
+
+			set_variable = { which = z_crisis_fleets_var value = 0 }					#_end crisis fleets
+			set_variable = { which = z_threat_fleets_var value = 0 }					#_mid threat fleets
+		}
+	}
+	
+	#_退回z_modmenu
+	#option = {
+	#	name = z_statistic.11.x1
+	#	custom_tooltip = z_statistic.11.x1.tooltip
+	#	hidden_effect = {
+	#		country_event = { id = z_modmenu.1 }
+	#	}
+	#}
+	#_关闭设置
+	option = {
+		z_mm_unlock_setting_panel = yes		#_z mm
+		name = z_statistic.11.x2
+		custom_tooltip = z_statistic.11.x2.tooltip
+	}
+}

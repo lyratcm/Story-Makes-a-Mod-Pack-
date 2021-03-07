@@ -1,0 +1,18 @@
+namespace = leviathans
+
+event = {
+	id = leviathans.20101
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_system = {
+			any_system_planet = { has_planet_flag = guardians_wraith_pulsar }
+		}
+	}
+
+	immediate = {
+		# do nothing
+	}
+}

@@ -1,0 +1,5 @@
+civic_post_apocalyptic = {
+    potential = {
+        always = no
+    }
+}

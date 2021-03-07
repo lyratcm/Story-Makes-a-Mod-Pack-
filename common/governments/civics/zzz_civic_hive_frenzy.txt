@@ -1,0 +1,9 @@
+lrsk_gov_var_civic_hive_frenzy = {
+	potential = { authority = { value = auth_hive_mind } }
+    #icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_hive.dds"
+	random_weight = { base = 5 }
+	modifier = {
+		ship_fire_rate_mult = 0.1
+    	ship_evasion_mult = 0.1
+	}
+}

@@ -1,0 +1,10 @@
+civic_infestation = {
+    modification = no
+    icon = "gfx/interface/icons/governments/civics/civic_hive_infestation.dds"
+    playable = {
+        host_has_dlc = "Utopia"
+    }
+    potential = {
+        always = no
+    }
+}

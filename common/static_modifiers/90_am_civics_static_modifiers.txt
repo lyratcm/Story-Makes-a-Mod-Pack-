@@ -1,0 +1,181 @@
+
+
+static_modifier_am_civics_corporate_growth = {
+	planet_jobs_energy_produces_mult = 0.15
+	planet_jobs_minerals_produces_mult = 0.15
+	planet_jobs_food_produces_mult = 0.15
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_land_appropriated.dds"
+	icon_frame = 1
+}
+
+static_modifier_am_civics_planet_decay_1 = {
+	planet_jobs_energy_produces_mult = -0.05
+	planet_jobs_minerals_produces_mult = -0.05
+	planet_jobs_food_produces_mult = -0.05
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_planet_decay_2 = {
+	planet_jobs_energy_produces_mult = -0.10
+	planet_jobs_minerals_produces_mult = -0.10
+	planet_jobs_food_produces_mult = -0.10
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_planet_decay_3 = {
+	planet_jobs_energy_produces_mult = -0.15
+	planet_jobs_minerals_produces_mult = -0.15
+	planet_jobs_food_produces_mult = -0.15
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_planet_decay_4 = {
+	planet_jobs_energy_produces_mult = -0.20
+	planet_jobs_minerals_produces_mult = -0.20
+	planet_jobs_food_produces_mult = -0.20
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_planet_decay_5 = {
+	planet_jobs_energy_produces_mult = -0.25
+	planet_jobs_minerals_produces_mult = -0.25
+	planet_jobs_food_produces_mult = -0.25
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_planet_decay_6 = {
+	planet_jobs_energy_produces_mult = -0.30
+	planet_jobs_minerals_produces_mult = -0.30
+	planet_jobs_food_produces_mult = -0.30
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_planet_decay_7 = {
+	planet_jobs_energy_produces_mult = -0.35
+	planet_jobs_minerals_produces_mult = -0.35
+	planet_jobs_food_produces_mult = -0.35
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_planet_decay_8 = {
+	planet_jobs_energy_produces_mult = -0.40
+	planet_jobs_minerals_produces_mult = -0.40
+	planet_jobs_food_produces_mult = -0.40
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_9 = {
+	planet_jobs_energy_produces_mult = -0.45
+	planet_jobs_minerals_produces_mult = -0.45
+	planet_jobs_food_produces_mult = -0.45
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_10 = {
+	planet_jobs_energy_produces_mult = -0.50
+	planet_jobs_minerals_produces_mult = -0.50
+	planet_jobs_food_produces_mult = -0.50
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 3
+}
+
+static_modifier_locust_capital_evacuation = {
+	planet_building_build_speed_mult = 0.25
+	planet_buildings_cost_mult = -0.25
+	planet_districts_cost_mult = -0.25
+}
+
+static_modifier_am_civics_destructive_panic = {
+	planet_stability_add = -20
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_exploding_planet.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_destructive_flight = {	
+	planet_stability_add = -40
+	icon = "gfx/interface/icons/planet_modifiers/pm_space_walk.dds"
+	icon_frame = 3
+}
+
+	
+static_modifier_am_civics_military_industrial_complex_idle = {
+	trade_value_mult = -0.05
+}
+
+static_modifier_am_civics_military_industrial_complex_choice_1 = {
+	ship_fire_rate_mult = 0.10
+	trade_value_mult = 0.10
+}
+
+static_modifier_am_civics_military_industrial_complex_choice_2 = {
+	army_damage_mult = 0.25
+	army_health = 0.1
+	trade_value_mult = 0.10
+}
+
+static_modifier_am_civics_military_industrial_complex_choice_3 = {
+	starbase_shipyard_build_speed_mult = 0.25
+	starbase_shipyard_build_cost_mult = -0.10
+	trade_value_mult = 0.10
+}
+
+static_modifier_am_civics_locust_habitat_1 = {
+	planet_jobs_physics_research_produces_mult = -0.15
+	planet_jobs_society_research_produces_mult = -0.15
+	planet_jobs_engineering_research_produces_mult = -0.15
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_ruined_system.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_locust_habitat_2 = {
+	planet_jobs_minerals_produces_mult = -0.15
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_satellite_in_orbit.dds"
+	icon_frame = 2
+}
+
+static_modifier_am_civics_locust_habitat_3 = {
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_locust_habitat_4 = {
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_locust_habitat_5 = {
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_locust_habitat_6 = {
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
+	icon_frame = 3
+}

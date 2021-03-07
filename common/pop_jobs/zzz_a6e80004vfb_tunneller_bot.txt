@@ -1,0 +1,35 @@
+vfb_tunneller_bot = {
+    category = complex_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_vfb_fusion
+    icon = vfb_tunneller_bot
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        drone_job_check_trigger = yes
+        hidden_trigger = {
+            exists = owner
+        }
+        or = {
+            has_job = vfb_tunneller_bot
+            z_pop_job_trigger = yes
+        }
+    }
+    resources = {
+        category = planet_technician
+        produces = {
+            physics_research = 2
+            energy = 8
+        }
+        upkeep = {
+            minerals = 2
+        }
+    }
+    weight = {
+        weight = 5000
+    }
+}

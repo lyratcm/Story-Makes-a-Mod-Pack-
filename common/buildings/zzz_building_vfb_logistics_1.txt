@@ -1,0 +1,81 @@
+building_vfb_logistichub = {
+
+	category = government
+	
+	base_buildtime = 360
+	base_cap_amount = 1
+	
+	icon = building_vfb_logistichub
+	
+	potential = {
+		NOR = {
+			has_building = building_vfb_logistichub
+			has_building = building_vfb_orbitalhub
+			has_modifier = resort_colony
+		}
+		owner = {
+			has_technology = tech_building_vfb_logistichub
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	prerequisites = {
+		tech_building_vfb_logistichub
+	}
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			owner = {
+				OR = {
+					is_machine_empire = yes
+					is_hive_empire = yes
+				}
+			}
+		}
+	}
+	
+	planet_modifier = {
+	
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+		}
+		job_vfb_logistician_add = 1
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			alloys = 1
+		}
+		produces = {
+
+		}
+	}
+	
+	upgrades = {
+		building_vfb_orbitalhub
+	}
+	
+	ai_weight = {
+		weight = 10
+		factor = 2
+		modifier = {
+			weight = 10
+			factor = 10
+			num_pops > 19
+		}
+		modifier = {
+			weight = 100
+			factor = 10
+			free_building_slots > 2
+		}
+	}	
+}

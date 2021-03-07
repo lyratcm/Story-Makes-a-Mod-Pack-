@@ -1,0 +1,22 @@
+terraform_link = {
+	from = "pc_gas_giant"
+	to = "pc_habitable_gas"
+	
+	energy = 4500
+	duration = 3600
+	
+	condition = {
+		has_technology = "tech_terrestrial_sculpting"
+		has_ascension_perk = "ap_gas_terraform"
+	}
+	
+	ai_weight = {
+		weight = 2
+		modifier = {
+			factor = 0
+			OR = {
+				has_origin = origin_gas_species
+			}
+		}
+	}
+}

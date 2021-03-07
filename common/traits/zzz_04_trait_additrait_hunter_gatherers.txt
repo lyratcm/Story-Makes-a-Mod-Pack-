@@ -1,0 +1,16 @@
+trait_additrait_hunter_gatherers = {
+    cost = -2
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        planet_jobs_food_produces_mult = -0.15
+    }
+    opposites = {
+        "trait_agrarian"
+        "trait_slothful"
+    }
+}

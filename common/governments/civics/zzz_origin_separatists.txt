@@ -1,0 +1,16 @@
+origin_separatists = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_separatists.dds"
+    playable = {
+        always = no
+    }
+    possible = {
+    }
+    modifier = {
+        country_war_exhaustion_mult = -0.2
+    }
+    description = origin_no_effect
+    random_weight = {
+        base = 0
+    }
+}

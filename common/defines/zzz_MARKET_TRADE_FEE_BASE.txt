@@ -1,0 +1,3 @@
+NEconomy = {
+    MARKET_TRADE_FEE_BASE = 0.50
+}

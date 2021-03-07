@@ -1,0 +1,52 @@
+GAPS_pure_water_researcher = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_power_plant
+    clothes_texture_index = 2
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        specialist_job_check_trigger = yes
+        owner = {
+            is_gestalt = no
+        }
+        complex_specialist_job_check_trigger = yes
+    }
+    resources = {
+        category = planet_researchers
+        produces = {
+            physics_research = 6
+            engineering_research = 3
+            society_research = 3
+        }
+        upkeep = {
+            sr_GAPS_water = 10
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_valid_civic = civic_technocracy
+                }
+            }
+            unity = 1
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_edict = research_subsidies
+                }
+            }
+            energy = 1
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            factor = 10
+            exists = owner
+        }
+    }
+}

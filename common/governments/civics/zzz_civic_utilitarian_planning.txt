@@ -1,0 +1,22 @@
+lrsk_gov_var_civic_utilitarian_planning = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            NOR = {
+                text = civic_tooltip_not_spiritualist
+                value = ethic_spiritualist
+                value = ethic_fanatic_spiritualist
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        planet_pops_organics_food_upkeep_mult = -0.05
+        ships_upkeep_mult = -0.025
+        planet_structures_upkeep_mult = -0.025
+    }
+}

@@ -1,0 +1,63 @@
+food_rationing = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = food_rationing }
+			}
+			influence = 100
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = food_rationing
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		pop_growth_speed = -0.10
+		biological_pop_happiness = -0.05
+		lithoid_pop_happiness = -0.05
+		empire_size_pops_mult = 0.10
+		planet_pops_organics_food_upkeep_mult = -0.25
+		planet_pops_organics_minerals_upkeep_mult = -0.25
+	}
+
+	potential = {
+		is_robot_empire = no
+	}
+	
+	allow = {
+		NOT = { has_edict = nutritional_plenitude }
+		NOT = { has_edict = nutritional_plenitude_hive }
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictMedPrio
+			ROOT = {
+				is_lithoid_empire = no
+				has_monthly_income = {
+					resource = food
+					value < 5
+				}
+			}
+		}
+		modifier = {
+			weight = @EdictMedPrio
+			ROOT = {
+				is_lithoid_empire = yes
+				has_monthly_income = {
+					resource = minerals
+					value < 5
+				}
+			}
+		}
+	}
+}

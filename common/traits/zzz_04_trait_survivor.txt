@@ -1,0 +1,21 @@
+trait_survivor = {
+    cost = 0
+    potential_crossbreeding_chance = 0.33
+    initial = no
+    randomized = no
+    modification = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pc_nuked_habitability = 0.6
+        pop_environment_tolerance = 0.1
+        leader_age = 10
+    }
+    slave_cost = {
+        energy = 50
+    }
+}

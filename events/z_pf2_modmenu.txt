@@ -1,0 +1,661 @@
+namespace = z_pf2_modmenu
+
+
+
+
+#_z_modmenu
+country_event = {
+	id = z_pf2_modmenu.11
+	title = z_performance2_title
+	picture = GFX_evt_z_performance_misc
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_pf2_gui_modmenu"
+	
+	#_优化状态检视
+	desc = {
+		trigger = {
+			#_总人口数
+			success_text = {
+				text = z_performance2_title_desc.x2b
+				check_variable = { which = z_galaxy_pop_var value = 0 }
+			}
+			success_text = {
+				text = z_performance2_title_desc.x2
+				check_variable = { which = z_galaxy_pop_var value > 0 }
+			}
+			#_失业人口数
+		#	success_text = {
+		#		text = z_performance2_title_desc.x3b
+		#		check_variable = { which = z_galaxy_pop_unemployed_var value = 0 }
+		#	}
+		#	success_text = {
+		#		text = z_performance2_title_desc.x3
+		#		check_variable = { which = z_galaxy_pop_unemployed_var value > 0 }
+		#	}
+			#_船只数量
+			success_text = {
+				text = z_performance2_title_desc.x1b
+				check_variable = { which = z_global_ships_var value = 0 }
+			}
+			success_text = {
+				text = z_performance2_title_desc.x1
+				check_variable = { which = z_global_ships_var value > 0 }
+			}
+			#_main
+			success_text = {
+				text = z_mm_performance2_desc
+				has_global_flag = z_performance2_installed
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = z_galaxy_pop_var value = 0 }				#_pop
+			set_variable = { which = z_galaxy_pop_unemployed_var value = 0 }	#_unemployed pop
+			set_variable = { which = z_global_ships_var value = 0 }
+			every_ship = {
+				root = {
+					change_variable = { which = z_global_ships_var value = 1 }
+				}
+			}
+			#_population
+			every_galaxy_pop = {
+				if = {#_失业
+					limit = { is_unemployed = yes }
+					root = {
+						change_variable = { which = z_galaxy_pop_var value = 1 }
+						change_variable = { which = z_galaxy_pop_unemployed_var value = 1 }
+					}
+				}
+				else = {#_就业
+					root = {
+						change_variable = { which = z_galaxy_pop_var value = 1 }
+					}
+				}
+			}
+		}
+	}
+	
+	#_关闭
+	option = {
+		name = z_modmenu_return
+		custom_tooltip = z_modmenu_return_desc
+        custom_gui = "z_mm_button_evt_option_red"
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes
+			#_参数归零
+			set_variable = { which = z_galaxy_pop_var value = 0 }
+			set_variable = { which = z_galaxy_pop_unemployed_var value = 0 }
+			set_variable = { which = z_global_ships_var value = 0 }
+			#_z pf2 debug
+			every_country = {
+				country_event = { id = z_performance_misc.21 }	#_贸易优化/动态人口debug
+				country_event = { id = z_fw_core_country.20 }	#_[星球人口限制]debug---立刻
+				country_event = { id = z_fw_core_country.2 }	#_[星球人口限制]renew---立刻
+			}
+		}
+	}
+	
+	#_动态人口上限-禁用
+	option = {
+		name = z_performance_misc.11.i0
+		custom_tooltip = z_performance_misc.11.i0.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_dynamic_cap_strict
+				has_global_flag = z_pf2_dynamic_cap_low
+				has_global_flag = z_pf2_dynamic_cap_high
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_dynamic_cap_strict
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_动态人口上限-极低
+	option = {
+		name = z_performance_misc.11.i1
+		custom_tooltip = z_performance_misc.11.i1.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_global_flag = z_pf2_dynamic_cap_strict }
+		hidden_effect = {
+			remove_global_flag = z_pf2_dynamic_cap_strict
+			set_global_flag = z_pf2_dynamic_cap_low
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_动态人口上限-低
+	option = {
+		name = z_performance_misc.11.i2
+		custom_tooltip = z_performance_misc.11.i2.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_global_flag = z_pf2_dynamic_cap_low }
+		hidden_effect = {
+			remove_global_flag = z_pf2_dynamic_cap_low
+			set_global_flag = z_pf2_dynamic_cap_high
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_动态人口上限-高
+	option = {
+		name = z_performance_misc.11.i3
+		custom_tooltip = z_performance_misc.11.i3.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_global_flag = z_pf2_dynamic_cap_high }
+		hidden_effect = {
+			remove_global_flag = z_pf2_dynamic_cap_high
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_星球承载上限-开启
+	option = {
+		name = z_performance_misc.11.h1
+		custom_tooltip = z_performance_misc.11.h1.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { NOT = { has_global_flag = z_fw_plnt_capacity_disabled } }
+		hidden_effect = {
+			set_global_flag = z_fw_plnt_capacity_disabled
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_星球承载上限-关闭
+	option = {
+		name = z_performance_misc.11.h2
+		custom_tooltip = z_performance_misc.11.h2.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_global_flag = z_fw_plnt_capacity_disabled }
+		hidden_effect = {
+			remove_global_flag = z_fw_plnt_capacity_disabled
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_星球承载上限提升-无
+	option = {
+		name = z_performance_misc.11.j1
+		custom_tooltip = z_performance_misc.11.j1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			NOR = {
+				has_global_flag = z_fw_planet_cap_1
+				has_global_flag = z_fw_planet_cap_2
+				has_global_flag = z_fw_planet_cap_3
+				has_global_flag = z_fw_planet_cap_4
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_planet_cap_1
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_星球承载上限提升+4
+	option = {
+		name = z_performance_misc.11.j2
+		custom_tooltip = z_performance_misc.11.j2.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			has_global_flag = z_fw_planet_cap_1
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_1
+			set_global_flag = z_fw_planet_cap_2
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_星球承载上限提升+8
+	option = {
+		name = z_performance_misc.11.j3
+		custom_tooltip = z_performance_misc.11.j3.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			has_global_flag = z_fw_planet_cap_2
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_2
+			set_global_flag = z_fw_planet_cap_3
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_星球承载上限提升+12
+	option = {
+		name = z_performance_misc.11.j4
+		custom_tooltip = z_performance_misc.11.j4.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			has_global_flag = z_fw_planet_cap_3
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_3
+			set_global_flag = z_fw_planet_cap_4
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_星球承载上限提升+16
+	option = {
+		name = z_performance_misc.11.j5
+		custom_tooltip = z_performance_misc.11.j5.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			has_global_flag = z_fw_planet_cap_4
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_4
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_贸易 原版
+	option = {
+		name = z_performance_misc.11.a1
+		custom_tooltip = z_performance_misc.11.a1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_trade_optimized
+				has_global_flag = z_pf2_trade_disabled
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_trade_optimized
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_贸易 优化
+	option = {
+		name = z_performance_misc.11.a2
+		custom_tooltip = z_performance_misc.11.a2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_trade_optimized }
+		hidden_effect = {
+			remove_global_flag = z_pf2_trade_optimized
+			set_global_flag = z_pf2_trade_disabled
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_贸易 禁止
+	option = {
+		name = z_performance_misc.11.a3
+		custom_tooltip = z_performance_misc.11.a3.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_trade_disabled }
+		hidden_effect = {
+			remove_global_flag = z_pf2_trade_disabled
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_ai轨道站 已限制
+	option = {
+		name = z_performance_misc.11.b1
+		custom_tooltip = z_performance_misc.11.b1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_ai_habitat_limited }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_habitat_limited
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_ai轨道站 当前vanilla
+	option = {
+		name = z_performance_misc.11.b2
+		custom_tooltip = z_performance_misc.11.b2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_ai_habitat_ban
+				has_global_flag = z_pf2_ai_habitat_limited
+				has_global_flag = z_pf2_ai_habitat_optimized
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_ai_habitat_ban
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_ai轨道站 已禁用
+	option = {
+		name = z_performance_misc.11.b3
+		custom_tooltip = z_performance_misc.11.b3.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_ai_habitat_ban }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_habitat_ban
+			set_global_flag = z_pf2_ai_habitat_optimized
+			every_country = {
+				limit = { is_ai = yes }
+				z_pf2_eft_ai_habitats_limit_check = yes		#_habitats上限debug
+			}
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_ai轨道站 已优化<轨道居者---限制/其他---禁用>
+	option = {
+		name = z_performance_misc.11.b4
+		custom_tooltip = z_performance_misc.11.b4.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_ai_habitat_optimized }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_habitat_optimized
+			set_global_flag = z_pf2_ai_habitat_limited
+			every_country = {
+				limit = { is_ai = yes }
+				z_pf2_eft_ai_habitats_limit_check = yes		#_habitats上限debug
+			}
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_ai环世界 允许建造基址
+	option = {
+		name = z_performance_misc.11.g1
+		custom_tooltip = z_performance_misc.11.g1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_ai_ring_world_allowed }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_ring_world_allowed
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_ai环世界 禁止建造基址
+	option = {
+		name = z_performance_misc.11.g2
+		custom_tooltip = z_performance_misc.11.g2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_pf2_ai_ring_world_allowed } }
+		hidden_effect = {
+			set_global_flag = z_pf2_ai_ring_world_allowed
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_自我进化 开启
+	option = {
+		name = z_performance_misc.11.c1
+		custom_tooltip = z_performance_misc.11.c1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_no_self_evolution }
+		hidden_effect = {
+			remove_global_flag = z_pf2_no_self_evolution
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_自我进化 禁止
+	option = {
+		name = z_performance_misc.11.c2
+		custom_tooltip = z_performance_misc.11.c2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_pf2_no_self_evolution } }
+		hidden_effect = {
+			set_global_flag = z_pf2_no_self_evolution
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_杂交飞升 禁止
+	option = {
+		name = z_performance_misc.11.d1
+		custom_tooltip = z_performance_misc.11.d1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_no_ai_hybird }
+		hidden_effect = {
+			remove_global_flag = z_pf2_no_ai_hybird
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_杂交飞升 允许
+	option = {
+		name = z_performance_misc.11.d2
+		custom_tooltip = z_performance_misc.11.d2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_pf2_no_ai_hybird } }
+		hidden_effect = {
+			set_global_flag = z_pf2_no_ai_hybird
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_物种改造-允许
+	option = {
+		name = z_performance_misc.11.e3
+		custom_tooltip = z_performance_misc.11.e3.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_ai_species_mod }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_species_mod
+			set_global_flag = z_pf2_ai_species_mod_limit
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_物种改造-限制
+	option = {
+		name = z_performance_misc.11.e5
+		custom_tooltip = z_performance_misc.11.e5.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_pf2_ai_species_mod_limit }
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_species_mod_limit
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_物种改造-禁用
+	option = {
+		name = z_performance_misc.11.e4
+		custom_tooltip = z_performance_misc.11.e4.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_ai_species_mod
+				has_global_flag = z_pf2_ai_species_mod_limit
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_ai_species_mod
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_舰队优化-高优化
+	option = {
+		name = z_performance_misc.11.k1
+		custom_tooltip = z_performance_misc.11.k1.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = { has_global_flag = z_pf2_flg_glbl_flt_opt_high }
+		hidden_effect = {
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_high
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_舰队优化-中优化
+	option = {
+		name = z_performance_misc.11.k2
+		custom_tooltip = z_performance_misc.11.k2.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			NOR = {
+				has_global_flag = z_pf2_flg_glbl_flt_opt_high
+				has_global_flag = z_pf2_flg_glbl_flt_opt_low
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_flg_glbl_flt_opt_low
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_舰队优化-低优化
+	option = {
+		name = z_performance_misc.11.k3
+		custom_tooltip = z_performance_misc.11.k3.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = { has_global_flag = z_pf2_flg_glbl_flt_opt_low }
+		hidden_effect = {
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_low
+			set_global_flag = z_pf2_flg_glbl_flt_opt_high
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_舰队优化-自动年度
+	option = {
+		name = z_performance_misc.11.k4
+		custom_tooltip = z_performance_misc.11.k4.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = { has_global_flag = z_pf2_flg_glbl_flt_opt_automatic }
+		hidden_effect = {
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_automatic
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_舰队优化-非自动
+	option = {
+		name = z_performance_misc.11.k5
+		custom_tooltip = z_performance_misc.11.k5.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = { NOT = { has_global_flag = z_pf2_flg_glbl_flt_opt_automatic } }
+		hidden_effect = {
+			set_global_flag = z_pf2_flg_glbl_flt_opt_automatic
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_手动多余物种清理-试验
+	option = {
+		name = z_performance_misc.11.f1
+		custom_tooltip = z_performance_misc.11.f1b.tooltip
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = yes
+					z_pf2_trgr_cntr_spcs_normal = yes
+				}
+				z_merge_common_species = yes
+			}
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_合并帝国内物种-测试
+	option = {
+		name = z_performance_misc.11.f2
+		custom_tooltip = z_performance_misc.11.f2.tooltip
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			z_merge_common_species = yes
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_合并帝国内智械-测试
+	option = {
+		name = z_performance_misc.11.f4
+		custom_tooltip = z_performance_misc.11.f4.tooltip
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			z_merge_full_citizenship_robotic = yes
+			z_merge_limited_citizenship_robotic = yes
+			z_merge_slavery_robotic = yes
+			
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_舰队合并
+	option = {
+		name = z_performance_misc.11.f5
+		custom_tooltip = z_performance_misc.11.f5.tooltip
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			z_pf2_eft_cntr_flt_opt_execute = yes
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_摧毁AI栖息地-测试
+	option = {
+		name = z_performance_misc.11.f3
+		custom_tooltip = z_performance_misc.11.f3.tooltip
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = yes
+					NOT = { has_origin = origin_void_dwellers }
+				}
+				every_owned_planet = {
+					limit = {
+						is_planet_class = pc_habitat
+						is_capital = no
+					}
+					z_pf2_eft_clean_habitats = yes
+				}
+			}
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	
+	#_MOD初始化
+	option = {
+		name = z_performance_misc.11.x
+		custom_tooltip = z_performance_misc.11.x.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		hidden_effect = {
+			set_global_flag = z_pf2_trade_optimized					#_贸易优化
+			remove_global_flag = z_pf2_trade_disabled
+			set_global_flag = z_pf2_ai_habitat_optimized			#_AI栖息地---优化
+			remove_global_flag = z_pf2_ai_habitat_ban				#_AI栖息地---禁止
+			remove_global_flag = z_pf2_ai_habitat_limited			#_AI栖息地---限制
+			remove_global_flag = z_pf2_ai_ring_world_allowed		#_AI环世界
+			set_global_flag = z_pf2_no_self_evolution				#_关闭自适应进化
+			set_global_flag = z_pf2_no_ai_hybird					#_禁止AI杂交飞升
+			remove_global_flag = z_pf2_ai_species_mod				#_AI物种改造
+			remove_global_flag = z_pf2_ai_species_mod_limit
+			remove_global_flag = z_pf2_dynamic_cap_strict			#_动态人口上限
+			remove_global_flag = z_pf2_dynamic_cap_low
+			set_global_flag = z_pf2_dynamic_cap_high
+			remove_global_flag = z_fw_plnt_capacity_disabled		#_星球人口上限
+			remove_global_flag = z_fw_planet_cap_1
+			remove_global_flag = z_fw_planet_cap_2
+			remove_global_flag = z_fw_planet_cap_3
+			remove_global_flag = z_fw_planet_cap_4
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_automatic	#_舰队合并
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_high
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_low
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+	#_原版游戏默认
+	option = {
+		name = z_performance_misc.11.x1
+		custom_tooltip = z_performance_misc.11.x1.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		hidden_effect = {
+			remove_global_flag = z_pf2_trade_optimized				#_贸易优化
+			remove_global_flag = z_pf2_trade_disabled
+			remove_global_flag = z_pf2_ai_habitat_optimized			#_AI栖息地---优化
+			remove_global_flag = z_pf2_ai_habitat_ban				#_AI栖息地---禁止
+			remove_global_flag = z_pf2_ai_habitat_limited			#_AI栖息地---限制
+			set_global_flag = z_pf2_ai_ring_world_allowed			#_AI环世界
+			remove_global_flag = z_pf2_no_self_evolution
+			remove_global_flag = z_pf2_no_ai_hybird
+			set_global_flag = z_pf2_ai_species_mod					#_AI物种改造
+			remove_global_flag = z_pf2_ai_species_mod_limit
+			remove_global_flag = z_pf2_dynamic_cap_strict			#_动态人口上限
+			remove_global_flag = z_pf2_dynamic_cap_low
+			remove_global_flag = z_pf2_dynamic_cap_high
+			set_global_flag = z_fw_plnt_capacity_disabled
+			remove_global_flag = z_fw_planet_cap_1
+			remove_global_flag = z_fw_planet_cap_2
+			remove_global_flag = z_fw_planet_cap_3
+			remove_global_flag = z_fw_planet_cap_4
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_automatic	#_舰队合并
+			country_event = { id = z_pf2_modmenu.11 }
+		}
+	}
+}
+

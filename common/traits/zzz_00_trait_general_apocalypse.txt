@@ -1,0 +1,26 @@
+trait_general_apocalypse = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_general_apocalypse.dds"
+    modifier = {
+        army_damage_mult = 0.33
+        army_collateral_damage_mult = 1.00
+    }
+    leader_trait = {
+        general
+    }
+    leader_class = {
+        general
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_survivor
+        }
+    }
+    opposites = {
+        trait_general_apocalypse2
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

@@ -1,0 +1,27 @@
+mem_options_menu = {
+    length = 0
+    edict_cap_usage = 0
+    potential = {
+        has_global_flag = mem_more_events_mod
+        NOT = {
+            has_country_flag = z_fw_flg_cntr_edt_hide
+        }
+    }
+    allow = {
+        is_ai = no
+        custom_tooltip = {
+            hidden_trigger = {
+                z_fw_trgr_cntr_host_mp = yes
+            }
+            fail_text = z_mm_tips_mp_not_host
+        }
+    }
+    effect = {
+        country_event = {
+            id = mem_options.4
+        }
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

@@ -1,0 +1,15 @@
+cp_trait_immortal_ruler = {
+    cost = 0
+    modification = no
+    immortal_leaders = yes
+    modifier = {
+    }
+    leader_trait = {
+        ruler
+    }
+    leader_class = {
+        ruler
+    }
+    initial = no
+    randomized = no
+}

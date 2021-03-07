@@ -1,0 +1,21 @@
+z_fw_trait_r_hok_sp_sofe_pgnt = {
+    cost = 0
+    potential_crossbreeding_chance = 0
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        DEITY
+    }
+    modifier = {
+        species_leader_exp_gain = 0.5
+        army_health = 0.25
+        army_damage_mult = 0.25
+    }
+    slave_cost = {
+        energy = 100
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

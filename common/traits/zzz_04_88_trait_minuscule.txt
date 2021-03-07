@@ -1,0 +1,24 @@
+trait_minuscule = {
+    cost = 3
+    potential_crossbreeding_chance = 1
+    initial = yes
+    modification = no
+    randomized = yes
+    opposites = {
+        "trait_gigantic"
+        "trait_solitary"
+        "trait_communal"
+        "trait_oligotroph"
+        "trait_antimetabolic"
+        "trait_apex_predator"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+    }
+    modifier = {
+        planet_pops_organics_food_upkeep_mult = -0.33
+        pop_housing_usage_mult = -0.33
+        army_health = -0.25
+    }
+}

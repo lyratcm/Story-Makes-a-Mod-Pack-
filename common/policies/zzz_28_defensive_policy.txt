@@ -1,0 +1,89 @@
+defensive_policy = {
+	potential = {	
+		has_valid_civic = civic_defensive_policies
+	}
+
+	option = {
+		name = "high"
+		
+		modifier = {
+			starbase_defense_platform_capacity_add = 6
+			starbase_defensive_war_ship_build_speed_mult = 0.60
+			starbase_shipyard_build_speed_mult = 0.15
+			planet_amenities_mult = -0.60
+			starbase_shipyard_build_cost_mult = 0.15
+			planet_pops_upkeep_mult = 0.10
+			
+		}
+		
+		valid = {
+			always = yes
+		}
+		
+		AI_weight = {
+			factor = 0
+			modifier = {
+				factor = 2
+				has_ethic = "ethic_fanatic_pacifist"
+			}
+		}
+	}
+
+	option = {
+		name = "moderate"
+		
+		modifier = {
+			starbase_defense_platform_capacity_add = 4
+			starbase_defensive_war_ship_build_speed_mult = 0.40
+			starbase_shipyard_build_speed_mult = 0.10
+			planet_amenities_mult = -0.40
+			starbase_shipyard_build_cost_mult = 0.10
+			planet_pops_upkeep_mult = 0.05
+		}
+		
+		valid = {
+			always = yes
+		}
+		
+		AI_weight = {
+			factor = 2
+		}
+	}	
+	
+	option = {
+		name = "low"
+		
+		modifier = {
+			starbase_defense_platform_capacity_add = 2
+			starbase_defensive_war_ship_build_speed_mult = 0.20
+			starbase_shipyard_build_speed_mult = 0.05
+			planet_amenities_mult = -0.20
+			starbase_shipyard_build_cost_mult = 0.05
+		}
+		
+		valid = {
+			always = yes
+		}
+		
+		AI_weight = {
+			factor = 0.5
+		}
+	}
+
+	option = {
+		name = "none"
+		
+		modifier = {
+			planet_pops_upkeep_mult = -0.05
+			pop_happiness = -0.15
+		}
+		
+		valid = {
+			is_at_war = no
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}	
+}

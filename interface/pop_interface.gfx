@@ -1,0 +1,67 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_diplomacy_status_is_charter"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_ischarter.dds"
+	}
+	spriteType = {
+		name = "GFX_diplomacy_status_is_duchy"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_isduchy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_diplomacy_status_is_scion_dominion"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_isprotectorate.dds"
+	}
+
+	spriteType = {
+		name = "GFX_diplomacy_status_is_scion_satellite"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_isprotectorate.dds"
+	}
+
+	spriteType = {
+		name = "GFX_diplomacy_status_is_scion_signatory"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_isprotectorate.dds"
+	}
+
+	spriteType = {
+		name = "GFX_diplomacy_status_is_scion_auxiliary"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_isprotectorate.dds"
+	}
+
+	spriteType = {
+		name = "GFX_wg_force_ideology_crusader"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_force_ideology.dds"
+	}
+	spriteType = {
+		name = "GFX_wg_parasite"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_wg_infestation"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_wg_infestation_vs_fe"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_wg_end_threat_infesters"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_wg_holy_mountain"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_wg_end_threat_holy_mountain"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+}

@@ -1,0 +1,74 @@
+ai_curator_insight = {
+	length = 1
+	resources = {
+		category = edicts
+		cost = {
+			trigger = { num_pops < 61 }
+			energy = 1000
+		}
+		cost = {
+			trigger = {
+				num_pops > 60
+				num_pops < 121
+			}
+			energy = 2000
+		}
+		cost = {
+			trigger = {
+				num_pops > 120
+				num_pops < 181
+			}
+			energy = 3000
+		}
+		cost = {
+			trigger = {
+				num_pops > 180
+				num_pops < 241
+			}
+			energy = 4000
+		}
+		cost = {
+			trigger = { num_pops > 240 }
+			energy = 5000
+		}
+	}
+	potential = {
+		is_ai = yes
+		is_homicidal = no
+	}
+	allow = {
+		any_relation = {
+			is_country_type = enclave
+			has_country_flag = curator_enclave_country
+			has_communications = prev
+		}
+		NOT = { has_modifier = curator_insight }
+	}
+	effect = {
+		add_modifier = {
+			modifier = curator_insight
+			days = 3600
+		}
+		random_relation = {
+			limit = {
+				is_country_type = enclave
+				has_country_flag = curator_enclave_country
+				has_communications = prev
+			}
+			add_trust = {
+				who = root
+				amount = 20
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictHighPrio
+			ROOT = {
+				resource_stockpile_compare = { resource = energy value >= 7500 }
+			}
+		}
+	}
+}

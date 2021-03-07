@@ -1,0 +1,36 @@
+war_drone_campaign = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			trigger = {
+				is_lithoid_empire = no
+			}
+			food = 500
+		}
+		cost = {
+			trigger = {
+				is_lithoid_empire = yes
+			}
+			minerals = 500
+		}
+	}
+
+	modifier = {
+		army_damage_mult = 0.15
+	}
+
+	potential = {
+		has_authority = auth_hive_mind
+		has_technology = tech_planetary_unification
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictMedPrio
+			is_at_war = yes
+		}
+	}
+}

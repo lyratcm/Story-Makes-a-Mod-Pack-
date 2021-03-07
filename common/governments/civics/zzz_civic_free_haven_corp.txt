@@ -1,0 +1,31 @@
+civic_free_haven_corp = {
+	potential = {
+		authority = {
+			OR = {
+				value = auth_corporate
+				value = auth_cooperative
+				value = auth_private
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_xenophile
+				value = ethic_xenophile
+				value = ethic_fanatic_xenophile
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_corvee_system_megacorp
+				value = civic_indentured_assets
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		pop_growth_from_immigration = 0.15
+		planet_immigration_pull_mult = 0.50
+	}
+}

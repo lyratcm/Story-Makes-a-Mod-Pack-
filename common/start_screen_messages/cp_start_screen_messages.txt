@@ -1,0 +1,14 @@
+# Toothpaste Conglomerate
+part = {
+	location = 1
+	localization = "START_SCREEN_PART_TWO_CP_TOOTHPASTE_CONGLOMERATE"
+
+	trigger = {
+		has_government = cp_gov_toothpaste_conglomerate
+		NOR = {
+			has_country_flag = custom_start_screen
+			has_origin = origin_post_apocalyptic
+			has_origin = origin_life_seeded
+		}
+	}
+}

@@ -1,0 +1,91 @@
+ap_esap_bio_cyber_psi_1 = {
+	on_enabled = {
+		custom_tooltip = ap_esap_bio_cyber_psi_1_tooltip
+		if = {
+			limit = {
+				Not = {
+					has_technology = tech_gene_tailoring
+				}
+			}		
+			add_research_option = tech_gene_tailoring
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					Not = {
+						has_technology = tech_robotic_workers
+					}
+				}
+				give_technology =  {
+					tech = tech_robotic_workers
+					message = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				Not = {
+					has_technology = tech_droid_workers
+				}
+			}		
+			add_research_option = tech_droid_workers
+		}
+		if = {
+			limit = {
+				Not = {
+					has_technology = tech_psionic_theory
+				}
+			}		
+			add_research_option = tech_psionic_theory
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_bio_cyber_psi_1_req_1"
+			Or = {
+				has_ascension_perk = ap_mind_over_matter
+				has_ascension_perk = ap_the_flesh_is_weak
+				has_ascension_perk = ap_engineered_evolution			
+			}
+		}
+		
+		custom_tooltip = {
+			fail_text = "ap_esap_bio_cyber_psi_1_req_2"
+			NOR = {
+				has_ascension_perk = ap_transcendence
+				has_ascension_perk = ap_synthetic_evolution
+				has_ascension_perk = ap_evolutionary_mastery			
+			}
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_bio_cyber_psi_1_req_3"
+			NOR = {
+				has_ascension_perk = ap_esap_bio_bonus
+				has_ascension_perk = ap_esap_cyber_bonus
+				has_ascension_perk = ap_esap_psi_bonus			
+			}
+		}
+		custom_tooltip = {
+			fail_text = "hive_mind_biological_ascension_only2"
+			NOT = { has_authority = auth_hive_mind }
+		}
+	}
+
+	modifier = {
+		modify_species_cost_mult = -0.25
+		planet_jobs_robotic_produces_mult = 0.10
+	}
+	
+	potential = {
+		host_has_dlc = "Utopia"
+		esap_has_bio_cyber_psi_1 = no
+		NOT = {
+			has_authority = "auth_machine_intelligence"
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

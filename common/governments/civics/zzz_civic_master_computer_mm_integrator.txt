@@ -1,0 +1,25 @@
+civic_master_computer_mm_integrator = {
+    description = civic_master_computer_mm_integrator_effects
+    modification = no
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+
+    possible = {
+        civics = {
+            NOR = { 
+                value = civic_master_computer_purifier
+                value = civic_master_computer_virtual_world
+                value = civic_master_computer_datavore
+            }
+        }
+    }
+
+    modifier = {
+        job_master_computer_integrator_per_pop = 0.02
+    }
+
+    random_weight = { base = 1 }
+}

@@ -1,0 +1,15 @@
+###_ÎÞ¾¡ÈºÐÇ mm	gfx misc	###########################################################################
+
+
+spriteTypes = {
+	#_Ö§¸¶±¦
+	SpriteType = {
+		name = "GFX_z_modmenu_author_1"
+		texturefile = "gfx/interface/z_modmenu/z_modmenu_author_1.dds"
+	}
+	#_wechat
+	SpriteType = {
+		name = "GFX_z_modmenu_author_2"
+		texturefile = "gfx/interface/z_modmenu/z_modmenu_author_2.dds"
+	}
+}

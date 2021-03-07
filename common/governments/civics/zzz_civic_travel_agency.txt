@@ -1,0 +1,15 @@
+civic_travel_agency = {
+    description = "civic_tooltip_travel_agency_effects"
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        planet_immigration_pull_mult = 0.30
+        pop_growth_from_immigration = 0.25
+    }
+}

@@ -1,0 +1,23 @@
+trait_slothful = {
+    cost = -2
+    potential_crossbreeding_chance = 0.5
+    icon = "gfx/interface/icons/traits/leader_traits/leader_trait_armchair_commander.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    opposites = {
+        "trait_agrarian"
+        "trait_ingenious"
+        "trait_industrious"
+        "trait_additrait_hunter_gatherers"
+    }
+    modifier = {
+        planet_jobs_food_produces_mult = -0.05
+        planet_jobs_energy_produces_mult = -0.05
+        planet_jobs_minerals_produces_mult = -0.05
+    }
+    ai_weight = {
+        weight = 0.1
+    }
+}

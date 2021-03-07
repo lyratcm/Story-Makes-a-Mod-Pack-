@@ -1,0 +1,17 @@
+origin_stellar_cornucopia = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_stellar_cornucopia.dds"
+    picture = GFX_origin_stellar_cornucopia
+    potential = {
+        always = no
+    }
+    playable = {
+    }
+    possible = {
+    }
+    description = "origin_tooltip_stellar_cornucopia_effects"
+    advanced_start = yes
+    random_weight = {
+        base = 15
+    }
+}

@@ -1,0 +1,68 @@
+namespace = ss
+
+country_event = {
+	id = ss.2
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from.species = { has_trait = trait_genetic_memory }
+	}
+	
+	immediate = {
+		from = {
+			if = {
+				limit = { 
+					species = { has_trait = trait_genetic_memory }
+					has_skill < 3
+				}
+				set_skill = 3
+			}
+			if = {
+				limit = {
+					leader_class = admiral 
+					from.species = { has_trait = trait_genetic_memory }
+				}
+				add_trait = trait_admiral_genetic_savant
+				add_ruler_trait = trait_ruler_genetic_savant
+				break = yes
+			}
+			if = {
+				limit = {
+					leader_class = general 
+					species = { has_trait = trait_genetic_memory }
+				}
+				add_trait = trait_general_genetic_savant
+				add_ruler_trait = trait_ruler_genetic_savant
+				break = yes
+			}
+			if = {
+				limit = {
+					leader_class = governor 
+					species = { has_trait = trait_genetic_memory }
+				}
+				add_trait = trait_governor_genetic_savant
+				add_ruler_trait = trait_ruler_genetic_savant
+				break = yes
+			}
+			if = {
+				limit = { 
+					leader_class = scientist 
+					species = { has_trait = trait_genetic_memory }
+				}
+				add_trait = trait_scientist_genetic_savant
+				add_ruler_trait = trait_ruler_genetic_savant
+				break = yes
+			}
+			if = {
+				limit = { 
+					leader_class = ruler 
+					species = { has_trait = trait_genetic_memory }
+				}
+				add_trait = trait_ruler_genetic_savant
+				add_ruler_trait = trait_ruler_genetic_savant
+				break = yes
+			}
+		}
+	}
+}

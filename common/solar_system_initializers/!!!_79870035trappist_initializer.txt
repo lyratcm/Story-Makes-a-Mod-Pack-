@@ -1,0 +1,81 @@
+trappist_initializer = {
+    name = "NAME_Trappist"
+    class = sc_m
+    usage = misc_system_init
+    max_instances = 1
+    spawn_chance = 9999
+    flags = {
+        sol_sector
+    }
+    planet = {
+        class = pc_m_star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = 30
+        has_ring = no
+    }
+    planet = {
+        orbit_distance = {
+            min = 20
+            max = 40
+        }
+        orbit_angle = 15
+        size = 16
+        has_ring = no
+    }
+    planet = {
+        orbit_distance = {
+            min = 15
+            max = 20
+        }
+        orbit_angle = 85
+        size = 16
+        has_ring = no
+    }
+    planet = {
+        orbit_distance = {
+            min = 20
+            max = 25
+        }
+        orbit_angle = 110
+        size = 12
+        has_ring = no
+    }
+    planet = {
+        orbit_distance = {
+            min = 25
+            max = 30
+        }
+        orbit_angle = 125
+        size = 14
+        has_ring = no
+    }
+    planet = {
+        orbit_distance = {
+            min = 30
+            max = 35
+        }
+        orbit_angle = 65
+        size = 16
+        has_ring = no
+    }
+    planet = {
+        orbit_distance = {
+            min = 35
+            max = 40
+        }
+        orbit_angle = -130
+        size = 18
+        has_ring = no
+    }
+    planet = {
+        class = "pc_frozen"
+        orbit_distance = {
+            min = 40
+            max = 50
+        }
+        orbit_angle = 245
+        size = 12
+        has_ring = no
+    }
+}

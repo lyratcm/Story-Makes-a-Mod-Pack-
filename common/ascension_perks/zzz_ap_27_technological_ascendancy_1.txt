@@ -1,0 +1,26 @@
+ap_esap_technological_ascendancy_bonus_1 = {
+	on_enabled = {
+		custom_tooltip = ap_esap_technological_ascendancy_bonus_1_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_technological_ascendancy_bonus_1_req_1"
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_technological_ascendancy_bonus_1_req_2"
+			num_rare_techs > 9
+		}
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_technological_ascendancy_bonus_1
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

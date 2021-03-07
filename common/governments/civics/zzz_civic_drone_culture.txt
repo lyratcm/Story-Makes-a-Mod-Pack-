@@ -1,0 +1,24 @@
+civic_drone_culture = {
+	description = "civic_tooltip_drone_culture_effects"
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+		origin = { value = origin_caretaker }
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_materialist
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+		civics = {
+			not = { value = civic_technocracy }
+		}
+	}
+	modifier = {
+		planet_pops_robotics_upkeep_mult = -0.05
+	}
+	random_weight = { base = 0 }
+}

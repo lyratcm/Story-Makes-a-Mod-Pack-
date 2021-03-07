@@ -1,0 +1,21 @@
+civic_warmongers = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                value = ethic_militarist
+                value = ethic_fanatic_militarist
+            }
+        }
+    }
+    random_weight = {
+        base = 7
+    }
+    modifier = {
+        ship_fire_rate_mult = 0.10
+        army_attack_damage_mult = 0.10
+        country_war_exhaustion_mult = -0.30
+    }
+}

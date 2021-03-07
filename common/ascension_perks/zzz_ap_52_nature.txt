@@ -1,0 +1,35 @@
+ap_esap_nature = {
+	on_enabled = {
+		custom_tooltip = ap_esap_nature_tooltip
+		hidden_effect = {
+			every_owned_planet = {
+				planet_event = {
+					id = esap_nature_ascendancy.1
+				}			
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_1"
+			num_ascension_perks > 0
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_nature_req_1"
+			Not = {
+				has_ascension_perk = ap_esap_mining	
+			}
+		}
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_nature
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

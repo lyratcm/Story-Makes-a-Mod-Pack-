@@ -1,0 +1,10 @@
+ethic_focused = {
+	cost = 3
+	category = "foc"
+	category_value = 0
+	use_for_pops = no
+
+	random_weight = {
+		value = 0
+	}
+}

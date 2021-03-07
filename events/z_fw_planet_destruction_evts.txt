@@ -1,0 +1,301 @@
+namespace = z_fw1_planet_destruction
+
+#_ambient_object_flag	[z_fw_fx_ambient_ongoing]
+
+###_[planet] 通用	#######################################################################################
+
+#_[planet.target star]超新星诞生
+planet_event = {
+	id = z_fw1_planet_destruction.21
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { z_is_destructible_stars = yes }	#_仅对可破坏恒星生效
+
+	immediate = {
+		z_fw_eft_star_explosion = yes
+	}
+}
+#_[planet.target star]清理轨道
+planet_event = {
+	id = z_fw1_planet_destruction.22
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		z_fw_eft_planet_annihilation = yes
+	}
+}
+#_[planet.target star.system.planet]摧毁星球---分别执行,减少单次运算量
+planet_event = {
+	id = z_fw1_planet_destruction.221
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		###_默认
+		set_ring = no
+		#_毁灭殖民地
+		if = {
+			limit = { is_colony = yes }
+			destroy_colony = yes
+			#_every_owned_pop = { kill_pop = yes }
+			#_remove_all_buildings = yes
+		}
+		#_解散观察站
+		if = {
+			limit = { has_observation_outpost = yes }
+			observation_outpost_owner = { country_event = { id = planet_destruction.1000 days = 1 } }
+		}
+		
+		###_特殊
+		# Swarm Situation Log counter
+		if = {
+			limit = {
+				exists = owner
+				owner = { is_country_type = swarm }
+			}
+			every_country = {
+				limit = { has_event_chain = "prethoryn_scourge_chain" }
+				add_event_chain_counter = {
+					event_chain = "prethoryn_scourge_chain"
+					counter = "infested_worlds"
+					amount = -1
+				}
+				add_event_chain_counter = {
+					event_chain = "prethoryn_scourge_chain"
+					counter = "infested_worlds_cleansed"
+					amount = 1
+				}
+			}
+		}
+		#_额外FX---环
+		if = {
+			limit = {
+				OR = {
+					is_planet_class = pc_ringworld_habitable_damaged
+					is_planet_class = pc_ringworld_tech_damaged
+					is_planet_class = pc_ringworld_seam_damaged
+				}
+			}
+			spawn_ringworld_cracker_effect = yes
+		}
+			
+		###_不同类型碎星evts
+		if = {#_Contingency Machine World
+			limit = {
+				is_planet_class = pc_ai
+				NOT = { has_planet_flag = machine_lair }
+			}
+			#set_planet_flag = destroyed_by_colossus
+			set_planet_flag = planet_cracked
+			planet_event = { id = crisis.2040 }
+			#_cm 肃正事件
+		}
+		else_if = {#_Contingency Final Machine World
+			limit = {
+				is_planet_class = pc_ai
+				has_planet_flag = machine_lair
+			}
+			#set_planet_flag = destroyed_by_colossus
+			set_planet_flag = planet_cracked
+			random_country = {
+				limit = { has_relic = z_fw_r_celestial_orrey }
+				save_event_target_as = final_machine_world_destroyer	#_仅适于单机
+			}
+			stop_crisis_sound = yes
+			planet_event = { id = crisis.2046 }
+			#_cm 肃正事件
+		}
+		else_if = {#_栖息地
+			limit = {
+				OR = {
+					is_planet_class = pc_habitat
+					is_planet_class = pc_habitat_shielded
+				}
+			}
+			spawn_habitat_cracker_effect = yes
+			remove_planet = yes
+		}
+		else_if = {#_环
+			limit = {
+				OR = {
+					is_planet_class = pc_ringworld_habitable
+					is_planet_class = pc_ringworld_shielded
+					is_planet_class = pc_cybrex
+					is_planet_class = pc_ringworld_tech
+					is_planet_class = pc_ringworld_seam
+					is_planet_class = pc_cybrex
+				}
+			}
+			spawn_ringworld_cracker_effect = yes
+			change_pc = pc_ringworld_habitable_damaged
+		}
+		else_if = {#_普通星球
+			limit = {
+				OR = {
+					habitable_planet = yes
+					is_planet_class = pc_gray_goo
+					is_planet_class = pc_molten
+					is_planet_class = pc_barren
+					is_planet_class = pc_barren_cold
+					is_planet_class = pc_toxic
+					is_planet_class = pc_frozen
+					is_planet_class = pc_shielded
+					is_planet_class = pc_ai
+					is_planet_class = pc_infested
+					is_planet_class = pc_shrouded
+				}
+			}
+			change_pc = pc_shattered
+			clear_deposits = yes
+			z_fw_eft_deposit_planet_menerals = yes		#_变矿
+		}
+		else_if = {#_直接清除
+			limit = {
+				NOR = {#_逐渐毁坏的行星残骸
+					is_planet_class = pc_ringworld_habitable_damaged
+					is_planet_class = pc_ringworld_tech_damaged
+					is_planet_class = pc_ringworld_seam_damaged
+					is_planet_class = pc_gas_giant
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+					is_planet_class = pc_egg_cracked
+				}
+			}
+			remove_planet = yes 
+		}
+		else = {#_逐渐破坏 3次导致完全毁灭
+			if = {
+				limit = {
+					NOR = {
+						has_planet_flag = z_fw_plent_devastation_1
+						has_planet_flag = z_fw_plent_devastation_2
+						has_planet_flag = z_fw_plent_devastation_3
+					}
+				}
+				set_planet_flag = z_fw_plent_devastation_1
+			}
+			else_if = {
+				limit = { has_planet_flag = z_fw_plent_devastation_1 }
+				remove_planet_flag = z_fw_plent_devastation_1
+				set_planet_flag = z_fw_plent_devastation_2
+			}
+			else_if = {
+				limit = { has_planet_flag = z_fw_plent_devastation_2 }
+				remove_planet_flag = z_fw_plent_devastation_2
+				set_planet_flag = z_fw_plent_devastation_3
+			}
+			else = { remove_planet = yes  }
+		}
+		#_sys_clean
+		solar_system = {
+			#_清理astroid
+			if = {
+				limit = { NOT = { any_system_planet = { is_star = no } } }
+				set_asteroid_belt = { radius = 0 }
+			}
+			#_清理plnt_flg_mega
+			z_fw_eft_sys_annihilation_debug = yes
+		}
+	}
+}
+#_[planet.target star]超新星冷却
+planet_event = {
+	id = z_fw1_planet_destruction.23
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_planet_flag = z_fw_nova_cooldown_bh_30
+			has_planet_flag = z_fw_nova_cooldown_bh_25
+			has_planet_flag = z_fw_nova_cooldown_bh_20
+			has_planet_flag = z_fw_nova_cooldown_bh_15
+			has_planet_flag = z_fw_nova_cooldown_small
+		}
+	}
+
+	immediate = {
+		z_fw_eft_nova_cooldown = yes
+	}
+}
+
+
+
+
+
+
+
+
+###_璀璨星图
+#_[planet.fx_r_co]闪电
+planet_event = {
+	id = z_fw1_planet_destruction.311
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		create_ambient_object = {#_闪电蓄力1.5s
+			type = z_fw_star_explosion_green
+			location = this
+			duration = 3
+			
+			use_3d_location = yes
+			base_angle_towards = star
+			entity_face_object = star
+			entity_offset = { min = 0 max = 0 }
+			entity_scale_to_size = yes
+			scale = 2.0
+		}
+		last_created_ambient_object = {
+			set_ambient_object_flag = z_fw_fx_ambient_ongoing
+		}
+	}
+}
+#_[planet.fx_r_co]闪光
+planet_event = {
+	id = z_fw1_planet_destruction.312
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		create_ambient_object = {
+			type = z_fw_star_explosion_green
+			location = this
+			duration = 3
+			
+			use_3d_location = yes
+			base_angle_towards = star
+			entity_face_object = star
+			entity_offset = { min = 0 max = 0 }
+			entity_scale_to_size = yes
+			scale = 2.0
+		}
+		last_created_ambient_object = {
+			set_ambient_object_flag = z_fw_fx_ambient_ongoing
+		}
+	}
+}
+#_[planet.fx_r_co]冲击波
+planet_event = {
+	id = z_fw1_planet_destruction.313
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		create_ambient_object = {
+			type = z_fw_star_explosion_green
+			location = this
+			duration = 3
+			
+			use_3d_location = yes
+			base_angle_towards = star
+			entity_face_object = star
+			entity_offset = { min = 0 max = 0 }
+			entity_scale_to_size = yes
+			scale = 2.0
+		}
+		last_created_ambient_object = {
+			set_ambient_object_flag = z_fw_fx_ambient_ongoing
+		}
+	}
+}

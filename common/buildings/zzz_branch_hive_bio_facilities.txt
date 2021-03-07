@@ -1,0 +1,40 @@
+building_hive_bio_facilities = {
+    base_buildtime = 360
+    branch_office_building = yes
+    potential = {
+        has_branch_office = yes
+        owner = {
+            has_authority = auth_hive_mind
+        }
+        branch_office_owner = {
+            is_megacorp = yes
+            is_criminal_syndicate = yes
+        }
+        NOR = {
+            is_planet_class = pc_habitat
+            is_planet_class = pc_hive
+            is_planet_class = pc_machine
+            is_planet_class = pc_city
+        }
+    }
+    planet_modifier = {
+        planet_crime_no_happiness_add = 25
+        job_livestock_drone_add = 2
+        planet_branch_offices_energy_produces_add = 10
+    }
+    resources = {
+        category = planet_branch_office_buildings
+        cost = {
+            minerals = 500
+        }
+        produces = {
+            food = 10
+        }
+        upkeep = {
+            energy = 2
+        }
+    }
+    ai_weight = {
+        weight = 1
+    }
+}

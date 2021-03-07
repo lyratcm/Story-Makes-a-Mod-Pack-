@@ -1,0 +1,305 @@
+﻿### Cuties
+### Created by Hinkledolph 10/24/2016
+
+
+CUTI = {
+	randomized = yes
+
+	ship_names = {
+
+		generic = {
+		"Silvery Spirit" "Wee Satyr" "Prancing Cat" "Olive Imp" "Little Leaf" "Little Sage" "Sly Merrymaker" "Amber Wanderer" "Pier Pressure" "In Decent Seas" "Piece of Ship" "Irish Wake" "In Deep Ship" "Exquisite Obsidian Angel" "Ruby Mermaid" "Laughing Virtuoso" "Lilac Drifter" "Late Siren" "Joyous" "Eggs-ta-Sea" "Life of the Party" "Woods Dweller" "Sanguine Cat" "Lithe Imp" "Ebon Leaf" "Sage Advice" "Sly Citrine" "Dock Holiday" "Pretty Ebony Satyr" "Elegant Angel" "What's Up Dock?" "Cool Morning" "Burgundy Stray" "Obsidian Angel" "Sir Docks-a-lot" "Laughing Barkeep" "Lilac Drifter" "Lithe Siren" "Merry" "Wee Magenta Rover" "Intrepid Tawny Stalk" "Tawny Fox" "Waltzing Petal" "Bucking Pegasus" "Ethereal Shepherd" "Little Canary" "Airy Imp" "Swinging Munchkin" "Citrine Siren" "Silvery Kitten" "Citrine Genie" "Sly Djinn" "Jinxing Gypsy" "Azure Fox" "Long Day" "Is It Friday?" "Cosmic Explorer" "Skipping Comet" "Grey Reveler" "Magenta Pixie" "Bright Vine" "Glowing Shepherd" "Plan B" "Do I Have To?" "Space Cowboy" "Amber Voyager" "Gleeful Acrobat" "Burgundy Flower" "Wee Sapling" "Glow Worm" "Airy Acrobat" "Magenta Singer" "Luckless Leprechaun" "Nimble Acrobat" "Citrine Elf" "Dreaming Tree" "Plan C" "Glittering Star" "Rainbow's End" "Pleasant Dream" "Red Reveler" "Peach Angel" "Secret Munchkin" "Slinking Stray" "Delicate Vine" "Who's Counting?" "I'm Counting" "Speaks Softly" "Quiet Encouragement" "Maroon Petal" "Fresh Garden" "Grinning Wayfarer" "Bright Stalk" "Growing Vine" "Hopeful Pegasus" "Sapphire Fox" "Wobbling Moth" "Swaying Frond" "Skipping Stream" "Rippling Sanguine" "Amber Tree" "Guardian Angel" "Shining Moon" "Check the Tides" "Ethereal Fairy" "Fae Spirit" "Ebon Rambler" "Fuchsia Cat" "Azure Firefly" "Frolicking Rambler" "Bittersweet Dancer" "Plum Frond" "Red Bard" "Blithe Fairy" "Little Blonde Bard" "Argent Virtuoso" "Lime Star" "Russet Elf" "Cobalt Wayfarer" "Spirit of Joy" "Gold Drifter" "Blue Genie" "Shining Amber Siren" "East Star" "Silvery Moth" "Glittering Voyager" "Scarlet Dress" "Yellow Moth" "Black Dress" "Spilled Milk" "Idle Thought" "Run the Numbers" "I Ran the Numbers" "Lilac Tree" "Exquisite Acrobat" "Swollen Stream" "Flaming Virtuoso" "Gold Djinn" "Skipping Singer" "Hopeful Peach" "Intrepid Genie" "Budding Rose Petal" "Curious Dream" "Fickle Fates" "Idle Wild" "Flippant" "Fancy Free" "Curious" "Fae" "Warp Skipper" "Rim Runner" "Stray Cloud" "Almost Ready" "Party Pooper" "Gate Crasher" "Little Dancer" "Sleeping Guardian" "Secret Life" "Hidden Worlds" "Way Changer" "Skylarker" "Tomfoolery" "Time Bandit" "Indian Summer" "Solstice" "Celebrant" "Falling Leaf" "Watchful Frog" "Magic Mushroom" "Touch of Grey" "Truckin'" "Friend of the Devil" "Ripple" "Box of Rain" "Estimated Prophet" "Sugar Magnolia" "Morning Dew" "Fire on the Mountain" "Stella Blue" "Ramble on Rose" "Easy Wind" "Dark Star" "Stairway to Heaven" "Kashmir" "Whole Lotta Love" "Dazed and Confused" "High Times" "Ramble On" "Good Times" "Bad Times" "Light My Fire" "Riders of the Storm" "People Are Strange" "Hello, I Love You" "Changeling" "Peace Frog" "Ghost Song" "Imagine" "Here Comes the Sun" "Heart of Gold" "Wild World" "Feeling Groovy" "Wind Cries" "White Rabbit" "Crimson n Clover" "I'm Free" "Space Oddity" "Instant Karma" "Fortunate Son" "Good Vibrations" "Born to be Wild" "Care Bear Alert" "Friendship is Magic" "Galactic Lens" "Damaged By The Girl" "A Bao A Qu" "Abada" "Abaia" "Abbagoochie" "Abath" "Abere" "Abgal" "Achiyalabopa" "Achlis" "Actaeon" "Adar Llwch Gwin" "Adaro" "Adjule" "Adlet" "Addonexus" "Aegir" "Aello" "Aenotherus" "Aesir" "Afanc" "Afreet" "Agloolik" "Agta Kapre" "Agrippa" "Agrius" "Ahi" "Ahuizhotl" "Ai Toyon" "Aicha Kandicha" "Airavata" "Akamataa" "Akhlut" "Akki" "Akupara" "Albastor" "Alcetaur" "Alchendic" "Alcyoneus" "Alecto" "Alicanto" "Aliens" "Alifanfaron" "Alkonost" "Almas" "Aloadae" "Aloes" "Alous" "Alphito" "Alphyn" "Alsvid" "Amal" "Amarok" "Ambize" "Amduscias" "Amermait" "Amhuluk" "A-mi-kuk" "Amphithere" "Amphisbaena" "Anakim" "Anaskelades" "Anaye" "Ancient One" "Ancient Serpent" "Androsphinx" "Angboda" "Angel" "Angka" "Angont" "Ankou" "Aniwye" "Anjana" "Anjing Ajak" "Antaeus" "Antero Vipunen" "Anthropophagus" "Antigonus" "Antiphates" "Antukai" "Aonbarr" "Aos" "Si" "Apalala" "Apep" "Apis" "Apotamkin" "Apotharni" "Aranda" "Arassas" "Araxa" "Araxa Junior" "Arctophonos" "Arepyiai" "Arges" "Argopelter" "Argus" "Aries" "Arimaspi" "Arimbi" "Arion" "Arrach" "Arrak" "Arusha" "Arzshenk" "Ascapard" "Asena" "Ashuaps" "Asin" "Asipatra" "Aspidochelone" "Aspis" "Asrai" "Asterion" "Astreus" "Astrid" "Astrope" "Aswang" "Atcen" "Athach" "Atlas" "Audumla" "Aufhocker" "Augerino" "Aunyaina" "Auvekoejak" "Aswang" "Axehandle Hound" "Axex" "Ayida-Weddo" "Azeman" "Azi Dahaka" "Azrail" "Baba Yaga" "Backoo" "Bahamut" "Bai Ze" "Bakunawa" "Balam" "Banshee" "Barbegazi" "Bardi" "Bar Juchne" "Bartimaeus" "Basilisk" "Bastet" "Batsu" "Baykok" "Behemoth" "Beldan" "Bergkonge" "Berserker" "Bigfoot" "Black Dog" "Local Variant" "Blemmyae" "Blob" "Blurrs" "Boggart" "Bogie" "Bonnacon" "Bray Road Beast" "Brownie" "Broxa" "Buraq" "Bysen" "Bake-kujira" "Cacus" "Calygreyhound" "Calydonian Boar" "Campacti" "Canaima" "Cana" "Hound" "Capricorn" "Catoblepas" "Centaur" "Centycore" "Cercopes" "Cerberus" "Changeling" "Chaneque" "Charybdis" "Chenoo" "Cherubim" "Charybdis" "Chimaera" "Chindi" "Chinthe" "Chitauli" "Chupacabra" "Ciguapa" "Cipactli" "Cluricaun" "Cretan" "Bull" "Cruxim" "Coblynau" "Cockatrice" "Coelacanth" "Corpse Candle" "Cosmic Dragon" "Cyclops" "Cynogriffon" "Daeva" "Death's-Head Hawkmoth" "Dementor" "Demon" "Devalpa" "Dhamphir" "Dip" "Djinn" "Dobhar-chu" "Doppelgänger" "Dragon" "Ajatar" "Akhekhu" "Four Dragon Kings" "Balaur" "Bolla" "Cuélebre" "Dilong" "Drac" "Druk" "Elux" "Lucis" "Feathered Serpent" "Firedrake" "Fucanglong" "Gaasyendietha" "Gargouille" "Haietlik" "Halowx" "Imugi" "Jaculus" "Jiaolong" "Knucker" "Kulshedra" "Lindworm" "Mizuchi" "Niclumos" "Odelete" "Panlong" "Peluda" "Pi yao" "Pyrausta" "Python" "Qiling" "Rainbow Serpent" "Rồng" "Ryū" "Sea Weyvern" "Shenlong" "Sirrush" "Tarasque" "Tianlong" "Yinglong" "Drekavac" "Dryad" "Dullahan" "Dwarf" "Dybbuk" "Echidna" "Elder" "Elemental" "Air Elemental" "Water Elemental" "Fire Elememtal" "Earth Elemental" "Ellén Trechend" "Drow" "Hugtandalfers" "Night Elves" "Rumpelstiltskin" "Eli" "Unseelie Court" "Seelie Court" "Father Time" "Fearsome Critter" "Fei Lian" "Fenghuang" "Fenris" "Finfolk" "Flying Fox" "Four Horsemen" "Frankenstein's Plan" "Furies" "Gamera" "Gargoyle" "Garuda" "Gashadokuro" "Genie" "Ghidorah" "Ghost" "Ghoul" "Giant" "Gnome" "Goatman" "Goblin" "Godzilla" "Gorgon" "Gog and Magog" "Golem" "Grant" "Gremlin" "Grendel" "Griffin" "Grim" "Reaper" "Grindylow" "Grither" "Gugalanna" "Hadhayosh" "Haetae" "Harpy" "Haunt" "Headless Horseman" "Hekatonkheires" "Hell Hound" "Hibagon" "Hippalektryon" "Hippogriff" "Hobbit" "Hoga" "Hsigo" "Huldra" "Humbaba" "Hydra" "Ibong Adarna" "Imoogi" "Itcuintlipotzotli" "Imps" "Jabberwock" "Jan" "Jersey Devil" "Jian" "Jiang Shi" "Jingwei" "Jormungand" "Jotnar" "Jumpity-Jim" "Kalanoro" "Kampe" "Kangalo" "Kappa" "Kelpie" "Keythong" "Kirin" "Kirttimukha" "Kitsune" "Knocker" "Kraken" "Krusnik" "Ladon" "Lamassu" "Lamia" "Lectoblix" "Leprechaun" "Leshy" "Leviathan" "Lich" "Lilith" "Lilim" "Loch Ness Monster" "Lorelei" "Loup Garou" "Loveland Frog" "Lucifer" "Lyssa" "Magnathorax" "Mahisha" "Makara" "Mammon" "Manananggal" "Manticore" "Medusa" "Megalodon" "Menehune" "Merfolk" "Mermaid" "Merrow" "Messorem Doloris" "Minotaur" "Mishipeshu" "Mngwa" "Mongolian Death Worm" "Montauk Monster" "Mother Nature" "Mothra" "Mummy" "Naga" "Nagual" "Naiad" "Narasimha" "Narcoblix" "N-dam-keno-wet" "Neko" "Nephilim" "Nine-headed Bird" "Ningyo" "Nightmare" "Puken" "Nuckelavee" "Nymph" "Ogre" "Oni" "Opinicus" "Oracle" "Orfeo Shifter" "Otherkin" "Ouroboros" "Pegasus" "Peng" "Peryton" "Phoenix" "Phooka" "Pixie" "Poltergeist" "Puck" "Qitou" "Quanlier" "Quetzalcoatl" "Quotote" "Ratman of Southend" "Raven" "Ravenmocker" "Reaper" "Redcap" "Draig Coch" "Roc" "Rodan" "Rods" "Rui Shi" "Sandman" "Saci" "Satyr" "Sceadugenga" "Scylla" "Sea Serpent" "Seers" "Selkie" "Sennin" "Seraphim" "Seveocha" "Shadow People" "Shishi" "Salamander" "Sigbin" "Simurgh" "Siren" "Skinwalker" "Slender Man" "Sphinx" "Springheeled Jack" "Striga" "Succubus" "Sylph" "Syragh" "Taniwha" "Tarasque" "Tengu" "Tetramorph" "Thestral" "Thunderbird" "Tiamat" "Tikbalang" "Tikoloshe" "Titan" "Tiyanak" "Tlatecuhtli" "Treefolk" "Apple Tree" "Ent" "Green Man" "Willow" "Trunko" "Typhon" "Undine" "Valkyrie" "Vampire" "Strigoii" "Vritra" "Water Leaper" "Wendigo" "Werewolf" "Western Dragon" "White Eyes" "Will 'o' Wisp" "Wraith" "Wyvern" "Xolotl" "Yanluo" "Yeti" "Yggdrasil" "Yokai" "Kamaitachi" "Kitsune" "Tsukumogami" "Yowie" "Yurei" "Zaratan" "Zhulong" "Ziz" "Zombie" 
+		}
+
+		corvette = {
+		"Red Rider" "Smurfie" "Pixie Dust" "Twiddle" "Time Snatcher" "Idle Hands" "Laundry Goblin" "Lotus Pond" "Astral Plane" "Cauldron" "Chaplet" "Beltane" "Yule" "Duality" "Grove Tender" "Pentacle" "Rede" "Mystery" "Joy Torrent" "Rainbow Brigade" "Winter Blues" "Ruse" "Bravado" "Ruffian" "Layabout" "Voodoo Curse" "Bayou Charm" "Almost New" "Gently Used" "One Owner" "Dunce" "Gaggle" "Whose Driving" "I'm With Stupid" "Carrot Top" "Shy Smile" "Blush" "Upcycled" "Paradigm Shift" "Outside the Box" "Kicked Upstairs" "Sick Day" "Playing Hooky" "Accountabilabuddy" "Nonpology" "Weird Slang" "Lingo" "Pitter" "Patter" "Pidgin" "Deviant" "Red Rock" "Raw Toast" "Donut Hole" "Sand Castle" "Crystal Palace" "Wizard of Odds" "Lucky Theory" "Hoodoo Woman" "It's Complicated" "No, It's Easy" "Bedhead" "Bad Hair Day" "Makeup Addict" "Klutz" 
+		}
+
+		constructor = {
+		"Party Planner" "Can We Fix It?" "Yes We Can!" "Bright Idea" "Busy Body" "Big Plans" "Gracious Tradesman" "Cheerful Baker" "Dawn Riser" "Early Day" "Dusk Setter" "Long Day" "Restful Night" 
+		}
+
+		colonizer = {
+		"Party Barge" "Cool Breeze" "Playful Current" "Holiday" "New Beginnings" "Optimist" "Approach of Autumn" "Gentle Rain" "Spring Blossom" 
+		}
+
+		science = {
+		"High Tea" "Tea For Two" "Tea Time" "Tea Party" "Darker Tea" "Nothing But Tea" "Warm Tea" "Sweet Tea" "Music of Tea" "Relaxing Tea" "Mellow Tea" "Mushroom Tea" 
+		}
+
+		destroyer = {
+		"Over There" "Sneaky" "Trumpet" "Kazoo" "Mushroom" "Toadstool" "Vale" "Pixie" "Goblin" "Brownie" "Imp" "Bogie" "Gnome" "Elf" "Sprite" "Sylph" "Fay" "Nisse" "Turnip" "Butterscotch" "Caramel" "Fondue" "Well Aged" "Astrologist" "Besom" "Crone" "Bodice Ripper" "Petticoat Bandit" "Gingersnap" "Diplomatic Blitz" 
+		}
+
+		cruiser = {
+		"Aphrodisiac" "Alchemy" "Arcana" "Hidden Eye" "Akashic Record" "Coven" "Thirteen" "Green Man" "Skyclad" "Summerland" "Threefold Law" "Warlock" "Tarologist" "Skeptic" "Feral" "Philosopher's Stone" "Transmute" "Alloy of Joy" 
+		}
+
+		battleship = {
+		"Troll" "Whim" "Bonfire" "Solstice" "Revel" "Ascent" "Mana" "Hidden Path" "Interrupted" "Left Hand Path" "Grey Magic" "Shadow Play" "Portal" "Rift Flinger" "Jinx" "Tricky" "Witch" "Ankh" "Megalith" "Myth" "Bad Habits" "Morganna" 
+		}
+
+		titan = {
+		"Bolo" "Loup Garou" "History Observer" "Shepherd Of Universes" "Majestic Nourisher" 
+		}
+
+		colossus = {
+		
+		}
+
+		transport = {
+		
+		}
+
+		military_station_small = {
+		
+		}
+
+		ion_cannon = {
+		"Dread Queen" 
+		}
+
+	}
+
+	ship_class_names = {
+		generic = {
+		"Silvery Spirit" "Wee Satyr" "Prancing Cat" "Olive Imp" "Little Leaf" "Little Sage" "Sly Merrymaker" "Amber Wanderer" "Pier Pressure" "In Decent Seas" "Piece of Ship" "Irish Wake" "In Deep Ship" "Exquisite Obsidian Angel" "Ruby Mermaid" "Laughing Virtuoso" "Lilac Drifter" "Late Siren" "Joyous" "Eggs-ta-Sea" "Life of the Party" "Woods Dweller" "Sanguine Cat" "Lithe Imp" "Ebon Leaf" "Sage Advice" "Sly Citrine" "Dock Holiday" "Pretty Ebony Satyr" "Elegant Angel" "What's Up Dock?" "Cool Morning" "Burgundy Stray" "Obsidian Angel" "Sir Docks-a-lot" "Laughing Barkeep" "Lilac Drifter" "Lithe Siren" "Merry" "Wee Magenta Rover" "Intrepid Tawny Stalk" "Tawny Fox" "Waltzing Petal" "Bucking Pegasus" "Ethereal Shepherd" "Little Canary" "Airy Imp" "Swinging Munchkin" "Citrine Siren" "Silvery Kitten" "Citrine Genie" "Sly Djinn" "Jinxing Gypsy" "Azure Fox" "Long Day" "Is It Friday?" "Cosmic Explorer" "Skipping Comet" "Grey Reveler" "Magenta Pixie" "Bright Vine" "Glowing Shepherd" "Plan B" "Do I Have To?" "Space Cowboy" "Amber Voyager" "Gleeful Acrobat" "Burgundy Flower" "Wee Sapling" "Glow Worm" "Airy Acrobat" "Magenta Singer" "Luckless Leprechaun" "Nimble Acrobat" "Citrine Elf" "Dreaming Tree" "Plan C" "Glittering Star" "Rainbow's End" "Pleasant Dream" "Red Reveler" "Peach Angel" "Secret Munchkin" "Slinking Stray" "Delicate Vine" "Who's Counting?" "I'm Counting" "Speaks Softly" "Quiet Encouragement" "Maroon Petal" "Fresh Garden" "Grinning Wayfarer" "Bright Stalk" "Growing Vine" "Hopeful Pegasus" "Sapphire Fox" "Wobbling Moth" "Swaying Frond" "Skipping Stream" "Rippling Sanguine" "Amber Tree" "Guardian Angel" "Shining Moon" "Check the Tides" "Ethereal Fairy" "Fae Spirit" "Ebon Rambler" "Fuchsia Cat" "Azure Firefly" "Frolicking Rambler" "Bittersweet Dancer" "Plum Frond" "Red Bard" "Blithe Fairy" "Little Blonde Bard" "Argent Virtuoso" "Lime Star" "Russet Elf" "Cobalt Wayfarer" "Spirit of Joy" "Gold Drifter" "Blue Genie" "Shining Amber Siren" "East Star" "Silvery Moth" "Glittering Voyager" "Scarlet Dress" "Yellow Moth" "Black Dress" "Spilled Milk" "Idle Thought" "Run the Numbers" "I Ran the Numbers" "Lilac Tree" "Exquisite Acrobat" "Swollen Stream" "Flaming Virtuoso" "Gold Djinn" "Skipping Singer" "Hopeful Peach" "Intrepid Genie" "Budding Rose Petal" "Curious Dream" "Fickle Fates" "Idle Wild" "Flippant" "Fancy Free" "Curious" "Fae" "Warp Skipper" "Rim Runner" "Stray Cloud" "Almost Ready" "Party Pooper" "Gate Crasher" "Little Dancer" "Sleeping Guardian" "Secret Life" "Hidden Worlds" "Way Changer" "Skylarker" "Tomfoolery" "Time Bandit" "Indian Summer" "Solstice" "Celebrant" "Falling Leaf" "Watchful Frog" "Magic Mushroom" "Touch of Grey" "Truckin'" "Friend of the Devil" "Ripple" "Box of Rain" "Estimated Prophet" "Sugar Magnolia" "Morning Dew" "Fire on the Mountain" "Stella Blue" "Ramble on Rose" "Easy Wind" "Dark Star" "Stairway to Heaven" "Kashmir" "Whole Lotta Love" "Dazed and Confused" "High Times" "Ramble On" "Good Times" "Bad Times" "Light My Fire" "Riders of the Storm" "People Are Strange" "Hello, I Love You" "Changeling" "Peace Frog" "Ghost Song" "Imagine" "Here Comes the Sun" "Heart of Gold" "Wild World" "Feeling Groovy" "Wind Cries" "White Rabbit" "Crimson n Clover" "I'm Free" "Space Oddity" "Instant Karma" "Fortunate Son" "Good Vibrations" "Born to be Wild" "Care Bear Alert" "Friendship is Magic" "Galactic Lens" "Damaged By The Girl" "A Bao A Qu" "Abada" "Abaia" "Abbagoochie" "Abath" "Abere" "Abgal" "Achiyalabopa" "Achlis" "Actaeon" "Adar Llwch Gwin" "Adaro" "Adjule" "Adlet" "Addonexus" "Aegir" "Aello" "Aenotherus" "Aesir" "Afanc" "Afreet" "Agloolik" "Agta Kapre" "Agrippa" "Agrius" "Ahi" "Ahuizhotl" "Ai Toyon" "Aicha Kandicha" "Airavata" "Akamataa" "Akhlut" "Akki" "Akupara" "Albastor" "Alcetaur" "Alchendic" "Alcyoneus" "Alecto" "Alicanto" "Aliens" "Alifanfaron" "Alkonost" "Almas" "Aloadae" "Aloes" "Alous" "Alphito" "Alphyn" "Alsvid" "Amal" "Amarok" "Ambize" "Amduscias" "Amermait" "Amhuluk" "A-mi-kuk" "Amphithere" "Amphisbaena" "Anakim" "Anaskelades" "Anaye" "Ancient One" "Ancient Serpent" "Androsphinx" "Angboda" "Angel" "Angka" "Angont" "Ankou" "Aniwye" "Anjana" "Anjing Ajak" "Antaeus" "Antero Vipunen" "Anthropophagus" "Antigonus" "Antiphates" "Antukai" "Aonbarr" "Aos" "Si" "Apalala" "Apep" "Apis" "Apotamkin" "Apotharni" "Aranda" "Arassas" "Araxa" "Araxa Junior" "Arctophonos" "Arepyiai" "Arges" "Argopelter" "Argus" "Aries" "Arimaspi" "Arimbi" "Arion" "Arrach" "Arrak" "Arusha" "Arzshenk" "Ascapard" "Asena" "Ashuaps" "Asin" "Asipatra" "Aspidochelone" "Aspis" "Asrai" "Asterion" "Astreus" "Astrid" "Astrope" "Aswang" "Atcen" "Athach" "Atlas" "Audumla" "Aufhocker" "Augerino" "Aunyaina" "Auvekoejak" "Aswang" "Axehandle Hound" "Axex" "Ayida-Weddo" "Azeman" "Azi Dahaka" "Azrail" "Baba Yaga" "Backoo" "Bahamut" "Bai Ze" "Bakunawa" "Balam" "Banshee" "Barbegazi" "Bardi" "Bar Juchne" "Bartimaeus" "Basilisk" "Bastet" "Batsu" "Baykok" "Behemoth" "Beldan" "Bergkonge" "Berserker" "Bigfoot" "Black Dog" "Local Variant" "Blemmyae" "Blob" "Blurrs" "Boggart" "Bogie" "Bonnacon" "Bray Road Beast" "Brownie" "Broxa" "Buraq" "Bysen" "Bake-kujira" "Cacus" "Calygreyhound" "Calydonian Boar" "Campacti" "Canaima" "Cana" "Hound" "Capricorn" "Catoblepas" "Centaur" "Centycore" "Cercopes" "Cerberus" "Changeling" "Chaneque" "Charybdis" "Chenoo" "Cherubim" "Charybdis" "Chimaera" "Chindi" "Chinthe" "Chitauli" "Chupacabra" "Ciguapa" "Cipactli" "Cluricaun" "Cretan" "Bull" "Cruxim" "Coblynau" "Cockatrice" "Coelacanth" "Corpse Candle" "Cosmic Dragon" "Cyclops" "Cynogriffon" "Daeva" "Death's-Head Hawkmoth" "Dementor" "Demon" "Devalpa" "Dhamphir" "Dip" "Djinn" "Dobhar-chu" "Doppelgänger" "Dragon" "Ajatar" "Akhekhu" "Four Dragon Kings" "Balaur" "Bolla" "Cuélebre" "Dilong" "Drac" "Druk" "Elux" "Lucis" "Feathered Serpent" "Firedrake" "Fucanglong" "Gaasyendietha" "Gargouille" "Haietlik" "Halowx" "Imugi" "Jaculus" "Jiaolong" "Knucker" "Kulshedra" "Lindworm" "Mizuchi" "Niclumos" "Odelete" "Panlong" "Peluda" "Pi yao" "Pyrausta" "Python" "Qiling" "Rainbow Serpent" "Rồng" "Ryū" "Sea Weyvern" "Shenlong" "Sirrush" "Tarasque" "Tianlong" "Yinglong" "Drekavac" "Dryad" "Dullahan" "Dwarf" "Dybbuk" "Echidna" "Elder" "Elemental" "Air Elemental" "Water Elemental" "Fire Elememtal" "Earth Elemental" "Ellén Trechend" "Drow" "Hugtandalfers" "Night Elves" "Rumpelstiltskin" "Eli" "Unseelie Court" "Seelie Court" "Father Time" "Fearsome Critter" "Fei Lian" "Fenghuang" "Fenris" "Finfolk" "Flying Fox" "Four Horsemen" "Frankenstein's Plan" "Furies" "Gamera" "Gargoyle" "Garuda" "Gashadokuro" "Genie" "Ghidorah" "Ghost" "Ghoul" "Giant" "Gnome" "Goatman" "Goblin" "Godzilla" "Gorgon" "Gog and Magog" "Golem" "Grant" "Gremlin" "Grendel" "Griffin" "Grim" "Reaper" "Grindylow" "Grither" "Gugalanna" "Hadhayosh" "Haetae" "Harpy" "Haunt" "Headless Horseman" "Hekatonkheires" "Hell Hound" "Hibagon" "Hippalektryon" "Hippogriff" "Hobbit" "Hoga" "Hsigo" "Huldra" "Humbaba" "Hydra" "Ibong Adarna" "Imoogi" "Itcuintlipotzotli" "Imps" "Jabberwock" "Jan" "Jersey Devil" "Jian" "Jiang Shi" "Jingwei" "Jormungand" "Jotnar" "Jumpity-Jim" "Kalanoro" "Kampe" "Kangalo" "Kappa" "Kelpie" "Keythong" "Kirin" "Kirttimukha" "Kitsune" "Knocker" "Kraken" "Krusnik" "Ladon" "Lamassu" "Lamia" "Lectoblix" "Leprechaun" "Leshy" "Leviathan" "Lich" "Lilith" "Lilim" "Loch Ness Monster" "Lorelei" "Loup Garou" "Loveland Frog" "Lucifer" "Lyssa" "Magnathorax" "Mahisha" "Makara" "Mammon" "Manananggal" "Manticore" "Medusa" "Megalodon" "Menehune" "Merfolk" "Mermaid" "Merrow" "Messorem Doloris" "Minotaur" "Mishipeshu" "Mngwa" "Mongolian Death Worm" "Montauk Monster" "Mother Nature" "Mothra" "Mummy" "Naga" "Nagual" "Naiad" "Narasimha" "Narcoblix" "N-dam-keno-wet" "Neko" "Nephilim" "Nine-headed Bird" "Ningyo" "Nightmare" "Puken" "Nuckelavee" "Nymph" "Ogre" "Oni" "Opinicus" "Oracle" "Orfeo Shifter" "Otherkin" "Ouroboros" "Pegasus" "Peng" "Peryton" "Phoenix" "Phooka" "Pixie" "Poltergeist" "Puck" "Qitou" "Quanlier" "Quetzalcoatl" "Quotote" "Ratman of Southend" "Raven" "Ravenmocker" "Reaper" "Redcap" "Draig Coch" "Roc" "Rodan" "Rods" "Rui Shi" "Sandman" "Saci" "Satyr" "Sceadugenga" "Scylla" "Sea Serpent" "Seers" "Selkie" "Sennin" "Seraphim" "Seveocha" "Shadow People" "Shishi" "Salamander" "Sigbin" "Simurgh" "Siren" "Skinwalker" "Slender Man" "Sphinx" "Springheeled Jack" "Striga" "Succubus" "Sylph" "Syragh" "Taniwha" "Tarasque" "Tengu" "Tetramorph" "Thestral" "Thunderbird" "Tiamat" "Tikbalang" "Tikoloshe" "Titan" "Tiyanak" "Tlatecuhtli" "Treefolk" "Apple Tree" "Ent" "Green Man" "Willow" "Trunko" "Typhon" "Undine" "Valkyrie" "Vampire" "Strigoii" "Vritra" "Water Leaper" "Wendigo" "Werewolf" "Western Dragon" "White Eyes" "Will 'o' Wisp" "Wraith" "Wyvern" "Xolotl" "Yanluo" "Yeti" "Yggdrasil" "Yokai" "Kamaitachi" "Kitsune" "Tsukumogami" "Yowie" "Yurei" "Zaratan" "Zhulong" "Ziz" "Zombie" 
+		}
+
+	}
+
+		fleet_names = {
+			random_names = {
+				"Cosmic Trekkers" "Merry Band" "Gentle Stars" "Silver Hounds" "Prime Embers" "Golden Ancestors" "The Bright Hunt" "Fae Wanderers" }
+			sequential_name = "%O% Rainbow Children"
+		}
+
+	army_names = {
+		defense_army = {
+			random_names = {
+				 }
+			sequential_name = "%O% Commune Police"
+		}
+
+		assault_army = {
+			random_names = {
+				}
+			sequential_name = "%O% Groovy Dudes"
+		}
+
+		slave_army = {
+			random_names = {
+				}
+			sequential_name = "%O% Masochists"
+		}
+
+		clone_army = {
+			random_names = {
+				}
+			sequential_name = "%O% Carbon Copies"
+		}
+
+		robotic_army = {
+			random_names = {
+				}
+			sequential_name = "%O% Party Bots"
+		}
+
+		robotic_defense_army = {
+			random_names = {
+				}
+			sequential_name = "%O% "
+		}
+
+		android_army = {
+			random_names = {
+				}
+			sequential_name = "%O% Digital Dudes"
+		}
+
+		android_defense_army = {
+			random_names = {
+				}
+			sequential_name = "%O% "
+		}
+
+		psionic_army = {
+			random_names = {
+				}
+			sequential_name = "%O% Shamans"
+		}
+
+		xenomorph_army = {
+			random_names = {
+				}
+			sequential_name = "%O% Care Bears"
+		}
+
+		gene_warrior_army = {
+			random_names = {
+				}
+			sequential_name = "%O% War Pigs"
+		}
+
+	}	
+
+	planet_names = {
+		generic = {
+			names = {
+				"Woodstock" "Evergreen" "Deepness" "Big Sky" "Serenity" "Placid" "Hope" "Meadow" "Harmony" "Accord" "Unity" "Amity" "Tranquility" "The Reserve" "Kin" "Rapport" "Celebration" "Carousal" "Gala" "Soiree" "Fete" "Paix" "Serein" "Deep Wood" "Chanson" "Epique" "Reina" "Comtesse" "Marquis" "Fey" "Sidhe" "Mag Mell" "Emain Ablach" "Tir na Nog" "Gawain" "Grandeur" "Discordia" "Eris" "Sri Syadasti" "Ahimsa" "Ashram" "Asuddha" "Bharata" "Chanchala" "Dvaita" "Gita" "Hrit" "Jagat" "Atlantis" "Asgard" "Alfhein" "Arcadia" "Avalon" "Axis Mundi" "Baltia" "Brittia" "Brasil" "Camelot" "Dinas Affaraon" "Dorado" "Elysian Fields" "Gorias" "Finias" "Murias" "Falia" "Hawaiki" "Hyperborea" "Irkalla" "Jotunheim" "Kolon" "Kvenland" "Lyonesse" "Nero" "Meropis" "Lictlan" "Olympus" "Penglai" "Muspelheim" "Niflheim" "Nifhel" "Norumbega" "Nysa" "Pandemonium" "Quivira" "Cibola" "Scholomance" "Shambhala" "Shangri-La" "Suddene" "Summerland" "Svartálfaheimr" "Tartarus" "Thule" "Yomi" "Zion" "Everafter" "The Vale" "Clearwater" "Cumberland" "Winterbrooke" "Willow" 
+			}
+		}
+
+		pc_arid = {
+			names = {
+				
+			}
+		}
+
+		pc_desert = {
+			names = {
+				
+			}
+		}
+
+		pc_savanna = {
+			names = {
+				
+			}
+		}
+
+		pc_alpine = {
+			names = {
+				
+			}
+		}
+
+		pc_arctic = {
+			names = {
+				
+			}
+		}
+
+		pc_tundra = {
+			names = {
+				
+			}
+		}
+
+		pc_continental = {
+			names = {
+				
+			}
+		}
+
+		pc_ocean = {
+			names = {
+				
+			}
+		}
+
+		pc_tropical = {
+			names = {
+				
+			}
+		}
+
+		pc_gaia = {
+			names = {
+				"The Promise" "Eternal Spring" "Sanctuary" "Widdershins"   
+			}
+		}
+
+		pc_nuked = {
+			names = {
+				"Regret" "The Warning" "Aberration" "Chance" 
+			}
+		}
+
+	}
+
+	character_names = {
+
+		names1 = {
+			weight = 70
+		full_names = {
+		
+		}
+
+		first_names = {
+		"Foxglove" "Avo" "Pine" "Timber" "Tiny" "Florian" "Snowflake" "Stargazer" "Fern" "Flax" "Gullie" "River" "Nutmeg" "Basil" "Mango" "Almond" "Sprinkles" "Saffron" "Stardust" "Petal" "Feather" "Sage" "Comet" "Ember" "Olive" "Honeyblossom" "Strawberry" "Corona" "Sneezy" "Wind" "Yule" "Trinket" "Button" "Frosty" "Soaring" "Malaclypse" "Galahad" "Loki" "Blathnat" "Shade" "Morel" "Florian" "August" "Pegasus" "Zen" "Skylar" "Orion" "Bilbo" "Frodo" "Lennon" "North" "Astro" "Cosmo" "Lucky" "Nelly" "Bling" "Elm" "Pudding" "Topper" "Johanna" "Dahlia" "Faye" "Nature" "Buttercup" "Floura" "Candala" "Rhonda" "Scorpia" "Luna" "Lyric" "Tuesday" "Feather" "Melody" "Sugar" "Harley" "Karma" "Tansy" "Glory" "Faith" "Stripes" "Kippy" "Autumn" 
+		}
+
+		first_names_male = {
+		
+		}
+
+		first_names_female = {
+		
+		}
+
+		second_names = {
+		"Toadbutter" "Moonbeam" "Starchild" "Daydance" "Jumpypearl" "Beautyhill" "Aspengrove" "Toadwink" "Eveningstem" "Swiftbee" "Glitterboots" "Snowsky" "Tuplipfleck" "Copperlilly" "Bramblebug" "Funnyspring" "Silversky" "Lovegood" "Ocean" "Secret" "Rosebud" "Leary" "Sunstar" "Sunflower" "Applebaum" "Cutewish" "Jellybloom" "Sugarmist" "Pumpkin" "Graypuff" "Thundervalley" "Pollenmint" "Peacemuse" "Flirtydrop" "Airdove" "Nippyhope" "Picklegame" "Sugarfoot" "Frostylight" "Muffintree" "Angelmilk" "Mistlefun" "Nibblewish" "Everhat" "Busyfriend" "Jigglenight" "Everbox" "Candybell" "Poemcheer" "Brightfly" "Peppercreek" 
+		}
+
+		regnal_first_names = {
+		"Smokey" "Apogee" "Mercury" "Starfish" "Magenta" "Kiwi" "Ora" "Nightfall" "Caraway" 
+		}
+
+		regnal_first_names_male = {
+		
+		}
+
+		regnal_first_names_female = {
+		
+		}
+
+		regnal_second_names = {
+		"Catdale" "Nightthorn" "Lemonnoodles" "Hollyfog" "Rainbow" "Tigerspice" "Bumblebum" 
+		}
+
+		}
+
+		names2 = {
+			weight = 30
+		full_names = {
+		"Greyface" "Little Macci" "Two Time Troki" "Dr Squiggles" "Glimma Glamma" "Flim Flam" "Cameo McGuest" "Softhusk" "Tenderoak" "Fallcedar" "Thistletalon" "Pinegrove" "Oakbellow" "Rapid Sparkle" "Jester Jameson" "Mad Mardi" "Squinting Ash" "Blazing Dusk" "Last Light" "Warm Honey" "Paisley McDreamy" "Patchouli" "Bright Aura" "Summer Windsong" "Free Bird" 
+		}
+
+		first_names = {
+		"Yips" "Quippy" "Flinch" "Fata" "Dr Umbra" "Azure" "Aqua" "Malaclypse" "Grinna" "Roya" "Blanch" "Humato" "Pepper" "Wink" "Coco" "Perky" "Merry" "Winter" "Brownie" "Fuzzle" "Pine" "Tinkles" "Ginger" "Fig" "Blue" "Dash" "Cookie" "Hopscotch" "Flippa Dee" "Dippa Bee" "Emi Lemi" 
+		}
+
+		first_names_male = {
+		
+		}
+
+		first_names_female = {
+		
+		}
+
+		second_names = {
+		"The Younger" "The Lesser" "The Older" "The Dandy" "The Honorable" "The Danger Noodle" "The Dreamer" "The Dancer" "The Flippant" "The Extravagant" "The Pleasant" "The Silent" "The Enchanted" "The Elegant" "The Serene" "The Fae" "The Delightful" 
+		}
+
+		regnal_first_names = {
+		"Sunbeam" "Acorn" "Lark" "Aphid" "Peridot" "Meadow" 
+		}
+
+		regnal_first_names_male = {
+		
+		}
+
+		regnal_first_names_female = {
+		
+		}
+
+		regnal_second_names = {
+		"Catdale" "Nightthorn" "Lemonnoodles" "Hollyfog" "Rainbow" "Tigerspice" "Bumblebum" 
+		}
+
+		}
+
+		
+	}
+}

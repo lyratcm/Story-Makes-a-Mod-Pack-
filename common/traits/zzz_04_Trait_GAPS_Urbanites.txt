@@ -1,0 +1,18 @@
+Trait_GAPS_Urbanites = {
+    icon = "gfx/interface/icons/traits/Trait_GAPS_Homebodies.dds"
+    cost = 2
+    initial = yes
+    randomized = yes
+    modification = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+        PRESAPIENT
+    }
+    opposites = {
+        "trait_hive_mind"
+    }
+    custom_tooltip = Trait_GAPS_Urbanites_Effect
+}

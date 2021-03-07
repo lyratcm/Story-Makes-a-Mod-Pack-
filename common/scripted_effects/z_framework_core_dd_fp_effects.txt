@@ -1,0 +1,3933 @@
+###_z modmenu-framework-core-动态难度-fp effects	######################################################
+
+#_trigger		[z_fw_core_dd_is_ignored_type]忽略的国家类型
+#_var			[z_fw_core_battle_dd_var]
+
+#_global_tgt	[z_fw_tgt_global_event]全局事件NPC1
+#_var			[z_fw_core_battle_dd_execute_var]
+
+#_[cntr_各国层数指定]
+
+
+
+
+
+
+
+
+###_全局动态难度-FP	#################################################
+
+###_[country_pc] 设置-on
+#_开启战力强化刷新buff
+#_每次手动调整战力强化后刷新buff
+z_fw_eft_core_battle_dd_fp_on = {
+	event_target:z_fw_tgt_global_event = { z_fw_eft_core_battle_dd_ai_effect = yes }	#_全AI强化参数设置
+	#_全AI添加fp buff
+	every_country = {
+		limit = { z_fw_core_dd_is_ignored_type = no }
+		country_event = { id = z_fw_core_battle.20 }
+	}
+}
+###_[country_pc] 设置-off
+z_fw_eft_core_battle_dd_fp_off = {
+	every_country = { z_fw_eft_core_battle_dd_fp_debug = yes }
+}
+###_[country] 设置-debug
+z_fw_eft_core_battle_dd_fp_debug = {
+	#_z_fw_core_battle_fp
+	remove_modifier = z_fw_mod_core_dd_fp_1
+	remove_modifier = z_fw_mod_core_dd_fp_2
+	remove_modifier = z_fw_mod_core_dd_fp_3
+	remove_modifier = z_fw_mod_core_dd_fp_4
+	remove_modifier = z_fw_mod_core_dd_fp_5
+	remove_modifier = z_fw_mod_core_dd_fp_10
+	remove_modifier = z_fw_mod_core_dd_fp_15
+	remove_modifier = z_fw_mod_core_dd_fp_20
+	remove_modifier = z_fw_mod_core_dd_fp_25
+	remove_modifier = z_fw_mod_core_dd_fp_50
+	remove_modifier = z_fw_mod_core_dd_fp_75
+	remove_modifier = z_fw_mod_core_dd_fp_100
+	remove_modifier = z_fw_mod_core_dd_fp_125
+	remove_modifier = z_fw_mod_core_dd_fp_250
+	remove_modifier = z_fw_mod_core_dd_fp_375
+	remove_modifier = z_fw_mod_core_dd_fp_500
+	#_z_fw_core_battle_fp_fallen
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_1
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_2
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_3
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_4
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_5
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_10
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_15
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_20
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_25
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_50
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_75
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_100
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_125
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_250
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_375
+	remove_modifier = z_fw_mod_core_dd_fp_fallen_500
+	#_z_fw_core_battle_fp_crisis
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_1
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_2
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_3
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_4
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_5
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_10
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_15
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_20
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_25
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_50
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_75
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_100
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_125
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_250
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_375
+	remove_modifier = z_fw_mod_core_dd_fp_crisis_500
+}
+
+
+
+
+###_[country_pc] 设置-手动调整/年度增加
+#_prmt		[LEVEL]单次层数
+z_fw_eft_prmt_core_battle_dd_var_change = {
+	event_target:z_fw_tgt_global_event = {
+		change_variable = { which = z_fw_core_battle_dd_var value = $LEVEL$ }
+		#_最大层数限制
+		if = {
+			limit = { check_variable = { which = z_fw_core_battle_dd_var value > 2500 } }
+			set_variable = { which = z_fw_core_battle_dd_var value = 2500 }
+		}
+		else_if = {
+			limit = { check_variable = { which = z_fw_core_battle_dd_var value < 0 } }
+			set_variable = { which = z_fw_core_battle_dd_var value = 0 }
+		}
+		#_全AI强化参数设置
+		z_fw_eft_core_battle_dd_ai_effect = yes
+	}
+	#_全AI添加强化
+	every_country = {
+		limit = { z_fw_core_dd_is_ignored_type = no }
+		country_event = { id = z_fw_core_battle.20 }
+	}
+}
+
+
+
+
+###_[cntr_各国层数指定]	各AI添加强化参数	<root=执行此effect国家>
+z_fw_eft_core_battle_dd_ai_effect = {
+	set_variable = { which = z_fw_core_battle_dd_execute_var value = z_fw_core_battle_dd_var }
+	#_千位
+	if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 9000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 9000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 9000 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 8000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 8000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 8000 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 7000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 7000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 7000 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 6000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 6000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 6000 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 5000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 5000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 5000 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 4000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 4000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 4000 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 3000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 3000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 3000 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 2000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 2000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 2000 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 1000 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 1000 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 1000 }
+		}
+	}
+	#_百位
+	if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 900 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 900 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 900 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 800 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 800 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 800 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 700 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 700 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 700 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 600 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 600 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 600 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 500 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 500 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 500 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 400 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 400 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 400 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 300 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 300 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 300 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 200 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 200 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 200 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 100 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 100 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 100 }
+		}
+	}
+	#_十位
+	if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 90 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 90 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 90 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 80 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 80 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 80 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 70 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 70 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 70 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 60 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 60 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 60 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 50 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 50 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 50 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 40 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 40 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 40 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 30 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 30 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 30 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 20 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 20 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 20 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 10 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 10 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 10 }
+		}
+	}
+	#_个位
+	if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 9 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 9 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 9 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 8 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 8 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 8 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 7 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 7 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 7 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 6 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 6 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 6 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 5 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 5 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 5 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 4 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 4 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 4 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 3 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 3 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 3 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 2 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 2 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 2 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_execute_var value >= 1 } }
+		subtract_variable = { which = z_fw_core_battle_dd_execute_var value = 1 }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			change_variable = { which = z_fw_core_battle_dd_execute_var value = 1 }
+		}
+	}
+}
+
+
+
+
+###_[all/cntr]	各AI添加强化参数
+#_<npc=event_target:z_fw_tgt_global_event>
+z_fw_eft_core_battle_dd_ai_effect_old = {
+	###_各AI参数设置
+	if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 0 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 0 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 1 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 1 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 2 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 2 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 3 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 3 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 4 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 4 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 5 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 5 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 6 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 6 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 7 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 7 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 8 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 8 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 9 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 9 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 10 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 10 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 11 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 11 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 12 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 12 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 13 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 13 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 14 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 14 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 15 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 15 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 16 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 16 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 17 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 17 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 18 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 18 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 19 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 19 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 20 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 20 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 21 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 21 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 22 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 22 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 23 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 23 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 24 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 24 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 25 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 25 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 26 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 26 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 27 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 27 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 28 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 28 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 29 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 29 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 30 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 30 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 31 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 31 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 32 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 32 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 33 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 33 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 34 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 34 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 35 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 35 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 36 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 36 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 37 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 37 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 38 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 38 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 39 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 39 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 40 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 40 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 41 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 41 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 42 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 42 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 43 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 43 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 44 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 44 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 45 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 45 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 46 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 46 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 47 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 47 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 48 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 48 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 49 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 49 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 50 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 50 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 51 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 51 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 52 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 52 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 53 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 53 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 54 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 54 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 55 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 55 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 56 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 56 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 57 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 57 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 58 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 58 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 59 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 59 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 60 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 60 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 61 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 61 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 62 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 62 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 63 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 63 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 64 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 64 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 65 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 65 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 66 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 66 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 67 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 67 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 68 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 68 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 69 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 69 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 70 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 70 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 71 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 71 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 72 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 72 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 73 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 73 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 74 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 74 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 75 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 75 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 76 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 76 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 77 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 77 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 78 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 78 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 79 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 79 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 80 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 80 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 81 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 81 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 82 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 82 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 83 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 83 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 84 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 84 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 85 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 85 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 86 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 86 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 87 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 87 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 88 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 88 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 89 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 89 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 90 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 90 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 91 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 91 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 92 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 92 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 93 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 93 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 94 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 94 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 95 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 95 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 96 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 96 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 97 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 97 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 98 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 98 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 99 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 99 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 100 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 100 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 101 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 101 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 102 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 102 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 103 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 103 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 104 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 104 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 105 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 105 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 106 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 106 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 107 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 107 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 108 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 108 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 109 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 109 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 110 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 110 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 111 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 111 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 112 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 112 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 113 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 113 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 114 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 114 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 115 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 115 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 116 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 116 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 117 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 117 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 118 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 118 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 119 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 119 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 120 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 120 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 121 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 121 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 122 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 122 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 123 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 123 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 124 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 124 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 125 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 125 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 126 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 126 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 127 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 127 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 128 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 128 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 129 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 129 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 130 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 130 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 131 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 131 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 132 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 132 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 133 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 133 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 134 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 134 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 135 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 135 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 136 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 136 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 137 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 137 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 138 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 138 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 139 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 139 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 140 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 140 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 141 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 141 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 142 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 142 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 143 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 143 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 144 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 144 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 145 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 145 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 146 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 146 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 147 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 147 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 148 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 148 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 149 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 149 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 150 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 150 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 151 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 151 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 152 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 152 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 153 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 153 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 154 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 154 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 155 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 155 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 156 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 156 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 157 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 157 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 158 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 158 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 159 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 159 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 160 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 160 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 161 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 161 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 162 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 162 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 163 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 163 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 164 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 164 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 165 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 165 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 166 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 166 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 167 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 167 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 168 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 168 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 169 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 169 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 170 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 170 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 171 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 171 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 172 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 172 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 173 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 173 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 174 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 174 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 175 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 175 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 176 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 176 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 177 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 177 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 178 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 178 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 179 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 179 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 180 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 180 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 181 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 181 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 182 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 182 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 183 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 183 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 184 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 184 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 185 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 185 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 186 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 186 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 187 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 187 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 188 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 188 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 189 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 189 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 190 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 190 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 191 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 191 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 192 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 192 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 193 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 193 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 194 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 194 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 195 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 195 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 196 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 196 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 197 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 197 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 198 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 198 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 199 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 199 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 200 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 200 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 201 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 201 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 202 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 202 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 203 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 203 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 204 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 204 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 205 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 205 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 206 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 206 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 207 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 207 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 208 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 208 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 209 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 209 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 210 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 210 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 211 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 211 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 212 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 212 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 213 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 213 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 214 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 214 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 215 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 215 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 216 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 216 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 217 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 217 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 218 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 218 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 219 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 219 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 220 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 220 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 221 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 221 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 222 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 222 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 223 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 223 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 224 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 224 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 225 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 225 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 226 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 226 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 227 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 227 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 228 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 228 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 229 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 229 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 230 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 230 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 231 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 231 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 232 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 232 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 233 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 233 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 234 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 234 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 235 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 235 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 236 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 236 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 237 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 237 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 238 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 238 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 239 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 239 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 240 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 240 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 241 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 241 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 242 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 242 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 243 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 243 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 244 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 244 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 245 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 245 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 246 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 246 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 247 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 247 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 248 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 248 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 249 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 249 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 250 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 250 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 251 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 251 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 252 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 252 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 253 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 253 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 254 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 254 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 255 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 255 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 256 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 256 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 257 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 257 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 258 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 258 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 259 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 259 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 260 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 260 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 261 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 261 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 262 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 262 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 263 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 263 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 264 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 264 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 265 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 265 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 266 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 266 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 267 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 267 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 268 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 268 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 269 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 269 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 270 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 270 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 271 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 271 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 272 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 272 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 273 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 273 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 274 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 274 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 275 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 275 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 276 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 276 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 277 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 277 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 278 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 278 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 279 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 279 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 280 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 280 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 281 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 281 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 282 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 282 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 283 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 283 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 284 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 284 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 285 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 285 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 286 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 286 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 287 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 287 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 288 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 288 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 289 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 289 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 290 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 290 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 291 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 291 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 292 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 292 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 293 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 293 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 294 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 294 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 295 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 295 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 296 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 296 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 297 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 297 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 298 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 298 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 299 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 299 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 300 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 300 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 301 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 301 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 302 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 302 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 303 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 303 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 304 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 304 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 305 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 305 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 306 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 306 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 307 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 307 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 308 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 308 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 309 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 309 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 310 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 310 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 311 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 311 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 312 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 312 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 313 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 313 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 314 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 314 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 315 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 315 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 316 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 316 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 317 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 317 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 318 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 318 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 319 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 319 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 320 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 320 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 321 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 321 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 322 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 322 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 323 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 323 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 324 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 324 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 325 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 325 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 326 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 326 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 327 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 327 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 328 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 328 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 329 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 329 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 330 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 330 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 331 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 331 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 332 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 332 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 333 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 333 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 334 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 334 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 335 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 335 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 336 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 336 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 337 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 337 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 338 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 338 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 339 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 339 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 340 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 340 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 341 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 341 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 342 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 342 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 343 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 343 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 344 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 344 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 345 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 345 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 346 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 346 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 347 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 347 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 348 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 348 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 349 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 349 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 350 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 350 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 351 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 351 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 352 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 352 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 353 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 353 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 354 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 354 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 355 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 355 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 356 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 356 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 357 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 357 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 358 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 358 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 359 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 359 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 360 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 360 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 361 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 361 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 362 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 362 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 363 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 363 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 364 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 364 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 365 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 365 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 366 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 366 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 367 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 367 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 368 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 368 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 369 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 369 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 370 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 370 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 371 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 371 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 372 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 372 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 373 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 373 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 374 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 374 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 375 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 375 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 376 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 376 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 377 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 377 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 378 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 378 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 379 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 379 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 380 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 380 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 381 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 381 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 382 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 382 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 383 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 383 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 384 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 384 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 385 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 385 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 386 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 386 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 387 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 387 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 388 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 388 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 389 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 389 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 390 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 390 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 391 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 391 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 392 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 392 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 393 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 393 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 394 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 394 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 395 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 395 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 396 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 396 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 397 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 397 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 398 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 398 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 399 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 399 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 400 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 400 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 401 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 401 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 402 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 402 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 403 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 403 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 404 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 404 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 405 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 405 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 406 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 406 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 407 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 407 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 408 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 408 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 409 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 409 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 410 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 410 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 411 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 411 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 412 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 412 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 413 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 413 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 414 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 414 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 415 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 415 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 416 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 416 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 417 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 417 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 418 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 418 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 419 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 419 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 420 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 420 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 421 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 421 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 422 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 422 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 423 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 423 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 424 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 424 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 425 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 425 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 426 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 426 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 427 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 427 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 428 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 428 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 429 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 429 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 430 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 430 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 431 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 431 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 432 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 432 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 433 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 433 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 434 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 434 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 435 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 435 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 436 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 436 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 437 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 437 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 438 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 438 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 439 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 439 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 440 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 440 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 441 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 441 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 442 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 442 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 443 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 443 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 444 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 444 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 445 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 445 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 446 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 446 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 447 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 447 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 448 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 448 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 449 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 449 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 450 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 450 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 451 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 451 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 452 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 452 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 453 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 453 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 454 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 454 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 455 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 455 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 456 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 456 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 457 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 457 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 458 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 458 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 459 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 459 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 460 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 460 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 461 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 461 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 462 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 462 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 463 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 463 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 464 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 464 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 465 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 465 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 466 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 466 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 467 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 467 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 468 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 468 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 469 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 469 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 470 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 470 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 471 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 471 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 472 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 472 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 473 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 473 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 474 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 474 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 475 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 475 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 476 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 476 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 477 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 477 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 478 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 478 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 479 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 479 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 480 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 480 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 481 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 481 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 482 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 482 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 483 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 483 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 484 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 484 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 485 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 485 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 486 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 486 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 487 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 487 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 488 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 488 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 489 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 489 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 490 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 490 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 491 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 491 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 492 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 492 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 493 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 493 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 494 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 494 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 495 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 495 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 496 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 496 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 497 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 497 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 498 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 498 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 499 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 499 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_core_battle_dd_var value = 500 } }
+		every_country = {
+			limit = { z_fw_core_dd_is_ignored_type = no }
+			set_variable = { which = z_fw_core_battle_dd_execute_var value = 500 }
+		}
+	}
+}
+
+

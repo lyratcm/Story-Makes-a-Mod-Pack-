@@ -1,0 +1,73 @@
+decision_cave_network_expansion = {
+	owned_planets_only = yes
+	sound = event_construction
+	icon = decision_shelter_project_hot
+	
+	enactment_time = 1000
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				planet_size < 10
+			}
+			influence = 50
+			energy = 2500
+		}
+		cost = {
+			trigger = {
+				planet_size >= 10
+				planet_size < 15
+			}
+			influence = 100
+			energy = 5000
+		}
+		cost = {
+			trigger = {
+				planet_size >= 15
+				planet_size < 20
+			}
+			influence = 150
+			energy = 7500
+		}	
+		cost = {
+			trigger = {
+				planet_size >= 20
+			}
+			influence = 200
+			energy = 10000
+		}
+	}
+	
+	potential = {
+		has_modifier = underground_world
+		NOT = { has_modifier = underground_world_exp_3 }
+	}
+	
+	effect = {
+		custom_tooltip = decision_cave_network_expansion_effect_desc
+		hidden_effect = {
+			random_list = {
+				# Project completed
+				70 = {
+					planet_event = { id = newfrontiers_decision_event.25 days = 1 }
+				}
+				# cave Collapse 1
+				10 = {
+					planet_event = { id = newfrontiers_decision_event.26 days = 1 }
+				}
+				# cave Collapse 2
+				10 = {
+					planet_event = { id = newfrontiers_decision_event.27 days = 1 }
+				}
+				# cave Collapse 3
+				10 = {
+					planet_event = { id = newfrontiers_decision_event.28 days = 1 }
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

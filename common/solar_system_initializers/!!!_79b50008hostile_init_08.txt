@@ -1,0 +1,238 @@
+hostile_init_08 = {
+    class = "rl_standard_stars"
+    asteroid_belt = {
+        type = rocky_asteroid_belt
+        radius = 90
+    }
+    usage = misc_system_init
+    usage_odds = {
+        base = 6
+        modifier = {
+            factor = 0.1
+            NOT = {
+                is_in_cluster = resource_cluster_2
+            }
+        }
+        modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+        modifier = {
+            factor = 0
+            is_bottleneck_system = yes
+        }
+    }
+    flags = {
+        hostile_system
+        void_system
+    }
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = {
+            min = @standard_min
+            max = @standard_max
+        }
+        has_ring = no
+    }
+    change_orbit = 30
+    planet = {
+        count = 1
+        orbit_distance = 15
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        flags = {
+            hot_zone
+        }
+    }
+    planet = {
+        count = 1
+        orbit_distance = 20
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+    change_orbit = 25
+    planet = {
+        class = pc_asteroid
+        orbit_distance = 0
+        orbit_angle = {
+            min = 0
+            max = 150
+        }
+    }
+    planet = {
+        class = pc_asteroid
+        orbit_distance = 0
+        orbit_angle = {
+            min = 160
+            max = 330
+        }
+    }
+    planet = {
+        count = 1
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        orbit_distance = {
+            min = 25
+            max = 30
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = 1
+        orbit_distance = {
+            min = 30
+            max = 35
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 35
+            max = 40
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 40
+            max = 50
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 2
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 50
+            max = 60
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    init_effect = {
+        create_cloud_country = yes
+        random_system_planet = {
+            limit = {
+                is_star = yes
+            }
+            set_deposit = d_energy_2
+            event_target:cloud_country = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_modifier = cloud_power
+                        }
+                    }
+                    add_modifier = {
+                        modifier = cloud_power
+                        days = -1
+                    }
+                }
+                set_aggro_range = 500
+                create_fleet = {
+                    name = "NAME_Void_Cloud"
+                    effect = {
+                        set_owner = event_target:cloud_country
+                        create_ship = {
+                            name = ""
+                            design = "NAME_Cloud_Entity"
+                        }
+                        set_location = PREVPREV
+                        set_fleet_stance = aggressive
+                        set_aggro_range_measure_from = self
+                        set_aggro_range = 500
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,218 @@
+#_	/exe_invasion_events.txt
+
+namespace = exe_invasion
+
+###placeholder###
+country_event = {
+	id = exe_invasion.1001
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_sp_mods_tips_gui"
+	picture_event_data = {
+		portrait = shroud1
+		room = z_mm_evt_tips_room
+	}
+	
+	option = {
+        custom_gui = "z_mm_button_evt_sub_red"
+		name = z_modmenu_pity
+	}
+}
+
+#_[exe_invasion.1009/1010]	原事件
+country_event = {
+	id = exe_invasion.7777
+	title = "exe_invasion.1001.name"
+	desc = "exe_invasion.1001.desc"
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal
+
+	diplomatic = yes
+	custom_gui = "z_mm_sp_mods_common_gui"
+	picture_event_data = {
+		room = kuat_mega_shipyard_room
+	}
+	
+	
+	#_关闭
+	option = {
+		name = z_modmenu_return
+		custom_tooltip = z_modmenu_return_desc
+        custom_gui = "z_mm_button_evt_option_red"
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes
+		}
+	}
+
+
+	#_exe_invasion.1009	入侵
+	desc = {
+		trigger = {
+			has_global_flag = difficult_exe_invasion
+		}
+		text = "exe_invasion.1009.difficult"
+	}
+	desc = {
+		trigger = {
+			has_global_flag = normal_exe_invasion
+		}
+		text = "exe_invasion.1009.normal"
+	}
+	desc = {
+	 	trigger = {
+	 		has_global_flag = special_exe_invasion
+	 	}
+	 	text = "exe_invasion.1009.special"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				has_global_flag = difficult_exe_invasion
+				has_global_flag = normal_exe_invasion
+				has_global_flag = special_exe_invasion
+				has_global_flag = ban_exe_invasion
+			}
+		}
+		text = "exe_invasion.1009.desc"
+	}
+	desc = {
+		trigger = {
+			has_global_flag = ban_exe_invasion
+		}
+		text = "exe_invasion.1009.ban"
+	}
+	option = {
+		name = "exe_invasion.1001.c"
+		custom_tooltip = "exe_invasion.1001.c.tooltip"
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			NOT = {
+				has_global_flag = special_exe_invasion
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = ban_exe_invasion
+						has_global_flag = normal_exe_invasion
+						has_global_flag = difficult_exe_invasion
+					}
+				}
+				remove_global_flag = ban_exe_invasion
+				remove_global_flag = normal_exe_invasion
+				remove_global_flag = difficult_exe_invasion
+			}
+			set_global_flag = easy_exe_invasion
+			country_event = { id = exe_invasion.7777 }	#_
+		}
+	}
+	option = {
+		name = "exe_invasion.1001.b"
+		custom_tooltip = "exe_invasion.1001.b.tooltip"
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			NOT = {
+				has_global_flag = special_exe_invasion
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = ban_exe_invasion
+						has_global_flag = easy_exe_invasion
+						has_global_flag = difficult_exe_invasion
+					}
+				}
+				remove_global_flag = ban_exe_invasion
+				remove_global_flag = easy_exe_invasion
+				remove_global_flag = difficult_exe_invasion
+			}
+			set_global_flag = normal_exe_invasion
+			country_event = { id = exe_invasion.7777 }	#_
+		}
+	}
+	option = {
+		name = "exe_invasion.1001.d"
+		custom_tooltip = "exe_invasion.1001.d.tooltip"
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			NOT = {
+				has_global_flag = special_exe_invasion
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = ban_exe_invasion
+						has_global_flag = normal_exe_invasion
+						has_global_flag = easy_exe_invasion
+					}
+				}
+				remove_global_flag = ban_exe_invasion
+				remove_global_flag = normal_exe_invasion
+				remove_global_flag = easy_exe_invasion
+			}
+			set_global_flag = difficult_exe_invasion
+			country_event = { id = exe_invasion.7777 }	#_
+		}
+	}
+	option = {
+		name = "exe_invasion.1001.a"
+		custom_tooltip = "exe_invasion.1001.a.tooltip"
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			NOT = {
+				has_global_flag = special_exe_invasion
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = easy_exe_invasion
+						has_global_flag = normal_exe_invasion
+						has_global_flag = difficult_exe_invasion
+					}
+				}
+				remove_global_flag = easy_exe_invasion
+				remove_global_flag = normal_exe_invasion
+				remove_global_flag = difficult_exe_invasion
+			}
+			set_global_flag = ban_exe_invasion
+			country_event = { id = exe_invasion.7777 }	#_
+		}
+	}
+
+
+	#_exe_invasion.1010	回归
+	option = {
+		name = "exe_invasion.1001.e"
+		custom_tooltip = "exe_invasion.1001.e.tooltip"
+		custom_gui = "z_mm_button_evt_option_blue"
+		hidden_effect = {
+			remove_global_flag = begin_kuat_return
+			remove_global_flag = ban_kuat_return
+			set_global_flag = ban_kuat_return
+			country_event = { id = exe_invasion.7777 }	#_
+		}
+	}
+	option = {
+		name = "exe_invasion.1010.e"
+		custom_tooltip = "exe_invasion.1010.e.tooltip"
+		custom_gui = "z_mm_button_evt_option_blue"
+		hidden_effect = {
+			remove_global_flag = ban_kuat_return
+			remove_global_flag = begin_kuat_return
+			set_global_flag = begin_kuat_return
+			country_event = { id = exe_invasion.7777 }	#_
+		}
+	}
+}

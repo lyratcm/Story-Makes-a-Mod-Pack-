@@ -1,0 +1,18 @@
+# gas_relic_active_effect
+country_event = {
+	id = gasrelic.1
+	title = gasrelic.1.name
+	desc = gasrelic.1.desc
+	picture = GFX_evt_mining_operations
+	location = event_target:chosen_planet
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_planet_within_border = {
+			limit = { pc_gas_giant }
+			save_event_target_as = chosen_planet
+			event_target:chosen_planet = { add_deposit = d_exotic_gases_4 }
+		}
+	}
+}

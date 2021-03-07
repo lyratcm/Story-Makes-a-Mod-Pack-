@@ -1,0 +1,42 @@
+no_ai_fed_wars = {
+	length = 1
+	resources = {
+		category = edicts
+		cost = {
+			influence = 50
+		}
+	}
+	
+	effect = {
+		custom_tooltip = edict_no_ai_fed_wars_tooltip_effect
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_in_federation_with = PREV
+					is_ai = yes
+				}
+				set_timed_country_flag = { flag = ai_no_fed_wars days = 3600 }
+			}
+		}
+	}
+
+	potential = {
+		is_ai = no
+		any_country = {
+			is_in_federation_with = PREV
+			is_ai = yes
+		}
+	}
+	
+	allow = {
+		any_country = {
+			is_in_federation_with = PREV
+			is_ai = yes
+			NOT = { has_country_flag = ai_no_fed_wars }
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

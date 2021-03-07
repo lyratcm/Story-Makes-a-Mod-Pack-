@@ -1,0 +1,3595 @@
+###_z_fw 星球人口限制deposits	#########################################################################
+
+
+###_固态外迁数值参考
+#planet_emigration_push_add = 1
+#planet_emigration_push_add = 3
+#planet_emigration_push_add = 6
+#planet_emigration_push_add = 12
+#planet_emigration_push_add = 25
+#planet_emigration_push_add = 50
+#planet_emigration_push_add = 75
+#planet_emigration_push_add = 100
+
+
+z_capacity_40 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 15 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 15 num_pops <= 20 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 25 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 25 num_pops <= 30 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 35 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 35 num_pops <= 40 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 45 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 45 num_pops <= 50 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 55 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 55 num_pops <= 60 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 65 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 65 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_轨道站
+z_capacity_55 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 35 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 35 num_pops <= 40 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 45 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 45 num_pops <= 50 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 55 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 55 num_pops <= 60 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 65 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 65 num_pops <= 70 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 75 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 75 num_pops <= 80 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+
+z_capacity_70 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 35 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 35 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 45 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 45 num_pops <= 50 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 55 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 55 num_pops <= 60 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 65 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 65 num_pops <= 70 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 75 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 75 num_pops <= 80 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 85 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 85 num_pops <= 90 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 95 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 95 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+
+z_capacity_85 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 65 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 65 num_pops <= 70 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 75 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 75 num_pops <= 80 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 85 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 85 num_pops <= 90 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 95 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 95 num_pops <= 100 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 105 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 105 num_pops <= 110 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+
+z_capacity_100 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 75 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 75 num_pops <= 80 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 85 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 85 num_pops <= 90 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 95 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 95 num_pops <= 100 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 105 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 105 num_pops <= 110 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 115 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 115 num_pops <= 120 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 125 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 125 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+
+z_capacity_115 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 95 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 95 num_pops <= 100 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 105 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 105 num_pops <= 110 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 115 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 115 num_pops <= 120 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 125 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 125 num_pops <= 130 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 135 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 135 num_pops <= 140 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_10 11
+z_capacity_130 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 95 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 95 num_pops <= 100 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 115 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 115 num_pops <= 120 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 125 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 125 num_pops <= 130 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 135 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 135 num_pops <= 140 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 145 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 145 num_pops <= 150 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 155 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 155 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_12 13
+z_capacity_145 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 125 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 125 num_pops <= 130 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 135 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 135 num_pops <= 140 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 145 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 145 num_pops <= 150 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 155 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 155 num_pops <= 160 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 165 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 165 num_pops <= 170 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_14 15
+z_capacity_160 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 135 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 135 num_pops <= 140 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 145 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 145 num_pops <= 150 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 155 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 155 num_pops <= 160 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 165 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 165 num_pops <= 170 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 175 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 175 num_pops <= 180 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 185 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 185 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_16 17
+z_capacity_175 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 155 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 155 num_pops <= 160 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 165 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 165 num_pops <= 170 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 175 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 175 num_pops <= 180 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 185 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 185 num_pops <= 190 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 195 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 195 num_pops <= 200 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_18 19
+z_capacity_190 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 165 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 165 num_pops <= 170 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 175 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 175 num_pops <= 180 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 185 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 185 num_pops <= 190 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 195 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 195 num_pops <= 200 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 205 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 205 num_pops <= 210 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 215 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 215 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_20 21
+z_capacity_205 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 185 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 185 num_pops <= 190 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 195 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 195 num_pops <= 200 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 205 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 205 num_pops <= 210 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 215 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 215 num_pops <= 220 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 225 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 225 num_pops <= 230 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_22 23
+z_capacity_220 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 195 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 195 num_pops <= 200 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 205 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 205 num_pops <= 210 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 215 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 215 num_pops <= 220 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 225 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 225 num_pops <= 230 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 235 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 235 num_pops <= 240 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 245 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 245 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_24 25
+z_capacity_235 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 200 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 210 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 215 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 215 num_pops <= 220 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 225 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 225 num_pops <= 230 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 235 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 235 num_pops <= 240 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 245 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 245 num_pops <= 250 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 250 num_pops <= 255 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 255 num_pops <= 260 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 260 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_
+z_capacity_250 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 200 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 210 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 220 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 225 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 225 num_pops <= 230 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 235 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 235 num_pops <= 240 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 245 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 245 num_pops <= 250 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 250 num_pops <= 255 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 255 num_pops <= 260 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 260 num_pops <= 265 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 265 num_pops <= 270 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 270 num_pops <= 275 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 275 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_
+z_capacity_265 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 200 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 210 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 220 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 230 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 240 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 245 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 245 num_pops <= 250 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 250 num_pops <= 255 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 255 num_pops <= 260 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 260 num_pops <= 265 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 265 num_pops <= 270 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 270 num_pops <= 275 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 275 num_pops <= 280 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 280 num_pops <= 285 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 285 num_pops <= 290 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 290 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_
+z_capacity_280 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 200 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 210 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 220 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 230 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 240 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 250 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 250 num_pops <= 255 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 255 num_pops <= 260 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 260 num_pops <= 265 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 265 num_pops <= 270 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 270 num_pops <= 275 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 275 num_pops <= 280 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 280 num_pops <= 285 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 285 num_pops <= 290 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 290 num_pops <= 295 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 295 num_pops <= 300 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 300 num_pops <= 305 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 305 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_
+z_capacity_295 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 200 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 210 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 220 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 230 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 240 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 250 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 250 num_pops <= 260 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 260 num_pops <= 270 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 270 num_pops <= 275 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 275 num_pops <= 280 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 280 num_pops <= 285 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 285 num_pops <= 290 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 290 num_pops <= 295 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 295 num_pops <= 300 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 300 num_pops <= 305 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 305 num_pops <= 310 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 310 num_pops <= 315 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 315 num_pops <= 320 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 320 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_
+z_capacity_310 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.42
+		planet_pop_assembly_reduction = -0.14
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 200 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 210 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 220 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 230 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 240 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 250 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 250 num_pops <= 260 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 260 num_pops <= 270 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 270 num_pops <= 280 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 280 num_pops <= 285 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 285 num_pops <= 290 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 290 num_pops <= 295 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 295 num_pops <= 300 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 300 num_pops <= 305 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 305 num_pops <= 310 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 310 num_pops <= 315 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 315 num_pops <= 320 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 320 num_pops <= 325 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 325 num_pops <= 330 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 330 num_pops <= 335 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 335 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_
+z_capacity_325 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.42
+		planet_pop_assembly_reduction = -0.14
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.42
+		planet_pop_assembly_reduction = -0.14
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 200 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 210 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 220 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 230 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 240 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 250 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 250 num_pops <= 260 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 260 num_pops <= 270 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 270 num_pops <= 280 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 280 num_pops <= 290 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 290 num_pops <= 300 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 300 num_pops <= 305 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 305 num_pops <= 310 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 310 num_pops <= 315 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 315 num_pops <= 320 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 320 num_pops <= 325 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 325 num_pops <= 330 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 330 num_pops <= 335 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 335 num_pops <= 340 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 340 num_pops <= 345 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 345 num_pops <= 350 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 350 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_
+z_capacity_340 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.42
+		planet_pop_assembly_reduction = -0.14
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 160 }
+		pop_growth_speed_reduction = -0.45
+		planet_pop_assembly_reduction = -0.15
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 160 num_pops <= 170 }
+		pop_growth_speed_reduction = -0.45
+		planet_pop_assembly_reduction = -0.15
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 170 num_pops <= 180 }
+		pop_growth_speed_reduction = -0.42
+		planet_pop_assembly_reduction = -0.14
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 180 num_pops <= 190 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 190 num_pops <= 200 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 200 num_pops <= 210 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 210 num_pops <= 220 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 220 num_pops <= 230 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 230 num_pops <= 240 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 240 num_pops <= 250 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 250 num_pops <= 260 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 260 num_pops <= 270 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 270 num_pops <= 280 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 280 num_pops <= 290 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 290 num_pops <= 300 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 300 num_pops <= 310 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 310 num_pops <= 315 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 315 num_pops <= 320 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 320 num_pops <= 325 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 325 num_pops <= 330 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 330 num_pops <= 335 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 335 num_pops <= 340 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 340 num_pops <= 345 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 345 num_pops <= 350 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 350 num_pops <= 355 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 355 num_pops <= 360 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 360 num_pops <= 365 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 365 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}
+#_
+z_capacity_2000 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}  
+
+	triggered_planet_modifier = {
+		potential = { num_pops <= 10 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 10 num_pops <= 20 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 20 num_pops <= 30 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 30 num_pops <= 40 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 40 num_pops <= 50 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 50 num_pops <= 60 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 60 num_pops <= 70 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 70 num_pops <= 80 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 80 num_pops <= 90 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 90 num_pops <= 100 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 100 num_pops <= 110 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 110 num_pops <= 120 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 120 num_pops <= 130 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 130 num_pops <= 140 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 140 num_pops <= 150 }
+		pop_growth_speed_reduction = -0.42
+		planet_pop_assembly_reduction = -0.14
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 150 num_pops <= 450 }
+		pop_growth_speed_reduction = -0.45
+		planet_pop_assembly_reduction = -0.15
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 450 num_pops <= 500 }
+		pop_growth_speed_reduction = -0.42
+		planet_pop_assembly_reduction = -0.14
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 500 num_pops <= 600 }
+		pop_growth_speed_reduction = -0.39
+		planet_pop_assembly_reduction = -0.13
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 600 num_pops <= 700 }
+		pop_growth_speed_reduction = -0.36
+		planet_pop_assembly_reduction = -0.12
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 700 num_pops <= 800 }
+		pop_growth_speed_reduction = -0.33
+		planet_pop_assembly_reduction = -0.11
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 800 num_pops <= 900 }
+		pop_growth_speed_reduction = -0.3
+		planet_pop_assembly_reduction = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 900 num_pops <= 1000 }
+		pop_growth_speed_reduction = -0.27
+		planet_pop_assembly_reduction = -0.09
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1000 num_pops <= 1100 }
+		pop_growth_speed_reduction = -0.24
+		planet_pop_assembly_reduction = -0.08
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1100 num_pops <= 1200 }
+		pop_growth_speed_reduction = -0.21
+		planet_pop_assembly_reduction = -0.07
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1200 num_pops <= 1300 }
+		pop_growth_speed_reduction = -0.18
+		planet_pop_assembly_reduction = -0.06
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1300 num_pops <= 1400 }
+		pop_growth_speed_reduction = -0.15
+		planet_pop_assembly_reduction = -0.05
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1400 num_pops <= 1500 }
+		pop_growth_speed_reduction = -0.12
+		planet_pop_assembly_reduction = -0.04
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1500 num_pops <= 1600 }
+		pop_growth_speed_reduction = -0.09
+		planet_pop_assembly_reduction = -0.03
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1600 num_pops <= 1700 }
+		pop_growth_speed_reduction = -0.06
+		planet_pop_assembly_reduction = -0.02
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1700 num_pops <= 1800 }
+		pop_growth_speed_reduction = -0.03
+		planet_pop_assembly_reduction = -0.01
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1800 num_pops <= 1990 }
+		pop_growth_speed_reduction = 0
+		planet_pop_assembly_reduction = 0
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 1990 num_pops <= 2000 }
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2000 num_pops <= 2010 }
+		pop_growth_speed_reduction = 0.25
+		planet_pop_assembly_reduction = 0.25
+		pop_growth_from_immigration = -0.25
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2010 num_pops <= 2020 }
+		pop_growth_speed_reduction = 0.5
+		planet_pop_assembly_reduction = 0.5
+		pop_growth_from_immigration = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2020 num_pops <= 2030 }
+		pop_growth_speed_reduction = 0.85
+		planet_pop_assembly_reduction = 0.85
+		pop_growth_from_immigration = -0.85
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2030 num_pops <= 2040 }
+		pop_growth_speed_reduction = 1.3
+		planet_pop_assembly_reduction = 1.3
+		pop_growth_from_immigration = -1.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2040 num_pops <= 2060 }
+		pop_growth_speed_reduction = 1.9
+		planet_pop_assembly_reduction = 1.9
+		pop_growth_from_immigration = -1.9
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2060 num_pops <= 2090 }
+		pop_growth_speed_reduction = 2.6
+		planet_pop_assembly_reduction = 2.6
+		pop_growth_from_immigration = -2.6
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2090 num_pops <= 2130 }
+		pop_growth_speed_reduction = 3.4
+		planet_pop_assembly_reduction = 3.4
+		pop_growth_from_immigration = -3.4
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2130 num_pops <= 2180 }
+		pop_growth_speed_reduction = 4.3
+		planet_pop_assembly_reduction = 4.3
+		pop_growth_from_immigration = -4.3
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2180 num_pops <= 2240 }
+		pop_growth_speed_reduction = 5.5
+		planet_pop_assembly_reduction = 5.5
+		pop_growth_from_immigration = -5.5
+	}
+	triggered_planet_modifier = {
+		potential = { num_pops > 2240 }
+		pop_growth_speed_reduction = 7.5
+		planet_pop_assembly_reduction = 7.5
+		pop_growth_from_immigration = -7.5
+	}
+}

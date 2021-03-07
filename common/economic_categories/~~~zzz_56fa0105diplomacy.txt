@@ -1,0 +1,12 @@
+diplomacy = {
+    hidden = yes
+    parent = country
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+}

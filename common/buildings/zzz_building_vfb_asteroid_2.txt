@@ -1,0 +1,93 @@
+building_vfb_asteroid_hub = {
+    category = government
+    base_buildtime = 360
+    can_build = no
+    icon = building_vfb_asteroid
+    potential = {
+        NOR = {
+            has_building = building_vfb_asteroid_hub
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_asteroid_station
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_asteroid_station
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+        }
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+            planet = {
+                num_pops < 10
+            }
+        }
+    }
+    planet_modifier = {
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_miner_add = 2
+        job_miner_per_pop = 0.05
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_mining_drone_add = 2
+        job_mining_drone_per_pop = 0.05
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            alloys = 200
+        }
+        upkeep = {
+            alloys = 2
+        }
+        produces = {
+            engineering_research = 4
+        }
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 10
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = minerals
+                    value < 80
+                }
+            }
+        }
+        modifier = {
+            weight = 10
+            factor = 100
+            owner = {
+                has_monthly_income = {
+                    resource = minerals
+                    value < 40
+                }
+            }
+        }
+    }
+}

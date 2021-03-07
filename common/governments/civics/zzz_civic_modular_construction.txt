@@ -1,0 +1,7 @@
+civic_modular_construction = {
+    modification = no
+    description = "civic_tooltip_modular_construction_effects"
+    potential = {
+        always = no
+    }
+}

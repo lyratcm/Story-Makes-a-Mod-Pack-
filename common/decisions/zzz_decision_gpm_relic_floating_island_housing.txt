@@ -1,0 +1,43 @@
+decision_gpm_Floating_Island_Housing = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_floating_islands
+	enactment_time = 0
+
+    resources = {
+		category = decisions
+		cost = {
+		}
+	}
+
+    potential = {
+		FROM = {
+			check_variable = {
+				which = "gpm_r_gravity_engine_decision_count"
+				value > 0
+			}
+		}
+		NOT = { has_deposit = gpm_d_floating_islands_housing }
+	}
+	
+	allow = {
+		NOT = { has_deposit = gpm_d_floating_islands_housing }
+	}
+
+    effect = {
+		add_deposit = gpm_d_floating_islands_housing
+		# custom_tooltip = decision_gpm_Floating_Island_Housing_effects
+		hidden_effect = {
+			from = {
+				change_variable = {
+					which = "gpm_r_gravity_engine_decision_count"
+					value = -1
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

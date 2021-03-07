@@ -1,0 +1,90 @@
+###_沉浸战场	###############################################################################
+
+#_[清理modifier]
+#_[添加modifier]
+
+
+
+
+###_[清理modifier]	#################################################
+z_isb_eft_flt_battle_buff_clean = {
+	#_[战术机动]
+	remove_modifier = z_isb_mod_ship_battle_maneuver_1
+	remove_modifier = z_isb_mod_ship_battle_maneuver_2
+	remove_modifier = z_isb_mod_ship_battle_maneuver_3
+}
+
+
+###_[添加modifier]	#################################################
+#_[RS]兼容+特殊星系兼容
+z_isb_eft_cntr_battle_buff_add = {
+	if = {
+		limit = { has_global_flag = z_isb_flg_glbl_battle_maneuver_on }	#_[战速]
+		fromfrom = {
+			#_system<speed-0.7>
+			if = {
+				limit = {
+					solar_system = { is_star_class = sc_magnetar }	#_RS
+				}
+				#_无[system_modifier]
+				if = {
+					limit = {
+						solar_system = {
+							NOR = {
+								has_modifier = space_storm
+								has_modifier = vluur_storm
+								has_modifier = turbulent_nebula
+							}
+						}
+					}
+					add_modifier = { modifier = z_isb_mod_ship_battle_maneuver_3 days = -1 }
+				}
+			}
+			#_system<speed-0.5>
+			else_if = {
+				limit = {
+					solar_system = {
+						OR = {
+							is_star_class = sc_neutron_star
+							is_star_class = sc_binary_2
+						}
+					}
+				}
+				#_无[system_modifier]
+				if = {
+					limit = {
+						solar_system = {
+							NOR = {
+								has_modifier = space_storm
+								has_modifier = vluur_storm
+								has_modifier = turbulent_nebula
+							}
+						}
+					}
+					add_modifier = { modifier = z_isb_mod_ship_battle_maneuver_2 days = -1 }
+				}
+			}
+			#_system<normal>
+			else = {
+				#_[system_modifier<speed-0.5>]
+				if = {
+					limit = {
+						solar_system = {
+							OR = {
+								has_modifier = space_storm
+								has_modifier = vluur_storm
+								has_modifier = turbulent_nebula
+							}
+						}
+					}
+					add_modifier = { modifier = z_isb_mod_ship_battle_maneuver_2 days = -1 }
+				}
+				#_无[system_modifier]
+				else = {
+					add_modifier = { modifier = z_isb_mod_ship_battle_maneuver_1 days = -1 }
+				}
+			}
+		}
+	}
+}
+

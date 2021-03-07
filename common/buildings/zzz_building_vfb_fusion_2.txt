@@ -1,0 +1,93 @@
+building_vfb_fusion_complex = {
+    category = government
+    base_buildtime = 360
+    can_build = no
+    icon = building_vfb_fusion
+    potential = {
+        NOR = {
+            has_building = building_vfb_fusion_complex
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_fusion_plant
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_fusion_plant
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+        }
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+            planet = {
+                num_pops < 10
+            }
+        }
+    }
+    planet_modifier = {
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_technician_add = 2
+        job_technician_per_pop = 0.05
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_technician_drone_add = 2
+        job_technician_drone_per_pop = 0.05
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            alloys = 200
+        }
+        upkeep = {
+            alloys = 2
+        }
+        produces = {
+            physics_research = 4
+        }
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 10
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value < 80
+                }
+            }
+        }
+        modifier = {
+            weight = 100
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value < 40
+                }
+            }
+        }
+    }
+}

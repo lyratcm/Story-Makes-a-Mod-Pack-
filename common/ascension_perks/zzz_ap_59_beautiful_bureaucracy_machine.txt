@@ -1,0 +1,55 @@
+ap_esap_gov_machines_4 = {
+	on_enabled = {
+		custom_tooltip = ap_esap_gov_machines_4_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_GC_perk_count value = 0 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_GC_machines_4_1" days = -1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_GC_perk_count value = 1 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_GC_machines_4_1" days = -1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_GC_perk_count value = 2 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_GC_machines_4_2" days = -1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_GC_perk_count value = 3 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_GC_machines_4_3" days = -1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_GC_perk_count value = 4 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_GC_machines_4_4" days = -1 }
+			}
+			country_event = {
+				id = esap_gov.2
+			}
+		}	
+	}
+
+	modifier = {
+		planet_coordinators_unity_produces_add = 1
+	}
+
+	potential = {
+		is_machine_empire = yes
+		NOT = {
+			has_ascension_perk = ap_esap_gov_machines_4
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

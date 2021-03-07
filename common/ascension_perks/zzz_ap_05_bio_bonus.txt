@@ -1,0 +1,49 @@
+ap_esap_bio_bonus = {
+	on_enabled = {
+		#custom_tooltip = ap_esap_bio_bonus_tooltip
+	}
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ap_engineered_evolution"
+			has_ascension_perk = ap_engineered_evolution
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ascension_path_t2_req_1"
+			Or = {
+				esap_has_bio_cyber_psi_2 = yes
+				Not = {
+					esap_has_bio_cyber_psi_1 = yes
+				}
+			}
+		}
+	}
+	modifier = {
+		pop_growth_speed = 0.20
+		planet_pops_food_upkeep_mult = -0.20
+	}
+	potential = {
+		host_has_dlc = "Utopia"
+		NOT = {
+			has_ascension_perk = ap_esap_bio_bonus
+			has_authority = "auth_machine_intelligence"
+		}
+		Or = {
+			And = {
+				is_mechanical_empire = no
+				is_cyborg_empire = no
+			}
+			esap_has_bio_cyber_psi_1 = yes
+		}
+		Or = {
+			Nor = {
+				has_ascension_perk = ap_mind_over_matter
+				has_ascension_perk = ap_the_flesh_is_weak
+			}
+			has_ascension_perk = ap_esap_bio_cyber_psi_1
+			has_ascension_perk = ap_esap_bio_cyber_psi_2_plain
+		}
+	}
+	ai_weight = {
+		factor = 15
+	}
+}

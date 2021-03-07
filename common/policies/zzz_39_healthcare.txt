@@ -1,0 +1,122 @@
+healthcare = {
+    potential = {
+        NOT = {
+            has_ethic = "ethic_gestalt_consciousness"
+        }
+        is_robot_empire = no
+    }
+    option = {
+        name = "private_healthcare"
+        valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_socialism"
+                has_ethic = "ethic_pluralist"
+                has_ethic = "ethic_fanatic_pluralist"
+                has_valid_civic = civic_welfare_state
+            }
+        }
+        modifier = {
+            leader_age = 10
+            pop_cat_specialist_happiness = -0.025
+            pop_cat_worker_happiness = -0.05
+            pop_cat_slave_happiness = -0.05
+            trade_value_mult = 0.05
+            pop_ethic_capitalism_attraction_mult = 0.05
+            pop_ethic_elitist_attraction_mult = 0.1
+        }
+        policy_flags = {
+            healthcare_for_profit
+            private_healthcare
+        }
+        AI_weight = {
+            modifier = {
+                factor = 0
+                is_spiritualist = yes
+            }
+            modifier = {
+                factor = 2
+                is_authoritarian = yes
+            }
+            modifier = {
+                factor = 10
+                has_ethic = "ethic_fanatic_capitalism"
+            }
+            modifier = {
+                factor = 2
+                OR = {
+                    has_authority = auth_corporate
+                    has_valid_civic = civic_corporate_dominion
+                    has_valid_civic = civic_merchant_guilds
+                    has_valid_civic = eco_civic_consumerist
+                }
+            }
+        }
+    }
+    option = {
+        name = "healthcare_public_private"
+        valid = {
+            NOR = {
+                has_valid_civic = civic_shared_burden
+            }
+        }
+        policy_flags = {
+            healthcare_public_private
+            mixed_healthcare
+        }
+        modifier = {
+        }
+        AI_weight = {
+            modifier = {
+                factor = 2
+                is_pacifist = yes
+            }
+        }
+    }
+    option = {
+        name = "public_healthcare"
+        valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_capitalism"
+                has_ethic = "ethic_elitist"
+                has_ethic = "ethic_fanatic_elitist"
+            }
+        }
+        modifier = {
+            pop_growth_speed = 0.1
+            pop_ethic_socialism_attraction_mult = 0.05
+            pop_ethic_pluralist_attraction_mult = 0.1
+            country_energy_produces_mult = -0.05
+        }
+        policy_flags = {
+            healthcare_universal
+            public_healthcare
+        }
+        AI_weight = {
+            factor = 1
+            modifier = {
+                factor = 0
+                is_authoritarian = yes
+            }
+            modifier = {
+                factor = 0
+                has_ethic = ethic_fanatic_xenophobe
+            }
+            modifier = {
+                factor = 0.5
+                has_ethic = ethic_xenophobe
+            }
+            modifier = {
+                factor = 2
+                is_spiritualist = yes
+            }
+            modifier = {
+                factor = 2
+                is_egalitarian = yes
+            }
+            modifier = {
+                factor = 10
+                has_ethic = "ethic_fanatic_socialism"
+            }
+        }
+    }
+}

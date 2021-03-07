@@ -1,0 +1,58 @@
+master_computer_shal_cheem = {
+    name = "Shal-Cheem Integral"
+    adjective = "Shal-Cheem"
+    spawn_enabled = yes
+    ship_prefix = SCS
+    species = {
+        class = "FUN"
+        portrait = "fun11"
+        name = "Shal-Cheem"
+        plural = "Shal-Cheems"
+        adjective = "Shal-Cheem"
+        name_list = "FUN2"
+        trait = "trait_thrifty"
+        trait = "trait_charismatic"
+        trait = "trait_solitary"
+        trait = "trait_fleeting"
+    }
+    room = "personality_erudite_explorers_room"
+    authority = "auth_master_computer"
+    civics = {
+        "civic_master_computer_mm_integrator"
+        "civic_master_computer_urban_planner"
+    }
+    government = gov_master_computer_integrator
+    ethic = "ethic_fanatic_authoritarian"
+    ethic = "ethic_materialist"
+    planet_name = "Sett-Schaell"
+    planet_class = "pc_arctic"
+    system_name = "Shem-Chol"
+    initializer = ""
+    graphical_culture = "fungoid_01"
+    city_graphical_culture = "fungoid_01"
+    empire_flag = {
+        icon = {
+            category = "blocky"
+            file = "flag_blocky_20.dds"
+        }
+        background = {
+            category = "backgrounds"
+            file = "circle.dds"
+        }
+        colors = {
+            "dark_brown"
+            "orange"
+            "null"
+            "null"
+        }
+    }
+    ruler = {
+        gender = female
+        name = "El Shrumo Supremo"
+        portrait = "fun11"
+        texture = 0
+        hair = 0
+        clothes = 0
+        leader_class = "ruler"
+    }
+}

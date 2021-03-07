@@ -1,0 +1,20 @@
+civic_displaced_in_time = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 2
+    }
+    modification = no
+    modifier = {
+        pop_environment_tolerance = -0.30
+        country_resettlement_cost_mult = 0.30
+        planet_colony_development_speed_mult = -0.50
+        building_time_mult = 0.2
+        pop_government_ethic_attraction = 0.20
+        planet_jobs_produces_mult = 0.2
+        country_unity_produces_mult = 0.10
+    }
+}

@@ -1,0 +1,71 @@
+trait_talented = {
+    cost = 1
+    potential_crossbreeding_chance = 1.0
+    initial = yes
+    modification = yes
+    randomized = yes
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    opposites = {
+        "trait_nerve_stapled"
+        "trait_masterful"
+        "trait_enigmatic_intelligence"
+        "trait_inept"
+    }
+    modifier = {
+        leader_skill_levels = 1
+        planet_jobs_ruler_produces_mult = 0.05
+    }
+    ai_weight = {
+        weight = 100
+        modifier = {
+            factor = 0
+            root = {
+                NOR = {
+                    has_citizenship_type = {
+                        country = prev
+                        type = citizenship_full
+                    }
+                    has_military_service_type = {
+                        country = prev
+                        type = military_service_full
+                    }
+                }
+            }
+        }
+        modifier = {
+            factor = 2
+            root = {
+                OR = {
+                    has_citizenship_type = {
+                        country = prev
+                        type = citizenship_full
+                    }
+                    has_military_service_type = {
+                        country = prev
+                        type = military_service_full
+                    }
+                }
+            }
+            pop_percentage = {
+                percentage < 0.5
+                limit = {
+                    OR = {
+                        has_citizenship_type = {
+                            country = prev
+                            type = citizenship_full
+                        }
+                        has_military_service_type = {
+                            country = prev
+                            type = military_service_full
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

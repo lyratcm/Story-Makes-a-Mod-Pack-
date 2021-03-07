@@ -1,0 +1,103 @@
+civic_children_of_the_atom = {
+    potential = {
+		always = no
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = "civic_tooltip_materialist"
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+	}
+	description = civic_children_of_the_atom_effect
+	modifier = {
+		category_particles_research_speed_mult = 0.50
+		planet_pops_energy_upkeep_add = 0.50
+		IF = {
+			limit = {	
+				has_technology = tech_fusion_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_cold_fusion_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_zero_point_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_antimatter_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_dark_matter_power_core
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_graviton_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_naquadria_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_singularity_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_multidimensional_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_optimized_enigmatic_power
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_bh_power_2
+			}
+			country_energy_produces_mult = 0.05
+		}
+		IF = {
+			limit = {
+				has_technology = tech_bh_power_3
+			}
+			country_energy_produces_mult = 0.05
+		}
+	}
+}

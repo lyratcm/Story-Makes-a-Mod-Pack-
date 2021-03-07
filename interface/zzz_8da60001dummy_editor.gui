@@ -1,0 +1,49 @@
+guiTypes = {
+    containerWindowType = {
+        name = "dummy_editor"
+        size = {
+            width = 500
+            height = 100
+        }
+        orientation = center
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_frame"
+        }
+        buttonType = {
+            name = "cancel"
+            font = "cg_16b"
+            spriteType = "GFX_galactic_object_button"
+            buttonText = "CLOSE"
+            position = {
+                x = -17
+                y = 70
+            }
+            shortcut = "ESCAPE"
+        }
+        buttonType = {
+            name = "apply_and_close"
+            font = "cg_16b"
+            spriteType = "GFX_galactic_object_button"
+            buttonText = "NEXT"
+            position = {
+                x = 250
+                y = 70
+            }
+            shortcut = "RETURN"
+            clicksound = "confirm_click"
+        }
+        instantTextBoxType = {
+            name = "label"
+            font = "malgun_goth_24"
+            position = {
+                x = 0
+                y = 5
+            }
+            maxWidth = 230
+            text = "NOT IMPLEMENTED"
+            format = center
+            alwaysTransparent = yes
+        }
+    }
+}

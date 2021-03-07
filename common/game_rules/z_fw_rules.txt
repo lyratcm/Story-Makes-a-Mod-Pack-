@@ -1,0 +1,165 @@
+###_++++ z fw 游戏规则	######################################################
+
+
+
+
+###_[z_fw][z_lctr][teif][sofe]	##################
+# Check if full sensor range in entire galaxy
+# root: country
+has_full_sensor_range = {
+	NOR = {
+		has_country_flag = z_fw_misc_full_sensor_off	#_[z_fw]开关
+		has_country_flag = had_closed_spy_orb			#_[teif]开关
+	}
+	OR = {
+		has_megastructure = spy_orb_4
+		has_megastructure = spy_orb_restored
+		has_megastructure = sofe_omega_spy_orb_center		#_[SOFE]
+		has_country_flag = z_fw_r_celestial_orrey_activited			#_[z_fw]璀璨星图
+		has_country_flag = z_fw_r_cheat_quantum_beacon_activited	#_[z_fw]永恒星炬
+		has_country_flag = z_lctr_r_adv_sensor_activated_full		#_[z_lctr]暗能量传感器
+	}
+}
+
+
+###_[z_fw][z_cm][teif][ev][wsg][zofe][sofe]	##################
+#_glbl_flg	[z_fw_flg_glbl_tech_overwhelm]	科技壁垒
+# this = ship
+# root = country that kills ship
+can_spawn_debris = {
+	root = {
+		OR = {
+			is_country_type = default
+			is_country_type = default_ev		#_EV
+			is_country_type = teif_primitive	#_TEIF
+			is_country_type = ascended_empire	#_ZOFE
+			is_country_type = lost_empire		#_ZOFE
+		}
+	}
+	exists = owner
+	owner = {
+		NAND = {#_科技限制
+			OR = {
+				has_global_flag = z_fw_flg_glbl_tech_overwhelm	#_[z_fw]科技壁垒
+				has_global_flag = stability_MOD_installed		#_[teif]
+			}
+			relative_power = { who = root category = technology value >= superior }		#_[z_fw][teif]神一般的科技	superior
+		}
+		NAND = {#_[z_cm]无法获取堕落科技
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+			has_global_flag = z_cm_fallen_technology
+		}
+		#_+teif/wsg/ev/sofe
+		NOR = {#_阵营限制
+			has_ascension_perk = ap_enigmatic_engineering
+			has_ethic = ethic_fanatic_communism				#_TEIF
+			has_country_flag = fallen_empire_6_human_2		#_TEIF
+			is_country_type = default_ev					#_EV
+			is_country_type = wg_crisis_country				#_WSG
+			is_khan_country_type = yes						#_WSG
+			has_government = "gov_eternal_continuum"		#_SOFE
+			has_valid_civic = civic_sofe_pursuit_answer		#_SOFE
+			is_country_type = original_empire				#_SOFE
+			is_country_type = original_empire_passive		#_SOFE
+		}
+	}
+}
+
+
+###_[z_fw][z_lctr][wsg][teif][ag][ws][smco]	##################
+#_sys_trgr	ws_[is_ws_system]
+# this = system
+# root = country
+system_blocks_sensors = {
+	#_z_fw/z_lctr
+	root = {
+		NOR = {
+			has_modifier = z_lctr_mod_cntr_sensor			#_[z_lctr]
+		}
+	}
+	OR = {
+		is_inside_nebula = yes
+		has_modifier = space_storm
+		has_star_flag = lcluster
+		has_star_flag = sealed_system
+		has_star_flag = wg_sealed_system			#_wsg
+		has_star_flag = fallen_sol_system			#_teif
+		root = { is_country_type = teif_primitive }	#_teif
+		has_star_flag = ag_no_sensor_system			#_ag
+		has_star_flag = bok_globules					#_smco
+		has_star_flag = star_flag_GAPS_sealed_system	#_smco
+		is_ws_system = yes			#_ws
+	}
+}
+
+
+###_[z_fw/teif/ag/wsg/kuat/sofe/giga/ehof/seooc]	##################
+# Root = country attempting to target system for movement
+# This = system being targeted
+can_enter_system_by_jump = {
+	custom_tooltip = {
+		success_text = "debug: can jump"
+		fail_text = cannot_jump_to_system
+		OR = {
+			#_绝对通行
+			root = { has_country_flag = z_fw_r_celestial_orrey_activited }		#_[z_fw]璀璨星图
+			root = { has_country_flag = z_fw_r_cheat_quantum_beacon_activited }	#_[z_fw]永恒星炬
+			#_基础条件
+			AND = {
+				#_ugrp禁用条件
+				NOT = {
+					root = { is_country_type = teif_primitive }	#_teif
+				}
+				
+				#_Sealed system
+				OR = {
+					#_+teif
+					NOR = {
+						has_star_flag = sealed_system
+						has_star_flag = fallen_sol_system	#_teif
+					}
+					#_teif
+					AND = {
+						root = { has_country_flag = entered_fallen_sol_system }
+						has_star_flag = fallen_sol_system
+					}
+					#_teif
+					AND = {
+						root = { has_country_flag = entered_sealed_system }
+						has_star_flag = sealed_system
+					}
+				}
+				#_特殊星系	+wsg/ag/kuat/sofe/giga/ehof
+				NOR = {
+					has_star_flag = lcluster
+					has_star_flag = wg_sealed_system		#_wsg
+					has_star_flag = ag_no_jump_in_system	#_ag
+					has_star_flag = Kuat_system				#_kuat
+					has_star_flag = Kuat_system_1			#_kuat
+					has_star_flag = Kuat_system_2			#_kuat
+					has_star_flag = Kuat_system_3			#_kuat
+					has_star_flag = outercluster			#_SOFE	外星门
+					has_star_flag = ehof_compound_system	#_giga/ehof
+					cohesive_system = yes					#_giga
+					urmazin_system = yes					#_giga
+					everchanging_system = yes				#_giga
+					ehof_cohesive_system = yes				#_ehof
+					ehof_trader_system = yes				#_ehof
+					ehof_creator_system = yes				#_ehof
+					has_star_flag = nep_Krahen_cluster		#_seooc
+					has_star_flag = nep_Scrus_cluster		#_seooc
+					AND = {#_seooc
+						has_global_flag = nep_not_pass_Aemethms 
+						OR = {
+							has_star_flag = nep_dragon_system
+							has_star_flag = nep_heptagram_cluster
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+trait_slow_breeders = {
+    cost = -3
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_rapid_breeders"
+        "trait_very_rapid_breeders"
+        "trait_very_slow_breeders"
+        "trait_fertile"
+        "trait_sterile"
+        "trait_additrait_very_slow_breeders"
+        "trait_additrait_passionate"
+        "trait_fungal_colony"
+        "trait_clonal_colony"
+        "trait_clones"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        PLANTOID
+    }
+    modifier = {
+        pop_growth_speed = -0.10
+    }
+    slave_cost = {
+        energy = -100
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_slow_breeders@prev
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+trait_conservational = {
+    cost = 1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_wasteful"
+        "trait_hedonists"
+        "trait_resourceful"
+        "trait_hive_mind"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_pops_consumer_goods_upkeep_mult = -0.10
+    }
+    ai_weight = {
+        weight = 100
+        modifier = {
+            factor = 4
+            has_valid_civic = civic_environmentalist
+        }
+        modifier = {
+            factor = 2
+            is_spiritualist = yes
+        }
+        modifier = {
+            factor = 0.5
+            has_ethic = ethic_egalitarian
+        }
+        modifier = {
+            factor = 0.25
+            has_ethic = ethic_fanatic_egalitarian
+            NOT = {
+                has_valid_civic = civic_shared_burden
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+civic_master_computer_grid_manager = {
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+
+    modifier = {
+        planet_structures_energy_upkeep_mult = -0.25
+        planet_jobs_energy_produces_mult = 0.05
+    }
+
+    random_weight = { base = 5 }
+}

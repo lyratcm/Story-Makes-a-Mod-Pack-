@@ -1,0 +1,114 @@
+GAPS_Underground_agri_drone = {
+    category = simple_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = GAPS_Underground_farmer
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        drone_job_check_trigger = yes
+    }
+    resources = {
+        category = planet_farmers
+        produces = {
+            food = 6
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_robot_empire = yes
+                }
+            }
+            food = -1
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = Flag_Country_GAPS_Undergrounder_Studied_Cave_Shrooms
+                }
+            }
+            exotic_gases = 0.05
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_edict = farming_subsidies
+                }
+            }
+            energy = 0.5
+        }
+    }
+    pop_modifier = {
+        pop_housing_usage_mult = -1
+    }
+    triggered_pop_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_country_flag = Flag_Country_GAPS_Undergrounder_Studied_Cave_Shrooms
+            }
+        }
+        modifier = {
+            planet_jobs_food_produces_mult = 0.1
+            planet_jobs_minerals_produces_mult = 0.1
+        }
+    }
+    weight = {
+        weight = @simple_drone_job_weight
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_agrarian
+                has_trait = trait_robot_harvesters
+            }
+        }
+        modifier = {
+            factor = 0.9
+            NOT = {
+                has_job = mining_drone
+            }
+            owner = {
+                has_monthly_income = {
+                    resource = food
+                    value > 50
+                }
+            }
+        }
+        modifier = {
+            factor = 1.2
+            has_job = agri_drone
+        }
+        modifier = {
+            factor = 0.9
+            owner = {
+                is_robot_empire = yes
+            }
+        }
+        modifier = {
+            factor = 1.1
+            exists = owner
+            years_passed < 1
+            owner = {
+                has_valid_civic = civic_machine_assimilator
+            }
+            has_trait = trait_cybernetic
+        }
+        modifier = {
+            factor = 0.5
+            has_trait = trait_lithoid
+            owner = {
+                is_lithoid_empire = yes
+                has_monthly_income = {
+                    resource = food
+                    value >= 0
+                }
+            }
+        }
+    }
+}

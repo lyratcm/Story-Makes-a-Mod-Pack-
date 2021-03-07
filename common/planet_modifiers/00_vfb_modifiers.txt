@@ -1,0 +1,7 @@
+pm_vfb_buildspeed_m = {
+	spawn_chance = {
+		#None
+	}
+	
+	modifier = "vfb_buildspeed_m"
+}

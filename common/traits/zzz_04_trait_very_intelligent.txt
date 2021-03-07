@@ -1,0 +1,24 @@
+trait_very_intelligent = {
+    cost = 4
+    potential_crossbreeding_chance = 1.0
+    initial = no
+    modification = no
+    randomized = no
+    opposites = {
+        "trait_nerve_stapled"
+        "trait_intelligent"
+        "trait_simple"
+        "trait_moronic"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_jobs_engineering_research_produces_mult = 0.20
+        planet_jobs_physics_research_produces_mult = 0.20
+        planet_jobs_society_research_produces_mult = 0.20
+    }
+}

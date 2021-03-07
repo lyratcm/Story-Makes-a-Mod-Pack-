@@ -1,0 +1,1346 @@
+
+###_LV6	##########################################################################################
+
+###_LV6- [ACOT-Enigma]=230	#########################################
+#_core
+tech_enigmatic_power_core = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_laser_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_plasma_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_disruptor_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_energy_torpedo_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_point_defense_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_mass_driver_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_autocannons_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_flak_batteries_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_missile_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_torpedo_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_swarmer_missile_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_strike_craft_bomber_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_energy_lance_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_arc_emitter_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_mass_accelerator_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_perdition_beam_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_armor_enig = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_enigmatic_shields = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+###_LV6-	[ACOT-DELTA]=230	#########################################
+tech_laser_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_plasma_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_disruptor_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_energy_torpedo_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_point_defense_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_mass_driver_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_autocannons_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_resized_mass_accelerator_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_kinetic_artillery_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_flak_batteries_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_missile_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_torpedo_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_swarmer_missile_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_barrage_missile_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_xl_missile_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_missile_nuke_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_strike_craft_bomber_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_strike_craft_gunship_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_energy_lance_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_arc_emitter_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_mass_accelerator_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_perdition_beam_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_titan_emitter_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_titan_accelerator_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_armor_dm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+
+
+
+
+
+
+
+
+###_LV7	##########################################################################################
+
+###_LV6.5	[ACOT-ALPHA]=280	#########################################
+#_core
+tech_dark_matter_power_core_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_laser_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_plasma_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_disruptor_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_energy_torpedo_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_point_defense_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_mass_driver_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_autocannons_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_resized_mass_accelerator_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_kinetic_artillery_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_flak_batteries_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_missile_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_torpedo_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_swarmer_missile_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_barrage_missile_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_xl_missile_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_missile_nuke_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_strike_craft_bomber_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_strike_craft_gunship_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_energy_lance_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_arc_emitter_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_mass_accelerator_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_perdition_beam_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_titan_emitter_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_titan_accelerator_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_armor_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_dark_matter_deflector_ae = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 7
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+
+
+
+
+
+
+
+###_LV8	##########################################################################################
+
+###_LV8	[ACOT-PSI]	#########################################
+#_core
+tech_precursor_design = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 6
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_shroud_missile = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_shroud_hanger = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_shroud_storm = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+
+
+
+###_LVL7+	[SIGMA]=350 stellarite
+#_core
+tech_stellarite_reactor = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_stellarite_laser = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_photon = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_disruptor = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_plasma_cannon = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_beam = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_point_defence = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_emitter = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_titan_beam = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_titan_stellarite_emitter = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_titan_accelerator = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_autocannon = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_gauss = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_resized_mass_accelerator_se = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_artillery = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_flak = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_warp_stellarite_cannon = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_missile = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_barrage_missile_se = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_xl_missile_se = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_missile_nuke_se = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_fighter = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_bomber = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_gunship = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_stellarite_armor = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_stellarite_shield = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+
+
+
+###_LVL8	[PHI]=355 PHANON
+#_core
+tech_dark_matter_power_core_pe = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 8
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+
+
+
+
+
+
+
+###_LV9	##########################################################################################
+
+###_LV9.5	[OMEGA]=640
+tech_lightmatter_laser = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_photon = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_disruptor = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_plasma_cannon = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_lance = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_point_defence = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_emitter = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_titan_beam = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_titan_lightmatter_emitter = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_titan_accelerator = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_autocannon = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_resized_mass_accelerator_oe = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_gauss = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_artillery = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_flak = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_warp_lightmatter_cannon = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_missile = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_barrage_missile_oe = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_xl_missile_oe = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_missile_nuke_oe = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_fighter = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_bomber = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_gunship = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_lightmatter_armor = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+tech_lightmatter_shield = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+tech_lightmatter_reactor = {
+	icon = tech_z_dummy
+	area = physics
+	cost = 0
+	tier = 10
+	category = { particles }
+	weight = 0
+	potential = { always = no }
+	ai_weight = { weight = 0 }
+}
+

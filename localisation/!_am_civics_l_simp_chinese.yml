@@ -1,0 +1,226 @@
+﻿
+
+l_simp_chinese:
+
+ #######################################################
+ ### UI                                              ###
+ #######################################################
+ 
+ civic_am_civics_locust_capitalism_start_screen_message_1:0 "[GetSpeciesName]在“蝗虫式”资本主义中生活了数百年，他们的社会准则就是毫无保留的开发利用，成功的唯一标准是每季度的利润报表，社会和环境问题则从没有被正视过。" 
+ civic_am_civics_locust_capitalism_start_screen_message_2:0 "科学家们——或者说，不懂如何挣钱的人们——在数十年前就发出了警告，现有的经济模式无法长时间持续下去 ，[GetSpeciesName]正将他们的母星带向灭亡。但从没有人把这些放在心上过。"
+ civic_am_civics_locust_capitalism_start_screen_message_3:0 "而在发现了超空间航路之后，这些警告的影响力降到了最低点：全银河系的资源与机遇正等待着[GetName]，因此[GetHomeWorldName]未来会怎样就显得如此微不足道了。"
+
+ #######################################################
+ ### CIVICS                                          ###
+ #######################################################
+ 
+ ### Off-World Investors
+ civic_am_civics_off_world_investors:0 "无国界投资"
+ civic_am_civics_off_world_investors_desc:0 "整个星系充斥着等待被发掘的宝藏与奇迹，该巨型企业执着于寻找新的方式从未殖民行星的各种资源中获利。"
+ tooltip_civic_am_civics_off_world_investors_effects:0 "每年结束时，所有帝国领土中生产的£trade_value£ §Y$TRADE_VALUE$§!将被重新计算，并有小概率变为更高价值。高价值的贸易值升级机会会降低，且不会超过 7 £trade_value£ §Y$TRADE_VALUE$§!。"
+ 
+ ### Stellar Travel Agency
+ civic_am_civics_stellar_travel_agency:0 "星际旅行社"
+ civic_am_civics_stellar_travel_agency_desc:0 "该巨型企业的主要利润来自于垄断性的星际私人旅游业。"
+ tooltip_civic_am_civics_stellar_travel_agency_effects:0 "§H可建造太空基地建筑：§!游客中心\n  生产：4 £unity£ §Y$UNITY$§!\n  建筑维持费用：4 £energy£ §Y$energy$§!\n  效果：该星系的所有星球所生产的贸易值 £trade_value£ §Y$TRADE_VALUE$§! +25%。"
+ 
+ ### Social Media Giant
+ civic_am_civics_social_media_giant:0 "社媒巨头"
+ civic_am_civics_social_media_giant_desc:0 "该企业政府以社交媒体发家，每个国民都生活在社交评分系统中：拥有良好社会地位与极度活跃者可获得诸多奖励， 而有害发言、不活跃或与低分国民互动等行为则不被鼓励，甚至视为犯罪。"
+ tooltip_civic_am_civics_social_media_giant_effects:0 "§H可建造建筑：§!信息港\n  生产：3 £society_research£ §Y$society_research$§!\n  可由行星决议施加特殊效果。"
+   
+ ### Knowledge is Profit
+ civic_am_civics_knowledge_is_profit:0 "知识就是利润"
+ civic_am_civics_knowledge_is_profit_desc:0 "该巨型企业在获取并贩卖知识方面有着丰富的经验。"
+ tooltip_civic_am_civics_knowledge_merchants_effects:0 "在勘探完毕一个星系后，获得 §G50§! £energy£ §Y$energy$§! 与 §G5§! £influence£ §Y$influence$§! 。"
+ 
+ ### Urban Pacification Tools
+ civic_am_civics_urban_parcification_tools:0 "机械化执法机构"
+ civic_am_civics_urban_parcification_tools_desc:0 "该巨型企业把持着高度机械化的执法机构，这些高效且无情的机器一丝不苟地执行并强化着法律。在它们身上看不到一丝迟疑与同情，除非……罪犯是企业的股东。"
+ tooltip_civic_am_civics_urban_parcification_tools_effects:0 "£crime£ 犯罪率§G-20§!\n\n§H可以建造$BRANCH_OFFICE_BUILDING$§!:警察总局\n    +1 £job_enforcer£ 执行者\n    生产：10 £energy£ §Y$energy$§!\n          当£crime£犯罪率低于20时为20 £energy£ §Y$energy$§!。"
+ 
+ ### Corporate Growth
+ civic_am_civics_corporate_growth:0 "企业增值"
+ civic_am_civics_corporate_growth_desc:0 "对该巨型企业来说，没有什么是比待殖民的宜居星球更有价值的了。"
+ tooltip_civic_am_civics_corporate_growth_effects:0 "新殖民的星球拥有一个 $district_city$，且在10年内来自人口职业的 £minerals£ §Y$minerals$§!， £energy£ §Y$energy$§! 与 £food£ §Y$food$§! 增长§G+15%§!。"
+ 
+ ### Charity
+ civic_am_civics_charitable_efforts:0 "慈善事业"
+ civic_am_civics_charitable_efforts_desc:0 "该巨型企业曾是一个慈善组织。虽然现在其目标已经变为了盈利，但仍会将一部分利润用以改善穷人们的生活。"
+ tooltip_civic_am_civics_charitable_efforts_effects:0 "提升大部分帝国对其评价。"
+ 
+ ### Locust Capitalism
+ civic_am_civics_locust_capitalism:0 "蝗虫式资本主义"
+ civic_am_civics_locust_capitalism_desc:0 "无限制的资本主义、凌驾一切之上的利润与指数性增长的财富就是该帝国的一切。贪婪的企业政府眼中只有如何从所拥有的一切中榨取更多利润，而可持续性从没有出现在考虑范围中过。"
+ tooltip_civic_am_civics_locust_capitalism_effects:0 "海军容量：§G+50%§!\n舰船建造花费：§G-30%§!\n舰船维持费用：§G-30%§!\n建造太空基地影响力花费：§G-30%§!\n所有权影响力花费：§G-30%§!\n采矿空间站与科研空间站产出：§G+75%§!\n\n§R掠夺式的资源开发使得我们与附庸国的采矿空间站产出随时间减少，直至枯竭。\n我们所拥有的星球会逐渐失去生机，直至完全破灭。§!"
+ 
+ ### Military-Industrial Complex
+ civic_am_civics_military_industrial_complex:0 "军工集合体"
+ civic_am_civics_military_industrial_complex_desc:0 "该巨型企业专精于制造军用器材。显然，其外交动向取决于能否从冲突中获利。"
+ tooltip_civic_am_civics_military_industrial_complex_effects:0 "在加入战争后，可选择一项进行投资：\n  投资武器制造商：\n    $MOD_SHIP_FIRE_RATE_MULT$: §G+10%§!\n    $TRADE_VALUE$: §G+10%§!\n  投资陆军军备：\n    $MOD_ARMY_DAMAGE_MULT$: §G+25%§!\n    $MOD_ARMY_ATTACK_HEALTH_MULT$: §G+10%§!\n    $TRADE_VALUE$: §G+10%§!\n  投资舰船制造商：\n    $MOD_STARBASE_SHIPYARD_BUILD_SPEED_MULT$: §G+25%§!\n    $MOD_STARBASE_SHIPYARD_BUILD_COST_MULT$: §G-10%§!\n    $TRADE_VALUE$: §G+10%§!\n\n所选择的效果持续15年。当没有投资时，贸易值减少§R5%§!。"
+ 
+ ### Banking Giant
+ civic_am_civics_banking_giant:0 "银行巨头"
+ civic_am_civics_banking_giant_desc:0 "该巨型企业曾是一个银行巨头，直到利用其影响力“收购”了世界政府。"
+ tooltip_civic_am_civics_banking_giant_effects:0 "§H可以建造：§! 星际金融机构\n §H帝国唯一§!\n 根据所拥有的 £energy£ §YEnergy§! 产生额外 §Y$TRADE_VALUE$§! ，且每年根据 £energy£ §YEnergy§! 库存额外产生 §Y6%§! 的利息。" 
+ #######################################################
+ ### STARBASE BUILDINGS                              ###
+ #######################################################
+ 
+ sm_starbase_building_am_civics_tourist_quarters:0 "游客中心"
+ sm_starbase_building_am_civics_tourist_quarters_desc:0 "游客中心接待着该星系中各个星球的游客。"
+ starbase_building_am_civics_tourist_quarters_desc_modifier:0 "该星系所有行星所生产的  £trade_value£ §Y$TRADE_VALUE$§! §G+25%§!。"
+
+ #######################################################
+ ### BUILDINGS                                       ###
+ #######################################################
+ 
+ building_am_civics_omni_police_station:0 "警察总局"
+ building_am_civics_omni_police_station_desc:0 "拥有机械化执法力量的警察总局，企业政府每月为其服务支付高昂的费用。"
+ building_am_civics_omni_police_station_triggered_desc:0 "生产 8 £energy£ §Y$energy$§!，当犯罪率低于 20 时生产 16 £energy£ §Y$energy$§!。\n\n$job_enforcer_effect_desc$"
+
+ building_am_civics_social_media_hub:0 "信息港"
+ building_am_civics_social_media_hub_desc:0 "集中管理星球上所有社交网络的政府建筑，其设计简化了政府对于社媒信息的管控。"
+ building_am_civics_social_media_hub_triggered_desc:0 "建成后，可通过行星决议施加新的效果。\n  "
+ building_am_civics_social_media_hub_triggered_desc_constructed:0 "可通过行星决议施加新的效果。\n  "
+ building_am_civics_social_media_hub_triggered_desc_maxed:0 "§G该建筑已无可用升级。§!\n  "
+
+ building_am_civics_stellar_banking_institute:0 "星际金融机构"
+ building_am_civics_stellar_banking_institute_desc:0 "一个庞大的银行集合体，通过集中管理可以更好地投资获利。绝大多数交易都由自动交易系统完成，股票的买入卖出以肉眼不可见的频率进行着。"
+ building_am_civics_stellar_banking_institute_summary:0 "根据所拥有的 £energy£ §YEnergy§! 产生额外 §Y$TRADE_VALUE$§! ，且每年根据 £energy£ §YEnergy§! 库存额外产生 §Y6%§! 的利息。"
+ 
+ #######################################################
+ ### DECISIONS                                       ###
+ #######################################################
+ 
+ ## Used in _effect-texts below.
+ decision_am_civics_generic_influence_cost_tt:0 "星球上其他社媒决议的 §Y£influence£ Influence§! 花费将会提高 §R25§!."
+ 
+ decision_am_civics_building_social_media_hub_1:0 "社媒：行为分析"
+ decision_am_civics_building_social_media_hub_1_desc:0 "通过分析个体或群体在社交网络的中的行为，我们可以获取很多知识。如果能够控制社媒环境并分析人们的反应，我们还能获得更多。"
+ decision_am_civics_building_social_media_hub_1_effect:0 "£building£ §Y$building_am_civics_social_media_hub$:§!\n$mod_planet_jobs_society_research_produces_mult$: §G+35%§!\n$decision_am_civics_generic_influence_cost_tt$"
+ 
+ decision_am_civics_building_social_media_hub_2:0 "社媒：稳定算法"
+ decision_am_civics_building_social_media_hub_2_desc:0 "通过控制用户在社媒上看到的内容，可以使我们的人民保持镇定。"
+ decision_am_civics_building_social_media_hub_2_effect:0 "£building£ §Y$building_am_civics_social_media_hub$:§!\n\n\n$MOD_PLANET_STABILITY_ADD$ 增加 §G+5§!\n$decision_am_civics_generic_influence_cost_tt$"
+ 
+ decision_am_civics_building_social_media_hub_3:0 "社媒：精准广告投放"
+ decision_am_civics_building_social_media_hub_3_desc:0 "通过广告的精准投放，可以“改善”公民们的消费习惯。"
+ decision_am_civics_building_social_media_hub_3_effect:0 "£building£ §Y$building_am_civics_social_media_hub$:§!\n+25% £trade_value£ $TRADE_VALUE$\n\n$decision_am_civics_generic_influence_cost_tt$"
+ 
+ decision_am_civics_building_social_media_hub_4:0 "社媒：生产协议"
+ decision_am_civics_building_social_media_hub_4_desc:0 "通过向人民传播潜意识讯息，可以增加他们的工作效率。"
+ decision_am_civics_building_social_media_hub_4_effect:0 "£building£ §Y$building_am_civics_social_media_hub$:§!\n$mod_planet_jobs_worker_produces_mult$ 增加 §G5%§!\n\n$decision_am_civics_generic_influence_cost_tt$"
+ 
+ decision_am_civics_building_social_media_hub_5:0 "社媒：意见领袖"
+ decision_am_civics_building_social_media_hub_5_desc:0 "通过创造并炒作意见领袖（当然，由政府控制），我们能够直接操控公民们的想法和意见。"
+ decision_am_civics_building_social_media_hub_5_effect:0 "£building£ §Y$building_am_civics_social_media_hub$:§!\n$planet_entertainers$: §G+2§!\n\n$decision_am_civics_generic_influence_cost_tt$"
+ 
+ #######################################################
+ ### STATIC MODIFIERS                                ###
+ #######################################################
+ 
+ static_modifier_am_civics_corporate_growth:0 "企业增值"
+ static_modifier_am_civics_corporate_growth_desc:0 "整个星球的资源正等待着我们的开发……"
+ 
+ static_modifier_am_civics_destructive_flight:0 "绝望的逃亡"
+ static_modifier_am_civics_destructive_flight_desc:0 "星球即将毁灭的预测使得星球上的人民陷入了恐慌。人们正在进行大撤离。\n\n每几个月，1 £pop£ 将会移居至另一殖民地，直至星球上只有少数 £pop£ "
+ 
+ static_modifier_am_civics_destructive_panic:0 "绝望的恐慌"
+ static_modifier_am_civics_destructive_panic_desc:0 "星球即将毁灭的预测使得星球上的人民陷入了恐慌。政府不允许他们离开星球，对于死亡的恐惧演变成了暴动。"
+  
+ ### Base Description
+ static_modifier_am_civics_planet_decay:0 "枯竭的星球 - 阶段"
+ static_modifier_am_civics_planet_decay_desc:0 "该星球已受损于企业政府的野蛮开发。\n该星球为企业政府的殖民地时，枯竭等级将随时间增加。星球上的人口 £pop£ 越多，增加速度越快。\n枯竭等级达到10时，星球所受损害将不可逆，且会面临大灭绝。"
+ 
+ static_modifier_am_civics_planet_decay_1:0 "$static_modifier_am_civics_planet_decay$ 1"
+ static_modifier_am_civics_planet_decay_1_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_2:0 "$static_modifier_am_civics_planet_decay$ 2"
+ static_modifier_am_civics_planet_decay_2_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_3:0 "$static_modifier_am_civics_planet_decay$ 3"
+ static_modifier_am_civics_planet_decay_3_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_4:0 "$static_modifier_am_civics_planet_decay$ 4"
+ static_modifier_am_civics_planet_decay_4_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_5:0 "$static_modifier_am_civics_planet_decay$ 5"
+ static_modifier_am_civics_planet_decay_5_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_6:0 "$static_modifier_am_civics_planet_decay$ 6"
+ static_modifier_am_civics_planet_decay_6_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_7:0 "$static_modifier_am_civics_planet_decay$ 7"
+ static_modifier_am_civics_planet_decay_7_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_8:0 "$static_modifier_am_civics_planet_decay$ 8"
+ static_modifier_am_civics_planet_decay_8_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_9:0 "$static_modifier_am_civics_planet_decay$ 9"
+ static_modifier_am_civics_planet_decay_9_desc:0 "$static_modifier_am_civics_planet_decay_desc$"
+ static_modifier_am_civics_planet_decay_10:0 "$static_modifier_am_civics_planet_decay$ 10"
+ static_modifier_am_civics_planet_decay_10_desc:0 "该星球已受损于企业政府的野蛮开发。\n\n§R该星球所受的损伤已不可逆，很快将会迎来大灭绝。§!" 
+ 
+ static_modifier_am_civics_military_industrial_complex_idle:0 "军工产业闲置"
+ static_modifier_am_civics_military_industrial_complex_idle_desc:0 "我们已经很长时间没有参与战争了，这对我们的工业造成了负面影响。"
+ static_modifier_am_civics_military_industrial_complex_choice_1:0 "投资：武器制造商"
+ static_modifier_am_civics_military_industrial_complex_choice_1_desc:0 "通过拨给武器制造商额外资金，我们舰船的战斗能力增强了。"
+ static_modifier_am_civics_military_industrial_complex_choice_2:0 "投资：陆军军备"
+ static_modifier_am_civics_military_industrial_complex_choice_2_desc:0 "通过拨给陆军军备额外资金，我们陆军的战斗能力增强了。"
+ static_modifier_am_civics_military_industrial_complex_choice_3:0 "投资：舰船制造商"
+ static_modifier_am_civics_military_industrial_complex_choice_3_desc:0 "通过拨给舰船制造商额外资金，我们舰船的生产能力增强了。"
+ 
+ static_modifier_locust_capital_evacuation:0 "基础建设投资"
+
+ #######################################################
+ ### TECHNOLOGIES                                    ###
+ #######################################################
+
+ tech_am_civics_locust_recycling_industries:0 "可回收工业" 
+ tech_am_civics_locust_recycling_industries_desc:0 "如果利润来源于生产，那么也能来源于再生产……或许吧。" 
+ tech_am_civics_locust_recycling_industries_effect:0 "§H效果：§! 行星枯竭速度降低 50% \n§H效果：§! 采矿空间站枯竭速度降低 50%"  
+
+ tech_am_civics_locust_sustainability_industries:0 "可持续性工业" 
+ tech_am_civics_locust_sustainability_industries_desc:0 "通过建立可持续性工业，我们的星球将会变得更加宜居——当然，也会带来更多利润。" 
+ tech_am_civics_locust_sustainability_industries_effect:0 "§H效果：§! 行星将不再会枯竭。\n§H效果：§! 采矿空间站将不再会枯竭。"  
+ 
+ #######################################################
+ ### OPINION MODIFIERS                               ###
+ #######################################################
+ 
+ opinion_am_civics_is_charity:0 "慈善性企业政府"
+ 
+ #######################################################
+ ### PERSONALITIES                                   ###
+ #######################################################
+ 
+ personality_am_civics_locust:0 "蝗虫资本家"
+ personality_am_civics_locust_desc:0 "这些蝗虫资本家的眼中只有一样东西：利润。他们会使用任何手段来使季度报表更好看一些。"
+ personality_am_civics_charitable_capitalist:0 "道德资本家"
+ personality_am_civics_charitable_capitalist_desc:0 "道德资本家认为经济的力量应该使银河系变得更好，他们很乐意与其他帝国签署合作协议，并且通常会远离军事冲突。"
+ 
+ #######################################################
+ ### GOVERNMENTS                                     ###
+ #######################################################
+ 
+ gov_am_civics_locust_corporation:0 "蝗虫式巨型企业"
+ gov_am_civics_locust_corporation_desc:0 "政府由财阀寡头组成，整个国家就是一家由董事会领导的庞大企业。"
+  
+ #######################################################
+ ### EVENTS                                          ###
+ #######################################################
+ 
+ events_am_civics_locust_capitalism.8.name:0 "毁灭就在眼前"
+ events_am_civics_locust_capitalism.8.desc:0 "来自 [this.GetName] 的爆炸性消息：当地的科学家们声称该星球已经不可能再支持任何种类的生命了。通过他们的模型预测，由于毫无节制的工业开发，该星球将在十年后迎来大灭绝。\n星球上的人民陷入了极大的恐慌，每个人都正在做准备离开他们的家园。如果他们走了， [this.GetName] 上的生产线毫无疑问会崩溃。"
+ events_am_civics_locust_capitalism.8.option.a:0 "让他们走吧。"
+ events_am_civics_locust_capitalism.8.option.a.tt:0 "§R行星将在十年后毁灭。§!\n\n§Y大撤离：§! \n稳定性：§R-40§!\n每月都可能有 1 £pop£ 人口离开 [this.GetName] ，随机选择一殖民地定居，直至该星球仅剩少数 £pop£ 人口，或该星球毁灭。"
+ events_am_civics_locust_capitalism.8.option.b:0 "我们必须完成生产目标，阻止他们。" 
+ events_am_civics_locust_capitalism.8.option.b.tt:0 "§R行星将在十年后毁灭。§!\n\n§Y大恐慌：§!\n稳定性：§R-20§!\n所有 £pop£ 人口将不被允许离开该星球（可手动移居），将在该星球毁灭时死亡。"
+
+ events_am_civics_locust_capitalism.10.name:0 "星球毁灭"
+ events_am_civics_locust_capitalism.10.desc:0 "由于我们无节制的开发，[this.GetName] 终于迎来了毁灭，在星球破碎之时，所有地表上的生命都在顷刻之间灭亡了。\n虽然这是一场悲剧，但它并不会摧毁我们的精神。一些主管已经发出提议，通过收集行星表面的残留物并冠以“失落文明遗产”的噱头进行宣传，多多少少能弥补我们的损失。"
+ events_am_civics_locust_capitalism.10.option.a:0 "有时候，必须为了利润做出牺牲。"
+ events_am_civics_locust_capitalism.10.option.a.tt:0 "殖民地 [this.GetName] 已毁灭。"
+ 
+ events_am_civics_military_industrial_complex.2.name:0 "战争工业"
+ events_am_civics_military_industrial_complex.2.desc:0 "[this.GetName] 的商人很乐意见到我们参与到冲突当中。毫无疑问，这场战争会带给我们更团结的人民，更深的影响力，更高的产能，当然，还有更多的利润。"
+ events_am_civics_military_industrial_complex.2.option.a:0 "投资武器制造商"
+ events_am_civics_military_industrial_complex.2.option.2:0 "投资陆军军备"
+ events_am_civics_military_industrial_complex.2.option.c:0 "投资舰船制造商"
+
+ events_am_civics_locust_capitalism.9.name:0 "[this.GetName] 的处境" 
+ events_am_civics_locust_capitalism.9.desc:0 "我们的首都，[this.GetName]，大部分资源都已被开采殆尽，研究表明，在十年之内它将变得不再宜居。\n目前我们正封锁着这一消息，但显然纸包不住火，大众一旦得知此事，大规模恐慌将不可避免。\n这是……一场悲剧，毫无疑问，但也是个获利的机会：现在或许是投资基础建设的最佳时机，因为它们在不远的将来肯定会派上用场的。" 
+ events_am_civics_locust_capitalism.9.option.a:0 "利润？就是利润！"

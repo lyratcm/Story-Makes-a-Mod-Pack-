@@ -1,0 +1,19 @@
+###_z_modmenu	###############################################################################
+
+#_[z_sub]	pf/pf2/pr
+
+
+
+
+###_[z_sub]	#################################################
+#_[pf]
+z_pf_eft_global_cd = {}
+
+#_[pf2]
+z_merge_common_species = {}
+z_pf2_eft_cntr_flt_opt_execute = {}
+
+#_[pr]
+z_pr_eft_cntr_mannual_check = {}	#_[手动检测_pf]
+z_pr_eft_cntr_setting = {}
+z_pr_eft_cntr_init_debug = {}	#_[cntr初始化debug]

@@ -1,0 +1,88 @@
+building_master_computer_colony_shelter = {
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+    can_be_disabled = no
+    icon = building_colony_shelter
+
+	category = government
+	
+	potential = {
+		exists = owner
+        owner = {
+            has_authority = auth_master_computer
+        }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}		
+    }
+    
+    destroy_trigger = {
+        exists = owner
+        OR = {
+			owner = {
+				NOT = { has_authority = auth_master_computer }
+			}
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+    }
+	
+	convert_to = {
+		building_hive_capital
+		building_deployment_post
+		building_master_computer_resort_capital_1
+		building_slave_capital
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 3
+		planet_amenities_add = 3
+	}
+	
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_mechanical_empire = no }		
+		}
+		job_colonist_add = 2
+	}	
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }		
+		}
+		job_roboticist_add = 1
+		job_colonist_add = 1
+	}
+	
+	resources = {
+		category = planet_buildings
+		upkeep = {
+			energy = 1
+		}		
+	}
+		
+	upgrades = {
+		building_master_computer_capital_1
+	}
+	
+	triggered_desc = {
+		text = job_colonist_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_mechanical_empire = yes }		
+		}
+		text = job_roboticist_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 100
+	}	
+}

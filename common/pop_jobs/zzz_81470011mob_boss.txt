@@ -1,0 +1,95 @@
+mob_boss = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_luxury_residence
+    clothes_texture_index = 1
+    icon = executive
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        ruler_job_check_trigger = yes
+    }
+    resources = {
+        category = planet_executives
+        upkeep = {
+            consumer_goods = 4
+        }
+    }
+    planet_modifier = {
+        planet_stability_add = 5
+        planet_crime_add = 5
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_dystopia
+                    has_valid_civic = civic_corp_dystopia
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 3
+            planet_stability_add = 5
+            planet_crime_add = 5
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+        modifier = {
+            factor = 0.1
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 5
+            has_job = mob_boss
+        }
+        modifier = {
+            factor = 1.2
+            is_unemployed = yes
+            is_pop_category = ruler
+        }
+        modifier = {
+            factor = 1.1
+            is_unemployed = yes
+            is_pop_category = specialist
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_necrophage
+        }
+        modifier = {
+            factor = 0.01
+            planet.controller = {
+                OR = {
+                    is_country_type = swarm
+                    is_country_type = ai_empire
+                }
+            }
+            OR = {
+                NOT = {
+                    exists = event_target:custodian_bot
+                }
+                AND = {
+                    exists = event_target:custodian_bot
+                    NOT = {
+                        species = {
+                            is_same_value = event_target:custodian_bot
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

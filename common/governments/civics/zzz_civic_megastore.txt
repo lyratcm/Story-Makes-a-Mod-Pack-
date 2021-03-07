@@ -1,0 +1,19 @@
+civic_megastore = {
+	description = "civic_tooltip_megastore_effects"
+	potential = {
+		always = no
+	}
+	possible = {
+		ethics = {
+			NOR = {
+				text = civic_tooltip_not_militarist
+				value = ethic_fanatic_militarist
+				value = ethic_militarist
+			}
+		}
+	}
+	random_weight = { base = 4 }
+	modifier = {
+		planet_jobs_consumer_goods_produces_mult = 0.15
+	}
+}

@@ -1,0 +1,18 @@
+effect_ancient_jug_remove_booster_flag = {
+    remove_country_flag = ancient_jug_booster_aim
+	remove_country_flag = ancient_jug_booster_damage
+	remove_country_flag = ancient_jug_booster_shield
+	remove_country_flag = ancient_jug_booster_range
+	remove_country_flag = ancient_jug_booster_hyperdrive
+	remove_country_flag = ancient_jug_booster_rocket
+	remove_country_flag = ancient_jug_booster_evasion
+	remove_country_flag = ancient_jug_booster_subspeed
+	remove_country_flag = ancient_jug_booster_jumpdrive
+	remove_country_flag = ancient_jug_booster_bomb
+	remove_country_flag = ancient_jug_booster_craft
+	remove_country_flag = ancient_jug_booster_penetrate
+	remove_country_flag = ancient_jug_booster_regenerate
+	remove_country_flag = ancient_jug_booster_home_fire
+	remove_country_flag = ancient_jug_booster_point_defense
+	remove_country_flag = ancient_jug_booster_upkeep
+}

@@ -1,0 +1,3 @@
+NSpecies = {
+    HOMEWORLD_HABITABILITY = 0.4
+}

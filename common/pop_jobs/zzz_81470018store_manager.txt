@@ -1,0 +1,124 @@
+store_manager = {
+    category = specialist
+    building_icon = building_residence
+    clothes_texture_index = 2
+    icon = manager
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_enslaved = no
+        is_being_assimilated = no
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        specialist_job_check_trigger = yes
+        is_non_sapient_robot = no
+        is_shackled_robot = no
+    }
+    resources = {
+        category = planet_jobs
+        produces = {
+            consumer_goods = 4
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            factor = 1.1
+            has_trait = trait_clever
+        }
+        modifier = {
+            factor = 0.2
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_robot_propaganda_machines
+            OR = {
+                is_non_sapient_robot = yes
+                is_shackled_robot = yes
+            }
+        }
+        modifier = {
+            factor = 3
+            has_trait = trait_brainslug
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_presapient_natural_intellectuals
+                has_trait = trait_mem_surveyor_freebotomites
+                has_trait = mem_ashes_survivors
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_erudite
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robot_propaganda_machines
+                has_trait = trait_traditional
+            }
+        }
+        modifier = {
+            factor = 0.5
+            has_trait = trait_quarrelsome
+        }
+        modifier = {
+            factor = 0.1
+            can_take_servant_job = yes
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_natural_sociologists
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_thrifty
+                has_trait = trait_thrifty_synth
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_nuumismatic_administration
+        }
+        modifier = {
+            factor = 1.5
+            has_job = store_manager
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 2
+            is_unemployed = yes
+            is_pop_category = specialist
+        }
+        modifier = {
+            factor = 0.01
+            has_living_standard = {
+                type = living_standard_chemical_bliss
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_necrophage
+        }
+    }
+}

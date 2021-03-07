@@ -1,0 +1,14 @@
+﻿l_english:
+
+ building_vfb_plastic_plant:0 "Bio-Printing Plant"
+ building_vfb_plastic_plant_desc:0 "Sometimes the biospheres given to us are not enough, and we must turn to science to provide food where there is none."
+ building_vfb_plastic_facility:0 "Bio-Printing Facilities"
+ building_vfb_plastic_facility_desc:0 "The success of our bio-printing plant has paved the way for greater production through the use of stem-cell scaffolding and vertical hydroponics techniques."
+ building_vfb_plastic_facility_b:0 "Saccharide Synthesizers"
+ building_vfb_plastic_facility_b_desc:0 "What once was a single test tube producing a meager amount of bio-matter became a whole row of synthesizers; those rows then became sheets, which became panels, which created a great planetary marvel.\n\n§BRequires the Bio-Printing Facilities to be built§!"
+
+ tech_building_vfb_plastic_plant:0 "Bio-Printing"
+ tech_building_vfb_plastic_plant_desc:0 "Sometimes the biospheres given to us are not enough, and we must turn to science to provide food where there is none."
+ 
+ tech_building_vfb_plastic_facility_b:0 "Dedicated Bio-Printing Installations"
+ tech_building_vfb_plastic_facility_b_desc:0 "The success of our bio-printing plant has paved the way for greater production through the use of stem-cell scaffolding and vertical hydroponics techniques."

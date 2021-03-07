@@ -1,0 +1,291 @@
+GAPS_Generator_Lab_Worker = {
+    category = worker
+    condition_string = WORKER_JOB_TRIGGER
+    building_icon = building_GAPS_Multitask_Generator_LabT1
+    clothes_texture_index = 2
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        complex_specialist_job_check_trigger = yes
+        owner = {
+            is_gestalt = no
+        }
+    }
+    resources = {
+        category = planet_GAPS_Multitask_Jobs
+        produces = {
+            energy = 3
+            physics_research = 9
+        }
+        upkeep = {
+            consumer_goods = 0.5
+        }
+        produces = {
+            trigger = {
+                owner = {
+                    has_valid_civic = civic_technocracy
+                }
+            }
+            unity = 0.75
+        }
+    }
+    planet_modifier = {
+        planet_GAPS_Multitask_Jobs_energy_produces_mult = 0.025
+        planet_GAPS_Multitask_Jobs_physics_research_produces_mult = 0.025
+    }
+    triggered_pop_modifier = {
+        potential = {
+            owner = {
+                has_edict = capacity_subsidies
+            }
+        }
+        modifier = {
+            planet_jobs_produces_mult = 0.1
+            planet_jobs_energy_upkeep_add = 0.375
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            owner = {
+                has_edict = research_subsidies
+            }
+        }
+        modifier = {
+            planet_jobs_produces_mult = 0.2
+            planet_jobs_energy_upkeep_add = 0.75
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            owner = {
+                has_civic = Civic_GAPS_Multitaskers
+            }
+        }
+        modifier = {
+            planet_jobs_produces_mult = 0.25
+            planet_pops_upkeep_mult = -0.25
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            owner = {
+                NOT = {
+                    has_civic = Civic_GAPS_Multitaskers
+                }
+            }
+        }
+        modifier = {
+            planet_jobs_produces_mult = -0.25
+            planet_pops_upkeep_mult = 0.25
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            has_trait = trait_enigmatic_intelligence
+        }
+        modifier = {
+            planet_jobs_produces_mult = 0.1
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            has_trait = trait_erudite
+        }
+        modifier = {
+            planet_jobs_produces_mult = 0.2
+        }
+    }
+    weight = {
+        weight = @worker_job_weight
+        modifier = {
+            factor = 2
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_robot_superconductive
+                has_trait = trait_ingenious
+                has_trait = trait_nuumismatic_administration
+            }
+        }
+        modifier = {
+            factor = 8
+            is_enslaved = yes
+            can_take_servant_job = no
+            NOR = {
+                has_trait = trait_syncretic_proles
+                has_trait = trait_nuumismatic_administration
+                has_trait = trait_robot_superconductive
+                has_trait = trait_ingenious
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                is_non_sapient_robot = yes
+                is_shackled_robot = yes
+            }
+            can_take_servant_job = no
+        }
+        modifier = {
+            factor = 0.25
+            can_take_servant_job = yes
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_syncretic_proles
+        }
+        modifier = {
+            factor = 4
+            species = {
+                has_species_flag = racket_species_flag
+            }
+        }
+        modifier = {
+            factor = 1.2
+            has_trait = trait_very_strong
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_strong
+        }
+        modifier = {
+            factor = 0.9
+            has_trait = trait_weak
+        }
+        modifier = {
+            factor = 1.3
+            has_trait = trait_psionic
+        }
+        modifier = {
+            factor = 1.2
+            has_trait = trait_latent_psionic
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_presapient_earthbound
+        }
+        modifier = {
+            factor = 1.1
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+            }
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_nerve_stapled
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_void_dweller_1
+        }
+        modifier = {
+            factor = 1.2
+            OR = {
+                is_unemployed = yes
+                has_job = "technician"
+            }
+            exists = planet
+            planet = {
+                has_available_jobs = "technician"
+            }
+            owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value < 0
+                }
+            }
+        }
+        modifier = {
+            factor = 0.2
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 2
+            has_living_standard = {
+                type = living_standard_academic_privilege
+            }
+        }
+        modifier = {
+            factor = 3
+            has_trait = trait_erudite
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_robot_logic_engines
+                has_trait = trait_intelligent
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_brainslug
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_natural_engineers
+                has_trait = trait_natural_physicists
+                has_trait = trait_natural_sociologists
+            }
+        }
+        modifier = {
+            factor = 0.1
+            can_take_servant_job = yes
+        }
+        modifier = {
+            factor = 0.65
+            has_trait = trait_presapient_proles
+        }
+        modifier = {
+            factor = 1.5
+            has_job = researcher
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_latent_psionic
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_psionic
+        }
+        modifier = {
+            factor = 0.1
+            has_trait = trait_enigmatic_intelligence_failed
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_enigmatic_intelligence
+                has_trait = trait_enigmatic_intelligence_poor
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_presapient_natural_intellectuals
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+            }
+        }
+        modifier = {
+            factor = 0.8
+            is_enslaved = yes
+            has_slavery_type = {
+                type = slavery_indentured
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_void_dweller_1
+        }
+    }
+}

@@ -1,0 +1,17 @@
+effect_population_counter = { 
+	set_variable = { which = robo_population_counter value = 0 }
+	set_variable = { which = population_counter value = 0 }
+	set_variable = { which = available_housing value = 0 }
+	every_owned_pop = {
+		if = { limit = {  is_robot_pop = no }
+			planet = { change_variable = { which = population_counter value = 1 } }
+		}
+		if = { limit = {  is_robot_pop = yes }
+			planet = { change_variable = { which = robo_population_counter value = 1 } }
+		}	
+	}
+	if = {
+		limit = { free_housing > 0 }
+		change_variable = { which = available_housing value = 1 }
+	}
+}

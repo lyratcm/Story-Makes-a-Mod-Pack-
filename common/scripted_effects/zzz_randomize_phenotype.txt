@@ -1,0 +1,127 @@
+randomize_phenotype = {
+	switch = {
+		trigger = has_trait
+		trait_dimorphic_1 = {
+			random_list = {
+				50 = { }
+				50 = {
+					change_phenotype_targeted = { trait = trait_dimorphic_2 reset_instar = yes }
+				}
+			}
+		}
+		trait_dimorphic_2 = {
+			random_list = {
+				50 = { }
+				50 = {
+					change_phenotype_targeted = { trait = trait_dimorphic_1 reset_instar = yes }
+				}
+			}
+		}
+		trait_dimorphic_female = {
+			random_list = {
+				50 = { }
+				50 = {
+					change_phenotype_targeted = { trait = trait_dimorphic_male reset_instar = yes }
+				}
+			}
+		}
+		trait_dimorphic_male = {
+			random_list = {
+				50 = { }
+				50 = {
+					change_phenotype_targeted = { trait = trait_dimorphic_female reset_instar = yes }
+				}
+			}
+		}
+	}
+	IF = {
+		limit = { species_has_subsapient_form = yes }
+		random_list = {
+			60 = {
+				switch = {
+					trigger = has_trait
+					trait_has_subsapient_form = {
+						modify_species = {
+							species = this
+							remove_trait = trait_has_subsapient_form
+							add_trait = trait_subsapient_form
+						}
+					}
+					trait_sapient_form = {
+						modify_species = {
+							species = this
+							remove_trait = trait_sapient_form
+							add_trait = trait_subsapient_form
+						}
+					}
+					default = { }
+				}
+			}
+			30 = {
+				switch = {
+					trigger = has_trait
+					trait_has_subsapient_form = {
+						modify_species = {
+							species = this
+							remove_trait = trait_has_subsapient_form
+							add_trait = trait_sapient_form
+						}
+					}
+					trait_subsapient_form = {
+						modify_species = {
+							species = this
+							remove_trait = trait_subsapient_form
+							add_trait = trait_sapient_form
+						}
+					}
+					default = { }
+				}
+			}
+		}
+	}
+	ELSE_IF = {
+		limit = { species_is_multihive = yes }
+		random_list = {
+			90 = {
+				switch = {
+					trigger = has_trait
+					trait_multihive = {
+						modify_species = {
+							species = this
+							remove_trait = trait_multihive
+							add_trait = trait_multihive_drone
+						}
+					}
+					trait_multihive_core = {
+						modify_species = {
+							species = this
+							remove_trait = trait_multihive_core
+							add_trait = trait_multihive_drone
+						}
+					}
+					default = { }
+				}
+			}
+			10 = {
+				switch = {
+					trigger = has_trait
+					trait_multihive = {
+						modify_species = {
+							species = this
+							remove_trait = trait_multihive
+							add_trait = trait_multihive_core
+						}
+					}
+					trait_multihive_core = {
+						modify_species = {
+							species = this
+							remove_trait = trait_multihive_drone
+							add_trait = trait_multihive_core
+						}
+					}
+					default = { }
+				}
+			}
+		}
+	}
+}

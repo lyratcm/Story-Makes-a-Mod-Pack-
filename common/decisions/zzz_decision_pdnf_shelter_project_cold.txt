@@ -1,0 +1,37 @@
+decision_shelter_project_cold = {
+	owned_planets_only = yes
+	sound = event_construction
+	icon = decision_shelter_project_cold
+	
+	enactment_time = 4000
+	resources = {
+		category = decisions
+		cost = {
+			energy = 4000
+			influence = 150
+		}
+	}
+	
+	potential = {
+		owner = { num_owned_planets = 1 }
+		has_planet_flag = orbit_increase
+	}
+	
+	allow = {
+		is_controlled_by = owner
+		has_ground_combat = no
+		has_orbital_bombardment = no
+	}
+	
+	effect = {
+		custom_tooltip = decision_shelter_project_cold_effect_desc
+		hidden_effect = {
+			set_planet_flag = has_shelter_project_cold
+			owner = { country_event =  { id = newfrontiers_decision_event.20 days = 1 } }
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

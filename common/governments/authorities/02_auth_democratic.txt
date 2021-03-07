@@ -1,0 +1,34 @@
+auth_democratic = {
+    election_term_years = 10
+    re_election_allowed = yes
+    election_type = democratic
+    max_election_candidates = 8
+    uses_mandates = yes
+    possible = {
+        ethics = {
+            NOR = {
+                value = ethic_gestalt_consciousness
+                value = ethic_authoritarian
+                value = ethic_fanatic_authoritarian
+            }
+        }
+    }
+    random_weight = {
+        modifier = {
+            factor = 1.15
+            always = yes
+        }
+    }
+    country_modifier = {
+        pop_demotion_time_mult = -0.25
+        diplo_weight_pops_mult = 0.2
+        empire_size_pops_mult = -0.2
+        empire_size_systems_mult = 0.2
+        pop_cat_worker_political_power = 3
+        pop_cat_specialist_political_power = 4
+        pop_cat_ruler_political_power = 3
+    }
+    tags = {
+        AUTHORITY_ELECTION_DEMOCRATIC
+    }
+}

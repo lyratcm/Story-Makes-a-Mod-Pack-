@@ -1,0 +1,33 @@
+ap_esap_ct1_expansion = {
+	on_enabled = {
+		custom_tooltip = ap_esap_ct1_expansion_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_expansion_req_1"
+			num_owned_planets > 2
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_expansion_req_2"
+			Not = {
+				has_ascension_perk = ap_esap_ct3_not_expansion
+			}
+		}
+	}
+
+	modifier = {
+		colony_start_num_pops_add = 2
+		planet_colony_development_speed_mult = 0.50
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct1_expansion
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

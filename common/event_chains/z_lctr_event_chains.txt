@@ -1,0 +1,60 @@
+#_[relic_story]
+z_lctr_chain_story = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_z_lctr_r_2
+}
+
+#_[relic_site]
+z_lctr_chain_site = {
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	picture = GFX_evt_z_lctr_r_2
+}
+
+#_[苍雪山矩阵]
+z_lctr_chain_sensor = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_z_lctr_r_2
+}
+
+#_[LCTR_RELIC]
+z_lctr_chain_holder = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_glitchy_matrix
+}
+
+z_lctr_chain_res = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_resource_cache
+}
+
+z_lctr_chain_plnt = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_binary_stars
+}
+
+#_[特殊星系]
+z_lctr_chain_sstm = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_binary_stars
+}
+
+#_[巨构]
+z_lctr_chain_mega = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_ringworld
+}
+
+z_lctr_chain_gate = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_drifting_gateway
+}
+
+z_lctr_chain_lgate = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_l-gateway
+}
+
+z_lctr_chain_wormhole = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log.dds"
+	picture = GFX_evt_wormhole
+}

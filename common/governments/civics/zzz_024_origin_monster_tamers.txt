@@ -1,0 +1,29 @@
+origin_monster_tamers = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_monster_tamers.dds"
+	picture = GFX_origin_monster_tamers
+
+	playable = {
+	}
+
+	possible = {
+		authority = { NOT = { value = auth_machine_intelligence } }
+		civics = {
+			NOT = { value = civic_hive_devouring_swarm }
+		}
+	}
+
+	description = "origin_tooltip_monster_tamers_effects"
+
+	traits = {
+		trait = trait_very_strong
+	}
+
+	#flags = { custom_start_screen }
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 1
+	}
+}

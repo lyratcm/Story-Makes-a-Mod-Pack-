@@ -1,0 +1,6 @@
+civic_technocracy_corp = {
+    description = "civic_tooltip_technocracy_corp_effects"
+    potential = {
+        always = no
+    }
+}

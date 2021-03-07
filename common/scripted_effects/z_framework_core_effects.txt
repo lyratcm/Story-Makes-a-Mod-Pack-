@@ -1,0 +1,403 @@
+###_z modmenu-framework-核心功能 effects	###############################################################
+
+#_[core_初始化]
+#_[country_星球人口上限]
+#_[battle_清理接战修正]
+#_[cntr_数目统计]		event_target:z_fw_tgt_global_event
+#_[AI随机性]
+#_[遗产分配]
+#_[恒星尺寸修正]
+#_[星系构成flg_debug]
+
+#_global_tgt	国家[z_fw_tgt_global_event]NPC1
+
+
+
+
+###_[core_初始化]	######################################################################
+
+#_[all]	开始游戏-NPC设定
+z_fw_eft_core_init_npc = {
+	###_御
+	set_global_flag = ic_npc_initialized
+	###_NPC设定	[z_global_event]
+	if = {
+		limit = { NOT = { exists = event_target:z_fw_tgt_global_event } }
+		create_country = {
+			name = "NAME_z_fw_npc_1"
+			type = z_fw_npc_global
+			flag = {
+				icon = {
+					category = "z_fw"
+					file = "infinite_stellaris_0.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"black"
+					"black"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				save_global_event_target_as = z_fw_tgt_global_event
+				#_添加基础舰船设计
+				create_ship_design = { design = "NAME_z_fw_autostation_ship" }
+				add_ship_design = last_created_design
+				every_country = {
+					limit = { is_ai = no }
+					establish_communications_no_message = event_target:z_fw_tgt_global_event
+					prev = { set_faction_hostility = { target = prev set_friendly = yes } }
+				}
+			}
+		}
+	}
+	###_NPC设定	[z_fw_tgt_global_enemy_test]
+	if = {
+		limit = { NOT = { exists = event_target:z_fw_tgt_global_enemy_test } }
+		create_country = {
+			name = "NAME_z_fw_enemy_1_test"
+			type = z_fw_npc_perm_hostile
+			flag = {
+				icon = {
+					category = "z_fw"
+					file = "infinite_stellaris_3_red.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"black"
+					"black"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				save_global_event_target_as = z_fw_tgt_global_enemy_test
+				#_添加基础舰船设计-AI
+				create_ship_design = { design = "NAME_Euthanizer" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_Sterilizer" }
+				add_ship_design = last_created_design
+				every_country = {
+					limit = { is_ai = no }
+					establish_communications_no_message = event_target:z_fw_tgt_global_event
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+###_[country_星球人口上限]	######################################################################
+
+#_[planet] [星球人口限制]debug
+#_plnt_flag		[z_fw_flg_plnt_pop_cap_ignore]星球忽略
+z_fw_eft_plnt_debug_pop_cap = {
+	#_忽略flg清理
+	if = {
+		limit = { owner = { z_fw_trgr_cntr_core_is_pc = no } }
+		remove_planet_flag = z_fw_flg_plnt_pop_cap_ignore
+	}
+	#_地块归零
+	if = {
+		limit = {
+			OR = {
+				has_deposit = z_capacity_40
+				has_deposit = z_capacity_55
+				has_deposit = z_capacity_70
+				has_deposit = z_capacity_85
+				has_deposit = z_capacity_100
+				has_deposit = z_capacity_115
+				has_deposit = z_capacity_130
+				has_deposit = z_capacity_145
+				has_deposit = z_capacity_160
+				has_deposit = z_capacity_175
+				has_deposit = z_capacity_190
+				has_deposit = z_capacity_205
+				has_deposit = z_capacity_220
+				has_deposit = z_capacity_235
+				has_deposit = z_capacity_250
+				has_deposit = z_capacity_265
+				has_deposit = z_capacity_280
+				has_deposit = z_capacity_295
+				has_deposit = z_capacity_310
+				has_deposit = z_capacity_325
+				has_deposit = z_capacity_340
+				has_deposit = z_capacity_2000
+			}
+		}
+		remove_deposit = z_capacity_40
+		remove_deposit = z_capacity_55
+		remove_deposit = z_capacity_70
+		remove_deposit = z_capacity_85
+		remove_deposit = z_capacity_100
+		remove_deposit = z_capacity_115
+		remove_deposit = z_capacity_130
+		remove_deposit = z_capacity_145
+		remove_deposit = z_capacity_160
+		remove_deposit = z_capacity_175
+		remove_deposit = z_capacity_190
+		remove_deposit = z_capacity_205
+		remove_deposit = z_capacity_220
+		remove_deposit = z_capacity_235
+		remove_deposit = z_capacity_250
+		remove_deposit = z_capacity_265
+		remove_deposit = z_capacity_280
+		remove_deposit = z_capacity_295
+		remove_deposit = z_capacity_310
+		remove_deposit = z_capacity_325
+		remove_deposit = z_capacity_340
+		remove_deposit = z_capacity_2000	#UIS格赫罗斯/ GIGA桦树世界
+	}
+	set_variable = { which = z_fw_var_plnt_pop_cap value = 0 }
+}
+
+
+
+
+
+
+
+
+###_[battle_清理接战修正]	######################################################################
+
+#_[fleet/ship]
+z_fw_eft_flt_core_battle_buff_clean = {
+	#_[沉浸战场]
+	z_isb_eft_flt_battle_buff_clean = yes
+	#_[sp_enemy_nerf]
+	remove_modifier = z_fw_mod_ship_battle_nerf
+	remove_modifier = z_fw_mod_ship_battle_nerf_mist
+}
+
+
+
+
+
+
+
+
+###_[初始数据统计]	######################################################################
+#_var_cntr		[z_fw_var_glbl_num_normal_ai][z_fw_var_glbl_num_pc]
+#_[all]
+z_fw_eft_core_num_stats = {
+	if = {
+		limit = { exists = event_target:z_fw_tgt_global_event }
+		event_target:z_fw_tgt_global_event = {
+			set_variable = { which = z_fw_var_glbl_num_normal_ai value = 0 }
+			set_variable = { which = z_fw_var_glbl_num_pc value = 0 }
+			#_普通ai
+			every_country = {
+				limit = {
+					is_ai = yes
+					z_fw_is_common_country = yes
+				}
+				prev = { change_variable = { which = z_fw_var_glbl_num_normal_ai value = 1 } }
+			}
+			#_pc
+			every_country = {
+				limit = { is_ai = no }
+				prev = { change_variable = { which = z_fw_var_glbl_num_pc value = 1 } }
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+###_[AI随机性]	######################################################################
+
+#_[cntr]	<周期_country.年度>
+#_var_cntr	[z_fw_var_cntr_rdm_dice_1][z_fw_var_cntr_rdm_dice_2][z_fw_var_cntr_rdm_dice_3]
+z_fw_eft_cntr_rdm_dice = {
+	if = {
+		#_有骰子的国家类型
+		limit = {
+			OR	 = {
+				is_country_type = default
+				is_country_type = prikki
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+				#_ev
+				is_country_type = default_ev
+				#_kuat
+				is_country_type = kuat_awakened_fallen_empire
+				is_country_type = awakened_return_kuat_empire
+				#_ZOFE
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+			}
+		}
+		#_骰子1
+		random_list = {
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_1 value = 1 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_1 value = 2 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_1 value = 3 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_1 value = 4 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_1 value = 5 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_1 value = 6 } }
+		}
+		#_骰子2
+		random_list = {
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_2 value = 1 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_2 value = 2 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_2 value = 3 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_2 value = 4 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_2 value = 5 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_2 value = 6 } }
+		}
+		#_骰子3
+		random_list = {
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_3 value = 1 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_3 value = 2 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_3 value = 3 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_3 value = 4 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_3 value = 5 } }
+			1 = { set_variable = { which = z_fw_var_cntr_rdm_dice_3 value = 6 } }
+		}
+	}
+}
+
+#_[all]			普通AI随机战争准备buff
+z_fw_eft_all_core_cntr_rdm_buff_battle = {
+	random_country = {
+		limit = {
+			is_ai = yes
+			z_fw_is_common_country = yes
+			NOR = {
+				has_modifier = z_fw_mod_cntr_ai_war_1
+				has_modifier = z_fw_mod_cntr_ai_war_2
+				has_modifier = z_fw_mod_cntr_ai_war_3
+				has_modifier = z_fw_mod_cntr_ai_war_4
+				has_modifier = z_fw_mod_cntr_ai_war_5
+			}
+		}
+		random_list = {
+			1 = { add_modifier = { modifier = z_fw_mod_cntr_ai_war_1 days = 390 } }
+			2 = { add_modifier = { modifier = z_fw_mod_cntr_ai_war_2 days = 390 } }
+			4 = { add_modifier = { modifier = z_fw_mod_cntr_ai_war_3 days = 390 } }
+			2 = { add_modifier = { modifier = z_fw_mod_cntr_ai_war_4 days = 390 } }
+			1 = { add_modifier = { modifier = z_fw_mod_cntr_ai_war_5 days = 390 } }
+		}
+	}
+}
+
+
+
+
+#_[遗产分配]		this=被毁灭	from=毁灭者
+z_fw_eft_cntr_core_destroyed_relic = {
+	if = {
+		limit = {
+			z_is_playable_country = yes
+			num_owned_relics > 0
+		}
+		#_[存在毁灭者]
+		if = {
+			limit = {
+				exists = from
+				from = {
+					OR = {
+						is_ai = no
+						#_VANILLA
+						is_country_type = default
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+						#_EV
+						is_country_type = default_ev
+						#_ZOFE
+						is_country_type = ascended_empire
+						is_country_type = lost_empire
+					}
+				}
+			}
+			from = {
+				steal_relic = { target = prev relic = all }
+				#_[玩家_通知1全部]
+				if = {
+					limit = { is_ai = no }
+					country_event = { id = z_fw_core.4111 }
+				}
+			}
+		}
+		#_[无毁灭者]
+		else_if = {
+			limit = { always = yes }
+			country_event = { id = z_fw_core.411 }
+		}
+	}
+}
+
+
+
+
+#_[恒星尺寸修正]
+z_fw_eft_all_star_size_debug = {
+	every_system = {
+		every_system_planet = {
+			limit = {
+				is_star = yes
+				planet_size > 45
+			}
+			random_list = {
+				1 = { set_planet_size = 31 }
+				2 = { set_planet_size = 32 }
+				3 = { set_planet_size = 34 }
+				4 = { set_planet_size = 36 }
+				5 = { set_planet_size = 38 }
+				4 = { set_planet_size = 40 }
+				3 = { set_planet_size = 42 }
+				2 = { set_planet_size = 44 }
+				1 = { set_planet_size = 45 }
+			}
+		}
+	}
+}
+
+
+#_[星系构成flg_debug]	用于pote
+z_fw_eft_all_system_composition_debug = {
+	every_system = {
+		remove_star_flag = z_fw_flg_sstm_star_energy_high
+		remove_star_flag = z_fw_flg_sstm_star_energy_normal
+		remove_star_flag = z_fw_flg_sstm_star_energy_non
+		if = {#_[高能恒星]
+			limit = {
+				any_system_planet = {
+					is_star = yes
+					z_fw_trgr_plnt_star_energy_high = yes
+				}
+			}
+			set_star_flag = z_fw_flg_sstm_star_energy_high
+		}
+		else_if = {#_[普通恒星]
+			limit = {
+				any_system_planet = {
+					is_star = yes
+					z_fw_trgr_plnt_star_energy_normal = yes
+				}
+			}
+			set_star_flag = z_fw_flg_sstm_star_energy_normal
+		}
+		else = {#_[无恒星]
+			set_star_flag = z_fw_flg_sstm_star_energy_non
+		}
+	}
+}
+

@@ -1,0 +1,11 @@
+﻿l_english:
+
+trait_slothful:0 "Slothful"
+trait_additrait_living_ships:0 "Jury Riggers"
+trait_additrait_living_ships_desc:0 "§LThis species has a knack for fixing mechanical things with whatever is at hand.\n\n§WDaily Hull Regeneration: §G+0.5%§!\n"
+trait_uninventive_desc:0 "§LMembers of this species are not especially creative and have difficulty coming up with new ideas to research.\n\n§WResearch Alternatives: §R-1§\n"
+wear_trait_additrait_living_ships:0 "Jury Riggers"
+wear_trait_additrait_living_ships_desc:0 "§LThe dominant species of this empire are adept Jury Riggers.§!\n"
+trait_deeply_rooted:0 "Situated"
+
+MOD_COUNTRY_COMMAND_LIMIT_MULT:0 "$MOD_COUNTRY_COMMAND_LIMIT_ADD$"

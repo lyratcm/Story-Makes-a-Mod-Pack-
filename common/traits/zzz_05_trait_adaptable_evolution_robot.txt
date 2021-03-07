@@ -1,0 +1,28 @@
+trait_adaptable_evolution_robot = {
+    cost = 3
+    icon = "gfx/interface/icons/traits/leader_traits/leader_trait_adaptable.dds"
+    initial = no
+    randomized = no
+    opposites = {
+        "trait_robot_efficient_processors"
+    }
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            OR = {
+                has_ascension_perk = ap_the_flesh_is_weak
+                has_ascension_perk = ap_synthetic_age
+            }
+        }
+    }
+    modifier = {
+        planet_jobs_produces_mult = 0.10
+    }
+    slave_cost = {
+        energy = 150
+    }
+}

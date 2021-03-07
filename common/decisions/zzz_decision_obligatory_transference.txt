@@ -1,0 +1,139 @@
+decision_obligatory_transference = {
+	owned_planets_only = yes
+	sound = event_red_alert
+	icon = decision_obligatory_transference
+	
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				num_pops < 10
+			}
+			energy = 500
+		}
+		cost = {
+			trigger = {
+				num_pops >= 10
+				num_pops < 20
+			}
+			energy = 1000
+		}
+		cost = {
+			trigger = {
+				num_pops >= 20
+				num_pops < 30
+			}
+			energy = 2000
+		}	
+		cost = {
+			trigger = {
+				num_pops >= 30
+				num_pops < 40
+			}
+			energy = 3000
+		}	
+		cost = {
+			trigger = {
+				num_pops >= 40
+				num_pops < 50
+			}
+			energy = 4000
+		}			
+		cost = {
+			trigger = {
+				num_pops >= 50
+				num_pops < 60
+			}
+			energy = 5000
+		}
+		cost = {
+			trigger = {
+				num_pops >= 60
+				num_pops < 70
+			}
+			energy = 6000
+		}			
+		cost = {
+			trigger = {
+				num_pops >= 70
+				num_pops < 85
+			}
+			energy = 7000
+		}
+		cost = {
+			trigger = {
+				num_pops >= 80
+				num_pops < 90
+			}
+			energy = 8000
+		}
+		cost = {
+			trigger = {
+				num_pops >= 90
+				num_pops < 100
+			}
+			energy = 9000
+		}
+		cost = {
+			trigger = {
+				num_pops >= 100
+			}
+			energy = 10000
+		}	
+	}
+	
+	potential = {
+		exists = owner
+		owner = { 
+			OR = {
+				is_machine_empire = yes
+				is_mechanical_empire = yes
+			} 
+		}
+		OR = {
+			has_modifier = apocalypse
+			has_modifier = moon_collision
+			has_modifier = moon_fall
+			has_modifier = orbit_reduction
+			has_modifier = orbit_increase
+			has_modifier = volcanic_activity
+			has_modifier = doomsday_1
+			has_modifier = doomsday_2
+			has_modifier = doomsday_3
+			has_modifier = doomsday_4
+			has_modifier = doomsday_5
+			AND = {
+				solar_system = { has_star_flag = star_disaster }
+				NOT = { has_modifier = secret_disaster }
+			}
+		}
+	}
+	
+	allow = {
+		is_controlled_by = owner
+		has_ground_combat = no
+		has_orbital_bombardment = no
+		NOT = { has_modifier = obligatory_transference }
+	}
+	
+	effect = {
+		add_modifier = { modifier = "obligatory_transference" days = 3600 }
+		custom_tooltip = decision_obligatory_transference_effect_desc
+		hidden_effect = {
+			planet_event = { id = newfrontiers_decision_event.1 days = 1 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 50
+		
+		modifier = {
+			factor = 0.2
+			num_pops < 10
+		}
+		modifier = {
+			factor = 2
+			has_modifier = apocalypse
+		}
+	}
+}

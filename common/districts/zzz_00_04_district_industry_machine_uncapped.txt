@@ -1,0 +1,217 @@
+@base_cost = 300
+@hive_min_cost = 200
+@hive_food_cost = 100
+district_industry_machine_uncapped = {
+    base_buildtime = 240
+    icon = district_industrial_alloy
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        uses_district_set = machine_world
+    }
+    potential = {
+        uses_district_set = machine_world
+    }
+    allow = {
+        NOT = {
+            has_modifier = resort_colony
+        }
+    }
+    conversion_ratio = 1
+    convert_to = {
+        district_mining
+    }
+    resources = {
+        category = planet_districts
+        cost = {
+            trigger = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_hive_empire = no
+                        is_lithoid_empire = yes
+                    }
+                    is_plantoid_empire = no
+                }
+            }
+            minerals = @base_cost
+        }
+        cost = {
+            trigger = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_hive_empire = yes
+                        is_plantoid_empire = yes
+                    }
+                    is_lithoid_empire = no
+                    NOT = {
+                        has_valid_civic = civic_integrated_bioarchitecture
+                    }
+                }
+            }
+            minerals = @hive_min_cost
+            food = @hive_food_cost
+        }
+        cost = {
+            trigger = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_hive_empire = yes
+                        is_plantoid_empire = yes
+                    }
+                    is_lithoid_empire = no
+                    has_valid_civic = civic_integrated_bioarchitecture
+                }
+            }
+            food = @base_cost
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_hive_empire = no
+                        is_lithoid_empire = yes
+                    }
+                    is_plantoid_empire = no
+                    NOT = {
+                        has_valid_civic = civic_integrated_bioarchitecture
+                    }
+                }
+            }
+            energy = 1
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_hive_empire = yes
+                        is_plantoid_empire = yes
+                    }
+                    is_lithoid_empire = no
+                }
+            }
+            energy = 0.7
+            food = 0.3
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        modifier = {
+            job_alloy_drone_add = 3
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+        }
+        modifier = {
+            job_alloy_drone_add = 3
+            planet_housing_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+        }
+        modifier = {
+            job_foundry_add = 2
+        }
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+            }
+        }
+        text = job_foundry_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        text = job_alloy_drone_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+        }
+        text = job_fabricator_effect_desc
+    }
+    prerequisites = {
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 250
+            districts_build_district = yes
+            owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value < 25
+                }
+            }
+        }
+        modifier = {
+            weight = 250
+            any_owned_pop = {
+                is_unemployed = yes
+                NOT = {
+                    has_citizenship_type = {
+                        type = citizenship_organic_trophy
+                    }
+                }
+            }
+            owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value < 75
+                }
+            }
+        }
+        modifier = {
+            factor = 0
+            owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value > 300
+                }
+            }
+        }
+        modifier = {
+            factor = 10
+            owner = {
+                has_deficit = alloys
+            }
+        }
+    }
+    ai_resource_production = {
+        alloys = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

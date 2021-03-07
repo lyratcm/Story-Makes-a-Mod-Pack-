@@ -1,0 +1,15 @@
+civic_engineered = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 2
+    }
+    modification = no
+    modifier = {
+        country_society_tech_research_speed = 0.15
+        modify_species_cost_mult = -0.50
+    }
+}

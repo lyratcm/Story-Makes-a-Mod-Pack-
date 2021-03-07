@@ -1,0 +1,32 @@
+learning_campaign = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			trigger = {
+				is_lithoid_empire = no
+			}
+			food = 500
+		}
+		cost = {
+			trigger = {
+				is_lithoid_empire = yes
+			}
+			minerals = 500
+		}
+	}
+
+	modifier = {
+		species_leader_exp_gain = 0.25
+	}
+
+	potential = {
+		has_authority = auth_hive_mind
+		has_technology = tech_planetary_unification
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

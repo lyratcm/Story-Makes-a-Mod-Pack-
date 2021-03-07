@@ -1,0 +1,38 @@
+decision_corvee_public_works = {
+	owned_planets_only = yes
+	icon = decision_politics
+	
+	resources = {
+		category = decisions
+		cost = {
+			energy = 500
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = { has_civic = civic_corvee_system }
+		NOT = { has_modifier = corvee_public_works }
+	}
+	
+	effect = {
+		add_modifier = {
+			modifier = "corvee_public_works"
+			days = 3600
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				free_district_slots > 0
+				free_building_slots > 0
+				any_pop = {
+					is_unemployed = yes
+				}
+			}
+		}
+	}
+}

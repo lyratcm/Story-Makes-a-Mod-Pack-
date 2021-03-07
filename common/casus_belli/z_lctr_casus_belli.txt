@@ -1,0 +1,24 @@
+#_[抢夺圣遗物]
+
+
+
+
+#_[抢夺圣遗物]
+z_cltr_cb_plunder_relic = {
+    show_in_diplomacy = yes
+    show_notification = no
+    potential = {
+		#host_has_dlc = "Ancient Relics Story Pack"
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire		#_ZOFE
+		}
+        is_subject = no								#_不能是附庸国
+        NOT = { has_relic = z_lctr_r_adv_sensor }	#_不拥有遗珍
+    }
+    is_valid = {
+        from = { has_relic = z_lctr_r_adv_sensor  }
+        #has_total_war_cb = no
+        NOT = { is_overlord_to = FROM }			#_不能是目标国的宗主
+    }
+}

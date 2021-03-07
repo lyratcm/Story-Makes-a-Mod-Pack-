@@ -1,0 +1,267 @@
+﻿### Theocrat
+### Created by Hinkledolph 4/24/2016
+
+
+THEO = {
+	randomized = yes
+
+	ship_names = {
+
+		generic = {
+		"Herald of Heaven" "Hydra Underworld" "Remembrance Flame" "Zealous Heart" "Gleaming Invader" "Thunder Of Heaven" "Knight Eternal" "Silence Like Thunder" "Proud Mary" "Widdershins" "Starward" "North Star" "Great Bounty" "Mandate" "Eternal Kingdom" "Promise" "Levity" "Sacrament" "Steward" "Stalking Butler" "Wolf Heaven" "Eagle" "Warhawk" "Old Bear" "Dawn's Light" "Dusk Walker" "Hangman" "Strange Fruit" "Angel Manifestation" "Gospel Field" "Gnosis Blaster" "Hymn Charge" "Sutra Slasher" "Principality Bullet" "Resurection Decimator" "Gates of Avalon" "Defense of Gnosis" "Testament Shot" "Enochian Principle" "Last Martyr" "Pious Crusader" "Trinity Piston" "Geburah Equation" "Host of Kings" "Prayer Iteration" "Lucifer Cube" "Fable" "Fel Prince" "Holy Fragment" "Spirit Walk" "Rain Dance" "Dog Soldier" "Sun Dance" "Ten Thousand" "Lacking Mercy" "Faith" "Fervent" "Ardent" "Earnest" "Ecstatic" "Impassioned" "Heartfelt Greeting" "Pious" "Passion of Zeus" "Ablaze" "Afire" "Ebullient" "Sanctimonious" "Divine Call" "Tempered Staff" "Orthodox View" "Schism" "Impartial Judge" "Friendly Missionary" "Widow's Lament" "Orphan" "First and Last" "Veneration" "Pandemonium" "Rat King" "Devil's Den" "Purge of Sodom" "Flenser" "Stigmata" "Godefroy Magnificat" "His Will" "Triumph" "Duke Helbrecht" "Divine Right" "Dominus Astra" "Indomitable Wrath" "Legatus Stygies" "Lord of Light" "Corax" "Green Lake" "Justus Dominus" "Bloodhawk" "Cardinal Boras" "Saint Augusta" "Pride of Fenris" "Victory" "Hammer of Scaro" "Vae Victus" "Virtue of Helena" "Huud" "Immortal Emperor" "Inflexible" "Legatus Styx" "Justus Dominus" "Vigilanti Eternas" "Leonid" "Atrox Venator" "Efferus Rapturis" "Vox Caelus" "Bloodhawk" "Vanguard" "Archangel" "Arbitrator" "Lion's Roar" "Caliban's Vengeance" "Angel of Darkness" "Angelum Tenebrum" "Warrior of the Plains" "Khan's Marauder" "Warhawk" "Pride of Fenris" "Fist of Russ" "Potens Lupus" "Dorn's Wrath" "Praetorian" "Imperial Fist" "Baal Fire" "Angelus Extremus" "Purifying Flame" "Blood Knight" "Ferrum Aeterna" "Medusa's Iron Gaze" "Iron Lord" "Strength of Iron" "Fist of Macragge" "Behemoth's Bane" "Defender of Ultramar" "Might of Calth" "Night of Nocturne" "Drake Lord" "Nocte Vigil" "Salamander's Breath" "Deliverance" "Raven Lord" "Black Winged Angel" "Holy Light of Tallarn" "Valhallan Fervor" "Orask's Hope" "Knight of Voltoris" "Stygian Vanquisher" "Remembrance of Acheron" "Victory of Agripinaa" "Saviour of Antax" "Arcadian Legatus" "Aurellian Light" "Voice of Fortanis" "Coronian Exemplar" "Remembrance of Cybele" "Fire of Kar Duniash" "Tancredi's Pride" "Anvil of Tancredi" "Trancedi Light" "Revenge of Ur-haven" "Flaming Arrow of Urdesh" "Urdeshi Pride" "Vostroyan Firstborn" "Claymore" "Triumph" "Indomitable Wrath" "Fortitude" "Invincible" "Righteous Fury" "Spirit of Defiance" "Retribution" "Relentless" "Zealous" "Vigilant" "Guardian" "Harrower" "Valiant" "Liberator" "Loyalty" "Temerity" "Justice" "Courage" "Defiant" "Endurance" "Strength" "Valor Eternal" "Implacable" "Wisdom" "Final Silence" "Order Absolute" "Indomitable Purpose" "Vae Victus" "Omnis Arcanum" "Solicitus" "Industria" "Caritas" "Callidus" "Lux Severitas" "Honesti Virum" "Virtus Animae" "Ecclesiasticus Potentatum" "Fera Rapax" "Sapientius" "Dignitas" "Bellator Stoicus" "Auctoritas" "Comitas" "Constantia" "Clementia" "Firmitas" "Gravias" "Justitia" "Veritas" "Pietas" "Fidelis Defensoris" "Templarii" "Avenger" "Exorcist" "Vengeance" "Armageddon" "Chalice" "Mars" "Overlord" "Dominion" "Mercury" "Ambition" "Cardinal" "Dictator" "Dominator" "Gothic" "Lunar" "Tyrant" "Dauntless" "Defender" "Defiant" "Endeavor" "Endurance" "Enforcer" "Siluria" "Virtue of Helena" "Pallas Imperius" "August" "Hermes" "Jovian Might" "Depths of Neptune" "Fires of Hades" "Judgement of Juno" "Fires of Mars" "Aenead" "Bellona" "Tiber" "Apollan Light" "Dis Pater" "Nyx" "Virtus" "Minotaur" "Goliath" "Cerebus" "Gorgon" "Argus the All-Seeing" "Charon" "Erinyes" "Griffon's Strike" "Shrike" "Lamia" "Calydonian Boar" "Aetos Dios" "Herald of the Dawn" "Helios" "Sun Lord" "Nemean Lion" "Snake of Hera" "Laconian Drakon" "Pheonix" "Valkyrie's Shield" "Apocalypse" "Emperor" "Nemesis" "Oberon" "Retribution" "Victory" "Vanquisher" "Invincible" "Emperor's Grace" "Fist of the Emperor" "Emperor's Wrath" "Caesar" "His Will" "Imperial Wrath" "Will of the Emperor" "Emperor's Light" "God-Emperor's Vengeance" "Basilius Lux" "Raptorus Rex" "Imperator Oculos" "Imperator Gladio" "Lux Imperator" "Anima Imperator" "Militem Imperetor" "Dei Angelus Mortem" "Caelo Fortitudo Est" "Triumph of Saint Drusus" "Saint Augusta" "Saint of Scintilla" "Sanctus Legate" "Euphrati Keeler" "Fist of Agamemnon" "Guns of Macharius" "Flame of Saint Ezra" "Saint Sabbat's Legacy" "Light of the Saints" "Old Warrior" "Wings of the Angels" "Silvana's Sacrifice" "Irregular Apocalypse" "Profit Margin" "Revisionist" "Ends Of Invention" "Determinist" "Prosthetic Conscience" "Flexible Demeanour" "So Much For Subtlety" "Gunboat Diplomat" "Prime Mover" "Arbitrary" "Ship With A View" "Unlikely Explanation" "Cantankerous" "Credibility Problem" "Heresiarch" "Kleptocracy" "Perfidy" "Unwitting Accomplice" "Getaway" "Congenital Optimist" "Xenophobe" "Different Tan" "Jaundiced Outlook" "Problem Child" "Recent Convert" "Tactical Grace" "Steely Glint" "Death and Gravity" "Omnivore" "Limivorous" "Ethics Gradient" "Uninvited Guest" "Zero Gravitas" "Misophist" "Heavy Messing" "Killing Time" "Break Even" "Long View" "Sober Counsel" "Within Reason" "Affront" "Xenoclast" "Nuisance Value" "Vulgarian" "Zero Credibility" "Lapsed Pacifist" "Injury Time" "Kiss This Then" "Winter Storm" "Qualifier" "Xenoglossicist" "Liveware Problem" "Hence the Fortress" "Armchair Traveller" "Hidden Income" "Me, I'm Counting" "Rubric Of Ruin" "Abundance Of Onslaught" "Deepest Regrets" "Headcrash" "Xenocrat" "Questionable Ethics" "Warm, Considering" "Kakistocrat" "Bestiocracy" "Gynocracy" "Fratricide" "Lupicide" "Haematic" "Ochre" "Umber Hulk" "Wallflower" "Cosmic Bugaboo" "Flimflam Artist" "Cryptonym" "Dromomaniac" "Technomaniac" "Theomachy" "Bonifate" 
+		}
+
+		corvette = {
+		"Dying Rebel" "Aberration" "Rains of Grayson" "Knight Errant" "Fields of Athenry" "Woods of Trugh" "Minstrel Boy" "Defiant Runner" "Cosmo's Folly" "Scion of Pulsars" "Cleric of Comets" "Priestess of Comets" "Ace of Worlds" "Karma Police" "Jezebel" "Hallelujah" "Brother's Wine" "Dharma Dog" "Yesod Skipper" "Apocalypse Loop" "Sacrament" "Gnosis Star" "Revelation Cascade" "Zohar Halo" "Kronos" "Sacred Eclipse" "Cyclops" "Hecate's Ploy" "Apollo's Creed" "Third Day" "Grace Sequence" "Chokomah Artifact" "Salvation" "Redeemed" "Holy Ghost" "End of Days" "Damnation" "Red Vengeance" "Broken Servant" "Night Grail" "Dapper Riddle" "Bold Unity" "Last Slave" "Vagabond" "Devil's Compass" "Red Moon" "Bloody Star" "Murderer's Grail" "Devil's Lust" "Wandering Hangman" "Saint's End" "Terrible Visions" "Warp Defier" "Crimson Siren" "Nomad" "Blue Bandit" "Insidious" "Rift Sweeper" "Death of Sodom" "Mad Demon" "Flagellant" "Knave's Cry" "Laughing Plague" "Saint's Fire" "Demon Host" "God Killer" "Defiler" "Sly Star" "Cain's Luck" "Rancid Sun" "Loyal Dagger" "Cour Raider" "Fall of Pearl" "Tainted" "Last Pirate" "Crooked Vestige" "Psychonaut" "Sinister" "Bad Omen" "Dire Prophecy" "Rift Skimmer" "Rogue Star" "Gypsy" "Gideon's Woe" "Ark Hunter" "Satan's Raider" "Woe Tide" "Damned Lightning" "Mad Whore" "Last Rambler" "Victory King" "Crimson Secret" "Poisoned Serpent" "Murderer's Deciet" "Foul Strumpet" "Scally Wag" "Innocent Corsair" "Scurvy Killer" "Scruvy Dog" "Mad Dog" "Plank Walker" "Bad Business" "Dirty Tricks" "Duelist" "Sky Bandit" "Void Raider" "Poison Pearl" "Fearbane" "Glyph Ghoul" "Some Regrets" "Bare Maiden" "Riptide" "Bad Moon" "Passing of Winter" "First Word" "Final Triumph" "War Eagle" "Blood Eagle" "False Prophet" "Rogue Trader" "Traitor's Folly" "Bull's Head" "Lost Shepherd" "Prancing Pony" "Medussa's Head" "Nag's Head" "Straggler" "Judge and Jury" "Donkey's Goose" "Broken Prayer" "Gargoyle's Perch" "Maiden Head" "Stumpy Trumpet" "Pheasant Plucker" "Abyss Diver" "Death of Fear" "Cobra Comet" "Legacy of Remembrance" "Predator of Kali" "Retribution of Tanith" "Terminator Infamous" "Gore Bull" "Panther Star" "Exile" "Eternity of Pain" "Stormbeast" "Wages of Sin" "Damnations Fury" "Foebane" "Blood Royale" "Darkblood" "Malignus Maximus" "Injustice" "Thunderchild" "Hex Slinger" "Mad Hatter" "Marquis Lex" "Silent Fire" "Depth of Fury" "Ultima Praetor" "Incendrius" "Sword Infernus" "Hedge Knight" "Immaterial Fiend" "Infamous Judgement" "Grey Shadow" "Darkling" "Gleeful Gunner" "Watching Wolf" "Outcast Unwavering" "Tyrant" "Judas Unchained" "Wanderer" "Best Served Cold" "Lunatic Champion" "Fear of the East" "Bard's Tale" "Grinning Ghoul" "Ghoul Omen" "King Sinister" "May Queen" "Spear Innocent" "Gore Wolf" "Summer Comet" "Rogue Bull" "Fear King" "Vagabond Omen" "Ferret King" "Sinister Abyss" "June Secret" "Void Summer" "Pearl Innocent" "Vagabond Ghoul" "Hawk Knight" "Shark Moon" "Ark Raider" "Holy Gunner" "June Bandit" "Ghoul Queen" "Pearl Secret" "May Sword" "Bull Priest" "Winter Abyss" "Exile Knight" "Spring Fear" "Innocent Gypsy" "Abyss Shadow Raider" "Priest Queen" 
+		}
+
+		constructor = {
+		"Endeavour" "Odyssey" "Atlas" "Neutron Grappler" "Acclamator" "Dark Mechanic" "Deity Piston" "Martyr Gear" "Confessor Propeller" "Baptismal Driver" "Sacrament Gear" "Goddess Cylinder" "Angel Assembler" 
+		}
+
+		colonizer = {
+		"Easy and Slow" "Last Rose of Summer" "Flight of Earls" "Artificer of Biology" "Faith Bringer" "Bountiful Harvest" "Fungal Harmony" "Yoga Cube" "Baptism Block" "Daydream Delight" "Fortuna's Luck" "Prayer Manifestation" "Fearless Climax" "Vibrant Emissary" 
+		}
+
+		science = {
+		"Sweet and Full of Grace" "Xeno Jester" "Mobius Strip" "Entombed Botanist" "Secret Memories" "Sacred Texts" "Impossible Star" "Elder Rites" "Ghost Cartographer" "Jester of Data Mining" "Jolly Monk" "Testament Process" "Warm Emissary" "Reality Dysfunction" 
+		}
+
+		destroyer = {
+		"Wearing of the Green" "By Memory Inspired" "Glorious Omen" "Herald" "Revenant" "Miracle" "Warden" "Benediction" "Silver Emissary" "Brave Bulwark" "Cardinal" "Sacred Muse" "Last King" "Angelic" "Red Dawn" "Statistical Augury" "Apostle Negation" "Babylon Tempest" "Penance Warp" "Yoga Flare" "Astral Hammer" "Diviner's Sequence" "Alkahest Principle" "Mournful Tempus" "Dormant Vision" "Grieving Behemoth" "Playful Visitor" "Good Intentions" "Grail Flux" "Astrology Schism" "Chokomah Tempest" "Heresy Terror" "Sacred Vigilance" "Eldritch Bane" "Grim Banisher" "Holy Vengeance" "Grudge Bearer" "Stalwart Templar" "News Bearer" "Blasphemy Hammer" "Commandment Caster" "Savior's Edge" "Saint Negation" "Penance Equation" "Blasphemy Regulator" "Zion's Cry" "Mana Chaser" "Torah Torus" "Slipstream Savior" "Way Changer" "Sin's End" "Exodus Crasher" "Shamballah Storm" "Odin's Sacrifice" "Seventh Son" "Seal Stamper" "Pact Keeper" "High Genesis" "Swift Crusader" "Zeus's Trident" "Lord of the North" "Heresy Purger" "Faith Affirmed" "Loki's Trick" "Confessor's Secret" "Schism" "Grim Crusader" "Revelation of Pain" "Breaking Faith" "Old Way" "Last Prayer" "Fever Dream" "Angelic Grace" "Supplicant" "Last Argument" "Southern Cross" "Star of Dawn" "Portent" "Weaver Women" "Prince of Summer" "Queen's Ire" "Ides of March" "Patient Priest" "Side Of Iron" "Wanton Desecration" "Heathen Promise" "His Will" "Vae Victus" "Saint Augustine" "Divine Right" "Ad Liberis" "Purgation" "Ex Cathedra" "Vigilanti Eternas" "Gloria Aeternam" "Sancti Imperator" "Sanguinem Ritum" "Sin Finis" "Rituale Dominus" "Genesis Altissimi" "Clarion Call" "Horn of Glory" "Salted Maid" 
+		}
+
+		cruiser = {
+		"Sweet and Full of Grace" "Xeno Jester" "Mobius Strip" "Entombed Botanist" "Secret Memories" "Sacred Texts" "Impossible Star" "Elder Rites" "Ghost Cartographer" "Jester of Data Mining" "Jolly Monk" "Testament Process" "Warm Emissary" "Reality Dysfunction" 
+		}
+
+		battleship = {
+		"Divine Intervention" "Crusader" "Heaven's Mandate" "Mercy" "Creed of Defiance" "Glory Eternal" "Revelation" "Communion" "Redemption" "Salvation" "True Path" "Righteous Shepherd" "Peacebringer" "Golem" "Holy Covenant" "Destiny" "Omega" "Divine Will" "Bhodisattava Disjunction" "Torus" "Redeemer" "Last Testament" "Sacred Number" "Martyr" "Kraken" "Obelisk" "Valkyrie" "Odyssey" "Paragon" "Borealis" "Silent Priest" "Humility" "Last Word" "Imperator Rex" "Iron Price" "Unforgivable" "Dread King" "Xenobane" "Necronomicon" "Gilgamesh" "Soldier, Returned" "Morality Gradient" "Slippery Slope" "Mutually Assured" "A Quiet Word" "Remorse" "Sword of Morning" "Stoic" "Abyssal" 
+		}
+
+		titan = {
+		"Viking" "King" "Shah" "Janissary" "Hussar" "Cossack" "Paladin" 
+		}
+
+		colossus = {
+		"Aegir" "Balder" "Bragi" "Einherjar" "Freyr" "Grimnir" "Hod" "Loki" "Modi" "Njord" "Saga" "Thor" 
+		}
+
+		transport = {
+		"Iron Raiment" "Martyr Bearer" "Redemption Hammer" "Tharmas Buster" "Grail Crasher" "Resurrection Projector" "Gomorrah Blade" "Hardy Pilgrim" "Laughing Priest" "Zion Mobilizer" "Masquerade" "Little Paragon" 
+		}
+
+		military_station_small = {
+		"Hallowed Ward" "Yoga Bastion" "Covenant Ward" "Curator Bastion" "Parable Bastion" "Babylon Bastion" "Confession Castle" "Martyr Protector" "Covenant Shell" "Scripture Shell" "Sephiroth Bastion" "Malkuth Ward" "Netzach Shell" 
+		}
+
+		ion_cannon = {
+		"Guardian" "Long Tom" "Hail Mary" 
+		}
+
+	}
+
+	ship_class_names = {
+		generic = {
+		"Herald of Heaven" "Hydra Underworld" "Remembrance Flame" "Zealous Heart" "Gleaming Invader" "Thunder Of Heaven" "Knight Eternal" "Silence Like Thunder" "Proud Mary" "Widdershins" "Starward" "North Star" "Great Bounty" "Mandate" "Eternal Kingdom" "Promise" "Levity" "Sacrament" "Steward" "Stalking Butler" "Wolf Heaven" "Eagle" "Warhawk" "Old Bear" "Dawn's Light" "Dusk Walker" "Hangman" "Strange Fruit" "Angel Manifestation" "Gospel Field" "Gnosis Blaster" "Hymn Charge" "Sutra Slasher" "Principality Bullet" "Resurection Decimator" "Gates of Avalon" "Defense of Gnosis" "Testament Shot" "Enochian Principle" "Last Martyr" "Pious Crusader" "Trinity Piston" "Geburah Equation" "Host of Kings" "Prayer Iteration" "Lucifer Cube" "Fable" "Fel Prince" "Holy Fragment" "Spirit Walk" "Rain Dance" "Dog Soldier" "Sun Dance" "Ten Thousand" "Lacking Mercy" "Faith" "Fervent" "Ardent" "Earnest" "Ecstatic" "Impassioned" "Heartfelt Greeting" "Pious" "Passion of Zeus" "Ablaze" "Afire" "Ebullient" "Sanctimonious" "Divine Call" "Tempered Staff" "Orthodox View" "Schism" "Impartial Judge" "Friendly Missionary" "Widow's Lament" "Orphan" "First and Last" "Veneration" "Pandemonium" "Rat King" "Devil's Den" "Purge of Sodom" "Flenser" "Stigmata" "Godefroy Magnificat" "His Will" "Triumph" "Duke Helbrecht" "Divine Right" "Dominus Astra" "Indomitable Wrath" "Legatus Stygies" "Lord of Light" "Corax" "Green Lake" "Justus Dominus" "Bloodhawk" "Cardinal Boras" "Saint Augusta" "Pride of Fenris" "Victory" "Hammer of Scaro" "Vae Victus" "Virtue of Helena" "Huud" "Immortal Emperor" "Inflexible" "Legatus Styx" "Justus Dominus" "Vigilanti Eternas" "Leonid" "Atrox Venator" "Efferus Rapturis" "Vox Caelus" "Bloodhawk" "Vanguard" "Archangel" "Arbitrator" "Lion's Roar" "Caliban's Vengeance" "Angel of Darkness" "Angelum Tenebrum" "Warrior of the Plains" "Khan's Marauder" "Warhawk" "Pride of Fenris" "Fist of Russ" "Potens Lupus" "Dorn's Wrath" "Praetorian" "Imperial Fist" "Baal Fire" "Angelus Extremus" "Purifying Flame" "Blood Knight" "Ferrum Aeterna" "Medusa's Iron Gaze" "Iron Lord" "Strength of Iron" "Fist of Macragge" "Behemoth's Bane" "Defender of Ultramar" "Might of Calth" "Night of Nocturne" "Drake Lord" "Nocte Vigil" "Salamander's Breath" "Deliverance" "Raven Lord" "Black Winged Angel" "Holy Light of Tallarn" "Valhallan Fervor" "Orask's Hope" "Knight of Voltoris" "Stygian Vanquisher" "Remembrance of Acheron" "Victory of Agripinaa" "Saviour of Antax" "Arcadian Legatus" "Aurellian Light" "Voice of Fortanis" "Coronian Exemplar" "Remembrance of Cybele" "Fire of Kar Duniash" "Tancredi's Pride" "Anvil of Tancredi" "Trancedi Light" "Revenge of Ur-haven" "Flaming Arrow of Urdesh" "Urdeshi Pride" "Vostroyan Firstborn" "Claymore" "Triumph" "Indomitable Wrath" "Fortitude" "Invincible" "Righteous Fury" "Spirit of Defiance" "Retribution" "Relentless" "Zealous" "Vigilant" "Guardian" "Harrower" "Valiant" "Liberator" "Loyalty" "Temerity" "Justice" "Courage" "Defiant" "Endurance" "Strength" "Valor Eternal" "Implacable" "Wisdom" "Final Silence" "Order Absolute" "Indomitable Purpose" "Vae Victus" "Omnis Arcanum" "Solicitus" "Industria" "Caritas" "Callidus" "Lux Severitas" "Honesti Virum" "Virtus Animae" "Ecclesiasticus Potentatum" "Fera Rapax" "Sapientius" "Dignitas" "Bellator Stoicus" "Auctoritas" "Comitas" "Constantia" "Clementia" "Firmitas" "Gravias" "Justitia" "Veritas" "Pietas" "Fidelis Defensoris" "Templarii" "Avenger" "Exorcist" "Vengeance" "Armageddon" "Chalice" "Mars" "Overlord" "Dominion" "Mercury" "Ambition" "Cardinal" "Dictator" "Dominator" "Gothic" "Lunar" "Tyrant" "Dauntless" "Defender" "Defiant" "Endeavor" "Endurance" "Enforcer" "Siluria" "Virtue of Helena" "Pallas Imperius" "August" "Hermes" "Jovian Might" "Depths of Neptune" "Fires of Hades" "Judgement of Juno" "Fires of Mars" "Aenead" "Bellona" "Tiber" "Apollan Light" "Dis Pater" "Nyx" "Virtus" "Minotaur" "Goliath" "Cerebus" "Gorgon" "Argus the All-Seeing" "Charon" "Erinyes" "Griffon's Strike" "Shrike" "Lamia" "Calydonian Boar" "Aetos Dios" "Herald of the Dawn" "Helios" "Sun Lord" "Nemean Lion" "Snake of Hera" "Laconian Drakon" "Pheonix" "Valkyrie's Shield" "Apocalypse" "Emperor" "Nemesis" "Oberon" "Retribution" "Victory" "Vanquisher" "Invincible" "Emperor's Grace" "Fist of the Emperor" "Emperor's Wrath" "Caesar" "His Will" "Imperial Wrath" "Will of the Emperor" "Emperor's Light" "God-Emperor's Vengeance" "Basilius Lux" "Raptorus Rex" "Imperator Oculos" "Imperator Gladio" "Lux Imperator" "Anima Imperator" "Militem Imperetor" "Dei Angelus Mortem" "Caelo Fortitudo Est" "Triumph of Saint Drusus" "Saint Augusta" "Saint of Scintilla" "Sanctus Legate" "Euphrati Keeler" "Fist of Agamemnon" "Guns of Macharius" "Flame of Saint Ezra" "Saint Sabbat's Legacy" "Light of the Saints" "Old Warrior" "Wings of the Angels" "Silvana's Sacrifice" "Irregular Apocalypse" "Profit Margin" "Revisionist" "Ends Of Invention" "Determinist" "Prosthetic Conscience" "Flexible Demeanour" "So Much For Subtlety" "Gunboat Diplomat" "Prime Mover" "Arbitrary" "Ship With A View" "Unlikely Explanation" "Cantankerous" "Credibility Problem" "Heresiarch" "Kleptocracy" "Perfidy" "Unwitting Accomplice" "Getaway" "Congenital Optimist" "Xenophobe" "Different Tan" "Jaundiced Outlook" "Problem Child" "Recent Convert" "Tactical Grace" "Steely Glint" "Death and Gravity" "Omnivore" "Limivorous" "Ethics Gradient" "Uninvited Guest" "Zero Gravitas" "Misophist" "Heavy Messing" "Killing Time" "Break Even" "Long View" "Sober Counsel" "Within Reason" "Affront" "Xenoclast" "Nuisance Value" "Vulgarian" "Zero Credibility" "Lapsed Pacifist" "Injury Time" "Kiss This Then" "Winter Storm" "Qualifier" "Xenoglossicist" "Liveware Problem" "Hence the Fortress" "Armchair Traveller" "Hidden Income" "Me, I'm Counting" "Rubric Of Ruin" "Abundance Of Onslaught" "Deepest Regrets" "Headcrash" "Xenocrat" "Questionable Ethics" "Warm, Considering" "Kakistocrat" "Bestiocracy" "Gynocracy" "Fratricide" "Lupicide" "Haematic" "Ochre" "Umber Hulk" "Wallflower" "Cosmic" "Flimflam Artist" "Cryptonym" "Dromomaniac" "Technomaniac" "Theomachy" "Bonifate" 
+		}
+
+	}
+
+		fleet_names = {
+			random_names = {
+				"Absolver Fleet" "Redemptor Group" "Bane Raiders" "Templar Fleet" "Celestial Fleet" "Crucifixion Wing" "Prophecy Bearers" "Ghost Division" "Shepherd Division" "Exalted Division" "Purgatory Star Division" "Zion Division" "Martyr Division" "Scourge Division" "Heresy Division" "Judgement Division" "Holy Spirit Division" "Purity Division" "Sacred Division" "Cardinal Division" "Revelation Division" "Custodian Division" "The Black Ships" "The Redeemed" "Sin Purgers" "Crusader Expeditionary Force" "The Light Wing" "The Vanguard" "Coreworld Defenders" "The Bloody 7th" "The Elder Rites" "The White Fleet" "The Sin Eaters" "Forced Conversion" "Evangelical Fleet" "The Temple Guardians" "Armageddon Wardens" }
+			sequential_name = "%O% Word Bearers"
+		}
+
+	army_names = {
+		defense_army = {
+			random_names = {
+				"The Old Guard" "Old Ironsides" "Bayonet Division" "The Red Hand" "Armored Farmers" "The Black Numbers" "The Bloody Eleventh" "The Devil's Own" "The Old Dozen" "The Red Feathers" "The Steelbacks" "Mounted Militia" "Freemen Militia" "Veteran's Militia" }
+			sequential_name = "%O% Defense Brigade"
+		}
+
+		assault_army = {
+			random_names = {
+				"Word Bearers" "Iron Brigade" "Martyrs Brigade" "Desert Bulls" "The Foreign Legion" "Mancoran Huscarls" "Aquilon Irregulars" "Baal Raiders" "Kali Rifles" "Obsidia Lancers" "Honorum Fusiliers" "Sylvanian Rangers" "Wolves of Fenris" "Felisian Freemen" "Voutanian Volunteers" "Caglorian Guard" "Stalinvast Grenadiers" "Tanith Only" "Acriumian Scouts" "Avalon Airborne" "Siberius Droptoops" "Itzan Light Foot" "Crux Free Companies" "Dylanon Dragoons" "Deimos Regulars" "Skagos Raiders" }
+			sequential_name = "%O% Shock Legion"
+		}
+
+		slave_army = {
+			random_names = {
+				"The Condemed" "The Damned" "Penal Legion" "The Supplicants" "The Purged" "The Cleansed" "The Deviants" "The Blasphemers" }
+			sequential_name = "%O% Penitent Brigade"
+		}
+
+		clone_army = {
+			random_names = {
+				"Reincarnation Corp" "Phoenix Brigade" "Eternal Legion" "Everlasting Legion" "The Immortals" "Purgatory Guard" "Perpetual Guard" "Endless Brigade" "The Undying" "The Endless" }
+			sequential_name = "%O% Blessed Brigade"
+		}
+
+		robotic_army = {
+			random_names = {
+				"Cherubs" "Servitors Militants" "Ark Bearers" "Tabernacle Sentinels" "Sentinel's Covenant" "Machina Cult" "Redeemer Cogs" }
+			sequential_name = "%O% Machina Cohort"
+		}
+
+		robotic_defense_army = {
+			random_names = {
+				}
+			sequential_name = "%O% "
+		}
+
+		android_army = {
+			random_names = {
+				"Replicant Corp" "Golem Brigade" "Blade Animates" "Clay Rifles" "Clay Marines" "Salvation Golems" "Guardian Animates" "Facsimile Brigade" }
+			sequential_name = "%O% Redeemed Brigade"
+		}
+
+		android_defense_army = {
+			random_names = {
+				}
+			sequential_name = "%O% "
+		}
+
+		psionic_army = {
+			random_names = {
+				"Exorcists" "Exquisite Host" "Librarians" "Way Walkers" "Warp Wielders" "Prophets" "Farseers" }
+			sequential_name = "%O% Saints Brigade"
+		}
+
+		xenomorph_army = {
+			random_names = {
+				"World Eaters" "Black Skulls" "Bloodborn" "Daggerfangs" "Dark Tusks" "Night Stalkers" "Predator Legion" "Revelation of Gore" "Screaming Skulls" "The Scourged" "Slaughterkin" "The Tainted" "Warp Ghosts" "Yorgol's Vomitmaws" }
+			sequential_name = "%O% Daemon Host"
+		}
+
+		gene_warrior_army = {
+			random_names = {
+				"Knights Templar" "Angel Guard" "Angels of Absolution" "Angels Penitent" "Angels Sanguine" "Astral Knights" "Benedictors" "Black Crusaders" "Brothers Penitent" "Celebrants" "Consecrators" "Dark Templars" "Exemplars" "Genesis Chapter" "Halo Brethren" "Hospitallers" "Knights Unyielding" "Steel Confessors" "The Congregate" "The Curators" "The True Order" }
+			sequential_name = "%R% Angel Chapter"
+		}
+
+	}	
+
+	planet_names = {
+		generic = {
+			names = {
+				"Snaga" "Thuggon" "Shaggai" "Naat" "Azathoth" "Astraeus" "Prometheus" "Revelation" "Tranquility" "Magi" "St. Sabbat" "Bad Landing" "St. Elmo" "Krieg" "Paragon" "Orypihin" "Fibucism" "Trinity" "Trearity" "Creed" "Hadriel" "Lephasm" "Mecca" "Orion" "Hermes" "Symbolica" "Ecstacys" "Glory" "Pargeruman" "Ygarion" "Guralash" "Silvune" "Olane" "Dylanon" "Galoia" "Palane" "Rynn's World" "Hades" "Eden" "Chrismolis" "Kyluna" "Dostriatis" "Acriumia" "Jospelea" "Cagloria" "Glaberilia" "Uiliv" "Neclillon" "Cestea" "Smodaliv" "Usnaturn" "Voutania" "Pegluynov" "Waypra" "Thabamia" "Stalinvast" "Ivanhoe" "Apollo" "Ocularis" "Pacificus" "Tempestus" "Biel Tan" "Perseus" "Plyxian" "Rhidal" "Commorragh" "Syph" "Ultima" "Grendl" "Charadon" "Mundus Planus" "Wendigo" "Yuggoth" "Hypnos" "Irem" "Nodens" 
+			}
+		}
+
+		pc_arid = {
+			names = {
+				"Bakgrummon" "Anark" "Angelis" "Baal" "Caliban" "Calth" "Lukius" "Maccabeus" "Maesa" "Kami" "Gudrun" "Kronus" "Jollana" "Crux" "Izona" 
+			}
+		}
+
+		pc_desert = {
+			names = {
+				"Sonora" "Mojave" "Chihuahua" "Atacama" "Patagonia" "Namib" "Kalahari" "Sahara" "Thar" "Tanami" "Gobi" "Taklamakan" "Settler's Woe" "Hotep" 
+			}
+		}
+
+		pc_savanna = {
+			names = {
+				
+			}
+		}
+
+		pc_alpine = {
+			names = {
+				
+			}
+		}
+
+		pc_arctic = {
+			names = {
+				"Aquilon" "Armato" "Badab" "Bellicas" "Bodt" "Brycantia" "Caliban" "Chemos" "Coralax" "Cthonia" "Draconith" "Eidolica" "Erwynn's World" "Felis" "Fenris" "Ghorstangrad" "Highcastle" "Honorum" "Ithaka" "Jaggafall" "Kali" "Shiva" "Lorin" "Mancora" "Necris" "Newfound" "Nihilas" "Nostramo" "Obsidia" "Occludus" "Olympia" "Oxatan" "Phobian" "Praesidia" "Pranagar" "Prospero" "Raikan" "Sabatine" 
+			}
+		}
+
+		pc_tundra = {
+			names = {
+				"Miskatonic" "Sanctum" "Siberius" "Anvillus" "Belacane" "Cyclopea" "Deimos" "Diamat" "Estaban" "Sanskrit" "Legiogate" "Nocturne" "Skagos" 
+			}
+		}
+
+		pc_continental = {
+			names = {
+				"Hyperborea" "Almarit" "Boros" "Brigannion" "Burgan's World" "Castellax" "Coronis" "Forgefane" "Jago" "Kasr Partox" "Prefectia" "Malodrax" "Medrengard" "Obdurus" "Orask" "Archangel" "Tanith" "Drakwald" "Sylvania" 
+			}
+		}
+
+		pc_ocean = {
+			names = {
+				"Kapella" "Avalon" "Boonhaven" "Coronis" "Demogorgon" "Atlanticus" "Pacifica" "Orax" "Palatine" "Rashad" "Dagon" 
+			}
+		}
+
+		pc_tropical = {
+			names = {
+				"Baal" "Caldera" "Catachan" "Cthelle" "Damnia" "Denkari" "Karrik" "Krakan" "Maypax" "Praxetl" "Morrslieb" "Itza" "Sotek" "Chaqua" "Hexoatl" "Tlaxtlan" "Quetza" "Oxyl" "Nahuontl" 
+			}
+		}
+
+		pc_gaia = {
+			names = {
+				"Haven" "Promised Land" "The Bounty" "Herald" "Paragon" "The Vale" "Utopia" 
+			}
+		}
+
+		pc_nuked = {
+			names = {
+				"Armageddon" "Ragnarok" "Blasted Lands" "Hell's Reach" "Humility" "Toxicana" "Chernobyl" 
+			}
+		}
+
+	}
+
+	character_names = {
+
+		names1 = {
+			weight = 100
+		full_names = {
+		"The Sky Wept" "One Who Stood" "Bitter Wood" "Snake in the Eye" "Split the Sky" "Pierce the Veil" "White Death" "Wall Breaker" "Bad Medicine" "Promise Kept" "Stranger Come Knocking" "Rain in the Face" "Touch the Clouds" "Crow Dog" "Ghost Dance" "Dull Knife" "Walks With No Sound" "Shaggy Dog" "Snow Crust" "Crying Rock" "Stone Splitter" "Morning Star" "Flower of the Field" "Three Trees" "Grim Thunderhead" "Conquering Bear" "Falling Star" "Lucky Comet" "Spirit Who Sings" "Talks Too Much" "Eternal Blossom" "Chases Butterfly" "Sky Dancer" "Wise Knuckles" "Jolly Moth" "Hungry Scout" "Two Moons" "Walks Far" "Shaking Snow" "Chain Breaker" "Stands Forever" "Star Dancer" "Lives Past Winter" "Farewell to Spring" "Old One Eye" "Arms Wide Open" "Born Of Thunder" "Marked By War" 
+		}
+
+		first_names = {
+		"Watchful" "Sitting" "Running" "Dancing" "Angry" "Watchful" "Lazy" "Laughing" "Raging" "Black" "Red" "Weeping" "Sleeping" "Blue" "Crazy" "Sly" "Big" "Roaring" "Wailing" "Rambling" "Little" "Skinny" "Strong" "Stubborn" "Shy" "Brown" "Grumpy" "Somber" "Merry" "White" "Gray" "Purple" "Crimson" "Scarlet" "Dark" "Modest" "Snooping" "Hardy" "Singing" "Fat" "Swatting" "Falling" "Pale" "Proud" "Jumping" "Skipping" "Burning" "Young" "Old" "Mad" "Bitter" 
+		}
+
+		first_names_male = {
+		
+		}
+
+		first_names_female = {
+		
+		}
+
+		second_names = {
+		"Owl" "Bull" "Wolf" "Bear" "Sparrow" "Eagle" "Buffalo" "Snake" "Trout" "Elk" "Horse" "Rain" "Snow" "Ice" "Storm" "Cloud" "Lion" "Whale" "Fox" "Mountain" "Cat" "Crow" "Goat" "Boulder" "Creek" "Mole" "Corn" "Rainbow" "Snow" "Rabbit" "Panda" "Seal" "Shark" "Weasel" "Mouse" "Sea" "Thunder" "Twig" "Frog" "Vine" "Cub" "Buck" "Stone" "River" "Creek" "Leaf" "Star" "Sun" "Moon" "Flower" "Hard Cheese" "Oak" 
+		}
+
+		regnal_first_names = {
+		"Innocent" "Pious" "Celestial" "Solemn" "Placid" "Benevolent" "Faithful" "Magnanimous" "Modest" 
+		}
+
+		regnal_first_names_male = {
+		
+		}
+
+		regnal_first_names_female = {
+		
+		}
+
+		regnal_second_names = {
+		"Much Mercy" "Sorry For Sin" "Search The Scriptures" "Stand Fast" "Joy In Sorrow" 
+		}
+
+		}
+
+
+
+		}
+	
+}

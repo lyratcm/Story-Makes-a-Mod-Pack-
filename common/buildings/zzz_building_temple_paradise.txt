@@ -1,0 +1,37 @@
+cp_building_temple_paradise = { #Temple of Paradise
+	base_buildtime = @b1_time
+	icon = building_stone_palace
+	category = government
+	base_cap_amount = 1
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = cp_civic_utopia_question }
+	}
+	planet_modifier = {
+		job_cp_visionary_add = 1
+	}
+	destroy_trigger = {
+		exists = owner
+		NOT = {
+			owner = { has_civic = cp_civic_utopia_question }
+		}
+	}
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_visionary_effect_desc
+	}
+	ai_weight = {
+		factor = 1
+	}
+}

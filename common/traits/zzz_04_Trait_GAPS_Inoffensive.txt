@@ -1,0 +1,18 @@
+Trait_GAPS_Inoffensive = {
+    icon = "gfx/interface/icons/traits/Trait_GAPS_Inoffensive.dds"
+    cost = 1
+    initial = yes
+    randomized = yes
+    modification = yes
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+        PRESAPIENT
+    }
+    custom_tooltip = Trait_GAPS_Inoffensive_Effect
+    modifier = {
+        country_trust_cap_add = 0.2
+    }
+}

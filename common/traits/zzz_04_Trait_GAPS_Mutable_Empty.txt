@@ -1,0 +1,21 @@
+Trait_GAPS_Mutable_Empty = {
+    cost = 0
+    initial = no
+    randomized = no
+    modification = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+        PRESAPIENT
+    }
+    opposites = {
+    }
+    sorting_priority = 30
+    modifier = {
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

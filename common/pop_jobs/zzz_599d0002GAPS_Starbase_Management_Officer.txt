@@ -1,0 +1,29 @@
+GAPS_Starbase_Management_Officer = {
+    category = ruler
+    condition_string = SPECIALIST_JOB_TRIGGER
+    clothes_texture_index = 3
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        exists = owner
+    }
+    resources = {
+        category = planet_managers
+        produces = {
+        }
+        upkeep = {
+        }
+    }
+    pop_modifier = {
+        pop_housing_usage_mult = -1
+    }
+    country_modifier = {
+        country_starbase_capacity_mult = 0.1
+    }
+    weight = {
+        weight = 50000
+    }
+}

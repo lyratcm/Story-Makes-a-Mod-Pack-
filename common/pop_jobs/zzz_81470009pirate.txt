@@ -1,0 +1,127 @@
+pirate = {
+    category = criminal
+    building_icon = building_stronghold
+    clothes_texture_index = 4
+    icon = purge
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_assimilated = no
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        exists = owner
+        NOR = {
+            has_citizenship_type = {
+                country = owner
+                type = citizenship_robot_servitude
+            }
+            has_trait = trait_hive_mind
+            has_trait = trait_machine_unit
+            AND = {
+                owner = {
+                    has_valid_civic = civic_machine_assimilator
+                }
+                has_trait = trait_cybernetic
+            }
+        }
+        worker_job_check_trigger = yes
+        NOT = {
+            has_military_service_type = {
+                type = military_service_none
+            }
+        }
+    }
+    country_modifier = {
+        country_naval_cap_add = 4
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_dystopia
+                    has_valid_civic = civic_corp_dystopia
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 3
+        }
+    }
+    triggered_country_modifier = {
+        potential = {
+            planet = {
+                owner = {
+                    has_technology = "tech_ground_defense_planning"
+                }
+            }
+        }
+        modifier = {
+            country_naval_cap_add = 2
+        }
+    }
+    triggered_country_modifier = {
+        potential = {
+            planet = {
+                owner = {
+                    has_technology = "tech_ground_defense_planning_2"
+                }
+            }
+        }
+        modifier = {
+            country_naval_cap_add = 2
+        }
+    }
+    triggered_country_modifier = {
+        potential = {
+            has_slavery_type = {
+                type = slavery_military
+            }
+        }
+        modifier = {
+            country_naval_cap_add = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+        }
+        modifier = {
+            planet_crime_add = 5
+            trade_value_add = -2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+            }
+        }
+        modifier = {
+            planet_crime_no_happiness_add = 3
+        }
+    }
+    pop_modifier = {
+        pop_defense_armies_add = 3
+    }
+    resources = {
+        category = planet_soldiers
+        produces = {
+            trigger = {
+                owner = {
+                    has_valid_civic = civic_citizen_service
+                }
+            }
+            unity = 2
+        }
+    }
+    weight = {
+        weight = @criminal_job_weight
+    }
+}

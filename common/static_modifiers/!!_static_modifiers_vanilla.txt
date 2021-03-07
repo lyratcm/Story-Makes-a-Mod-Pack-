@@ -1,0 +1,366 @@
+##########################################################################
+# Country modifiers
+##########################################################################
+
+# Stability ( 0 - 100 )
+planet_stability_no_happiness_low = {
+	planet_jobs_produces_mult = -0.5
+	planet_crime_no_happiness_add = 15
+}
+
+planet_stability_no_happiness_high = {
+	planet_jobs_produces_mult = 0.30
+	planet_pops_upkeep_mult = -0.15
+}
+
+planet_stability_low = {
+	planet_jobs_produces_mult = -0.5
+	trade_value_mult = -0.5
+	planet_emigration_push_add = 100
+	planet_crime_no_happiness_add = 15
+}
+
+
+planet_crime = {
+	planet_emigration_push_add = 100
+}
+
+planet_crime_no_happiness = {
+	planet_jobs_unity_produces_mult = -0.33
+}
+
+# Amenities ( 25% - 200% of required)
+planet_amenities_no_happiness_low = {
+	planet_stability_add = -50
+	planet_crime_no_happiness_add = 10
+}
+
+planet_amenities_no_happiness_high = {
+	planet_stability_add = 20
+	planet_jobs_simple_drone_produces_mult = 0.10
+}
+
+planet_amenities_low = {
+	pop_happiness = -0.50
+	planet_emigration_push_add = 50
+	planet_crime_add = 15
+}
+planet_amenities_high = {
+	pop_citizen_happiness = 0.20
+	trade_value_mult = 0.20
+}
+
+# Housing ( 25% - 200% of required)
+planet_housing_no_happiness_low = {
+	planet_stability_add = -20
+	planet_crime_no_happiness_add = 10
+}
+
+planet_housing_low = {
+	planet_stability_add = -20
+	planet_emigration_push_add = 50
+	planet_crime_add = 15
+}
+
+# Overcrowding
+planet_overcrowded = {
+	planet_emigration_push_add = 75
+}
+
+# Per missing job
+planet_employment_no_happiness_low = {
+	planet_emigration_push_add = 10
+}
+
+planet_employment_low = {
+	planet_emigration_push_add = 10
+}
+
+consumer_goods_deficit = {
+	pop_happiness = -0.25
+	planet_jobs_unity_produces_mult = -0.5
+	planet_jobs_society_research_produces_mult = -0.5
+	planet_jobs_engineering_research_produces_mult = -0.5
+	planet_jobs_physics_research_produces_mult = -0.5
+	planet_emigration_push_add = 50
+}
+
+oracle_administration = {
+	country_admin_cap_mult = 0.1
+	diplo_weight_technology_mult = 0.1
+	diplo_weight_pops_mult = -0.1
+}
+
+cosmic_ray_catalysis = {
+	station_gatherers_energy_produces_mult = 0.25
+}
+
+drone_mining_techniques = {
+	station_gatherers_minerals_produces_mult = 0.25
+}
+
+# Per empire size over admin cap
+empire_size_over_cap = {
+	campaigns_cost_mult = 0.01
+	leader_upkeep_empire_size_mult = 0.0025
+	leader_cost_empire_size_mult = 0.0025
+}
+
+# Per empire size (ignores admin cap)
+empire_size = {
+	rare_edicts_cost_mult = 0.01
+	pop_government_ethic_attraction = -0.00167
+	empire_size_systems_mult = 0.001
+	planet_bureaucrats_upkeep_mult = 0.001
+	planet_synapse_drones_upkeep_mult = 0.0005
+}
+
+over_edict_cap = {
+	empire_size_mult = 0.25
+	country_influence_produces_add = -1
+}
+
+##########################################################################
+# Planet modifiers
+##########################################################################
+
+consecrated_modifier_12 = {
+	country_unity_produces_mult = 0.60
+	planet_amenities_mult = 0.36
+	pop_ethic_spiritualist_attraction_mult = 0.60
+}
+
+consecrated_modifier_11 = {
+	country_unity_produces_mult = 0.55
+	planet_amenities_mult = 0.33
+	pop_ethic_spiritualist_attraction_mult = 0.55
+}
+
+consecrated_modifier_10 = {
+	country_unity_produces_mult = 0.50
+	planet_amenities_mult = 0.30
+	pop_ethic_spiritualist_attraction_mult = 0.50
+}
+consecrated_modifier_9 = {
+	country_unity_produces_mult = 0.45
+	planet_amenities_mult = 0.27
+	pop_ethic_spiritualist_attraction_mult = 0.45
+}
+consecrated_modifier_8 = {
+	country_unity_produces_mult = 0.40
+	planet_amenities_mult = 0.24
+	pop_ethic_spiritualist_attraction_mult = 0.40
+}
+consecrated_modifier_7 = {
+	country_unity_produces_mult = 0.35
+	planet_amenities_mult = 0.21
+	pop_ethic_spiritualist_attraction_mult = 0.35
+}
+consecrated_modifier_6 = {
+	country_unity_produces_mult = 0.30
+	planet_amenities_mult = 0.18
+	pop_ethic_spiritualist_attraction_mult = 0.30
+}
+consecrated_modifier_5 = {
+	country_unity_produces_mult = 0.25
+	planet_amenities_mult = 0.15
+	pop_ethic_spiritualist_attraction_mult = 0.25
+}
+consecrated_modifier_4 = {
+	country_unity_produces_mult = 0.20
+	planet_amenities_mult = 0.12
+	pop_ethic_spiritualist_attraction_mult = 0.20
+}
+consecrated_modifier_3 = {
+	country_unity_produces_mult = 0.15
+	planet_amenities_mult = 0.09
+	pop_ethic_spiritualist_attraction_mult = 0.15
+}
+consecrated_modifier_2 = {
+	country_unity_produces_mult = 0.10
+	planet_amenities_mult = 0.06
+	pop_ethic_spiritualist_attraction_mult = 0.10
+}
+consecrated_modifier_1 = {
+	country_unity_produces_mult = 0.05
+	planet_amenities_mult = 0.03
+	pop_ethic_spiritualist_attraction_mult = 0.05
+}
+
+consecrated_quality_5 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+}
+consecrated_quality_6 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+}
+consecrated_quality_7 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+}
+
+planet_luxuries_boost = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_luxuries.dds"
+	icon_frame = 1
+	planet_pops_consumer_goods_upkeep_mult = 0.1
+	planet_amenities_mult = 0.25
+	planet_immigration_pull_mult = 0.25
+}
+
+resort_colony = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_resort_planet.dds"
+	icon_frame = 1
+	pop_environment_tolerance = 1
+	#trade_value_mult = 0.5
+	#job_clerk_per_pop = 0.5
+	#job_entertainer_per_pop = 0.2
+	#custom_tooltip = resort_colony_empire_effects
+	#show_only_custom_tooltip = no
+	# This only works on timed planet modifiers!
+	#apply_modifier_to_other_planets = resort_colony_other_planets
+}
+
+resort_colony_other_planets = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_resort_planet.dds"
+	icon_frame = 1
+	planet_amenities_mult = 0.20
+	planet_immigration_pull_mult = 0.20
+}
+
+criminal_underworld = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_crime_add = 15
+	job_criminal_add = 1
+	job_criminal_per_crime = 0.06
+}
+
+drone_deviancy = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_crime_no_happiness_add = 15
+	job_deviant_drone_add = 1
+	job_deviant_drone_per_crime = 0.06
+}
+
+drone_corruption = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_crime_no_happiness_add = 15
+	job_corrupt_drone_add = 1
+	job_corrupt_drone_per_crime = 0.06
+}
+
+gang_wars = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_crime_add = 30
+	planet_stability_add = -5
+	job_criminal_add = 1
+	job_criminal_per_crime = 0.06
+}
+
+center_of_drug_trade = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_crime_add = 30
+	job_smuggler_add = 1
+	job_apothecary_add = 1
+	job_criminal_add = 1
+	job_criminal_per_crime = 0.03
+	job_apothecary_per_crime = 0.03
+}
+
+mob_rule = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_crime_add = 30
+	job_mob_boss_add = 1
+	job_criminal_add = 1
+	job_criminal_per_crime = 0.06
+}
+
+substance_abuse = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_jobs_produces_mult = -0.20
+	job_apothecary_add = 1
+}
+
+smuggler_activity = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	trade_value_mult = -0.20
+	job_smuggler_add = 1
+}
+
+activity_program = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
+	icon_frame = 2
+	unemployment_resources_food_upkeep_add = 1
+	custom_tooltip = activity_program_tooltip
+}
+
+has_criminal_branch_office = {
+	planet_crime_add = 40
+}
+
+planet_museum_exhibits = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_museum.dds"
+	planet_culture_workers_produces_mult = 0.20
+	planet_priests_produces_mult = 0.20
+}
+
+martial_law = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_martial_law.dds"
+	icon_frame = 2
+	planet_jobs_produces_mult = -0.33
+	pop_growth_speed = -0.5
+	pop_growth_from_immigration = -0.5
+	pop_assembly_speed = -0.5
+	job_soldier_add = 2
+}
+
+hunter_killer_drones = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_martial_law_hive.dds"
+	icon_frame = 2
+	planet_jobs_produces_mult = -0.33
+	pop_growth_speed = -0.5
+	pop_growth_from_immigration = -0.5
+	pop_assembly_speed = -0.5
+	job_warrior_drone_add = 2
+}
+
+compliance_protocols = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_martial_law_machine.dds"
+	icon_frame = 2
+	planet_jobs_produces_mult = -0.33
+	pop_growth_speed = -0.5
+	pop_growth_from_immigration = -0.5
+	pop_assembly_speed = -0.5
+	job_warrior_drone_add = 2
+}
+
+##########################################################################
+# Faction Modifiers
+##########################################################################
+
+faction_approval_very_low = {
+	pop_happiness = -0.4
+}
+
+faction_approval_low = {
+	pop_happiness = -0.2
+}
+
+faction_approval_average = {
+}
+
+faction_approval_high = {
+	pop_happiness = 0.05
+}
+
+faction_approval_very_high = {
+	pop_happiness = 0.1
+}

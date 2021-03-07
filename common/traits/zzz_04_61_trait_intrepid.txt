@@ -1,0 +1,24 @@
+trait_intrepid = {
+    cost = 3
+    initial = yes
+    modification = no
+    randomized = yes
+    opposites = {
+        "trait_undisciplined"
+        "trait_nerve_stapled"
+    }
+    potential_crossbreeding_chance = 1.0
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        army_morale = 1.00
+        army_disengage_chance_mult = -0.50
+    }
+    slave_cost = {
+        energy = 50
+    }
+}

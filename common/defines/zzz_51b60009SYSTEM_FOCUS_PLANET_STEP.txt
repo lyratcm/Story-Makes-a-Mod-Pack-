@@ -1,0 +1,3 @@
+NCamera = {
+    SYSTEM_FOCUS_PLANET_STEP = 2
+}

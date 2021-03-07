@@ -1,0 +1,44 @@
+decision_radiotrophic = {
+	icon = decision_radiotrophic
+	owned_planets_only = yes
+
+	enactment_time = 1800
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+			sr_rad_bloom = 500
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		habitable_planet = yes
+		owner = { 
+			any_owned_planet = { is_planet_class = pc_irradiated }
+		}
+		NOT = { is_planet_class = pc_irradiated }
+		NOT = { is_planet_class = pc_nuked }
+		
+	}
+
+	effect = {
+		change_pc = pc_irradiated
+		
+		hidden_effect = {
+			remove_modifier = radiotrophic
+			add_modifier = {
+				modifier = radiotrophic
+				days = -1
+			}
+			add_deposit = d_rad_blooms
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+		}
+	}
+}

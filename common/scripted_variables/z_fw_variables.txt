@@ -1,0 +1,73 @@
+###_z fw variables	##############################################################################
+
+
+###_misc	##################################################
+@z_fw_autostation_cd = 43
+
+@z_fw_edict_instant = -1
+
+
+
+
+###_tech	#######################################################
+
+#_科技权重与花费
+#_tier6
+@z_techTier6cost1 = 64000
+@z_techTier6cost2 = 80000
+@z_techTier6cost3 = 96000
+
+@z_techTier6weight1 = 14
+@z_techTier6weight2 = 13
+@z_techTier6weight3 = 12
+
+#_tier7
+@z_techTier7cost1 = 128000
+@z_techTier7cost2 = 160000
+@z_techTier7cost3 = 192000
+
+@z_techTier7weight1 = 10
+@z_techTier7weight2 = 9
+@z_techTier7weight3 = 8
+
+#_tier8
+@z_techTier8cost1 = 256000
+@z_techTier8cost2 = 320000
+@z_techTier8cost3 = 384000
+
+@z_techTier8weight1 = 7
+@z_techTier8weight2 = 6
+@z_techTier8weight3 = 5
+
+#_tier9
+@z_techTier9cost1 = 512000
+@z_techTier9cost2 = 640000
+@z_techTier9cost3 = 768000
+
+@z_techTier9weight1 = 4
+@z_techTier9weight2 = 3
+@z_techTier9weight3 = 2
+
+
+
+
+###_buildings	##################################################
+
+#_basic
+@z_fw_sv_b_basic_time_1 = 160
+@z_fw_sv_b_basic_time_2 = 240
+@z_fw_sv_b_basic_time_3 = 320
+@z_fw_sv_b_basic_time_4 = 400
+@z_fw_sv_b_basic_time_5 = 480
+
+@z_fw_sv_b_basic_cost_1 = 200
+@z_fw_sv_b_basic_cost_2 = 300
+@z_fw_sv_b_basic_cost_3 = 400
+@z_fw_sv_b_basic_cost_4 = 500
+@z_fw_sv_b_basic_cost_5 = 600
+
+
+
+
+###_relic	##################################################
+@z_fw_var_r_hok_infection_cd = 41

@@ -1,0 +1,212 @@
+namespace = vfb
+
+country_event = {
+	id = vfb.1
+	title = vfb.1.name
+	desc = vfb.1.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_ship_bridge
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	#trigger = {
+	#	is_ai = no
+	#	is_multiplayer = no
+	#	NOT = { has_global_flag = has_vfb_mod }
+	#}
+
+	immediate = {
+		set_global_flag = has_vfb_mod
+	}
+
+	option = { #Vanilla Start
+		name = vfb.1.a
+		custom_tooltip = vfb.1.a.tooltip
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = { #Everyone gets tech
+		name = vfb.1.b
+		custom_tooltip = vfb.1.b.tooltip
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					owner = {
+						is_fallen_empire = no
+						has_technology = tech_planetary_government
+					}
+				}
+				give_technology = { tech = tech_building_vfb_refinery message = no }
+				give_technology = { tech = tech_building_vfb_asteroid_station message = no }
+				give_technology = { tech = tech_building_vfb_asteroid_hub_b message = no }
+				give_technology = { tech = tech_building_vfb_fusion_plant message = no }
+				give_technology = { tech = tech_building_vfb_fusion_complex_b message = no }
+				give_technology = { tech = tech_building_vfb_siderurgy message = no }
+				give_technology = { tech = tech_building_vfb_harbor message = no }
+			}
+			every_country = {
+				limit = {
+					owner = {
+						AND = {
+							is_machine_empire = no
+							is_hive_empire = no
+						}
+						is_fallen_empire = no
+						has_technology = tech_planetary_government
+					}
+				}
+				give_technology = { tech = tech_building_vfb_armory message = no }
+				give_technology = { tech = tech_building_vfb_workshop message = no }
+				give_technology = { tech = tech_building_vfb_logistichub message = no }
+				give_technology = { tech = tech_building_vfb_orbitalhub message = no }
+				give_technology = { tech = tech_building_vfb_skysanctuary message = no }
+				give_technology = { tech = tech_building_vfb_preserve message = no }
+				give_technology = { tech = tech_building_vfb_groundsofeden message = no }
+				give_technology = { tech = tech_building_vfb_resort message = no }
+				give_technology = { tech = tech_building_vfb_lyceum message = no }
+				give_technology = { tech = tech_building_vfb_museum message = no }
+				give_technology = { tech = tech_building_vfb_constructor message = no }
+				give_technology = { tech = tech_building_vfb_administration message = no }
+			}
+			every_country = {
+				limit = {
+					owner = {
+						OR = {
+							AND = {
+								is_hive_empire = yes
+								is_lithoid_empire = no
+							}
+							AND = {
+								is_hive_empire = no
+								is_lithoid_empire = no
+							}
+						}
+						is_fallen_empire = no
+						is_machine_empire = no
+						has_technology = tech_planetary_government
+					}
+				}
+				give_technology = { tech = tech_building_vfb_plastic_plant message = no }
+			}
+		}
+		
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	option = { #Everyone gets a wharf
+		name = vfb.1.c
+		custom_tooltip = vfb.1.c.tooltip
+		
+		hidden_effect = {
+			every_planet = {
+				limit = {
+					num_pops > 20
+					owner = { 
+						is_fallen_empire = no
+						has_technology = tech_planetary_government
+					}
+					NOR = {
+						has_building = building_vfb_wharf
+						has_building = building_vfb_harbor
+					}
+				}
+				add_building = building_vfb_wharf
+			}
+		}
+		
+		ai_chance = {
+			factor = 0
+		}
+	}
+		
+	option = { #Everyone gets tech and a wharf
+		name = vfb.1.d
+		custom_tooltip = vfb.1.d.tooltip
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					owner = {
+						is_fallen_empire = no
+						has_technology = tech_planetary_government
+					}
+				}
+				give_technology = { tech = tech_building_vfb_refinery message = no }
+				give_technology = { tech = tech_building_vfb_asteroid_station message = no }
+				give_technology = { tech = tech_building_vfb_asteroid_hub_b message = no }
+				give_technology = { tech = tech_building_vfb_fusion_plant message = no }
+				give_technology = { tech = tech_building_vfb_fusion_complex_b message = no }
+				give_technology = { tech = tech_building_vfb_siderurgy message = no }
+				give_technology = { tech = tech_building_vfb_harbor message = no }
+			}
+			every_country = {
+				limit = {
+					owner = {
+						AND = {
+							is_machine_empire = no
+							is_hive_empire = no
+						}
+						is_fallen_empire = no
+						has_technology = tech_planetary_government
+					}
+				}
+				give_technology = { tech = tech_building_vfb_armory message = no }
+				give_technology = { tech = tech_building_vfb_workshop message = no }
+				give_technology = { tech = tech_building_vfb_logistichub message = no }
+				give_technology = { tech = tech_building_vfb_orbitalhub message = no }
+				give_technology = { tech = tech_building_vfb_skysanctuary message = no }
+				give_technology = { tech = tech_building_vfb_preserve message = no }
+				give_technology = { tech = tech_building_vfb_groundsofeden message = no }
+				give_technology = { tech = tech_building_vfb_resort message = no }
+				give_technology = { tech = tech_building_vfb_lyceum message = no }
+			}
+			every_country = {
+				limit = {
+					owner = {
+						OR = {
+							AND = {
+								is_hive_empire = yes
+								is_lithoid_empire = no
+							}
+							AND = {
+								is_hive_empire = no
+								is_lithoid_empire = no
+							}
+						}
+						is_fallen_empire = no
+						is_machine_empire = no
+						has_technology = tech_planetary_government
+					}
+				}
+				give_technology = { tech = tech_building_vfb_plastic_plant message = no }
+			}
+		}
+		
+		hidden_effect = {
+			every_planet = {
+				limit = {
+					num_pops > 20
+					owner = { 
+						is_fallen_empire = no
+						has_technology = tech_planetary_government
+					}
+					NOR = {
+						has_building = building_vfb_wharf
+						has_building = building_vfb_harbor
+					}
+				}
+				add_building = building_vfb_wharf
+			}
+		}
+	
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

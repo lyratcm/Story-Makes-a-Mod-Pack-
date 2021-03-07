@@ -1,0 +1,18 @@
+namespace = story
+
+country_event = {
+	id = story.216
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = from
+		from = { is_country_type = crystal }
+		has_modifier = crystal_hunting_buff
+	}
+
+	immediate = {
+		add_resource = { minerals = 500 }
+		add_resource = { rare_crystals = 25 }
+		add_resource = { physics_research = 500 }
+	}
+}

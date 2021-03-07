@@ -1,0 +1,3 @@
+z_mm_unlock_setting_panel = {
+    remove_country_flag = z_mm_setting_panel_locked
+}

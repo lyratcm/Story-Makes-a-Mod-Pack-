@@ -1,0 +1,13 @@
+lrsk_gov_var_civic_machine_selfaware_production_targets = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_energy_produces_mult = 0.05
+        country_minerals_produces_mult = 0.05
+        country_alloys_produces_mult = 0.025
+    }
+}

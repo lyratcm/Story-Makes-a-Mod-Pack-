@@ -1,0 +1,18 @@
+trait_presapient_irradiated = {
+    cost = 1
+    initial = no
+    sapient = no
+    modification = yes
+    icon = "gfx/interface/icons/traits/trait_presapient_irradiated.dds"
+    potential_crossbreeding_chance = 0.25
+    allowed_archetypes = {
+        BIOLOGICAL
+        PRESAPIENT
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pc_nuked_habitability = 1.00
+        leader_age = 30
+    }
+}

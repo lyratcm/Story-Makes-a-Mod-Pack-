@@ -1,0 +1,53 @@
+lrsk_gov_var_bldg_planet_synaptic_cluster = {
+	base_buildtime = 450
+
+	category = government
+	can_build = no
+
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = yes
+	  		has_valid_civic = lrsk_gov_var_civic_hive_planetmind_creativity
+		}
+	}
+
+	allow = {
+		num_pops >= 20
+	}
+
+	upgrades = {
+		lrsk_gov_var_bldg_planet_synaptic_confluence
+	}
+
+	planet_modifier = {
+		planet_amenities_no_happiness_mult = 0.15
+		job_lrsk_gov_var_job_planetmind_overseer_add = 2
+		job_maintenance_drone_add = 1
+		planet_crime_no_happiness_mult = 0.2
+	}
+
+	triggered_desc = {
+		text = job_lrsk_gov_var_job_planetmind_overseer_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_maintenance_drone_effect_desc
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+			unity = 200
+		}
+		upkeep = {
+			energy = 2
+			unity = 5
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

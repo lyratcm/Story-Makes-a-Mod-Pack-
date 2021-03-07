@@ -1,0 +1,134 @@
+guiTypes = {
+    @sidebar_inner_w = 430
+    containerWindowType = {
+        name = "planet_species_select_entry_specific_species"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = @sidebar_inner_w
+            height = 81
+        }
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_frame"
+            clicksound = "click"
+        }
+        containerWindowType = {
+            name = "species_name"
+            size = {
+                width = 340
+                height = 20
+            }
+            position = {
+                x = 85
+                y = 0
+            }
+            instantTextBoxType = {
+                name = "species_name"
+                font = "malgun_goth_24"
+                text = "Species Name"
+                position = {
+                    x = 0
+                    y = 0
+                }
+                maxWidth = 340
+                maxHeight = 20
+                fixedSize = yes
+                format = left
+                alwaysTransparent = yes
+            }
+        }
+        instantTextBoxType = {
+            name = "species_class"
+            font = "cg_16b"
+            text = "Blorgoid"
+            position = {
+                x = 85
+                y = 25
+            }
+            maxWidth = 340
+            maxHeight = 20
+            fixedSize = yes
+            format = left
+            text_color_code = "E"
+            alwaysTransparent = yes
+        }
+        instantTextBoxType = {
+            name = "habitability"
+            font = "cg_16b"
+            text = "Habitability: 12%"
+            position = {
+                x = -157
+                y = 25
+            }
+            maxWidth = 150
+            maxHeight = 20
+            fixedSize = yes
+            orientation = upper_right
+            format = right
+            alwaysTransparent = yes
+        }
+        overlappingElementsBoxType = {
+            name = "traits"
+            position = {
+                x = 85
+                y = 48
+            }
+            size = {
+                x = 340
+                y = 16
+            }
+            format = left
+        }
+        containerWindowType = {
+            name = "portrait"
+            size = {
+                width = 80
+                height = 80
+            }
+            position = {
+                x = 1
+                y = 1
+            }
+            clipping = yes
+            iconType = {
+                name = "species_background"
+                spriteType = "GFX_planet_background"
+                position = {
+                    x = 1
+                    y = 2
+                }
+                scale = 0.79
+                alwaysTransparent = yes
+            }
+            iconType = {
+                name = "species_background_frame"
+                spriteType = "GFX_planet_background_frame"
+                scale = 0.79
+                alwaysTransparent = yes
+            }
+            iconType = {
+                name = "portrait"
+                quadTextureSprite = "GFX_portrait_character"
+                position = {
+                    x = -23
+                    y = -5
+                }
+                scale = 0.22
+                alwaysTransparent = yes
+            }
+        }
+        iconType = {
+            name = "selected_icon"
+            spriteType = "GFX_button_yes_active_single"
+            position = {
+                x = -39
+                y = 6
+            }
+            orientation = upper_right
+            alwaysTransparent = yes
+        }
+    }
+}

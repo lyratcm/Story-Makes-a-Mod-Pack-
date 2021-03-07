@@ -1,0 +1,21 @@
+#_[Õù¶á¾ØÕó]
+war_name_parts_list = {
+	key = "z_lctr_plunder_relic_war_names"
+	parts = {
+		"z_lctr_wn_war_for_relic_1" = 1
+		"z_lctr_wn_war_for_relic_2" = 1
+	}
+}
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = z_lctr_wg_plunder_relic
+				owner = attacker
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <z_lctr_plunder_relic_war_names>"
+}

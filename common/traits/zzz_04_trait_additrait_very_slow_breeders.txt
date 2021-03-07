@@ -1,0 +1,19 @@
+trait_additrait_very_slow_breeders = {
+    cost = -3
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        pop_growth_speed = -0.20
+    }
+    opposites = {
+        "trait_slow_breeders"
+        "trait_rapid_breeders"
+        "trait_rapid_breeders_lithoid"
+        "trait_fertile"
+        "trait_additrait_passionate"
+    }
+}

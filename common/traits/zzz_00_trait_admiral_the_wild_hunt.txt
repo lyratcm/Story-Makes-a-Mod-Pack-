@@ -1,0 +1,28 @@
+trait_admiral_the_wild_hunt = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_admiral_the_wild_hunt.dds"
+    modifier = {
+        ship_weapon_range_mult = 0.20
+        damage_vs_country_type_guardian_dragon_mult = 0.33
+        damage_vs_country_type_guardian_stellarite_mult = 0.33
+        damage_vs_country_type_guardian_sphere_mult = 0.33
+        damage_vs_country_type_guardian_horror_mult = 0.33
+        damage_vs_country_type_guardian_dreadnought_mult = 0.33
+        damage_vs_country_type_guardian_hiver_mult = 0.33
+    }
+    leader_trait = {
+        admiral
+    }
+    leader_class = {
+        admiral
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_apex_predator
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

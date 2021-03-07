@@ -1,0 +1,45 @@
+civic_dystopia = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			NOR = {
+				value = ethic_fanatic_pluralist
+				value = ethic_fanatic_socialism
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_agrarian_idyll
+				value = civic_ascetic_virtues
+				value = civic_asceticism
+				value = civic_beacon_of_liberty
+				value = civic_philosopher_king
+				value = civic_utopia_question
+			}
+		}
+	}
+	description = civic_dystopia_effect
+	modifier = {
+		planet_jobs_criminal_produces_mult = 0.50
+		planet_jobs_criminal_unity_produces_add = 2
+		planet_crime_mult = 0.20
+		job_apothecary_per_crime = 0.03
+		job_smuggler_per_crime = 0.03
+		job_scrap_dealer_per_crime = 0.03
+		job_pirate_per_crime = 0.03
+		job_mob_boss_per_crime = 0.01
+	}
+}

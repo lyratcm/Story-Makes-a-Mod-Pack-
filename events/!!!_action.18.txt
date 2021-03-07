@@ -1,0 +1,46 @@
+namespace = action
+country_event = {
+    id = action.18
+    title = "action.10.name"
+    desc = "action.15.desc"
+    picture = GFX_evt_star_chart
+    location = FROMFROMFROM
+    trackable = yes
+    is_triggered_only = yes
+    trigger = {
+        FROM = {
+            is_country_type = cloud
+        }
+        OR = {
+            is_country_type = default
+            is_country_type = ascended_empire
+            is_country_type = lost_empire
+        }
+        NOT = {
+            has_country_flag = cloud_encountered
+        }
+    }
+    immediate = {
+        set_country_flag = cloud_encountered
+        capital_scope = {
+            save_event_target_as = pc_home
+        }
+        from = {
+            enable_special_project = {
+                name = "INVESTIGATE_SPACE_CLOUDS"
+                location = event_target:pc_home
+                owner = ROOT
+            }
+        }
+    }
+    option = {
+        name = "action.10.a"
+        tooltip = {
+            enable_special_project = {
+                name = "INVESTIGATE_SPACE_CLOUDS"
+                location = event_target:pc_home
+                owner = ROOT
+            }
+        }
+    }
+}

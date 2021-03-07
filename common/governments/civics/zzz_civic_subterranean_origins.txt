@@ -1,0 +1,18 @@
+civic_subterranean_origins = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 1
+    }
+    modification = no
+    modifier = {
+        army_defense_damage_mult = 0.2
+        army_defense_morale_mult = 0.2
+        planet_structures_cost_mult = -0.10
+        planet_structures_upkeep_mult = -0.10
+        country_starbase_influence_cost_mult = 0.5
+    }
+}

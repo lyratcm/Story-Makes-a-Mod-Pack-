@@ -1,0 +1,93 @@
+namespace = story
+
+country_event = {
+	id = story.405
+	title = story.405.name
+	desc = {
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		text = story.405.desc.gesta
+	}
+	# Spiri
+	desc = {
+		trigger = {
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		text = story.405.desc.spiri
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		text = story.405.desc
+	}
+	picture = GFX_evt_fleet_evil
+	show_sound = event_space_cloud
+	location = from
+
+	is_triggered_only = yes
+
+	option = {
+		name = story.405.b
+		allow = { is_spiritualist = no }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 9
+				OR = {
+					is_militarist = yes
+					is_xenophobe = yes
+				}
+				is_pacifist = no
+			}
+		}
+		add_modifier = {
+			modifier = cloud_hunting_buff
+			days = -1
+		}
+	}
+
+	option = {
+		name = story.405.a.spiri
+		ai_chance = {
+			factor = 10
+		}
+		add_modifier = {
+			modifier = void_loops
+			days = -1
+		}
+	}
+	
+	option = {
+		name = story.201.cc
+		ai_chance = {
+			factor = 90
+		}
+		trigger = {
+			OR = {
+				AND = {
+					is_spiritualist = yes
+					is_xenophobe = no
+				}
+				is_xenophile = yes
+				is_pacifist = yes
+				has_civic = civic_machine_servitor
+			}
+		}
+		capital_scope = {
+			enable_special_project = {
+				name = "CLOUD_PACIFICATION_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+}

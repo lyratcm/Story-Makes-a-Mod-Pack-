@@ -1,0 +1,21 @@
+trait_messanger_intelligent = {
+    potential_crossbreeding_chance = 0
+    cost = 0
+    initial = no
+    modification = no
+    randomized = no
+    modification = no
+    icon = "gfx/interface/icons/traits/trait_enigmatic_intelligence.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    modifier = {
+        planet_researchers_produces_mult = 0.15
+        leader_skill_levels = 1
+    }
+    opposites = {
+        "trait_nerve_stapled"
+        "trait_intelligent"
+    }
+}

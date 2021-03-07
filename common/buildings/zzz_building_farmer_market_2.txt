@@ -1,0 +1,153 @@
+building_farmer_complex = {
+	base_buildtime = @b2_time
+	can_build = no
+	icon = building_commercial_megaplex
+
+	category = trade
+	
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_valid_civic = civic_agrarian_idyll
+		}
+		NOT = { has_modifier = slave_colony }
+		has_building = building_farmer_market
+	}
+	
+	allow = {
+		buildings_simple_allow = yes
+		OR = {
+			owner = { is_ai = no }
+			NOR = {
+				has_building = building_farmer_market
+				has_building = building_farmer_complex
+			}
+		}
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			owner = { NOT = { has_valid_civic = civic_agrarian_idyll } }
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+			AND = {
+				owner = { is_ai = yes }
+				num_buildings = { type = building_farmer_complex value > 1 }
+			}
+		}
+	}
+	
+	convert_to = {
+		building_commercial_zone
+	}
+	
+	planet_modifier = {
+		trade_value_mult = 0.04
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_lithoid_empire = no }
+		}
+		modifier = {
+			planet_farmers_food_produces_mult = 0.10
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_lithoid_empire = yes }
+		}
+		modifier = {
+			planet_miners_minerals_produces_mult = 0.10
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { NOR = { has_civic = civic_merchant_guilds has_civic = eco_civic_consumerist } }
+		}
+		modifier = {
+			job_merchant_add = 1
+			job_clerk_add = 10
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { OR = { has_civic = civic_merchant_guilds has_civic = eco_civic_consumerist } }
+		}
+		modifier = {
+			job_merchant_add = 2
+			job_clerk_add = 9
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			rare_crystals = @b2_rare_upkeep
+		}
+	}
+	
+	prerequisites = {
+		"tech_interstellar_economics"
+	}
+	
+	show_tech_unlock_if = { 
+		is_regular_empire = yes
+		has_valid_civic = civic_agrarian_idyll
+	}
+	
+	triggered_desc = {
+		text = job_clerk_effect_desc
+	}
+	triggered_desc = {
+		text = job_merchant_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 2
+			buildings_has_crystals = yes
+		}
+	}
+
+	ai_resource_production = {
+		energy = 1
+		trigger = {
+			always = yes
+		}
+	}
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+ethic_fanatic_industrial = {
+    cost = 2
+    category = "grn"
+    category_value = 4
+
+    regular_variant = ethic_industrial
+
+    category_opposite = yes
+
+    use_for_pops = no
+
+    tags = {
+        
+    }
+
+    country_modifier = {
+        country_food_produces_mult = 0.1
+        country_minerals_produces_mult = 0.1
+        planet_max_districts_add = 2
+        pop_environment_tolerance = -0.075
+    }
+
+    random_weight = {
+        value = 100
+    }
+}

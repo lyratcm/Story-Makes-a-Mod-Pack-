@@ -1,0 +1,30 @@
+cp_toothpaste = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_waste_reprocessing_center
+    clothes_texture_index = 2
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        complex_worker_job_check_trigger = yes
+    }
+    planet_modifier = {
+        trade_value_add = 10
+    }
+    resources = {
+        category = planet_jobs
+        produces = {
+            consumer_goods = 12
+            food = 4
+        }
+        upkeep = {
+            sr_zro = 1
+        }
+    }
+    weight = {
+        weight = @clerk_job_weight
+    }
+}

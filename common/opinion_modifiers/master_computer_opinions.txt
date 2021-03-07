@@ -1,0 +1,72 @@
+master_computer_opinion_purifier = {
+    opinion = {
+        base = -1000
+    }
+    trigger = {
+        has_valid_civic = civic_master_computer_purifier
+        from = {
+            NOT = { is_same_species = prev }
+        }
+    }
+}
+
+master_computer_opinion_on_purifier = {
+    opinion = {
+        base = -1000
+    }
+    trigger = {
+        is_country_type = default
+        from = {
+            has_valid_civic = civic_master_computer_purifier
+            NOT = { is_same_species = prev }
+        }
+    }
+}
+
+master_computer_spiritualist_opinion = {
+    opinion = {
+        base = -10
+        modifier = {
+            add = -20
+            has_ethic = ethic_fanatic_spiritualist
+        }
+        modifier = {
+            factor = 0.5
+            is_country_type = fallen_empire
+        }
+    }
+
+    trigger = {
+        OR = {
+            has_ethic = ethic_fanatic_spiritualist
+            has_ethic = ethic_spiritualist
+        }
+        FROM = {
+            has_authority = auth_master_computer
+            NOT = { has_valid_civic = civic_master_computer_purifier }
+        }
+    }
+}
+
+master_computer_opinion_on_datavore = {
+    opinion = {
+        base = -30
+    }
+
+    trigger = {
+        is_country_type = default
+        FROM = {
+            has_valid_civic = civic_master_computer_datavore
+        }
+    }
+}
+
+master_computer_data_theives = {
+    opinion = {
+        base = -50
+    }
+
+    decay = {
+        base = 1
+    }
+}

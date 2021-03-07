@@ -1,0 +1,3 @@
+﻿l_english:
+
+leviathans.302.a.tooltip:3 "Gain access to an §S£decision£ $decision_art_monument$§! §YDecision§! that can be enacted on one planet with the following effects:\n£amenities£ $MOD_PLANET_AMENITIES_MULT$ §G+15%§!\n$mod_planet_jobs_unity_produces_mult$: §G+15%§!\n$MOD_PLANET_IMMIGRATION_PULL_MULT$: §G+50%§!"

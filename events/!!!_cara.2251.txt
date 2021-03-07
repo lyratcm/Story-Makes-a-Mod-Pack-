@@ -1,0 +1,99 @@
+namespace = cara
+
+country_event = {
+	id = cara.2251
+	title = cara_fleet2_redeals.title
+	desc = fleet2redealdesc1
+	desc = fleet2redealdesc2
+	desc = fleet2redealdesc3
+	desc = fleet2redealdesc4
+	desc = fleet2redealdesc5
+
+	diplomatic = yes
+	is_triggered_only = yes
+	custom_gui = "enclave_caravaneer_window"
+
+	picture_event_data = {
+		portrait = event_target:caravaneer_fleet2_country
+		room = ethic_spaceship_room
+	}
+
+	trigger = {
+		caravaneer_fleet2_active_diplo = no
+	}
+
+	immediate = {
+		remove_country_flag = cara_fleet2_getback
+		cara_generate_deal2 = yes
+		switch = {
+			trigger = has_country_flag
+			fleet2deal8 = {
+				random_owned_planet = {
+					limit = { has_planet_flag = fleet2deal8planet }
+					save_event_target_as = fleet2deal8planet
+				}
+			}
+			fleet2deal9 = {
+				random_owned_planet = {
+					limit = { has_planet_flag = fleet2deal9planet }
+					save_event_target_as = fleet2deal9planet
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cara_fleet2_take_deal
+		allow = { cara_allow_deal2 = yes }
+		cara_execute_deal2 = yes
+		response_text = "cara_fleet2_dealtaken"
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = cara_fleet2_exit
+		hidden_effect = {
+			while = { #Clear Fleet 2 deal planet flags with added failsafe
+				limit = {
+					any_owned_planet = {
+						OR = {
+							has_planet_flag = fleet2deal8planet
+							has_planet_flag = fleet2deal9planet
+						}
+					}
+				}
+				random_owned_planet = {
+					limit = {
+						OR = {
+							has_planet_flag = fleet2deal8planet
+							has_planet_flag = fleet2deal9planet
+						}
+					}
+					switch = {
+						trigger = has_planet_flag
+						fleet2deal8planet = { remove_planet_flag = fleet2deal8planet }
+						fleet2deal9planet = { remove_planet_flag = fleet2deal9planet }
+					}
+				}
+			}
+			remove_country_flag = fleet2deal1
+			remove_country_flag = fleet2deal2
+			remove_country_flag = fleet2deal3
+			remove_country_flag = fleet2deal4
+			remove_country_flag = fleet2deal5
+			remove_country_flag = fleet2deal6
+			remove_country_flag = fleet2deal7
+			remove_country_flag = fleet2deal8
+			remove_country_flag = fleet2deal9
+			remove_country_flag = fleet2deal10
+			remove_country_flag = fleet2deal11.a
+			remove_country_flag = fleet2deal11.b
+			remove_country_flag = fleet2deal11.c
+			remove_country_flag = fleet2deal12
+			remove_country_flag = fleet2deal13
+			remove_country_flag = fleet2deal14
+		}
+		default_hide_option = yes
+		custom_gui = "enclave_caravaneer_option"
+	}
+}

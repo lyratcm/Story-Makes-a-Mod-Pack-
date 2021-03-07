@@ -1,0 +1,243 @@
+natural_hunter = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_stronghold
+    icon = hunter_gatherer
+    clothes_texture_index = 4
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        specialist_job_check_trigger = yes
+        is_non_sapient_robot = no
+        is_shackled_robot = no
+    }
+    resources = {
+        category = planet_soldiers
+        produces = {
+            trigger = {
+                is_organic_species = yes
+                is_lithoid = no
+            }
+            unity = 4
+            food = 2
+        }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            unity = 4
+            minerals = 2
+        }
+    }
+    pop_modifier = {
+        pop_defense_armies_add = 1
+        pop_political_power = 1
+        pop_happiness = 0.05
+    }
+    planet_modifier = {
+        planet_amenities_add = 4
+        trade_value_add = 4
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_thrifty
+                has_trait = trait_thrifty_synth
+            }
+        }
+        modifier = {
+            trade_value_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_nuumismatic_administration
+        }
+        modifier = {
+            trade_value_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+                has_trait = trait_robust
+            }
+        }
+        modifier = {
+            trade_value_add = 0.2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_ageless
+        }
+        modifier = {
+            trade_value_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_sleepless
+        }
+        modifier = {
+            trade_value_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_titanic_strength
+                has_trait = trait_very_strong
+                has_trait = trait_strong
+            }
+        }
+        modifier = {
+            trade_value_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            planet_amenities_add = 1.6
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_titanic_strength
+                has_trait = trait_very_strong
+                has_trait = trait_strong
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            planet_amenities_add = -0.8
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            factor = 1.1
+            has_trait = trait_clever
+        }
+        modifier = {
+            factor = 0.2
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_titanic_strength
+                has_trait = trait_very_strong
+                has_trait = trait_strong
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            factor = 0.8
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            factor = 1.25
+            OR = {
+                has_trait = trait_traditional
+                has_trait = mem_ashes_survivors
+                has_trait = trait_robot_propaganda_machines
+                has_trait = trait_brainslug
+                has_trait = trait_presapient_natural_intellectuals
+            }
+        }
+        modifier = {
+            factor = 0.75
+            has_trait = trait_quarrelsome
+        }
+        modifier = {
+            factor = 5
+            has_job = natural_hunter
+        }
+        modifier = {
+            factor = 10
+            has_job = natural_hunter
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 0.25
+            has_job = technician
+        }
+        modifier = {
+            factor = 0.3
+            has_job = miner
+        }
+        modifier = {
+            factor = 0.25
+            has_job = farmer
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_necrophage
+        }
+    }
+}

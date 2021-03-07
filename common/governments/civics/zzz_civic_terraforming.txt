@@ -1,0 +1,29 @@
+civic_terraforming = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_green
+                value = ethic_green
+                value = ethic_fanatic_green
+            }
+            OR = {
+                text = civic_tooltip_materialist
+                value = ethic_fanatic_materialist
+                value = ethic_materialist
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        deposit_blockers_cost_mult = -0.25
+        planet_clear_blocker_time_mult = -1
+        terraforming_cost_mult = -0.25
+        terraform_speed_mult = 0.25
+        category_new_worlds_research_speed_mult = 0.25
+    }
+}

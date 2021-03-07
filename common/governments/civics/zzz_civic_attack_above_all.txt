@@ -1,0 +1,23 @@
+civic_attack_above_all = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_militarist
+                value = ethic_militarist
+                value = ethic_fanatic_militarist
+            }
+        }
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        ship_fire_rate_mult = 0.20
+        ship_weapon_damage = 0.10
+        ship_armor_mult = -0.05
+        ship_shield_mult = -0.05
+    }
+}

@@ -1,0 +1,177 @@
+roboticist = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_robot_assembly_plant
+    clothes_texture_index = 3
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        specialist_job_check_trigger = yes
+        OR = {
+            NOT = {
+                has_ethic = ethic_spiritualist
+            }
+            is_enslaved = yes
+        }
+        OR = {
+            traits_restrict_specialist_jobs = no
+            has_pop_flag = allow_roboticist_traits
+        }
+    }
+    planet_modifier = {
+        planet_pop_assembly_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_extremely_dextrous
+        }
+        planet_pop_assembly_add = 0.3
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_dextrous
+        }
+        planet_pop_assembly_add = 0.2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_clumsy
+        }
+        planet_pop_assembly_add = -0.2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_small
+                has_trait = trait_small_lithoid
+            }
+        }
+        planet_pop_assembly_add = 0.2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_big
+                has_trait = trait_big_lithoid
+            }
+        }
+        planet_pop_assembly_add = -0.2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_tiny
+                has_trait = trait_tiny_lithoid
+            }
+        }
+        planet_pop_assembly_add = 0.4
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_huge
+                has_trait = trait_huge_lithoid
+            }
+        }
+        planet_pop_assembly_add = -0.4
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_limbless
+        }
+        planet_pop_assembly_add = -1.5
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_mechanist
+        }
+        modifier = {
+            planet_pop_assembly_add = 0.25
+        }
+    }
+    resources = {
+        category = planet_pop_assemblers
+        produces = {
+            engineering_research = 2
+        }
+        upkeep = {
+            trigger = {
+                planet = {
+                    NOR = {
+                        has_modifier = planet_robot_assembly_control
+                        has_modifier = planet_population_control_gestalt
+                    }
+                }
+            }
+            alloys = 2
+        }
+    }
+    weight = {
+        weight = 500
+        modifier = {
+            factor = 5
+            has_trait = trait_mechanist
+        }
+        modifier = {
+            factor = 0.1
+            has_ethic = ethic_spiritualist
+            NOT = {
+                has_job = roboticist
+            }
+        }
+        modifier = {
+            factor = 2
+            has_ethic = ethic_materialist
+        }
+        modifier = {
+            factor = 0
+            has_global_flag = gai_enabled_flag
+            years_passed > 50
+            jobs_spend_lesser_minerals = no
+        }
+        modifier = {
+            factor = 2
+            is_unemployed = yes
+            is_pop_category = specialist
+        }
+        modifier = {
+            factor = 4
+            has_trait = trait_living_architecture
+        }
+        modifier = {
+            factor = 1.2
+            has_trait = trait_extremely_dextrous
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_dextrous
+        }
+        modifier = {
+            factor = 0.9
+            has_trait = trait_clumsy
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_small
+        }
+        modifier = {
+            factor = 0.9
+            has_trait = trait_big
+        }
+        modifier = {
+            factor = 1.2
+            has_trait = trait_tiny
+        }
+        modifier = {
+            factor = 0.8
+            has_trait = trait_huge
+        }
+        modifier = {
+            factor = 0.1
+            has_trait = trait_limbless
+        }
+    }
+}

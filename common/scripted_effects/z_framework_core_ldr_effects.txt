@@ -1,0 +1,18 @@
+###_z modmenu-framework-core-领袖 effects	###########################################################
+
+
+
+#_[cntr]	中转舰队创建
+z_fw_eft_core_ldr_transfer_flt = {
+	create_fleet = {
+		name = "z_fw_flt_leader_revive"
+		effect = {
+			set_owner = root
+			create_ship = {#_工程船
+				name = "z_fw_ship_leader_revive"
+				design = "NAME_z_fw_autostation_ship"
+				upgradable = no
+			}
+		}
+	}
+}

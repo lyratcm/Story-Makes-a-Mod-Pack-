@@ -1,0 +1,36 @@
+guiTypes = {
+    containerWindowType = {
+        name = "maingui_flag"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = 100%
+            height = 100%
+        }
+        iconType = {
+            name = "topbar_shield_decoration"
+            spriteType = "GFX_topbar_shield_decoration"
+            position = {
+                x = 0
+                y = 0
+            }
+            Orientation = "UPPER_LEFT"
+            alwaysTransparent = yes
+        }
+        buttonType = {
+            name = "button_topbar_government"
+            quadTextureSprite = "GFX_empire_flag_64"
+            position = {
+                x = -3
+                y = 0
+            }
+            Orientation = "UPPER_LEFT"
+            pdx_tooltip = "topbar_button_government_instant"
+            pdx_tooltip_delayed = "topbar_button_government_delayed"
+            clicksound = interface
+            oversound = no_sound
+        }
+    }
+}

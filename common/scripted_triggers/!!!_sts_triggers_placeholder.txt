@@ -1,0 +1,6 @@
+###_z statistics triggers	##################################################################
+
+
+###_	z_modmenu/.../z_fw_trigger_r_hok
+#_[country/pop/species]
+z_fw_r_koh_is_species_karyl = { always = no }

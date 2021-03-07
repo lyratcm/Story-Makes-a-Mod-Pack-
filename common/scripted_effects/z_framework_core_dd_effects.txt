@@ -1,0 +1,1674 @@
+###_z modmenu-framework-core-动态难度 effects	###########################################################
+
+###_舰队规模默认
+	#_黄金时代			75 150 250
+	#_纷争时代			135 270 450
+	#_黑暗时代			195 390 650
+	
+	#_黄金时代			195 390 650
+	#_纷争时代			255 510 850
+	#_黑暗时代	180		360 720 1200
+
+###_引用
+	#_sp_mod_flag	[nhsc_v30][acot_activated][sofe_activated][zofe_activated][wg_crisis_triggered]
+
+	#_trigger		[z_fw_core_dd_is_ignored_type]		忽略的国家类型
+	#_var			[z_fw_core_battle_dd_var]
+
+	#_global_tgt	[z_fw_tgt_global_event]				全局事件NPC1
+	#_var			[z_fw_core_battle_dd_execute_var]
+
+
+
+
+
+
+
+###_DD maxPC舰队规模检测	########################################################################
+#_country_var	[z_fw_var_core_battle_dd_pc_fp]
+#_var设定
+	#_[0=无合格PC][2=225][3=300][4=400][5=500][6=600][7=700][8=800][10=1000][12=1200][14=1400][16=1600][18=1800]
+	#_[20=2000][23=2300][26=2600][29=2900][32=3200][36=3600][40=4000][45=4500][50=5000]
+z_fw_eft_core_battle_dd_pc_fp_check = {
+	if = {
+		limit = { any_country = { z_fw_core_dd_is_valid_pc = yes } }
+		random_country = {
+			limit = { z_fw_core_dd_is_valid_pc = yes }
+			clear_global_event_target = z_fw_tgt_core_country_max_pc	#_重置
+			save_global_event_target_as = z_fw_tgt_core_country_max_pc
+			if = {
+				limit = { used_naval_capacity_integer > 5000 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 50 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 4500 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 45 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 4000 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 40 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 3600 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 36 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 3200 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 32 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 2900 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 29 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 2600 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 26 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 2300 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 23 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 2000 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 20 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 1800 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 18 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 1200 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 12 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 1000 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 10 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 800 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 8 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 700 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 7 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 600 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 6 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 500 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 5 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 400 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 4 }
+			}
+			else_if = {
+				limit = { used_naval_capacity_integer > 300 }
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 3 }
+			}
+			else = {
+				set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 2 }
+			}
+		}
+	}
+	else = { set_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 0 } }
+}
+
+
+
+
+
+
+
+###_DD 清除弱者	########################################################################
+#_[country]	添加修正---频率随机化
+z_fw_eft_core_battle_dd_ptw_modifier = {
+	if = {
+		limit = { check_variable = { which = z_fw_var_core_battle_dd_ptw value = 6 } }
+		random_list = {
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv5 days = 90 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 61 }
+			}
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv5 days = 60 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 31 }
+			}
+			5 = { add_modifier = { modifier = z_fw_core_ptw_fp_lv5 days = 30 } }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_var_core_battle_dd_ptw value = 5 } }
+		random_list = {
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv4 days = 90 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 61 }
+			}
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv4 days = 60 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 31 }
+			}
+			5 = { add_modifier = { modifier = z_fw_core_ptw_fp_lv4 days = 30 } }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_var_core_battle_dd_ptw value = 4 } }
+		random_list = {
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv3 days = 90 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 61 }
+			}
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv3 days = 60 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 31 }
+			}
+			5 = { add_modifier = { modifier = z_fw_core_ptw_fp_lv3 days = 30 } }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_var_core_battle_dd_ptw value = 3 } }
+		random_list = {
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv2 days = 90 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 61 }
+			}
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv2 days = 60 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 31 }
+			}
+			5 = { add_modifier = { modifier = z_fw_core_ptw_fp_lv2 days = 30 } }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_var_core_battle_dd_ptw value = 2 } }
+		random_list = {
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv1 days = 90 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 61 }
+			}
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv1 days = 60 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 31 }
+			}
+			5 = { add_modifier = { modifier = z_fw_core_ptw_fp_lv1 days = 30 } }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_var_core_battle_dd_ptw value = 1 } }
+		random_list = {
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv0 days = 90 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 61 }
+			}
+			10 = {
+				add_modifier = { modifier = z_fw_core_ptw_fp_lv0 days = 60 }
+				set_timed_country_flag = { flag = z_fw_core_battle_dd_ptw_cd days = 31 }
+			}
+			5 = { add_modifier = { modifier = z_fw_core_ptw_fp_lv0 days = 30 } }
+		}
+	}
+}
+
+#_[country]	清除弱者---普通AI
+#_country_flag		[z_fw_core_battle_dd_ptw_cd]清除弱者CD
+#_country_var		[z_fw_var_core_battle_dd_ptw]
+z_fw_eft_core_battle_dd_ptw_normal = {
+	#_黄金时代	60 120 240
+	if = {
+		limit = {
+			years_passed >= 50
+			mid_game_years_passed < 0
+		}
+		#_var	3
+		if = {
+			limit = {
+				OR = {
+					used_naval_capacity_integer < 60
+					used_naval_capacity_percent < 0.1
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 3 }
+		}
+		#_var	2
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 60
+						used_naval_capacity_integer < 120
+					}
+					used_naval_capacity_percent < 0.25
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 2 }
+		}
+		#_var	1
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 120
+						used_naval_capacity_integer < 240
+					}
+					used_naval_capacity_percent < 0.5
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 1 }
+		}
+	}
+	#_纷争时代	80 160 320
+	else_if = {
+		limit = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+		}
+		#_var	4
+		if = {
+			limit = {
+				OR = {
+					used_naval_capacity_integer < 80
+					used_naval_capacity_percent < 0.1
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 4 }
+		}
+		#_var	3
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 80
+						used_naval_capacity_integer < 160
+					}
+					used_naval_capacity_percent < 0.25
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 3 }
+		}
+		#_var	2
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 160
+						used_naval_capacity_integer < 320
+					}
+					used_naval_capacity_percent < 0.5
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 2 }
+		}
+		#_var	1
+		else_if = {
+			limit = { z_fw_core_dd_is_fp_ai_trash = yes }
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 1 }
+		}
+	}
+	#_黑暗时代	100 200 400
+	else_if = {
+		limit = { end_game_years_passed >= 0 }
+		#_var	5
+		if = {
+			limit = {
+				OR = {
+					used_naval_capacity_integer < 100
+					used_naval_capacity_percent < 0.1
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 5 }
+		}
+		#_var	4
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 100
+						used_naval_capacity_integer < 200
+					}
+					used_naval_capacity_percent < 0.25
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 4 }
+		}
+		#_var	3
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 200
+						used_naval_capacity_integer < 400
+					}
+					used_naval_capacity_percent < 0.5
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 3 }
+		}
+		#_var	2
+		else_if = {
+			limit = {
+				OR = {
+					z_fw_core_dd_is_fp_ai_trash = yes
+					used_naval_capacity_percent < 0.75
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 2 }
+		}
+		#_var	1
+		else_if = {
+			limit = { z_fw_core_dd_is_fp_ai_weak = yes }
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 1 }
+		}
+	}
+	#_修正---战争检测
+	if = {
+		limit = { is_at_war = yes }
+		change_variable = { which = z_fw_var_core_battle_dd_ptw value = -2 }
+	}
+	#_添加modifier
+	z_fw_eft_core_battle_dd_ptw_modifier = yes
+	#_参数归零
+	set_variable = { which = z_fw_var_core_battle_dd_ptw value = 0 }
+}
+
+#_[country]	清除弱者FP---强力<复兴>
+z_fw_eft_core_battle_dd_ptw_powerful = {
+	#_黄金时代	100 200 400
+	if = {
+		limit = {
+			years_passed >= 50
+			mid_game_years_passed < 0
+		}
+		#_var	4
+		if = {
+			limit = {
+				used_naval_capacity_integer < 100
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 4 }
+		}
+		#_var	3
+		else_if = {
+			limit = {
+				used_naval_capacity_integer >= 100
+				used_naval_capacity_integer < 200
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 3 }
+		}
+		#_var	2
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 200
+						used_naval_capacity_integer < 400
+					}
+					z_fw_core_dd_is_fp_ai_trash = yes
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 2 }
+		}
+		#_var	1
+		else_if = {
+			limit = {
+				z_fw_core_dd_is_fp_ai_weak = yes
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 1 }
+		}
+	}
+	#_纷争时代	125 250 500
+	else_if = {
+		limit = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+		}
+		#_var	5
+		if = {
+			limit = {
+				OR = {
+					used_naval_capacity_integer < 125
+					used_naval_capacity_percent < 0.1
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 5 }
+		}
+		#_var	4
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 125
+						used_naval_capacity_integer < 250
+					}
+					used_naval_capacity_percent < 0.25
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 4 }
+		}
+		#_var	3
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 250
+						used_naval_capacity_integer < 500
+					}
+					used_naval_capacity_percent < 0.5
+					z_fw_core_dd_is_fp_ai_trash = yes
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 3 }
+		}
+		#_var	2
+		else_if = {
+			limit = {
+				z_fw_core_dd_is_fp_ai_weak = yes
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 2 }
+		}
+		#_var	1
+		else_if = {
+			limit = {
+				z_fw_core_dd_is_fp_ai_rival = yes
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 1 }
+		}
+	}
+	#_黑暗时代	150 300 600
+	else_if = {
+		limit = { end_game_years_passed >= 0 }
+		#_var	6
+		if = {
+			limit = {
+				OR = {
+					used_naval_capacity_integer < 150
+					used_naval_capacity_percent < 0.1
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 6 }
+		}
+		#_var	5
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 150
+						used_naval_capacity_integer < 300
+					}
+					used_naval_capacity_percent < 0.25
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 5 }
+		}
+		#_var	4
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						used_naval_capacity_integer >= 300
+						used_naval_capacity_integer < 600
+					}
+					used_naval_capacity_percent < 0.5
+					z_fw_core_dd_is_fp_ai_trash = yes
+				}
+			}
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 4 }
+		}
+		#_var	3
+		else_if = {
+			limit = { z_fw_core_dd_is_fp_ai_weak = yes }
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 3 }
+		}
+		#_var	2
+		else_if = {
+			limit = { z_fw_core_dd_is_fp_ai_rival = yes }
+			set_variable = { which = z_fw_var_core_battle_dd_ptw value = 2 }
+		}
+	}
+	#_修正---战争检测
+	if = {
+		limit = { is_at_war = yes }
+		change_variable = { which = z_fw_var_core_battle_dd_ptw value = -2 }
+	}
+	#_添加modifier
+	z_fw_eft_core_battle_dd_ptw_modifier = yes
+	#_参数归零
+	set_variable = { which = z_fw_var_core_battle_dd_ptw value = 0 }
+}
+
+
+
+
+
+
+
+
+###_DD 基础调整	########################################################################
+
+##_经济补助	####################################
+#_[country]	黄金时代	150
+z_fw_eft_core_battle_dd_wr_early = {
+	#_时期默认
+	add_resource = {
+		energy = 900
+		minerals = 700
+		food = 500
+		alloys = 700
+		consumer_goods = 500
+		unity = 600
+		influence = 200
+		exotic_gases = 150
+		volatile_motes = 150
+		rare_crystals = 150
+		sr_dark_matter = 30
+	}
+	#_MOD-ACOT
+	if = {
+		limit = { has_global_flag = acot_activated }
+		add_resource = {
+			sr_dark_matter = 200		#_vanilla
+			acot_sr_dark_energy = 2000
+			#_acot_sr_stellarite = 1000
+		}
+		if = {
+			limit = {
+				num_owned_planets >= 5
+				num_owned_planets < 10
+			}
+			add_resource = {
+				sr_dark_matter = 100		#_vanilla
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 10
+				num_owned_planets < 20
+			}
+			add_resource = {
+				sr_dark_matter = 200		#_vanilla
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 20
+				num_owned_planets < 30
+			}
+			add_resource = {
+				sr_dark_matter = 300		#_vanilla
+			}
+		}
+		else_if = {
+			limit = { num_owned_planets >= 30 }
+			add_resource = {
+				sr_dark_matter = 400		#_vanilla
+			}
+		}
+	}
+	#_MOD-ESC
+	if = {
+		limit = { has_global_flag = nhsc_v30 }
+		add_resource = {
+			nanites = 1000				#_vanilla
+			esc_living_crystal = 200		#_可交易
+			esc_psionic_charge = 1000
+			esc_gravitic_anomaly = 1000
+			esc_transdimensional_vortex = 1000
+			esc_enigmatic_energy = 1000
+		}
+		if = {
+			limit = {
+				num_owned_planets >= 5
+				num_owned_planets < 10
+			}
+			add_resource = {
+				esc_living_crystal = 100		#_可交易
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 10
+				num_owned_planets < 20
+			}
+			add_resource = {
+				esc_living_crystal = 200		#_可交易
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 20
+				num_owned_planets < 50
+			}
+			add_resource = {
+				esc_living_crystal = 300		#_可交易
+			}
+		}
+		else_if = {
+			limit = { num_owned_planets >= 30 }
+			add_resource = {
+				esc_living_crystal = 400		#_可交易
+			}
+		}
+	}
+	#_星球统计
+	if = {
+		limit = { num_owned_planets < 5 }
+		switch = {
+			trigger = num_owned_planets
+			2 = {
+				add_resource = {
+					energy = 100
+					minerals = 80
+					food = 60
+					alloys = 80
+					consumer_goods = 60
+					exotic_gases = 20
+					volatile_motes = 20
+					rare_crystals = 20
+				}
+			}
+			3 = {
+				add_resource = {
+					energy = 200
+					minerals = 160
+					food = 115
+					alloys = 160
+					consumer_goods = 115
+					exotic_gases = 35
+					volatile_motes = 35
+					rare_crystals = 35
+					sr_dark_matter = 5
+				}
+			}
+			4 = {
+				add_resource = {
+					energy = 300
+					minerals = 250
+					food = 175
+					alloys = 250
+					consumer_goods = 175
+					exotic_gases = 50
+					volatile_motes = 50
+					rare_crystals = 50
+					sr_dark_matter = 10
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 5
+			num_owned_planets < 10
+		}
+		add_resource = {
+			energy = 600
+			minerals = 500
+			food = 350
+			alloys = 500
+			consumer_goods = 350
+			exotic_gases = 100
+			volatile_motes = 100
+			rare_crystals = 100
+			sr_dark_matter = 20
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 10
+			num_owned_planets < 15
+		}
+		add_resource = {
+			energy = 900
+			minerals = 750
+			food = 525
+			alloys = 750
+			consumer_goods = 525
+			exotic_gases = 150
+			volatile_motes = 150
+			rare_crystals = 150
+			sr_dark_matter = 30
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 15
+			num_owned_planets < 20
+		}
+		add_resource = {
+			energy = 1200
+			minerals = 1000
+			food = 700
+			alloys = 1000
+			consumer_goods = 700
+			exotic_gases = 200
+			volatile_motes = 200
+			rare_crystals = 200
+			sr_dark_matter = 40
+		}
+	}
+	#_4
+	else_if = {
+		limit = {
+			num_owned_planets >= 20
+			num_owned_planets < 25
+		}
+		add_resource = {
+			energy = 1500
+			minerals = 1250
+			food = 875
+			alloys = 1250
+			consumer_goods = 875
+			exotic_gases = 250
+			volatile_motes = 250
+			rare_crystals = 250
+			sr_dark_matter = 50
+		}
+	}
+	#_5
+	else_if = {
+		limit = {
+			num_owned_planets >= 25
+			num_owned_planets < 30
+		}
+		add_resource = {
+			energy = 1800
+			minerals = 1500
+			food = 1050
+			alloys = 1500
+			consumer_goods = 1050
+			exotic_gases = 300
+			volatile_motes = 300
+			rare_crystals = 300
+			sr_dark_matter = 60
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 30
+			num_owned_planets < 40
+		}
+		add_resource = {
+			energy = 2100
+			minerals = 1750
+			food = 1225
+			alloys = 1750
+			consumer_goods = 1225
+			exotic_gases = 350
+			volatile_motes = 350
+			rare_crystals = 350
+			sr_dark_matter = 70
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 40
+			num_owned_planets < 50
+		}
+		add_resource = {
+			energy = 2400
+			minerals = 2000
+			food = 1400
+			alloys = 2000
+			consumer_goods = 1400
+			exotic_gases = 400
+			volatile_motes = 400
+			rare_crystals = 400
+			sr_dark_matter = 80
+		}
+	}
+	else = {
+		add_resource = {
+			energy = 2700
+			minerals = 2250
+			food = 1500
+			alloys = 2250
+			consumer_goods = 1500
+			exotic_gases = 450
+			volatile_motes = 450
+			rare_crystals = 450
+			sr_dark_matter = 90
+		}
+	}
+}
+
+#_[country]	纷争时代	300
+z_fw_eft_core_battle_dd_wr_mid = {
+	#_时期默认
+	add_resource = {
+		energy = 1800
+		minerals = 1400
+		food = 1000
+		alloys = 1400
+		consumer_goods = 1000
+		unity = 900
+		influence = 300
+		exotic_gases = 300
+		volatile_motes = 300
+		rare_crystals = 300
+		sr_dark_matter = 60
+	}
+	#_MOD-ACOT
+	if = {
+		limit = { has_global_flag = acot_activated }
+		add_resource = {
+			sr_dark_matter = 300		#_vanilla
+			acot_sr_dark_energy = 3000
+			acot_sr_stellarite = 1500
+		}
+		if = {
+			limit = {
+				num_owned_planets >= 5
+				num_owned_planets < 10
+			}
+			add_resource = {
+				sr_dark_matter = 150		#_vanilla
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 10
+				num_owned_planets < 20
+			}
+			add_resource = {
+				sr_dark_matter = 300		#_vanilla
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 20
+				num_owned_planets < 30
+			}
+			add_resource = {
+				sr_dark_matter = 450		#_vanilla
+			}
+		}
+		else_if = {
+			limit = { num_owned_planets >= 30 }
+			add_resource = {
+				sr_dark_matter = 600		#_vanilla
+			}
+		}
+	}
+	#_MOD-ESC
+	if = {
+		limit = { has_global_flag = nhsc_v30 }
+		add_resource = {
+			nanites = 1500				#_vanilla
+			esc_living_crystal = 300		#_可交易
+			esc_psionic_charge = 1500
+			esc_gravitic_anomaly = 1500
+			esc_transdimensional_vortex = 1500
+			esc_enigmatic_energy = 1500
+		}
+		if = {
+			limit = {
+				num_owned_planets >= 5
+				num_owned_planets < 10
+			}
+			add_resource = {
+				esc_living_crystal = 150		#_可交易
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 10
+				num_owned_planets < 20
+			}
+			add_resource = {
+				esc_living_crystal = 300		#_可交易
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 20
+				num_owned_planets < 50
+			}
+			add_resource = {
+				esc_living_crystal = 450		#_可交易
+			}
+		}
+		else_if = {
+			limit = { num_owned_planets >= 30 }
+			add_resource = {
+				esc_living_crystal = 600		#_可交易
+			}
+		}
+	}
+	#_星球统计
+	if = {
+		limit = {
+			num_owned_planets >= 5
+			num_owned_planets < 10
+		}
+		add_resource = {
+			energy = 600
+			minerals = 500
+			food = 350
+			alloys = 500
+			consumer_goods = 350
+			exotic_gases = 100
+			volatile_motes = 100
+			rare_crystals = 100
+			sr_dark_matter = 20
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 10
+			num_owned_planets < 15
+		}
+		add_resource = {
+			energy = 1200
+			minerals = 1000
+			food = 700
+			alloys = 1000
+			consumer_goods = 700
+			exotic_gases = 200
+			volatile_motes = 200
+			rare_crystals = 200
+			sr_dark_matter = 40
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 15
+			num_owned_planets < 20
+		}
+		add_resource = {
+			energy = 1800
+			minerals = 1500
+			food = 1050
+			alloys = 1500
+			consumer_goods = 1050
+			exotic_gases = 300
+			volatile_motes = 300
+			rare_crystals = 300
+			sr_dark_matter = 60
+		}
+	}
+	#_4
+	else_if = {
+		limit = {
+			num_owned_planets >= 20
+			num_owned_planets < 25
+		}
+		add_resource = {
+			energy = 2400
+			minerals = 2000
+			food = 1400
+			alloys = 2000
+			consumer_goods = 1400
+			exotic_gases = 400
+			volatile_motes = 400
+			rare_crystals = 400
+			sr_dark_matter = 80
+		}
+	}
+	#_5
+	else_if = {
+		limit = {
+			num_owned_planets >= 25
+			num_owned_planets < 30
+		}
+		add_resource = {
+			energy = 3000
+			minerals = 2500
+			food = 1750
+			alloys = 2500
+			consumer_goods = 1750
+			exotic_gases = 500
+			volatile_motes = 500
+			rare_crystals = 500
+			sr_dark_matter = 100
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 30
+			num_owned_planets < 40
+		}
+		add_resource = {
+			energy = 3600
+			minerals = 3000
+			food = 2100
+			alloys = 3000
+			consumer_goods = 2100
+			exotic_gases = 600
+			volatile_motes = 600
+			rare_crystals = 600
+			sr_dark_matter = 120
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 40
+			num_owned_planets < 50
+		}
+		add_resource = {
+			energy = 4200
+			minerals = 3500
+			food = 2450
+			alloys = 3500
+			consumer_goods = 2450
+			exotic_gases = 700
+			volatile_motes = 700
+			rare_crystals = 700
+			sr_dark_matter = 140
+		}
+	}
+	else = {
+		add_resource = {
+			energy = 4800
+			minerals = 4000
+			food = 2800
+			alloys = 4000
+			consumer_goods = 2800
+			exotic_gases = 800
+			volatile_motes = 800
+			rare_crystals = 800
+			sr_dark_matter = 160
+		}
+	}
+}
+
+#_[country]	黑暗时代	600
+z_fw_eft_core_battle_dd_wr_end = {
+	#_时期默认
+	add_resource = {
+		energy = 3600
+		minerals = 2800
+		food = 2000
+		alloys = 2800
+		consumer_goods = 2000
+		unity = 1200
+		influence = 400
+		exotic_gases = 600
+		volatile_motes = 600
+		rare_crystals = 600
+		sr_dark_matter = 120
+	}
+	#_MOD-ACOT
+	if = {
+		limit = { has_global_flag = acot_activated }
+		add_resource = {
+			sr_dark_matter = 500		#_vanilla
+			acot_sr_dark_energy = 4000
+			acot_sr_stellarite = 2000
+		}
+		if = {
+			limit = {
+				num_owned_planets >= 5
+				num_owned_planets < 10
+			}
+			add_resource = {
+				sr_dark_matter = 250		#_vanilla
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 10
+				num_owned_planets < 20
+			}
+			add_resource = {
+				sr_dark_matter = 500		#_vanilla
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 20
+				num_owned_planets < 30
+			}
+			add_resource = {
+				sr_dark_matter = 750		#_vanilla
+			}
+		}
+		else_if = {
+			limit = { num_owned_planets >= 30 }
+			add_resource = {
+				sr_dark_matter = 1000		#_vanilla
+			}
+		}
+	}
+	#_MOD-ESC
+	if = {
+		limit = { has_global_flag = nhsc_v30 }
+		add_resource = {
+			nanites = 2000				#_vanilla
+			esc_living_crystal = 500		#_可交易
+			esc_psionic_charge = 2000
+			esc_gravitic_anomaly = 2000
+			esc_transdimensional_vortex = 2000
+			esc_enigmatic_energy = 2000
+		}
+		if = {
+			limit = {
+				num_owned_planets >= 5
+				num_owned_planets < 10
+			}
+			add_resource = {
+				esc_living_crystal = 250		#_可交易
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 10
+				num_owned_planets < 20
+			}
+			add_resource = {
+				esc_living_crystal = 500		#_可交易
+			}
+		}
+		else_if = {
+			limit = {
+				num_owned_planets >= 20
+				num_owned_planets < 50
+			}
+			add_resource = {
+				esc_living_crystal = 750		#_可交易
+			}
+		}
+		else_if = {
+			limit = { num_owned_planets >= 30 }
+			add_resource = {
+				esc_living_crystal = 1000		#_可交易
+			}
+		}
+	}
+	#_星球统计
+	if = {
+		limit = {
+			num_owned_planets >= 5
+			num_owned_planets < 10
+		}
+		add_resource = {
+			energy = 900
+			minerals = 700
+			food = 500
+			alloys = 700
+			consumer_goods = 500
+			exotic_gases = 150
+			volatile_motes = 150
+			rare_crystals = 150
+			sr_dark_matter = 30
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 10
+			num_owned_planets < 15
+		}
+		add_resource = {
+			energy = 1800
+			minerals = 1400
+			food = 1000
+			alloys = 1400
+			consumer_goods = 1000
+			exotic_gases = 300
+			volatile_motes = 300
+			rare_crystals = 300
+			sr_dark_matter = 60
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 15
+			num_owned_planets < 20
+		}
+		add_resource = {
+			energy = 2700
+			minerals = 2100
+			food = 1500
+			alloys = 2100
+			consumer_goods = 1500
+			exotic_gases = 450
+			volatile_motes = 450
+			rare_crystals = 450
+			sr_dark_matter = 90
+		}
+	}
+	#_4
+	else_if = {
+		limit = {
+			num_owned_planets >= 20
+			num_owned_planets < 25
+		}
+		add_resource = {
+			energy = 3600
+			minerals = 2800
+			food = 2000
+			alloys = 2800
+			consumer_goods = 2000
+			exotic_gases = 600
+			volatile_motes = 600
+			rare_crystals = 600
+			sr_dark_matter = 120
+		}
+	}
+	#_5
+	else_if = {
+		limit = {
+			num_owned_planets >= 25
+			num_owned_planets < 30
+		}
+		add_resource = {
+			energy = 4500
+			minerals = 3500
+			food = 2500
+			alloys = 3500
+			consumer_goods = 2500
+			exotic_gases = 750
+			volatile_motes = 750
+			rare_crystals = 750
+			sr_dark_matter = 150
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 30
+			num_owned_planets < 40
+		}
+		add_resource = {
+			energy = 5400
+			minerals = 5400
+			food = 5400
+			alloys = 4200
+			consumer_goods = 3000
+			exotic_gases = 900
+			volatile_motes = 900
+			rare_crystals = 900
+			sr_dark_matter = 180
+		}
+	}
+	else_if = {
+		limit = {
+			num_owned_planets >= 40
+			num_owned_planets < 50
+		}
+		add_resource = {
+			energy = 6300
+			minerals = 4900
+			food = 3500
+			alloys = 4900
+			consumer_goods = 3500
+			exotic_gases = 1050
+			volatile_motes = 1050
+			rare_crystals = 1050
+			sr_dark_matter = 210
+		}
+	}
+	else = {
+		add_resource = {
+			energy = 7200
+			minerals = 5600
+			food = 4000
+			alloys = 5600
+			consumer_goods = 4000
+			exotic_gases = 1200
+			volatile_motes = 1200
+			rare_crystals = 1200
+			sr_dark_matter = 240
+		}
+	}
+}
+
+
+##_阶段性加成	####################################
+
+#_[country] PB_debug
+z_fw_eft_core_battle_dd_pb_debug = {
+	remove_modifier = z_fw_core_dd_wr_esc
+	remove_modifier = z_fw_core_dd_wr_acot
+	remove_modifier = z_fw_core_dd_pb_sp_enemy_sofe
+	remove_modifier = z_fw_core_dd_pb_sp_enemy_mist
+	#_default
+	remove_modifier = z_fw_core_dd_pb_default_1
+	remove_modifier = z_fw_core_dd_pb_default_2
+	remove_modifier = z_fw_core_dd_pb_default_3
+	remove_modifier = z_fw_core_dd_pb_default_4
+	#_fallen
+	remove_modifier = z_fw_core_dd_pb_sp_enemy_zofe
+	remove_modifier = z_fw_core_dd_pb_fallen_war
+	remove_modifier = z_fw_core_dd_pb_fallen_millitant_war
+	remove_modifier = z_fw_core_dd_pb_fallen_1
+	remove_modifier = z_fw_core_dd_pb_fallen_2
+	remove_modifier = z_fw_core_dd_pb_fallen_3
+	remove_modifier = z_fw_core_dd_pb_fallen_4
+	#_creature
+	remove_modifier = z_fw_core_dd_pb_wild_1
+	remove_modifier = z_fw_core_dd_pb_wild_2
+	remove_modifier = z_fw_core_dd_pb_wild_3
+	remove_modifier = z_fw_core_dd_pb_wild_4
+	remove_modifier = z_fw_core_dd_pb_leviathan_1
+	remove_modifier = z_fw_core_dd_pb_leviathan_2
+	remove_modifier = z_fw_core_dd_pb_leviathan_3
+	remove_modifier = z_fw_core_dd_pb_leviathan_4
+	#_crisis
+	remove_modifier = z_fw_core_dd_pb_mid_threat_1
+	remove_modifier = z_fw_core_dd_pb_mid_threat_2
+	remove_modifier = z_fw_core_dd_pb_mid_threat_3
+	remove_modifier = z_fw_core_dd_pb_mid_threat_4
+	remove_modifier = z_fw_core_dd_pb_end_crisis_1
+	remove_modifier = z_fw_core_dd_pb_end_crisis_2
+	remove_modifier = z_fw_core_dd_pb_end_crisis_3
+	remove_modifier = z_fw_core_dd_pb_end_crisis_4
+}
+#_[country] PB_add_pb_buff
+z_fw_eft_core_battle_dd_pb_bouns = {
+	#_normal_AI
+	if = {
+		limit = {
+			OR = {
+				is_country_type = default
+				is_country_type = prikki
+				is_country_type = ascended_empire	#_zofe
+				is_country_type = lost_empire
+				is_country_type = default_ev		#_ev
+			}
+		}
+		#_wr
+		if = {
+			limit = { has_global_flag = acot_activated }
+			add_modifier = { modifier = z_fw_core_dd_wr_acot days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = nhsc_v30 }
+			add_modifier = { modifier = z_fw_core_dd_wr_esc days = -1 }
+		}
+		#_sp
+		if = {
+			limit = { has_global_flag = sofe_activated }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_sofe days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = wg_crisis_triggered }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_mist days = -1 }
+		}
+		#_pb
+		if = {
+			limit = { years_passed > 35 mid_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_default_1 days = -1 }
+		}
+		else_if = {
+			limit = { mid_game_years_passed >= 0 end_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_default_2 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 0 end_game_years_passed < 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_default_3 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_default_4 days = -1 }
+		}
+	}
+	#_fallen_AI
+	else_if = {
+		limit = {
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		#_wr
+		if = {
+			limit = { has_global_flag = acot_activated }
+			add_modifier = { modifier = z_fw_core_dd_wr_acot days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = nhsc_v30 }
+			add_modifier = { modifier = z_fw_core_dd_wr_esc days = -1 }
+		}
+		#_sp
+		if = {
+			limit = { has_global_flag = sofe_activated }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_sofe_counter days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = wg_crisis_triggered }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_mist days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = zofe_activated }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_zofe days = -1 }
+		}
+		#_fallen_type
+		if = {#_菌菇
+			limit = { has_country_flag = fallen_empire_4 }	#_xenophobe
+			add_modifier = { modifier = z_fw_core_dd_pb_fallen_millitant_war days = -1 }
+		}
+		else_if = {#_其他
+			limit = {
+				OR = {
+					has_country_flag = fallen_empire_1		#_materialist
+					has_country_flag = fallen_empire_2		#_spiritualist
+					has_country_flag = fallen_empire_3		#_xenophile
+					has_country_flag = fallen_empire_machine
+				}
+			}
+			add_modifier = { modifier = z_fw_core_dd_pb_fallen_war days = -1 }
+		}
+		#_pb
+		if = {
+			limit = { years_passed > 35 mid_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_fallen_1 days = -1 }
+		}
+		else_if = {
+			limit = { mid_game_years_passed >= 0 end_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_fallen_2 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 0 end_game_years_passed < 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_fallen_3 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_fallen_4 days = -1 }
+		}
+	}
+	#_wild
+	else_if = {
+		limit = {
+			OR = {
+				is_country_type = pirate					#_海盗
+				is_country_type = tiyanki					#_event_target:tiyanki_country
+				is_country_type = tiyanki_garrison
+				is_country_type = amoeba					#_event_target:amoeba_country
+				is_country_type = amoeba_borderless
+				is_country_type = amoeba_garrison
+				is_country_type = crystal					#_event_target:crystal_country
+				is_country_type = drone						#_event_target:drone_country
+				is_country_type = cloud						#_event_target:cloud_country
+				is_country_type = vol						#_远星-沃尔 event_target:mardak_vol_haters_country
+				is_country_type = vluur
+				is_country_type = shroud_spirits			#_灵能存在体 event_target:shroud_country
+				is_country_type = faction					#_默认
+				is_country_type = marauder_raiders			#_游牧部落
+				is_country_type = awakened_marauders		#_游牧部落
+				is_country_type = dormant_marauders			#_游牧部落
+				is_country_type = ruined_marauders			#_游牧部落
+			}
+		}
+		#_sp
+		if = {
+			limit = { has_global_flag = sofe_activated }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_sofe days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = wg_crisis_triggered }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_mist days = -1 }
+		}
+		#_pb
+		if = {
+			limit = { years_passed > 35 mid_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_wild_1 days = -1 }
+		}
+		else_if = {
+			limit = { mid_game_years_passed >= 0 end_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_wild_2 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 0 end_game_years_passed < 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_wild_3 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_wild_4 days = -1 }
+		}
+	}
+	#_利维坦
+	else_if = {
+		limit = {
+			OR = {
+				#_原版利维坦
+				is_country_type = guardian
+				is_country_type = guardian_dragon
+				is_country_type = guardian_stellarite
+				is_country_type = guardian_wraith
+				is_country_type = guardian_hiver
+				is_country_type = guardian_horror
+				is_country_type = guardian_fortress
+				is_country_type = guardian_dreadnought
+				is_country_type = guardian_sphere
+				#_远星
+				is_country_type = guardian_scavenger_bot
+				is_country_type = guardian_elderly_tiyanki
+				is_country_type = ldragon_country			#_L星龙
+				is_country_type = guardian_hatchling
+				#_other
+				is_country_type = enigmatic_cache			#_神秘储存器 event_target:enigmatic_cache_country
+				is_country_type = htbd_horde				#_巨龙之路
+				#_SOFE守门人
+				is_country_type = sofe_sentinel_dormant
+				is_country_type = sofe_sentinel_active
+			}
+		}
+		#_sp
+		if = {
+			limit = { has_global_flag = sofe_activated }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_sofe_counter days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = wg_crisis_triggered }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_mist days = -1 }
+		}
+		#_pb
+		if = {
+			limit = { years_passed > 35 mid_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_leviathan_1 days = -1 }
+		}
+		else_if = {
+			limit = { mid_game_years_passed >= 0 end_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_leviathan_2 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 0 end_game_years_passed < 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_leviathan_3 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_leviathan_4 days = -1 }
+		}
+	}
+	#_中期威胁
+	else_if = {
+		limit = {
+			OR = {
+				is_country_type = gray_goo					#_灰风
+				#_其他中立
+				is_country_type = enclave					#_飞地
+				is_country_type = cybrex_empire				#_天灾友好
+				is_country_type = sentinels					#_天灾友好
+				#_MEM
+				is_country_type = mem_vazurans				#_瓦祖兰
+				is_country_type = mem_blacksite_faction
+				is_country_type = mem_dread_pirate_country
+				is_country_type = mem_dread_pirate_final_boss_country
+				is_country_type = mem_station_smasher
+				is_country_type = mem_everything_smasher
+				is_country_type = mem_azran
+				is_country_type = mem_surveyor_country_red	#_同类其他国家暂时不涉及
+				is_country_type = mem_wpdr_country
+				#_野生虫群
+				is_country_type = feral_prethoryn			#_event_target:feral_prethoryn
+				is_country_type = feral_prethoryn_infighting	#_event_target:feral_prethoryn_infighting
+			}
+		}
+		#_sp
+		if = {
+			limit = { has_global_flag = sofe_activated }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_sofe days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = wg_crisis_triggered }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_mist days = -1 }
+		}
+		#_pb
+		if = {
+			limit = { years_passed > 35 mid_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_mid_threat_1 days = -1 }
+		}
+		else_if = {
+			limit = { mid_game_years_passed >= 0 end_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_mid_threat_2 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 0 end_game_years_passed < 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_mid_threat_3 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_mid_threat_4 days = -1 }
+		}
+	}
+	#_天灾
+	else_if = {
+		limit = {
+			OR = {
+				#_vanilla
+				is_country_type = swarm
+				is_country_type = extradimensional
+				is_country_type = extradimensional_2
+				is_country_type = extradimensional_3
+				is_country_type = ai_empire
+				#_LEX-需要lex增强mod
+				is_country_type = bwm_ancient_drone_guardian
+				is_country_type = bwm_ragnarok_guardian
+				is_country_type = bwm_shroud_guardian
+				is_country_type = bwm_ring_guardian
+				is_country_type = bwm_ring_guardian_passive
+				is_country_type = bwm_grave_guardian
+				is_country_type = bwm_grave_guardian_passive
+				is_country_type = bwm_conduit_guardian
+				is_country_type = bwm_ancestor_guardian
+				is_country_type = bwm_prison_passive
+				is_country_type = bwm_gate_guardian
+			}
+		}
+		#_sp
+		if = {
+			limit = { has_global_flag = sofe_activated }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_sofe days = -1 }
+		}
+		if = {
+			limit = { has_global_flag = wg_crisis_triggered }
+			add_modifier = { modifier = z_fw_core_dd_pb_sp_enemy_mist days = -1 }
+		}
+		#_pb
+		if = {
+			limit = { years_passed > 35 mid_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_end_crisis_1 days = -1 }
+		}
+		else_if = {
+			limit = { mid_game_years_passed >= 0 end_game_years_passed < 0 }
+			add_modifier = { modifier = z_fw_core_dd_pb_end_crisis_2 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 0 end_game_years_passed < 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_end_crisis_3 days = -1 }
+		}
+		else_if = {
+			limit = { end_game_years_passed >= 50 }
+			add_modifier = { modifier = z_fw_core_dd_pb_end_crisis_4 days = -1 }
+		}
+	}
+}
+

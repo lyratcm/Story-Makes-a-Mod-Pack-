@@ -1,0 +1,28 @@
+
+
+part = {
+	location = 0
+	localization = "civic_am_civics_locust_capitalism_start_screen_message_1"
+
+	trigger = {
+		has_valid_civic = civic_am_civics_locust_capitalism
+	}
+}
+
+part = {
+	location = 1
+	localization = "civic_am_civics_locust_capitalism_start_screen_message_2"
+
+	trigger = {
+		has_valid_civic = civic_am_civics_locust_capitalism
+	}
+}
+
+part = {
+	location = 2
+	localization = "civic_am_civics_locust_capitalism_start_screen_message_3"
+
+	trigger = {
+		has_valid_civic = civic_am_civics_locust_capitalism
+	}
+}

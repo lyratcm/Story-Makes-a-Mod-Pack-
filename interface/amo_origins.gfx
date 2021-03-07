@@ -1,0 +1,32 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_evt_amo_sentry_array"
+		texturefile = "gfx/event_pictures/origins/origin_amo_sentry_array.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_amo_art_installation"
+		texturefile = "gfx/event_pictures/origins/origin_amo_art_installation.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_amo_dyson_sphere"
+		texturefile = "gfx/event_pictures/origins/origin_amo_dyson_sphere.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_amo_science_nexus"
+		texturefile = "gfx/event_pictures/origins/origin_amo_science_nexus.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_amo_matter_decompressor"
+		texturefile = "gfx/event_pictures/origins/origin_amo_matter_decompressor.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_amo_interstellar_assembly"
+		texturefile = "gfx/event_pictures/origins/origin_amo_interstellar_assembly.dds"
+		alwaystransparent = yes
+	}
+}

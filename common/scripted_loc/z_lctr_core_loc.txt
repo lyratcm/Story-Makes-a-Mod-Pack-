@@ -1,0 +1,79 @@
+#_cntr
+defined_text = {#_Country/leader/pop/species scope
+	name = z_lctr_loc_cntr_menu_desc
+	#_有
+	text = {
+		trigger = { has_relic = z_lctr_r_adv_sensor }
+		localization_key = z_lctr_desc_relic
+	}
+	#_无
+	text = {
+		trigger = { NOT = { has_relic = z_lctr_r_adv_sensor } }
+		localization_key = z_lctr_desc_no_relic
+	}
+}
+
+#_cntr
+defined_text = {
+	name = z_lctr_loc_cntr_relic_condition
+	#_开启
+	text = {
+		trigger = { has_modifier = z_lctr_mod_cntr_sensor }
+		localization_key = z_lctr_r_adv_sensor_activited
+	}
+	#_关闭
+	text = {
+		trigger = { NOT = { has_modifier = z_lctr_mod_cntr_sensor } }
+		localization_key = z_lctr_r_adv_sensor_disabled
+	}
+}
+
+#_cntr
+defined_text = {
+	name = z_lctr_loc_cntr_holder_check
+	#_1
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_1_checker }
+		localization_key = z_lctr_loc_cntr_holder_1
+	}
+	#_2
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_2_checker }
+		localization_key = z_lctr_loc_cntr_holder_2
+	}
+	#_3
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_3_checker }
+		localization_key = z_lctr_loc_cntr_holder_3
+	}
+	#_4
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_4_checker }
+		localization_key = z_lctr_loc_cntr_holder_4
+	}
+	#_5
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_5_checker }
+		localization_key = z_lctr_loc_cntr_holder_5
+	}
+	#_6
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_6_checker }
+		localization_key = z_lctr_loc_cntr_holder_6
+	}
+	#_7
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_7_checker }
+		localization_key = z_lctr_loc_cntr_holder_7
+	}
+	#_8
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_8_checker }
+		localization_key = z_lctr_loc_cntr_holder_8
+	}
+	#_9
+	text = {
+		trigger = { has_country_flag = z_lctr_flg_cntr_holder_9_checker }
+		localization_key = z_lctr_loc_cntr_holder_9
+	}
+}

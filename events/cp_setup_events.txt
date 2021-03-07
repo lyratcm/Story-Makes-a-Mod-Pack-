@@ -1,0 +1,272 @@
+namespace = cp_setup_event
+
+event = {
+	id = cp_setup_event.1 ##On Game Start
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				has_civic = cp_civic_space_cantina
+			}
+			capital_scope = {
+				planet = {
+					add_building = cp_building_cantina_wing
+					remove_building = building_hydroponics_farm 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_civic = cp_civic_toothpaste_enterprise
+			}
+			add_resource = {
+				sr_zro = 1000
+			}
+		}
+		if = {
+			limit = {
+				has_civic = cp_civic_utopia_question
+			}
+			give_technology = { tech = tech_subdermal_stimulation message = no }
+			give_technology = { tech = tech_resort_colonies message = no }
+		}
+		if = {
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+			}
+			leader = { add_trait = cp_trait_immortal_ruler }
+			add_resource = { sr_dark_matter = 300 }
+			capital_scope = {
+				planet = {
+					add_building = cp_building_immortal_palace
+				}
+			}
+		}
+	}
+}
+# planet_event = { #Utopia Colonize Event
+# 	id = cp_setup_event.2
+# 	hide_window = yes
+# 	is_triggered_only = yes
+# 	trigger = {
+# 		has_civic = cp_civic_utopia_question
+# 	}
+# 	immediate = {
+# 		if = {
+# 			limit = {
+# 				is_planet_class = pc_gaia
+# 				owner = { has_civic = cp_civic_utopia_question }
+# 			}
+# 			add_resource = { unity = 1000 }
+# 		}
+# 	}
+# }
+event = {
+	id = cp_setup_event.3 ##Immortal Ascendancy Upkeep Event
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_civic = cp_civic_immortal_ascendancy
+	}
+	immediate = {
+		if = { #50 Pops
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+				num_pops > 50
+				num_pops < 100
+				NOT = { has_building = cp_building_immortal_palace_2 }
+			}
+			capital_scope = {
+				planet = {
+					add_building = cp_building_immortal_palace_2
+					remove_building = cp_building_immortal_palace
+					remove_building = cp_building_immortal_palace_3
+					remove_building = cp_building_immortal_palace_4
+					remove_building = cp_building_immortal_palace_5
+					remove_building = cp_building_immortal_palace_6
+					remove_building = cp_building_immortal_palace_7
+					remove_building = cp_building_immortal_palace_8
+				}
+			}
+		}
+		if = { #100 Pops
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+				num_pops > 100
+				num_pops < 200
+				NOT = { has_building = cp_building_immortal_palace_3 }
+			}
+			capital_scope = {
+				planet = {
+					add_building = cp_building_immortal_palace_3
+					remove_building = cp_building_immortal_palace
+					remove_building = cp_building_immortal_palace_2
+					remove_building = cp_building_immortal_palace_4
+					remove_building = cp_building_immortal_palace_5
+					remove_building = cp_building_immortal_palace_6
+					remove_building = cp_building_immortal_palace_7
+					remove_building = cp_building_immortal_palace_8
+				}
+			}
+		}
+		if = { #200 Pops
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+				num_pops > 200
+				num_pops < 400
+				NOT = { has_building = cp_building_immortal_palace_4 }
+			}
+			capital_scope = {
+				planet = {
+					add_building = cp_building_immortal_palace_4
+					remove_building = cp_building_immortal_palace
+					remove_building = cp_building_immortal_palace_2
+					remove_building = cp_building_immortal_palace_3
+					remove_building = cp_building_immortal_palace_5
+					remove_building = cp_building_immortal_palace_6
+					remove_building = cp_building_immortal_palace_7
+					remove_building = cp_building_immortal_palace_8
+				}
+			}
+		}
+		if = { #400 Pops
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+				num_pops > 400
+				num_pops < 800
+				NOT = { has_building = cp_building_immortal_palace_5 }
+			}
+			capital_scope = {
+				planet = {
+					add_building = cp_building_immortal_palace_5
+					remove_building = cp_building_immortal_palace
+					remove_building = cp_building_immortal_palace_4
+					remove_building = cp_building_immortal_palace_2
+					remove_building = cp_building_immortal_palace_3
+					remove_building = cp_building_immortal_palace_6
+					remove_building = cp_building_immortal_palace_7
+					remove_building = cp_building_immortal_palace_8
+				}
+			}
+		}
+		if = { #800 Pops
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+				num_pops > 800
+				num_pops < 1600
+				NOT = { has_building = cp_building_immortal_palace_6 }
+			}
+			capital_scope = {
+				planet = {
+					add_building = cp_building_immortal_palace_6
+					remove_building = cp_building_immortal_palace
+					remove_building = cp_building_immortal_palace_5 
+					remove_building = cp_building_immortal_palace_4
+					remove_building = cp_building_immortal_palace_2
+					remove_building = cp_building_immortal_palace_3
+					remove_building = cp_building_immortal_palace_7
+					remove_building = cp_building_immortal_palace_8
+				}
+			}
+		}
+		if = { #1600 Pops
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+				num_pops > 1600
+				num_pops < 3200
+				NOT = { has_building = cp_building_immortal_palace_7 }
+			}
+			capital_scope = {
+				planet = {
+					add_building = cp_building_immortal_palace_7
+					remove_building = cp_building_immortal_palace
+					remove_building = cp_building_immortal_palace_6
+					remove_building = cp_building_immortal_palace_5 
+					remove_building = cp_building_immortal_palace_4
+					remove_building = cp_building_immortal_palace_2
+					remove_building = cp_building_immortal_palace_3
+					remove_building = cp_building_immortal_palace_8
+				}
+			}
+			break = yes
+		}
+		if = { #3200 Pops
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+				num_pops > 3200
+				NOT = { has_building = cp_building_immortal_palace_8 }
+			}
+			capital_scope = {
+				planet = {
+					add_building = cp_building_immortal_palace_8
+					remove_building = cp_building_immortal_palace
+					remove_building = cp_building_immortal_palace_7
+					remove_building = cp_building_immortal_palace_6
+					remove_building = cp_building_immortal_palace_5 
+					remove_building = cp_building_immortal_palace_4
+					remove_building = cp_building_immortal_palace_2
+					remove_building = cp_building_immortal_palace_3
+				}
+			}
+		}
+	}
+}
+event = { #IA Doom Event
+	id = cp_setup_event.4
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_civic = cp_civic_immortal_ascendancy
+		has_monthly_income = { resource = sr_dark_matter value < 1 }
+		has_country_resource = { type = sr_dark_matter amount < 1 }
+	}
+	immediate = {
+		if = {
+			limit = {
+				has_civic = cp_civic_immortal_ascendancy
+			}
+			kill_leader = {
+				type = ruler
+				show_notification = yes
+				heir = no
+			}
+			kill_leader = {
+				type = ruler
+				show_notification = no
+				heir = yes
+			}	
+			every_owned_leader = {
+				kill_leader = { show_notification = no }
+			}
+			every_owned_pop = {
+				kill_pop = yes
+			}
+			every_owned_fleet = { 
+				destroy_fleet = this 
+			}	
+			every_planet = {
+				limit = {
+					owner = {
+						has_civic = cp_civic_immortal_ascendancy
+					}
+				}
+				clear_planet_modifiers = yes
+				remove_all_armies = yes
+				destroy_colony = yes
+			}
+		}
+	}
+}
+event = { #IA Heir Unity Gain
+	id = cp_setup_event.5
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_civic = cp_civic_immortal_ascendancy
+		from = { leader_class = ruler }
+	}
+	immediate = {
+		add_resource = { unity = 1000 }
+	}
+}

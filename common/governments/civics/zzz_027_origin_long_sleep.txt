@@ -1,0 +1,21 @@
+origin_long_sleep = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_long_sleep.dds"
+	picture = GFX_origin_long_sleep
+
+	playable = {
+	}
+
+	possible = {
+		authority = { NOT = { value = auth_machine_intelligence } }
+	}
+
+	description = "origin_tooltip_long_sleep_effects"
+	#flags = { custom_start_screen }
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 3
+	}
+}

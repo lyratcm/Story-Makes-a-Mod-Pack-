@@ -1,0 +1,48 @@
+@Plant_Cost = 300
+@Plant_Upkeep = 3
+d_GAPS_Vine_Vista = {
+    base_buildtime = 480
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        exists = owner
+        has_modifier = World_Modifier_GAPS_Vine_Vista
+    }
+    potential = {
+        exists = owner
+        has_modifier = World_Modifier_GAPS_Vine_Vista
+    }
+    conversion_ratio = 0
+    convert_to = {
+    }
+    resources = {
+        category = planet_GAPS_world_plants
+        cost = {
+            food = @Plant_Cost
+        }
+        upkeep = {
+            food = @Plant_Upkeep
+        }
+    }
+    planet_modifier = {
+        planet_districts_cost_mult = -0.1
+        planet_districts_upkeep_mult = -0.1
+        planet_buildings_upkeep_mult = -0.1
+        planet_buildings_cost_mult = -0.1
+        planet_building_build_speed_mult = 0.1
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 100
+            planet = {
+                free_building_slots > 0
+            }
+        }
+    }
+    ai_resource_production = {
+        minerals = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

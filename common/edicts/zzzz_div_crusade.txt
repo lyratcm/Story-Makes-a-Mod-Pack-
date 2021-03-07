@@ -1,0 +1,29 @@
+div_crusade = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	is_ambition = yes
+
+	resources = {
+		category = edicts
+	}
+
+	potential = {
+		has_valid_civic = civic_defenders_faith
+	}
+
+	allow = {
+		has_technology = tech_ascension_theory
+	}
+
+	modifier = {
+	    job_templar_per_pop = 0.05
+        max_rivalries = 1	
+        rivalries_influence_produces_mult = 0.25
+		country_war_exhaustion_mult = -1
+		ship_fire_rate_mult = 0.15	
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

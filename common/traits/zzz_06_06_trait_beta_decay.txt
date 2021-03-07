@@ -1,0 +1,14 @@
+trait_beta_decay = {
+    icon = "gfx/interface/icons/traits/trait_beta_decay.dds"
+    cost = -1
+    opposites = {
+        "trait_stable"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        species_empire_size_mult = 0.10
+        army_damage_mult = 0.05
+    }
+}

@@ -1,0 +1,150 @@
+guiTypes = {
+    containerWindowType = {
+        name = "planet_district_entry"
+        position = {
+            x = 5
+            y = 0
+        }
+        size = {
+            width = 255
+            height = 50
+        }
+        moveable = no
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_frame_notrans"
+        }
+        iconType = {
+            name = "district_icon"
+            spriteType = "GFX_district_unknown"
+            position = {
+                x = 1
+                y = 2
+            }
+            scale = 0.62
+        }
+        buttonType = {
+            name = "district_icon_border"
+            position = {
+                x = -1
+                y = -1
+            }
+            size = {
+                x = 52
+                y = 52
+            }
+            quadTextureSprite = "GFX_button_light"
+            alwaysTransparent = yes
+        }
+        iconType = {
+            name = "selected_district_icon"
+            spriteType = "GFX_selected_building"
+            position = {
+                x = 0
+                y = 1
+            }
+            scale = 0.49
+        }
+        iconType = {
+            name = "progressbar"
+            spriteType = "GFX_building_progressbar"
+            position = {
+                x = -2
+                y = 39
+            }
+            alwaysTransparent = yes
+        }
+        instantTextBoxType = {
+            name = "not_surveyed"
+            font = "malgun_goth_24"
+            text = "UNKNOWN_SHORT"
+            position = {
+                x = 62
+                y = 12
+            }
+            maxWidth = 20
+            maxHeight = 24
+            fixedSize = yes
+            format = left
+        }
+        buttonType = {
+            name = "district_button"
+            position = {
+                x = 0
+                y = 0
+            }
+            size = {
+                x = 255
+                y = 50
+            }
+            quadTextureSprite = "GFX_invisible"
+            clicksound = "menu_slide_open"
+        }
+        containerWindowType = {
+            name = "district_box"
+            size = {
+                width = 52
+                height = 82
+            }
+            position = {
+                x = 54
+                y = 4
+            }
+            gridBoxType = {
+                name = "district_box_grid"
+                position = {
+                    x = 0
+                    y = 0
+                }
+                size = {
+                    width = 65
+                    height = 45
+                }
+                slotsize = {
+                    width = 15
+                    height = 15
+                }
+                format = "UPPER_LEFT"
+                max_slots_horizontal = 13
+                max_slots_vertical = 3
+                add_horizontal = no
+            }
+        }
+        containerWindowType = {
+            name = "planet_district_cap_container"
+            size = {
+                width = 44
+                height = 28
+            }
+            position = {
+                x = -5
+                y = -3
+            }
+            orientation = lower_right
+            origo = lower_right
+            iconType = {
+                name = "cap_background"
+                spriteType = "GFX_district_any_big"
+                position = {
+                    x = 3
+                    y = 0
+                }
+                scale = 1
+            }
+            instantTextBoxType = {
+                name = "num_districts_text"
+                font = "cg_16b"
+                position = {
+                    x = -2
+                    y = 6
+                }
+                text = "10"
+                maxWidth = 52
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+                alwaysTransparent = yes
+            }
+        }
+    }
+}

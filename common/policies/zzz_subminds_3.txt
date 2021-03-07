@@ -1,0 +1,194 @@
+est_subminds_3 = {
+
+	potential = {
+		Or = {
+			has_swapped_tradition = tr_est_subminds_3
+			has_swapped_tradition = tr_est_subminds_3_machines
+		}
+	}
+	
+	option = {
+		name = "est_subminds_3_energy"	
+		policy_flags = {
+			policy_flag_est_subminds_3_energy
+		}		
+		potential = {
+			Or = {
+				has_swapped_tradition = tr_est_subminds_3
+				has_swapped_tradition = tr_est_subminds_3_machines
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						est_is_core_world = no					
+					}
+					add_modifier = {
+						modifier = "mod_est_subminds_3_energy"
+						days = -1
+					}
+				}
+			}
+		}	
+		on_disabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						has_modifier = mod_est_subminds_3_energy					
+					}
+					remove_modifier = "mod_est_subminds_3_energy"
+				}
+			}
+		}	
+		AI_weight = { }		
+	}
+	
+	option = {
+		name = "est_subminds_3_food"	
+		policy_flags = {
+			policy_flag_est_subminds_3_food
+		}			
+		potential = {
+			has_swapped_tradition = tr_est_subminds_3
+		}	
+		valid = {
+			has_swapped_tradition = tr_est_subminds_3
+		}
+		on_enabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						est_is_core_world = no
+					}
+					add_modifier = {
+						modifier = "mod_est_subminds_3_food"
+						days = -1
+					}
+				}
+			}
+		}	
+		on_disabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						has_modifier = mod_est_subminds_3_food				
+					}
+					remove_modifier = "mod_est_subminds_3_food"
+				}
+			}
+		}	
+		AI_weight = { }		
+	}
+	
+	option = {
+		name = "est_subminds_3_minerals"	
+		policy_flags = {
+			policy_flag_est_subminds_3_minerals
+		}			
+		potential = {
+			Or = {
+				has_swapped_tradition = tr_est_subminds_3
+				has_swapped_tradition = tr_est_subminds_3_machines
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						est_is_core_world = no	
+					}
+					add_modifier = {
+						modifier = "mod_est_subminds_3_minerals"
+						days = -1
+					}
+				}
+			}
+		}	
+		on_disabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						has_modifier = mod_est_subminds_3_minerals					
+					}
+					remove_modifier = "mod_est_subminds_3_minerals"
+				}
+			}
+		}	
+		AI_weight = { }		
+	}
+	
+	option = {
+		name = "est_subminds_3_research"	
+		policy_flags = {
+			policy_flag_est_subminds_3_research
+		}			
+		potential = {
+			Or = {
+				has_swapped_tradition = tr_est_subminds_3
+				has_swapped_tradition = tr_est_subminds_3_machines
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						est_is_core_world = no	
+					}
+					add_modifier = {
+						modifier = "mod_est_subminds_3_research"
+						days = -1
+					}
+				}
+			}
+		}	
+		on_disabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						has_modifier = mod_est_subminds_3_research					
+					}
+					remove_modifier = "mod_est_subminds_3_research"
+				}
+			}
+		}	
+		AI_weight = { }		
+	}
+	
+	option = {
+		name = "est_subminds_3_unity"	
+		policy_flags = {
+			policy_flag_est_subminds_3_unity
+		}		
+		potential = {
+			Or = {
+				has_swapped_tradition = tr_est_subminds_3
+				has_swapped_tradition = tr_est_subminds_3_machines
+			}
+		}	
+		on_enabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						est_is_core_world = no		
+					}
+					add_modifier = {
+						modifier = "mod_est_subminds_3_unity"
+						days = -1
+					}
+				}
+			}
+		}	
+		on_disabled = {
+			hidden_effect = {
+				every_owned_planet = {
+					limit = {
+						has_modifier = mod_est_subminds_3_unity					
+					}
+					remove_modifier = "mod_est_subminds_3_unity"
+				}
+			}
+		}	
+		AI_weight = { }		
+	}
+}

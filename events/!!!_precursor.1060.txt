@@ -1,0 +1,44 @@
+namespace = precursor
+
+ship_event = {
+	id = precursor.1060
+	title = "precursor.1060.name"
+	desc = "precursor.1060.desc"
+	picture = GFX_evt_alien_nature
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes 
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = first_league_12 }
+		}
+	}
+	
+	option = {
+		name = REMARKABLE
+		from = {
+			hidden_effect = {
+				gpm_designate_precursor_world = yes
+				gpm_colour_planet_name = yes
+				if = { 
+					limit = { 
+						gpm_has_required_terraform_modifier = no
+						gpm_is_planet_class_normal_uninhabitable = yes
+					}
+					add_modifier = { modifier = terraforming_candidate_precursor }
+				}
+			}			
+			if = {
+				limit = { gpm_are_precursors_enabled = yes NOT = { has_modifier = gpm_precursor_obelisks } }
+				add_modifier = { modifier = gpm_precursor_obelisks }
+			}
+			enable_special_project = {
+				name = "FIRST_LEAGUE_ARCHEOLOGY_12"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}

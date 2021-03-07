@@ -1,0 +1,19 @@
+origin_delicate_ecosystem = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_delicate_ecosystem.dds"
+	picture = GFX_origin_delicate_ecosystem
+
+	possible = {
+		authority = { NOT = { value = auth_machine_intelligence } }
+	}
+	
+	description = "civic_tooltip_delicate_ecosystem_effects"
+
+	traits = {
+		trait = trait_ecologists
+	}
+
+	random_weight = {
+		base = 5
+	}
+}

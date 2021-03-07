@@ -1,0 +1,30 @@
+ap_esap_mining = {
+	on_enabled = {
+		custom_tooltip = ap_esap_mining_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_1"
+			num_ascension_perks > 0
+		}
+		custom_tooltip = {			
+			fail_text = "ap_esap_mining_req_1"
+			Not = { has_ascension_perk = ap_esap_nature }
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_mining_req_2"
+			has_technology = tech_mining_3
+		}
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_mining
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

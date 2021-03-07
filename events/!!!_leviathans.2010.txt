@@ -1,0 +1,47 @@
+namespace = leviathans
+
+ship_event = {
+	id = leviathans.2010
+	title = "leviathans.2010.name"
+	desc = {
+		text = leviathans.2010.desc
+		trigger = {
+			owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		}
+	}
+	desc = {
+		text = leviathans.2010.desc.gesta
+		trigger = {
+			owner = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+	picture = GFX_evt_star_pulsar
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+
+	trigger = {
+		from = { has_planet_flag = guardians_wraith_pulsar }
+	}
+
+	immediate = {
+		from = {
+			remove_planet_flag = guardians_wraith_pulsar
+			add_modifier = {
+				modifier = germinating_wraith
+				days = -1
+			}
+		}
+		if = {
+			limit = { mid_game_years_passed >= 0 }
+			from = {
+				planet_event = { id = spaceleviathans.400 days = 23400 random = 3600 }
+			}
+		}
+	}
+
+	option = {
+		name = leviathans.2010.a
+		custom_tooltip = leviathans.2010.c
+	}
+}

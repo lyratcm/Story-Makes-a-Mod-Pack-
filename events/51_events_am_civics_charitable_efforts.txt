@@ -1,0 +1,50 @@
+
+
+###############################################################################
+### Civic: Charitable Efforts                                               ###
+###############################################################################
+
+namespace = events_am_civics_charitable_efforts
+
+### Triggered by on_action: on_post_communications_established
+### Adds custom opinion modifiers to an Empire when met.
+country_event = {
+	id = events_am_civics_charitable_efforts.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = { 
+			limit = {
+				from = { 
+					is_country_type = default
+					is_gestalt = no
+					is_homicidal = no
+				}
+				root = { has_valid_civic = civic_am_civics_charitable_efforts }
+			}
+			from = {
+				add_opinion_modifier = {
+					who = root
+					modifier = opinion_am_civics_is_charitable_efforts
+				}
+			}
+		}
+		IF = { 
+			limit = {
+				root = { 
+					is_country_type = default				
+					is_gestalt = no
+					is_homicidal = no
+				}
+				from = { has_valid_civic = civic_am_civics_charitable_efforts }
+			}
+			root = {
+				add_opinion_modifier = {
+					who = from
+					modifier = opinion_am_civics_is_charitable_efforts
+				}
+			}
+		}
+	}
+}

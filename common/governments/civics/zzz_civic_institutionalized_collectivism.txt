@@ -1,0 +1,26 @@
+lrsk_gov_var_civic_institutionalized_collectivism = {
+    potential = {
+        always = no
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = lrsk_gov_var_civic_enlightened_liberalism
+                value = civic_merchant_guilds
+            }
+        }
+        ethics = {
+            NOT = {
+                value = ethic_fanatic_authoritarian
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_consumer_goods_produces_mult = 0.1
+        planet_jobs_worker_produces_mult = 0.05
+        planet_jobs_specialist_produces_mult = 0.05
+    }
+}

@@ -1,0 +1,34 @@
+can_colonize_with_species = {
+    has_colonization_control = {
+        value = no
+        country = root
+    }
+    NOR = {
+        has_trait = trait_subsapient_form
+        has_trait = trait_living_architecture
+        has_trait = trait_rooted_adults_rooted
+        AND = {
+            has_trait = trait_dimorphic_male
+            root = {
+                is_ai = yes
+            }
+        }
+    }
+    OR = {
+        NOT = {
+            has_trait = trait_self_modified
+        }
+        is_same_species = root
+    }
+    if = {
+        limit = {
+            is_sapient = no
+        }
+        custom_tooltip = {
+            always = no
+        }
+    }
+    else = {
+        always = yes
+    }
+}

@@ -1,0 +1,43 @@
+namespace = ss
+
+planet_event = {
+	id = ss.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_pop = {
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = root.owner
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+			1 = { # 0 pops
+				# nothing happens
+			}
+
+			1 = { # 0 pops
+				# nothing happens
+			}
+
+			1 = { # 1 pop
+				while = {
+					count = 1
+					limit = {
+						any_owned_pop = {
+							has_citizenship_type = {
+								type = citizenship_assimilation
+								country = root.owner
+							}
+						} 
+					}
+					assimilate_random_pop = yes
+				}
+			}
+		}
+	}
+}

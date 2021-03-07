@@ -1,0 +1,907 @@
+############################
+#
+# Pop Events
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+namespace = pop
+
+### Pop Self Modification
+pop_event = {
+	id = "pop.1"
+	title = "pop.1.name"
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = no }
+			}
+		}
+		text = "pop.1.desc"
+	}
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = yes }
+			}
+		}
+		text = "pop.1.desc.hive"
+	}
+	picture = GFX_evt_cybernetics
+	
+	trigger = {
+		is_enslaved = no
+		is_being_purged = no
+		planet = {
+			NOT = { is_planet_class = pc_habitat }
+			habitability = { 
+				who = root
+				value < 0.45
+			}
+			is_capital = no
+			NOT = { has_planet_flag = pop_modification }
+			has_owner = yes
+			owner = {
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_technology = "tech_gene_tailoring"
+				is_same_species = ROOT
+				is_robot_empire = yes
+				ROOT = {
+					planet = {
+						is_ideal_planet_class = {
+							who = PREVPREV
+							status = no
+						}
+						controller = { is_same_value = PREVPREVPREV }
+					}
+				}
+			}
+			count_pops = {
+				limit = { 
+					is_same_species = ROOT 
+					is_enslaved = no
+					is_being_purged = no
+					is_robot_pop = no
+					#happiness < 0.5 #happiness shouldn't stop it
+				}
+				count > 3
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	immediate = {
+
+		planet = {
+			set_planet_flag = pop_modification
+			create_species = {
+				is_mod = yes
+				name = this
+				plural = this
+				class = this
+				portrait = this
+				traits = {
+					trait = trait_self_modified
+					trait = random_traits
+				}
+				homeworld = this
+			}
+			if = {
+				limit = {
+					owner = {
+						has_trait = trait_necrophage
+					}
+				}
+				last_created_species = {
+					modify_species = {
+						species = this
+						add_trait = trait_necrophage
+						change_scoped_species = no
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				planet = {
+					count_pops = {
+						limit = {
+							is_same_species = ROOT
+						}
+						count < 6
+					}
+				}
+			}
+			planet = {
+				random_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					change_species = last_created
+					set_pop_flag = modified_pop_1
+				}
+				random_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					change_species = last_created
+					set_pop_flag = modified_pop_1
+				}
+				random_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					save_event_target_as = non_modified_pop_1
+				}
+				every_owned_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					set_pop_flag = non_modified_pop_1
+				}
+				random_pop = {
+					limit = {
+						is_pop = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					change_species = last_created
+					save_event_target_as = modified_pop_1
+					set_pop_flag = modified_pop_1
+				}
+			}
+		}
+		if = {
+			limit = {
+				planet = {
+					count_pops = {
+						limit = {
+							is_same_species = ROOT
+						}
+						count > 6
+					}
+				}
+			}
+			planet = {
+				random_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					change_species = last_created
+					set_pop_flag = modified_pop_1
+				}
+				random_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					change_species = last_created
+					set_pop_flag = modified_pop_1
+				}
+				random_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					change_species = last_created
+					set_pop_flag = modified_pop_1
+				}
+				random_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					change_species = last_created
+					set_pop_flag = modified_pop_1
+				}
+				random_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					save_event_target_as = non_modified_pop_1
+				}
+				every_owned_pop = {
+					limit = {
+						NOT = { is_pop = ROOT }
+						is_same_species = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					set_pop_flag = non_modified_pop_1
+				}
+				random_pop = {
+					limit = {
+						is_pop = ROOT
+						is_enslaved = no
+						is_being_purged = no
+						is_robot_pop = no
+					}
+					save_event_target_as = modified_pop_1
+					set_pop_flag = modified_pop_1
+					change_species = last_created
+				}
+			}
+		}
+		planet = {
+			planet_event = { id = popexpanded.2 }
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# Rising Tensions (HIDDEN)
+pop_event = {
+	id = pop.2
+	hide_window = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		planet = {
+			has_planet_flag = pop_modification
+			exists = owner
+			NOT = { owner = { has_country_flag = pop_modification_tensions } }
+			owner = {
+				NOR = {
+					has_ethic = ethic_fanatic_pacifist
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+					has_valid_civic = civic_hive_one_mind
+					has_valid_civic = civic_hive_subsumed_will
+					has_valid_civic = civic_harm_hive
+				}
+				OR = {
+					is_hive_empire = no
+					NOT = { has_ascension_perk = ap_evolutionary_mastery }
+				}
+			}
+		}
+		has_pop_flag = modified_pop_1
+		is_enslaved = no
+		is_being_purged = no
+		planet = {
+			any_pop = {
+				NOT = { is_pop = ROOT }
+				is_same_species = owner
+				is_enslaved = no
+				is_being_purged = no
+				is_robot_pop = no
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+		save_event_target_as = modified_pop_1
+		planet = {
+			set_planet_flag = popmod_rising_tensions
+			owner = { set_country_flag = pop_modification_tensions }
+			random_pop = {
+				limit = {
+					NOT = { is_pop = ROOT }
+					is_same_species = owner
+					is_enslaved = no
+					is_being_purged = no
+				}
+				save_event_target_as = non_modified_pop_1
+			}
+		}
+		planet = {
+			planet_event = { id = pop.3 }
+		}
+	}
+}
+
+# Rising Tensions
+planet_event = {
+	id = pop.3
+	title = "pop.3.name"
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = no }
+			}
+		}
+		text = "pop.3.desc"
+	}
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = yes }
+			}
+		}
+		text = "pop.3.desc.hive"
+	}
+	picture = GFX_evt_nuclear_explosion
+
+	is_triggered_only = yes
+	
+	option = {
+		name = WORRYING
+		trigger = { owner = { is_hive_empire = no } }
+		custom_tooltip = pop.3.a.tooltip
+		add_planet_devastation = 10
+		hidden_effect = {
+			every_owned_pop = {
+				limit = {
+					is_same_species = FROM
+					NOT = { has_ethic = ethic_xenophobe }
+				}
+				pop_change_ethic = ethic_xenophobe
+			}
+			every_owned_pop = {
+				limit = {
+					is_same_species = owner
+					NOT = { has_ethic = ethic_xenophobe }
+				}
+				pop_change_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = WORRYING
+		trigger = { owner = { is_hive_empire = yes } }
+		custom_tooltip = pop.3.a.tooltip
+		add_modifier = { modifier = "gestalt_modified_deviants" days = -1 }
+		hidden_effect = {
+			every_owned_pop = {
+				limit = {
+					is_same_species = FROM
+					NOT = { has_ethic = ethic_xenophobe }
+				}
+				pop_change_ethic = ethic_xenophobe
+			}
+			every_owned_pop = {
+				limit = {
+					is_same_species = owner
+					NOT = { has_ethic = ethic_xenophobe }
+				}
+				pop_change_ethic = ethic_xenophobe
+			}
+		}
+	}
+}
+
+# Increased Fertility (HIDDEN)
+pop_event = {
+	id = pop.5
+	hide_window = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		planet = {
+			has_planet_flag = pop_modification
+			has_planet_flag = popmod_rising_tensions
+			NOT = { has_planet_flag = popmod_fertility }
+			exists = owner
+			owner = {
+				NOR = {
+					has_origin = origin_clones
+					has_origin = origin_hive_queen
+				}
+			}
+		}
+		has_pop_flag = modified_pop_1
+		is_enslaved = no
+		is_being_purged = no
+		planet = {
+			any_pop = {
+				NOT = { is_pop = ROOT }
+				is_same_species = owner
+				is_enslaved = no
+				is_being_purged = no
+				is_robot_pop = no
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 220
+	}
+	
+	immediate = {
+		save_event_target_as = modified_pop_1
+		planet = {
+			set_planet_flag = popmod_fertility
+			random_pop = {
+				limit = {
+					NOT = { is_pop = ROOT }
+					is_same_species = owner
+					is_enslaved = no
+					is_being_purged = no
+					is_robot_pop = no
+				}
+				save_event_target_as = non_modified_pop_1
+			}
+		}
+		planet = {
+			planet_event = { id = pop.6 }
+		}
+	}
+}
+
+# Increased Fertility
+planet_event = {
+	id = pop.6
+	title = "pop.6.name"
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = no }
+			}
+		}
+		text = "pop.6.desc"
+	}
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = yes }
+			}
+		}
+		text = "pop.6.desc.hive"
+	}
+	picture = GFX_evt_cybernetics
+
+	is_triggered_only = yes
+	
+	option = {
+		name = WORRYING
+		trigger = { owner = { is_hive_empire = no } }
+		custom_tooltip = pop.6.tooltip
+		hidden_effect = {
+			modify_species = {
+				species = FROM
+				remove_trait = trait_slow_breeders
+				add_trait = trait_fertile
+			}
+		}
+	}
+	option = {
+		name = OK
+		trigger = { owner = { is_hive_empire = yes } }
+		custom_tooltip = pop.6.tooltip
+		hidden_effect = {
+			modify_species = {
+				species = FROM
+				remove_trait = trait_slow_breeders
+				add_trait = trait_fertile
+			}
+		}
+	}
+}
+
+# Pureblood attack against Mutants (HIDDEN)
+pop_event = {
+	id = pop.7
+	hide_window = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		planet = {
+			has_planet_flag = pop_modification
+			has_planet_flag = popmod_rising_tensions
+		}
+		has_pop_flag = modified_pop_1
+		is_enslaved = no
+		is_being_purged = no
+		planet = {
+			any_pop = {
+				NOT = { is_pop = ROOT }
+				is_same_species = owner
+				is_enslaved = no
+				is_being_purged = no
+				is_robot_pop = no
+			}
+			exists = owner
+			owner = {
+				OR = {
+					is_hive_empire = no
+					NOT = { has_ascension_perk = ap_evolutionary_mastery }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 220
+	}
+	
+	immediate = {
+		save_event_target_as = modified_pop_1
+		planet = {
+			random_pop = {
+				limit = {
+					NOT = { is_pop = ROOT }
+					is_same_species = owner
+					is_enslaved = no
+					is_being_purged = no
+					is_robot_pop = no
+				}
+				save_event_target_as = non_modified_pop_1
+			}
+		}
+		planet = {
+			planet_event = { id = pop.8 }
+		}
+	}
+}
+
+# Pureblood attack against Mutants
+planet_event = {
+	id = pop.8
+	title = "pop.8.name"
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = no }
+			}
+		}
+		text = "pop.8.desc"
+	}
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = yes }
+			}
+		}
+		text = "pop.8.desc.hive"
+	}
+	picture = GFX_evt_cybernetics
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = WORRYING
+		FROM = { kill_pop = yes }
+		add_planet_devastation = 20
+	}
+}
+
+# Mutant attack against Purebloods (HIDDEN)
+pop_event = {
+	id = pop.9
+	hide_window = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		planet = {
+			has_planet_flag = pop_modification
+			has_planet_flag = popmod_rising_tensions
+		}
+		has_pop_flag = non_modified_pop_1
+		is_enslaved = no
+		is_being_purged = no
+		planet = {
+			any_pop = {
+				has_pop_flag = modified_pop_1
+				is_enslaved = no
+				is_being_purged = no
+				is_robot_pop = no
+			}
+			exists = owner
+			owner = {
+				OR = {
+					is_hive_empire = no
+					NOT = { has_ascension_perk = ap_evolutionary_mastery }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 220
+	}
+	
+	immediate = {
+		save_event_target_as = non_modified_pop_1
+		planet = {
+			random_pop = {
+				limit = {
+					has_pop_flag = modified_pop_1
+					is_enslaved = no
+					is_being_purged = no
+					is_robot_pop = no
+				}
+				save_event_target_as = modified_pop_1
+			}
+		}
+		planet = {
+			planet_event = { id = pop.10 }
+		}
+	}
+}
+
+# Mutant attack against Purebloods
+planet_event = {
+	id = pop.10
+	title = "pop.10.name"
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = no }
+			}
+		}
+		text = "pop.10a.desc"
+	}
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = no }
+			}
+		}
+		text = "pop.10b.desc"
+	}
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = yes }
+			}
+		}
+		text = "pop.10a.desc.hive"
+	}
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = yes }
+			}
+		}
+		text = "pop.10b.desc.hive"
+	}
+	picture = GFX_evt_cybernetics
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = WORRYING
+		FROM = { kill_pop = yes }
+		add_planet_devastation = 20
+	}
+}
+
+# Mutant representative (HIDDEN)
+pop_event = {
+	id = pop.11
+	hide_window = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		planet = {
+			has_planet_flag = pop_modification
+			has_planet_flag = popmod_rising_tensions
+			owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		}
+		has_pop_flag = modified_pop_1
+		is_enslaved = no
+		is_being_purged = no
+		planet = {
+			any_pop = {
+				NOT = { is_pop = ROOT }
+				is_same_species = owner
+				is_enslaved = no
+				is_being_purged = no
+				is_robot_pop = no
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 220
+	}
+	
+	immediate = {
+		save_event_target_as = modified_pop_1
+		planet = {
+			random_pop = {
+				limit = {
+					NOT = { is_pop = ROOT }
+					is_same_species = owner
+					is_enslaved = no
+					is_being_purged = no
+					is_robot_pop = no
+				}
+				save_event_target_as = non_modified_pop_1
+			}
+		}
+		planet = {
+			planet_event = { id = pop.12 }
+		}
+	}
+}
+
+# Mutant representative
+planet_event = {
+	id = pop.12
+	title = "pop.12.name"
+	desc = "pop.12.desc"
+	picture = GFX_evt_cybernetics
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = WORRYING
+	}
+}
+
+# Increased Strength (HIDDEN)
+pop_event = {
+	id = pop.13
+	hide_window = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		planet = {
+			has_planet_flag = pop_modification
+			has_planet_flag = popmod_rising_tensions
+			NOT = { has_planet_flag = popmod_strength }
+		}
+		has_pop_flag = modified_pop_1
+		is_enslaved = no
+		is_being_purged = no
+		planet = {
+			any_pop = {
+				NOT = { is_pop = ROOT }
+				NOR = {
+					has_trait = trait_very_strong
+					has_trait = trait_titanic_strength
+				}
+				is_same_species = owner
+				is_enslaved = no
+				is_being_purged = no
+				is_robot_pop = no
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 220
+	}
+	
+	immediate = {
+		save_event_target_as = modified_pop_1
+		planet = {
+			set_planet_flag = popmod_strength
+			random_pop = {
+				limit = {
+					NOT = { is_pop = ROOT }
+					NOR = {
+						has_trait = trait_very_strong
+						has_trait = trait_titanic_strength
+					}
+					is_same_species = owner
+					is_enslaved = no
+					is_being_purged = no
+					is_robot_pop = no
+				}
+				save_event_target_as = non_modified_pop_1
+			}
+		}
+		planet = {
+			planet_event = { id = pop.14 }
+		}
+	}
+}
+
+# Increased Strength
+planet_event = {
+	id = pop.14
+	title = "pop.14.name"
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = no }
+			}
+		}
+		text = "pop.14.desc"
+	}
+	desc = {
+		trigger = { 
+			planet = {
+				exists = owner
+				owner = { is_hive_empire = yes }
+			}
+		}
+		text = "pop.14.desc.hive"
+	}
+	picture = GFX_evt_cybernetics
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				owner = { has_technology = tech_genetic_resequencing }
+			}
+			modify_species = {
+				species = FROM
+				remove_trait = trait_weak
+				add_trait = trait_titanic_strength
+			}
+		}
+		else = {
+			modify_species = {
+				species = FROM
+				remove_trait = trait_weak
+				add_trait = trait_very_strong
+			}
+		}
+	}
+	
+	option = {
+		name = WORRYING
+		trigger = { owner = { is_hive_empire = no } }
+		custom_tooltip = pop.14.tooltip
+	}
+	option = {
+		name = OK
+		trigger = { owner = { is_hive_empire = yes } }
+		custom_tooltip = pop.14.tooltip
+	}
+}

@@ -1,0 +1,29 @@
+z_fw_trait_leader_r_hok_pupil = {
+    cost = 0
+    modification = no
+    icon = "gfx/interface/icons/traits/z_fw_trait_kogasa_pupil.dds"
+    modifier = {
+        ship_archaeological_site_excavation_speed_mult = 0.75
+        ship_anomaly_generation_chance_mult = 0.5
+        ship_anomaly_research_speed_mult = 0.35
+        all_technology_research_speed = 0.15
+        science_ship_survey_speed = 0.25
+    }
+    leader_trait = {
+        scientist
+    }
+    leader_class = {
+        scientist
+    }
+    initial = no
+    randomized = no
+    ai_categories = {
+        survey
+        physics
+        society
+        engineering
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

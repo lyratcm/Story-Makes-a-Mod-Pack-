@@ -1,0 +1,898 @@
+
+
+###############################################################################
+### Civic: Locust Capitalism                                                ###
+###############################################################################
+
+namespace = events_am_civics_locust_capitalism
+
+### Triggered by on_action: on_yearly_pulse_country
+### Destroys Mining Deposits and removes Mining Stations
+country_event = {
+	id = events_am_civics_locust_capitalism.1
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	trigger = { has_valid_civic = civic_am_civics_locust_capitalism }
+	
+	immediate = {
+		### Every Deposit with an active Mining Station has a chance to be destroyed.
+		every_planet_within_border = {
+			limit = { 
+				### Note to self: This effect is replicated below. 
+				### If you add new limitations, don't forget to also add them below.
+				has_mining_station = yes
+				NOT = { has_planet_flag = has_megastructure }
+				NOT = { has_planet_flag = megastructure }
+				is_star = no 
+			}
+			planet_event = { id = events_am_civics_locust_capitalism.2 days = 30 random = 300 }
+		}
+		
+		### Our subjects suffer the same faith.
+		every_subject = {	
+			limit = { ### ...unless they happen to also be Locust Capitalists. In this case, their own country_event will handle things.
+				NOT = { has_valid_civic = civic_am_civics_locust_capitalism }
+			}
+			every_planet_within_border = {
+				limit = {
+					has_mining_station = yes
+					NOT = { has_planet_flag = has_megastructure }
+					NOT = { has_planet_flag = megastructure }
+					is_star = no 
+				}
+				planet_event = { id = events_am_civics_locust_capitalism.2 days = 30 random = 300 }
+			}
+		}
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.1
+### Handles station destruction. Checks whether stations should be destroyed every year.
+planet_event = {
+	id = events_am_civics_locust_capitalism.2
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			### The more time passes, the higher the chance a station will be destroyed this year. 
+			5000 =  {}			
+			25 = {
+				modifier = { factor = 0 NOT = { has_planet_flag = am_civics_station_in_danger } }
+				clear_deposits = yes
+				random_mining_station = { dismantle = yes }
+				log = "Destroyed a Mining Deposit on [this.GetName] ([this.solar_system.GetName])."
+				modifier = { factor = 2 	has_planet_flag = am_civics_locust_virtual_timer_5_years  } # 50
+				modifier = { factor = 3 	has_planet_flag = am_civics_locust_virtual_timer_10_years } # 75
+				modifier = { factor = 5 	has_planet_flag = am_civics_locust_virtual_timer_15_years } # 125
+				modifier = { factor = 10 	has_planet_flag = am_civics_locust_virtual_timer_20_years } # 250
+				modifier = { factor = 15 	has_planet_flag = am_civics_locust_virtual_timer_25_years } # 375
+				modifier = { factor = 20 	has_planet_flag = am_civics_locust_virtual_timer_30_years } # 500
+				modifier = { factor = 30 	has_planet_flag = am_civics_locust_virtual_timer_35_years } # 750
+				modifier = { factor = 45 	has_planet_flag = am_civics_locust_virtual_timer_40_years } # 1125
+				modifier = { factor = 60 	has_planet_flag = am_civics_locust_virtual_timer_45_years } # 1500
+				modifier = { factor = 100 	has_planet_flag = am_civics_locust_virtual_timer_50_years } # 2500
+			}
+		}
+	}
+}
+
+### Triggered by on_action: on_five_year_pulse_country
+### Wrapper for planet destruction
+country_event = {
+	id = events_am_civics_locust_capitalism.3
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	trigger = { 
+		has_valid_civic = civic_am_civics_locust_capitalism 
+		NOT = { has_technology = tech_am_civics_locust_sustainability_industries }
+	}
+	
+	immediate = {	
+		save_event_target_as = owner_country
+		log = "Owner_country: [event_target:owner_country.GetName]"
+		
+		### (Wrapper) Keeps track of how long (roughly) planets have been under the rule of a Locust for Deposit / Mining Station Destruction events
+		country_event = { id = events_am_civics_locust_capitalism.4 }
+
+		every_owned_planet = {	
+			limit = { habitable_structure = no }			
+			planet_event = { id = events_am_civics_locust_capitalism.5 }				
+		}
+				
+		### Mining Stations owned by our Subjects are destroyed over time as well.
+		every_subject = {		
+			### ...unless they  happen to also be Locust Capitalists. In this case, their own country_event will handle things.
+			limit = {  NOT = { has_valid_civic = civic_am_civics_locust_capitalism } }
+		
+			### (Wrapper) Keeps track of how long (roughly) planets have been under the rule of a Locust for Deposit / Mining Station Destruction events
+			country_event = { id = events_am_civics_locust_capitalism.4 }
+		}
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.3
+### (Wrapper) Keeps track of how long (roughly) planets have been under the rule of a Locust for Deposit / Mining Station Destruction events
+country_event = {
+	id = events_am_civics_locust_capitalism.4
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	
+	trigger = { 
+		has_valid_civic = civic_am_civics_locust_capitalism 
+		NOT = { event_target:owner_country = { has_technology = tech_am_civics_locust_sustainability_industries } }
+	}
+	
+	immediate = {
+		every_planet_within_border = {
+			limit = { has_mining_station = yes }
+			random_list = {
+				### Chance of Deposit / Mining Station destruction is reduced by 50% if we have Recycling Technology.
+				50 = { 
+					modifier = { factor = 0 event_target:owner_country = { NOT = { has_technology = tech_am_civics_locust_recycling_industries } } }
+					log = "Rolled to not update deposit ages. (Recycling Technology)"
+				}
+				50 = {
+					### Keeps track of how long star systems were under the rule of a Locust certain player	
+					log = "Rolled to update deposit ages."						
+					### Keeps track of how long star systems have belonged to a certain player
+					planet_event = { id = events_am_civics_locust_capitalism.13 }
+				}
+			}
+		}
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.3
+### Keeps track of how long (roughly) planets have been under the rule of a Locust Capitalist to be used by "Drained Planet" Modifiers.
+planet_event = {
+	id = events_am_civics_locust_capitalism.5
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	
+	immediate = {
+		random_list = {
+			### Chance of "Drained Planet" to enter the next stage / planet to be destroyed is reduced by 50% if we have the Recycling Industries Technology 
+			50 = { modifier = { factor = 0 event_target:owner_country = { NOT = { has_technology = tech_am_civics_locust_recycling_industries } } } }
+			50 = {	
+				### If this planet wasn't initialized yet, intialize and add level 1 of "Drained Planer" modifier.
+				IF = {
+					limit = { 
+						NOT = { has_planet_flag = am_civics_decay_active } 
+						is_under_colonization = no	
+					}
+					set_planet_flag = am_civics_decay_active
+					add_modifier = { modifier = static_modifier_am_civics_planet_decay_1 }
+				}
+				### ...otherwise, just increase Level / destroy.
+				ELSE = {
+					### Enter next stage of "Drained Planet" / destroy planet at a randomized delay.
+					planet_event = { id = events_am_civics_locust_capitalism.11 days = 30 random = 300 }
+				}
+			}
+		}
+	}
+}
+
+### Triggered by on_action: on_game_start_country
+### Initializes the Capital by adding a Debuff
+country_event = {
+	id = events_am_civics_locust_capitalism.6
+	hide_window = yes
+	
+	is_triggered_only = yes	
+
+	immediate = {
+		IF = {
+			limit = { has_valid_civic = civic_am_civics_locust_capitalism }
+			save_event_target_as = event_owner
+			IF = {
+				limit = { has_origin = origin_void_dwellers }
+				every_owned_planet = {
+					limit = { has_planet_flag = void_dweller_habitat_1 }
+					add_modifier = { modifier = static_modifier_am_civics_locust_habitat_1 }
+				}
+				every_owned_planet = {
+					limit = { has_planet_flag = void_dweller_habitat_2 }
+					add_modifier = { modifier = static_modifier_am_civics_locust_habitat_2 }
+				}
+				every_owned_planet = {
+					limit = { has_planet_flag = void_dweller_habitat_3 }
+					add_modifier = { modifier = static_modifier_am_civics_locust_habitat_3 }
+					planet_event = { id = events_am_civics_locust_capitalism.15 days = 1800 }
+				}
+			}
+			ELSE_IF = {
+				limit = { has_origin = origin_shattered_ring }
+				### Might implement this later if I can think of something interesting.
+				### For now, this combination is not allowed.
+			}
+			### all other starts
+			ELSE = {
+				every_owned_planet = {
+					limit = { is_capital = yes }
+					set_planet_flag = am_civics_decay_active
+					add_modifier = { modifier = static_modifier_am_civics_planet_decay_4 }
+				}
+			}
+		}
+	}
+}
+
+### Triggered by on_action: on_monthly_pulse_country
+### Pop Resettlement process at high "Drained Planet" levels.
+
+
+
+country_event = {
+	id = events_am_civics_locust_capitalism.7
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {		
+		every_owned_planet = {	
+			limit = {
+				OR = {
+					has_modifier = static_modifier_am_civics_planet_decay_8
+					has_modifier = static_modifier_am_civics_planet_decay_9
+					has_modifier = static_modifier_am_civics_planet_decay_10
+				}
+				NOT = { has_modifier = static_modifier_am_civics_destructive_panic }
+				### A few pops will be left on the planet unless the player resettles them manually.
+				### Don't worry those. Those are mostly politicians.
+				num_pops > 5
+			}
+			random_list = {
+				### We start with a 33% chance per month so players have some time to adapt, but...
+				40 = { }			
+				20 = { 
+					### ...if decay has reached level 9, this increases to 50%...
+					modifier = {
+						factor = 2
+						owner = { has_modifier = static_modifier_am_civics_planet_decay_9 }
+					}
+					### ...and on decay level 10, the chance is ~90%.
+					modifier = {
+						factor = 10						
+						owner = { has_modifier = static_modifier_am_civics_planet_decay_10 }
+					}
+										
+					log = "Planet [this.GetName] is being evacuated."
+					### Pops are being resettled based on their strata. Workers first, then
+					### Specialists, then Rulers. This is in place so players are not swarmed
+					### with Specialists and Rulers. Without this, Specialists will be resettled,
+					### and then other Workers take their jobs.
+					### Secretly, this is also in place to make sure the people who are left behind are 
+					### mostly politicians.
+					random_owned_pop = {
+						limit = {  is_pop_category = worker }
+						FROM = {
+							set_country_flag = resettle_pop_locust_dummy
+							log = "Resettle Pop from [this.GetName]. (Workers only)"
+							random_owned_planet = {
+								limit = { 
+									NOT = {has_modifier = static_modifier_am_civics_planet_decay_8 } 
+									NOT = {has_modifier = static_modifier_am_civics_planet_decay_9 } 
+									NOT = {has_modifier = static_modifier_am_civics_planet_decay_10 }
+									is_under_colonization = no									
+								}
+								log = " -- Resettled to: [this.GetName]."
+								resettle_pop = {
+									pop = PREVPREV
+									planet = THIS
+								}
+							}
+						}
+					}
+					IF = {
+						LIMIT = { owner = { NOT = { has_country_flag = resettle_pop_locust_dummy } } }
+						random_owned_pop = {
+							limit = { is_pop_category = specialist }
+							FROM = {
+								set_country_flag = resettle_pop_locust_dummy
+								log = "Resettle Pop from [this.GetName]. (Specialists only)"
+								random_owned_planet = {
+									limit = { 
+										NOT = {has_modifier = static_modifier_am_civics_planet_decay_8 } 
+										NOT = {has_modifier = static_modifier_am_civics_planet_decay_9 } 
+										NOT = {has_modifier = static_modifier_am_civics_planet_decay_10 }
+										is_under_colonization = no									
+									}
+									log = " -- Resettled to: [this.GetName]."
+									resettle_pop = {
+										pop = PREVPREV
+										planet = THIS
+									}
+								}
+							}
+						}
+					}
+					IF = {
+						LIMIT = { owner = { NOT = { has_country_flag = resettle_pop_locust_dummy } } }
+						random_owned_pop = {
+							FROM = {
+								set_country_flag = resettle_pop_locust_dummy
+								log = "Resettle Pop from [this.GetName]. (Free For All)"
+								random_owned_planet = {
+									limit = { 
+										NOT = {has_modifier = static_modifier_am_civics_planet_decay_8 } 
+										NOT = {has_modifier = static_modifier_am_civics_planet_decay_9 } 
+										NOT = {has_modifier = static_modifier_am_civics_planet_decay_10 }
+										is_under_colonization = no									
+									}
+									log = " -- Resettled to: [this.GetName]."
+									resettle_pop = {
+										pop = PREVPREV
+										planet = THIS
+									}
+								}
+							}
+						}
+					}
+					owner = { remove_country_flag = resettle_pop_locust_dummy }		
+				}						
+			}
+		}
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.11
+### Impending Doom: Warning / Decision Event each time a planet enters a high stage of "Drained Planet"
+planet_event = {
+	id = events_am_civics_locust_capitalism.8
+	title = "events_am_civics_locust_capitalism.8.name"
+	desc = "events_am_civics_locust_capitalism.8.desc"
+	picture = GFX_evt_alien_propaganda
+	location = this
+	show_sound = event_air_raid_siren
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "events_am_civics_locust_capitalism.8.option.a"	
+		custom_tooltip = "events_am_civics_locust_capitalism.8.option.a.tt"
+		hidden_effect = { add_modifier = { modifier = "static_modifier_am_civics_destructive_flight" } }
+	}
+	option = {
+		name = "events_am_civics_locust_capitalism.8.option.b"	
+		custom_tooltip = "events_am_civics_locust_capitalism.8.option.b.tt"
+		hidden_effect = { add_modifier = { modifier = "static_modifier_am_civics_destructive_panic" } }
+	}
+}
+
+### Triggered by Event: events_am_civics_locust_capitalism.11
+### Impending Doom: Warning / Decision Event the first time the Capital moves towards a high level of "Drained Planet"
+planet_event = {
+	id = events_am_civics_locust_capitalism.9
+	title = "events_am_civics_locust_capitalism.9.name"
+	desc = "events_am_civics_locust_capitalism.9.desc"
+	picture = GFX_evt_alien_propaganda
+	location = this
+	show_sound = event_air_raid_siren
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "events_am_civics_locust_capitalism.9.option.a"
+		owner = { add_modifier = { modifier = "static_modifier_locust_capital_evacuation" days = 3600 } }
+	}
+}
+
+### Triggered by Event: events_am_civics_locust_capitalism.11
+### Planet Destruction Event: Cracked World
+planet_event = {
+	id = events_am_civics_locust_capitalism.10
+	title = "events_am_civics_locust_capitalism.10.name"
+	desc = "events_am_civics_locust_capitalism.10.desc"
+	picture = GFX_evt_exploding_planet
+	location = this
+	show_sound = event_screams
+
+	is_triggered_only = yes	
+	
+	immediate = {
+		remove_modifier = static_modifier_am_civics_planet_decay_10
+		remove_modifier = static_modifier_am_civics_destructive_panic
+		remove_modifier = static_modifier_am_civics_destructive_flight
+		change_pc = pc_broken
+		clear_deposits = yes
+		add_deposit = d_trade_value_6
+	}
+
+	option = {
+		name = "events_am_civics_locust_capitalism.10.option.a"
+		custom_tooltip = "events_am_civics_locust_capitalism.10.option.a.tt"
+	}
+}
+
+### Triggered initially by event: events_am_civics_locust_capitalism.5 
+### Then re-triggered once by civics_events_locust_capitalism.11 (aka this event) if no "Drained Planet" modifier was found.
+### Then re-triggered regularly based on population size by events_am_civics_locust_capitalism.12.
+### (...phew, this feels unnecessarily complicated, doesn't it?)
+### Increases planet decay and triggers dummy delay event ; or triggers planet destruction event.
+planet_event = {
+	id = events_am_civics_locust_capitalism.11
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	
+	immediate = {
+		### If we don't have a "Drained Planet" modifier yet, add one, and reschedule this event to trigger again later.
+		IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_1 }
+			remove_modifier = static_modifier_am_civics_planet_decay_1
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_2 }
+			planet_event = { id = events_am_civics_locust_capitalism.11 days = 1800 random = 3600 } # 10-15 years
+		}
+		### Otherwise, increase "Drained Planet" modifier and reschedule this event based on Population Size (via events_am_civics_locust_capitalism.12)
+		ELSE_IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_2 }
+			remove_modifier = static_modifier_am_civics_planet_decay_2
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_3 }
+			planet_event = { id = events_am_civics_locust_capitalism.12 }
+		}
+		ELSE_IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_3 }
+			remove_modifier = static_modifier_am_civics_planet_decay_3
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_4 }
+			planet_event = { id = events_am_civics_locust_capitalism.12 }
+		}
+		ELSE_IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_4 }
+			remove_modifier = static_modifier_am_civics_planet_decay_4
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_5 }
+			planet_event = { id = events_am_civics_locust_capitalism.12 }
+		}
+		ELSE_IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_5 }
+			remove_modifier = static_modifier_am_civics_planet_decay_5
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_6 }
+			planet_event = { id = events_am_civics_locust_capitalism.12 }
+			if = { 
+				### Impending Doom: Warning / Decision Event the first time the Capital moves towards a high level of "Drained Planet"
+				limit = { NOT = { owner = { has_country_flag = locust_capital_warning_received } } }
+				owner = { set_country_flag = locust_capital_warning_received }				
+				planet_event = { id = events_am_civics_locust_capitalism.9 }
+			}
+		}
+		ELSE_IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_6 }
+			remove_modifier = static_modifier_am_civics_planet_decay_6
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_7 }
+			planet_event = { id = events_am_civics_locust_capitalism.12 }
+		}
+		ELSE_IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_7 }
+			remove_modifier = static_modifier_am_civics_planet_decay_7
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_8 }
+			planet_event = { id = events_am_civics_locust_capitalism.12 }
+			### Impending Doom: Warning / Decision Event each time a planet enters a high stage of "Drained Planet"
+			planet_event = { id = events_am_civics_locust_capitalism.8 } 
+		}
+		ELSE_IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_8 }
+			remove_modifier = static_modifier_am_civics_planet_decay_8
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_9 }
+			planet_event = { id = events_am_civics_locust_capitalism.12 }
+		}
+		ELSE_IF = {
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_9 }
+			remove_modifier = static_modifier_am_civics_planet_decay_9
+			add_modifier = { modifier = static_modifier_am_civics_planet_decay_10 }
+			planet_event = { id = events_am_civics_locust_capitalism.12 }			
+		}
+		ELSE_IF = { # Bye!
+			limit = { has_modifier = static_modifier_am_civics_planet_decay_10 }
+			log = "Planet Destruction Event on [this.GetName]."
+			### Planet Destruction Event: Cracked World
+			planet_event = { id = events_am_civics_locust_capitalism.10 }
+		}
+	}	
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.11
+### Timer event to reschedule events_am_civics_locust_capitalism.11 again after a delay that depends on the number of pops o the planet.
+planet_event = {
+	id = events_am_civics_locust_capitalism.12
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	
+	immediate = {
+		IF = {
+			limit = { num_pops >= 50 }
+			planet_event = { id = events_am_civics_locust_capitalism.11 days = 2160 random = 720 } # 6-8 years
+		}		
+		ELSE_IF = {
+			limit = { num_pops >= 40 }
+			planet_event = { id = events_am_civics_locust_capitalism.11 days = 2880 random = 720 } # 8-10 years
+		}
+		ELSE_IF = {
+			limit = { num_pops >= 30 }
+			planet_event = { id = events_am_civics_locust_capitalism.11 days = 3600 random = 720 } # 10-12 years
+		}
+		ELSE_IF = {
+			limit = { num_pops >= 20 }
+			planet_event = { id = events_am_civics_locust_capitalism.11 days = 4320 random = 720 } # 12-14 years
+		}
+		ELSE_IF = {
+			limit = { num_pops >= 10 }
+			planet_event = { id = events_am_civics_locust_capitalism.11 days = 6480 random = 1080 } # 14-17 years
+		}
+		ELSE = {
+			planet_event = { id = events_am_civics_locust_capitalism.11 days = 6120 random = 1080 } # 17-20 years
+		}
+	}		
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.3
+### Keeps track of how long (roughly) planets have been under the rule of a Locust for Deposit / Mining Station Destruction events
+planet_event = {
+	id = events_am_civics_locust_capitalism.13
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	
+	immediate = {
+		IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_50_years }
+			### We're at maximum, so we don't actually have to do anything
+			### and can instead marvel at the fact that the deposit has survived this long.
+			### This is required so the ELSE_IFs don't come into effect.
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_45_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_45_years
+			set_planet_flag = am_civics_locust_virtual_timer_50_years
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_40_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_40_years
+			set_planet_flag = am_civics_locust_virtual_timer_45_years
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_35_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_35_years
+			set_planet_flag = am_civics_locust_virtual_timer_40_years
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_30_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_30_years
+			set_planet_flag = am_civics_locust_virtual_timer_35_years
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_25_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_25_years
+			set_planet_flag = am_civics_locust_virtual_timer_30_years
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_20_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_20_years
+			set_planet_flag = am_civics_locust_virtual_timer_25_years
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_15_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_15_years
+			set_planet_flag = am_civics_locust_virtual_timer_20_years
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_10_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_10_years
+			set_planet_flag = am_civics_locust_virtual_timer_15_years
+		}
+		ELSE_IF = {
+			limit = { has_planet_flag = am_civics_locust_virtual_timer_5_years }
+			remove_planet_flag = am_civics_locust_virtual_timer_5_years
+			set_planet_flag = am_civics_locust_virtual_timer_10_years
+		}
+		ELSE = {
+			set_planet_flag = am_civics_locust_virtual_timer_5_years
+			set_planet_flag = am_civics_station_in_danger
+		}
+	}
+}
+
+### Triggered by on_action: on_tech_increased
+### Removes all "Drained Planet" modifiers (and other modifiers associated with them) from all planets if we just reserached "Sustainability Industries".
+country_event = {
+	id = events_am_civics_locust_capitalism.14
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	trigger = { last_increased_tech = "tech_am_civics_locust_sustainability_industries" }
+		
+	immediate = {
+		every_planet_within_border = {
+			remove_modifier = static_modifier_am_civics_planet_decay_1
+			remove_modifier = static_modifier_am_civics_planet_decay_2
+			remove_modifier = static_modifier_am_civics_planet_decay_3
+			remove_modifier = static_modifier_am_civics_planet_decay_4
+			remove_modifier = static_modifier_am_civics_planet_decay_5
+			remove_modifier = static_modifier_am_civics_planet_decay_6
+			remove_modifier = static_modifier_am_civics_planet_decay_7
+			remove_modifier = static_modifier_am_civics_planet_decay_8
+			remove_modifier = static_modifier_am_civics_planet_decay_9
+			remove_modifier = static_modifier_am_civics_planet_decay_10
+			remove_modifier = static_modifier_am_civics_destructive_panic
+			remove_modifier = static_modifier_am_civics_destructive_flight
+		}
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.6
+### Habitat Warning I
+planet_event = {
+	id = events_am_civics_locust_capitalism.15
+	title = "events_am_civics_locust_capitalism.15.name"
+	desc = "events_am_civics_locust_capitalism.15.desc"
+	picture = GFX_evt_megastructure_construction
+	location = this
+
+	is_triggered_only = yes
+	
+	pre_triggers = {
+		has_owner = yes
+		original_owner = yes
+	}
+	
+	trigger = {
+		owner = { has_valid_civic = civic_am_civics_locust_capitalism }
+		owner = { NOT = { has_country_flag = locust_capitalist_gave_up_colony } }
+	}
+	
+	### Troll-Option
+	option = {
+		name = "events_am_civics_locust_capitalism.15.option.a"	
+		allow = {
+			custom_tooltip = {
+				fail_text = events_am_civics_locust_capitalism.15.option.a.tt
+				always = no
+			}
+		}
+		
+		### Subtract the costs... not!
+		event_target:event_owner = {
+			add_resource = {
+				energy = -400
+			}
+		}
+	}
+	# Duct-Tape Wuhuhu!
+	option = {
+		name = "events_am_civics_locust_capitalism.15.option.b"	
+		hidden_effect = {
+			planet_event = { id = events_am_civics_locust_capitalism.16 }
+		}
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.15
+planet_event = {
+	id = events_am_civics_locust_capitalism.16
+	title = "events_am_civics_locust_capitalism.16.name"
+	desc = "events_am_civics_locust_capitalism.16.desc"
+	picture = GFX_evt_caravaneers
+	location = this
+
+	is_triggered_only = yes
+	
+	pre_triggers = {
+		has_owner = yes
+		original_owner = yes
+	}
+	
+	trigger = {
+		owner = { has_valid_civic = civic_am_civics_locust_capitalism }
+		owner = { NOT = { has_country_flag = locust_capitalist_gave_up_colony } }
+	}
+	
+	immediate = {
+		event_target:event_owner = {
+			leader = {
+				save_event_target_as = event_leader
+			}
+		}
+		planet_event = { id = events_am_civics_locust_capitalism.17 days = 3600 }
+	}
+	
+	option = {
+		name = "events_am_civics_locust_capitalism.16.option.a"	
+		hidden_effect = { 
+			remove_modifier = "static_modifier_am_civics_locust_habitat_3"
+			add_modifier = { modifier = "static_modifier_am_civics_locust_habitat_5" }
+		}
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.16
+### Habitat Warning II
+planet_event = {
+	id = events_am_civics_locust_capitalism.17
+	title = "events_am_civics_locust_capitalism.17.name"
+	desc = "events_am_civics_locust_capitalism.17.desc"
+	picture = GFX_evt_megastructure_construction
+	location = this
+	show_sound = event_air_raid_siren
+
+	is_triggered_only = yes
+	
+	pre_triggers = {
+		has_owner = yes
+		original_owner = yes
+	}
+	
+	trigger = {
+		owner = { has_valid_civic = civic_am_civics_locust_capitalism }
+		owner = { NOT = { has_country_flag = locust_capitalist_gave_up_colony } }
+	}
+	
+	immediate = {
+		add_planet_devastation = 30
+	}
+	
+	### Troll-Option
+	option = {
+		name = "events_am_civics_locust_capitalism.17.option.a"	
+		allow = {
+			custom_tooltip = {
+				fail_text = events_am_civics_locust_capitalism.17.option.a.tt
+				always = no
+			}
+		}
+		
+		### Subtract the costs... not!
+		event_target:event_owner = {
+			add_resource = {
+				energy = -2000
+			}
+		}	
+	}
+	
+	### More Duct Tape
+	option = {
+		name = "events_am_civics_locust_capitalism.17.option.b"	
+		hidden_effect = { 
+			remove_modifier = "static_modifier_am_civics_locust_habitat_5"
+			add_modifier = { modifier = "static_modifier_am_civics_locust_habitat_6" }
+			planet_event = { id = events_am_civics_locust_capitalism.18 days = 30 }
+		}
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.17
+### Habitat Warning III
+planet_event = {
+	id = events_am_civics_locust_capitalism.18
+	title = "events_am_civics_locust_capitalism.18.name"
+	desc = "events_am_civics_locust_capitalism.18.desc"
+	picture = GFX_evt_megastructure_construction
+	location = this
+
+	is_triggered_only = yes
+	
+	pre_triggers = {
+		has_owner = yes
+		original_owner = yes
+	}
+	
+	trigger = {
+		owner = { has_valid_civic = civic_am_civics_locust_capitalism }
+		owner = { NOT = { has_country_flag = locust_capitalist_gave_up_colony } }
+	}
+	
+	immediate = {
+		planet_event = { id = events_am_civics_locust_capitalism.19 days = 360 random 720 }
+	}
+	
+	option = {
+		name = "events_am_civics_locust_capitalism.18.option.a"	
+		custom_tooltip = events_am_civics_locust_capitalism.18.option.a.tt
+	}
+}
+
+### Triggered by event: events_am_civics_locust_capitalism.18
+### Habitat goes Boom
+planet_event = {
+	id = events_am_civics_locust_capitalism.19
+	title = "events_am_civics_locust_capitalism.19.name"
+	desc = "events_am_civics_locust_capitalism.19.desc"
+	picture = GFX_evt_megastructure_construction
+	location = this
+	show_sound = event_air_raid_siren
+
+	is_triggered_only = yes
+	
+	pre_triggers = {
+		has_owner = yes
+		original_owner = yes
+	}
+	
+	trigger = {
+		owner = { has_valid_civic = civic_am_civics_locust_capitalism }
+		owner = { NOT = { has_country_flag = locust_capitalist_gave_up_colony } }
+	}
+	
+	immediate = {	
+		set_planet_flag = locust_capitalist_habitat_down
+		change_pc = pc_habitat_shielded		
+		remove_modifier = "static_modifier_am_civics_locust_habitat_6"
+	}
+	
+	### R.I.P.
+	option = {
+		name = "events_am_civics_locust_capitalism.19.option.a"
+		hidden_effect = {
+			clear_deposits = yes
+		}
+		add_deposit = d_alloys_5
+	}
+}
+
+### In case the habitat was given up early.
+planet_event = {
+	id = events_am_civics_locust_capitalism.20
+	
+	hide_window = yes
+	
+	
+	pre_triggers = {
+		has_owner = no
+	}
+	
+	trigger = {
+		has_planet_flag = void_dweller_habitat_3
+		NOT = { has_planet_flag = locust_capitalist_habitat_down }
+		is_colony = no
+		is_under_colonization = no
+		solar_system = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_am_civics_locust_capitalism
+				NOT = { has_country_flag = locust_capitalist_gave_up_colony }
+			}
+		}
+	}
+	
+	immediate = {
+		change_pc = pc_habitat_shielded	
+		remove_modifier = "static_modifier_am_civics_locust_habitat_3"
+		remove_modifier = "static_modifier_am_civics_locust_habitat_5"
+		remove_modifier = "static_modifier_am_civics_locust_habitat_6"
+		save_event_target_as = event_location
+		solar_system = {
+			owner = {
+				set_country_flag = locust_capitalist_gave_up_colony
+				country_event = { id = events_am_civics_locust_capitalism.21 days = 7 random = 7 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = events_am_civics_locust_capitalism.21
+	title = "events_am_civics_locust_capitalism.21.name"
+	desc = "events_am_civics_locust_capitalism.21.desc"
+	picture = GFX_evt_megastructure_construction
+	location = event_target:event_location
+	
+	is_triggered_only = yes
+	
+	### R.I.P.
+	option = {
+		name = "events_am_civics_locust_capitalism.21.option.a"
+		hidden_effect = {
+			event_target:event_location = {
+				clear_deposits = yes
+			}
+		}
+		event_target:event_location = {
+			add_deposit = d_alloys_5
+		}
+	}
+}

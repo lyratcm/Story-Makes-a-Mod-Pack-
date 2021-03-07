@@ -1,0 +1,32 @@
+trait_clumsy = {
+    cost = -1
+    initial = no
+    modification = no
+    randomized = no
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_dextrous"
+        "trait_extremely_dextrous"
+        "trait_limbless"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    custom_tooltip = TRAIT_CLUMSY_EFFECT
+    modifier = {
+        planet_jobs_consumer_goods_produces_mult = -0.1
+        planet_jobs_alloys_produces_mult = -0.1
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_clumsy@prev
+                }
+            }
+        }
+    }
+}

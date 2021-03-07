@@ -1,0 +1,60 @@
+building_godfather_mansion = {	
+	base_buildtime = 600
+	base_cap_amount = 1
+	icon = building_luxury_residence
+	
+	branch_office_building = yes
+	
+	prerequisites = { "tech_executive_retreat" }
+	
+	show_tech_unlock_if = { 
+		is_criminal_syndicate = yes
+	}
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_megacorp = yes
+			is_criminal_syndicate = yes
+		}		
+	}
+	
+	allow = {
+		num_pops >= 50
+	}	
+	
+	country_modifier = {
+		planet_amenities_mult = 0.1
+	}
+	
+	planet_modifier = {
+		trade_value_mult = 0.25
+		job_mob_boss_add = 1
+		planet_crime_add = 75
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			exotic_gases = 50
+		}	
+		upkeep = {
+			energy = 5
+			exotic_gases = 1
+		}		
+	}
+	
+	ai_weight = {
+		weight = 6
+		modifier = {
+			factor = 0
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = exotic_gases
+					value >= 2
+				}
+			}
+		}
+	}
+}

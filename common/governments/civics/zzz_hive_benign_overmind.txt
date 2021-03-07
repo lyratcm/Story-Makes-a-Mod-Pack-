@@ -1,0 +1,10 @@
+lrsk_gov_var_civic_hive_benign_overmind = {
+	potential = { authority = { value = auth_hive_mind } }
+    possible = { civics = { NOR = { value = civic_hive_devouring_swarm } } }
+    #icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_hive.dds"
+	random_weight = { base = 5 }
+	modifier = {
+		country_vassal_naval_capacity_contribution_mult = 0.2
+    	country_subject_power_penalty_mult = -0.25
+	}
+}

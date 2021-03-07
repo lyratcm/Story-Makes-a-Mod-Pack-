@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_5 = 201
+    @y_1 = 55
+    positionType = {
+        name = "tr_harmony_the_greater_good"
+        position = {
+            x = @x_5
+            y = @y_1
+        }
+    }
+}

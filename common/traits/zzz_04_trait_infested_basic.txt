@@ -1,0 +1,17 @@
+trait_infested_basic = {
+    cost = 0
+    icon = "gfx/interface/icons/traits/trait_infested.dds"
+    initial = no
+    randomized = no
+    modification = no
+    sorting_priority = 10
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        pop_amenities_usage_mult = 0.2
+        planet_pops_organics_food_upkeep_mult = 0.2
+        planet_pops_organics_minerals_upkeep_mult = 0.2
+        species_empire_size_mult = 0.2
+    }
+}

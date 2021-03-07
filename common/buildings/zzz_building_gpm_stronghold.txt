@@ -1,0 +1,65 @@
+gpm_building_stronghold = {
+	base_buildtime = 180
+	base_cap_amount = 1
+
+	category = army
+
+	planet_modifier = {
+		planet_housing_add = 2
+		planet_orbital_bombardment_damage = -0.5
+	}
+
+	triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_functional_architecture
+                    has_valid_civic = civic_functional_architecture_megacorp
+                }
+            }
+        }
+        planet_housing_add = 2
+    }
+
+	# gestalts get bunker drones
+	triggered_planet_modifier = {
+		potential = {
+			owner = { has_ethic = ethic_gestalt_consciousness }
+		}
+		modifier = {
+			job_gpm_bunker_drone_add = 2
+		}
+	}
+
+	# rest get bunker armies
+	triggered_planet_modifier = {
+		potential = {
+			owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		}
+		modifier = {
+			job_gpm_bunker_army_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 200
+			alloys = 100
+		}		
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	potential = {
+		planet = {
+			has_modifier = "gpm_precursor_bunker_grid"
+		}	
+	}
+	
+	ai_weight = {
+		weight = 0.5
+	}
+}

@@ -1,0 +1,12 @@
+civic_financial_circle = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 7
+    }
+    modifier = {
+        trade_value_mult = 0.20
+        country_admin_cap_mult = -0.05
+    }
+}

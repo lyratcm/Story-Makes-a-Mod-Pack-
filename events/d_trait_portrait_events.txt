@@ -1,0 +1,1403 @@
+namespace = d_traits_portraits
+
+# adjust portraits according to traits
+event = {
+	id = d_traits_portraits.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_playable_country = {
+			limit = { has_country_flag = template_country }
+			species = {
+				set_species_flag = template_species
+			}
+			every_owned_pop = {
+				species = {
+					set_species_flag = template_species
+				}
+			}
+		}
+		every_galaxy_species = {
+			limit = {
+				any_galaxy_species = {
+					is_same_species = prev
+					has_species_flag = template_species
+				}
+			}
+			set_species_flag = template_species
+		}
+		every_galaxy_species = {
+			limit = {
+				weight_species_portrait = yes
+			}
+			switch = {
+				trigger = is_species_class
+				HUM = {
+					if = {
+						limit = {
+							AND = {
+								OR = {
+									has_trait = trait_intelligent
+									calc_true_if = {
+										amount > 1
+										has_trait = trait_talented
+										has_trait = trait_quick_learners
+										has_trait = trait_ingenious
+										has_trait = trait_natural_physicists
+										has_trait = trait_natural_engineers
+										has_trait = trait_natural_sociologists
+									}
+								}
+								any_galaxy_species = {
+									species_portrait = humanoid_hp_06
+									weight_species_portrait = yes
+									NOR = {
+										has_trait = trait_intelligent
+										calc_true_if = {
+											amount > 1
+											has_trait = trait_talented
+											has_trait = trait_quick_learners
+											has_trait = trait_ingenious
+											has_trait = trait_natural_physicists
+											has_trait = trait_natural_engineers
+											has_trait = trait_natural_sociologists
+										}
+									}
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = humanoid_hp_06
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = humanoid_hp_06
+					}
+					else_if = {
+						limit = {
+							AND = {
+								OR = {
+									has_trait = trait_intelligent
+									calc_true_if = {
+										amount > 1
+										has_trait = trait_talented
+										has_trait = trait_quick_learners
+										has_trait = trait_ingenious
+										has_trait = trait_natural_physicists
+										has_trait = trait_natural_engineers
+										has_trait = trait_natural_sociologists
+									}
+								}
+								NOT = { species_portrait = humanoid_hp_06 }
+								any_galaxy_species = {
+									species_portrait = humanoid_04
+									weight_species_portrait = yes
+									NOR = {
+										has_trait = trait_intelligent
+										calc_true_if = {
+											amount > 1
+											has_trait = trait_talented
+											has_trait = trait_quick_learners
+											has_trait = trait_ingenious
+											has_trait = trait_natural_physicists
+											has_trait = trait_natural_engineers
+											has_trait = trait_natural_sociologists
+										}
+									}
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = humanoid_04
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = humanoid_04
+					}
+				}
+				MAM = {
+					if = {
+						limit = {
+							has_trait = trait_carnivore
+							OR = {
+								species_portrait = mam10
+								species_portrait = mam9
+								species_portrait = mam11
+								species_portrait = mam12
+								species_portrait = mam15
+								species_portrait = mam8
+							}
+						}
+						random_list = {
+							10 = {
+								change_species_portrait = mam14
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam14
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = mam3
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam3
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = mam4
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam4
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							4 = {
+								change_species_portrait = mam5
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam5
+									}
+								}
+							}
+							4 = {
+								change_species_portrait = mam13
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam13
+									}
+								}
+							}
+							4 = {
+								change_species_portrait = mam6
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam6
+										NOT = { has_trait = trait_grazer }
+									}
+								}
+							}
+							4 = {
+								change_species_portrait = mam7
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam7
+										NOT = { has_trait = trait_grazer }
+									}
+								}
+							}
+							4 = {
+								change_species_portrait = mam2
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam2
+										NOT = { has_trait = trait_grazer }
+									}
+								}
+							}
+							4 = {
+								change_species_portrait = mam1
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam1
+										NOT = { has_trait = trait_grazer }
+									}
+								}
+							}
+							4 = {
+								change_species_portrait = mam16
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam16
+										NOT = { has_trait = trait_grazer }
+									}
+								}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_trait = trait_grazer
+							OR = {
+								species_portrait = mam14
+								species_portrait = mam3
+								species_portrait = mam4
+							}
+						}
+						random_list = {
+							10 = {
+								change_species_portrait = mam10
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam10
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = mam9
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam9
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = mam11
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam11
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = mam12
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam12
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = mam15
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = mam15
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				AVI = {
+					if = {
+						limit = {
+							has_trait = trait_carnivore
+							OR = {
+								species_portrait = avi8
+								species_portrait = avi15
+								species_portrait = avi4
+								species_portrait = avi7
+								species_portrait = avi5
+								species_portrait = avi14
+							}
+						}
+						random_list = {
+							10 = {
+								change_species_portrait = avi13
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi13
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi10
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi10
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi9
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi9
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi6
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi6
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi11
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi11
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi2
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi2
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi12
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi12
+										OR = {
+											NOT = { has_trait = trait_grazer }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_trait = trait_grazer
+							OR = {
+								species_portrait = avi13
+								species_portrait = avi10
+								species_portrait = avi9
+								species_portrait = avi6
+								species_portrait = avi11
+								species_portrait = avi2
+								species_portrait = avi12
+							}
+						}
+						random_list = {
+							10 = {
+								change_species_portrait = avi18
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi18
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi15
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi15
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi8
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi8
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi7
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi7
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi5
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi5
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = avi4
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = avi4
+										OR = {
+											NOT = { has_trait = trait_carnivore }
+											has_species_flag = player_species
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				REP = {
+					if = {
+						limit = {
+							has_trait = trait_carnivore
+							any_galaxy_species = {
+								species_portrait = rep12
+								weight_species_portrait = yes
+								NOT = {
+									has_trait = trait_carnivore
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = rep12
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = rep12
+					}
+					else_if = {
+						limit = {
+							NOT = { has_trait = trait_grazer }
+							any_galaxy_species = {
+								species_portrait = rep12
+								weight_species_portrait = yes
+								has_trait = trait_grazer
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = rep12
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = rep12
+					}
+					else_if = {
+						limit = {
+							has_trait = trait_carnivore
+							any_galaxy_species = {
+								species_portrait = rep9
+								weight_species_portrait = yes
+								NOT = {
+									has_trait = trait_carnivore
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = rep9
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = rep9
+					}
+					else_if = {
+						limit = {
+							NOT = { has_trait = trait_grazer }
+							any_galaxy_species = {
+								species_portrait = rep9
+								weight_species_portrait = yes
+								has_trait = trait_grazer
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = rep9
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = rep9
+					}
+					else_if = {
+						limit = {
+							OR = {
+								has_trait = trait_small
+								has_trait = trait_tiny
+							}
+							any_galaxy_species = {
+								species_portrait = rep16
+								weight_species_portrait = yes
+								NOR = {
+									has_trait = trait_small
+									has_trait = trait_tiny
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = rep16
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = rep16
+					}
+					else_if = {
+						limit = {
+							NOR = {
+								has_trait = trait_big
+								has_trait = trait_huge
+							}
+							any_galaxy_species = {
+								species_portrait = rep16
+								weight_species_portrait = yes
+								OR = {
+									has_trait = trait_big
+									has_trait = trait_huge
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = rep16
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = rep16
+					}
+					else_if = {
+						limit = {
+							OR = {
+								has_trait = trait_big
+								has_trait = trait_huge
+							}
+							any_galaxy_species = {
+								species_portrait = rep17
+								weight_species_portrait = yes
+								NOR = {
+									has_trait = trait_big
+									has_trait = trait_huge
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = rep17
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = rep17
+					}
+					else_if = {
+						limit = {
+							NOR = {
+								has_trait = trait_small
+								has_trait = trait_tiny
+							}
+							any_galaxy_species = {
+								species_portrait = rep17
+								weight_species_portrait = yes
+								OR = {
+									has_trait = trait_small
+									has_trait = trait_tiny
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = rep17
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = rep17
+					}
+				}
+				MOL = {
+					if = {
+						limit = {
+							OR = {
+								has_trait = trait_sessile
+								has_trait = trait_rooted_adults
+								has_trait = trait_potential_living_architecture
+							}
+							any_galaxy_species = {
+								species_portrait = mol17
+								weight_species_portrait = yes
+								NOR = {
+									has_trait = trait_sessile
+									has_trait = trait_rooted_adults
+									has_trait = trait_potential_living_architecture
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = mol17
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = mol17
+					}
+					else_if = {
+						limit = {
+							OR = {
+								has_trait = trait_sessile
+								has_trait = trait_rooted_adults
+								has_trait = trait_potential_living_architecture
+							}
+							NOT = { species_portrait = mol17 }
+							any_galaxy_species = {
+								species_portrait = mol6
+								weight_species_portrait = yes
+								NOR = {
+									has_trait = trait_sessile
+									has_trait = trait_rooted_adults
+									has_trait = trait_potential_living_architecture
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								species_portrait = mol6
+								weight_species_portrait = yes
+							}
+							change_species_portrait = prev
+						}
+						change_species_portrait = mol6
+					}
+				}
+				FUN = {
+					if = {
+						limit = {
+							OR = {
+								species_portrait = fun16
+							}
+							NOR = {
+								has_trait = trait_parasitoid
+								has_trait = trait_necrophage
+							}
+							any_galaxy_species = {
+								is_species_class = FUN
+								OR = {
+									has_trait = trait_parasitoid
+									has_trait = trait_necrophage
+								}
+								weight_species_portrait = yes
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								is_species_class = FUN
+								OR = {
+									has_trait = trait_parasitoid
+									has_trait = trait_necrophage
+								}
+								weight_species_portrait = yes
+								NOT = {
+									species_portrait = fun4
+								}
+							}
+							prev = { change_species_portrait = prev }
+							change_species_portrait = fun16
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								species_portrait = fun4
+							}
+							NOR = {
+								has_trait = trait_parasitoid
+								has_trait = trait_necrophage
+							}
+							any_galaxy_species = {
+								is_species_class = FUN
+								OR = {
+									has_trait = trait_parasitoid
+									has_trait = trait_necrophage
+								}
+								weight_species_portrait = yes
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								is_species_class = FUN
+								OR = {
+									has_trait = trait_parasitoid
+									has_trait = trait_necrophage
+								}
+								weight_species_portrait = yes
+								NOT = {
+									species_portrait = fun16
+								}
+							}
+							prev = { change_species_portrait = prev }
+							change_species_portrait = fun4
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								species_portrait = fun16
+								species_portrait = fun4
+							}
+							NOR = {
+								has_trait = trait_parasitoid
+								has_trait = trait_necrophage
+								has_trait = trait_repugnant
+								has_trait = trait_carnivore
+								has_trait = trait_genetic_integration
+							}
+						}
+						random_list = {
+							10 = {
+								change_species_portrait = fun2
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun2
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun3
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun3
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun13
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun13
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun12
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun12
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun6
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun6
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun15
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun15
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun7
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun7
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun1
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun1
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun9
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun9
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun11
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun11
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun8
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun8
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun14
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun14
+									}
+								}
+							}
+							10 = {
+								change_species_portrait = fun10
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun10
+									}
+								}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								has_trait = trait_parasitoid
+								has_trait = trait_necrophage
+							}
+							NOR = {
+								species_portrait = fun16
+								species_portrait = fun4
+								has_trait = trait_potential_living_architecture
+								has_trait = trait_sessile
+								has_trait = trait_sapient_form
+							}
+							any_galaxy_species = {
+								OR = {
+									species_portrait = fun16
+									species_portrait = fun4
+								}
+								NOR = {
+									has_trait = trait_parasitoid
+									has_trait = trait_necrophage
+								}
+							}
+						}
+						random_galaxy_species = {
+							limit = {
+								OR = {
+									species_portrait = fun16
+									species_portrait = fun4
+								}
+							}
+							if = {
+								limit = { species_portrait = fun16 }
+								prev = { set_timed_species_flag = { flag = portrait16 days = 1 } }
+							}
+							change_species_portrait = prev
+						}
+						if = {
+							limit = { has_species_flag = portrait16 }
+							change_species_portrait = fun16
+						}
+						else = {
+							change_species_portrait = fun4
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								has_trait = trait_parasitoid
+								has_trait = trait_necrophage
+							}
+							NOR = {
+								species_portrait = fun16
+								species_portrait = fun4
+								has_trait = trait_potential_living_architecture
+								has_trait = trait_sessile
+								has_trait = trait_sapient_form
+							}
+						}
+						random_list = {
+							1 = {
+								change_species_portrait = fun4
+							}
+							1 = {
+								change_species_portrait = fun16
+								modifier = {
+									factor = 0
+									NOR = {
+										host_has_dlc = "Creatures of the Void Portrait Pack"
+										host_has_dlc = "Anniversary Portraits"
+									}
+								}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								has_trait = trait_sessile
+								has_trait = trait_rooted_adults
+								has_trait = trait_potential_living_architecture
+							}
+							NOR = {
+								species_portrait = fun11
+								species_portrait = fun12
+								species_portrait = fun14
+								species_portrait = fun17
+							}
+						}
+						random_list = {
+							10 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun11
+										OR = {
+											weight_species_portrait = no
+											has_trait = trait_sessile
+											has_trait = trait_rooted_adults
+											has_trait = trait_potential_living_architecture
+										}
+									}			
+								}
+								if = {
+									limit = {
+										any_galaxy_species = {
+											species_portrait = fun11
+										}			
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = fun11
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+									change_species_portrait = fun11
+								}
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun12
+										OR = {
+											weight_species_portrait = no
+											has_trait = trait_sessile
+											has_trait = trait_rooted_adults
+											has_trait = trait_potential_living_architecture
+										}
+									}			
+								}
+								if = {
+									limit = {
+										any_galaxy_species = {
+											species_portrait = fun12
+										}			
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = fun12
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+									change_species_portrait = fun12
+								}
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun14
+										OR = {
+											weight_species_portrait = no
+											has_trait = trait_sessile
+											has_trait = trait_rooted_adults
+											has_trait = trait_potential_living_architecture
+										}
+									}			
+								}
+								if = {
+									limit = {
+										any_galaxy_species = {
+											species_portrait = fun14
+										}			
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = fun14
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+									change_species_portrait = fun14
+								}
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = fun17
+										OR = {
+											weight_species_portrait = no
+											has_trait = trait_sessile
+											has_trait = trait_rooted_adults
+											has_trait = trait_potential_living_architecture
+										}
+									}			
+								}
+								modifier = {
+									factor = 0
+									NOT = {
+										host_has_dlc = "Leviathans Story Pack"
+									}		
+								}
+								if = {
+									limit = {
+										any_galaxy_species = {
+											species_portrait = fun17
+										}			
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = fun17
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+									change_species_portrait = fun17
+								}
+							}
+						}
+					}
+				}
+				PLANT = {
+					if = {
+						limit = {
+							AND = {
+								has_trait = trait_carnivore
+								OR = {
+									has_trait = trait_sessile
+									has_trait = trait_rooted_adults
+									has_trait = trait_potential_living_architecture
+								}
+							}
+							NOT = {
+								any_galaxy_species = {
+									species_portrait = pla2
+									OR = {
+										has_species_flag = player_species
+										has_trait = trait_carnivore
+									}
+								}	
+							}
+						}
+						if = {
+							limit = {
+								any_galaxy_species = { species_portrait = pla2 }
+							}
+							random_galaxy_species = {
+								limit = {
+									species_portrait = pla2
+									weight_species_portrait = yes
+								}
+								change_species_portrait = prev
+							}
+						}
+						change_species_portrait = pla2
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_trait = trait_carnivore
+								NOR = {
+									has_trait = trait_sessile
+									has_trait = trait_rooted_adults
+									has_trait = trait_potential_living_architecture
+								}
+							}
+							NAND = {
+								any_galaxy_species = {
+									species_portrait = pla11
+									OR = {
+										has_species_flag = player_species
+										has_trait = trait_carnivore
+									}
+								}	
+								any_galaxy_species = {
+									species_portrait = pla13
+									OR = {
+										has_species_flag = player_species
+										has_trait = trait_carnivore
+									}
+								}	
+							}
+						}
+						random_list = {
+							1 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = pla11
+										OR = {
+											has_species_flag = player_species
+											has_trait = trait_carnivore
+										}
+									}		
+								}
+								if = {
+									limit = {
+										any_galaxy_species = { species_portrait = pla11 }
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = pla11
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+								}		
+								change_species_portrait = pla11
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = pla13
+										OR = {
+											has_species_flag = player_species
+											has_trait = trait_carnivore
+										}
+									}		
+								}
+								if = {
+									limit = {
+										any_galaxy_species = { species_portrait = pla13 }
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = pla13
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+								}		
+								change_species_portrait = pla13
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_trait = trait_carnivore
+								NOR = {
+									has_trait = trait_sessile
+									has_trait = trait_rooted_adults
+									has_trait = trait_potential_living_architecture
+								}
+							}
+							NAND = {
+								any_galaxy_species = {
+									species_portrait = pla2
+									OR = {
+										has_species_flag = player_species
+										has_trait = trait_carnivore
+									}
+								}	
+								any_galaxy_species = {
+									species_portrait = pla11
+									OR = {
+										has_species_flag = player_species
+										has_trait = trait_carnivore
+									}
+								}	
+								any_galaxy_species = {
+									species_portrait = pla13
+									OR = {
+										has_species_flag = player_species
+										has_trait = trait_carnivore
+									}
+								}	
+							}
+						}
+						random_list = {
+							1 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = pla2
+										OR = {
+											has_species_flag = player_species
+											has_trait = trait_carnivore
+										}
+									}		
+								}
+								if = {
+									limit = {
+										any_galaxy_species = { species_portrait = pla2 }
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = pla2
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+								}		
+								change_species_portrait = pla2
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = pla11
+										OR = {
+											has_species_flag = player_species
+											has_trait = trait_carnivore
+										}
+									}		
+								}
+								if = {
+									limit = {
+										any_galaxy_species = { species_portrait = pla11 }
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = pla11
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+								}		
+								change_species_portrait = pla11
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									any_galaxy_species = {
+										species_portrait = pla13
+										OR = {
+											has_species_flag = player_species
+											has_trait = trait_carnivore
+										}
+									}		
+								}
+								if = {
+									limit = {
+										any_galaxy_species = { species_portrait = pla13 }
+									}
+									random_galaxy_species = {
+										limit = {
+											species_portrait = pla13
+											weight_species_portrait = yes
+										}
+										change_species_portrait = prev
+									}
+								}		
+								change_species_portrait = pla13
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

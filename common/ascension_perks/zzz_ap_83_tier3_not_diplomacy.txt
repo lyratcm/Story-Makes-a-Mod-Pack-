@@ -1,0 +1,41 @@
+ap_esap_ct3_not_diplomacy = {
+	on_enabled = {
+		#custom_tooltip = ap_esap_ct3_not_diplomacy_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_diplomacy_req_1"
+			has_ascension_perk = ap_esap_ct2_finance_infrastructure
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_diplomacy_req_2"
+			has_ascension_perk = ap_esap_ct2_war_expansion
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_diplomacy_req_3"
+			Not = {
+				has_ascension_perk = ap_esap_ct1_diplomacy
+			}
+		}
+	}
+
+	modifier = {
+		description = ap_esap_ct3_not_diplomacy_tooltip
+		planet_army_build_speed_mult = 1.0
+		starbase_shipyard_build_speed_mult = 1.0
+		country_naval_cap_mult = 0.25
+		country_command_limit_mult = 0.25
+		country_border_friction_mult = 1.0
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct3_not_diplomacy
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

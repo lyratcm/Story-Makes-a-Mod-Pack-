@@ -1,0 +1,396 @@
+###_	z modmenu-framework	######################################################################
+
+#_[change_size]
+#_[add_deposits]
+#_[创建超新星]
+#_[清理星系]
+#_[超新星冷却]
+
+
+
+
+###_[change_size]	###################################################
+z_fw_eft_planet_change_size_5 = {
+	random_list = {
+		5 = { change_planet_size = +1 }
+		5 = { change_planet_size = +2 }
+		5 = { change_planet_size = +3 }
+		5 = { change_planet_size = +4 }
+		5 = { change_planet_size = +5 }
+	}
+}
+z_fw_eft_planet_change_size_10 = {
+	random_list = {
+		5 = { change_planet_size = +1 }
+		5 = { change_planet_size = +2 }
+		5 = { change_planet_size = +3 }
+		5 = { change_planet_size = +4 }
+		5 = { change_planet_size = +5 }
+		5 = { change_planet_size = +6 }
+		5 = { change_planet_size = +7 }
+		5 = { change_planet_size = +8 }
+		5 = { change_planet_size = +9 }
+		5 = { change_planet_size = +10 }
+	}
+}
+z_fw_eft_planet_change_size_15 = {
+	random_list = {
+		5 = { change_planet_size = +1 }
+		5 = { change_planet_size = +2 }
+		5 = { change_planet_size = +3 }
+		5 = { change_planet_size = +4 }
+		5 = { change_planet_size = +5 }
+		5 = { change_planet_size = +6 }
+		5 = { change_planet_size = +7 }
+		5 = { change_planet_size = +8 }
+		5 = { change_planet_size = +9 }
+		5 = { change_planet_size = +10 }
+		5 = { change_planet_size = +11 }
+		5 = { change_planet_size = +12 }
+		5 = { change_planet_size = +13 }
+		5 = { change_planet_size = +14 }
+		5 = { change_planet_size = +15 }
+	}
+}
+
+
+
+
+###_[add_deposits]	###################################################
+z_fw_eft_deposit_star_bh = {
+	random_list = {
+		15 = { add_deposit = d_dark_matter_deposit_1 }
+		40 = { add_deposit = d_engineering_3  }
+		45 = { add_deposit = d_physics_3  }
+	}
+}
+z_fw_eft_deposit_planet_menerals = {
+	random_list = {
+		1 = {
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+		}
+		2 = {
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+		}
+		6 = {
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+		}
+		4 = {
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+		}
+		1 = {
+			add_deposit = d_minerals_4
+		}
+	}
+}
+
+
+
+
+###_[创建超新星]	###################################################
+#_planet_flag=	[z_fw_nova_cooldown_bh_30/25/20/15][z_fw_nova_cooldown_small]
+#_[plnt]
+z_fw_eft_star_explosion = {
+	set_ring = no
+	#_star tags
+	if = {#_RS
+		limit = { has_global_flag = has_real_space_mod }	#_RS install
+		if = {#_bh 30
+			limit = {
+				is_planet_class = pc_o_hyper_star
+			}
+			set_planet_flag = z_fw_nova_cooldown_bh_30
+		}
+		else_if = {#_bh 25
+			limit = {
+				OR = {
+					is_planet_class = pc_o_super_star
+					is_planet_class = pc_b_super_star
+					is_planet_class = pc_a_super_star
+					is_planet_class = pc_f_super_star
+				}
+			}
+			set_planet_flag = z_fw_nova_cooldown_bh_25
+		}
+		else_if = {#_bh 20
+			limit = {
+				OR = {
+					is_planet_class = pc_o_star
+					is_planet_class = pc_b_star
+					is_planet_class = pc_a_star
+					is_planet_class = pc_f_star
+				}
+			}
+			set_planet_flag = z_fw_nova_cooldown_bh_20
+		}
+		else_if = {#_bh 15
+			limit = {
+				OR = {
+					is_planet_class = pc_g_super_star
+					is_planet_class = pc_g_giant_star
+					is_planet_class = pc_k_super_star
+					is_planet_class = pc_k_giant_star
+				}
+			}
+			set_planet_flag = z_fw_nova_cooldown_bh_15
+		}
+		else_if = {#_small
+			limit = {
+				OR = {
+					is_planet_class = pc_g_star
+					is_planet_class = pc_k_star
+					is_planet_class = pc_m_hyper_star
+					is_planet_class = pc_m_super_star
+					is_planet_class = pc_m_giant_star
+					is_planet_class = pc_m_star
+					is_planet_class = pc_tt_red_star
+					is_planet_class = pc_tt_orange_star
+					is_planet_class = pc_tt_white_star
+				}
+			}
+			set_planet_flag = z_fw_nova_cooldown_small
+		}
+		else = {#_bh 15
+			set_planet_flag = z_fw_nova_cooldown_bh_15
+		}
+	}
+	else_if = {#_vanilla
+		limit = { NOT = { has_global_flag = has_real_space_mod } }	#_RS not install
+		if = {#_bh 25
+			limit = {
+				is_planet_class = pc_b_star
+			}
+			set_planet_flag = z_fw_nova_cooldown_bh_25
+		}
+		else_if = {#_bh 20
+			limit = {
+				OR = {
+					is_planet_class = pc_a_star
+					is_planet_class = pc_f_star
+				}
+			}
+			set_planet_flag = z_fw_nova_cooldown_bh_20
+		}
+		else_if = {#_bh 15
+			limit = {
+				OR = {
+					is_planet_class = pc_g_star
+					is_planet_class = pc_k_star
+				}
+			}
+			set_planet_flag = z_fw_nova_cooldown_bh_15
+		}
+		else_if = {#_small
+			limit = {
+				OR = {
+					is_planet_class = pc_m_star
+					is_planet_class = pc_m_giant_star
+				}
+			}
+			set_planet_flag = z_fw_nova_cooldown_small
+		}
+		else = {#_bh 15
+			set_planet_flag = z_fw_nova_cooldown_bh_15
+		}
+	}
+	#_爆发
+	change_pc = "z_pc_nova"
+	clear_deposits = yes
+	if = {#_RS
+		limit = { has_global_flag = has_real_space_mod }
+		set_planet_size = 7
+		z_fw_eft_planet_change_size_5 = yes
+	}
+	else = {#_vanilla
+		set_planet_size = 11
+		z_fw_eft_planet_change_size_5 = yes
+	}
+}
+
+
+
+
+###_[清理星系]	######################################################
+#_planet_flag=	[[z_fw_plent_devastation_1/2/3]]
+#_[plnt]
+z_fw_eft_planet_annihilation = {
+	#_所在星系
+	solar_system = {
+		#_清理环境物体
+		#_set_asteroid_belt = { radius = 0 }
+		every_system_ambient_object = {
+			limit = { NOT = { has_ambient_object_flag = z_fw_fx_ambient_ongoing } }
+			destroy_ambient_object = this
+		}
+		#_摧毁舰队
+		every_fleet_in_system = {
+			#limit = { <triggers> }
+			destroy_fleet = {
+				target = this
+				kill_leader = yes
+				destroy_template = yes
+			}
+		}
+		#_清除巨建
+		every_system_megastructure = {
+			limit = {
+				exists = this
+				NOT = { is_megastructure_type = lgate_base }
+			}
+			remove_megastructure = this
+		}
+		#_清理star---防止star殖民
+		every_system_planet = {
+			limit = {
+				is_star = yes
+				is_colony = yes
+			}
+			every_owned_pop = { kill_pop = yes }
+			remove_all_buildings = yes
+		}
+		#_清理planet---岔开时间减少ctd
+		every_system_planet = {
+			limit = { is_star = no }
+			planet_event = { id = z_fw1_planet_destruction.221 days = 4 random = 3 }
+		}
+	}
+}
+
+
+
+
+###_[请理星系_debug]	######################################################
+#_[sys]
+z_fw_eft_sys_annihilation_debug = {
+	#_不存在栖息地/环世界/思考战车
+	if = {
+		limit = {
+			NOR = {
+				any_system_planet = {
+					OR = {
+						is_planet_class = pc_habitat
+						is_planet_class = pc_habitat_shielded
+						is_planet_class = pc_ringworld_tech
+						is_planet_class = pc_ringworld_seam
+						is_planet_class = pc_ringworld_habitable
+					}
+				}
+				any_system_megastructure = {
+					OR = {
+						is_megastructure_type = think_tank_0
+						is_megastructure_type = think_tank_1
+						is_megastructure_type = think_tank_2
+						is_megastructure_type = think_tank_3
+						is_megastructure_type = think_tank_4
+						is_megastructure_type = think_tank_ruined
+						is_megastructure_type = think_tank_restored
+					}
+				}
+			}
+		}
+	}
+	#_clean_flag
+	every_system_planet = { remove_planet_flag = has_megastructure }
+}
+
+
+
+
+###_[超新星冷却]	###################################################
+z_fw_eft_nova_cooldown = {
+	if = {
+		limit = { has_planet_flag = z_fw_nova_cooldown_bh_30 }
+		remove_planet_flag = z_fw_nova_cooldown_bh_30
+		change_pc = "pc_black_hole"
+		clear_deposits = yes
+		set_planet_size = 30
+		z_fw_eft_planet_change_size_5 = yes
+		z_fw_eft_deposit_star_bh = yes
+	}
+	else_if = {
+		limit = { has_planet_flag = z_fw_nova_cooldown_bh_25 }
+		remove_planet_flag = z_fw_nova_cooldown_bh_25
+		change_pc = "pc_black_hole"
+		clear_deposits = yes
+		set_planet_size = 25
+		z_fw_eft_planet_change_size_5 = yes
+		z_fw_eft_deposit_star_bh = yes
+	}
+	else_if = {
+		limit = { has_planet_flag = z_fw_nova_cooldown_bh_20 }
+		remove_planet_flag = z_fw_nova_cooldown_bh_20
+		change_pc = "pc_black_hole"
+		clear_deposits = yes
+		set_planet_size = 20
+		z_fw_eft_planet_change_size_5 = yes
+		z_fw_eft_deposit_star_bh = yes
+	}
+	else_if = {
+		limit = { has_planet_flag = z_fw_nova_cooldown_bh_15 }
+		remove_planet_flag = z_fw_nova_cooldown_bh_15
+		change_pc = "pc_black_hole"
+		clear_deposits = yes
+		set_planet_size = 15
+		z_fw_eft_planet_change_size_5 = yes
+		z_fw_eft_deposit_star_bh = yes
+	}
+	#_small star
+	else = {
+		remove_planet_flag = z_fw_nova_cooldown_small
+		if = {#_RS
+			limit = { has_global_flag = has_real_space_mod }	#_RS install
+			random_list = {
+				10 = {
+					change_pc = "pc_neutron_star"
+					clear_deposits = yes
+					set_planet_size = 7
+					z_fw_eft_planet_change_size_5 = yes
+				} 
+				10 = {
+					change_pc = "pc_pulsar"
+					clear_deposits = yes
+					set_planet_size = 7
+					z_fw_eft_planet_change_size_5 = yes
+				}
+				10 = {#_rs
+					change_pc = "pc_magnetar"
+					clear_deposits = yes
+					set_planet_size = 7
+					z_fw_eft_planet_change_size_5 = yes
+				}
+				25 = {#_rs
+					change_pc = "pc_d_star"
+					clear_deposits = yes
+					set_planet_size = 10
+					z_fw_eft_planet_change_size_10 = yes
+				}
+			}
+		}
+		else = {#_vanilla
+			random_list = {
+				10 = {
+					change_pc = "pc_neutron_star"
+					clear_deposits = yes
+					set_planet_size = 20
+					z_fw_eft_planet_change_size_15 = yes
+				} 
+				10 = {
+					change_pc = "pc_pulsar"
+					clear_deposits = yes
+					set_planet_size = 20
+					z_fw_eft_planet_change_size_15 = yes
+				}
+			}
+		}
+	}
+}

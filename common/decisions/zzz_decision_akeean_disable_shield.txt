@@ -1,0 +1,57 @@
+decision_akeean_disable_shield = {
+	owned_planets_only = yes
+	sound = event_mystic_reveal_light
+	icon = decision_planet_beam
+
+	enactment_time = 30 # Enabling should be quick, disabling will take 3 months
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+		}
+	}
+
+	potential = {
+		any_moon = {
+					has_planet_flag = akeean_planetary_shielding_device
+					NOT = { is_planet_class = pc_shattered }
+					NOT = { is_planet_class = pc_shielded }
+					is_controlled_by = FROM
+		}
+	}
+
+	allow = {
+		has_modifier = akeean_shield_active
+		any_moon = {
+					has_planet_flag = akeean_planetary_shielding_device
+					NOT = { is_planet_class = pc_shattered }
+					NOT = { is_planet_class = pc_shielded }
+					is_controlled_by = FROM
+		}
+	}
+
+	effect = {
+			set_planet_entity = { entity = "relic_world_01_entity" }
+			remove_modifier = akeean_shield_active
+			remove_planet_flag = akeean_shield_active
+			add_modifier = { modifier = "akeean_shield_inactive" days = -1 }
+			set_planet_flag = akeean_shield_inactive
+			owner = {
+				add_modifier = { modifier = "akeean_shield_reactor_refund" days = 300 }
+			}
+			
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			has_orbital_bombardment = yes
+		}
+		modifier = {
+			factor = 0.25
+			has_orbital_bombardment = no
+		}
+	}
+}

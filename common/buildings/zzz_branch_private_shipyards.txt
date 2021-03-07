@@ -1,0 +1,77 @@
+building_private_shipyards = {
+    base_buildtime = @b1_time
+    branch_office_building = yes
+    potential = {
+        has_branch_office = yes
+        branch_office_owner = {
+            is_megacorp = yes
+            is_criminal_syndicate = no
+            NOT = {
+                is_ai = yes
+            }
+        }
+        NOT = {
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+    }
+    planet_modifier = {
+        job_foundry_add = 1
+        job_clerk_add = 2
+    }
+    resources = {
+        category = planet_branch_office_buildings
+        cost = {
+            minerals = 500
+        }
+        produces = {
+            alloys = 6
+        }
+        upkeep = {
+            energy = 2
+        }
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 5
+            branch_office_owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value < 5
+                }
+            }
+        }
+        modifier = {
+            weight = 5
+            branch_office_owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value < 10
+                }
+            }
+        }
+        modifier = {
+            weight = 5
+            branch_office_owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value < 15
+                }
+            }
+        }
+        modifier = {
+            weight = 300
+            NOT = {
+                has_building = building_private_shipyards
+            }
+            branch_office_owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value < 15
+                }
+            }
+        }
+    }
+}

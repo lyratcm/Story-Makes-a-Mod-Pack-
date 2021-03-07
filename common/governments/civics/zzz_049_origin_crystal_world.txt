@@ -1,0 +1,11 @@
+origin_crystal_world = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_pdcrystal.dds"
+	picture = GFX_origin_pd_crystal
+	starting_colony = pc_crystal
+	habitability_preference = pc_crystal
+	preferred_planet_class_neighbor = no
+	description = "origin_tooltip_crystal_world_effects"
+	random_weight = { base = 0 }
+	initializers = { pd_origin_init_crystal }
+}

@@ -1,0 +1,38 @@
+ap_esap_ct2_war_expansion = {
+	on_enabled = {
+		custom_tooltip = ap_esap_ct2_war_expansion_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					Not = { has_global_flag = flag_esap_ct2_war_expansion_picked }
+				}
+				set_global_flag = flag_esap_ct2_war_expansion_picked
+			}
+
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct2_war_expansion_req_1"
+			has_ascension_perk = ap_esap_ct1_war
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct2_war_expansion_req_2"
+			has_ascension_perk = ap_esap_ct1_expansion
+		}
+	}
+
+	modifier = {
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct2_war_expansion
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

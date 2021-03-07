@@ -1,0 +1,23 @@
+nsc_freebooter_galactic_market = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	resources = {
+		category = campaigns
+	}
+
+	effect = {
+		hidden_effect = { country_event = { id = nsc_freebooter.7 } }
+	}
+
+	potential = {
+		has_origin = origin_nsc_freebooter
+	}
+
+	allow = {
+		num_communications > 0
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

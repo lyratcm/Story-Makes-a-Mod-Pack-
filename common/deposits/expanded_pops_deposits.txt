@@ -1,0 +1,666 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# planet_modifier - applied to planet only when deposit blocker has been cleared
+# constant_modifier - applied to planet always
+# blocker = <key/any/none> - default any
+# station = station class in orbit to gather
+
+@high = 16
+@med = 8
+@low = 4
+
+@high_rare = 2
+@med_rare = 1
+@low_rare = 0.5
+
+# Trait #
+d_venerable_elder_site = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	planet_modifier = {
+		planet_housing_add = 5
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_venerable_elder_add = 1
+			job_venerable_elder_per_pop = 0.01
+			job_administrator_add = -1
+			job_executive_add = -1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { is_planet_class = pc_ringworld_habitable }
+		}
+		modifier = {
+			planet_max_districts_add = -1
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_venerable_elder_site_no_bonus = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	icon = d_venerable_elder_site
+	
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_max_districts_add = -1
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_venerable_elder_migration_site = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	icon = d_venerable_elder_site
+	
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_max_districts_add = -1
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+# Government #
+d_hunting_preserve = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	icon = d_dangerous_wildlife_blocker
+	
+	planet_modifier = {
+		planet_max_districts_add = -1
+		planet_housing_add = 3
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_natural_hunter_add = 2
+			job_clerk_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_deposits
+		produces = {
+			society_research = 3
+		}
+		produces = {
+			trigger = {
+				has_global_flag = EcologyMod_active
+			}
+			waste = -25
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_nature_preserve = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	icon = d_rugged_woods
+	
+	planet_modifier = {
+		planet_max_districts_add = -1
+		pop_environment_tolerance = 0.05
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			planet_amenities_add = 10
+			job_clerk_add = 1
+			trade_value_mult = 0.05
+			job_entertainer_per_pop = 0.025
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			NOT = { has_global_flag = EcologyMod_active }
+			owner = {
+				NOR = { has_civic = civic_technocracy }
+			}					
+		}
+		modifier = {
+			job_culture_worker_add = 1
+			job_culture_worker_per_pop = 0.05
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			NOT = { has_global_flag = EcologyMod_active }
+			owner = { 
+				has_civic = civic_technocracy
+			}
+		}
+		modifier = {
+			job_culture_science_add = 1
+			job_culture_science_per_pop = 0.05
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			job_park_ranger_add = 2
+			job_park_ranger_per_pop = 0.05
+		}
+	}
+	
+	resources = {
+		category = planet_deposits
+		produces = {
+			unity = 3
+			society_research = 6
+		}
+		produces = {
+			trigger = {
+				has_global_flag = EcologyMod_active
+			}
+			waste = -100
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 10
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 10
+			job_maintenance_drone_add = 1
+			job_maintenance_drone_per_pop = 0.02
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = no }
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			job_ranger_drone_add = 1
+			job_ranger_drone_per_pop = 0.05
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_master_computer = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = "unused/d_glitchy_matrix"
+	
+	planet_modifier = {
+		job_master_coordinator_add = 1
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_underground_vault_start = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_bunker_door
+	
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_researcher_add = 2
+			job_soldier_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_brain_drone_add = 2
+			job_warrior_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_calculator_add = 2
+			job_warrior_drone_add = 1
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_lithoid_crater_colony = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+
+	icon = d_crater
+
+	potential = {
+		exists = owner
+		owner = {
+			has_origin = origin_lithoid
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = 3
+		district_mining_max = 3
+		district_farming_max = -3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_origin = origin_lithoid }
+		}
+		pop_growth_speed = 0.10
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+# Decision #
+d_resort_world = {
+	is_for_colonizeable = yes
+	icon = d_gaia_planet
+	category = deposit_cat_rare
+
+	potential = { always = no }
+	
+	resources = {
+		category = planet_deposits
+		produces = {
+			trigger = {
+				has_global_flag = EcologyMod_active
+			}
+			waste = -50
+		}
+	}
+	
+	planet_modifier = {
+		trade_value_mult = 0.5
+		job_clerk_per_pop = 0.5
+		job_entertainer_per_pop = 0.2
+		custom_tooltip = resort_colony_empire_effects
+	}
+	
+	country_modifier = {
+		planet_amenities_mult = 0.2
+		planet_immigration_pull_mult = 0.2
+	}
+}
+
+d_resort_world_robot = {
+	is_for_colonizeable = yes
+	icon = d_gaia_planet
+	category = deposit_cat_rare
+
+	potential = { always = no }
+	
+	resources = {
+		category = planet_deposits
+		produces = {
+			trigger = {
+				has_global_flag = EcologyMod_active
+			}
+			waste = -50
+		}
+	}
+	
+	planet_modifier = {
+		job_bio_trophy_per_pop = 0.5
+		job_maintenance_drone_per_pop = 0.25
+		custom_tooltip = resort_colony_servitor_empire_effects
+	}
+	
+	country_modifier = {
+		planet_amenities_no_happiness_mult = 0.2
+		planet_bio_trophies_produces_mult = 0.2
+		pop_happiness = 0.1
+		diplo_weight_pops_mult = 0.05
+	}
+}
+
+d_sleeping_lithoid = {
+	icon = d_old_hibernating_lithoids
+	time = 360
+
+	is_for_colonizeable = yes
+	category = deposit_cat_rare_blocker
+
+	potential = { always = no }
+
+	on_cleared = {
+		if = {
+			limit = {
+				NOT = { owner = { is_lithoid_empire = yes } }
+			}
+			owner = { add_resource = { minerals = 300 } }
+		}
+
+		if = {
+			limit = {
+				owner = { is_lithoid_empire = yes }
+			}
+			if = {
+				limit = {
+					any_owned_pop = {
+						is_lithoid = yes
+					}
+				}
+				random_owned_pop = {
+					limit = {
+						is_lithoid = yes
+					}
+					root = {
+						create_pop = {
+							species = prev
+						}
+					}
+				}
+			}
+			else = {
+				create_pop = {
+					species = owner
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			trigger = {
+				NOT = { owner = { is_lithoid_empire = yes } }
+			}
+			energy = 300
+		}
+		cost = {
+			trigger = {
+				owner = { is_lithoid_empire = yes }
+			}
+			minerals = 500
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+
+		modifier = {
+			factor = 2
+			owner = { is_lithoid_empire = yes }
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					free_housing > 0
+					free_jobs > 0
+				}
+			}
+			owner = {
+				is_lithoid_empire = yes
+			}
+		}
+	}
+}
+
+# Relic #
+d_central_spire_repaired = {
+	is_for_colonizeable = yes
+	icon = d_central_spire
+	category = deposit_cat_rare
+
+	potential = { always = no }
+	
+	planet_modifier = { 
+		planet_jobs_society_research_produces_mult = 0.1
+		planet_jobs_engineering_research_produces_mult = 0.1
+		planet_jobs_physics_research_produces_mult = 0.1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				NOR = {
+					owner = { OR = { is_hive_empire = yes is_country_type = swarm } }
+					is_machine_empire = yes
+					is_megacorp = yes
+					has_civic = civic_exalted_priesthood 
+					has_civic = civic_aristocratic_elite
+					has_civic = civic_royal_trading_company
+					has_civic = civic_merchant_guilds
+					has_civic = civic_technocracy
+					has_civic = civic_technocracy_corp
+				}
+			}					
+		}
+		modifier = {
+			job_administrator_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_megacorp = yes
+				NOT = { has_civic = civic_royal_trading_company }
+			}
+		}
+		modifier = {
+			job_executive_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_megacorp = yes
+				has_civic = civic_royal_trading_company
+			}
+		}
+		modifier = {
+			job_executive_add = 1
+			job_noble_add = 1
+			job_servant_noble_add = 2
+		}
+	}	
+	
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_exalted_priesthood }					
+		}
+		modifier = {
+			job_administrator_add = 1
+			job_high_priest_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_aristocratic_elite }					
+		}
+		modifier = {
+			job_administrator_add = 1
+			job_noble_add = 1
+			job_servant_noble_add = 3
+		} 
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_civic = civic_technocracy
+					has_civic = civic_technocracy_corp
+				}
+			}					
+		}
+		modifier = {
+			job_head_researcher_add = 1		
+			job_administrator_add = 1
+		} 
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_merchant_guilds }					
+		}
+		modifier = {
+			job_administrator_add = 1
+			job_merchant_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				NOR = { has_civic = civic_technocracy }
+			}					
+		}
+		modifier = {
+			job_culture_worker_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_civic = civic_technocracy
+			}
+		}
+		modifier = {
+			job_culture_science_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 3
+			job_enforcer_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_synapse_drone_add = 4
+			job_brain_drone_add = 3
+			job_patrol_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_coordinator_add = 2
+			job_evaluator_add = 2
+			job_calculator_add = 3
+			job_patrol_drone_add = 1
+		}
+	}
+}

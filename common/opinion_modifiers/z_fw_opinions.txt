@@ -1,0 +1,41 @@
+###_z framework opinions	#################################################################
+
+###_战争	############################################################
+#_抢夺圣遗物
+z_fw_opinion_wg_relic = {
+	opinion = {
+		base = -30
+	}
+	accumulative = yes	#_可累积
+	min = -50			#_最低态度
+	decay = {
+		base = 1		#_每年变化
+	}
+}
+#_战争-抢夺全部圣遗物
+z_fw_opinion_wg_relic_all = {
+	opinion = {
+		base = -120
+	}
+	decay = {
+		base = 1		#_每年变化
+	}
+}
+#_战争-其他国家
+z_fw_opinion_wg_relic_all_others = {
+	opinion = {
+		base = -50
+	}
+	decay = {
+		base = 1		#_每年变化
+	}
+}
+#_战争-开放边境
+z_fw_opinion_wg_open_boder_long = {
+	opinion = {
+		base = -75
+	}
+	decay = {
+		base = 1		#_每年变化
+	}
+}

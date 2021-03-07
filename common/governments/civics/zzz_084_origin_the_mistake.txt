@@ -1,0 +1,21 @@
+origin_g_the_mistake = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_g_the_mistake.dds"
+	picture = GFX_origin_g_the_mistake
+	max_once_global = yes
+	possible = {
+		authority = {
+			NOT = {
+				value = auth_machine_intelligence
+			}
+		}
+	}
+	description = "origin_tooltip_g_the_mistake_effects"
+	flags = {
+		g_fallen_empire_mistake
+	}
+	advanced_start = yes
+	random_weight = {
+		base = 5
+	}
+}

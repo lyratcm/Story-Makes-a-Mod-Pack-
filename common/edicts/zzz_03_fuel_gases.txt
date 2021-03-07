@@ -1,0 +1,19 @@
+@EdictDuration = 3600
+fuel_gases = {
+    length = @EdictDuration
+    resources = {
+        category = ship_edicts
+        cost = {
+            exotic_gases = 50
+        }
+    }
+    potential = {
+        always = no
+    }
+    modifier = {
+        ship_speed_mult = 0.15
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

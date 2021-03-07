@@ -1,0 +1,1814 @@
+##############
+# NAME PARTS #
+##############
+
+### Federation Builders ###
+empire_name_parts_list = {
+	key = "dem_federation_builder"
+	parts = {
+		"Colonies" = 2
+		"Territories" = 2
+		"Provinces" = 2
+		"Nations" = 4
+		"States" = 4
+		"Holdings" = 1
+		"Domains" = 1
+		"Realms" = 1
+		"Regions" = 1
+		"Planet-States" = 1
+		"Commonalities" = 1
+		"Dominions" = 1
+	}
+}
+
+### Communal Parity ###
+empire_name_parts_list = {
+	key = "soviet_union"
+	parts = {
+		"Reublics" = 5
+		"Commonwealths" = 4
+		"States" = 4
+		"Democracies" = 3
+		"Communes" = 2
+		"Cooperatives" = 1
+		"Communities" = 1
+	}
+}
+
+
+### Agrarian Idyll ###
+empire_name_parts_list = {
+	key = "imperial_idyll"
+	parts = {
+		"Caretakers" = 5
+		"Gardeners" = 4
+		"Wardens" = 3
+		"Cultivators" = 2
+		"Conservators" = 2
+		"Stewards" = 2
+		"Custodians" = 1
+		"Gardians" = 1
+	}
+}
+empire_name_parts_list = {
+	key = "democratic_idyll"
+	parts = {
+		"Gardens" = 6
+		"Fields" = 4
+		"Oasis" = 3
+		"Meadows" = 3
+		"Terraces" = 2
+		"Pastures" = 2
+		"Nursery" = 2
+		"Vinyards" = 1
+		"Conservatory" = 1
+		"Republic" = 1
+		"Confederacy" = 1
+		"Council" = 1
+	}
+}
+
+### Fanatical Befrienders ###
+
+# Imperial Befrienders
+empire_name_parts_list = {
+	key = "imperial_befrienders"
+	parts = {
+		"Kingdom" = 4
+		"Principality" = 1
+		"Grand Duchy" = 1
+		"State" = 1
+		"Sovereignty" = 1
+		"Foundation" = 1
+		"Commonality" = 4
+		"Salon" = 2
+		"Gala" = 2
+		"Fete" = 1
+		"Masquerade" = 1
+	}
+}
+
+# Dictatorial Befrienders
+empire_name_parts_list = {
+	key = "dictatorial_befrienders"
+	parts = {
+		"Alliance" = 1
+		"State" = 1
+		"Sovereignty" = 1
+		"Foundation" = 1
+		"Mandate" = 3
+		"Compact" = 3
+		"Commonality" = 5
+		"Administration" = 1
+		"Gala" = 2
+		"Fete" = 2
+	}
+}
+
+# Oligarchic Befrienders
+empire_name_parts_list = {
+	key = "oligarchic_befrienders"
+	parts = {
+		"Republic" = 1
+		"Alliance" = 2
+		"Commonwealth" = 3
+		"Syndicate" = 2
+		"Confederation" = 3
+		"Confederacy" = 3
+		"Union" = 3
+		"League" = 3
+		"Foundation" = 4
+		"Mandate" = 3
+		"Compact" = 3
+		"Commonality" = 5
+		"Cooperative" = 2
+		"State" = 1
+		"Sovereignty" = 1
+		"Administration" = 1
+		"Council" = 1
+		"Symposium" = 3
+	}
+}
+
+# Democratic Befrienders
+empire_name_parts_list = {
+	key = "democratic_befrienders"
+	parts = {
+		"Republic" = 2
+		"Alliance" = 3
+		"Commonwealth" = 3
+		"Confederation" = 3
+		"Confederacy" = 3
+		"Commissariat" = 3
+		"Union" = 3
+		"League" = 3
+		"Coalition" = 2
+		"Assembly" = 2
+		"Council" = 2
+		"Cooperative" = 2
+		"State" = 1
+		"Sovereignty" = 1
+		"Commonality" = 5
+		"Concordat" = 1
+		"Accord" = 1
+		"Symposium" = 3
+	}
+}
+
+### Corporate ###
+
+empire_name_parts_list = {
+	key = "imperial_charter"
+	parts = {
+		"Kingdom" = 4
+		"Principality" = 1
+		"Grand Duchy" = 1
+		"State" = 1
+		"Nation" = 1
+		"Sovereignty" = 1
+		"Foundation" = 1
+	}
+}
+empire_name_parts_list = {
+	key = "trade_charter"
+	parts = {
+		"Trading Company" = 4
+		"Company" = 4
+		"Trading House" = 3
+		"Commerce Guild" = 2
+		"Merchant Adventurers" = 2
+		"Land Company" = 2
+		"Society of Merchant Venturers" = 1
+		"Colonization Society" = 1
+		"Development Corporation" = 1
+		"Mercantile Union" = 1
+		"Commerce League" = 1
+		"League" = 1
+		"Trading Consortium" = 1
+		"Mercantile Guilds" = 1
+		"Trade Union" = 1
+		"Trading Coalition" = 1
+		"Trade Association" = 1
+	}
+}
+
+# Worker Cooperative
+empire_name_parts_list = {
+	key = "corp_worker_cooperative"
+	parts = {
+		"Commune" = 6
+		"Cooperative" = 6
+		"Solidarity" = 3
+		"Equal Exchange" = 3
+		"Mercantile Union" = 1
+		"Commerce Guild" = 1
+		"Commerce League" = 1
+		"Trading Consortium" = 1
+		"Mercantile Guilds" = 1
+		"Trade Commission" = 1
+		"Trade Union" = 3
+		"Free Traders" = 2
+		"Trading Coalition" = 1
+		"Bonded Merchants" = 1
+		"Shipping Alliance" = 1
+		"Trade Association" = 1
+	}
+}
+
+# Tech Companies
+empire_name_parts_list = {
+	key = "family_corp"
+	parts = {
+		"Family Corporation" = 4
+		"Family Enterprises" = 3
+		"Family Incorporated" = 2
+		"Brothers" = 2
+		"Sisters" = 2
+		"Siblings" = 1
+		"Brothers Incorporated" = 1
+		"Sisters Incorporated" = 1
+		"Siblings Incorporated" = 1
+		"and Sons" = 2
+		"and Daughters" = 2
+		"and Son" = 1
+		"and Daughter" = 1
+		"and Sons Incorporated" = 1
+		"and Daughters Incorporated" = 1
+		"Quality Products" = 1
+		"Enterprises" = 1
+		"Incorporated" = 1
+		"Manufacturing" = 1
+		"Industries" = 1
+	}
+}
+
+# Tech Companies
+empire_name_parts_list = {
+	key = "corp_tech"
+	parts = {
+		"Engineering" = 4
+		"Laboratories" = 4
+		"Technologies" = 4
+		"Science" = 4
+		"Aerospace" = 3
+		"Manufacturing" = 3
+		"Industries" = 3
+		"Systems" = 3
+		"Dynamics" = 3
+		"Atomics" = 3
+		"Subatomics" = 2
+		"Corporation" = 2
+		"Enterprises" = 2
+		"Incorporated" = 2
+		"Materials" = 2
+		"Associates" = 1
+		"Atomics Interstellar" = 1
+		"Autoengineering Corporation" = 1
+		"Engineered Systems" = 1
+		"Synergetic" = 1
+		"Company" = 1
+		"Insights" = 1
+		"Stellar Industries" = 1
+		"Initiative" = 1
+		"Foundation" = 1
+		"Nanotech" = 1
+		"Robotics" = 1
+		"Automata" = 1
+		"Insights" = 1
+		"Techno-Union" = 1
+	}
+}
+
+# Medical Companies
+empire_name_parts_list = {
+	key = "corp_hmo"
+	parts = {
+		"Medical" = 6
+		"Pharmaceuticals" = 6
+		"Laboratories" = 4
+		"Bioengineering" = 4
+		"Science" = 3
+		"Genomics" = 2
+		"Health" = 2
+		"Medicorp" = 2
+		"Biosciences" = 2
+		"Biocorp" = 2
+		"Biochem" = 1
+		"Helix" = 1
+		"Pharma" = 1
+		"Shield" = 1
+		"Incorporated" = 1
+		"Corporation" = 1
+		"Blue Cross" = 1
+		"Health Net"
+		"Health Advantage" = 1
+		"Health Supermarket" = 1
+		"Customer Synergies" = 1
+	}
+}
+
+# Construction Companies
+empire_name_parts_list = {
+	key = "corp_construction"
+	parts = {
+		"Construction" = 5
+		"Consulting" = 4
+		"Developers" = 4
+		"Industries" = 3
+		"Infrastructure" = 3
+		"Engineering" = 3
+		"Manufacturing" = 2
+		"Incorporated" = 2
+		"Corporation" = 2
+		"Engineers" = 1
+		"Interstellar" = 1
+		"Construction and Remodeling" = 1
+		"Construction and Consulting" = 1
+		"Construction and Surveying" = 1
+		"Construction Group" = 1
+		"Home Services" = 1
+		"Design Company" = 1
+		"Modular Construction" = 1
+	}
+}
+
+# Construction Companies
+empire_name_parts_list = {
+	key = "corp_farming"
+	parts = {
+		"Foods" = 5
+		"Farms" = 5
+		"Growers" = 4
+		"Harvests" = 3
+		"Orchards" = 3
+		"Produce" = 3
+		"Agriculture" = 3
+		"Seeds" = 2
+		"Nursery" = 2
+		"Organic" = 2
+		"Ranch" = 2
+		"Cooperative" = 2
+		"Biosciences" = 1
+		"Market" = 1
+		"Company" = 1
+		"Corporation" = 1
+		"Acre Farms" = 1
+		"Family Foods" = 1
+		"Seed Company" = 1
+		"Plant Technology" = 1
+		"Farm Supplies" = 1
+		"Fresh Foods" = 1
+	}
+}
+
+# Construction Companies
+empire_name_parts_list = {
+	key = "corp_security"
+	parts = {
+		"Security" = 5
+		"Defense Services" = 4
+		"Security Services" = 3
+		"Security Systems" = 3
+		"Protection Services" = 3
+		"Defense" = 3
+		"Interstellar" = 2
+		"Intelligence" = 2
+		"Security Corporation" = 2
+		"Defense Corporation" = 2
+		"Security Incorporated" = 2
+		"Defense Incorporated" = 2
+		"Risk Management" = 1
+		"Company" = 1
+		"Guard Services" = 1
+		"Corp" = 1
+		"Group" = 1
+		"Incorporated" = 1
+		"Interstellar Security" = 1
+		"Interstellar Intelligence" = 1
+		"Protection Interstellar" = 1
+	}
+}
+
+### Descriptives
+
+### Federation Builders ###
+
+empire_name_parts_list = {
+	key = "dem_federation_builder_pre_desc"
+	parts = {
+		"Interstellar" = 1
+		"Galactic" = 1
+		"United" = 3
+		"Democratic" = 3
+		"Confederated" = 3
+		"Republican" = 2
+		"Allied" = 4
+		"Free" = 2
+		"Unified" = 1
+		"Sovereign" = 3
+	}
+}
+
+### Communal Parity ###
+empire_name_parts_list = {
+	key = "soviet_union_pre_desc"
+	parts = {
+		"Union" = 5
+		"Federation" = 4
+		"Assembly" = 4
+		"Alliance" = 3
+		"Confederation" = 2
+		"Coalition" = 2
+		"Brotherhood" = 1
+		"League" = 1
+		"Congress" = 1
+	}
+}
+
+### Communal Parity ###
+empire_name_parts_list = {
+	key = "soviet_union_post_desc"
+	parts = {
+		"Progressive" = 4
+		"Socialist" = 3
+		"Revolutionary" = 3
+		"Sovereign" = 3
+		"Autonomous" = 2
+		"Constitutional" = 1
+		"Radical" = 1
+		"Egalitarian" = 1
+	}
+}
+
+### Fanatical Befrienders ###
+
+# Imperial Befrienders Descriptive
+empire_name_parts_list = {
+	key = "imperial_befrienders_desc"
+	parts = {
+		"Interstellar" = 1
+		"Galactic" = 2
+		"United" = 3
+		"Great" = 3
+		"Glorious" = 3
+		"Harmonious" = 2
+		"Protective" = 2
+		"Custodial" = 2
+		"Friendly" = 3
+		"Fun-Loving" = 1
+	}
+}
+
+# Dictatorial Befrienders Descriptive
+empire_name_parts_list = {
+	key = "dictatorial_befrienders_desc"
+	parts = {
+		"Interstellar" = 1
+		"Galactic" = 2
+		"United" = 3
+		"Great" = 3
+		"Harmonious" = 2
+		"Protective" = 2
+		"Custodial" = 2
+		"Friendly" = 3
+		"Fun-Loving" = 1
+	}
+}
+
+# Oligarchic Befrienders Descriptive
+empire_name_parts_list = {
+	key = "oligarchic_befrienders_desc"
+	parts = {
+		"Interstellar" = 1
+		"Galactic" = 2
+		"United" = 3
+		"Great" = 3
+		"Harmonious" = 2
+		"Protective" = 2
+		"Custodial" = 2
+		"Friendly" = 3
+		"Fun-Loving" = 1
+	}
+}
+
+# Democratic Befrienders Descriptive
+empire_name_parts_list = {
+	key = "democratic_befrienders_desc"
+	parts = {
+		"Free" = 3
+		"Independent" = 3
+		"Interstellar" = 1
+		"Galactic" = 1
+		"United" = 3
+		"Democratic" = 1
+		"Harmonious" = 2
+		"Protective" = 2
+		"Custodial" = 2
+		"Friendly" = 3
+		"Fun-Loving" = 1
+	}
+}
+
+### Royal Charter ###
+empire_name_parts_list = {
+	key = "trade_charter_desc"
+	parts = {
+		"Royal" = 4
+		"Noble" = 4
+		"Imperial" = 4
+		"United" = 3
+		"Illustrious" = 1
+		"Hanseatic" = 1
+		"North" = 1
+		"Royal North" = 1
+		"United North" = 1
+		"South" = 1
+		"Royal South" = 1
+		"United South" = 1
+		"East" = 2
+		"Royal East" = 2
+		"United East" = 1
+		"West" = 2
+		"Royal West" = 2
+		"United West" = 1
+	}
+}
+
+### Brands ###
+empire_name_parts_list = {
+	key = "corp_brand_desc"
+	parts = {
+		"Ace" = 1
+		"Adkan" = 1
+		"Alestia" = 1
+		"Apaxis" = 1
+		"Arcot" = 1
+		"Acorn" = 1
+		"Aequor" = 1
+		"Almeiro" = 1
+		"Anthem" = 1
+		"Amphastar" = 1
+		"Aperture" = 1
+		"Aragon" = 1
+		"Ares" = 1
+		"Ariake" = 1
+		"Armali" = 1
+		"Armax" = 1
+		"Arranha" = 1
+		"Ateck" = 1
+		"Ashland" = 1
+		"Ashpool" = 1
+		"Aurum" = 1
+		"Axon" = 1
+		"Bachoco" = 1
+		"Baria" = 1
+		"Benthic" = 1
+		"Blackstone" = 1
+		"Blackwater" = 1
+		"BlasTech" = 1
+		"Bootstrap" = 1
+		"Brisance" = 1
+		"Buy 'n Large" = 1
+		"Cadrovet" = 1
+		"Cargill" = 1
+		"Ceylesian" = 1
+		"Century" = 1
+		"Conatix" = 1
+		"Crystal" = 1
+		"Cyberdyne" = 1
+		"da Costa" = 1
+		"Dah'tan" = 1
+		"Demester" = 1
+		"Devlon" = 1
+		"Dharma" = 1
+		"Dyart" = 1
+		"Eclipse" = 1
+		"Elanus" = 1
+		"Elkoss" = 1
+		"Eldfell" = 1
+		"Empathix" = 1
+		"Encom" = 1
+		"Erinys" = 1
+		"Esper" = 1
+		"ExoGeni" = 1
+		"Externa" = 1
+		"Fidelity" = 1
+		"Foothill" = 1
+		"Foster" = 1
+		"Fowler Schocken" = 1
+		"Fuscoe" = 1
+		"Gaia" = 1
+		"Garner" = 1
+		"GenArt" = 1
+		"Gilead" = 1
+		"Greenmark" = 1
+		"Golden Phoenix" = 1
+		"Hahne-Kedar" = 1
+		"Haliat" = 1
+		"Hanson" = 1
+		"Harriman" = 1
+		"Harpe" = 1
+		"HelthWyzer" = 1
+		"Hedeon" = 1
+		"Hotline" = 1
+		"Howell" = 1
+		"Holden" = 1
+		"INGen" = 1
+		"Issigri" = 1
+		"Icarus" = 1
+		"Janus" = 1
+		"Jormangund" = 1
+		"Jovian" = 1
+		"Kamida" = 1
+		"Kang" = 1
+		"Kaiser" = 1
+		"Kayotech" = 1
+		"Kassa" = 1
+		"Kleinfelder" = 1
+		"Kormix" = 1
+		"Kwikowski" = 1
+		"Loudoun" = 1
+		"Maersk" = 1
+		"Maple" = 1
+		"Marsopolis" = 1
+		"MetaPresence" = 1
+		"Megallanic" = 1
+		"Merck" = 1
+		"Mitsuko" = 1
+		"Moka-Coka" = 1
+		"Mom's" = 1
+		"Monsanto" = 1
+		"Monarch" = 1
+		"Nakamesh" = 1
+		"Nakamura" = 1
+		"Nashan" = 1
+		"Nefertiti" = 1
+		"Neris" = 1
+		"Newley" = 1
+		"Nordstral" = 1
+		"Northbridge" = 1
+		"Northrop" = 1
+		"Novartis" = 1
+		"Novaria" = 1
+		"Orbis" = 1
+		"Orcutt" = 1
+		"Orion" = 1
+		"Perpetual" = 1
+		"Penco" = 1
+		"Pinkwater" = 1
+		"Plexus" = 1
+		"Proactive" = 1
+		"Propulsion" = 1
+		"Prosser" = 1
+		"Protogen" = 1
+		"Puritan" = 1
+		"Rejuvenex" = 1
+		"Rodam" = 1
+		"Rosenkov" = 1
+		"Salamander" = 1
+		"Serendipity" = 1
+		"San Onofre" = 1
+		"Sattler" = 1
+		"Selene" = 1
+		"Serrice" = 1
+		"Serendipity" = 1
+		"Sierra" = 1
+		"Sirta" = 1
+		"Slapcoff" = 1
+		"Shire" = 1
+		"Solana" = 1
+		"Solenoid" = 1
+		"Songheuser" = 1
+		"Sparton" = 1
+		"Stark" = 1
+		"Suneye" = 1
+		"SymboGen" = 1
+		"Syntex" = 1
+		"Taggert" = 1
+		"Terrestrial" = 1
+		"Tessier" = 1
+		"Thorson" = 1
+		"Thule" = 1
+		"Titan" = 1
+		"Toha" = 1
+		"Trenton" = 1
+		"TruNode" = 1
+		"Tyson" = 1
+		"Tycho" = 1
+		"Tyrell" = 1
+		"Umbrella" = 1
+		"Varangar" = 1
+		"Valior" = 1
+		"Venture" = 1
+		"Verdemont" = 1
+		"Virocontrol" = 1
+		"Wayne" = 1
+		"Weis" = 1
+		"Westland" = 1
+		"Weyland" = 1
+		"Winchell" = 1
+		"Winco" = 1
+		"Yutani" = 1
+		"Zarathustra" = 1
+		"Zeneca" = 1
+	}
+}
+
+### Hive Mind ###
+empire_name_parts_list = {
+	key = "hive_mind_infested"
+	parts = {
+		"Hive" = 5
+		"Infestation" = 4
+		"Scourge" = 3
+		"Consciousness" = 3
+		"Parasite" = 3
+		"Pestilence" = 3
+		"Symbiote" = 3
+		"Blight" = 2
+		"Multitude" = 2
+		"Leech" = 2
+		"Organism" = 1
+		
+	}
+}
+empire_name_parts_list = {
+	key = "hive_mind_collector"
+	parts = {
+		"Hive" = 4
+		"Collectors" = 4
+		"Scavengers" = 4
+		"Consciousness" = 3
+		"Unity" = 2
+		"Collective" = 2
+		"Colony" = 2
+		"Extractors" = 2
+		"Antiquarians" = 2
+		"Organism" = 1
+	}
+}
+empire_name_parts_list = {
+	key = "hive_mind_knowledge"
+	parts = {
+		"Brain" = 6
+		"Hive" = 4
+		"Encephalon" = 4
+		"Cerebellum" = 4
+		"Consciousness" = 3
+		"Intellect" = 3
+		"Unity" = 2
+		"Collective" = 2
+		"Multitude" = 2
+		"Organism" = 1
+		"Antiquarians" = 1
+		"Augur" = 1
+	}
+}
+
+################
+# NAME FORMATS #
+################
+
+### Federation Builders ###
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_ai_personality = federation_builders
+			has_authority = auth_democratic
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_valid_civic = civic_beacon_of_liberty
+				has_valid_civic = civic_idealistic_foundation
+				has_valid_civic = civic_free_haven
+				has_valid_civic = civic_parliamentary_system
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dem_federation_builder.1"
+	prefix_format = "[This.Capital.GetName] <dem_federation_builder>"
+	noun = "[This.Capital.GetName]"
+	# United Nations of Earth
+}
+
+### Communal Parity ###
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_communal_parity"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.soviet_union.1"
+	prefix_format = "[This.GetSpeciesAdj] <soviet_union>"
+	noun = "[This.GetSpeciesAdj]"
+	# Union of Human Soviet Republics
+}
+
+### Agrarian Idyll ###
+# Imperial / Dictatorial Idyll
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_valid_civic = civic_agrarian_idyll
+			OR = {
+				has_authority = auth_imperial
+				has_authority = auth_dictatorial
+			}
+			is_plantoid_empire = no
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+		modifier = {
+			add = 5
+			has_valid_civic = civic_agrarian_idyll
+			OR = {
+				has_authority = auth_imperial
+				has_authority = auth_dictatorial
+			}
+			is_plantoid_empire = yes
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.imp_idyll.1"
+	prefix_format = "[This.GetSpeciesName] <imperial_idyll>"
+	noun = "[This.GetSpeciesName]"
+}
+# Oligarchic/Democratic Idyll
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_valid_civic = civic_agrarian_idyll
+			OR = {
+				has_authority = auth_oligarchic
+				has_authority = auth_democratic
+			}
+			is_plantoid_empire = no
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+		modifier = {
+			add = 5
+			has_valid_civic = civic_agrarian_idyll
+			OR = {
+				has_authority = auth_oligarchic
+				has_authority = auth_democratic
+			}
+			is_plantoid_empire = yes
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dem_idyll.1"
+	prefix_format = "[This.GetSpeciesName] <democratic_idyll>"
+	noun = "[This.GetSpeciesName]"
+}
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_valid_civic = civic_agrarian_idyll
+			OR = {
+				has_authority = auth_oligarchic
+				has_authority = auth_democratic
+			}
+			is_plantoid_empire = no
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+		modifier = {
+			add = 2
+			has_valid_civic = civic_agrarian_idyll
+			OR = {
+				has_authority = auth_oligarchic
+				has_authority = auth_democratic
+			}
+			is_plantoid_empire = yes
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dem_idyll.2"
+	prefix_format = "[This.Capital.GetName] <democratic_idyll>"
+	noun = "[This.Capital.GetName]"
+}
+
+
+### Fanatical Befrienders ###
+
+# Imperial Befrienders 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_benevolent_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.imp_befrienders.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <imperial_befrienders>"
+	# Human Empire
+}
+
+# Imperial Befrienders 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_benevolent_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.imp_befrienders.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <imperial_befrienders>"
+	# Great Human Empire
+}
+
+# Imperial Befrienders 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_benevolent_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.imp_befrienders.3"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <imperial_befrienders>"
+	# Human Star Empire
+}
+
+# Dictatorial Befrienders 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_compassionate_order"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dict_befrienders.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <dictatorial_befrienders>"
+	# Human Empire
+}
+
+# Dictatorial Befrienders 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_compassionate_order"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dict_befrienders.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <dictatorial_befrienders>"
+	# Great Human Empire
+}
+
+# Dictatorial Befrienders 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_compassionate_order"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dict_befrienders.3"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <dictatorial_befrienders>"
+	# Human Star Empire
+}
+
+# Oligarchic Befrienders 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_friendship_committee"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.olig_befrienders.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <oligarchic_befrienders>"
+	# Human Empire
+}
+
+# Oligarchic Befrienders 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_friendship_committee"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.olig_befrienders.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <oligarchic_befrienders>"
+	# Great Human Empire
+}
+
+# Oligarchic Befrienders 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_friendship_committee"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.olig_befrienders.3"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <oligarchic_befrienders>"
+	# Human Star Empire
+}
+
+# Democratic Befrienders 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_harmony_assembly"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dem_befrienders.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <democratic_befrienders>"
+	# Human Empire
+}
+
+# Democratic Befrienders 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_harmony_assembly"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dem_befrienders.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <democratic_befrienders>"
+	# Great Human Empire
+}
+
+# Democratic Befrienders 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_harmony_assembly"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dem_befrienders.3"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <democratic_befrienders>"
+	# Human Star Empire
+}
+
+### Dictatorial Cyberocracy
+# Dictatorial Cyberocracy 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			OR = {
+				has_government = "gov_iron_despot"
+				has_government = "gov_enlightened_iron_despot"
+				has_government = "gov_totalitarian_iron_despot"
+				has_government = "gov_plutocratic_iron_despot"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dict_tech.1"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <dictatorial_tech>"
+	# Empire of Sol
+}
+
+# Dictatorial Cyberocracy 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			OR = {
+				has_government = "gov_iron_despot"
+				has_government = "gov_enlightened_iron_despot"
+				has_government = "gov_totalitarian_iron_despot"
+				has_government = "gov_plutocratic_iron_despot"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dict_tech.2"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <dictatorial_tech>"
+	# Empire of Earth
+}
+
+# Dictatorial Cyberocracy 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_iron_despot"
+				has_government = "gov_enlightened_iron_despot"
+				has_government = "gov_totalitarian_iron_despot"
+				has_government = "gov_plutocratic_iron_despot"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dict_tech.3"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <dictatorial_tech>"
+	# Human Empire
+}
+
+# Dictatorial Cyberocracy 4
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			OR = {
+				has_government = "gov_iron_despot"
+				has_government = "gov_enlightened_iron_despot"
+				has_government = "gov_totalitarian_iron_despot"
+				has_government = "gov_plutocratic_iron_despot"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dict_tech.4"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <dictatorial_tech>"
+	# Great Human Empire
+}
+
+# Dictatorial Cyberocracy 5
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			OR = {
+				has_government = "gov_iron_despot"
+				has_government = "gov_enlightened_iron_despot"
+				has_government = "gov_totalitarian_iron_despot"
+				has_government = "gov_plutocratic_iron_despot"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.dict_tech.5"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <dictatorial_tech>"
+	# Human Star Empire
+}
+
+### Corporate ###
+# Megacorporation
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.olig_corp.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <oligarchic_corp>"
+	# Human Empire
+}
+
+# Trade League
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.trade_league.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <trade_league>"
+	# Human Empire
+}
+
+# Family-Owned
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			has_government = "gov_family_corp"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.family_corp.1"
+	noun = "[This.Ruler.GetSecondName]"
+	prefix_format = "[This.Ruler.GetSecondName] <family_corp>"
+	# Human Empire
+}
+
+# Tech Company 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+			}
+			OR = {
+				has_origin = origin_mechanists
+				has_valid_civic = civic_technocracy_corp
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.tech_company.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_tech>"
+	# Human Empire
+}
+
+# Tech Company 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+			}
+			OR = {
+				has_origin = origin_mechanists
+				has_valid_civic = civic_technocracy_corp
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.tech_company.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_tech>"
+	# Human Empire
+}
+
+# Medical 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+			}
+			has_valid_civic = civic_hmo
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.medical.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_hmo>"
+	# Human Empire
+}
+
+# Medical 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+			}
+			has_valid_civic = civic_hmo
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.medical.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_hmo>"
+	# Human Empire
+}
+
+# Construction 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+			}
+			has_valid_civic = civic_functional_architecture_megacorp
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.construction.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_construction>"
+	# Human Empire
+}
+
+# Construction 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+			}
+			has_valid_civic = civic_functional_architecture_megacorp
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.construction.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_construction>"
+	# Human Empire
+}
+
+# Farming 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+				has_government = "gov_cooperative"
+			}
+			has_valid_civic = civic_agribusiness
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.farming.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_farming>"
+	# Human Empire
+}
+
+# Farming 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+				has_government = "gov_cooperative"
+			}
+			has_valid_civic = civic_agribusiness
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.farming.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_farming>"
+	# Human Empire
+}
+
+# Security 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+				has_government = "gov_cooperative"
+			}
+			OR = {
+				has_valid_civic = civic_naval_contractors
+				has_valid_civic = civic_private_military_companies
+				has_valid_civic = civic_corp_security
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.security.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_security>"
+	# Human Empire
+}
+
+# Security 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_government = "gov_megacorporation"
+				has_government = "gov_private"
+				has_government = "gov_family_corp"
+				has_government = "gov_trade_league"
+				has_government = "gov_worker_cooperative"
+				has_government = "gov_cooperative"
+			}
+			OR = {
+				has_valid_civic = civic_naval_contractors
+				has_valid_civic = civic_private_military_companies
+				has_valid_civic = civic_corp_security
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.security.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.security] <corp_security>"
+	# Human Empire
+}
+
+
+# Royal Charter 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 6
+			OR = {
+				has_government = "gov_charter_company"
+				has_government = "gov_royal_company"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.charter.1"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <imperial_charter>"
+	# Empire of Sol
+}
+
+# Royal Charter 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 6
+			OR = {
+				has_government = "gov_charter_company"
+				has_government = "gov_royal_company"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.charter.2"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <imperial_charter>"
+	# Empire of Earth
+}
+
+# Royal Charter 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			has_government = "gov_charter_company"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.charter.3"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <trade_charter>"
+	# Royal Sol Trading Company
+}
+
+# Royal Charter 4
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_charter_company"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.charter.4"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <trade_charter>"
+	# Human Trading Company
+}
+
+# Worker Cooperative 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			has_government = "gov_worker_cooperative"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.worker_coop.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <corp_worker_cooperative>"
+	# Human Cooperative
+}
+
+# Worker Cooperative 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			has_government = "gov_worker_cooperative"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.worker_coop.2"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <corp_worker_cooperative>"
+	# Earth Commune
+}
+
+# Worker Cooperative 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 10
+			has_government = "gov_worker_cooperative"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.worker_coop.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.GetSpeciesName] <corp_worker_cooperative>"
+	# Earth Commune
+}
+
+# Infested Hive
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_infested_hive_mind"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.hive_mind_infested.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <hive_mind_infested>"
+	# Human Empire
+}
+
+# Resource Collectors
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_resource_collector_mind"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.hive_mind_collector.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <hive_mind_collector>"
+	# Human Empire
+}
+
+# Knowledge Driven Collective
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_knowledge_driven_collective"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.hive_mind_knowledge.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <hive_mind_knowledge>"
+	# Human Empire
+}

@@ -1,0 +1,27 @@
+ethic_fanatic_pluralist = {
+	cost = 2
+	category = "elt"
+    category_value = 4
+
+    regular_variant = ethic_pluralist
+
+	category_opposite = yes
+
+	use_for_pops = no
+
+	tags = {
+
+	}
+
+	country_modifier = {
+	    country_leader_pool_size = 4
+		leaders_upkeep_mult = -0.5
+		planet_crime_mult = -0.4
+		pop_cat_specialist_political_power = 1
+        leaders_cost_mult = 0.4
+	}
+
+	random_weight = {
+		value = 100
+	}
+}

@@ -1,0 +1,23 @@
+trait_seasonal = {
+    potential_crossbreeding_chance = 0.25
+    cost = -3
+    modification = no
+    icon = "gfx/interface/icons/traits/trait_fleeting.dds"
+    allowed_archetypes = {
+        PLANTOID
+        half_species
+    }
+    modifier = {
+        leader_age = -25
+    }
+    opposites = {
+        "trait_venerable"
+        "trait_enduring"
+        "trait_fleeting"
+        "trait_ancient"
+        "trait_ageless"
+    }
+    ai_weight = {
+        weight = 0.1
+    }
+}

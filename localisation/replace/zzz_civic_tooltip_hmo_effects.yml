@@ -1,0 +1,2 @@
+﻿l_english:
+ civic_tooltip_hmo_effects:1000 "$job_healthcare_plural$ produce §G+4§! £trade_value£ §Y$TRADE_VALUE$§!\nStarts with §Y$tech_frontier_health$§! already unlocked.\nAdds a $job_healthcare$ to all owned planets."

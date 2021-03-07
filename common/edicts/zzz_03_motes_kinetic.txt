@@ -1,0 +1,19 @@
+@EdictDuration = 3600
+motes_kinetic = {
+    length = @EdictDuration
+    resources = {
+        category = ship_edicts
+        cost = {
+            volatile_motes = 50
+        }
+    }
+    potential = {
+        always = no
+    }
+    modifier = {
+        weapon_type_kinetic_weapon_damage_mult = 0.25
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

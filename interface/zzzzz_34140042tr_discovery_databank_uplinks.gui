@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_1 = 61
+    @y_2 = 125
+    positionType = {
+        name = "tr_discovery_databank_uplinks"
+        position = {
+            x = @x_1
+            y = @y_2
+        }
+    }
+}

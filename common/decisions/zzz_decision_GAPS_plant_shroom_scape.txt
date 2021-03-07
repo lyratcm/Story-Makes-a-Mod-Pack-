@@ -1,0 +1,34 @@
+decision_GAPS_Plant_Shroom_Scape = {
+	icon = decision_GAPS_Plant_Shroom_Scape
+	owned_planets_only = yes
+	#sound = event_air_raid_siren
+	enactment_time = 30
+
+	resources = {
+		category = decisions
+		cost = {
+			food = 0
+		}
+	}
+	
+	potential = {
+		owner = { has_civic = Civic_GAPS_Planters }
+		NOR = { has_planet_flag = Planet_Flag_GAPS_Modifier_Plant_Added }
+	}
+	effect = {
+		custom_tooltip = decision_GAPS_Plant_Shroom_Scape_short
+		hidden_effect = {
+			remove_modifier = World_Modifier_GAPS_World_Tree
+			remove_modifier = World_Modifier_GAPS_Vine_Vista
+			remove_modifier = World_Modifier_GAPS_Shroom_Scape
+			remove_modifier = World_Modifier_GAPS_Moss_Monuments
+			add_modifier = { modifier = "World_Modifier_GAPS_Shroom_Scape" days = -1 }
+			set_planet_flag = Planet_Flag_GAPS_Modifier_Plant_Added
+			#add_district = d_GAPS_Shroom_Scape
+		}
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}

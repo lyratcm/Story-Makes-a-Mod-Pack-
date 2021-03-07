@@ -1,0 +1,49 @@
+civic_machine_terminator = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_ancient_machine_intelligence
+                value = auth_machine_intelligence
+            }
+        }
+    }
+    starting_colony = pc_nuked
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_machine_servitor
+                value = civic_machine_assimilator
+                value = civic_machine_emotions
+                value = civic_machine_memorialist
+            }
+        }
+        origin = {
+            NOR = {
+                value = origin_common_ground
+                value = origin_scion
+                value = origin_hegemon
+                value = origin_next_generation
+                value = origin_extant_creators
+                value = origin_research_coop
+                value = origin_research_coop_npc
+            }
+        }
+    }
+    modification = no
+    random_weight = {
+        base = 5
+        modifier = {
+            factor = 0
+            NOT = {
+                host_has_dlc = "Synthetic Dawn Story Pack"
+            }
+        }
+    }
+    description = civic_tooltip_machine_terminator_effects
+    modifier = {
+        country_starbase_influence_cost_mult = -0.3
+        ship_weapon_damage = 0.25
+        starbase_shipyard_build_cost_mult = -0.15
+        country_naval_cap_mult = 0.33
+    }
+}

@@ -1,0 +1,30 @@
+decision_gpm_seasonal_flooding = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_seasonal_flooding
+	enactment_time = 180
+
+    resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+		# owner = { is_regular_empire = yes }
+		has_modifier = gpm_seasonal_flooding
+	}
+	
+	allow = {
+		has_modifier = gpm_seasonal_flooding
+	}
+
+    effect = {
+		remove_modifier = gpm_seasonal_flooding
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

@@ -1,0 +1,8 @@
+origin_syncretic_equals = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_syncretic_equals.dds"
+    picture = GFX_origin_common_ground
+    potential = {
+        always = no
+    }
+}

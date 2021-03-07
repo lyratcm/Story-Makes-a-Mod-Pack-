@@ -1,0 +1,39 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.332
+	title = leviathans.300.name
+	desc = leviathans.332.desc
+	picture = GFX_evt_exploding_ship
+	show_sound = event_structural_collapse
+	location = event_target:destroyed_station_location
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = artist_enclave_destoyed_station } }
+			set_timed_global_flag = { flag = artist_enclave_destoyed_station days = 360 }
+		}
+		if = {
+			limit = { has_global_flag = one_artist_enclave_destroyed }
+			set_global_flag = two_artist_enclave_destroyed
+		}
+		else = {
+			set_global_flag = one_artist_enclave_destroyed
+		}
+	}
+
+	option = {
+		name = WORRYING
+		trigger = {
+			NOT = { has_country_flag = enclave_artist_ignores }
+		}
+	}
+	option = {
+		name = OK
+		trigger = {
+			has_country_flag = enclave_artist_ignores
+		}
+	}
+}

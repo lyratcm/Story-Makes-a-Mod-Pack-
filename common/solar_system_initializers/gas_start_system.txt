@@ -1,0 +1,138 @@
+gas_giant_system_initializer = {
+
+	class = "sc_neutron_star"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 115
+	}
+	usage = origin
+	flags = { empire_home_system }
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		generate_home_system_resources = yes
+	}
+
+	planet = {
+		class = "pc_neutron_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_habitable_gas"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 26
+		starting_planet = yes
+		change_orbit = 8
+		has_ring = yes
+		change_orbit = 5
+		modifiers = none
+		init_effect = {
+			prevent_anomaly = no
+			create_archaeological_site = gas_site_homeworld
+		}
+		moon = {
+			class = "pc_shielded"
+			orbit_distance = 12
+			orbit_angle = { min = 90 max = 270 }
+			size = 10
+			tile_blockers = none
+			modifiers = none
+			init_effect = {
+				prevent_anomaly = no
+			}
+		}
+	}
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		has_ring = no
+		tile_blockers = none
+		modifiers = none
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 35
+		has_ring = yes
+		change_orbit = 5
+		tile_blockers = none
+		modifiers = none
+		init_effect = {
+			prevent_anomaly = yes
+		}
+		moon = {
+			class = "pc_asteroid"
+			orbit_distance = 12
+			orbit_angle = { min = 90 max = 270 }
+			size = 5
+			tile_blockers = none
+			modifiers = none
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+		moon = {
+			class = "pc_barren_cold"
+			orbit_distance = 6
+			orbit_angle = { min = 90 max = 270 }
+			size = 10
+			tile_blockers = none
+			modifiers = none
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+	}
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		tile_blockers = none
+		modifiers = none
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+	planet = {
+		class = "pc_barren_cold"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 30
+		has_ring = no
+		tile_blockers = none
+		modifiers = none
+		init_effect = {
+			prevent_anomaly = yes
+		}
+		moon = {
+			class = "pc_frozen"
+			orbit_distance = 25
+			orbit_angle = { min = 90 max = 270 }
+			size = 20
+			tile_blockers = none
+			modifiers = none
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+	}
+
+}

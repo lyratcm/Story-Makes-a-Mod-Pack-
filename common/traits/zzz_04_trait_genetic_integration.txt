@@ -1,0 +1,19 @@
+trait_genetic_integration = {
+    cost = 2
+    initial = no
+    modification = no
+    randomized = no
+    potential_crossbreeding_chance = 1.0
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    advanced_trait = yes
+    custom_tooltip = TRAIT_GENETIC_INTEGRATION_EFFECT
+    ai_weight = {
+        weight = 0
+    }
+    slave_cost = {
+        energy = 150
+    }
+}

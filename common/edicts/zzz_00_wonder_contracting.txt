@@ -1,0 +1,24 @@
+wonder_contracting = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	modifier = {
+		megastructures_influence_cost_mult = -1.00
+	}
+
+	prerequisites = {
+		"tech_mega_engineering"
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

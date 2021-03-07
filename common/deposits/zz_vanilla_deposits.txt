@@ -1,0 +1,204 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# blocked_modifier - applied to planet only when deposit blocker has been cleared
+# constant_modifier - applied to planet always
+# blocker = <key/any/none> - default any
+# station = station class in orbit to gather
+
+### Vanilla ###
+d_worm_mine = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_crystalline_caverns
+	
+	planet_modifier = {
+		district_mining_max = 4
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_mining_drone_add = 3
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_mining_drone_add = 2
+		}
+	}	
+		
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_miner_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_mine_add = 2
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_worm_farm = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_fertile_lands
+	
+	planet_modifier = {
+		district_farming_max = 4
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_agri_drone_add = 3
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_agri_drone_add = 2
+		}
+	}
+		
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_farmer_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_farm_add = 2
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+###machine origin
+d_machine_minerals = {
+	is_for_colonizeable = yes
+	icon = "d_veiny_cliffs"
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			minerals = 25
+			alloys = 5
+			exotic_gases = 1
+			rare_crystals = 1
+			volatile_motes = 1
+		}
+	}
+}
+
+## Hibernating Lithoids are generated on lithoid homeworlds at game-start
+d_hibernating_lithoids = {
+	icon = d_old_hibernating_lithoids
+	time = 360
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+	potential = { always = no }
+
+	on_cleared = {
+		if = {
+			limit = {
+				is_homeworld = no
+			}
+			owner = { add_resource = { minerals = 300 } }
+		}
+
+		if = {
+			limit = {
+				is_homeworld = yes
+			}
+			create_pop = {
+				species = owner
+			}
+		}
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			trigger = {
+				planet = {
+					is_homeworld = no
+				}
+			}
+			energy = 300
+		}
+		cost = {
+			trigger = {
+				planet = {
+					is_homeworld = yes
+				}
+			}
+			minerals = 1000
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+
+		modifier = {
+			factor = 2
+			from = {
+				is_homeworld = yes
+			}
+		}
+	}
+}

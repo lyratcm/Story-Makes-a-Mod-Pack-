@@ -1,0 +1,98 @@
+building_vfb_museum = {
+    category = government
+    base_buildtime = 360
+    base_cap_amount = 1
+    icon = building_vfb_museum
+    potential = {
+        NOT = {
+            has_building = building_vfb_museum
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_museum
+            NOT = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_museum
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+            num_buildings = {
+                type = building_vfb_lyceum
+                value = 1
+            }
+        }
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_ethic = ethic_gestalt_consciousness
+        }
+        planet = {
+            OR = {
+                num_pops < 10
+                num_buildings = {
+                    type = building_vfb_lyceum
+                    value < 1
+                }
+            }
+        }
+    }
+    country_modifier = {
+        leader_upkeep_empire_size_mult = 0.2
+    }
+    planet_modifier = {
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+        }
+        text = vfb_museum_addon_effect_desc
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                AND = {
+                    is_machine_empire = no
+                    is_hive_empire = no
+                }
+            }
+        }
+        job_vfb_archaeologist_add = 1
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            energy = 400
+        }
+        produces = {
+            unity = 5
+        }
+        upkeep = {
+            consumer_goods = 10
+        }
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 100
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = consumer_goods
+                    value > 160
+                }
+            }
+        }
+    }
+}

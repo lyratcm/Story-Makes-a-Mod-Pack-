@@ -1,0 +1,59 @@
+can_release_vassal_from_species = {
+    root = {
+        is_sapient = yes
+        NOR = {
+            has_trait = trait_nerve_stapled
+            has_trait = trait_syncretic_proles
+            has_trait = trait_memorex_comatos
+            has_trait = trait_infested_basic
+            AND = {
+                prev = {
+                    NOT = {
+                        has_technology = tech_synthetic_leaders
+                    }
+                }
+                has_trait = trait_mechanical
+            }
+        }
+        if = {
+            limit = {
+                prev = {
+                    OR = {
+                        has_valid_civic = civic_fanatic_purifiers
+                        has_valid_civic = civic_machine_assimilator
+                        has_valid_civic = civic_hive_devouring_swarm
+                    }
+                }
+            }
+            is_same_species = prev
+        }
+        if = {
+            limit = {
+                prev = {
+                    has_authority = auth_machine_intelligence
+                }
+            }
+            OR = {
+                has_trait = trait_machine_unit
+                has_citizenship_rights = yes
+                has_citizenship_type = {
+                    type = citizenship_limited
+                }
+            }
+        }
+        if = {
+            limit = {
+                prev = {
+                    has_authority = auth_hive_mind
+                }
+            }
+            OR = {
+                has_trait = trait_hive_mind
+                has_citizenship_rights = yes
+                has_citizenship_type = {
+                    type = citizenship_limited
+                }
+            }
+        }
+    }
+}

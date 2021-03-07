@@ -1,0 +1,30 @@
+decision_gpm_hostile_flora = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_hostile_flora
+	enactment_time = 180
+
+    resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+		# owner = { is_regular_empire = yes }
+		has_modifier = gpm_hostile_flora
+	}
+	
+	allow = {
+		has_modifier = gpm_hostile_flora
+	}
+
+    effect = {
+		remove_modifier = gpm_hostile_flora
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

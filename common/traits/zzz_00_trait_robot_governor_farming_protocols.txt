@@ -1,0 +1,24 @@
+trait_robot_governor_farming_protocols = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_robot_governor_farming_protocols.dds"
+    modifier = {
+        planet_jobs_food_produces_mult = 0.20
+        planet_jobs_minerals_produces_mult = -0.10
+        planet_jobs_energy_produces_mult = -0.10
+    }
+    leader_trait = {
+        governor
+    }
+    leader_class = {
+        governor
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_robot_harvesters
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

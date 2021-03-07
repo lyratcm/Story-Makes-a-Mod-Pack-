@@ -1,0 +1,6 @@
+z_fw_r_koh_is_species_karyl = {
+    OR = {
+        has_trait = z_fw_trait_r_hok_kayrl_negative
+        has_trait = z_fw_trait_r_hok_kayrl_positive
+    }
+}

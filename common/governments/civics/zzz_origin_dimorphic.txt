@@ -1,0 +1,32 @@
+origin_dimorphic = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_dimorphic.dds"
+    picture = GFX_origin_dimorphic
+    potential = {
+        always = no
+    }
+    playable = {
+        host_has_dlc = "Utopia"
+    }
+    possible = {
+        authority = {
+            NOT = {
+                value = auth_machine_intelligence
+            }
+        }
+    }
+    description = civic_tooltip_origin_dimorphic_effects
+    traits = {
+        trait = trait_dimorphic_1
+    }
+    has_secondary_species = {
+        title = civic_dimorphic_secondary_species
+        traits = {
+            trait = trait_dimorphic_2
+        }
+    }
+    advanced_start = yes
+    random_weight = {
+        base = 2
+    }
+}

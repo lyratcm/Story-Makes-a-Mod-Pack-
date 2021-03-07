@@ -1,0 +1,12 @@
+origin_graveyard_world = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_pdgraveyard.dds"
+	picture = GFX_origin_pd_graveyard
+	starting_colony = pc_graveyard
+	habitability_preference = pc_graveyard
+	preferred_planet_class_neighbor = no
+	description = "origin_tooltip_graveyard_world_effects"
+	random_weight = { base = 0 }
+	initializers = { pd_origin_init_graveyard }
+	#max_once_global = yes
+}

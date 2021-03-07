@@ -1,0 +1,14 @@
+civic_uncontrolled_birth_rate = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        pop_growth_speed = 0.30
+        pop_happiness = -0.10
+    }
+}

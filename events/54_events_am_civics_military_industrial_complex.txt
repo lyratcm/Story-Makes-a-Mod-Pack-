@@ -1,0 +1,89 @@
+
+
+###############################################################################
+### Civic: Military-Industrial Complex                                      ###
+###############################################################################
+
+namespace = events_am_civics_military_industrial_complex
+
+### Triggered by on_action: on_game_start_country
+### Adds the Idle Debuff to Empires with the Military-Industrial Complex Civic at the start of the game
+country_event = {
+	id = events_am_civics_military_industrial_complex.1
+	hide_window = yes
+	
+	is_triggered_only = yes		
+	trigger = { has_valid_civic = civic_am_civics_military_industrial_complex }
+
+	immediate = { add_modifier = { modifier = static_modifier_am_civics_military_industrial_complex_idle } }
+}
+
+### Triggered by on_action: on_entering_war
+### Choose a bonus as Military-Industrial Complex
+country_event = {
+	id = events_am_civics_military_industrial_complex.2
+	title = "events_am_civics_military_industrial_complex.2.title"
+	desc = "events_am_civics_military_industrial_complex.2.desc"
+	picture = GFX_evt_financial_instruments
+	show_sound = event_ship_bridge
+	
+	is_triggered_only = yes	
+	trigger = { has_valid_civic = civic_am_civics_military_industrial_complex }
+
+	option = {
+		name = events_am_civics_military_industrial_complex.2.option.a
+		hidden_effect = {
+			remove_modifier = static_modifier_am_civics_military_industrial_complex_idle
+			remove_modifier = static_modifier_am_civics_military_industrial_complex_choice_1 # Remove this modifier so it can be refreshed if it's already active (otherwise it will not be reapplied).
+		}
+		add_modifier = {
+			modifier = static_modifier_am_civics_military_industrial_complex_choice_1 
+			months = 180
+		}
+	}
+	option = {
+		name = events_am_civics_military_industrial_complex.2.option.b
+		hidden_effect = {
+			remove_modifier = static_modifier_am_civics_military_industrial_complex_idle
+			remove_modifier = static_modifier_am_civics_military_industrial_complex_choice_2 # Remove this modifier so it can be refreshed if it's already active (otherwise it will not be reapplied).
+		}
+		add_modifier = {
+			modifier = static_modifier_am_civics_military_industrial_complex_choice_2
+			months = 180
+		}
+	}
+	option = {
+		name = events_am_civics_military_industrial_complex.2.option.c
+		hidden_effect = {
+			remove_modifier = static_modifier_am_civics_military_industrial_complex_idle
+			remove_modifier = static_modifier_am_civics_military_industrial_complex_choice_3 # Remove this modifier so it can be refreshed if it's already active (otherwise it will not be reapplied).
+		}
+		add_modifier = {
+			modifier = static_modifier_am_civics_military_industrial_complex_choice_3
+			months = 180
+		}
+	}
+}
+
+### Triggered by on_action: on_monthly_pulse_country
+### Checks whether Idle Debuff needs to be reapplied for Military-Industrial Complex Civic
+country_event = {
+	id = events_am_civics_military_industrial_complex.3
+	hide_window = yes
+	
+	is_triggered_only = yes
+	trigger = { has_valid_civic = civic_am_civics_military_industrial_complex }
+	
+	immediate = {
+		IF = {
+			limit = { 				
+				NOR = { 
+					has_modifier = static_modifier_am_civics_military_industrial_complex_choice_1 
+					has_modifier = static_modifier_am_civics_military_industrial_complex_choice_2
+					has_modifier = static_modifier_am_civics_military_industrial_complex_choice_2 
+				}
+			}
+			add_modifier = { modifier = static_modifier_am_civics_military_industrial_complex_idle }
+		}
+	}
+}

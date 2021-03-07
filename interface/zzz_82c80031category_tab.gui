@@ -1,0 +1,35 @@
+guiTypes = {
+    containerWindowType = {
+        name = "category_tab"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = 40
+            height = 40
+        }
+        buttonType = {
+            name = "button"
+            quadTextureSprite = "GFX_button_dark"
+            position = {
+                x = 0
+                y = 0
+            }
+            size = {
+                x = 40
+                y = 40
+            }
+        }
+        iconType = {
+            name = "icon"
+            quadTextureSprite = "GFX_job_default"
+            position = {
+                x = 6
+                y = 5
+            }
+            scale = 1
+            alwaysTransparent = yes
+        }
+    }
+}

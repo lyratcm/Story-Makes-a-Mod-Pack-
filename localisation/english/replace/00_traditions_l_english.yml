@@ -1,0 +1,11 @@
+﻿l_english:
+tr_domination_adopt_effect:3 "§E$TRADITIONS_ADOPT$:§!\n£blocker£ §Y$MOD_PLANET_CLEAR_BLOCKER_COST_MULT$§! reduced by §G33%§!.\n£job_soldier£ §YSoldiers§! now also provide an additional §YDevensive Army§!"
+tr_domination_imperious_architecture_desc:2 "£building£ §YCapital Buildings§!, £building£ §YHousing Buildings§!, and £building£ §YFortress Buildings§! provide §G+1§! £housing£ §Y$MOD_PLANET_HOUSING_ADD$§! each."
+tr_domination_synaptic_extensions_desc:0 "£building£ §Y$building_hive_node$§! and £building£ §YFortress Buildings§! now also increase £housing£ §Y$MOD_PLANET_HOUSING_ADD$§! by §Y2§!."
+
+tr_discovery_databank_uplinks_desc:1 "§HUnlocks Edict:§! $edict_research_subsidies$\n§Y$mod_station_researchers_produces_mult$§! increased by §G25%§!."
+
+tr_prosperity_adopt_effect:7 "§E$TRADITIONS_ADOPT$:§!\n§Y$mod_station_gatherers_produces_mult$§! increased by §G25%§!."
+tr_prosperity_efficiency_algorithms_desc:0 "§HUnlocks Edict:§! $maintenance_subsidies$\n£energy£ §Y$mod_country_energy_produces_mult$§! increased by §G5%§!."
+
+tr_synchronicity_finish_effect:2 "§E$TRADITIONS_FINISH$:§!\nAdopting all $tr_synchronicity_hive_adopt$ will reduce §Y$MOD_EMPIRE_SIZE_POPS_MULT$§! by §G10%§!, and decrease penalties from non-gestalt residents by §G50%"

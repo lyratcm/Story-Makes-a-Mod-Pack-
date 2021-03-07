@@ -1,0 +1,152 @@
+###_z frameworks1 head of karyl triggers	##################################################################
+
+#_[支援国家]
+#_[领袖_头像同化忽略]
+#_[凯露物种]
+
+
+
+
+#_[支援国家]
+z_fw_trgr_cntr_r_hok_valid = {
+	OR = {
+		is_country_type = default
+		is_country_type = prikki
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire
+		#_ev
+		is_country_type = default_ev
+		#_teif
+		is_country_type = teif_primitive
+		is_country_type = mercenary_fleet
+		#_wsg/swg
+		is_country_type = wsg_lady
+		is_country_type = sh2f
+		is_country_type = wg_crisis_country
+		is_country_type = wg_resistant_army
+		#_kuat
+		is_country_type = kuat_fallen_empire
+		is_country_type = kuat_awakened_fallen_empire
+		is_country_type = awakened_return_kuat_empire
+		#_mem
+		is_country_type = mem_vazurans
+		#_ehof
+		is_country_type = compound_empire
+		#_ZOFE
+		is_country_type = ascended_empire
+		is_country_type = lost_empire
+		#_SOFE
+		is_country_type = original_empire
+		is_country_type = original_empire_passive
+		is_country_type = original_empire_active
+		is_country_type = sofe_light_seeker
+		#_永恒
+		is_country_type = eternal_empire
+	}
+}
+
+
+#_[领袖_头像同化忽略]
+z_fw_trgr_ldr_r_hok_ignore = {
+	OR = {
+		has_leader_flag = z_fw_flg_ldr_r_hok_kogasa		#_伞鼬
+	}
+}
+
+
+#_[凯露物种]	<country/pop/species>
+z_fw_r_koh_is_species_karyl = {
+	OR = {
+		has_trait = z_fw_trait_r_hok_kayrl_negative
+		has_trait = z_fw_trait_r_hok_kayrl_positive
+	}
+}
+#_[country/pop/species]
+z_fw_r_koh_is_species_karyl_old = {
+	OR = {
+		#_普通凯露
+		is_species_class = Z_KARYL
+		is_species_class = Z_KARYL_ROBOT
+		is_species_class = Z_KARYL_MACHINE
+		is_species_class = Z_KARYL_LITHOID
+		#_MOD凯露
+		#_融合凯露
+		#_恶化凯露
+	}
+}
+
+#_[species]	[biology other]
+z_fw_r_koh_is_spcs_neg_regular = {
+	is_species_class = Z_KARYL
+	has_trait = z_fw_trait_r_hok_kayrl_negative
+	z_is_species_regular_mod = yes
+	NOT = { has_trait = trait_hive_mind }
+}
+z_fw_r_koh_is_spcs_pos_regular = {
+	is_species_class = Z_KARYL
+	has_trait = z_fw_trait_r_hok_kayrl_positive
+	z_is_species_regular_mod = yes
+	NOT = { has_trait = trait_hive_mind }
+}
+z_fw_r_koh_is_spcs_neg_hive = {
+	is_species_class = Z_KARYL
+	has_trait = z_fw_trait_r_hok_kayrl_negative
+	z_is_species_regular_mod = yes
+	has_trait = trait_hive_mind
+}
+z_fw_r_koh_is_spcs_pos_hive = {
+	is_species_class = Z_KARYL
+	has_trait = z_fw_trait_r_hok_kayrl_positive
+	z_is_species_regular_mod = yes
+	has_trait = trait_hive_mind
+}
+
+#_[species]	[robot]
+z_fw_r_koh_is_spcs_neg_robot = {
+	is_species_class = Z_KARYL_ROBOT
+	has_trait = z_fw_trait_r_hok_kayrl_negative
+	has_trait = trait_mechanical
+}
+z_fw_r_koh_is_spcs_pos_robot = {
+	is_species_class = Z_KARYL_ROBOT
+	has_trait = z_fw_trait_r_hok_kayrl_positive
+	has_trait = trait_mechanical
+}
+
+#_[species]	[machine]
+z_fw_r_koh_is_spcs_neg_machine = {
+	is_species_class = Z_KARYL_MACHINE
+	has_trait = z_fw_trait_r_hok_kayrl_negative
+	has_trait = trait_machine_unit
+}
+z_fw_r_koh_is_spcs_pos_machine = {
+	is_species_class = Z_KARYL_MACHINE
+	has_trait = z_fw_trait_r_hok_kayrl_positive
+	has_trait = trait_machine_unit
+}
+
+#_[species]	[lithoid]
+z_fw_r_koh_is_spcs_neg_lithoid = {
+	is_species_class = Z_KARYL_LITHOID
+	has_trait = z_fw_trait_r_hok_kayrl_negative
+	has_trait = trait_lithoid
+	NOT = { has_trait = trait_hive_mind }
+}
+z_fw_r_koh_is_spcs_pos_lithoid = {
+	is_species_class = Z_KARYL_LITHOID
+	has_trait = z_fw_trait_r_hok_kayrl_positive
+	has_trait = trait_lithoid
+	NOT = { has_trait = trait_hive_mind }
+}
+z_fw_r_koh_is_spcs_neg_brick = {
+	is_species_class = Z_KARYL_LITHOID
+	has_trait = z_fw_trait_r_hok_kayrl_negative
+	has_trait = trait_lithoid
+	has_trait = trait_hive_mind
+}
+z_fw_r_koh_is_spcs_pos_brick = {
+	is_species_class = Z_KARYL_LITHOID
+	has_trait = z_fw_trait_r_hok_kayrl_positive
+	has_trait = trait_lithoid
+	has_trait = trait_hive_mind
+}

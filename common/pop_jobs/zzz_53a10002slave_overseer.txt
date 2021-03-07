@@ -1,0 +1,160 @@
+slave_overseer = {
+    category = worker
+    is_capped_by_modifier = yes
+    building_icon = building_crude_huts
+    clothes_texture_index = 3
+    icon = enforcer
+    possible_pre_triggers = {
+        is_enslaved = yes
+        has_planet = yes
+    }
+    possible = {
+        planet = {
+            has_modifier = slave_colony
+        }
+        OR = {
+            traits_restrict_worker_jobs = no
+            has_pop_flag = allow_enforcer_traits
+        }
+    }
+    resources = {
+        category = planet_enforcers
+        upkeep = {
+            trigger = {
+                planet = {
+                    has_modifier = anticrime_campaign
+                }
+            }
+            energy = 2
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_valid_civic = civic_reeducated_labor
+                }
+            }
+            unity = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_ethic = ethic_authoritarian
+                has_ethic = ethic_xenophobe
+                has_ethic = ethic_militarist
+            }
+            NOR = {
+                is_active_resolution = "resolution_lawandorder_domestic_security"
+                is_active_resolution = "resolution_lawandorder_right_to_work"
+                is_active_resolution = "resolution_lawandorder_administrative_subsidies"
+                is_active_resolution = "resolution_lawandorder_free_migration"
+                is_active_resolution = "resolution_lawandorder_informed_governance"
+            }
+        }
+        modifier = {
+            planet_stability_add = -1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                is_active_resolution = "resolution_lawandorder_domestic_security"
+                is_active_resolution = "resolution_lawandorder_right_to_work"
+                is_active_resolution = "resolution_lawandorder_administrative_subsidies"
+                is_active_resolution = "resolution_lawandorder_free_migration"
+                is_active_resolution = "resolution_lawandorder_informed_governance"
+            }
+        }
+        modifier = {
+            planet_stability_add = 1
+        }
+    }
+    triggered_country_modifier = {
+        potential = {
+            has_slavery_type = {
+                type = slavery_military
+            }
+        }
+        modifier = {
+            country_naval_cap_add = 2
+        }
+    }
+    pop_modifier = {
+        pop_happiness = 0.25
+        pop_defense_armies_add = 2
+    }
+    planet_modifier = {
+        planet_crime_add = -20
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                owner = {
+                    is_ai = yes
+                }
+            }
+        }
+        modifier = {
+            planet_crime_add = -5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                has_modifier = corrupt_cops
+            }
+        }
+        modifier = {
+            planet_crime_add = 5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_non_swapped_tradition = tr_domination_judgment_corps
+            }
+        }
+        modifier = {
+            planet_crime_add = -5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet
+            planet = {
+                has_modifier = anticrime_campaign
+            }
+        }
+        modifier = {
+            planet_crime_add = -10
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet
+            planet = {
+                has_modifier = syndicate_bribery
+            }
+        }
+        modifier = {
+            planet_crime_add = 10
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet
+            exists = planet.owner
+            planet.owner = {
+                has_valid_civic = civic_slaver_guilds
+            }
+        }
+        modifier = {
+            planet_crime_add = -10
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+    }
+}

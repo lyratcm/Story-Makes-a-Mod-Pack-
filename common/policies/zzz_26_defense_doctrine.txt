@@ -1,0 +1,32 @@
+defense_doctrine = {
+	potential = {
+		is_country_type = default
+		is_ai = no
+	}
+
+	option = {
+		name = "uniform_focus"
+		policy_flags = { uniform_focus }
+		ai_weight = { factor = 0 }
+	}
+
+	option = {
+		name = "armor_focus"
+		policy_flags = { armor_focus }
+		modifier = {
+			ship_armor_mult = 0.2
+			ship_shield_mult = -0.1
+		}
+		ai_weight = { factor = 0 }
+	}
+
+	option = {
+		name = "shield_focus"
+		policy_flags = { shield_focus }
+		modifier = {
+			ship_armor_mult = -0.1
+			ship_shield_mult = 0.2
+		}
+		ai_weight = { factor = 0 }
+	}
+}

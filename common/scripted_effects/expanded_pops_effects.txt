@@ -1,0 +1,1304 @@
+### GOVERNMENT ###
+befriender_migration_update = {
+	if = {
+		limit = {
+			count_country = {
+				limit = { has_diplo_migration_treaty = PREV }
+				count >= 5
+			}
+			NOT = { has_modifier = befriender_migration_5 }
+		}
+		remove_befriender_migration_modifiers = yes
+		add_modifier = { modifier = befriender_migration_5 days = -1 }
+	}
+	else_if = {
+		limit = {
+			count_country = {
+				limit = { has_diplo_migration_treaty = PREV }
+				count >= 4
+			}
+			NOT = { has_modifier = befriender_migration_4 }
+		}
+		remove_befriender_migration_modifiers = yes
+		add_modifier = { modifier = befriender_migration_4 days = -1 }
+	}
+	else_if = {
+		limit = {
+			count_country = {
+				limit = { has_diplo_migration_treaty = PREV }
+				count >= 3
+			}
+			NOT = { has_modifier = befriender_migration_3 }
+		}
+		remove_befriender_migration_modifiers = yes
+		add_modifier = { modifier = befriender_migration_3 days = -1 }
+	}
+	else_if = {
+		limit = {
+			count_country = {
+				limit = { has_diplo_migration_treaty = PREV }
+				count >= 2
+			}
+			NOT = { has_modifier = befriender_migration_2 }
+		}
+		remove_befriender_migration_modifiers = yes
+		add_modifier = { modifier = befriender_migration_2 days = -1 }
+	}
+	else_if = {
+		limit = {
+			count_country = {
+				limit = { has_diplo_migration_treaty = PREV }
+				count >= 1
+			}
+			NOT = { has_modifier = befriender_migration_1 }
+		}
+		remove_befriender_migration_modifiers = yes
+		add_modifier = { modifier = befriender_migration_1 days = -1 }
+	}
+	else = {
+		remove_befriender_migration_modifiers = yes
+	}
+}
+
+remove_befriender_migration_modifiers = {
+	if = {
+		limit = { has_modifier = befriender_migration_1 }
+		remove_modifier = befriender_migration_1
+	}
+	if = {
+		limit = { has_modifier = befriender_migration_2 }
+		remove_modifier = befriender_migration_2
+	}
+	if = {
+		limit = { has_modifier = befriender_migration_3 }
+		remove_modifier = befriender_migration_3
+	}
+	if = {
+		limit = { has_modifier = befriender_migration_4 }
+		remove_modifier = befriender_migration_4
+	}
+	if = {
+		limit = { has_modifier = befriender_migration_5 }
+		remove_modifier = befriender_migration_5
+	}
+}
+
+create_research_coop_member_1 = {
+	create_country = {
+		name_list = random
+		species = event_target:fed_planet_1_species
+		type = default
+		origin = "origin_research_coop_npc"
+		ignore_initial_colony_error = yes
+		day_zero_contact = no
+		randomize_ethos = yes
+		ethos = {
+			ethic = "ethic_xenophile"
+			ethic = "ethic_materialist"
+			ethic = "ethic_fanatic_materialist"
+		}
+		effect = {
+			save_event_target_as = fed_member_1
+			establish_communications_no_message = root
+		}
+	}
+}
+create_research_coop_member_2 = {
+	create_country = {
+		name_list = random
+		species = event_target:fed_planet_2_species
+		type = default
+		origin = "origin_research_coop_npc"
+		ignore_initial_colony_error = yes
+		day_zero_contact = no
+		ethos = {
+			ethic = "ethic_gestalt_consciousness"
+		}
+		authority = auth_machine_intelligence
+		effect = {
+			save_event_target_as = fed_member_2
+			establish_communications_no_message = root
+		}
+	}
+}
+
+create_private_colony = {
+	if = {
+		limit = {
+			root = {
+				is_megacorp = yes
+			}
+		}
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					ROOT = { is_authoritarian = yes }
+				}
+				modifier = {
+					factor = 3
+					ROOT = { is_egalitarian = yes }
+				}
+				create_country = {
+					name_list = random
+					species = event_target:fed_planet_1_species
+					type = default
+					origin = "origin_private_colony"
+					ignore_initial_colony_error = yes
+					day_zero_contact = no
+					ethos = random
+					authority = auth_democratic
+					civics = random
+					effect = {
+						save_event_target_as = fed_member_1
+						establish_communications_no_message = root
+					}
+				}
+			}
+			1 = {
+				create_country = {
+					name_list = random
+					species = event_target:fed_planet_1_species
+					type = default
+					origin = "origin_private_colony"
+					ignore_initial_colony_error = yes
+					day_zero_contact = no
+					ethos = random
+					authority = auth_oligarchic
+					civics = random
+					effect = {
+						save_event_target_as = fed_member_1
+						establish_communications_no_message = root
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					ROOT = { is_egalitarian = yes }
+				}
+				modifier = {
+					factor = 2
+					ROOT = { is_authoritarian = yes }
+				}
+				create_country = {
+					name_list = random
+					species = event_target:fed_planet_1_species
+					type = default
+					origin = "origin_private_colony"
+					ignore_initial_colony_error = yes
+					day_zero_contact = no
+					ethos = random
+					authority = auth_imperial
+					civics = random
+					effect = {
+						save_event_target_as = fed_member_1
+						establish_communications_no_message = root
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					ROOT = { is_egalitarian = yes }
+				}
+				modifier = {
+					factor = 3
+					ROOT = { is_authoritarian = yes }
+				}
+				create_country = {
+					name_list = random
+					species = event_target:fed_planet_1_species
+					type = default
+					origin = "origin_private_colony"
+					ignore_initial_colony_error = yes
+					day_zero_contact = no
+					ethos = random
+					authority = auth_dictatorial
+					civics = random
+					effect = {
+						save_event_target_as = fed_member_1
+						establish_communications_no_message = root
+					}
+				}
+			}
+		}
+	}
+	else = {
+		random_list = {
+			1 = {
+				create_country = {
+					name_list = random
+					species = event_target:fed_planet_1_species
+					type = default
+					origin = "origin_private_colony"
+					ignore_initial_colony_error = yes
+					day_zero_contact = no
+					authority = "auth_corporate"
+					ethos = random
+					civics = {
+						civic = civic_private_prospectors
+						civic = random
+					}
+					effect = {
+						save_event_target_as = fed_member_1
+						establish_communications_no_message = root
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					ROOT = { is_egalitarian = yes }
+				}
+				modifier = {
+					factor = 3
+					ROOT = { is_authoritarian = yes }
+				}
+				create_country = {
+					name_list = random
+					species = event_target:fed_planet_1_species
+					type = default
+					origin = "origin_private_colony"
+					ignore_initial_colony_error = yes
+					day_zero_contact = no
+					authority = "auth_corporate"
+					ethos = random
+					civics = {
+						civic = auth_private
+						civic = random
+					}
+					effect = {
+						save_event_target_as = fed_member_1
+						establish_communications_no_message = root
+					}
+				}
+			}
+		}
+	}
+}
+
+private_colony_origin_planet_setup = {
+	set_planet_size = 16
+	if = {
+		limit = { root = { ideal_planet_class = pc_arid } }
+		change_pc = pc_arid 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_desert } }
+		change_pc = pc_desert 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_tropical } }
+		change_pc = pc_tropical 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_continental } }
+		change_pc = pc_continental 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_ocean } }
+		change_pc = pc_ocean 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_tundra } }
+		change_pc = pc_tundra 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_arctic } }
+		change_pc = pc_arctic 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_alpine } }
+		change_pc = pc_alpine 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_savannah } }
+		change_pc = pc_savannah 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_cascadian } }
+		change_pc = pc_cascadian 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_mangrove } }
+		change_pc = pc_mangrove 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_wetswamp } }
+		change_pc = pc_wetswamp 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_hajungle } }
+		change_pc = pc_hajungle 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_subarctic } }
+		change_pc = pc_subarctic 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_retinal } }
+		change_pc = pc_retinal 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_desertislands } }
+		change_pc = pc_desertislands 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_forest } }
+		change_pc = pc_forest 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_prairie } }
+		change_pc = pc_prairie 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_steppe } }
+		change_pc = pc_steppe 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_swamp } }
+		change_pc = pc_swamp 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_glacial } }
+		change_pc = pc_glacial 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_boreal } }
+		change_pc = pc_boreal 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_mushroom } }
+		change_pc = pc_mushroom 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_med } }
+		change_pc = pc_med 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_mesa } }
+		change_pc = pc_mesa 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_outback } }
+		change_pc = pc_outback 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_hadesert } }
+		change_pc = pc_hadesert 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_sandsea } }
+		change_pc = pc_sandsea 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_antarctic } }
+		change_pc = pc_antarctic 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_snow } }
+		change_pc = pc_snow 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_highland } }
+		change_pc = pc_highland 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_geothermal } }
+		change_pc = pc_geothermal 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_superhabitable } }
+		change_pc = pc_superhabitable 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_tidallylocked } }
+		change_pc = pc_tidallylocked 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_biolumen } }
+		change_pc = pc_biolumen 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_karst } }
+		change_pc = pc_karst 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_primal } }
+		change_pc = pc_primal 
+	} 
+	if = {
+		limit = { root = { ideal_planet_class = pc_aquatic } }
+		change_pc = pc_aquatic 
+	} 
+	if = {
+		limit = { root = { ideal_planet_class = pc_salt } }
+		change_pc = pc_salt 
+	} 
+	if = {
+		limit = { root = { ideal_planet_class = pc_ammonia } }
+		change_pc = pc_ammonia 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_irradiated } }
+		change_pc = pc_irradiated 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_ash } }
+		change_pc = pc_ash 
+	}
+	if = {
+		limit = { root = { ideal_planet_class = pc_methane } }
+		change_pc = pc_methane
+	}
+	reroll_planet = yes
+}
+
+### VASSAL ###
+
+vassal_navy_update = {
+	if = {
+		limit = {
+			count_country = {
+				limit = {
+					OR = {
+						is_subject_type = vassal
+						is_subject_type = duchy
+					}
+					overlord = { is_same_value = PREVPREV }
+				}
+				count >= 5
+			}
+			NOT = { has_modifier = vassal_navy_5 }
+		}
+		remove_vassal_navy_modifiers = yes
+		add_modifier = { modifier = vassal_navy_5 days = -1 }
+	}
+	else_if = {
+		limit = {
+			count_country = {
+				limit = {
+					OR = {
+						is_subject_type = vassal
+						is_subject_type = duchy
+					}
+					overlord = { is_same_value = PREVPREV }
+				}
+				count >= 4
+			}
+			NOT = { has_modifier = vassal_navy_4 }
+		}
+		remove_vassal_navy_modifiers = yes
+		add_modifier = { modifier = vassal_navy_4 days = -1 }
+	}
+	else_if = {
+		limit = {
+			count_country = {
+				limit = {
+					OR = {
+						is_subject_type = vassal
+						is_subject_type = duchy
+					}
+					overlord = { is_same_value = PREVPREV }
+				}
+				count >= 3
+			}
+			NOT = { has_modifier = vassal_navy_3 }
+		}
+		remove_vassal_navy_modifiers = yes
+		add_modifier = { modifier = vassal_navy_3 days = -1 }
+	}
+	else_if = {
+		limit = {
+			count_country = {
+				limit = {
+					OR = {
+						is_subject_type = vassal
+						is_subject_type = duchy
+					}
+					overlord = { is_same_value = PREVPREV }
+				}
+				count >= 2
+			}
+			NOT = { has_modifier = vassal_navy_2 }
+		}
+		remove_vassal_navy_modifiers = yes
+		add_modifier = { modifier = vassal_navy_2 days = -1 }
+	}
+	else_if = {
+		limit = {
+			count_country = {
+				limit = {
+					OR = {
+						is_subject_type = vassal
+						is_subject_type = duchy
+					}
+					overlord = { is_same_value = PREVPREV }
+				}
+				count >= 1
+			}
+			NOT = { has_modifier = vassal_navy_1 }
+		}
+		remove_vassal_navy_modifiers = yes
+		add_modifier = { modifier = vassal_navy_1 days = -1 }
+	}
+	else = {
+		remove_vassal_navy_modifiers = yes
+	}
+}
+
+remove_vassal_navy_modifiers = {
+	if = {
+		limit = { has_modifier = vassal_navy_1 }
+		remove_modifier = vassal_navy_1
+	}
+	if = {
+		limit = { has_modifier = vassal_navy_2 }
+		remove_modifier = vassal_navy_2
+	}
+	if = {
+		limit = { has_modifier = vassal_navy_3 }
+		remove_modifier = vassal_navy_3
+	}
+	if = {
+		limit = { has_modifier = vassal_navy_4 }
+		remove_modifier = vassal_navy_4
+	}
+	if = {
+		limit = { has_modifier = vassal_navy_5 }
+		remove_modifier = vassal_navy_5
+	}
+}
+
+### SYNTHETIC ASCENSION ###
+get_ascended_synth_traits = {
+	if = {
+		limit = { is_same_species = ROOT }
+		set_pop_flag = pop_is_owner_species
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_industrious
+					has_trait = trait_strong
+					has_trait = trait_very_strong
+					has_trait = trait_presapient_proles
+				}
+			}
+		}
+		set_pop_flag  = get_rockbreaker
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_agrarian
+				}
+			}
+		}
+		set_pop_flag  = get_harvesters
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_ingenious
+					has_trait = trait_presapient_earthbound
+				}
+			}
+		}
+		set_pop_flag  = get_superconductive
+	}
+	if = {
+		limit = {
+			species = {
+				has_trait = trait_thrifty
+			}
+		}
+		set_pop_flag  = get_economical
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_adaptive
+					has_trait = trait_extremely_adaptive
+				}
+			}
+		}
+		set_pop_flag  = get_adaptable
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_intelligent
+					has_trait = trait_natural_engineers
+					has_trait = trait_natural_physicists
+					has_trait = trait_natural_sociologists
+					has_trait = trait_messanger_intelligent
+					has_trait = trait_brainslug
+					has_trait = trait_presapient_natural_intellectuals
+				}
+			}
+		}
+		set_pop_flag  = get_logic_engine
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_communal
+					has_trait = trait_nomadic
+					has_trait = trait_social_pheromones
+				}
+			}
+		}
+		set_pop_flag  = get_jointed
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_solitary
+					has_trait = trait_sedentary
+				}
+			}
+		}
+		set_pop_flag  = get_bulky
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_talented
+					has_trait = trait_messanger_intelligent
+				}
+			}
+		}
+		set_pop_flag  = get_memory
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_charismatic
+				}
+			}
+		}
+		set_pop_flag  = get_emotions
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_repugnant
+				}
+			}
+		}
+		set_pop_flag  = get_uncanny
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_conservational
+				}
+			}
+		}
+		set_pop_flag  = get_durable
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_wasteful
+					has_trait = trait_weak
+				}
+			}
+		}
+		set_pop_flag  = get_high_maint
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_quick_learners
+				}
+			}
+		}
+		set_pop_flag  = get_learning
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_slow_learners
+					has_trait = trait_presapient_conservative
+				}
+			}
+		}
+		set_pop_flag  = get_hardware
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_rapid_breeders
+					has_trait = trait_clonal_colony
+					has_trait = trait_nivlac
+				}
+			}
+		}
+		set_pop_flag  = get_massed_produced
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_slow_breeders
+					has_trait = trait_fungal_colony
+					has_trait = trait_brainslug
+				}
+			}
+		}
+		set_pop_flag  = get_custom_made
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_traditional
+				}
+			}
+		}
+		set_pop_flag  = get_propaganda
+	}
+	if = {
+		limit = {
+			species = {
+				OR = {
+					has_trait = trait_resilient
+					has_trait = trait_strong
+					has_trait = trait_very_strong
+					has_trait = trait_presapient_proles
+					has_trait = trait_presapient_earthbound
+				}
+			}
+		}
+		set_pop_flag  = get_garrison
+	}
+}
+
+set_ascended_synth_traits = {
+	if = {
+		limit = { has_pop_flag  = get_rockbreaker }
+		remove_pop_flag  = get_rockbreaker
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_power_drills
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_harvesters }
+		remove_pop_flag  = get_harvesters
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_harvesters
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_superconductive }
+		remove_pop_flag  = get_superconductive
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_superconductive
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_economical }
+		remove_pop_flag  = get_economical
+		modify_species = {
+			species = THIS
+			add_trait = trait_thrifty_synth
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_adaptable }
+		remove_pop_flag  = get_adaptable
+		modify_species = {
+			species = THIS
+			add_trait = trait_adaptable_evolution_robot
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_logic_engine }
+		remove_pop_flag  = get_logic_engine
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_logic_engines
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_jointed }
+		remove_pop_flag  = get_jointed
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_double_jointed
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_bulky }
+		remove_pop_flag  = get_bulky
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_bulky
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_memory }
+		remove_pop_flag  = get_memory
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_enhanced_memory
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_emotions }
+		remove_pop_flag  = get_emotions
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_emotion_emulators
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_uncanny }
+		remove_pop_flag  = get_uncanny
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_uncanny
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_durable }
+		remove_pop_flag  = get_durable
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_durable
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_high_maint }
+		remove_pop_flag  = get_high_maint
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_high_maintenance
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_learning }
+		remove_pop_flag  = get_learning
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_learning_algorithms
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_hardware }
+		remove_pop_flag  = get_hardware
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_repurposed_hardware
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_massed_produced }
+		remove_pop_flag  = get_massed_produced
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_mass_produced
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_custom_made }
+		remove_pop_flag  = get_custom_made
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_custom_made
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_propaganda }
+		remove_pop_flag  = get_propaganda
+		modify_species = {
+			species = THIS
+			add_trait = trait_robot_propaganda_machines
+		}
+	}
+	if = {
+		limit = { has_pop_flag  = get_propaganda }
+		remove_pop_flag  = get_garrison
+		modify_species = {
+			species = THIS
+			add_trait = trait_garrison_bot
+		}
+	}
+}
+
+### GESTALT RESIDENTS ###
+update_resident_non_gestalt_effect = {
+	remove_modifier = gestalt_residents_20
+	remove_modifier = gestalt_residents_25
+	remove_modifier = gestalt_residents_30
+	remove_modifier = gestalt_residents_35
+	remove_modifier = gestalt_residents_40
+	remove_modifier = gestalt_residents_45
+	remove_modifier = gestalt_residents_50
+	remove_modifier = gestalt_residents_55
+	remove_modifier = gestalt_residents_60
+	remove_modifier = gestalt_residents_80
+	remove_modifier = gestalt_residents_harm_20
+	remove_modifier = gestalt_residents_harm_25
+	remove_modifier = gestalt_residents_harm_30
+	remove_modifier = gestalt_residents_harm_35
+	remove_modifier = gestalt_residents_harm_40
+	remove_modifier = gestalt_residents_harm_45
+	remove_modifier = gestalt_residents_harm_50
+	remove_modifier = gestalt_residents_harm_55
+	remove_modifier = gestalt_residents_harm_60
+	remove_modifier = gestalt_residents_harm_80
+	if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.20
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_20 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.25
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_25 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.30
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_30 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.35
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_35 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.40
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_40 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.45
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_45 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.50
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_50 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.55
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_55 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.60
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_60 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.80
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_80 days = -1 }
+	}
+}
+
+update_resident_non_gestalt_harm_effect = {
+	remove_modifier = gestalt_residents_20
+	remove_modifier = gestalt_residents_25
+	remove_modifier = gestalt_residents_30
+	remove_modifier = gestalt_residents_35
+	remove_modifier = gestalt_residents_40
+	remove_modifier = gestalt_residents_45
+	remove_modifier = gestalt_residents_50
+	remove_modifier = gestalt_residents_55
+	remove_modifier = gestalt_residents_60
+	remove_modifier = gestalt_residents_80
+	remove_modifier = gestalt_residents_harm_20
+	remove_modifier = gestalt_residents_harm_25
+	remove_modifier = gestalt_residents_harm_30
+	remove_modifier = gestalt_residents_harm_35
+	remove_modifier = gestalt_residents_harm_40
+	remove_modifier = gestalt_residents_harm_45
+	remove_modifier = gestalt_residents_harm_50
+	remove_modifier = gestalt_residents_harm_55
+	remove_modifier = gestalt_residents_harm_60
+	remove_modifier = gestalt_residents_harm_80
+	if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.20
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_20 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.25
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_25 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.30
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_30 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.35
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_35 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.40
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_40 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.45
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_45 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.50
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_50 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.55
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_55 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.60
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_60 days = -1 }
+	}
+	else_if = {
+		limit = {
+			pop_percentage = {
+				percentage >= 0.80
+				limit = {
+					is_free_resident_pop_gestalt = yes
+				}
+			}
+		}
+		add_modifier = { modifier = gestalt_residents_harm_80 days = -1 }
+	}
+}
+
+### COSMIC RELIGION ###
+copy_cosmic_religion_root = {
+	hidden_effect = {
+		remove_modifier = em_animism
+		remove_modifier = em_monotheism
+		remove_modifier = em_polytheism
+		remove_modifier = em_pantheism
+		remove_modifier = em_secularism
+		remove_modifier = em_atheism
+		remove_modifier = em_materialism
+		remove_modifier = em_god_emperor
+		every_owned_pop = {
+			remove_modifier = animism
+			remove_modifier = monotheism
+			remove_modifier = polytheism
+			remove_modifier = pantheism
+			remove_modifier = secularism
+			remove_modifier = atheism
+			remove_modifier = materialism
+			remove_modifier = god_emperor
+		}
+		if = {
+			limit = { ROOT = { has_modifier = "em_animism" } }
+			add_modifier = {
+				modifier = em_animism
+				days = -1
+			}
+			every_owned_pop = {
+				add_modifier = {
+					modifier = animism
+					days = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { ROOT = { has_modifier = "em_monotheism" } }
+			add_modifier = {
+				modifier = em_monotheism
+				days = -1
+			}
+			every_owned_pop = {
+				add_modifier = {
+					modifier = monotheism
+					days = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { ROOT = { has_modifier = "em_polytheism" } }
+			add_modifier = {
+				modifier = em_polytheism
+				days = -1
+			}
+			every_owned_pop = {
+				add_modifier = {
+					modifier = polytheism
+					days = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { ROOT = { has_modifier = "em_pantheism" } }
+			add_modifier = {
+				modifier = em_pantheism
+				days = -1
+			}
+			every_owned_pop = {
+				add_modifier = {
+					modifier = pantheism
+					days = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { ROOT = { has_modifier = "em_god_emperor" } }
+			add_modifier = {
+				modifier = em_god_emperor
+				days = -1
+			}
+			every_owned_pop = {
+				add_modifier = {
+					modifier = god_emperor
+					days = -1
+				}
+			}
+		}
+	}
+}

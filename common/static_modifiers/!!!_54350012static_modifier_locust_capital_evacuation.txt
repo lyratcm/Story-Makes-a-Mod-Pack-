@@ -1,0 +1,5 @@
+static_modifier_locust_capital_evacuation = {
+    planet_emigration_push_add = 10
+    icon = "gfx/interface/icons/planet_modifiers/pm_ship_in_orbit.dds"
+    icon_frame = 3
+}

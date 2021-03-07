@@ -1,0 +1,55 @@
+ap_esap_gov_5 = {	
+	on_enabled = {
+		custom_tooltip = ap_esap_gov_5_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_perk_count value = 0 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_5_1" days = -1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_perk_count value = 1 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_5_1" days = -1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_perk_count value = 2 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_5_2" days = -1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_perk_count value = 3 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_5_3" days = -1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = var_esap_goverment_perk_count value = 4 }
+				}
+				add_modifier = {modifier = "mod_esap_gov_5_4" days = -1 }
+			}
+			country_event = {
+				id = esap_gov.1
+			}
+		}	
+	}
+
+	modifier = {
+		country_government_civic_points_add = 1
+	}
+
+	potential = {
+		NOT = {
+			has_ethic = ethic_gestalt_consciousness
+			has_ascension_perk = ap_esap_gov_5
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

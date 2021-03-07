@@ -1,0 +1,81 @@
+guiTypes = {
+    @sidebar_inner_w = 430
+    @sidebar_inner_button_w = 432
+    containerWindowType = {
+        name = "planet_decision_entry"
+        position = {
+            x = 0
+            y = 82
+        }
+        moveable = no
+        size = {
+            width = @sidebar_inner_w
+            height = 49
+        }
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_frame"
+        }
+        containerWindowType = {
+            name = "decision_name"
+            size = {
+                width = @sidebar_inner_w
+                height = 22
+            }
+            position = {
+                x = 0
+                y = 0
+            }
+            instantTextBoxType = {
+                name = "decision_name"
+                font = "malgun_goth_24"
+                text = "Decision Name"
+                position = {
+                    x = 47
+                    y = 1
+                }
+                maxWidth = 381
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+                alwaysTransparent = yes
+            }
+        }
+        instantTextBoxType = {
+            name = "decision_cost"
+            font = "cg_16b"
+            text = "5 minerals 1 apple"
+            position = {
+                x = 47
+                y = 27
+            }
+            maxWidth = 381
+            maxHeight = 60
+            fixedSize = yes
+            format = center
+            alwaysTransparent = yes
+        }
+        iconType = {
+            name = "decision_icon"
+            spriteType = "GFX_decision_unknown"
+            position = {
+                x = 2
+                y = 2
+            }
+            alwaysTransparent = yes
+        }
+        buttonType = {
+            name = "button_decision"
+            quadTextureSprite = "GFX_button_light"
+            position = {
+                x = -1
+                y = -1
+            }
+            clicksound = "queuing_building"
+            size = {
+                x = @sidebar_inner_button_w
+                y = 51
+            }
+        }
+    }
+}

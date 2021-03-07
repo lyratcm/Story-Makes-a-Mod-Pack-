@@ -1,0 +1,49 @@
+namespace = action
+country_event = {
+    id = action.17
+    title = "action.10.name"
+    desc = "action.15.desc"
+    picture = GFX_evt_star_chart
+    location = FROMFROMFROM
+    trackable = yes
+    is_triggered_only = yes
+    trigger = {
+        FROM = {
+            OR = {
+                is_country_type = drone
+                has_country_flag = drone_country
+            }
+        }
+        OR = {
+            is_country_type = default
+            is_country_type = ascended_empire
+            is_country_type = lost_empire
+        }
+        NOT = {
+            has_country_flag = drone_encountered
+        }
+    }
+    immediate = {
+        set_country_flag = drone_encountered
+        capital_scope = {
+            save_event_target_as = pc_home
+        }
+        from = {
+            enable_special_project = {
+                name = "INVESTIGATE_DRONES"
+                location = event_target:pc_home
+                owner = ROOT
+            }
+        }
+    }
+    option = {
+        name = "action.10.a"
+        tooltip = {
+            enable_special_project = {
+                name = "INVESTIGATE_DRONES"
+                location = event_target:pc_home
+                owner = ROOT
+            }
+        }
+    }
+}

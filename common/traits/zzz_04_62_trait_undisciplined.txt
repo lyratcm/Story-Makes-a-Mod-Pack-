@@ -1,0 +1,24 @@
+trait_undisciplined = {
+    cost = -1
+    initial = yes
+    modification = yes
+    randomized = yes
+    opposites = {
+        "trait_resilient"
+    }
+    potential_crossbreeding_chance = 1.0
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        army_health = -0.25
+        army_defense_damage_mult = -0.5
+        army_defense_morale_mult = -0.5
+    }
+    slave_cost = {
+        energy = -25
+    }
+}

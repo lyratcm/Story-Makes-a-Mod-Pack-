@@ -1,0 +1,47 @@
+civic_slave_race = {
+    modification = no
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_xenophobe
+                value = ethic_xenophobe
+                value = ethic_fanatic_xenophobe
+            }
+            OR = {
+                text = civic_tooltip_materialist
+                value = ethic_materialist
+                value = ethic_fanatic_materialist
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_fanatic_purifiers
+                value = civic_shared_burden
+                value = civic_slaver_guilds
+                value = civic_reeducated_labor
+                value = civic_socialistic
+            }
+        }
+        origin = {
+            NOR = {
+                value = origin_syncretic_evolution
+                value = origin_mechanists
+            }
+        }
+    }
+    random_weight = {
+        base = 1
+    }
+    modifier = {
+        planet_jobs_slave_produces_mult = 0.1
+    }
+    has_secondary_species = {
+        title = civic_slave_race_secondary_species
+        traits = {
+            trait = trait_slave_gene
+        }
+    }
+}

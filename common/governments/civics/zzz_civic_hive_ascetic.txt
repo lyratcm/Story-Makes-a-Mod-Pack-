@@ -1,0 +1,15 @@
+civic_hive_ascetic = {
+    potential = {
+        authority = {
+            value = auth_hive_mind
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        pop_amenities_usage_no_happiness_mult = -0.2
+        planet_pops_organics_food_upkeep_mult = -0.1
+        pop_environment_tolerance = 0.05
+    }
+}

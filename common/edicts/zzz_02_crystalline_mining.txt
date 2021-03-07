@@ -1,0 +1,27 @@
+crystalline_mining = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		cost = {
+			rare_crystals = 25
+		}
+	}
+
+	modifier = {
+		planet_jobs_minerals_produces_mult = 0.15
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictHighPrio
+			ROOT = {
+				has_monthly_income = {
+					resource = minerals
+					value < 50
+				}
+			}
+		}
+	}	
+}

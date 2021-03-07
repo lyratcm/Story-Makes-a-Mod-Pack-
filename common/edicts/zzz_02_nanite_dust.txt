@@ -1,0 +1,29 @@
+nanite_dust = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		cost = {
+			nanites = 20
+		}
+	}
+	
+	potential = {
+		has_resource = { type = nanites amount > 0 }
+	}
+
+	modifier = {
+		terraform_speed_mult = 0.75
+		terraforming_cost_mult = 0.25
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictMedPrio
+			any_planet_within_border = { 
+				is_terraforming = yes
+			}
+		}
+	}	
+}

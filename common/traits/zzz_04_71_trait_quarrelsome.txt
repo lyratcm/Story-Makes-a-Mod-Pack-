@@ -1,0 +1,37 @@
+trait_quarrelsome = {
+    cost = -1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_traditional"
+        "trait_iconoclasts"
+        "trait_eusocial"
+        "trait_nerve_stapled"
+        "trait_additrait_united"
+        "trait_additrait_melancholic"
+        "trait_additrait_passionate"
+        "trait_additrait_divided"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_jobs_unity_produces_mult = -0.1
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_quarrelsome@prev
+                }
+            }
+        }
+    }
+}

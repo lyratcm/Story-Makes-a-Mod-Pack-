@@ -1,0 +1,20 @@
+﻿l_german:
+  edict_select_precursor:0 "Vorläufer auswählen"
+  edict_select_precursor_desc:0 "Erlaubt dir, deine Vorläufer-Zivilisation auszuwählen."
+  
+  precursor_selection.0.name:0 "Vorläufer-Auswahl"
+  precursor_selection.0.desc:0 "Wähle deine Vorläufer aus:"
+  precursor_selection.0.a:0 "Die Vultaum"
+  precursor_selection.0.b:0 "Die Yuht"
+  precursor_selection.0.c:0 "Die Liga der Ersten"
+  precursor_selection.0.d:0 "Die Irassianer"
+  precursor_selection.0.e:0 "Die Cybrex"
+  precursor_selection.0.f:0 "Die Baol"
+  precursor_selection.0.g:0 "Die Zroni"
+  precursor_selection.0.h:0 "Abbrechen"
+  precursor_selection.0.i:0 "Alle Vorläufer aktivieren"
+  precursor_selection.0.j:0 "Vorläufer abschalten"
+  
+  precursor_selection.10.name:0 "Zroni Spawned"
+  precursor_selection.10.desc:0 "The Zroni digsite have been spawned in the system \"[zronispawnplanet.GetName]\""
+  precursor_selection.10.a:0 "Ok"

@@ -1,0 +1,140 @@
+#_[争夺圣遗物]
+#_[开放边境]
+#_[夺取领袖]
+
+
+
+
+#_去军事化
+war_name_parts_list = {
+	key = "z_fw_demilitarize_war_names"
+	parts = {
+		"z_demilitarize_war_1" = 1
+		"z_demilitarize_war_2" = 1
+		"z_demilitarize_war_3" = 1
+	}
+}
+# Unify - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = z_fw_wg_demilitarize
+                owner = attacker
+            }
+		}
+	}
+	format = "[This.MainDefender.GetAdj] <z_fw_demilitarize_war_names>"
+}
+
+
+#_[争夺圣遗物]
+war_name_parts_list = {
+	key = "z_fw_plunder_relic_war_names"
+	parts = {
+		"z_war_for_relic" = 1
+		"z_treasury_war" = 1
+	}
+}
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = z_fw_plunder_one_relic
+				owner = attacker
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <z_fw_plunder_relic_war_names>"
+}
+war_name_parts_list = {
+	key = "z_fw_plunder_all_relic_war_names"
+	parts = {
+		"z_war_for_all_relics" = 1
+		"z_total_treasury_war" = 1
+	}
+}
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = z_fw_plunder_all_relics
+				owner = attacker
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <z_fw_plunder_all_relic_war_names> "
+}
+
+
+#_[开放边境]
+war_name_parts_list = {
+	key = "z_fw_border_war_names"
+	parts = {
+		"z_border_war_1" = 1
+		"z_border_war_2" = 1
+	}
+}
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = z_fw_wg_open_border
+				owner = attacker
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <z_fw_border_war_names>"
+}
+war_name_parts_list = {
+	key = "z_fw_border_war_long_names"
+	parts = {
+		"z_border_war_long_1" = 1
+		"z_border_war_long_2" = 1
+	}
+}
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = z_fw_wg_open_border_long
+				owner = attacker
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <z_fw_border_war_long_names> "
+}
+
+
+#_[夺取领袖]
+war_name_parts_list = {
+	key = "z_fw_leader_war_names"
+	parts = {
+		"z_war_leader_1" = 1
+		"z_war_leader_2" = 1
+		"z_war_leader_3" = 1
+	}
+}
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = z_fw_wg_r_hok_kogasa
+				owner = attacker
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <z_fw_leader_war_names> "
+}

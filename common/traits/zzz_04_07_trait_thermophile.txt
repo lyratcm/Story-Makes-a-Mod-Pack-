@@ -1,0 +1,25 @@
+trait_thermophile = {
+    cost = 4
+    initial = yes
+    modification = yes
+    randomized = yes
+    advanced_trait = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_industrious"
+        "trait_lethargic"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_jobs_minerals_produces_mult = 0.25
+        planet_jobs_alloys_produces_mult = 0.1
+    }
+    slave_cost = {
+        energy = 100
+    }
+}

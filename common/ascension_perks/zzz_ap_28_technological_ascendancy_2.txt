@@ -1,0 +1,59 @@
+ap_esap_technological_ascendancy_bonus_2 = {
+	on_enabled = {
+		custom_tooltip = ap_esap_technological_ascendancy_bonus_2_tooltip
+		hidden_effect = {
+			country_event = {
+				id = esap_technological_ascendancy.1
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_technological_ascendancy_bonus_2_req_1"
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_technological_ascendancy_bonus_2_req_2"
+			Or = {
+				has_technology = tech_repeatable_improved_tile_mineral_output
+				has_technology = tech_repeatable_improved_military_station_damage
+				has_technology = tech_repeatable_improved_military_station_health
+				has_technology = tech_repeatable_improved_armor_output
+				has_technology = tech_repeatable_weapon_type_explosive_damage
+				has_technology = tech_repeatable_weapon_type_explosive_fire_rate
+				has_technology = tech_repeatable_weapon_type_kinetic_damage
+				has_technology = tech_repeatable_weapon_type_kinetic_fire_rate
+				has_technology = tech_repeatable_weapon_type_strike_craft_fire_damage
+				has_technology = tech_repeatable_weapon_type_strike_craft_fire_rate
+				has_technology = tech_repeatable_reduced_building_time
+				
+				has_technology = tech_repeatable_improved_tile_energy_output
+				has_technology = tech_repeatable_improved_shield_output
+				has_technology = tech_repeatable_weapon_type_energy_damage
+				has_technology = tech_repeatable_weapon_type_energy_fire_rate
+				has_technology = tech_repeatable_reduced_building_cost
+				
+				has_technology = tech_repeatable_improved_tile_food_output
+				has_technology = tech_repeatable_improved_core_system_cap
+				has_technology = tech_repeatable_improved_edict_length
+				has_technology = tech_repeatable_improved_army_damage
+				has_technology = tech_repeatable_improved_army_health
+				has_technology = tech_repeatable_improved_leader_life_span
+				has_technology = tech_repeatable_naval_cap
+				has_technology = tech_repeatable_command_limit
+				has_technology = tech_repeatable_improved_starbase_capacity
+			}
+		}
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_technological_ascendancy_bonus_2
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

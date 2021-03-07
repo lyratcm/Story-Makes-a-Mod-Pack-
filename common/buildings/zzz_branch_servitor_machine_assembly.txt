@@ -1,0 +1,38 @@
+building_machine_assembly = {
+	base_buildtime = 300
+	base_cap_amount = 1
+	
+	branch_office_building = yes
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_machine_servitor
+		}
+		owner = {
+			NOT = {
+				has_authority = auth_hive_mind
+			}
+		}
+	}
+	
+	planet_modifier = {
+		planet_pop_assembly_add = 1
+		planet_pop_assembly_mult = 0.25
+		planet_bio_trophies_produces_mult = 0.05
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 600
+		}
+		produces = {
+			engineering_research = 20
+		}
+		upkeep = {
+			energy = 5
+			alloys = 1
+		}
+	}
+}

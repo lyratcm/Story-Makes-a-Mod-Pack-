@@ -1,0 +1,98 @@
+hunted = {
+    category = worker
+    is_capped_by_modifier = no
+    clothes_texture_index = 2
+    icon = livestock
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = yes
+    }
+    planet_modifier = {
+        planet_stability_add = -0.1
+    }
+    pop_modifier = {
+        pop_housing_usage_add = -0.5
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        has_citizenship_type = {
+            type = citizenship_slavery
+        }
+        has_slavery_type = {
+            type = slavery_livestock
+        }
+        owner = {
+            has_valid_civic = civic_natural_hunters
+        }
+    }
+    planet_modifier = {
+        planet_amenities_add = 2
+    }
+    resources = {
+        category = planet_livestock
+        produces = {
+            trigger = {
+                is_organic_species = yes
+                is_lithoid = no
+            }
+            food = 4
+        }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 2
+        }
+        produces = {
+            trigger = {
+                is_lithoid = no
+                owner = {
+                    OR = {
+                        has_technology = tech_neural_implants
+                        has_technology = tech_collective_production_methods
+                        has_technology = tech_resource_processing_algorithms
+                    }
+                }
+            }
+            food = 1
+        }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+                owner = {
+                    OR = {
+                        has_technology = tech_neural_implants
+                        has_technology = tech_collective_production_methods
+                        has_technology = tech_resource_processing_algorithms
+                    }
+                }
+            }
+            minerals = 1
+        }
+        produces = {
+            trigger = {
+                has_trait = trait_latent_psionic
+                owner = {
+                    has_technology = tech_mine_zro
+                    has_ascension_perk = ap_transcendence
+                }
+            }
+            sr_zro = 0.05
+        }
+        produces = {
+            trigger = {
+                has_trait = trait_psionic
+                owner = {
+                    has_technology = tech_mine_zro
+                    has_ascension_perk = ap_transcendence
+                }
+            }
+            sr_zro = 0.1
+        }
+    }
+    weight = {
+        weight = @special_job_weight
+    }
+}

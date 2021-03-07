@@ -1,0 +1,400 @@
+# Triggers when the game starts
+on_game_start = {
+	events = {
+		gamestartpop.2
+	}
+}
+
+on_game_start_country = {
+	events = {
+		gamestartpop.4
+	}
+}
+
+# No scope, like on_game_start
+on_monthly_pulse = {
+	events = {
+		civicsexpanded.29
+		civicsexpanded.40
+		civicsexpanded.61
+	}
+}
+
+# No scope, like on_game_start
+on_yearly_pulse = {
+	events = {
+	}
+}
+
+# No scope, like on_game_start
+on_bi_yearly_pulse = {
+	events = {
+	}
+}
+
+# No scope, like on_game_start
+on_five_year_pulse = {
+	events = {
+	}
+}
+
+# No scope, like on_game_start
+on_decade_pulse = {
+	events = {
+		gamestartpop.2
+	}
+}
+
+# this = country
+on_monthly_pulse_country = {
+	events = {
+		civicsexpanded.36
+		onactionpops.9
+		onactionpops.10
+		onactionpops.13
+	}
+}
+
+# this = country
+on_yearly_pulse_country = {
+	events = {
+		civicsexpanded.13
+		onactionpops.7
+		onactionpops.11
+		popcrime.1
+		popexpanded.30
+		refugeeexpanded.24
+	}
+}
+
+# this = country
+on_bi_yearly_pulse_country = {
+	events = {
+		civicsexpanded.21
+		popexpanded.3
+	}
+}
+
+# this = country
+on_five_year_pulse_country = {
+	events = {
+		civicsexpanded.37
+		onactionpops.2
+		onactionpops.5
+	}
+}
+
+# this = country
+on_decade_pulse_country = {
+	events = {
+		popexpanded.12
+	}
+}
+
+# Triggers when pressing begin in the intro window
+# This = country to press begin
+on_press_begin = {
+	events = {
+		gamestartpop.1
+		civicsexpanded.30
+	}
+}
+
+# A planet has begun the colonization process.
+# Scope = Planet
+on_colonization_started = {
+	events = {
+		civicsexpanded.73
+	}
+}
+
+# A planet has been colonized.
+# Scope = Planet
+on_colonized = {
+	events = {
+		civicsexpanded.11
+		civicsexpanded.12
+		onactionpops.3
+	}
+}
+
+# A colony has been destroyed. Called just before owner and controller is cleared
+# Scope = Planet
+on_colony_destroyed = {
+	events = {
+		civicsexpanded.70
+	}
+}
+
+# Triggers event when ship enters a system
+# Scope = Ship
+# From = System
+# FromFrom = Country
+on_entering_system = {
+	events = {
+	}
+}
+
+# This = owner of ship 1 (combatant)
+# From = owner of ship 2 (destroyed)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+on_ship_destroyed_perp = {
+	events = {
+		civicsexpanded.10
+	}
+}
+
+# This = owner of fleet 1 (combatant)
+# From = owner of fleet 2 (destroyed)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_fleet_destroyed_perp = {
+	events = {
+		onactionpops.8
+	}
+}
+
+# Executes after a policy has been changed
+# use last_changed_policy to identify which policy it was
+# This = Country
+on_policy_changed = {
+	events = {
+		refugeeexpanded.23
+		refugeeexpanded.49
+	}
+}
+
+# A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
+# This = Country
+on_tech_increased = {
+	events = {
+		civicsexpanded.23
+		popexpanded.1
+		popexpanded.20
+	}
+}
+
+# A pop has finished purging
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_purged = {
+	events = {
+		civicsexpanded.9
+	}
+}
+
+# Triggers when a Special Project to apply a species modification template has completed.
+# Note that this will trigger once for each combination of planet & original species.
+#
+# This = Country
+# From = Species ( Post Modification )
+on_modification_complete = {
+	events = {
+		civicsexpanded.35
+	}
+}
+
+# A war has been won
+# Root = Winner Warleader
+# From = Loser Warleader
+# FromFrom = War
+on_war_won = {
+	events = {
+		civicsexpanded.7
+	}
+}
+
+# Initial rebels manage to take control of the planet, happens before the new owner is set, after the war is created.
+# This = Rebel Country
+# From = Planet
+# FromFrom = War
+on_rebels_take_planet = {
+	events = {
+		onactionpops.4
+	}
+}
+
+# Initial rebels manage to take control of the planet, happens after the new owner is set, after the war is created.
+# This = Rebel Country
+# From = Planet
+# FromFrom = War
+on_rebels_take_planet_owner_switched = {
+	events = {
+		onactionpops.4
+	}
+}
+
+#Fired whenever a new owner is set for a planet,
+#be it after a war or through a trade
+#From = Country scope (new owner)
+#This = Planet scope
+on_planet_transfer = {
+	events = {
+		civicsexpanded.70
+		civicsexpanded.72
+		onactionpops.3
+		popexpanded.10
+		popexpanded.11
+	}
+}
+
+#Fired whenever a new owner is set for a planet, and the planet was aggressively conquered
+#Fired in ADDITION to on_planet_transfer
+#From = Country scope (new owner)
+#This = Planet scope
+on_planet_conquer = {
+	events = {
+		civicsexpanded.8
+	}
+}
+
+#A building construction has been completed.
+# This = Planet
+on_building_complete = {
+	events = {
+		civicsexpanded.20
+	}
+}
+
+# A building construction has been completed, which is an upgrade of previous building.
+# This = Planet
+on_building_upgraded = {
+	events = {
+		civicsexpanded.20
+	}
+}
+
+# A building construction has demolished.
+# This = Planet
+on_building_demolished = {
+	events = {
+		civicsexpanded.20
+	}
+}
+
+#A district construction has been completed.
+# This = Planet
+on_district_complete = {
+	events = {
+		civicsexpanded.20
+	}
+}
+
+# A building construction has finished, replacing another building.
+# This = Planet
+on_building_replaced = {
+	events = {
+		civicsexpanded.20
+	}
+}
+
+# A district construction has demolished.
+# This = Planet
+on_district_demolished = {
+	events = {
+		civicsexpanded.20
+	}
+}
+
+# Executed as new ruler has been set
+# This = Country
+on_ruler_set = {
+	events = {
+		civicsexpanded.33
+	}
+}
+
+#An army construction has been completed.
+# This = Planet
+# From = Army
+on_army_recruited = {
+	events = {
+		civicsexpanded.22
+	}
+}
+
+# Fires for each planet every 5 years (counting up from colonisation date, includes home planet)
+on_colony_5_year_pulse = {
+	events = {
+		onactionpops.12
+	}
+}
+
+on_colony_10_year_pulse = {
+	events = {
+		civicsexpanded.24 # Infestors
+	}
+}
+
+# Triggers country_event for the attacker upon victory
+# (Before controller is switched)
+# This = country, leader attacker
+# From = country, planet owner
+# FromFrom = planet
+# IDENTITIES: attacker is the side that "IsHostile" to
+# the planet controller; e.g. spawned monster armies
+# are attackers, but if they win and the player attempts
+# to retake the planet, the player is the attacker
+on_planet_attackers_win = {
+	events = {
+		civicsexpanded.80
+	}
+}
+
+# Triggers country_event for the defender upon victory
+# Root = country, planet owner
+# From = country, attack leader
+# FromFrom = planet
+on_planet_defenders_win = {
+	events = {
+		civicsexpanded.81
+	}
+}
+
+# Planets starts being terraformed
+# This = Planet
+# From = Terraforming country
+on_terraforming_begun = {
+	events = {
+		onactionpops.1
+	}
+}
+
+# Planet has taken damage from orbital bombardment
+# This = Planet
+# From = Bombarder
+on_planet_bombarded = {
+	events = {
+		#onactionpops.16 # Should be fixed in vanilla
+	}
+}
+
+# a new leader is generated for an empire, to be available for recruitment
+# scope: country, from: leader
+on_leader_spawned = {
+	events = {
+		civicsexpanded.14
+		civicsexpanded.60
+		onactionpops.6
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_CRACKER = {
+	events = {
+		civicsexpanded.75
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_SHIELDER = {
+	events = {
+		civicsexpanded.76
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_NEUTRON = {
+	events = {
+		civicsexpanded.77
+	}
+}

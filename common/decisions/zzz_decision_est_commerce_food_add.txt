@@ -1,0 +1,37 @@
+decision_est_commerce_2_food_activate = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_est_commerce_2_food_activate
+	
+	resources = {
+		category = decisions
+		cost = {
+			influence = 10
+		}
+	}
+	
+	potential = {
+		owner = {
+			has_non_swapped_tradition = tr_est_commerce_2
+		}
+		NOR = {
+			has_modifier = mod_est_commerce_2_energy
+			has_modifier = mod_est_commerce_2_food
+			has_modifier = mod_est_commerce_2_minerals
+		}
+	}
+	
+	effect = {
+		custom_tooltip = decision_est_commerce_2_food_activate_tooltip
+		hidden_effect = {
+			add_modifier = { 
+				modifier = "mod_est_commerce_2_food" 
+				days = -1 
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

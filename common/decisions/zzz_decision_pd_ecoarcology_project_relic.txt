@@ -1,0 +1,104 @@
+decision_ecoarcology_project_relic = {
+	owned_planets_only = yes
+	icon = decision_arcology_project
+
+	enactment_time = 3600
+	resources = {
+		category = decisions
+		cost = {
+			influence = 200
+			minerals = 20000
+		}
+	}
+
+	potential = {
+		is_planet_class = pc_relic
+		habitable_structure = no
+		exists = owner
+		owner = { is_regular_empire = yes }
+	}
+
+	allow = {
+		num_uncleared_blockers < 1
+		owner = { has_technology = tech_housing_2 }
+	}
+
+	effect = {
+		# Make city-planet
+		custom_tooltip = decision_eco_arcology_project_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_ecocity
+			add_district = district_pdarcology_housing
+			add_district = district_pdarcology_housing
+			add_district = district_pdarcology_housing
+			add_district = district_pdarcology_housing
+			add_district = district_pdarcology_housing
+			IF = {
+				limit = { 
+					owner = { NOT = { has_trait = trait_pc_aquatic_preference } }
+					NOT = { has_planet_flag = planet_earth }
+				 }
+				set_planet_entity = {
+					entity = "ecocity_planet_entity"
+					graphical_culture = owner
+				}
+			}
+			IF = {
+				limit = { owner = { has_trait = trait_pc_aquatic_preference } }
+				set_planet_entity = {
+					entity = "aquaticcity_planet_01_entity"
+					picture = "pc_aquaticcity"
+				}
+				set_planet_flag = pdaquapicture
+			}
+			IF = {
+				limit = { owner = { has_trait = trait_pc_ammonia_preference } }
+				add_modifier = { modifier = pdammoniaatmosphere	}
+				remove_modifier = ammonia
+			}
+			IF = {
+				limit = { owner = { has_trait = trait_pc_sulfur_preference } }
+				add_modifier = { modifier = pdsulfuratmosphere	}
+				remove_modifier = pdsulfur
+			}
+			IF = {
+				limit = { owner = { has_trait = trait_pc_methane_preference } }
+				add_modifier = { modifier = pdmethaneatmosphere	}
+				remove_modifier = methane
+			}
+			IF = {
+				limit = { owner = { has_trait = trait_pc_ash_preference } }
+				add_modifier = { modifier = pdashatmosphere	}
+				remove_modifier = ash
+			}
+			add_deposit = d_former_relic_world
+			add_deposit = d_ecogarden
+			planet_event = { id =  mega.201 }
+			while = {
+				count = 4
+				solar_system = {
+					random_system_ambient_object = {
+						limit = { has_ambient_object_flag = relic_world_debris }
+						destroy_ambient_object = this
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_active_resolution = "resolution_ecology_environmental_control_board"
+						is_active_resolution = "resolution_ecology_paradise_initiative"
+					}
+				}
+				owner = {
+					set_timed_country_flag = { flag = resolution_breached_terraformed days = 3600 }
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

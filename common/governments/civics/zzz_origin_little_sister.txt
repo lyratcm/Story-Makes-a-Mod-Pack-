@@ -1,0 +1,8 @@
+origin_little_sister = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_little_sister.dds"
+    picture = "GFX_origin_little_sister"
+    potential = {
+        always = no
+    }
+}

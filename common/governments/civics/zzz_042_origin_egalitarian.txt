@@ -1,0 +1,24 @@
+BOO_origin_egalitarian = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_default.dds"
+    picture = GFX_evt_galactic_community
+    potential = {
+        always = yes
+    }
+    possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+            value = ethic_fanatic_egalitarian
+        }
+    }
+    modifier = {
+        pop_ethic_egalitarian_attraction_mult = 0.5
+    }
+    random_weight = {
+        base = 15
+    }
+    description = "BOO_origin_egalitarian_tooltip_effects"
+    advanced_start = yes
+}

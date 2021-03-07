@@ -1,0 +1,34 @@
+# Copy. Should probably be LIOS
+
+defined_text = {
+	name = GetDiplomacyTraditionName
+	text = {
+		trigger = {
+			owner = {
+				OR = {
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_master_computer_purifier
+					has_authority = auth_hive_mind
+					has_valid_civic = civic_master_computer_datavore
+				}
+			}
+		}
+		localization_key = tradition_adaptability
+	}
+	text = {
+		trigger = {
+			owner = {
+				NOR = {
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_inwards_perfection
+					has_authority = auth_hive_mind
+					has_authority = auth_machine_intelligence
+					has_valid_civic = civic_master_computer_purifier
+					has_valid_civic = civic_master_computer_datavore
+				}
+			}
+		}
+		localization_key = tradition_diplomacy
+	}
+}

@@ -1,0 +1,14 @@
+trait_simple = {
+    icon = "gfx/interface/icons/traits/trait_simple.dds"
+    cost = -1
+    opposites = {
+        "trait_complex"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        species_leader_exp_gain = -0.25
+        pop_resettlement_cost_mult = -0.2
+    }
+}

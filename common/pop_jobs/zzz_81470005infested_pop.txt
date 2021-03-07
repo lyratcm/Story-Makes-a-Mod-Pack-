@@ -1,0 +1,30 @@
+infested_pop = {
+    category = worker
+    clothes_texture_index = 1
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_assimilated = yes
+    }
+    possible = {
+        NOT = {
+            has_trait = trait_hive_mind
+        }
+        exists = owner
+        owner = {
+            has_valid_civic = civic_infestation
+        }
+        species = {
+            has_species_flag = flag_species_to_infest
+        }
+        has_citizenship_type = {
+            type = citizenship_assimilation
+        }
+    }
+    weight = {
+        weight = @special_job_weight
+        modifier = {
+            factor = 5000
+            is_being_assimilated = yes
+        }
+    }
+}

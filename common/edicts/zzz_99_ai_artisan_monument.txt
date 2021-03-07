@@ -1,0 +1,82 @@
+ai_artisan_monument = {
+	length = 3600
+	resources = {
+		category = edicts
+		cost = {
+			energy = 600
+		}
+	}
+	potential = {
+		is_ai = yes
+		is_homicidal = no
+	}
+	allow = {
+		any_relation = {
+			is_country_type = enclave
+			has_country_flag = artist_enclave_country
+			has_communications = prev
+		}
+		check_variable = {
+			which = artist_monument_purchased
+			value < 5
+		}
+		any_owned_planet = {
+			NOT = { has_modifier = artist_monument_erected }
+			any_pop = {
+				OR = {
+					has_job = priest
+					has_job = culture_worker
+					has_job = manager
+					has_job = coordinator
+					has_job = synapse_drone
+					has_job = logistics_officer
+					has_job = chaplain
+					has_job = templar
+					has_job = culture_science
+				}
+			}
+		}
+	}
+	effect = {
+		random_relation = {
+			limit = {
+				is_country_type = enclave
+				has_country_flag = artist_enclave_country
+				has_communications = prev
+			}
+			add_trust = {
+				who = root
+				amount = 10
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = artist_monument_collector }
+			}
+			set_country_flag = artist_monument_collector
+			set_variable = {
+				which = artist_monument_purchased
+				value = 1
+			}
+		}
+		else_if = {
+			limit = {
+				has_country_flag = artist_monument_collector
+			}
+			change_variable = {
+				which = artist_monument_purchased
+				value = 1
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictHighPrio
+			ROOT = {
+				resource_stockpile_compare = { resource = energy value >= 2500 }
+			}
+		}
+	}
+}

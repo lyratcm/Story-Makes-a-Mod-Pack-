@@ -1,0 +1,24 @@
+gpm_tb_xenomorph_blocker = {	
+	time = 360
+	
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers	
+	
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 1000
+		}
+	}
+	
+	planet_modifier = { 
+		planet_max_districts_add = -1
+	}
+
+	all_blocker_swap_types = yes
+
+	# weight 0: event added
+	drop_weight = {
+		weight = 0
+	}
+}

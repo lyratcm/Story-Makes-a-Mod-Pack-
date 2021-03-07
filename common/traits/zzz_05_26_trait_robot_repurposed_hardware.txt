@@ -1,0 +1,37 @@
+trait_robot_repurposed_hardware = {
+    cost = -2
+    opposites = {
+        "trait_robot_learning_algorithms"
+        "trait_robot_enhanced_memory"
+    }
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            OR = {
+                has_authority = auth_machine_intelligence
+                AND = {
+                    has_policy_flag = ai_full_rights
+                    has_technology = tech_synthetic_leaders
+                }
+            }
+        }
+    }
+    modifier = {
+        leader_skill_levels = -1
+        species_leader_exp_gain = -0.25
+        army_experience_gain_mult = -0.25
+    }
+    ai_weight = {
+        weight = 400
+        modifier = {
+            factor = 0
+            NOT = {
+                has_country_flag = make_robots_repurposed_hardware
+            }
+        }
+    }
+}

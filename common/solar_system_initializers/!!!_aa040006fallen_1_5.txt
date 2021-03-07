@@ -1,0 +1,151 @@
+fallen_1_5 = {
+    class = "sc_m"
+    name = "NAME_Beacon_of_Perpetuity"
+    planet = {
+        class = pc_m_star
+        orbit_distance = 0
+    }
+    change_orbit = 45
+    planet = {
+        class = "pc_ringworld_habitable_damaged"
+        name = "NAME_Ring_Segment_A"
+        orbit_angle = 30
+        orbit_distance = 0
+        init_effect = {
+            create_ambient_object = {
+                type = "large_debris_object"
+                location = THIS
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_tech_damaged"
+        name = "NAME_Ring_Segment_B"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_seam_damaged"
+        name = "NAME_Ring_Segment_C"
+        orbit_angle = 30
+        orbit_distance = 0
+        init_effect = {
+            create_ambient_object = {
+                type = "medium_debris_01_object"
+                location = THIS
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_habitable_damaged"
+        name = "NAME_Ring_Segment_D"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_tech_damaged"
+        name = "NAME_Ring_Segment_E"
+        orbit_angle = 30
+        orbit_distance = 0
+        init_effect = {
+            create_ambient_object = {
+                type = "small_debris_object"
+                location = THIS
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_seam_damaged"
+        name = "NAME_Ring_Segment_F"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_habitable_damaged"
+        name = "NAME_Ring_Section_G"
+        orbit_angle = 30
+        orbit_distance = 0
+        init_effect = {
+            create_ambient_object = {
+                type = "medium_debris_02_object"
+                location = THIS
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_tech_damaged"
+        name = "NAME_Ring_Segment_H"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_seam_damaged"
+        name = "NAME_Ring_Segment_I"
+        orbit_angle = 30
+        orbit_distance = 0
+        init_effect = {
+            create_ambient_object = {
+                type = "large_debris_object"
+                location = THIS
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_habitable_damaged"
+        name = "NAME_Ring_Segment_J"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    planet = {
+        class = "pc_ringworld_tech_damaged"
+        name = "NAME_Ring_Segment_K"
+        orbit_angle = 30
+        orbit_distance = 0
+        init_effect = {
+            create_ambient_object = {
+                type = "small_debris_object"
+                location = THIS
+            }
+        }
+    }
+    planet = {
+        class = "pc_ringworld_seam_damaged"
+        name = "NAME_Ring_Segment_L"
+        orbit_angle = 30
+        orbit_distance = 0
+    }
+    init_effect = {
+        create_ambient_object = {
+            type = "large_debris_object"
+            location = solar_system
+        }
+        create_ambient_object = {
+            type = "large_debris_object"
+            location = solar_system
+        }
+        create_ambient_object = {
+            type = "medium_debris_01_object"
+            location = solar_system
+        }
+        create_ambient_object = {
+            type = "medium_debris_01_object"
+            location = solar_system
+        }
+        create_ambient_object = {
+            type = "medium_debris_02_object"
+            location = solar_system
+        }
+        create_ambient_object = {
+            type = "medium_debris_02_object"
+            location = solar_system
+        }
+        create_ambient_object = {
+            type = "small_debris_object"
+            location = solar_system
+        }
+        create_ambient_object = {
+            type = "small_debris_object"
+            location = solar_system
+        }
+    }
+}

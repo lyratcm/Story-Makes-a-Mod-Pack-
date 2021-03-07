@@ -1,0 +1,44 @@
+namespace = sslead
+
+#Gatekeeper fired from on_action on_leader_level_up
+country_event = {
+	id = sslead.20
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { 
+			leader_class = scientist
+			num_traits < 3
+			OR = {
+				is_researching_area = society
+				is_researching_area = engineering
+				is_researching_area = physics
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			random_list = {
+				90 = { }
+				10 = {
+					modifier = {
+						factor = 1.5
+						has_level = 3
+					}
+					modifier = {
+						factor = 2.5
+						has_level = 4
+					}
+					modifier = {
+						factor = 5
+						has_level > 4
+					}
+					add_random_research_trait = yes
+					set_leader_flag = has_gained_level_trait
+				}
+			}
+		}
+	}
+}

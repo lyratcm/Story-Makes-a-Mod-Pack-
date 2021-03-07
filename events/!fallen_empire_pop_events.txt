@@ -1,0 +1,50 @@
+############################
+#
+# Fallen Empire Events
+#
+# Written by Martin Anward
+#
+############################
+
+namespace = fallen_empires
+
+# Fallen Empire executes enemy Ruler after winning war
+# A war has been lost
+# This = Loser Warleader
+# From = Winner Warleader
+country_event = {
+	id = fallen_empires.2
+	title = fallen_empires.2.name
+	desc = fallen_empires.2.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_planetary_riot
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		from = { 
+			is_country_type = fallen_empire 
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		NOT = { has_civic = civic_iron_despot }
+		NOT = { has_civic = civic_corp_iron_despot }
+		NOT = { has_civic = civic_shroud_pact }
+	}
+
+	immediate = {
+		ruler = {
+			save_event_target_as = rulername
+			kill_leader = {
+				type = ruler
+				show_notification = no
+			}
+		}
+	}
+
+	option = {
+		name = fallen_empires.2.a
+		custom_tooltip = fallen_empires.2.a.tooltip	
+	}
+}

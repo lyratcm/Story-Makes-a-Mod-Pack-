@@ -1,0 +1,32 @@
+ship_section_template = {
+    key = "EXPLORATIONSHIP_BOW_M3"
+    ship_size = explorationship
+    fits_on_slot = bow
+    entity = "explorationship_bow_M2_entity"
+    icon = "GFX_ship_part_core_bow"
+    prerequisites = {
+        tech_explorationship_2
+    }
+    component_slot = {
+        name = "MEDIUM_GUN_01"
+        template = "medium_turret"
+        locatorname = "medium_gun_01"
+    }
+    component_slot = {
+        name = "MEDIUM_GUN_02"
+        template = "medium_turret"
+        locatorname = "medium_gun_02"
+    }
+    component_slot = {
+        name = "MEDIUM_GUN_03"
+        template = "medium_turret"
+        locatorname = "medium_gun_01"
+    }
+    medium_utility_slots = 4
+    resources = {
+        category = ship_sections
+        cost = {
+            alloys = 0
+        }
+    }
+}

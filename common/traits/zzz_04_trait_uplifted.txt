@@ -1,0 +1,15 @@
+trait_uplifted = {
+    cost = 0
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

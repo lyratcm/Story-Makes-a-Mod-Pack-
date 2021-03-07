@@ -1,0 +1,267 @@
+decision_arcology_project_relic = {
+    owned_planets_only = yes
+    icon = decision_arcology_project
+    enactment_time = 3600
+    resources = {
+        category = decisions
+        cost = {
+            influence = 200
+            minerals = 20000
+        }
+    }
+    potential = {
+        is_planet_class = pc_relic
+        habitable_structure = no
+        NOR = {
+            has_modifier = resort_colony
+            has_modifier = penal_colony
+            has_modifier = slave_colony
+            has_modifier = pm_wenkwort_custodian
+        }
+    }
+    allow = {
+        num_uncleared_blockers < 1
+        owner = {
+            has_technology = tech_housing_2
+        }
+    }
+    effect = {
+        custom_tooltip = decision_arcology_project_effects
+        if = {
+            limit = {
+                has_deposit = d_central_spire
+            }
+            custom_tooltip = decision_arcology_collapsed_spire_effects
+            hidden_effect = {
+                set_planet_flag = has_central_spire
+            }
+        }
+        if = {
+            limit = {
+                has_deposit = d_industrial_sector
+            }
+            custom_tooltip = decision_arcology_industrial_sector_effects
+            owner = {
+                add_resource = {
+                    volatile_motes = 1000
+                    rare_crystals = 1000
+                    exotic_gases = 1000
+                }
+            }
+        }
+        hidden_effect = {
+            clear_deposits = yes
+            change_pc = pc_city
+            IF = {
+                limit = {
+                    owner = {
+                        NOT = {
+                            has_trait = trait_pc_aquatic_preference
+                        }
+                    }
+                }
+                set_planet_entity = {
+                    entity = "city_planet_entity"
+                    graphical_culture = owner
+                }
+            }
+            IF = {
+                limit = {
+                    owner = {
+                        has_trait = trait_pc_aquatic_preference
+                    }
+                }
+                set_planet_entity = {
+                    entity = "aquaticcity_planet_01_entity"
+                    picture = "pc_aquaticcity"
+                }
+            }
+            IF = {
+                limit = {
+                    owner = {
+                        has_trait = trait_pc_ammonia_preference
+                    }
+                }
+                IF = {
+                    limit = {
+                        NOT = {
+                            has_modifier = pdammoniaatmosphere
+                        }
+                    }
+                    add_modifier = {
+                        modifier = pdammoniaatmosphere
+                    }
+                }
+                remove_modifier = ammonia
+                set_planet_entity = {
+                    picture = pc_ammoniacity
+                }
+            }
+            IF = {
+                limit = {
+                    owner = {
+                        has_trait = trait_pc_sulfur_preference
+                    }
+                }
+                IF = {
+                    limit = {
+                        NOT = {
+                            has_modifier = pdsulfuratmosphere
+                        }
+                    }
+                    add_modifier = {
+                        modifier = pdsulfuratmosphere
+                    }
+                }
+                remove_modifier = pdsulfur
+                set_planet_entity = {
+                    picture = pc_sulfurcity
+                }
+            }
+            IF = {
+                limit = {
+                    owner = {
+                        has_trait = trait_pc_methane_preference
+                    }
+                }
+                IF = {
+                    limit = {
+                        NOT = {
+                            has_modifier = pdmethaneatmosphere
+                        }
+                    }
+                    add_modifier = {
+                        modifier = pdmethaneatmosphere
+                    }
+                }
+                remove_modifier = methane
+                set_planet_entity = {
+                    picture = pc_methanecity
+                }
+            }
+            IF = {
+                limit = {
+                    owner = {
+                        has_trait = trait_pc_ash_preference
+                    }
+                }
+                IF = {
+                    limit = {
+                        NOT = {
+                            has_modifier = pdashatmosphere
+                        }
+                    }
+                    add_modifier = {
+                        modifier = pdashatmosphere
+                    }
+                }
+                remove_modifier = ash
+                set_planet_entity = {
+                    picture = pc_ashcity
+                }
+            }
+            add_deposit = d_former_relic_world
+            if = {
+                limit = {
+                    has_planet_flag = has_central_spire
+                }
+                add_deposit = d_central_spire_repaired
+            }
+            planet_event = {
+                id = mega.201
+            }
+            if = {
+                limit = {
+                    OR = {
+                        is_active_resolution = "resolution_ecology_environmental_control_board"
+                        is_active_resolution = "resolution_ecology_paradise_initiative"
+                    }
+                }
+                owner = {
+                    set_timed_country_flag = {
+                        flag = resolution_breached_terraformed
+                        days = 3600
+                    }
+                }
+            }
+            owner = {
+                remove_country_flag = memorialist_terraformed_relic
+                set_timed_country_flag = {
+                    flag = memorialist_terraformed_relic
+                    days = 7200
+                }
+            }
+            while = {
+                count = 4
+                solar_system = {
+                    random_system_ambient_object = {
+                        limit = {
+                            has_ambient_object_flag = relic_world_debris
+                        }
+                        destroy_ambient_object = this
+                    }
+                }
+            }
+        }
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 100
+            free_district_slots < 1
+            num_districts = {
+                type = district_farming
+                value < 1
+            }
+            num_districts = {
+                type = district_mining
+                value < 1
+            }
+            num_districts = {
+                type = district_generator
+                value < 1
+            }
+            num_uncleared_blockers < 1
+            num_pops > 50
+            NOT = {
+                exists = archaeological_site
+            }
+        }
+        modifier = {
+            factor = 0.001
+            owner = {
+                is_galactic_community_member = yes
+            }
+            OR = {
+                is_active_resolution = "resolution_ecology_environmental_control_board"
+                is_active_resolution = "resolution_ecology_paradise_initiative"
+            }
+        }
+        modifier = {
+            factor = 0
+            owner = {
+                is_galactic_community_member = yes
+                OR = {
+                    is_xenophile = yes
+                    is_pacifist = yes
+                    is_spiritualist = yes
+                }
+            }
+            OR = {
+                is_active_resolution = "resolution_ecology_environmental_control_board"
+                is_active_resolution = "resolution_ecology_paradise_initiative"
+            }
+        }
+        modifier = {
+            factor = 0
+            owner = {
+                OR = {
+                    has_valid_civic = civic_memorialist
+                    has_valid_civic = civic_memorialist_corp
+                    has_valid_civic = civic_hive_memorialist
+                    has_valid_civic = civic_machine_memorialist
+                }
+            }
+        }
+    }
+}

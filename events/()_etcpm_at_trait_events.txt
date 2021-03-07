@@ -1,0 +1,37 @@
+namespace = etcpm_at_traits
+
+# uninventive
+# add flag and remove additional tech alternative
+event = {
+   id = etcpm_at_traits.2
+   hide_window = yes
+   is_triggered_only = yes
+   immediate = {
+		every_country = {
+			limit = {
+				NOT = { has_country_flag = flag_trait_uninventive }
+				owner_species = { has_trait = trait_uninventive }
+			}
+			add_modifier = { modifier = wear_trait_uninventive days = -1 }
+			set_country_flag = flag_trait_uninventive
+		}
+	}
+}
+
+# uninventive
+# remove flag and add additional tech alternative
+event = {
+   id = etcpm_at_traits.3
+   hide_window = yes
+   is_triggered_only = yes
+   immediate = {
+		every_country = {
+			limit = {
+				has_country_flag = flag_trait_uninventive
+				NOT = { owner_species = { has_trait = trait_uninventive } }
+			}
+			remove_modifier = wear_trait_uninventive
+			remove_country_flag = flag_trait_uninventive
+		}
+	}
+}

@@ -1,0 +1,552 @@
+﻿l_simp_chinese:
+
+#_[核心内容]
+#_[开局设置文本]
+#_[星辰大海的渴望]
+#_[全局_misc]
+#_[极限作弊]
+#_[战争类型]
+#_[巨建拆解]
+#_[自我拆解]
+
+
+###_[test]  ##############################################################################################
+ z_fw_dec_test_free_jobs: "§G无尽群星§!测试：free jobs"
+ z_fw_dec_test_free_jobs_desc: "当前剩余[This.z_fw_var_plnt_free_jobs]"
+
+
+
+
+###_[缺失文本]  #########################################################################################
+ mod_shipsize_constructor_build_speed_mult: "工程船建造速度"
+ mod_shipsize_science_build_speed_mult: "科研船建造速度"
+ mod_damage_vs_country_type_default_mult: "对普通帝国的伤害"
+ mod_damage_vs_country_type_default_ev_mult: "对肾虚之子的伤害"
+ mod_damage_vs_country_type_ascended_empire_mult: "对ZOFE巅峰帝国的伤害"
+ mod_damage_vs_country_type_lost_empire_mult: "对ZOFE失落帝国的伤害"
+
+
+
+
+###_[核心内容]  ##############################################################################################
+#_names
+ NAME_z_fw_npc_1: "§G无尽群星§!"
+ NAME_z_fw_misc_autostation_fleet: "§G自动矿站§!工程船"
+ NAME_z_fw_autostation_ship: "全自动工程船"
+
+#_evts
+ z_fw_evt_crious: "不得了的东西要出现了!"
+ z_fw_evt_good: "非常好!"
+ z_fw_evt_not_bad: "还不赖!"
+ z_fw_evt_terrible: "真是太可怕!"
+ z_fw_evt_incredible: "真是无敌了!"
+ z_fw_evt_bad: "真是令人沮丧的一天啊！"
+ z_fw_evt_love: "我永远喜欢小伞！"
+ z_fw_evt_love_2: "真是阴魂不...我永远喜欢小伞！"
+
+#_technologies
+ tech_z_dummy: "§R这不是你应该获得的东西§!"
+ 
+#_traits
+#_traits_leader
+ z_fw_trait_leader_test_ancrel:0 "无尽的赐福-考古"
+ z_fw_trait_leader_test_ancrel_desc:0 "就是学识渊博！"
+
+ 
+#_modifiers
+ z_fw_temp_function:0 "§G功能性修正§!"
+ z_fw_temp_function_desc:0 "执行特殊功能的短暂修正。"
+
+#_mian event chain SP用Root EC用This,EC等同country本身
+ z_chain_main_title: "§G无尽群星：核心系统§!"
+ z_chain_main_desc: "可查看无尽群星的各项参数。\n\n§G$z_desire_for_star_var$§! 剩余 §G[This.z_desire_for_star_var]§!"
+ 
+#_megastructures
+ z_fw_mega_test:0 "测试建筑"
+ z_fw_mega_test_DESC:0 "测试!"
+ z_fw_mega_test_MEGASTRUCTURE_DETAILS:0 "X"
+ 
+
+
+
+
+
+
+
+
+###_[开局设置文本]
+#_evts
+ z_fw_start_setting:0 "§G无尽群星§!开局设置"
+ z_fw_start_setting_desc:0 "你已经开启了无尽群星框架，并决定使用框架自带的游戏内容。\n在这里你将对无尽群星以及其子mod中的核心内容进行前置设定，请将光标移动到每一个选项上停留，并仔细阅读每个选项的介绍。如果想要更改设定，直接点击选项。\n完成设定后请点击最下方§G$z_fw1_misc.1.c$§!，否则你将无法退出此菜单。如果你找不到§G$z_fw1_misc.1.c$§!，请使用§B右方滑动条§!。"
+ z_fw_start_setting_done:0 "已完成设定"
+ z_fw_tips_start_setting_done:0 "完成设定后点击esc退出此菜单并初始化，你也可以在游戏中随时开启设置面板调整设定。"
+ 
+ z_fw_start_title:0 "欢迎使用§G无尽群星§!"
+ z_fw_start_desc:0 "§G无尽群星§!致力于§Y整合优质MOD§!，在使各MOD互相§Y兼容§!的基础下最大化发挥他们的功能。这将建立一个全新的游戏体系，而无尽群星框架和它所支持的子MOD则这是这个体系的基础。\n\n当前本框架自带的内容有§Y基础兼容补丁/星球人口上限/新战争理由/新地图模式/高级武器科技联动系统/动态难度系统/自动工程船/哨兵阵列开关/高级作弊系统/新遗珍与事件等§!，在设置面板点击LOGO可以开启框架设置来关闭或者开启这些功能。\n\n你的支持就是我前进的动力，我是作者§H小伞INFINI7E§!，我们的Q群§Bα群251840474和β群768522242§!，欢迎mod爱好者入驻。\n\n请将光标放置在每个开局设置选项按钮上以获得详细的介绍。"
+ 
+ z_fw1_misc.1.a1: "星辰大海的渴望§G已开启§!"
+ z_fw1_misc.1.a1.tooltip: "这个物种热切地渴望着开拓疆土，获得$z_fw_r_monument$，会使游戏难度下降，适应于拥有高强度敌人的mod环境.星辰大海的渴望点数§G+6§!，母星获得人口增长buff。\n\n星辰大海的渴望点数可用于开启星球决策$z_fw_dec_desire_for_stars$或通过$z_fw_r_monument$发动大远征。"
+ z_fw1_misc.1.a2: "星辰大海的渴望§H已关闭§!"
+ z_fw1_misc.1.a2.tooltip: "不会获得$z_fw_r_monument$，可在框架设置面板中调出。"
+ z_fw1_misc.1.b1: "未雨绸缪§G已开启§!"
+ z_fw1_misc.1.b1.tooltip: "可以给你提供一笔初始资金。 §R注意，这是作弊! §!如果使用高级开局，如§Y巅峰环世界§!，你不需要此buff。"
+ z_fw1_misc.1.b2: "未雨绸缪§H已关闭§!"
+ z_fw1_misc.1.b2.tooltip: "开局将不会获得任何资源补助."
+ z_fw1_misc.1.c1: "无尽群星彩蛋遗珍§G可刷新§!"
+ z_fw1_misc.1.c1.tooltip: "在随机玩家帝国附近刷新无尽群星的彩蛋遗珍，意外惊喜警告。当前包括$z_fw_r_head_of_karyl$，$z_lctr_r_adv_sensor$。\n注意：如果你安装了§B无尽群星：高级定位器mod独立版§!，$z_lctr_r_adv_sensor$必然刷新。"
+ z_fw_tips_easter_relic: "无尽群星彩蛋遗珍"
+ z_fw_tips_easter_relic_desc: "§B奇怪的脑袋§!：一个奇怪的脑袋，使用后可以向某一个星球投放不得了的臭鼬，她们会感染星球上所有生物，进而如同瘟疫一般蔓延，直至整个国家或整个银河系都被完全感染。注意一点，无论AI或者玩家都可以触发它。"
+ z_fw1_misc.1.c2: "无尽群星彩蛋遗珍§H禁用§!"
+ z_fw1_misc.1.c2.tooltip: "不刷新无尽群星彩蛋遗珍."
+ z_fw1_misc.1.d3: "$z_modmenu.133.e1$"
+ z_fw1_misc.1.d3.tooltip: "$z_modmenu.133.e1.tooltip$"
+ z_fw1_misc.1.d4: "$z_modmenu.133.e2$"
+ z_fw1_misc.1.d4.tooltip: "$z_modmenu.133.e2.tooltip$"
+ z_fw1_misc.1.d5: "$z_modmenu.133.f1$"
+ z_fw1_misc.1.d5.tooltip: "$z_modmenu.133.f1.tooltip$"
+ z_fw1_misc.1.d6: "$z_modmenu.133.f2$"
+ z_fw1_misc.1.d6.tooltip: "$z_modmenu.133.f2.tooltip$"
+ z_fw1_misc.1.d1: "$z_modmenu.133.d9$"
+ z_fw1_misc.1.d1.tooltip: "$z_modmenu.133.d9.tooltip$"
+ z_fw1_misc.1.d2: "$z_modmenu.133.d10$"
+ z_fw1_misc.1.d2.tooltip: "$z_modmenu.133.d10.tooltip$"
+ z_fw1_misc.1.d2a: "$z_modmenu.133.d10a$"
+ z_fw1_misc.1.d2a.tooltip: "$z_modmenu.133.d10a.tooltip$"
+ z_fw1_misc.1_pr_on: "产业革命：§G标准模式§!(当前)"
+ z_fw1_misc.1_pr_on.tooltip: "标准模式下，所有帝国一开始便已经完成了§B第一次产业革命§!。"
+ z_fw1_misc.1_pr_off: "产业革命：§H历史模式§!(当前)"
+ z_fw1_misc.1_pr_off.tooltip: "历史模式下，当你将$tech_mining_2$/$tech_mineral_purification_2$/$tech_alloys_2$/$tech_luxuries_2$/$tech_power_plant_3$/$tech_power_hub_2$/$tech_self_aware_logic$/$tech_volatile_motes$/$tech_exotic_gases$/$tech_rare_crystals$全部完成后就可以在产业革命设置面板中选择§B第一次产业革命§!飞升。"
+ z_fw_tips_start_pf2_dpr_off: "额外优化：动态人口限制 §H已关闭§!"
+ z_fw_tips_start_pf2_dpr_off_desc: "$z_performance_misc.11.i0.tooltip$"
+ z_fw_tips_start_pf2_dpr_on: "额外优化：动态人口限制 §G已开启§!"
+ z_fw_tips_start_pf2_dpr_on_desc: "$z_performance_misc.11.i2.tooltip$"
+ z_fw1_misc.1.c: "设置完成"
+ z_fw1_misc.1.c.tooltip: "开始游戏吧！"
+ z_fw_start_uncomplete: "设置未完成"
+ z_fw_tips_start_uncomplete: "请先点击最下方§G$z_fw_start_setting_done$§!按钮"
+
+
+#_[星辰大海的渴望]
+ z_fw_desire_point_add_war_title:0 "赢得战争: 星辰大海渴望点数§G+1.§!"
+ z_fw_desire_point_add_war_desc:0 "没有谁能够阻挡我们的前进，没有! 赢得一场由我们发起的战争，整个帝国为之振奋."
+#_tooltips
+ z_fw_desire_point_required:0 "星辰大海的渴望点数不足."
+ z_fw_r_monument_activited:0 "无限星辰纪念碑已激活."
+ z_fw_r_monument_effect:0 "激活无限星辰纪念碑，星辰大海的渴望点数§G-3§!，获得大远征Buff，没人将比你更懂战争!"
+#_relic
+ z_fw_r_monument:0 "§G无限星辰纪念碑§!"
+ z_fw_r_monument_desc:0 "我见，我征服. 当我们伟大的文明踏入星海之时，他们用精湛的工艺制作了这个纪念碑. 它承载着我们伟大文明对星海的渴望，也预示我们未来的辉煌. 开启它将消耗星辰大海的渴望点数，使用$z_fw_dec_desire_for_stars$也会，赢得一场由我们发起的战争或者完成某些特殊事件可以让星辰大海的渴望点数§Y增加§!.\n§B我们的征程是星辰的大海.§!\n\n星辰大海的渴望点数剩余 §G[root.z_fw_desire_point_var]§!"
+ z_fw_r_monument_effect:0 "开启它消耗星辰大海的渴望点数 §G3§!，根据游戏时期的不同，将获得不同的大远征Buff，在10年内尽一切所能战胜你的敌人吧."
+#_决策
+ z_fw_dec_desire_for_stars:0 "§G星辰大海的渴望§!：快速增长"
+ z_fw_dec_desire_for_stars_desc:0 "时间就是金钱，时间就是生命. 必须赶在其他文明前面，更快地增长，更多的人口，更强大的生产力."
+ z_fw_dec_desire_for_stars_effect:0 "一段时间内添加行星buff$z_fw_mod_desire_growth_normal$，提升人口增长速度，消耗渴望点数 §G1§!.\n\n渴望点数剩余 §G[Root.Owner.z_fw_desire_point_var]§!"
+#_modifier
+ z_fw_mod_desire_growth_normal:0 "§G星辰大海的渴望§!"
+ z_fw_mod_desire_growth_normal_desc:0 "未来可期！我们的目标是星辰大海！"
+ z_fw_mod_desire_growth_hive:0 "§G星辰大海的渴望§!"
+ z_fw_mod_desire_growth_hive_desc:0 "我们是唯一，我们是一切！蜂群，无所不能！"
+ z_fw_mod_desire_assembly_machine:0 "§G星辰大海的渴望§!"
+ z_fw_mod_desire_assembly_machine_desc:0 "探索未知的星空将提高我们文明存续的概率！"
+
+ z_fw_mod_desire_crusade_early:0 "§G黄金时代大远征§!"
+ z_fw_mod_desire_crusade_early_desc:1 "我们的文明必须加速扩张，在邪恶的外星人挤满银河之前，先占据先机. 相信我，没人比我更懂早战."
+ z_fw_mod_desire_crusade_mid:0 "§G纷争时代大远征§!"
+ z_fw_mod_desire_crusade_mid_desc:1 "在遥远黑暗的23世纪，整个银河系只有战争，但是没有谁能够阻挡我们前进的战车. 相信我，没人比我更懂灭绝."
+ z_fw_mod_desire_crusade_late:0 "§G黑暗时代大远征§!"
+ z_fw_mod_desire_crusade_late_desc:1 "我们的文明面临灭顶之灾，来自遥远星辰的恶魔蚕食着我们的国土. 必须，生存下去. 相信我，没人比我更懂生存."
+#_变量
+ z_fw_desire_point_var:0 "星辰大海的渴望点数"
+
+
+
+
+
+
+
+
+###_[全局_misc]    ##############################################################################################
+
+#_资源补助
+ z_fw_mod_cntr_res_stock_50000:0 "§G储量增加§!"
+ z_fw_mod_cntr_res_stock_50000_desc:0 "等等，为什么我们的仓库能装这么多东西！"
+ z_fw_mod_cntr_res_stock_500000:0 "$z_fw_mod_cntr_res_stock_50000$"
+ z_fw_mod_cntr_res_stock_500000_desc:0 "$z_fw_mod_cntr_res_stock_50000_desc$"
+ z_fw_mod_cntr_res_stock_5000000:0 "$z_fw_mod_cntr_res_stock_50000$"
+ z_fw_mod_cntr_res_stock_5000000_desc:0 "$z_fw_mod_cntr_res_stock_50000_desc$"
+
+###_地图模式    
+ z_map_mode_fleet:0 "§G舰队力量§!地图模式"
+ z_map_mode_fleet_desc:0 "越靠近§B蓝色§!，舰队越弱小. 越靠近§R红色§!，舰队越强大."
+ z_map_mode_fleet_negligible:0 "§Y[This.GetName]§!几乎没有像样的海军力量"
+ z_map_mode_fleet_pathetic:0 "§Y[This.GetName]§!的海军力量相对我们不值一提"
+ z_map_mode_fleet_inferior:0 "§Y[This.GetName]§!的海军力量相对我们略显弱小"
+ z_map_mode_fleet_equivalent:0 "§Y[This.GetName]§!的海军力量相对我们势均力敌"
+ z_map_mode_fleet_superior:0 "§Y[This.GetName]§!的海军力量相对我们略胜一筹"
+ z_map_mode_fleet_overwhelming:0 "§Y[This.GetName]§!的海军力量相对我们几乎无法战胜"
+ z_map_mode_fleet_lv1:0 "§Y[This.GetName]§! 拥有至少[1k]的海军力量"
+ z_map_mode_fleet_lv2:0 "§Y[This.GetName]§! 拥有至少[5k]的海军力量"
+ z_map_mode_fleet_lv3:0 "§Y[This.GetName]§! 拥有至少[10k]的海军力量"
+ z_map_mode_fleet_lv4:0 "§Y[This.GetName]§! 拥有至少[25k]的海军力量"
+ z_map_mode_fleet_lv5:0 "§Y[This.GetName]§! 拥有至少[50k]的海军力量"
+ z_map_mode_fleet_lv6:0 "§Y[This.GetName]§! 拥有至少[100k]的海军力量"
+ z_map_mode_fleet_lv7:0 "§Y[This.GetName]§! 拥有至少[250k]的海军力量"
+ z_map_mode_fleet_lv8:0 "§Y[This.GetName]§! 拥有至少[500k]的海军力量"
+ z_map_mode_fleet_lv9:0 "§Y[This.GetName]§! 拥有至少[750k]的海军力量"
+ z_map_mode_fleet_lv10:0 "§Y[This.GetName]§! 拥有至少[1m]的海军力量"
+ z_map_mode_fleet_lv11:0 "§Y[This.GetName]§! 拥有至少[2.5m]的海军力量"
+ z_map_mode_fleet_lv12:0 "§Y[This.GetName]§! 拥有至少[5m]的海军力量"
+ z_map_mode_fleet_lv13:0 "§Y[This.GetName]§! 拥有至少[10m]的海军力量"
+ z_map_mode_fleet_lv14:0 "§Y[This.GetName]§! 拥有至少[25m]的海军力量"
+ z_map_mode_fleet_lv15:0 "§Y[This.GetName]§! 拥有至少[50m]的海军力量"
+ z_map_mode_fleet_lv16:0 "§Y[This.GetName]§! 拥有至少[100m]的海军力量"
+ z_map_mode_fleet_lv17:0 "§Y[This.GetName]§! 拥有至少[250m]的海军力量"
+ 
+ z_map_mode_science:0 "§G科研对比§!地图模式"
+ z_map_mode_science_desc:0 "越靠近§R红色§!的帝国，科技实力强于我们越多. 越靠近§B蓝色§!的帝国，科技实力弱于我们越多."
+ z_map_mode_science_more_4:0 "§Y[This.GetName]§! >>>> §G[From.GetName]§!"
+ z_map_mode_science_more_3:0 "§Y[This.GetName]§! >>> §G[From.GetName]§!"
+ z_map_mode_science_more_2:0 "§Y[This.GetName]§! >> §G[From.GetName]§!"
+ z_map_mode_science_more_1:0 "§Y[This.GetName]§! > §G[From.GetName]§!"
+ z_map_mode_science_equal:0 "§Y[This.GetName]§! = §G[From.GetName]§!"
+ z_map_mode_science_less_1:0 "§Y[This.GetName]§! < §G[From.GetName]§!"
+ z_map_mode_science_less_2:0 "§Y[This.GetName]§! << §G[From.GetName]§!"
+ z_map_mode_science_less_3:0 "§Y[This.GetName]§! <<< §G[From.GetName]§!"
+ z_map_mode_science_less_4:0 "§Y[This.GetName]§! <<<< §G[From.GetName]§!"
+ 
+ z_map_mode_relic:0 "§G遗珍拥有者§!地图模式"
+ z_map_mode_relic_desc:0 "拥有越多遗珍，越靠近§R红色§!。拥有特殊物品为§G绿色§!，拥有无限宝石则为§B蓝色§!。"
+ z_map_mode_relic_infinite:0 "§Y[This.GetName]§!拥有无限宝石"
+ z_map_mode_relic_4:0 "§Y[This.GetName]§!拥有一些特别东西"
+ z_map_mode_relic_3:0 "§Y[This.GetName]§!拥有大量遗珍"
+ z_map_mode_relic_2:0 "§Y[This.GetName]§!拥有2个遗珍"
+ z_map_mode_relic_1:0 "§Y[This.GetName]§!拥有1个遗珍"
+ z_map_mode_relic_none:0 "§Y[This.GetName]§!没有任何遗珍."
+ 
+ z_map_mode_zenith:0 "§G圣权§!地图模式"
+ z_map_mode_zenith_desc:0 "复兴圣权为§R红色§!，停滞圣权为§Y黄色§!，巅峰帝国为§B蓝色§!，失落帝国为§E青色§!，普通帝国为§W白色§!."
+ z_map_mode_zenith_awakened:0 "§Y[This.GetName]§!是一个复兴圣权"
+ z_map_mode_zenith_fallen:0 "§Y[This.GetName]§!是一个停滞圣权"
+ z_map_mode_zenith_ascended:0 "§Y[This.GetName]§!是一个巅峰帝国"
+ z_map_mode_zenith_lost:0 "§Y[This.GetName]§!是一个失落帝国"
+ z_map_mode_zenith_default:0 "§Y[This.GetName]§!是一个普通帝国"
+
+ z_map_mode_rivals:0 "§G宿敌§!地图模式"
+ z_map_mode_rivals_desc:0 "互为宿敌为§Y黄色§!，我们单向宣称的宿敌为§B蓝色§!，单向宣称我们宿敌的为§R红色§!."
+ z_map_mode_rivals_both:0 "§Y[This.GetName]§!与§G[From.GetName]§!互为宿敌"
+ z_map_mode_rivals_ours:0 "§Y[This.GetName]§!是§G[From.GetName]§!的宿敌"
+ z_map_mode_rivals_their:0 "§Y[This.GetName]§!宣称§G[From.GetName]§!为宿敌"
+ z_map_mode_rivals_none:0 "§Y[This.GetName]§!"
+
+ z_map_mode_borders:0 "§G边境关系§!地图模式"
+ z_map_mode_borders_desc:0 "互相禁止通行为§Y黄色§!，我们单向禁止其通行为§B蓝色§!，对我们单向禁止通行为§R红色§!，与我们互相通行为§G绿色§!."
+ z_map_mode_borders_both:0 "§Y[This.GetName]§!与§G[From.GetName]§!互相禁止通行"
+ z_map_mode_borders_ours:0 "§Y[This.GetName]§!被§G[From.GetName]§!禁止通行"
+ z_map_mode_borders_their:0 "§Y[This.GetName]§!禁止§G[From.GetName]§!通行"
+ z_map_mode_borders_none:0 "§Y[This.GetName]§!与§G[From.GetName]§!互相通行"
+
+ z_map_mode_claims:0 "§G宣称§!地图模式"
+ z_map_mode_claims_desc:0 "互相宣称为§Y黄色§!，我们对他们的领土有宣称为§B蓝色§!，他们对我们的领土有宣称为§R红色§!."
+ z_map_mode_claims_both:0 "§Y[This.GetName]§!与§G[From.GetName]§!互相对对方的领土有宣称"
+ z_map_mode_claims_ours:0 "§Y[This.GetName]§!的领土被§G[From.GetName]§!宣称了"
+ z_map_mode_claims_their:0 "§Y[This.GetName]§!宣称了§G[From.GetName]§!的领土"
+ z_map_mode_claims_none:0 "§Y[This.GetName]§!"
+
+
+
+
+
+ 
+ 
+ 
+###_[战争类型]    ##########################################################################################
+#_去军事化
+ casus_belli_z_fw_cb_demilitarize: "解除武装"
+ war_goal_z_fw_wg_demilitarize: "去军事化"
+ war_goal_z_fw_wg_demilitarize_desc: "发动战争削弱敌人的战争潜力，并迫使对方放弃军事扩张。"
+ z_fw_demilitarize_accept: "§Y[From.GetName]§!已经被去军事化了，在§Y15§!年内减少§Y$MOD_COUNTRY_NAVAL_CAP_MULT$§!，影响力收入减少，和平主义思潮盛行并且无法发动战争。\n§Y[Root.GetName]§!获得§G+100§! £influence£\n"
+#_modifier
+ z_fw_demilitarized: "裁军"
+ z_fw_demilitarized_desc: "§L已经被另一个帝国去军事化。§!"
+ z_fw_demilitarized_militarist: "$z_fw_demilitarized$"
+ z_fw_demilitarized_militarist_desc: "§L这个军国主义帝国已经被另一个帝国去军事化。§!"
+ z_fw_mod_cntr_demilitarizer: "和平守护者"
+ z_fw_mod_cntr_demilitarizer_desc: "§L守护和平保持国际的平衡是我们的使命！§!"
+ z_fw_mod_popf_wg_dm_approval: "和平主义"
+ z_fw_mod_popf_wg_dm_approval_desc: "和平主义盛行"
+ 
+#_圣遗物争夺战
+ casus_belli_z_fw_cb_plunder_relic:0 "夺取圣遗物"
+ casus_belli_z_fw_cb_plunder_relic_all:0 "夺取全部圣遗物"
+ war_goal_z_fw_plunder_one_relic:0 "掠夺一件圣遗物"
+ war_goal_z_fw_plunder_one_relic_desc:0 "使用这个战争目标夺取敌人拥有的遗珍。如果他们拥有多个不同的遗珍，则只会从中随机选取一个并送至我们的首都。"
+ war_goal_z_fw_plunder_all_relics:0 "掠夺所有圣遗物"
+ war_goal_z_fw_plunder_all_relics_desc:0 "从敌人手中夺取其拥有的全部遗珍。使用这个战争目标有可能产生严重的外交影响。"
+#_通知event
+ z_fw_relic_wars.name:0 "夺取一个圣遗物"
+ z_fw_relic_wars.desc:0 "[From.From.GetName]已经向我们举手投降。作为战利品的遗珍已经被安全的转移到了我们的首都。正如我们的考古学家们所期待的，这件宝贵的文物终于回到了它真正的家园。"
+ z_fw1_misc.21.a:0 "是的，它是我们的了。"
+ z_fw_relic_wars_lost.name:0 "失败的苦果"
+ z_fw_relic_wars_lost.desc:0 "战争结束了！我们必须承认失败。作为战争赔偿，我们将向[From.GetName]转交一件我们拥有的遗珍。今天，全国上下的新闻记者都将此事描述为一次可耻的失利。"
+ z_fw1_misc.22.a:0 "他们将会为此付出代价。"
+ z_fw_relic_wars_all.name:0 "掠夺宝库"
+ z_fw_relic_wars_all.desc:0 "[From.From.GetName]已经被我们彻底击败，他们的人民的性命捏在我们的手中。作为一个文明的星际国家，我们并不会通过毫无意义的杀戮取乐，不过他们宝库里那些尘封的遗珍将成为我们勇敢战士们的无上荣耀。"
+ z_fw1_misc.23.a:0 "把这里的东西全部带走！"
+ z_fw_relic_wars_all_lost.name:0 "一个好消息"
+ z_fw_relic_wars_all_lost.desc:0 "我们曾经的强大舰队现在已经成了太空尘埃，我们的防御部队已经向敌人的陆战队缴械投降，我们的国家宝藏也被洗劫一空。这些[From.GetName]的野蛮人只给我们留下一只只空空如也的保险柜。"
+ z_fw1_misc.24.a:0 "能活着就是最大的幸福。"
+#_modifier
+ z_fw_relic_obtained:0 "圣遗物掠夺者"
+ z_fw_relic_obtained_desc:0 "他者即地狱，他们的憎恨就是我们强大与骄傲的源泉。"
+#_态度
+ z_fw_opinion_wg_relic:0 "掠夺了我们的圣遗物"
+ z_fw_opinion_wg_relic_all:0 "掠夺了我们所有的圣遗物"
+ z_fw_opinion_wg_relic_all_others:0 "遗珍掠夺者"
+
+#_打开边境
+ casus_belli_z_fw_cb_border:0 "关闭边境"
+ war_goal_z_fw_wg_open_border: "打开边境"
+ war_goal_z_fw_wg_open_border_desc: "发动战争打开敌对文明边境，获得20年通行权。"
+ z_fw_open_border_tooltip:0 "§Y[From.GetName]§!已经被击败，他们放下了傲慢，并同意在§Y20§!年内对我们开放边境。\n§Y[Root.GetName]§!获得§G+100§! £influence£\n"
+ war_goal_z_fw_wg_open_border_long: "开放口岸"
+ war_goal_z_fw_wg_open_border_long_desc: "发动战争打开敌对文明边境，获得50年通行权并结束竞争。"
+ z_fw_open_border_long_tooltip:0 "§Y[From.GetName]§!已经被彻底击败，他们不得不放下傲慢，并同意在§Y50§!年内对我们开放边境，同时我们也结束了与他们之间的宿敌状态，不过很显然他们对这种结果并不认同并等待着雪耻的一天。\n§Y[Root.GetName]§!获得§G+150§! £influence£\n"
+#_态度
+ z_fw_opinion_wg_open_boder_long:0 "在我们的领土横行无阻"
+ 
+#_抢夺小伞
+ casus_belli_z_fw_cb_r_hok_kogasa:0 "拥有$NAME_z_fw_ldr_skunk_kogasa$"
+ war_goal_z_fw_wg_r_hok_kogasa: "抢夺$NAME_z_fw_ldr_skunk_kogasa$"
+ war_goal_z_fw_wg_r_hok_kogasa_desc: "小伞...至少是体验版小伞在他们手里，我们要把她夺过来。"
+ z_fw_wg_r_hok_kogasa_tooltip:0 "§Y[From.GetName]§!已经被击败并失去了$NAME_z_fw_ldr_skunk_kogasa$。\n§Y[Root.GetName]§!获得$NAME_z_fw_ldr_skunk_kogasa$\n"
+ z_fw1_relic_koh.313.name:0 "我们得到了$NAME_z_fw_ldr_skunk_kogasa$"
+ z_fw1_relic_koh.313.desc:0 "$NAME_z_fw_ldr_skunk_kogasa$是一位强大的领袖，她能发挥许多作用。很显然，把她放在别的低等文明手中是一种浪费。现在她属于我们了，这是无尽群星赐予我们的荣光！我永远喜欢$NAME_z_fw_ldr_skunk_kogasa$！"
+ z_fw1_relic_koh.314.name:0 "我们失去了$NAME_z_fw_ldr_skunk_kogasa$"
+ z_fw1_relic_koh.314.desc:0 "虽然我永远喜欢$NAME_z_fw_ldr_skunk_kogasa$！但是我已经没有她了！！！可恶，这是耻辱，我的体验版小伞没有了。我放在这里好好的体验版小伞没有了，可恶可恶可恶！！！总有一天我要把她夺回来，$NAME_z_fw_ldr_skunk_kogasa$只能属于我们！！！"
+ 
+
+
+
+
+
+
+
+
+###_[ambient] ############################################################################################
+#_planet
+ z_pc_nova:0 "§G超新星§!"
+ z_pc_nova_desc:0 "这颗超新星显然是非自然形成的，这使它极其不稳定，过不了几个月就会坍缩. 不过在那之前，它将是天空中最闪亮的星辰."
+
+
+
+
+
+
+
+###_[极限作弊]    ########################################################################################
+
+###_璀璨星图
+#_evts
+ z_fw_r_co_choice_power.name:0 "§G璀璨星图§!: 模式选择."
+ z_fw_r_co_choice_power.desc:0 "感受神怒吧，我们必须选择一种方式引爆这颗恒星. 马上，一切都将归于沉寂. 秩序会随着灭日的璀璨光芒回归这个星系."
+ z_fw1_misc.31.a1:0 "引爆星核."
+ z_fw1_misc.31.a2:0 "引爆星系内所有恒星的星核."
+ z_fw1_misc.31.a3:0 "引爆附近星系内所有恒星的星核."
+ z_fw1_misc.31.a4:0 "引爆星核并摧毁该星系所属的帝国."
+ z_fw1_misc.313.name:0 "[LastKilledCountryName]被彻底毁灭了"
+ z_fw1_misc.313.desc:0 "我们得知[LastKilledCountryName]已经被某种不知名的可怕力量彻底摧毁了，不到一个月的时间内，他们国土中的恒星相继爆发，让整个星空变得无比璀璨，只可惜他们自己也变成了光。他们珍贵的舰队，辉煌的巨建，繁荣的星球，如今连残骸都没有留下。而闪烁的超新星与天体的碎片交织在一起，构成了一副无比壮美的画面，令人陶醉。"
+ z_fw1_misc.314.name:0 "[LastKilledCountryName]被彻底毁灭了"
+ z_fw1_misc.314.desc:0 "我们得知强大的[LastKilledCountryName]已经被某种不知名的可怕力量彻底摧毁了，不到一个月的时间内，他们国土中的恒星相继爆发，让整个星空变得无比璀璨，只可惜他们自己也变成了光。他们无可匹敌的舰队，覆盖天穹的巨建，繁荣辉煌的星球，如今连残骸都没有留下。而闪烁的超新星与天体的碎片交织在一起，构成了一副无比壮美的画面，令人陶醉。"
+ z_fw1_misc.315.name:0 "[LastKilledCountryName]被彻底毁灭了"
+ z_fw1_misc.315.desc:0 "我们得知[LastKilledCountryName]已经被某种不知名的可怕力量彻底摧毁了，不到一个月的时间内，他们国土中的恒星相继爆发，让整个星空变得无比璀璨，只可惜他们自己也变成了光。我们不清楚他们有着怎样的历史，与他们的交流也仅仅是只言片语的描述，就如同他们对我们来说从未存在过。如今，原本属于他们的星空中只剩下闪烁的超新星与天体的碎片交织在一起，构成了一副无比壮美的画面，令人陶醉。"
+ z_fw1_misc.316.name:0 "未知势力被彻底毁灭了"
+ z_fw1_misc.316.desc:0 "我们得知未知的星际文明已经被某种不知名的可怕力量彻底摧毁了，不到一个月的时间内，他们国土中的恒星相继爆发，让整个星空变得无比璀璨，只可惜他们自己也变成了光。我们不清楚他们有着怎样的历史，与他们的交流也仅仅是只言片语的描述，就如同他们对我们来说从未存在过。如今，原本属于他们的星空中只剩下闪烁的超新星与天体的碎片交织在一起，构成了一副无比壮美的画面，令人陶醉。"
+ 
+#_tooltips
+ z_fw_r_celestial_orrey_not_activited:0 "璀璨星图§H未激活.§!"
+ z_fw_r_celestial_orrey_activited:0 "璀璨星图已§G激活§!，在工程船§Y巨建建设面板§!指定定位坐标以引爆天体."
+ z_fw_target_marker_co_ongoing:0 "该星系已存在一个璀璨星图信标或触发效果处于1个月冷却时间内."
+ z_fw_target_marker_co_1_placement:0 "必须指定恒星."
+ z_fw_target_marker_co_2_placement:0 "必须指定特殊天体，如黑洞，中子星等."
+#_megastructures
+ z_fw_mega_r_cht_co_tgt_marker_1:0 "星核爆破定位信标"
+ z_fw_mega_r_cht_co_tgt_marker_1_DESC:0 "毁灭你，与你何干? 我们见证了太多文明的灰飞烟灭，无论多么辉煌的文化与成就，在无尽的群星面前也不过只是历史的尘埃."
+ z_fw_mega_r_cht_co_tgt_marker_1_MEGASTRUCTURE_DETAILS:0 "指定一颗普通恒星并引爆星核，一切都将灰飞烟灭."
+ z_fw_mega_r_cht_co_tgt_marker_2:0 "引力冲击定位信标"
+ z_fw_mega_r_cht_co_tgt_marker_2_DESC:0 "$z_fw_mega_r_cht_co_tgt_marker_1_desc$"
+ z_fw_mega_r_cht_co_tgt_marker_2_MEGASTRUCTURE_DETAILS:0 "指定一个特殊天体并触发引力冲击，一切都将灰飞烟灭."
+#_relic
+ z_fw_r_celestial_orrey:0 "§G无尽群星§!：璀璨星图"
+ z_fw_r_celestial_orrey_desc:0 "来自古老死灵王朝Oruscar的神秘设备，展示了一幅覆盖整个银河系的巨大星图网络，点击其中某一个亮点，一颗星球便会瞬间产生超新星爆发.\n§B哦吼，真是哪里不亮点哪里啊.§!"
+ z_fw_r_celestial_orrey_effect:0 "开启它将在此后一年内开启全图视野，解锁巨建$z_fw_mega_r_cht_co_tgt_marker_1$和$z_fw_mega_r_cht_co_tgt_marker_2$，可以用于引爆任意的天体."
+#_决策
+ z_fw_dec_detonate_star:0 "§G璀璨星图§!: 引爆恒星"
+ z_fw_dec_detonate_star_desc:0 "扰动这颗恒星的星核，使它迅速走向生命的终点并最后一次璀璨地绽放."
+ z_fw_dec_detonate_star_effect:0 "这颗恒星将会被强制产生超新星爆发，摧毁星系内的一切存在. 根据恒星的质量，它可能会在几个月后坍缩为黑洞，中子星或者白矮星. 无论怎样，一切都将灰飞烟灭."
+ 
+
+###_永恒星炬
+#_tooltips
+ z_fw_r_cheat_quantum_beacon_effect:0 "开启永恒星炬将在10年内使舰队获得无尽的庇护，逃脱几率，宇航速度和跃迁效率大幅度提升，同时所有国家的边境将开放且获得全图视野。"
+ z_fw_r_cheat_quantum_beacon_activited:0 "永恒星炬已§G激活§!"
+#_relic
+ z_fw_r_cheat_quantum_beacon:0 "§G无尽群星§!：永恒星炬"
+ z_fw_r_cheat_quantum_beacon_desc:0 "群主的光辉将永远普照星河，为那些受尽折磨的灵魂提供庇护，让它们在虚境的怒涛中不至于迷失方向。——α位面，无尽之主"
+ 
+
+###_维度解构剑
+#_evts
+ z_fw1_misc.321.name:0 "你将如何使用$z_fw_r_cheat_hyper_blade$？"
+ z_fw1_misc.321.desc:0 "可以激活或者关闭这个神器，激活它将允许你使用工程船定位坐标并重塑超空间结构。当然你也可以不过了，直接斩断所有超空间航道。"
+ z_fw_evt_r_cheat_hyper_blade_on:0 "$z_fw_r_cheat_hyper_blade$§H已激活§!"
+ z_fw_evt_r_cheat_hyper_blade_on_desc:0 "允许你在两个互相孤立的星系间创造超空间航道或者切断两个星系间已经存在的超空间航道。\n使用工程船建造起点信标和终点信标，这将使两个星系被定位，并改变他们之间的超空间结构。§!"
+ z_fw_evt_r_cheat_hyper_blade_off:0 "$z_fw_r_cheat_hyper_blade$§G已禁用§!"
+ z_fw_evt_r_cheat_hyper_blade_off_desc:0 "你将不再被允许随意改变超空间的结构。"
+ z_fw_evt_r_cheat_hyper_blade_doom:0 "使用暗能量超空间湮灭斩"
+ z_fw_evt_r_cheat_hyper_blade_doom_desc:0 "一刀倾城，毁天灭地。全银河系的所有超空间航道将会被立刻摧毁，没得后悔。"
+#_evts pop up
+ z_fw1_misc.322.name:0 "暗能量超空间航道断裂斩"
+ z_fw1_misc.322.desc:0 "一刀倾城，一剑破空。\n伴随着一阵耀眼的闪光，她出现了，她从长者手中夺过了$z_fw_r_cheat_hyper_blade$。她大喊一声§B暗能量，无所不能！§!。她砍了！她砍了！一泻千里的暗能量扭曲了维度的结构，链接这个星系的所有超空间航道都消失了。目瞪口呆的长者和众人如雕像一般站在原地，而$z_fw_r_cheat_hyper_blade$则横在地上闪烁着青绿色的电弧，哔哩哔哩的放电声在安静的船舱中格外刺耳，构成了一幅充满尴尬的诡异画面。"
+ z_fw1_misc.323.name:0 "$z_fw1_misc.322.name$"
+ z_fw1_misc.323.desc:0 "一刀倾城，一剑破空。\n伴随着一阵耀眼的闪光，她出现了，她从长者手中夺过了$z_fw_r_cheat_hyper_blade$。她大喊一声§B暗能量，无所不能！§!。她砍了！她砍了！一泻千里的暗能量扭曲了维度的结构，链接[event_target:z_fw_tgt_sys_r_cht_hyper_1.GetName]与[event_target:z_fw_tgt_sys_r_cht_hyper_2.GetName]超空间航道消失了。目瞪口呆的长者和众人如雕像一般站在原地，而$z_fw_r_cheat_hyper_blade$则横在地上闪烁着青绿色的电弧，哔哩哔哩的放电声在安静的船舱中格外刺耳，构成了一幅充满尴尬的诡异画面。"
+ z_fw1_misc.324.name:0 "暗能量超空间航道开辟斩"
+ z_fw1_misc.324.desc:0 "一刀倾城，一剑破空。\n伴随着一阵耀眼的闪光，她出现了，她从长者手中夺过了$z_fw_r_cheat_hyper_blade$。她大喊一声§B暗能量，无所不能！§!。她砍了！她砍了！一泻千里的暗能量扭曲了维度的结构，[event_target:z_fw_tgt_sys_r_cht_hyper_1.GetName]与[event_target:z_fw_tgt_sys_r_cht_hyper_2.GetName]之间的虚空中居然出现了一条新的超空间航道。目瞪口呆的长者和众人如雕像一般站在原地，而$z_fw_r_cheat_hyper_blade$则横在地上闪烁着青绿色的电弧，哔哩哔哩的放电声在安静的船舱中格外刺耳，构成了一幅充满尴尬的诡异画面。"
+ z_fw1_misc.325.name:0 "暗能量超空间航道湮灭斩"
+ z_fw1_misc.325.desc:0 "一刀倾城，毁天灭地。\n伴随着一阵耀眼的闪光，她出现了，她从长者手中夺过了$z_fw_r_cheat_hyper_blade$。她大喊一声§B暗能量，无所不能！§!。她砍了！她砍了！一泻千里的暗能量扫荡了整个星系。目瞪口呆的长者和众人如雕像一般站在原地，而$z_fw_r_cheat_hyper_blade$则横在地上闪烁着青绿色的电弧，哔哩哔哩的放电声在安静的船舱中格外刺耳，构成了一幅充满尴尬的诡异画面。\n此时众人突然反应过来看向了超空间通讯设施，无论是传感器中还是通讯频道中都是一片死寂，超空间已经成为了历史。"
+#_tooltips
+ z_fw_tips_r_hyper_blade_effect:0 "开启维度解构剑可以允许你在两个互相孤立的星系间创造超空间航道或者切断两个星系间已经存在的超空间航道。\n使用工程船建造起点信标和终点信标，这将使两个星系被定位，并改变他们之间的超空间结构。\n§Y注意：同一時刻只有一个玩家能够激活它。§!"
+ z_fw_tips_r_hyper_blade_activated:0 "$z_fw_r_cheat_hyper_blade$§G已激活§!，如果你是激活它的玩家，请使用工程船定位暗能量超空间航道塑造斩的起点与终点。"
+#_relic
+ z_fw_r_cheat_hyper_blade:0 "§G无尽群星§!：维度解构剑"
+ z_fw_r_cheat_hyper_blade_desc:0 "翠绿的光芒划过古老的剑身，这把远古的神器充斥着足以改变宇宙结构的力量。剑身上的铭文用古老的字体镌刻着一排大字：§B暗能量，无所不能！§!\n另外，下面还用不显眼的小字刻着一行使用说明：§B必须是一位长者，双手持剑。嘴里大喊§G我永远都喜欢小伞§!，然后向目标星系用力挥砍出一道璀璨的§G激暗能量超空间航道塑造斩§!！§!\n我的妈耶...这实在是太夸张了！"
+#_megastructures
+ #_截断者
+ z_fw_mega_r_cht_hyper_tgt_marker_0:0 "暗能量超空间航道塑造斩§R阻断信标§!"
+ z_fw_mega_r_cht_hyper_tgt_marker_0_DESC:0 "一刀倾城，一剑破空。"
+ z_fw_mega_r_cht_hyper_tgt_marker_0_MEGASTRUCTURE_DETAILS:0 "所有连接着这个星系的超空间航道都将被斩断。"
+ #_起点
+ z_fw_mega_r_cht_hyper_tgt_marker_1:0 "暗能量超空间航道塑造斩§G起点信标§!"
+ z_fw_mega_r_cht_hyper_tgt_marker_1_DESC:0 "一刀倾城，一剑破空。\n一位老人在这个星系挥出了一刀，神话般地打通几万光年外两个从未发生过联系的星系，又或者奇迹般地让近在咫尺的两个世界阴阳相隔。啊，暗能量，你真是无所不能。啊，小伞，你是群星的救世主！"
+ z_fw_mega_r_cht_hyper_tgt_marker_1_MEGASTRUCTURE_DETAILS:0 "这个星系将作为改变超空间结构的起点。"
+ #_终点
+ z_fw_mega_r_cht_hyper_tgt_marker_2:0 "暗能量超空间航道塑造斩§H终点信标§!"
+ z_fw_mega_r_cht_hyper_tgt_marker_2_DESC:0 "一刀倾城，一剑破空。\n一位老人向这个星系挥出了一刀，神话般地打通几万光年外两个从未发生过联系的星系，又或者奇迹般地让近在咫尺的两个世界阴阳相隔。啊，暗能量，你真是无所不能。啊，小伞，你是群星的救世主！"
+ z_fw_mega_r_cht_hyper_tgt_marker_2_MEGASTRUCTURE_DETAILS:0 "这个星系将作为改变超空间结构的终点。"
+ 
+
+###_物质湮灭剑
+#_evts
+ z_fw1_misc.331.name:0 "你将如何使用$z_fw_r_cheat_mega_sword$？"
+ z_fw1_misc.331.desc:0 "可以激活或者关闭这个神器，激活它将允许你使用工程船定位星系并清除指定的巨建。当然你也可以不过了，直接摧毁所有银河系巨建。不过注意一点，这些巨建不包括星门/L星门，破坏它们会严重影响平衡并改变游戏结构。"
+ z_fw_evt_r_cheat_mega_sword_off:0 "$z_fw_r_cheat_mega_sword$§G已禁用§!"
+ z_fw_evt_r_cheat_mega_sword_off_desc:0 "你将不再被允许建造$z_fw_mega_r_cht_mega_tgt_marker$。§!"
+ z_fw_evt_r_cheat_mega_sword_on:0 "$z_fw_r_cheat_mega_sword$§H已激活§!"
+ z_fw_evt_r_cheat_mega_sword_on_desc:0 "允许你在任意工程船可以到达的星系内搜索巨建并打上标记，根据这些标记决定你要摧毁的巨建。\n使用工程船建造$z_fw_mega_r_cht_mega_tgt_marker$，同一时刻只能有一个玩家在使用$z_fw_mega_r_cht_mega_tgt_marker$。§!"
+ z_fw_evt_r_cheat_mega_sword_doom:0 "使用银河巨建湮灭斩"
+ z_fw_evt_r_cheat_mega_sword_doom_desc:0 "一刀倾城，毁天灭地。全银河系的所有巨建将会被立刻摧毁，没得后悔。§!"
+ 
+ z_fw_evt_r_cht_mega_choose:0 "星系巨建检测系统"
+ z_fw_tips_r_cht_mega_choose_tgt:0 "在[event_target:z_fw_tgt_sys_r_cht_mega.GetName]中检测所有可能存在的巨建并决定你的下一步操作。"
+ z_fw_tips_r_cht_mega_choose_reroll:0 "刷新标记并重新选择巨建"
+ z_fw_tips_r_cht_mega_choose_non:0 "当前星系内无可摧毁的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_0:0 "不摧毁任何巨建"
+ z_fw_tips_r_cht_mega_choose_demolish:0 "立刻摧毁指定巨建，请以巨建旁边的标记作为参考。"
+ z_fw_tips_r_cht_mega_choose_demolish_1:0 "立刻摧毁-标记为§G1§!的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_2:0 "立刻摧毁-标记为§G2§!的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_3:0 "立刻摧毁-标记为§G3§!的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_4:0 "立刻摧毁-标记为§G4§!的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_5:0 "立刻摧毁-标记为§G5§!的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_6:0 "立刻摧毁-标记为§G6§!的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_7:0 "立刻摧毁-标记为§G7§!的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_8:0 "立刻摧毁-标记为§G8§!的巨建"
+ z_fw_tips_r_cht_mega_choose_demolish_9:0 "立刻摧毁-标记为§G9§!的巨建"
+ 
+#_tooltips
+ z_fw_tips_r_cht_mega_sword_effect:0 "开启物质湮灭剑可以允许你清除指定星系中任意的巨建。\n使用工程船建造检测信标，这将使你开启星系巨建检测面板，然后根据巨建上方的标记选择你要摧毁的巨建。\n§Y注意：同一時刻只有一个检测信标存在在银河系中。§!"
+#_relic
+ z_fw_r_cheat_mega_sword:0 "§G无尽群星§!：物质湮灭剑"
+ z_fw_r_cheat_mega_sword_desc:0 "翠绿的光芒划过古老的剑身，这把远古的神器充斥着足以毁灭一切存在的力量。剑身上的铭文用古老的字体镌刻着一排大字：§B暗能量，无所不能！§!\n另外，下面还用不显眼的小字刻着一行使用说明：§B必须是一位长者，双手持剑。嘴里大喊§G我永远都喜欢小伞§!，然后向目标星系用力挥砍出一道璀璨的§G暗能量巨建湮灭斩§!！§!\n我的妈耶...这实在是太夸张了！"
+ 
+#_megastructures
+ #_巨建毁灭者
+ z_fw_mega_r_cht_mega_tgt_marker:0 "暗能量巨建湮灭斩§G检测信标§!"
+ z_fw_mega_r_cht_mega_tgt_marker_DESC:0 "一刀倾城，一剑破空。\n仅仅是一把古老兵刃简单的挥斩，就足以释放创造宇宙的强大能量，一瞬间就可以将一座巨型构造化为乌有。暗能量，无所不能！"
+ z_fw_mega_r_cht_mega_tgt_marker_MEGASTRUCTURE_DETAILS:0 "将检测这个星系内所有可能存在的巨建，并给他们打上标记，根据这些标记选择想要摧毁的巨建。"
+
+
+###_真`狂怒
+#_evts
+ z_fw_evt_r_cht_fury:0 "你将如何使用$z_fw_r_cheat_fury$？"
+ z_fw_evt_r_cht_fury_desc:0 "激活这个神器，选择你需要的强度，让你的敌人见识你的狂怒。Rage rage against the dying of light!"
+ z_fw_evt_r_cht_fury_buff_1:0 "狂怒一段：沸腾吧我的鲜血！"
+ z_fw_evt_r_cht_fury_buff_2:0 "狂怒二段：我杀他妈！"
+ z_fw_evt_r_cht_fury_buff_3:0 "狂怒三段：杀他全家！"
+ z_fw_evt_r_cht_fury_buff_4:0 "狂怒四段：挡我者死！！"
+ z_fw_evt_r_cht_fury_buff_5:0 "狂怒五段：我即终结！！！"
+ z_fw_evt_r_cht_fury_buff_desc:0 "选择你需要的狂怒强度，强度越高，加成越恐怖。"
+ z_fw_evt_r_cht_fury_buff_clean:0 "恢复平静"
+ z_fw_evt_r_cht_fury_buff_clean_desc:0 "开启贤者时间，清除所有加成。"
+#_relic
+ z_fw_r_cheat_fury:0 "§G无尽群星§!：第四天灾的狂怒"
+ z_fw_r_cheat_fury_desc:0 "这个神奇的印记散发着令人狂躁不安的能量，令所有靠近它的生物疯狂。鲜血一般殷红的古老符文上，布满了密密麻麻的小字，依稀可见：§B暗能量，无所不能！§!\n另外，下面还闪烁着一排并不是十分显眼的小字：§R这里记述着曾经的第四天灾们辉煌的过去，唯有狂怒，替天行道。他们曾经在极度愤怒的情况下一拳打穿了始源的护盾，一脚踹碎了联合的装甲，一口熄灭了涌动的太阳风暴，一个放荡的念想穿上了女装...§!\nemmmmmm，至少最后一条我还是相信的。"
+ z_fw_tips_r_cht_fury_effect:0 "可以开启狂怒，一共5个阶段，强力作弊，会破坏游戏体验，请慎重选择。"
+#_modifiers
+ z_fw_mod_r_cht_fury_1:0 "$z_fw_evt_r_cht_fury_buff_1$"
+ z_fw_mod_r_cht_fury_1_desc:0 "接受这份不该属于你的力量，燃烧吧，沉醉吧，化为灰烬吧。"
+ z_fw_mod_r_cht_fury_2:0 "$z_fw_evt_r_cht_fury_buff_2$"
+ z_fw_mod_r_cht_fury_2_desc:0 "$z_fw_mod_r_cht_fury_1_desc$"
+ z_fw_mod_r_cht_fury_3:0 "$z_fw_evt_r_cht_fury_buff_3$"
+ z_fw_mod_r_cht_fury_3_desc:0 "$z_fw_mod_r_cht_fury_1_desc$"
+ z_fw_mod_r_cht_fury_4:0 "$z_fw_evt_r_cht_fury_buff_4$"
+ z_fw_mod_r_cht_fury_4_desc:0 "$z_fw_mod_r_cht_fury_1_desc$"
+ z_fw_mod_r_cht_fury_5:0 "$z_fw_evt_r_cht_fury_buff_5$"
+ z_fw_mod_r_cht_fury_5_desc:0 "$z_fw_mod_r_cht_fury_1_desc$"
+
+
+
+
+###_[巨建拆解]    ########################################################################################
+#_decision
+ z_fw_dec_mega_dismantle: "§G无尽群星§!：巨建拆解"
+ z_fw_dec_mega_dismantle_desc: ""
+ z_fw_tips_dec_mega_dismantle: "拆解巨建并回收合金"
+ z_fw_tips_mega_dismentle_ongoing: "同一时间只能有一个玩家再使用此功能"
+ z_fw_dec_mega_dismantle_plnt: "$z_fw_dec_mega_dismantle$"
+ z_fw_dec_mega_dismantle_plnt_desc: ""
+#_mega
+ z_fw_mega_dismantle:0 "巨建拆解器"
+ z_fw_mega_dismantle_DESC:0 ""
+ z_fw_mega_dismantle_MEGASTRUCTURE_DETAILS:0 ""
+
+#_evts
+ z_fw_evt_mega_dismantle:0 "星系巨建拆解检测系统"
+ z_fw_evt_mega_dismantle_desc:0 "检测所有可拆解的巨建并决定下一步操作。"
+ z_fw_tips_mega_dismantle_reroll:0 "刷新标记并重新选择巨建"
+ z_fw_tips_mega_dismantle_non:0 "当前星系内无可摧毁的巨建"
+ z_fw_tips_mega_dismantle_0:0 "不拆解任何巨建"
+ z_fw_tips_mega_dismantle:0 "立刻开始拆解指定巨建，请以巨建旁边的标记作为参考。"
+ z_fw_tips_mega_dismantle_1:0 "立刻拆解-标记为§H1§!的巨建"
+ z_fw_tips_mega_dismantle_2:0 "立刻拆解-标记为§H2§!的巨建"
+ z_fw_tips_mega_dismantle_3:0 "立刻拆解-标记为§H3§!的巨建"
+ z_fw_tips_mega_dismantle_4:0 "立刻拆解-标记为§H4§!的巨建"
+ z_fw_tips_mega_dismantle_5:0 "立刻拆解-标记为§H5§!的巨建"
+ z_fw_tips_mega_dismantle_6:0 "立刻拆解-标记为§H6§!的巨建"
+ z_fw_tips_mega_dismantle_7:0 "立刻拆解-标记为§H7§!的巨建"
+ z_fw_tips_mega_dismantle_8:0 "立刻拆解-标记为§H8§!的巨建"
+ z_fw_tips_mega_dismantle_9:0 "立刻拆解-标记为§H9§!的巨建"
+ z_fw_evt_mega_dismantle_done:0 "巨建拆解完成"
+ z_fw_evt_mega_dismantle_done_desc:0 "古老而巨大的造物完全崩塌了，只有破碎的框架与星际尘埃诉说着它过去的传奇，而我们也从中回收了足够的合金。"
+ z_fw_evt_mega_dismantle_plnt_ongoing:0 "此星系正在进行栖息地拆解"
+ z_fw_evt_mega_dismantle_plnt_ongoing_desc:0 "在完成当前栖息地拆解工作之前我们无法拆解第二个栖息地。"
+ 
+ 
+#_[自我拆解]
+#_evts
+ z_fw1_misc.140.title:0 "确实要将这支舰队作为目标摧毁并进行拆解分析么？"
+ z_fw1_misc.140.desc:0 "如果决定拆解这支舰队，请准备好军事舰队以便对其进行暴力拆解。拆解目标舰队将被拆除防御系统变得无比脆弱，但是请不要多次攻击，这会触发它的自动防御机制。"
+ z_fw1_misc.140.a:0 "没错，让军事舰队做好准备！"
+ z_fw1_misc.140.b:0 "还是不要了吧..."
+#_modifier
+ z_fw_mod_cntr_self_dismantle:0 "§G拆船者§!"
+ z_fw_mod_cntr_self_dismantle_desc:0 "快，拆了它！"
+ mod_damage_vs_country_type_z_fw_npc_temp_neutral_self_dismantle_mult:0 "提升对拆解目标的伤害"

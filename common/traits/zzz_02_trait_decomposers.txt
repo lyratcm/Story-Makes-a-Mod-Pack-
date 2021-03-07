@@ -1,0 +1,23 @@
+trait_decomposers = {
+    cost = 0
+    potential_crossbreeding_chance = 0
+    sorting_priority = 20
+    initial = yes
+    randomized = no
+    modification = no
+    forced_happiness = no
+    immortal_leaders = no
+    allowed_archetypes = {
+        FUNGOID
+    }
+    modifier = {
+        planet_pops_organics_food_upkeep_mult = -0.2
+        pop_environment_tolerance = 0.10
+        leader_age = -30
+    }
+    leader_age_min = 20
+    leader_age_max = 40
+    opposites = {
+        "trait_fleeting"
+    }
+}

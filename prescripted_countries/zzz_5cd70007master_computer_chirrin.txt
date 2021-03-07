@@ -1,0 +1,58 @@
+master_computer_chirrin = {
+    name = "Curated Chirrin Society"
+    adjective = Chirrin
+    spawn_enabled = yes
+    spawn_as_fallen = yes
+    ship_prefix = CCSS
+    species = {
+        class = ART
+        portrait = art1
+        name = Chirrin
+        adjective = Chirrin
+        plural = Chirrins
+        name_list = "ART1"
+        trait = "trait_intelligent"
+        trait = "trait_thrifty"
+        trait = "trait_slow_breeders"
+    }
+    room = "personality_ruthless_capitalists_room"
+    authority = auth_master_computer
+    civics = {
+        civic_master_computer_exchange
+        civic_master_computer_logistitian
+    }
+    government = gov_master_computer_generic
+    ethic = ethic_fanatic_materialist
+    ethic = ethic_xenophobe
+    planet_name = "Reffin"
+    planet_class = "pc_savannah"
+    system_name = "Rathago"
+    initializer = ""
+    graphical_culture = "arthropoid_01"
+    city_graphical_culture = "arthropoid_01"
+    empire_flag = {
+        icon = {
+            category = "pointy"
+            file = "flag_pointy_7.dds"
+        }
+        background = {
+            category = "backgrounds"
+            file = "stripe.dds"
+        }
+        colors = {
+            "dark_grey"
+            "burgundy"
+            "null"
+            "null"
+        }
+    }
+    ruler = {
+        gender = male
+        name = "Papa Locust"
+        portrait = "art1"
+        texture = 0
+        hair = 0
+        clothes = 0
+        leader_class = "ruler"
+    }
+}

@@ -1,0 +1,30 @@
+muutagans_edict = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		cost = {
+			rare_crystals = 25
+		}
+	}
+
+	modifier = {
+		pop_happiness = 0.05
+		planet_stability_add = 5
+	}
+	
+	potential = {
+		has_country_flag = purchased_muutagans_crystals
+	}
+	
+	allow = {
+		OR = {
+			has_active_muutagan_trade = yes
+			has_edict = muutagans_edict
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

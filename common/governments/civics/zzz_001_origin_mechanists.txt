@@ -1,0 +1,36 @@
+origin_mechanists = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_mechanist.dds"
+    picture = GFX_origin_mechanist
+    playable = {
+        host_has_dlc = "Utopia"
+    }
+    possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+            OR = {
+                text = civic_tooltip_materialist
+                value = ethic_materialist
+                value = ethic_fanatic_materialist
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_biological_engineering
+                value = civic_hmo
+                value = civic_befrienders
+            }
+        }
+    }
+    modifier = {
+        planet_pops_robotics_upkeep_mult = -0.05
+        planet_pop_assembly_mult = 0.15
+    }
+    description = "origin_tooltip_mechanists_effects"
+    advanced_start = yes
+    random_weight = {
+        base = 10
+    }
+}

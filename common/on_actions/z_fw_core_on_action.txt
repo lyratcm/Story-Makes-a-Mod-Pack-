@@ -1,0 +1,231 @@
+###_z_fw_核心功能触发器	##############################################################################################
+
+#_[game_start]
+#_[global_pulse]
+#_[battle]
+#_[tech]
+#_[country_pulse]
+#_[country_misc]
+#_[planet_misc]
+
+
+
+
+
+###_[game_start]	#######################################################
+on_game_start_country = {
+	events = {
+		z_fw_core.100				#_设定主持者
+	}
+}
+
+on_game_start = {
+	events = {
+		z_fw_core.1					#_[初始化_核心]
+	}
+}
+
+
+
+
+
+
+
+
+#_[global_pulse]	#######################################################
+on_monthly_pulse = {
+	events = {
+		z_fw_core.12				#_核心 月度	DD<经济补助/清除弱者eft>/
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		z_fw_core.13				#_核心 年度
+	}
+}
+
+on_bi_yearly_pulse = {
+	events = {
+		z_fw_core.14				#_核心 2年
+	}
+}
+
+on_five_year_pulse = {
+	events = {
+		z_fw_core.15				#_核心 5年
+	}
+}
+
+on_decade_pulse = {
+	events = {
+		z_fw_core.16				#_核心 10年
+	}
+}
+
+on_mid_game_pulse = {
+	events = {
+	}
+}
+
+on_late_game_pulse = {
+	events = {
+	}
+}
+
+
+
+
+
+
+
+
+#_[battle]	#######################################################
+
+# This = owner of fleet 1
+# From = owner of fleet 2
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_entering_battle = {
+	events = {
+		z_fw_core_battle.1			#_接战框架
+		z_fw_core_battle.12			#_接战misc	清理溢出
+		z_fw1_relic_koh.4			#_hok接触	ai感染国家/pc感染光线
+	}
+}
+
+# This = owner of fleet 1 (winner)
+# From = owner of fleet 2 (loser)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_space_battle_won = {
+	events = {
+	#	z_fw_core_battle.112		#_接战框架	胜利---延后1日检测[脱战]
+	}
+}
+
+# This = owner of fleet 1 (loser)
+# From = owner of fleet 2 (winner)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_space_battle_lost = {
+	events = {
+	#	z_fw_core_battle.111		#_接战框架	战败-立刻执行
+	}
+}
+
+# This = Ship
+# From = Disabler Ship
+on_ship_disabled = {
+	events = {
+	#	z_fw_core_battle.113		#_接战框架	失效---立即执行
+	}
+}
+
+# A fleet has entered a system
+# Scope = Fleet
+# From = System
+on_entering_system_fleet = {
+	events = {
+	#	z_fw_core_battle.110			#_接战框架	检测状态---清理修正
+	}
+}
+
+
+
+
+
+
+
+
+#_[tech]	#######################################################
+on_tech_increased = {
+	events = {
+		z_fw_core_tech.11			#_beam
+		z_fw_core_tech.12			#_瓦解
+		z_fw_core_tech.13			#_电浆
+		z_fw_core_tech.14			#_量子鱼雷
+		z_fw_core_tech.15			#_pd
+		z_fw_core_tech.21			#_高斯
+		z_fw_core_tech.22			#_巨炮
+		z_fw_core_tech.23			#_加特林
+		z_fw_core_tech.24			#_防空
+		z_fw_core_tech.31			#_导弹
+		z_fw_core_tech.32			#_鱼雷
+		z_fw_core_tech.33			#_蜂巢
+		z_fw_core_tech.34			#_飞机
+		z_fw_core_tech.41			#_xl beam
+		z_fw_core_tech.42			#_xl 巨炮
+		z_fw_core_tech.43			#_xl 电弧
+		z_fw_core_tech.44			#_xl 导弹
+		z_fw_core_tech.51			#_甲
+		z_fw_core_tech.52			#_盾
+		z_fw_core_tech.53			#_核心
+	}
+}
+
+
+
+
+
+
+
+
+###_[country_pulse]	#####################################################
+# this = country
+on_monthly_pulse_country = {
+	events = {
+	}
+}
+# this = country
+on_yearly_pulse_country = {
+	events = {
+		z_fw_core.22		#_核心 年度国家
+	}
+}
+# this = country
+on_bi_yearly_pulse_country = {
+	events = {
+		z_fw_core.23		#_核心 2年国家
+	}
+}
+# this = country
+on_five_year_pulse_country = {
+	events = {
+		z_fw_core.24		#_核心 5年国家
+	}
+}
+
+
+
+
+
+
+
+
+###_[country_misc]	[id=4]	#####################################################
+
+#This = destroyed country
+#From = optional, destroyer (country)
+on_country_destroyed = {
+	events = {
+		z_fw_core.41				#_国家毁灭_遗珍分配
+	}
+}
+
+
+
+
+
+
+
+
+###_[planet_misc]	[id=5]	#####################################################
+
+# A colony has been destroyed. Called just before owner and controller is cleared
+# Scope = Planet
+on_colony_destroyed = {
+	events = {
+		z_fw_core.51				#_星球debug[毁灭][殖民地毁灭]
+	}
+}

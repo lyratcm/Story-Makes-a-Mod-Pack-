@@ -1,0 +1,17 @@
+trait_admiral_genetic_savant = {
+    cost = 0
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_leader_genetic_savant.dds"
+    modifier = {
+        ship_fire_rate_mult = 0.05
+        ship_disengage_chance_mult = 0.15
+    }
+    leader_trait = {
+        admiral
+    }
+    leader_class = {
+        admiral
+    }
+    initial = no
+    randomized = no
+}

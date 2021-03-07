@@ -1,0 +1,16 @@
+trait_mammalian = {
+    cost = 0
+    potential_crossbreeding_chance = 0
+    sorting_priority = 20
+    initial = no
+    randomized = no
+    modification = no
+    forced_happiness = no
+    immortal_leaders = no
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        planet_jobs_worker_produces_mult = 0.025
+    }
+}

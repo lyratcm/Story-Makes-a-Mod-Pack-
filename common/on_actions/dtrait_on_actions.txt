@@ -1,0 +1,185 @@
+on_game_start = {
+	events = {
+		d_traits_portraits.1
+	}
+}
+
+on_game_start_country = {
+	events = {
+		d_traits_origins.10 # sterility
+		d_traits_origins.20 # gas dependency
+		d_traits_origins.31 # sterile primitives
+		d_traits_origins.32 # gas dependent primitives
+		d_traits_origins.41 # complete polymorphism setup; didn't work properly before game start
+		# d_traits_origins.50 # polymorphic primitives
+		# d_traits_origins.51 # polymorphic primitive hives
+		d_traits.503 # randomize phenotypes
+		d_traits.203 # living architecture initialization
+		d_traits.521 # set leader phenotypes
+		# d_traits_primitives.1 # workaround for primitives, who appear to get pops only after their on_game_start_country events
+	}
+}
+
+empire_init_capital_planet = {
+	events = {
+		d_traits_origins.40 # polymorphic secondary species
+	}
+}
+
+# A pop has been added to the planet
+# Root = pop
+# From = planet
+on_pop_added = {
+	events = {
+		d_traits.500 # change polymorphic pops
+		d_traits.300 # add job flags to specialized/obsessive pops
+		d_traits.200 # add living architecture planet modifier
+	}
+}
+
+# A pop has finished growing
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_grown = {
+	events = {
+		d_traits.100 # genetic integration
+		d_traits.501 # change polymorphic pops
+		d_traits.510 # reset living architecture
+	}
+}
+
+# A pop has finished assembling
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_assembled = {
+	events = {
+	}
+}
+
+# Triggers when a Special Project to apply a species modification template has completed.
+# Note that this will trigger once for each combination of planet & original species.
+#
+# This = Country
+# From = Species ( Post Modification )
+on_modification_complete = {
+	events = {
+		d_traits.502 # change polymorphic pops
+		d_traits.201 # add living architecture planet modifier
+	}
+}
+
+# A pop has finished purging
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_purged = {
+	events = {
+		d_traits.202 # remove living architecture planet modifier
+		d_traits.530 # replace declined hive cores
+		# d_traits.700 # parasitoid birth
+	}
+}
+# A pop has finished declining (while not being purged)
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_declined = {
+	events = {
+		d_traits.202 # remove living architecture planet modifier
+		d_traits.530 # replace declined hive cores
+	}
+}
+# A pop has been displaced
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_displaced = {
+	events = {
+		d_traits.202 # remove living architecture planet modifier
+	}
+}
+
+
+# A building construction has been queued.
+# This = Planet
+on_building_queued = {
+	events = {
+		d_traits.210
+	}
+}
+#A building construction has been completed.
+# This = Planet
+on_building_complete = {
+	events = {
+		d_traits.211 # living architecture
+	}
+}
+# A building construction has been unqueued.
+# This = Planet
+on_building_unqueued = {
+	events = {
+		d_traits.212 # living architecture
+	}
+}
+# A district construction has been queued.
+# This = Planet
+on_district_queued = {
+	events = {
+		d_traits.220 # living architecture
+	}
+}
+#A district construction has been completed.
+# This = Planet
+on_district_complete = {
+	events = {
+		d_traits.221 # living architecture
+	}
+}
+# A district construction has been unqueued.
+# This = Planet
+on_district_unqueued = {
+	events = {
+		d_traits.222 # living architecture
+	}
+}
+
+# a new leader is generated for an empire, to be available for recruitment
+# scope: country, from: leader
+on_leader_spawned = {
+	events = {
+		d_traits.520 # polymorphism
+		d_traits.522 # leader instar
+		d_traits.601 # keen senses
+		d_traits.602 # spatial awareness
+	}
+}
+
+# Executed as new ruler has been set
+# This = Country
+on_ruler_set = {
+	events = {
+	}
+}
+
+# A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
+# This = Country
+on_tech_increased = {
+	events = {
+		d_traits_ai.11	# decide which traits if any to remove
+		d_traits_ai.12
+		d_traits_ai.13
+	}
+}
+
+# Executed when the ruler is ousted and goes back to their pre-ruler class
+# From = Previous Ruler, already has the new class
+# This = Country
+on_ruler_back_to_pre_ruler_class = {
+	events = {
+		d_traits.601 # keen senses
+		d_traits.602 # spatial awareness
+		# d_traits.240 # living architecture
+	}
+}

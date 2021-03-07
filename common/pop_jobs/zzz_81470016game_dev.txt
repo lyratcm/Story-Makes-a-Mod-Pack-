@@ -1,0 +1,188 @@
+game_dev = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_residence
+    clothes_texture_index = 2
+    icon = clerk
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        complex_specialist_job_check_trigger = yes
+    }
+    planet_modifier = {
+        planet_amenities_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_global_flag = expanded_pops_active
+            is_robot_pop = yes
+            exists = owner
+            owner = {
+                has_relic = r_three_londor
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            planet_amenities_add = -0.4
+        }
+    }
+    resources = {
+        category = planet_artisans
+        produces = {
+            consumer_goods = 2
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            factor = 1.2
+            has_trait = trait_clever
+        }
+        modifier = {
+            factor = 2
+            owner = {
+                resource_stockpile_compare = {
+                    resource = consumer_goods
+                    value < 100
+                }
+            }
+        }
+        modifier = {
+            factor = 0.2
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 0.1
+            can_take_servant_job = yes
+        }
+        modifier = {
+            factor = 5
+            has_job = game_dev
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+            }
+        }
+        modifier = {
+            factor = 2.5
+            OR = {
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 1.2
+            is_enslaved = yes
+            exists = planet
+            OR = {
+                has_slavery_type = {
+                    type = slavery_indentured
+                }
+                planet = {
+                    OR = {
+                        owner = {
+                            has_valid_civic = civic_slaver_guilds
+                        }
+                        owner = {
+                            has_valid_civic = civic_indentured_assets
+                        }
+                    }
+                }
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_void_dweller_1
+        }
+        modifier = {
+            factor = 0
+            has_global_flag = gai_enabled_flag
+            years_passed > 50
+            jobs_spend_lesser_minerals = no
+        }
+        modifier = {
+            factor = 2
+            is_unemployed = yes
+            is_pop_category = specialist
+        }
+        modifier = {
+            factor = 0.1
+            is_pop_category = worker
+            planet = {
+                any_pop = {
+                    is_pop_category = specialist
+                    is_unemployed = yes
+                }
+            }
+        }
+        modifier = {
+            factor = 0
+            is_enslaved = yes
+            is_pop_category = worker
+            planet = {
+                OR = {
+                    any_pop = {
+                        is_pop_category = specialist
+                        is_unemployed = yes
+                    }
+                    free_jobs < 5
+                }
+            }
+        }
+        modifier = {
+            factor = 0.01
+            has_living_standard = {
+                type = living_standard_chemical_bliss
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_necrophage
+        }
+    }
+}

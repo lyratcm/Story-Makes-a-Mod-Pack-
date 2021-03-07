@@ -1,0 +1,348 @@
+##########################################################################
+# Country modifiers
+##########################################################################
+
+rich_pirates = {
+	planet_crime_add = 10
+	trade_value_mult = -0.025
+}
+
+pop_stolen = {
+	pop_happiness = -0.05
+	pop_ethic_militarist_attraction_mult = 0.25
+	pop_ethic_xenophobe_attraction_mult = 0.25
+}
+
+empire_food_deficit = {
+	planet_emigration_push_add = 500
+}
+
+resort_colony_other_planets_country = {
+	planet_amenities_mult = 0.2
+	planet_immigration_pull_mult = 0.2
+}
+
+resort_colony_servitor_other_planets = {
+	planet_amenities_no_happiness_mult = 0.2
+	planet_bio_trophies_produces_mult = 0.2
+	pop_happiness = 0.1
+	diplo_weight_pops_mult = 0.05
+}
+
+iron_despot_administration = {
+	country_admin_cap_mult = 0.1
+	planet_stability_add = 5
+	empire_size_colonies_mult = 0.1
+}
+
+failed_abolitionist_raid = {
+	planet_stability_add = -15
+	pop_cat_slave_happiness = -0.15
+	pop_ethic_egalitarian_attraction_mult = 0.5
+}
+
+brain_slug_union = {
+	planet_jobs_unity_produces_mult = 0.1
+	diplo_weight_pops_mult = 0.05
+	empire_size_pops_mult = 0.05
+}
+
+abolitionist_literature = {
+	pop_ethic_egalitarian_attraction_mult = 1
+	pop_ethic_xenophile_attraction_mult = 0.25
+}
+
+# Gestalt Residency
+gestalt_residents_20 = {
+	planet_jobs_complex_drone_produces_mult = -0.02
+	planet_crime_no_happiness_add = 5
+}
+gestalt_residents_25 = {
+	planet_jobs_complex_drone_produces_mult = -0.04
+	planet_crime_no_happiness_add = 5
+}
+gestalt_residents_30 = {
+	planet_jobs_complex_drone_produces_mult = -0.06
+	planet_crime_no_happiness_add = 5
+}
+gestalt_residents_35 = {
+	planet_jobs_complex_drone_produces_mult = -0.08
+	planet_crime_no_happiness_add = 5
+}
+gestalt_residents_40 = {
+	planet_jobs_complex_drone_produces_mult = -0.10
+	planet_crime_no_happiness_add = 5
+}
+gestalt_residents_45 = {
+	planet_jobs_complex_drone_produces_mult = -0.125
+	country_base_influence_produces_add = -0.25
+	planet_crime_no_happiness_add = 8
+}
+gestalt_residents_50 = {
+	planet_jobs_complex_drone_produces_mult = -0.15
+	country_base_influence_produces_add = -0.5
+	planet_crime_no_happiness_add = 10
+}
+gestalt_residents_55 = {
+	planet_jobs_complex_drone_produces_mult = -0.175
+	country_base_influence_produces_add = -0.75
+	planet_stability_add = -5
+	planet_crime_no_happiness_add = 12
+}
+gestalt_residents_60 = {
+	planet_jobs_complex_drone_produces_mult = -0.2
+	country_base_influence_produces_add = -1
+	planet_stability_add = -10
+	planet_crime_no_happiness_add = 15
+}
+gestalt_residents_80 = {
+	planet_jobs_complex_drone_produces_mult = -0.25
+	country_base_influence_produces_add = -2
+	planet_stability_add = -20
+	planet_crime_no_happiness_add = 30
+}
+
+gestalt_residents_harm_20 = {
+	planet_jobs_complex_drone_produces_mult = -0.01
+	planet_crime_no_happiness_add = 2
+}
+gestalt_residents_harm_25 = {
+	planet_jobs_complex_drone_produces_mult = -0.02
+	planet_crime_no_happiness_add = 2
+}
+gestalt_residents_harm_30 = {
+	planet_jobs_complex_drone_produces_mult = -0.03
+	planet_crime_no_happiness_add = 2
+}
+gestalt_residents_harm_35 = {
+	planet_jobs_complex_drone_produces_mult = -0.04
+	planet_crime_no_happiness_add = 2
+}
+gestalt_residents_harm_40 = {
+	planet_jobs_complex_drone_produces_mult = -0.05
+	planet_crime_no_happiness_add = 2
+}
+gestalt_residents_harm_45 = {
+	planet_jobs_complex_drone_produces_mult = -0.06
+	country_base_influence_produces_add = -0.1
+	planet_crime_no_happiness_add = 4
+}
+gestalt_residents_harm_50 = {
+	planet_jobs_complex_drone_produces_mult = -0.07
+	country_base_influence_produces_add = -0.25
+	planet_crime_no_happiness_add = 5
+}
+gestalt_residents_harm_55 = {
+	planet_jobs_complex_drone_produces_mult = -0.08
+	country_base_influence_produces_add = -0.33
+	planet_stability_add = -2
+	planet_crime_no_happiness_add = 6
+}
+gestalt_residents_harm_60 = {
+	planet_jobs_complex_drone_produces_mult = -0.10
+	country_base_influence_produces_add = -0.5
+	planet_stability_add = -5
+	planet_crime_no_happiness_add = 7
+}
+gestalt_residents_harm_80 = {
+	planet_jobs_complex_drone_produces_mult = -0.12
+	country_base_influence_produces_add = -1
+	planet_stability_add = -10
+	planet_crime_no_happiness_add = 15
+}
+
+mach_habitability_1 = {
+	pop_environment_tolerance = 0.05
+}
+
+mach_habitability_2 = {
+	pop_environment_tolerance = 0.05
+}
+
+mach_habitability_3 = {
+	pop_environment_tolerance = 0.05
+}
+
+mach_habitability_4 = {
+	pop_environment_tolerance = 0.05
+}
+
+##########################################################################
+# Planet modifiers
+##########################################################################
+
+syndicate_crime_reduction = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 1
+	planet_crime_add = -25
+}
+
+ministry_production_modifier = {
+	icon_frame = 1
+	planet_metallurgists_produces_mult = 0.15
+	planet_artisans_produces_mult = 0.15
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+}
+
+# Decision #
+syndicate_bribery = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	show_only_custom_tooltip = no
+	custom_tooltip = syndicate_bribery_tooltip
+}
+
+planet_agrarian_luxuries_boost = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_luxuries.dds"
+	icon_frame = 1
+	planet_pops_consumer_goods_upkeep_mult = 0.05
+	planet_pops_organics_food_upkeep_mult = 0.05
+	planet_amenities_mult = 0.25
+	trade_value_mult = 0.15
+	job_clerk_add = 1
+}
+
+hive_spawning = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
+	icon_frame = 2
+	show_only_custom_tooltip = no
+	custom_tooltip = hive_spawning_tooltip
+}
+
+planet_population_hibernation = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_expel_population.dds"
+	icon_frame = 3
+	planet_stability_add = -5
+}
+
+# Event #
+old_god_shrine = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+}
+
+small_abolitionist_movement = {
+	planet_stability_add = -5
+	pop_cat_slave_happiness = -0.05
+	pop_ethic_egalitarian_attraction_mult = 0.25
+	pop_ethic_xenophile_attraction_mult = 0.10
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+medium_abolitionist_movement = {
+	planet_stability_add = -10
+	pop_cat_slave_happiness = -0.10
+	pop_ethic_egalitarian_attraction_mult = 0.50
+	pop_ethic_xenophile_attraction_mult = 0.20
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+large_abolitionist_movement = {
+	planet_stability_add = -15
+	pop_cat_slave_happiness = -0.15
+	pop_ethic_egalitarian_attraction_mult = 0.75
+	pop_ethic_xenophile_attraction_mult = 0.30
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+abolitionist_broken = {
+	planet_stability_add = 15
+	pop_government_ethic_attraction = 0.75
+	icon_frame = 1
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+underground_railroad = {
+	show_only_custom_tooltip = no
+	custom_tooltip = underground_railroad_tooltip
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+# Gestalt Residency #
+
+gestalt_residents_infighting = {
+	planet_stability_add = -10
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+gestalt_protest = {
+	planet_stability_add = -5
+	planet_jobs_complex_drone_produces_mult = -0.05
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+gestalt_broken_protest = {
+	planet_stability_add = -10
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+gestalt_appeased_protest = {
+	pop_happiness = 0.10
+	show_only_custom_tooltip = no
+	custom_tooltip = gestalt_appeased_protest_tooltip
+	icon_frame = 2
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+}
+
+gestalt_hiding_deviants = {
+	planet_crime_no_happiness_add = 15
+	job_deviant_drone_add = 2
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+}
+
+gestalt_hiding_deviants_mach = {
+	planet_crime_no_happiness_add = 15
+	job_corrupt_drone_add = 2
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+}
+
+gestalt_burned_out_deviants = {
+	pop_happiness = -0.25
+	planet_crime_no_happiness_add = -10
+	icon_frame = 2
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+}
+
+gestalt_criminal_underworld = {
+	planet_crime_no_happiness_add = 15
+	job_deviant_drone_add = 1
+	job_criminal_add = 1
+	job_criminal_per_crime = 0.025
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+}
+gestalt_criminal_underworld_mach = {
+	planet_crime_no_happiness_add = 15
+	job_corrupt_drone_add = 1
+	job_criminal_add = 1
+	job_criminal_per_crime = 0.025
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+}
+
+gestalt_modified_deviants = {
+	planet_crime_no_happiness_add = 20
+	job_deviant_drone_add = 2
+	icon_frame = 3
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+}
+
+##########################################################################
+# Pop modifiers
+##########################################################################
+
+gestalt_residents_auth = {
+	pop_happiness = 0.1
+}
+gestalt_residents_egal = {
+	pop_happiness = -0.1
+}

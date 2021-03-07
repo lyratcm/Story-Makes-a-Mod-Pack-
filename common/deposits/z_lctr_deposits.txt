@@ -1,0 +1,23 @@
+###_lctr deposits	####################################################################
+
+# modifier - weight, will replace the weight value
+# modifier - factor, will multiply the weight value
+# resources, resource and amount
+# station = station class in orbit to gather
+# if you mix resources that are not supposed to be collected by an orbital station remember to put is_orbital_slot = no
+
+z_lctr_d_r = {
+	resources = {
+		category = orbital_research_deposits
+		produces = {
+			physics_research = 25
+			engineering_research = 15
+			influence = 0.5
+			minor_artifacts = 0.25
+		}
+	}
+	station = shipclass_research_station 
+	is_for_colonizeable = no
+	
+	drop_weight = { weight = 0 }
+}

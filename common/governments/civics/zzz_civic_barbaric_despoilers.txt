@@ -1,0 +1,72 @@
+civic_barbaric_despoilers = {
+    playable = {
+        host_has_dlc = "Apocalypse"
+    }
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_militarist
+                value = ethic_fanatic_militarist
+                value = ethic_militarist
+            }
+            OR = {
+                text = civic_tooltip_authoritarian_xenophobe
+                value = ethic_fanatic_authoritarian
+                value = ethic_authoritarian
+                value = ethic_fanatic_xenophobe
+                value = ethic_xenophobe
+            }
+            NOR = {
+                text = civic_tooltip_not_xenophile
+                value = ethic_xenophile
+                value = ethic_fanatic_xenophile
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_fanatic_purifiers
+                value = civic_iron_despot
+                value = civic_shroud_pact
+            }
+        }
+        origin = {
+            NOR = {
+                value = origin_common_ground
+                value = origin_research_coop
+            }
+        }
+    }
+    modification = no
+    random_weight = {
+        base = 2
+        modifier = {
+            factor = 0
+            NOT = {
+                host_has_dlc = "Apocalypse"
+            }
+        }
+        modifier = {
+            factor = 0
+            has_global_flag = game_started
+        }
+    }
+    modifier = {
+        ship_fire_rate_mult = 0.05
+    }
+    description = "civic_tooltip_barbaric_despoilers_effects"
+}

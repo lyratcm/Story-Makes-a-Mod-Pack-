@@ -1,0 +1,222 @@
+﻿l_simp_chinese:
+#_[relic通用]
+#_[site_阿斯特莱雅]
+#_[z_common]
+#_[sp_舰妈们]
+#_[sp_荧光鼬]
+
+
+
+
+###_[relic通用]  #########################################################################################
+#_evts
+ z_fw1_relic_koh.1.name:0 "§G无尽群星§!：宇宙的奥秘"
+ z_fw_relic_found.desc.first:1 "[Root.GetName]并不是孤独的，早在我们之前就已经有人踏上了追寻星光的旅途。一方面我们为之振奋，另一方面我们也为之不安。"
+ z_fw_relic_found.desc.regular:1 "[Root.Capital.GetName]的政府相当重视关于神秘遗迹的报告。\n\n[Root.GetSpeciesAdj]的学者们相信对这些宇宙奥秘的勘探对帝国意义深远，毕竟这个世界上还有太多我们无法理解的事情。\n\n不过无论如何，我们都应该尽快组织科考队，探索一下这些宇宙中的奥秘，或许星海中的幸运就在那里等着我们。"
+ z_fw_relic_found.desc.gestalt:1 "[Root.GetName]对神秘外星遗迹的事情相当关注，无论它们是谁留下来的，其中必然暗藏着足以改变我们文明的神秘知识。\n\n无论如何，我们都应该尽快组织科考队，探索一下这些宇宙中的奥秘，或许星海中的幸运就在那里等着我们。"
+
+
+
+
+###_[site_阿斯特莱雅]    ##############################################
+#_names
+ NAME_z_fw_r_hok_site_planet: "阿斯特莱雅"
+#_evts
+ z_fw_evt_good_karyl: "很好，但她们实在是太臭了!"
+ z_fw_evt_terrible_karyl: "我们的麻烦大了，而且她们实在是太臭了!"
+ z_fw_evt_done_karyl: "这一切听起来甚是...让人感慨万分！但是能够转化为永生的身体岂不是太妙了！"
+ z_fw1_relic_koh.101.name: "星球人口已全部鼬化"
+ z_fw1_relic_koh.101.desc.1: "伴随着一片喧嚣的少女声，整个星球的智能物种无论有机体，智械，石人还是其他什么乱七八糟的存在都变成了带着两缕突兀白发的黑发兽耳少女。尽管我们还没有搞明白这些长满触手到处乱跳的脑袋为什么连面包机和石头都能感染，但是毫无疑问的是这颗星球已经没有别的物种了，即便有，很快也会变成她们。不过可喜可贺的是，拥有$z_fw_r_head_of_karyl$的我们可以创造优质的兽耳少女，而不像是把她们丢在别的地方，除了折腾人，什么都不会。"
+ z_fw1_relic_koh.101.desc.2: "伴随着一片喧嚣的少女声，整个星球的智能物种无论有机体，智械，石人还是其他什么乱七八糟的存在都变成了带着两缕突兀白发的黑发兽耳少女。尽管我们还没有搞明白这些长满触手到处乱跳的脑袋为什么连面包机和石头都能感染，但是毫无疑问的是这颗星球已经没有别的物种了，即便有，很快也会变成她们。真是太可怕了，这可还行，如果放着不管的话可能会感染其他的世界吧!"
+ z_fw1_relic_koh.1011.name: "臭鼬疫情最新消息"
+ z_fw1_relic_koh.1011.desc: "伴随着一片喧嚣的少女声，整个帝国似乎都被这种诡异生物占据了。我们完全没有搞明白发生了啥，但是很显然帝国的公民和领袖都被替换成了这群长得像是臭鼬的少女。不过尽管如此，她们似乎完美继承了原物种的记忆和社会位置。看起来并没有对帝国造成太大的冲击，虽然隐隐地让人有些担忧。"
+ z_fw1_relic_koh.1011.desc.1: "伴随着一片喧嚣的少女声，整个帝国似乎都被这种诡异生物占据了。我们完全没有搞明白发生了啥，但是很显然帝国的公民和领袖都被替换成了这群长得像是臭鼬的少女。我们并不清楚以后还会发生什么，但很显然我们对现状毫无任何办法。但希望还是有的，或许某一天我们能找到什么方法让大家恢复成从前的样子。"
+ z_fw1_relic_koh.1011.desc.2a: "伴随着一片喧嚣的少女声，超过半数的帝国子民已经被替换成了这群诡异的臭鼬少女。我们完全没有搞明白发生了啥，也对当前的状况毫无办法。尽管这场瘟疫目前并没有造成太多严重的影响，但是我们根本不清楚以后会发生什么。愿小伞庇佑我们的帝国！"
+ z_fw1_relic_koh.1011.desc.2b: "听起来似乎是好消息，被鼬化瘟疫感染的帝国子民已经下降到了75%以下。尽管还是有超过半数的帝国子民依然保持着臭鼬少女的状态，但是情况似乎正在好转。愿小伞庇佑我们的帝国！"
+ z_fw1_relic_koh.1011.desc.3a: "伴随着一片喧嚣的少女声，超过25%的帝国子民已经被替换成了这群诡异的臭鼬少女。我们完全没有搞明白发生了啥，也对当前的状况毫无办法。我们必须要做点什么，在一切失控之前。愿小伞庇佑我们的帝国！"
+ z_fw1_relic_koh.1011.desc.3b: "听起来似乎是好消息，被鼬化瘟疫感染的帝国子民已经下降到了50%以下。臭鼬瘟疫受到了一定的控制，尽管还有许多人深受其苦。愿小伞庇佑我们的帝国！"
+ z_fw1_relic_koh.1011.desc.4: "听起来似乎是好消息，被鼬化瘟疫感染的帝国子民已经下降到了25%以下。我们对臭鼬瘟疫的控制取得了显著的效果，这样下去疫情似乎很快就会结束。愿小伞庇佑我们的帝国！"
+ 
+ z_fw1_relic_koh.102.name: "这颗星球被下了蛊!"
+ z_fw1_relic_koh.102.desc: "等等，怎么回事，这是什么？一群活蹦乱跳的...脑袋？下面还长满了恐怖粘滑的触手，天哪，它们竟然跳到了大家身上然后把大家的脑袋撕下来取代之。这究竟是什么怪物！"
+ 
+ NAME_z_fw_ldr_skunk_kogasa: "§B多多良小鼬§!"
+ z_fw1_relic_koh.312.name: "她回来了!"
+ z_fw1_relic_koh.312.desc: "她来了她来了，她顶着她的小伞走来了！谁都不知道$NAME_z_fw_ldr_skunk_kogasa$究竟是怎么逃离自己的死亡的，但是毫无疑问她现在毫发无损地站在我们面前，就像她从前那样。尽管事情怎么想怎么让人觉得邪门，但是秉承着“人没事就好”的原则，我们还是非常欣慰她能继续与我们共事。\n§B是时候出发了呢，吾主！§!"
+ z_fw1_relic_koh.312.a.desc: "她来了她来了，她顶着她的小伞走来了！谁都不知道$NAME_z_fw_ldr_skunk_kogasa$究竟是怎么逃离自己的死亡的，但是毫无疑问她现在毫发无损地站在我们面前。不过她的状态看起来似乎不太好，似乎失去了很长一段时间的记忆。不过无论任何，人没事就好，我们还是非常欣慰她能继续与我们共事。\n§B啊...你是谁来着？§!"
+#_site evts
+ z_fw1_relic_koh.20.name: "诡异的录音"
+ z_fw1_relic_koh.20.desc: "最近我们接收到一段难以解释的录音，它非常混乱，伴随着少女的欢歌笑语与其他人惊恐的惨叫。因为其内容太过于诡异和惊悚，我们一度认为这是某个恶作剧。不过很显然，它似乎来自我们母星附近的信息，派遣科研船调查一下或许会有所收获。"
+ z_fw1_relic_koh.21.name: "古老的废墟"
+ z_fw1_relic_koh.21.desc: "降临在阿斯特莱雅的表面，考察队发现这里已经没有任何生命活动的迹象了，只有被碎石与污迹沾满的巨大纯白建筑和上面镶嵌的黄金浮雕昭示着这里曾经的繁荣。\n\n这里究竟发生了什么，是什么恐怖的灾难让这如此辉煌的巨大城邦毁于一旦？\n\n寂静的死寂让科考队员们产生了不祥的预感，但是在船长的带领下，大家还是鼓起勇气深入了那片废墟。"
+ z_fw1_relic_koh.22.name: "被诅咒的壁画"
+ z_fw1_relic_koh.22.desc: "调查队员们怀揣着不安的心情深入废墟的内部，他们发现这个文明似乎在某种突如其来的宗教崇拜以后开始衰落。原本精雕细琢的建筑上突然被用颜料随意地画满了某种长满触手的头颅形象，这似乎就是他们崇拜的新神。\n\n然而如此原始粗糙的宗教文化似乎并不是什么正统的神，尽管大家非常害怕，但他们还是在科学家§B[Root.GetLeaderName]§!的带领下继续前行。"
+ z_fw1_relic_koh.23.name: "深入内部"
+ z_fw1_relic_koh.23.desc: "§B[Root.GetLeaderName]§!身先士卒带领着调查队深入废墟的内部，由于信号的阻隔只能传出断断续续的讯息，[Root.GetName]上的船员密切关注着这些讯息。§B[Root.GetLeaderName]§!似乎发现了某种巨大的机器，似乎是一个封印，里面埋藏了某种东西，他们正在试图扫描它。\n\n一切都在照常运行，突然信号变得不稳定，他们似乎遇到了什么麻烦。断断续续的音频通信中只能听到船员恐惧的呐喊，零散的枪声以及...某种少女喧嚣的笑声，这实在是太诡异了！"
+ z_fw1_relic_koh.24.name: "古老的机器"
+ z_fw1_relic_koh.24.desc: "等冲突平息下来，音频讯息突然变得诡异起来。调查队员和§B[Root.GetLeaderName]§!的声音消失了，取而代之的这是完全陌生的甜美少女声，她们告诉轨道上的船员这里一切正常，没有人牺牲，除了...每个人都变成了黑发的猫耳少女。\n\n起初船员们并不相信他们听到的一切，他们认为§B[Root.GetLeaderName]§!一定是被某种不可名状的存在吸收并取代了。但是来自调查队和§B[Root.GetLeaderName]§!的回答显示她们似乎就是本人，无论性格还是他们所知晓的信息！\n\n§B[Root.GetLeaderName]§!说巨大的机器突然打开了，里面确实被封印了某种东西，是一个长满触手的猫耳头颅，然后这个头颅分裂的东西袭击了他们，至于后面的事情他们也都忘记了。\n\n§B[Root.GetLeaderName]§!建议回收这个头颅，并且在上船以后接受隔离和监禁，其他事情等返回了帝国研究中心再处理。船员们讨论了半天，决定接受她的建议。另外还有个好消息就是调查队从机器附近意外地获取了一些装满合金和比特币的箱子，这些资源可以为帝国所用。"
+ z_fw1_relic_koh.25.name: "被遗忘的历史"
+ z_fw1_relic_koh.25.desc: "§B[Root.GetLeaderName]§!仔细阅读了古老机器上镌刻的文字，这是一种已存在数据库中的古老语言！一切的谜团也解开了：\n\n在古老的时候阿斯特莱雅上曾经生活着一群无忧无虑的少女，他们建立了伟大的文明和辉煌的文化。但是有一天她们中名为百地希留耶的一员突然因为长相酷似臭鼬而受到了其他人的迫害，大家都讨厌她并给她起了一个被诅咒的名字——凯露。\n\n百地希留耶十分愤怒，但是她没有朋友，每一个人都排挤她。于是她向§H深渊§!中的声音祈祷，祈求来自群星深处的庇护，而§H深渊§!则回答了她并且赋予她永生不死和感染别人的能力。\n\n这种感染方式既残酷又温柔，它让百地希留耶的复制体能够撕下别人的脑袋并感染他们的身体，同时完整地保留他们原本的灵魂。于是所有嘲笑百地希留耶的人都会变成她的样子并保留原本的记忆。最终当所有人都被感染以后，她们不甘受到这种屈辱于是都自我了断了，百地希留耶也悲伤地封印了自己。"
+ z_fw1_relic_koh.26.name: "净化星球"
+ z_fw1_relic_koh.26.desc: "几天以后，封印机器突然再次自动启动，它将这颗星球转化为了天堂般的盖娅世界。\n\n百地希留耶的诅咒从这里消失了，而有幸倾听阿斯特莱雅历史的幸运者们则得到了这个远古文明的奖赏。\n\n所以，我们要把这颗星球净化为盖娅星球还是让它保持原样呢？毕竟小型文物资源是很稀有的。"
+ z_fw1_relic_koh.26.a: "净化它"
+ z_fw1_relic_koh.26.b: "保持原样"
+ z_fw1_relic_koh.27.name: "奇怪的脑袋"
+ z_fw1_relic_koh.27.desc: "遗迹探索中断了，一个失误操作触发了某种古老的防御机制，整个阿斯特莱雅遗迹都崩塌了。\n\n不过我们也并非一无所获，一个奇怪的脑袋被送上了科研船，我们需要好好研究下。"
+
+#_relic
+ z_fw_r_head_of_karyl:0 "§G无尽群星§!：奇怪的脑袋"
+ z_fw_r_head_of_karyl_desc:0 "一个奇怪的脑袋，下面长满了粘腻的触手，一旦接触到活着的东西无论是人也好机器也好都会立刻跳到对面身上撕掉对面的脑袋并且取代之，还会不时分裂出复制体.看起来是非常危险的东西，于是我们就将它封存了，不过看起来把这些复制体扔到殖民地上或许是个不错的选择.\n§B但是，这玩意实在是太臭了.§!"
+ z_fw_r_head_of_karyl_effect:0 "开启它将解锁巨建$z_fw_mega_target_marker_hok$，每次解锁只能建造一座，可以指定任意殖民地并播种$z_fw_r_head_of_karyl$的复制体。投放以后对目标星球将进行一波感染，直到整个星球的人口全部转化为鼬物种后才会停止。臭鼬物种是一种宇宙瘟疫，它们会自动感染其他非臭鼬物种，并根据其自身物种添加新的特性与外貌，并且随着感染臭鼬的人口数量增多，变异的几率也会越来越高。变异会产生全新的有益的或有害的物种，并且引发一系列意想不到的连锁反应。§H如果你想要停止自发性感染，点击大LOGO开启框架设置，关闭自发性感染。不过请注意，停止感染只会阻止非主动投放的感染发生。§!"
+#_archeaology site
+ z_site_head_of_karyl:0 "阿斯特莱雅遗迹"
+ z_site_hok_intro:0 "一片残垣断壁的古老城市废墟，唯一可辨识的石刻记载着这里曾经被称作阿斯特莱雅，高耸入云的巨大建筑上到处都镌刻着类似满是触手的不可名状之物的图画。没有人知道这里发生了什么可怕的事情。"
+ 
+#_species
+ z_karyl_1:0 "猎头鼬"
+ z_karyl_robot_1:0 "铁头鼬"
+ z_karyl_machine_1:0 "钛合金鼬"
+ z_karyl_lithoid_1:0 "石鼬"
+ z_karyl_necroid_1:0 "尸鼬"
+ z_karyl_wsg_1:0 "舰鼬"
+ z_karyl_sh_1:0 "深海鼬"
+ z_karyl_name:0 "猎头鼬"
+ 
+ Z_KARYL:0 "臭鼬"
+ Z_KARYL_desc:1 "奇怪的物种，长着可爱的脸蛋，但是臭不可闻的哺乳类。不过最关键的问题还是，她们可以掠夺别的物种的身体。"
+ Z_KARYL_adj:0 "臭鼬的"
+ Z_KARYL_plural:0 "臭鼬"
+ Z_KARYL_insult_01:0 "恶心的臭鼬"
+ Z_KARYL_insult_plural_01:0 "恶心的臭鼬"
+ Z_KARYL_compliment_01:0 "喧嚣的臭鼬"
+ Z_KARYL_compliment_plural_01:0 "喧嚣的臭鼬"
+ Z_KARYL_spawn:0 "臭鼬崽"
+ Z_KARYL_spawn_plural:0 "臭鼬崽"
+ Z_KARYL_sound_01:0 "咕叽咕叽"
+ Z_KARYL_sound_02:0 "NAI!"
+ Z_KARYL_organ:0 "肚子"
+ Z_KARYL_mouth:0 "嘴巴"
+ Z_KARYL_hand:0 "爪子"
+
+ Z_KARYL_ROBOT:0 "铁头鼬"
+ Z_KARYL_ROBOT_desc:1 "奇怪的物种，长着可爱的脸蛋，但是臭不可闻的机器人。不过最关键的问题还是，她们可以掠夺别的物种的身体。"
+ Z_KARYL_ROBOT_adj:0 "铁头鼬的"
+ Z_KARYL_ROBOT_plural:0 "铁头鼬"
+ Z_KARYL_ROBOT_insult_01:0 "生锈的臭鼬"
+ Z_KARYL_ROBOT_insult_plural_01:0 "生锈的臭鼬"
+ Z_KARYL_ROBOT_compliment_01:0 "喧嚣的臭鼬"
+ Z_KARYL_ROBOT_compliment_plural_01:0 "喧嚣的臭鼬"
+ Z_KARYL_ROBOT_spawn:0 "臭鼬崽"
+ Z_KARYL_ROBOT_spawn_plural:0 "臭鼬崽"
+ Z_KARYL_ROBOT_sound_01:0 "咕叽咕叽"
+ Z_KARYL_ROBOT_sound_02:0 "NAI!"
+ Z_KARYL_ROBOT_organ:0 "肚子"
+ Z_KARYL_ROBOT_mouth:0 "嘴巴"
+ Z_KARYL_ROBOT_hand:0 "爪子"
+
+ Z_KARYL_MACHINE:0 "钛合金鼬"
+ Z_KARYL_MACHINE_desc:1 "奇怪的物种，长着可爱的脸蛋，但是臭不可闻的机器人。不过最关键的问题还是，她们可以掠夺别的物种的身体。"
+ Z_KARYL_MACHINE_adj:0 "钛合金鼬的"
+ Z_KARYL_MACHINE_plural:0 "钛合金鼬"
+ Z_KARYL_MACHINE_insult_01:0 "生锈的臭鼬"
+ Z_KARYL_MACHINE_insult_plural_01:0 "生锈的臭鼬"
+ Z_KARYL_MACHINE_compliment_01:0 "喧嚣的臭鼬"
+ Z_KARYL_MACHINE_compliment_plural_01:0 "喧嚣的臭鼬"
+ Z_KARYL_MACHINE_spawn:0 "臭鼬崽"
+ Z_KARYL_MACHINE_spawn_plural:0 "臭鼬崽"
+ Z_KARYL_MACHINE_sound_01:0 "咕叽咕叽"
+ Z_KARYL_MACHINE_sound_02:0 "NAI!"
+ Z_KARYL_MACHINE_organ:0 "肚子"
+ Z_KARYL_MACHINE_mouth:0 "嘴巴"
+ Z_KARYL_MACHINE_hand:0 "爪子"
+
+ Z_KARYL_LITHOID:0 "石臭鼬"
+ Z_KARYL_LITHOID_desc:1 "奇怪的物种，长着可爱的脸蛋，但是臭不可闻的石头人。不过最关键的问题还是，她们可以掠夺别的物种的身体。"
+ Z_KARYL_LITHOID_adj:0 "石臭鼬的"
+ Z_KARYL_LITHOID_plural:0 "石臭鼬"
+ Z_KARYL_LITHOID_insult_01:0 "碎裂的臭鼬"
+ Z_KARYL_LITHOID_insult_plural_01:0 "碎裂的臭鼬"
+ Z_KARYL_LITHOID_compliment_01:0 "喧嚣的臭鼬"
+ Z_KARYL_LITHOID_compliment_plural_01:0 "喧嚣的臭鼬"
+ Z_KARYL_LITHOID_spawn:0 "臭鼬崽"
+ Z_KARYL_LITHOID_spawn_plural:0 "臭鼬崽"
+ Z_KARYL_LITHOID_sound_01:0 "咕叽咕叽"
+ Z_KARYL_LITHOID_sound_02:0 "NAI!"
+ Z_KARYL_LITHOID_organ:0 "肚子"
+ Z_KARYL_LITHOID_mouth:0 "嘴巴"
+ Z_KARYL_LITHOID_hand:0 "爪子"
+
+ Z_KARYL_NECROID:0 "尸鼬"
+ Z_KARYL_NECROID_desc:1 "奇怪的物种，长着可爱的脸蛋，但是臭不可闻的活死人。不过最关键的问题还是，她们可以掠夺别的物种的身体。"
+ Z_KARYL_NECROID_adj:0 "尸鼬的"
+ Z_KARYL_NECROID_plural:0 "尸鼬"
+ Z_KARYL_NECROID_insult_01:0 "腐臭的臭鼬"
+ Z_KARYL_NECROID_insult_plural_01:0 "腐臭的臭鼬们"
+ Z_KARYL_NECROID_compliment_01:0 "喧嚣的臭鼬"
+ Z_KARYL_NECROID_compliment_plural_01:0 "喧嚣的臭鼬们"
+ Z_KARYL_NECROID_spawn:0 "臭鼬崽"
+ Z_KARYL_NECROID_spawn_plural:0 "臭鼬崽"
+ Z_KARYL_NECROID_sound_01:0 "咕叽咕叽"
+ Z_KARYL_NECROID_sound_02:0 "NAI!"
+ Z_KARYL_NECROID_organ:0 "肚子"
+ Z_KARYL_NECROID_mouth:0 "嘴巴"
+ Z_KARYL_NECROID_hand:0 "爪子"
+
+
+
+
+###_[z_common]
+#_特性
+ z_fw_trait_r_hok_kayrl_positive:0 "§G优化臭鼬§!"
+ z_fw_trait_r_hok_kayrl_positive_desc: "$z_fw_trait_r_hok_kayrl_negative_desc$不过...真香！"
+ z_fw_trait_r_hok_kayrl_negative:0 "§G劣化臭鼬§!"
+ z_fw_trait_r_hok_kayrl_negative_desc: "这东西看起来不太妙，这家伙的脑袋实在是太不自然了！喂喂，为什么会长出这样的脑袋！"
+#_traits leader
+ z_fw_trait_leader_r_hok:0 "臭鼬的学识"
+ z_fw_trait_leader_r_hok_desc:0 "尽管真的很臭，但是架不住学识渊博！"
+ z_fw_trait_leader_r_hok_pupil:0 "奇怪的异色瞳"
+ z_fw_trait_leader_r_hok_pupil_desc:0 "两只眼睛具有不同的属性，总是能看到一些不该看到的东西。"
+ z_fw_trait_leader_r_hok_kogasa:0 "伞鼬"
+ z_fw_trait_leader_r_hok_kogasa_desc:0 "基因中被混入了不得了的东西，似乎不用担心死亡了，此外意外地喜欢上了飙车。"
+
+#_modifiers
+ z_fw_r_hok_stop_growth:0 "$z_fw_temp_function$"
+ z_fw_r_hok_stop_growth_desc:0 "$z_fw_temp_function_desc$"
+
+#_megastructures
+ z_fw_mega_target_marker_hok:0 "猎头鼬投放定位信标"
+ z_fw_mega_target_marker_hok_DESC:0 "他们永远不会知道发生了什么！"
+ z_fw_mega_target_marker_hok_MEGASTRUCTURE_DETAILS:0 "指定任意可到达的殖民地，无论多远，无论所有这是谁，接受猎头鼬的诅咒吧！"
+
+
+
+
+###_[sp_舰妈们]
+#_特性
+ z_fw_trait_r_hok_sp_wsg:0 "§G舰臭鼬§!"
+ z_fw_trait_r_hok_sp_wsg_desc: "她们似乎称这种东西为心智模型，但是见了鬼为什么这玩意也能被鼬化！庞大的舰体超越了物理规则，即便缩小为人形依然保持着宇宙战舰该有的硬度和长度，并且意外地殷勤。最重要的是，每年都会按照人口数量产出§B$sr_alpha$§!与§B$sr_neo$§!，真是太妙了。"
+ z_fw_trait_r_hok_sp_wsg_sh:0 "§G深海臭鼬§!"
+ z_fw_trait_r_hok_sp_wsg_sh_desc: "她们似乎称这种东西为心智模型，但是见了鬼为什么这玩意也能被鼬化！由于常年处于暗能量深海的环境，因此意外地自闭，不过在保养船只和打架方面倒是一把好手。最重要的是，每年都会按照人口数量产出§B$sr_se$§!与§B$sr_neo$§!，真是太妙了。"
+ z_fw_trait_r_hok_sp_wss_swg:0 "§G帝国舰鼬§!"
+ z_fw_trait_r_hok_sp_wss_swg_desc: "她们似乎称这种东西为心智模型，但是见了鬼为什么这玩意也能被鼬化！巨大的帝国歼星舰也可以被浓缩为渺小的心智模型啦！真是喜闻乐见，而且这群家伙似乎非常擅长提高生产力和自我维护。最重要的是，每年都会按照人口数量产出§B$sr_kyber_swgs$§!与§B$sr_tibanna_swgs$§!，真是太妙了。"
+#_evt_收集资源
+ z_fw1_relic_koh.1051.name:0 "§B舰鼬：§!额外资源回收"
+ z_fw1_relic_koh.1051.desc:0 "通过整理姑娘们的原味内衣内裤并进行各种奇怪的提炼（误），我们得以从里面提取并回收一部分珍贵的资源：\n§B$sr_neo$§![root.z_fw_var_cntr_hok_sr_wsg_neo]\n§B$sr_alpha$§![root.z_fw_var_cntr_hok_sr_wsg_alpha]\n§B$sr_se$§![root.z_fw_var_cntr_hok_sr_wsg_sh]"
+ z_fw1_relic_koh.1051.a:0 "想想都刺激！"
+ z_fw1_relic_koh.1051.b:0 "不再显示所有额外资源回收弹窗"
+ z_fw1_relic_koh.1051.b.tooltip:0 "可以在框架设置（点击LOGO）中重新开启！"
+ z_fw_evt_r_koh_a_sr_popup_disabled:0 "重启所有额外资源回收弹窗"
+ z_fw1_relic_koh.1053.name:0 "§B帝国舰鼬：§!额外资源回收"
+ z_fw1_relic_koh.1053.desc:0 "通过整理姑娘们的原味内衣内裤并进行各种奇怪的提炼（误），我们得以从里面提取并回收一部分珍贵的资源：\n§B$sr_kyber_swgs$§![root.z_fw_var_cntr_hok_sr_kyber_swgs]\n§B$sr_tibanna_swgs$§![root.z_fw_var_cntr_hok_sr_tibanna_swgs]"
+
+
+
+
+###_[sp_荧光鼬]
+#_特性
+ z_fw_trait_r_hok_sp_sofe_pgnt:0 "§Y星辰之鼬§!"
+ z_fw_trait_r_hok_sp_sofe_pgnt_desc: "卧槽，这帮家伙居然...居然发光啦，这群臭鼬真是无所不能，简直比暗能量都要无所不能。从星辰之子发光的血液中提取基因和记忆让他们更加强壮，也更容易习得新技能。不过在我看来，最大的好处是晚上不需要手电筒。不过最重要的是，每年都会按照人口数量产出§B$acot_sr_stellarite$§!与§B$acot_sr_light_matter$§!，真是太妙了。"
+#_evt_收集资源
+ z_fw1_relic_koh.1052.name:0 "§B荧光鼬：§!额外资源回收"
+ z_fw1_relic_koh.1052.desc:0 "因为我们是天龙人（误），即便我们的排泄物也是来自万神殿的珍宝，自然的，我们得以从里面提取并回收一部分珍贵的资源：\n§B$acot_sr_stellarite$§![root.z_fw_var_cntr_hok_sr_sofe_stellarite]\n§B$acot_sr_light_matter$§![root.z_fw_var_cntr_hok_sr_sofe_light_matter]"
+ z_fw1_relic_koh.1052.a:0 "哼哼哼啊啊啊啊，真是太激动人心了！"

@@ -1,0 +1,13 @@
+country_event = {
+    id = story.0
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_emergency_government
+	}
+
+	immediate = {
+		force_remove_civic = civic_emergency_government
+	}
+}

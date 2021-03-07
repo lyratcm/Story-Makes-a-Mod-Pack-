@@ -1,0 +1,12 @@
+Civic_GAPS_Red_Mobius = {
+    icon = "gfx/interface/icons/civics/Civic_GAPS_Red_Mobius.dds"
+    potential = {
+        always = no
+    }
+    modification = no
+    random_weight = {
+        base = 1
+    }
+    modifier = {
+    }
+}

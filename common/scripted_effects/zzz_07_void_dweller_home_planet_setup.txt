@@ -1,0 +1,539 @@
+void_dweller_home_planet_setup = {
+    owner = {
+        save_event_target_as = void_dweller_owner
+        give_technology = {
+            tech = tech_habitat_1
+            message = no
+        }
+        add_research_option = tech_habitat_2
+        if = {
+            limit = {
+                is_lithoid_empire = no
+                is_machine_empire = no
+            }
+            give_technology = {
+                tech = tech_eco_simulation
+                message = no
+            }
+            give_technology = {
+                tech = tech_hydroponics
+                message = no
+            }
+        }
+        else = {
+            give_technology = {
+                tech = tech_powered_exoskeletons
+                message = no
+            }
+            give_technology = {
+                tech = tech_space_mining_1
+                message = no
+            }
+        }
+    }
+    if = {
+        limit = {
+            owner = {
+                last_created_species = {
+                    is_lithoid = yes
+                }
+            }
+        }
+        owner = {
+            set_country_flag = lithoid_subspecies
+        }
+    }
+    else = {
+        owner = {
+            set_country_flag = non_lithoid_subspecies
+        }
+    }
+    if = {
+        limit = {
+            owner = {
+                has_civic = civic_machine_assimilator
+            }
+        }
+        while = {
+            count = 6
+            create_pop = {
+                species = owner_main_species
+            }
+        }
+        while = {
+            count = 4
+            create_pop = {
+                species = last_created_species
+            }
+        }
+    }
+    else = {
+        while = {
+            count = 10
+            create_pop = {
+                species = owner_main_species
+            }
+        }
+    }
+    if = {
+        limit = {
+            owner = {
+                has_authority = auth_hive_mind
+            }
+        }
+        while = {
+            count = 6
+            create_pop = {
+                species = owner_main_species
+            }
+        }
+    }
+    if = {
+        limit = {
+            owner = {
+                has_authority = auth_machine_intelligence
+            }
+        }
+        while = {
+            count = 4
+            create_pop = {
+                species = owner_main_species
+            }
+        }
+    }
+    set_planet_entity = {
+        entity = "orbital_habitat_entity"
+        graphical_culture = event_target:void_dweller_owner
+    }
+    set_planet_size = 6
+    set_planet_flag = advanced_habitat
+    add_district = district_hab_housing
+    add_district = district_hab_science
+    add_building = building_hab_major_capital
+    if = {
+        limit = {
+            owner = {
+                is_lithoid_empire = no
+                is_regular_empire = yes
+            }
+        }
+        add_building = building_bureaucratic_1
+        add_building = building_hydroponics_farm
+    }
+    else_if = {
+        limit = {
+            owner = {
+                is_lithoid_empire = yes
+                is_regular_empire = yes
+            }
+        }
+        add_building = building_factory_1
+        add_building = building_factory_1
+    }
+    else_if = {
+        limit = {
+            owner = {
+                is_lithoid_empire = no
+                has_authority = auth_hive_mind
+            }
+        }
+        add_district = district_hab_housing
+        add_building = building_spawning_pool
+        add_building = building_hydroponics_farm
+        add_building = building_hydroponics_farm
+    }
+    else_if = {
+        limit = {
+            owner = {
+                is_lithoid_empire = yes
+                has_authority = auth_hive_mind
+            }
+        }
+        add_district = district_hab_housing
+        add_district = district_hab_housing
+        add_building = building_spawning_pool
+        add_building = building_hive_node
+    }
+    else_if = {
+        limit = {
+            owner = {
+                is_machine_empire = yes
+            }
+        }
+        add_district = district_hab_energy
+        add_building = building_machine_assembly_plant
+        add_building = building_uplink_node
+        if = {
+            limit = {
+                owner = {
+                    has_civic = civic_machine_servitor
+                }
+            }
+            while = {
+                count = 2
+                create_pop = {
+                    species = last_created_species
+                }
+            }
+        }
+    }
+    if = {
+        limit = {
+            owner = {
+                is_regular_empire = yes
+            }
+        }
+        add_deposit = d_arcane_replicator
+    }
+    else = {
+        add_deposit = d_arcane_replicator_gestalt
+    }
+    solar_system = {
+        random_system_planet = {
+            limit = {
+                has_planet_flag = void_dweller_habitat_2
+            }
+            set_owner = event_target:void_dweller_owner
+            if = {
+                limit = {
+                    owner = {
+                        has_civic = civic_machine_assimilator
+                    }
+                }
+                while = {
+                    count = 8
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+                while = {
+                    count = 4
+                    create_pop = {
+                        species = last_created_species
+                    }
+                }
+            }
+            else = {
+                while = {
+                    count = 10
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_hive_mind
+                    }
+                }
+                while = {
+                    count = 4
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_machine_intelligence
+                        NAND = {
+                            has_civic = civic_machine_servitor
+                            has_country_flag = lithoid_subspecies
+                        }
+                    }
+                }
+                while = {
+                    count = 3
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_machine_intelligence
+                        has_civic = civic_machine_servitor
+                        has_country_flag = lithoid_subspecies
+                    }
+                }
+                while = {
+                    count = 6
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+            }
+            set_planet_entity = {
+                entity = "orbital_habitat_entity"
+                graphical_culture = event_target:void_dweller_owner
+            }
+            set_planet_size = 4
+            set_planet_flag = mining_habitat
+            add_district = district_hab_housing
+            add_district = district_hab_mining
+            if = {
+                limit = {
+                    owner = {
+                        is_lithoid_empire = no
+                        is_regular_empire = yes
+                    }
+                }
+                add_building = building_factory_1
+                add_district = district_hab_commercial
+            }
+            else_if = {
+                limit = {
+                    owner = {
+                        is_lithoid_empire = yes
+                        is_regular_empire = yes
+                    }
+                }
+                add_building = building_holo_theatres
+                add_district = district_hab_mining
+            }
+            else_if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_hive_mind
+                    }
+                }
+                add_building = building_spawning_pool
+                add_district = district_hab_mining
+            }
+            else_if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_machine_intelligence
+                    }
+                }
+                add_district = district_hab_mining
+                if = {
+                    limit = {
+                        owner = {
+                            has_civic = civic_machine_assimilator
+                        }
+                    }
+                    if = {
+                        limit = {
+                            owner = {
+                                NOT = {
+                                    has_country_flag = lithoid_subspecies
+                                }
+                            }
+                        }
+                        add_building = building_hydroponics_farm
+                    }
+                    else = {
+                        add_district = district_hab_mining
+                    }
+                }
+                else_if = {
+                    limit = {
+                        owner = {
+                            has_civic = civic_machine_servitor
+                        }
+                    }
+                    while = {
+                        count = 2
+                        create_pop = {
+                            species = last_created_species
+                        }
+                    }
+                    add_building = building_machine_assembly_plant
+                    add_building = building_factory_1
+                    if = {
+                        limit = {
+                            owner = {
+                                has_country_flag = lithoid_subspecies
+                            }
+                        }
+                        add_district = district_hab_mining
+                    }
+                }
+                else = {
+                    add_building = building_machine_assembly_plant
+                }
+            }
+            add_building = building_foundry_1
+            if = {
+                limit = {
+                    owner = {
+                        is_gestalt = yes
+                    }
+                }
+                add_deposit = d_arcane_replicator_gestalt
+            }
+        }
+        random_system_planet = {
+            limit = {
+                has_planet_flag = void_dweller_habitat_3
+            }
+            set_owner = event_target:void_dweller_owner
+            if = {
+                limit = {
+                    owner = {
+                        has_civic = civic_machine_assimilator
+                    }
+                }
+                while = {
+                    count = 6
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+                while = {
+                    count = 4
+                    create_pop = {
+                        species = last_created_species
+                    }
+                }
+            }
+            else = {
+                while = {
+                    count = 10
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_hive_mind
+                    }
+                }
+                while = {
+                    count = 3
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_machine_intelligence
+                        NAND = {
+                            has_civic = civic_machine_servitor
+                            has_country_flag = lithoid_subspecies
+                        }
+                    }
+                }
+                while = {
+                    count = 4
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+            }
+            set_planet_entity = {
+                entity = "orbital_habitat_entity"
+                graphical_culture = event_target:void_dweller_owner
+            }
+            set_planet_size = 4
+            set_planet_flag = energy_habitat
+            add_district = district_hab_housing
+            add_district = district_hab_energy
+            if = {
+                limit = {
+                    owner = {
+                        is_regular_empire = yes
+                    }
+                }
+                add_district = district_hab_commercial
+            }
+            else = {
+                add_district = district_hab_energy
+            }
+            if = {
+                limit = {
+                    owner = {
+                        is_lithoid_empire = no
+                        is_regular_empire = yes
+                    }
+                }
+                add_building = building_hydroponics_farm
+            }
+            else_if = {
+                limit = {
+                    owner = {
+                        is_regular_empire = yes
+                    }
+                }
+                add_building = building_bureaucratic_1
+            }
+            else_if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_hive_mind
+                    }
+                }
+                add_building = building_spawning_pool
+                if = {
+                    limit = {
+                        owner = {
+                            is_lithoid_empire = no
+                        }
+                    }
+                    add_building = building_hive_node
+                }
+                else = {
+                    add_district = district_hab_housing
+                }
+            }
+            else_if = {
+                limit = {
+                    owner = {
+                        has_authority = auth_machine_intelligence
+                    }
+                }
+                add_building = building_machine_assembly_plant
+                if = {
+                    limit = {
+                        owner = {
+                            has_civic = civic_machine_servitor
+                        }
+                    }
+                    if = {
+                        limit = {
+                            owner = {
+                                NOT = {
+                                    has_country_flag = lithoid_subspecies
+                                }
+                            }
+                        }
+                        add_building = building_hydroponics_farm
+                    }
+                    while = {
+                        count = 2
+                        create_pop = {
+                            species = last_created_species
+                        }
+                    }
+                }
+                else = {
+                    add_district = district_hab_energy
+                }
+            }
+            if = {
+                limit = {
+                    owner = {
+                        is_gestalt = yes
+                    }
+                }
+                add_deposit = d_arcane_replicator_gestalt
+            }
+        }
+        every_system_planet = {
+            limit = {
+                has_planet_flag = mining_planet
+            }
+            create_mining_station = {
+                owner = event_target:void_dweller_owner
+            }
+        }
+    }
+}

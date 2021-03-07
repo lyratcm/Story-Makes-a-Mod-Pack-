@@ -1,0 +1,40 @@
+###_z fw1 ship designs	#####################################################################
+
+###_自动矿站工程船
+ship_design = {
+	name = "NAME_z_fw_autostation_ship"
+	ship_size = constructor
+	hide_size = yes
+	section = {
+		template = "DEFAULT_CONSTRUCTION_SECTION"
+		slot = "mid"
+		
+		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_SHIELD_5"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_2"
+		}
+		component = {
+			slot = "SMALL_UTILITY_3"
+			template = "SMALL_DRAGON_ARMOR"
+		}
+	}
+	required_component = "CORVETTE_ZERO_POINT_REACTOR"
+	required_component = "EMPTY_DRIVE"
+	required_component = "SHIP_THRUSTER_5"
+	required_component = "SENSOR_1"
+}
+
+###_自动研究站
+ship_design = {
+	name = "NAME_z_fw_autostation_research"
+	ship_size = research_station
+	hide_size = yes
+	section = {
+		template = "DEFAULT_RESEARCH_STATION_SECTION"
+		slot = "mid"
+	}
+}

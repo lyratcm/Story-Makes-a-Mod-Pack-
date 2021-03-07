@@ -1,0 +1,11 @@
+trait_uninventive = {
+    cost = -2
+    potential_crossbreeding_chance = 0.25
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    ai_weight = {
+        weight = 0.1
+    }
+}

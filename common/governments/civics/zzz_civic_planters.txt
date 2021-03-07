@@ -1,0 +1,29 @@
+Civic_GAPS_Planters = {
+    icon = "gfx/interface/icons/civics/GAPS_Planters.dds"
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                auth_master_computer
+                auth_corporate
+                auth_cooperative
+                auth_private
+            }
+        }
+    }
+    modification = no
+    possible = {
+        ethics = {
+            value = ethic_fanatic_green
+        }
+    }
+    random_weight = {
+        base = 0
+    }
+    modifier = {
+    }
+}

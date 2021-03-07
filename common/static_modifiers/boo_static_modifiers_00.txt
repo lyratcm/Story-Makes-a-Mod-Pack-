@@ -1,0 +1,160 @@
+##########################################################################
+# Icon Frames
+##########################################################################
+# 1 = Good (green)
+# 2 = Mixed (yellow)
+# 3 = Bad (red)
+# 4 = Neutral/flavor (White)
+# 5 = Precursor (Light Blue special)
+# 6 = Event (Purple)
+# 7 = (Dark Blue)
+# 8 = Machine Worlds(Orange)
+# 9 = Fallen Empires (Pink-Purple)
+
+##########################################################################
+# Planet Modifiers
+##########################################################################
+
+# Silk Road
+BOO_modifier_silk_road = {
+	trade_value_mult = 0.10
+	job_merchant_add = 2
+	icon = "gfx/interface/icons/planet_modifiers/pm_lush.dds"
+	icon_frame = 1
+}
+
+# Eternal Horde
+BOO_modifier_eternal_horde = {
+	planet_army_build_speed_mult = 0.10
+	job_soldier_add = 2
+	icon = "gfx/interface/icons/planet_modifiers/pm_victorious_army.dds"
+	icon_frame = 1
+}
+
+# One With Nature
+BOO_modifier_one_with_nature = {
+	district_farming_max = 2
+	planet_jobs_food_produces_mult = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_resort_planet.dds"
+	icon_frame = 1
+}
+
+# Subterranean Societies
+BOO_modifier_subterranean_societies = {
+	district_mining_max = 2
+	planet_jobs_minerals_produces_mult = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_hollow_planet.dds"
+	icon_frame = 1
+}
+
+# History of Clean Energy
+BOO_modifier_history_of_clean_energy = {
+	district_generator_max = 2
+	planet_jobs_energy_produces_mult = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_natural_beauty.dds"
+	icon_frame = 1
+}
+
+# Past Peaceful Coexistence
+BOO_modifier_past_peaceful_coexistence = {
+	planet_jobs_unity_produces_mult = 0.05
+	icon = "gfx/interface/icons/planet_modifiers/pm_medieval_alien_civilization.dds"
+	icon_frame = 1
+}
+
+# Past Violent Coexistence
+BOO_modifier_past_violent_coexistence = {
+	planet_jobs_unity_produces_mult = 0.05
+	planet_stability_add = 10
+	icon = "gfx/interface/icons/planet_modifiers/pm_victorious_army.dds"
+	icon_frame = 1
+}
+
+# Global peace
+BOO_modifier_peace_corps = {
+	job_boo_peacekeeper_add = 2
+	icon = "gfx/interface/icons/planet_modifiers/pm_galactic_senate.dds"
+	icon_frame = 1
+}
+
+# World Religion
+#BOO_modifier_world_religion = {
+#	job_priest_add = 1
+#	planet_stability_add = 10
+#	icon = "gfx/interface/icons/planet_modifiers/pm_natural_beauty.dds"
+#	icon_frame = 1
+#}
+
+
+##########################################################################
+# Empire Modifiers
+##########################################################################
+
+# Horde's Legacy
+BOO_modifier_hordes_legacy = {
+	army_starting_experience_mult = 0.10
+	ship_evasion_mult = 0.05
+	ship_orbital_bombardment_mult = 0.05
+	icon = "gfx/interface/icons/modifiers/mod_army_attack_damage_mult.dds"
+}
+
+# Extinct Friends
+BOO_modifier_extinct_friends = {
+	pop_ethic_xenophile_attraction_mult = 0.1
+	country_society_tech_research_speed = 0.05
+	icon = "gfx/interface/icons/modifiers/mod_society_research_produces_add.dds"
+}
+
+# Extinct Enemies
+BOO_modifier_extinct_enemies = {
+	pop_ethic_xenophobe_attraction_mult = 0.1
+	icon = "gfx/interface/icons/modifiers/mod_country_max_rivalries.dds"
+}
+
+# Great War
+BOO_modifier_great_war = {
+	pop_ethic_pacifist_attraction_mult = 0.1
+	icon = "gfx/interface/icons/modifiers/mod_country_max_embassies.dds"
+}
+
+# Dawn of War
+BOO_modifier_dawn_of_war = {
+	pop_ethic_militarist_attraction_mult = 0.1
+	country_engineering_tech_research_speed = 0.05
+	starbase_shipyard_build_speed_mult = 0.1
+	icon = "gfx/interface/icons/modifiers/mod_engineering_research_produces_add.dds"
+}
+
+# Promised People
+BOO_modifier_promised_people = {
+	pop_ethic_spiritualist_attraction_mult = 0.1
+	leader_upkeep_empire_size_mult = -0.1
+	icon = "gfx/interface/icons/modifiers/mod_leader_age.dds"
+}
+
+# Final Frontier
+BOO_modifier_final_frontier = {
+	pop_ethic_materialist_attraction_mult = 0.1
+	country_physics_tech_research_speed = 0.05
+	science_ship_survey_speed = 0.05
+	icon = "gfx/interface/icons/modifiers/mod_ship_speed_reduction.dds"
+}
+
+# Great Liberator
+BOO_modifier_great_liberator = {
+	pop_ethic_egalitarian_attraction_mult = 0.1
+	country_election_influence_cost_mult = -0.25
+	icon = "gfx/interface/icons/modifiers/mod_pop_citizen_happiness.dds"
+}
+
+# Chosen One
+BOO_modifier_chosen_one = {
+	pop_ethic_authoritarian_attraction_mult = 0.1
+	edict_length_mult = 0.1
+	edicts_cost_mult = -0.1
+	icon = "gfx/interface/icons/modifiers/mod_planet_stability_add.dds"
+}
+
+
+
+

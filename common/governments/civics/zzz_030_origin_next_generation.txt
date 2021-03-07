@@ -1,0 +1,32 @@
+origin_next_generation = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_next_generation.dds"
+	picture = GFX_origin_next_generation
+
+	playable = {
+	}
+
+	possible = {
+		ethics = {
+			NOR = {
+				text = civic_tooltip_not_xenophobe
+				value = ethic_xenophobe
+				value = ethic_fanatic_xenophobe
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_hive_devouring_swarm
+				value = civic_machine_terminator
+			}
+		}
+	}
+
+	description = "origin_tooltip_next_generation_effects"
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 10
+	}
+}

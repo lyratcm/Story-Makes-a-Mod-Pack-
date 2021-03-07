@@ -1,0 +1,29 @@
+origin_irradiated_evolution = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_irradiated_evolution.dds"
+	picture = GFX_origin_irradiated_evolution
+
+	starting_colony = pc_nuked
+	habitability_preference = pc_nuked
+	preferred_planet_class_neighbor = no
+
+	playable = {
+	}
+
+	possible = {
+		authority = { NOT = { value = auth_machine_intelligence } }
+		civics = { NOT = { value = civic_agrarian_idyll } }
+	}
+
+	description = "origin_tooltip_irradiated_evolution_effects"
+
+	traits = {
+		trait = trait_mutant
+	}
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 5
+	}
+}

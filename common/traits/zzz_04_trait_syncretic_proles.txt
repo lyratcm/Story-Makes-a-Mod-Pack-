@@ -1,0 +1,38 @@
+trait_syncretic_proles = {
+    cost = 1
+    potential_crossbreeding_chance = 0.5
+    opposites = {
+        "trait_nerve_stapled"
+        "trait_talented"
+        "trait_masterful"
+        "trait_quick_learners"
+        "trait_slow_learners"
+        "trait_intelligent"
+        "trait_erudite"
+        "trait_natural_engineers"
+        "trait_natural_physicists"
+        "trait_natural_sociologists"
+        "trait_clever"
+        "trait_moronic"
+        "trait_anxious"
+        "trait_inspired"
+        "trait_inert"
+    }
+    initial = no
+    modification = yes
+    species_potential_add = {
+        always = no
+    }
+    icon = "gfx/interface/icons/traits/trait_primitive.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    custom_tooltip = TRAIT_SYNCRETIC_PROLES_EFFECT
+    modifier = {
+        pop_happiness = 0.10
+        planet_jobs_produces_mult = 0.10
+    }
+}

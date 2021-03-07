@@ -1,0 +1,614 @@
+############################################
+# HORIZON SIGNAL - THE WORM-IN-WAITING	   #
+# Written and designed by Alexis Kennedy   #
+# Scripted and edited by Maximilian Olbers #
+############################################
+
+namespace = akx
+planet_event = {
+	id = akx.9100
+	title = akx.9100.name
+	desc = {
+		trigger = {
+			owner = { NOT = { has_origin = origin_void_dwellers } }
+		}
+		text = akx.9100.desc
+	}
+	desc = {
+		trigger = {
+			owner = {has_origin = origin_void_dwellers }
+		}
+		text = akx.9100.desc.void
+	}
+	picture = GFX_evt_in_the_dark
+	show_sound = event_mystic_reveal
+	location = root
+	trackable = yes
+
+	is_triggered_only = yes
+
+	after = {
+		enable_special_project = {
+			name = LOOP_TEMPLE_PROJECT
+			location = this
+			owner = root.owner
+		}
+	}
+
+	option = {
+		name = akx.9100.spiritual.a
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_spiritualist
+				}
+			}
+		}
+	}
+
+	option = {
+		name = akx.9100.neutral.a
+		trigger = {
+			owner = {
+				NOR = {
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_spiritualist
+				}
+			}
+		}
+	}
+
+	option = {
+		name = akx.9100.b
+	}
+}
+
+planet_event = {
+	id = akx.9101
+	title = akx.9101.name
+	desc = {
+		trigger = {
+			owner = { NOT = { has_origin = origin_void_dwellers } }
+		}
+		text = akx.9101.desc
+	}
+	desc = {
+		trigger = {
+			owner = {has_origin = origin_void_dwellers }
+		}
+		text = akx.9101.desc.void
+	}
+	picture = GFX_evt_metropolis
+	show_sound = event_ship_bridge
+	location = root
+
+	is_triggered_only = yes
+
+	option = {
+		name = akx.9101.a.notspiritual
+		custom_tooltip = akx.9101.a.notspiritual.tooltip
+		trigger = {
+			owner = {
+				NOR = {
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_spiritualist
+				}
+			}
+		}
+		add_modifier = {
+			modifier = happy_with_open_loop_temple
+			days = -1
+		}
+		owner = {
+			hidden_effect = {
+				set_country_flag = worm_events_available
+			}
+			if = {
+				limit = {
+					has_technology = tech_akx_worm_2
+				}
+				break = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech_option = tech_akx_worm_2
+					}
+				}
+				add_research_option = tech_akx_worm_2
+			}
+			add_tech_progress = {
+				tech = tech_akx_worm_2
+				progress = 0.20
+			}
+		}
+	}
+
+	option = {
+		name = akx.9101.a.spiritual
+		custom_tooltip = akx.9101.a.spiritual.tooltip
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_spiritualist
+				}
+			}
+		}
+		add_modifier = {
+			modifier = spiritual_happy_with_open_loop_temple
+			days = -1
+		}
+		owner = {
+			hidden_effect = {
+				set_country_flag = worm_events_available
+			}
+			if = {
+				limit = {
+					has_technology = tech_akx_worm_2
+				}
+				break = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech_option = tech_akx_worm_2
+					}
+				}
+				add_research_option = tech_akx_worm_2
+			}
+			add_tech_progress = {
+				tech = tech_akx_worm_2
+				progress = 0.20
+			}
+		}
+	}
+
+	option = {
+		name = akx.9101.b
+		custom_tooltip = akx.9101.b.tooltip
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = 4
+				min = 300
+				max = 2000
+			}
+			hidden_effect = {
+				set_country_flag = worm_events_available
+			}
+			if = {
+				limit = {
+					has_technology = tech_akx_worm_2
+				}
+				break = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech_option = tech_akx_worm_2
+					}
+				}
+				add_research_option = tech_akx_worm_2
+			}
+			add_tech_progress = {
+				tech = tech_akx_worm_2
+				progress = 0.20
+			}
+		}
+	}
+
+	option = {
+		name = akx.9101.c
+		custom_tooltip = akx.9101.c.tooltip
+		owner = {
+			end_event_chain = WORM_CHAIN_1
+			add_monthly_resource_mult = {
+				resource = influence
+				value = 3
+				min = 100
+				max = 600
+			}
+		}
+	}
+}
+
+country_event = {
+	id = akx.9211
+	title = akx.9211.name
+	desc = akx.9211.desc
+	picture = GFX_evt_genetic_modification
+	location = capital_scope
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { exists = event_target:researchingscientist }
+			# nothing
+		}
+		else = {
+			random_owned_leader = {
+				limit = { leader_class = scientist }
+				save_global_event_target_as = researchingscientist
+			}
+			event_target:researchingscientist = {
+				make_unleashed_messenger = yes
+			}
+		}
+	}
+
+	option = {
+		name = akx.9211.a
+		custom_tooltip = akx.9211.a.tooltip
+		hidden_effect = {
+			capital_scope = {
+				every_owned_pop = {
+					limit = { is_same_species = root }
+					wipe_pop_ethos = yes
+					if = {
+						limit = { pop_has_trait = trait_nerve_stapled }
+						modify_species = {
+							species = this
+							remove_trait = trait_nerve_stapled
+						}
+					}
+					if = {
+						limit = { pop_has_trait = trait_intelligent }
+						modify_species = {
+							species = this
+							remove_trait = trait_intelligent
+						}
+					}
+					if = {
+						limit = { pop_has_trait = trait_uninventive }
+						modify_species = {
+							species = this
+							remove_trait = trait_uninventive
+						}
+					}
+					modify_species = {
+						species = this
+						add_trait = trait_messanger_intelligent
+					}
+					make_unleashed_messenger = yes
+					pop_change_ethic = ethic_pacifist
+					set_timed_pop_flag = { flag = changed_pop days = 2 }
+				}
+				random_owned_pop = {
+					limit = { has_pop_flag = changed_pop }
+					root = { change_dominant_species = { species = prev } }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = akx.9211.b
+		custom_tooltip = akx.9211.b.tooltip
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+		hidden_effect = {
+			capital_scope = {
+				while = {
+					limit = {
+						count_owned_pops = {
+							limit = { is_same_species = root }
+							count > 1
+						}
+					}
+					random_owned_pop = {
+						kill_pop = yes
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = akx.9211.c
+		custom_tooltip = akx.9211.c.tooltip
+		hidden_effect = {
+			every_owned_leader = {
+				limit = { is_same_species = root }
+				make_unleashed_messenger = yes
+			}
+			every_owned_pop = {
+				limit = { is_same_species = root }
+				wipe_pop_ethos = yes
+				make_unleashed_messenger = yes
+				if = {
+					limit = { pop_has_trait = trait_nerve_stapled }
+					modify_species = {
+						species = this
+						remove_trait = trait_nerve_stapled
+					}
+				}
+				if = {
+					limit = { pop_has_trait = trait_intelligent }
+					modify_species = {
+						species = this
+						remove_trait = trait_intelligent
+					}
+				}
+				if = {
+					limit = { pop_has_trait = trait_uninventive }
+					modify_species = {
+						species = this
+						remove_trait = trait_uninventive
+					}
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_messanger_intelligent
+				}
+				pop_change_ethic = ethic_pacifist
+				set_timed_pop_flag = { flag = changed_pop days = 2 }
+			}
+			random_owned_pop = {
+				limit = { has_pop_flag = changed_pop }
+				root = { change_dominant_species = { species = prev } }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = akx.9221
+	title = akx.9221.name
+	desc = akx.9221.desc
+	picture = GFX_evt_genetic_modification
+	location = capital_scope
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { exists = event_target:researchingscientist9220 }
+		}
+		else = {
+			random_owned_leader = {
+				limit = { leader_class = scientist }
+				save_global_event_target_as = researchingscientist9220
+			}
+			event_target:researchingscientist9220 = {
+				make_leashed_messenger = yes
+			}
+		}
+	}
+
+	option = {
+		name = akx.9221.a
+		custom_tooltip = akx.9221.a.tooltip
+		hidden_effect = {
+			capital_scope = {
+				every_owned_pop = {
+					limit = { is_same_species = root }
+					wipe_pop_ethos = yes
+					make_resilient = yes
+					if = {
+						limit = { pop_has_trait = trait_weak }
+						modify_species = {
+							species = this
+							remove_trait = trait_weak
+						}
+					}
+					if = {
+						limit = { pop_has_trait = trait_strong }
+						modify_species = {
+							species = this
+							remove_trait = trait_strong
+						}
+					}
+					modify_species = {
+						species = this
+						add_trait = trait_messanger_strong
+					}
+					make_leashed_messenger = yes
+					pop_change_ethic = ethic_militarist
+					set_timed_pop_flag = { flag = changed_pop days = 2 }
+				}
+				random_owned_pop = {
+					limit = { has_pop_flag = changed_pop }
+					root = { change_dominant_species = { species = prev } }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = akx.9221.b
+		custom_tooltip = akx.9221.b.tooltip
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+		hidden_effect = {
+			capital_scope = {
+				while = {
+					limit = {
+						count_owned_pops = {
+							limit = { is_same_species = root }
+							count > 1
+						}
+					}
+					random_owned_pop = {
+						kill_pop = yes
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = akx.9221.c
+		custom_tooltip = akx.9221.c.tooltip
+		hidden_effect = {
+			every_owned_leader = {
+				limit = { is_same_species = root }
+				make_leashed_messenger = yes
+			}
+			every_owned_pop = {
+				limit = { is_same_species = root }
+				wipe_pop_ethos = yes
+				make_leashed_messenger = yes
+				if = {
+					limit = { pop_has_trait = trait_weak }
+					modify_species = {
+						species = this
+						remove_trait = trait_weak
+					}
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_messanger_strong
+				}
+				pop_change_ethic = ethic_militarist
+				set_timed_pop_flag = { flag = changed_pop days = 2 }
+			}
+			random_owned_pop = {
+				limit = { has_pop_flag = changed_pop }
+				root = { change_dominant_species = { species = prev } }
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = akx.10020
+	title = akx.10020.name
+	desc = akx.10020.desc
+	picture = GFX_evt_black_hole
+	show_sound = event_activating_unknown_technology
+	location = root
+
+	is_triggered_only = yes
+
+	pre_triggers = {
+		is_ai = no
+	}
+
+	immediate = {
+		solar_system = {
+			every_system_planet = {
+				limit = {
+					NOR = {
+						is_planet_class = pc_gas_giant
+						is_planet_class = pc_ringworld_habitable
+						is_planet_class = pc_ringworld_habitable_damaged
+						is_planet_class = pc_ringworld_tech
+						is_planet_class = pc_ringworld_tech_damaged
+						is_planet_class = pc_ringworld_seam
+						is_planet_class = pc_ringworld_seam_damaged
+						is_planet_class = pc_habitat
+						is_planet_class = pc_asteroid
+						is_planet_class = pc_ice_asteroid
+						is_planet_class = pc_city
+						is_planet_class = pc_relic
+						is_star = yes
+					}
+				}
+				every_owned_pop = {
+					limit = {
+						is_robot_pop = no
+						is_sapient = yes
+					}
+					if = {
+						limit = { NOT = { has_trait = trait_natural_physicists } }
+						# remove opposite traits
+						if = {
+							limit = { has_trait = trait_natural_engineers }
+							modify_species = {
+								species = this
+								remove_trait = trait_natural_engineers
+							}
+						}
+						if = {
+							limit = { has_trait = trait_natural_sociologists }
+							modify_species = {
+								species = this
+								remove_trait = trait_natural_sociologists
+							}
+						}
+						if = {
+							limit = { has_trait = trait_nerve_stapled }
+							modify_species = {
+								species = this
+								remove_trait = trait_nerve_stapled
+							}
+						}
+						# add trait
+						modify_species = {
+							species = this
+							add_trait = trait_natural_physicists
+						}
+					}
+					if = {
+						limit = { NOT = { has_trait = trait_repugnant } }
+						# remove opposite traits
+						if = {
+							limit = { has_trait = trait_charismatic }
+							modify_species = {
+								species = this
+								remove_trait = trait_charismatic
+							}
+						}
+						if = {
+							limit = { has_trait = trait_pheremones }
+							modify_species = {
+								species = this
+								remove_trait = trait_pheremones
+							}
+						}
+						if = {
+							limit = { has_trait = trait_lithoid_shiny }
+							modify_species = {
+								species = this
+								remove_trait = trait_lithoid_shiny
+							}
+						}
+						modify_species = {
+							species = this
+							add_trait = trait_repugnant
+						}
+					}
+					modify_species = {
+						species = this
+						ideal_planet_class = pc_nuked
+					}
+				}
+				change_pc = pc_nuked
+				reroll_planet = yes
+			}
+			every_system_planet = {
+				limit = { is_star = yes }
+				change_pc = pc_black_hole
+				clear_deposits = yes
+				set_deposit = d_dark_matter_deposit_3
+			}
+		}
+		owner = { observer_event = { id = observer.71 } }
+	}
+
+	after = {
+		hidden_effect = {
+			owner = {
+				remove_country_flag = worm_events_available
+				set_country_flag = worm_awaited
+				set_country_flag = worm_tomb_ending
+			}
+		}
+	}
+
+	option = {
+		name = akx.10020.a
+		owner = { end_event_chain = WORM_CHAIN_2 }
+	}
+}

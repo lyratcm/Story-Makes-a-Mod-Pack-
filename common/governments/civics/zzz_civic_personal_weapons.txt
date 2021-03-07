@@ -1,0 +1,15 @@
+civic_personal_weapons = {
+    description = "civic_tooltip_personal_weapons_effects"
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 4
+    }
+    modifier = {
+        army_damage_mult = 0.25
+        armies_cost_mult = -0.25
+        planet_crime_add = 10
+        planet_crime_mult = 0.20
+    }
+}

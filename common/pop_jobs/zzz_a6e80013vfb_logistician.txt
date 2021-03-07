@@ -1,0 +1,36 @@
+vfb_logistician = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_vfb_logistichub
+    clothes_texture_index = 1
+    icon = vfb_logistician
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        ruler_job_check_trigger = yes
+        hidden_trigger = {
+            exists = owner
+        }
+        or = {
+            has_job = vfb_logistician
+            z_pop_job_trigger = yes
+        }
+    }
+    planet_modifier = {
+        planet_jobs_produces_mult = 0.1
+    }
+    resources = {
+        category = planet_administrators
+        produces = {
+        }
+        upkeep = {
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+    }
+}

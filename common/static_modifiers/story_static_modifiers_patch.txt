@@ -1,0 +1,90 @@
+static_modifier_am_civics_planet_decay_1 = {
+	pop_environment_tolerance = -0.15
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_2 = {
+	pop_environment_tolerance = -0.30
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_3 = {
+	pop_environment_tolerance = -0.45
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_4 = {
+	pop_environment_tolerance = -0.60
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_5 = {
+	pop_environment_tolerance = -0.75
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_6 = {
+	pop_environment_tolerance = -0.90
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_7 = {
+	pop_environment_tolerance = -1.05
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_8 = {
+	pop_environment_tolerance = -1.20
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_9 = {
+	pop_environment_tolerance = -1.35
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_planet_decay_10 = {
+	pop_environment_tolerance = -1.50
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_exploding_planet.dds"
+	icon_frame = 3
+}
+
+static_modifier_locust_capital_evacuation = {
+	planet_emigration_push_add = 10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_ship_in_orbit.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_destructive_panic = {
+	planet_stability_add = -20
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_burning_settlement.dds"
+	icon_frame = 3
+}
+
+static_modifier_am_civics_destructive_flight = {	
+	planet_stability_add = -40
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_landing_ship.dds"
+	icon_frame = 3
+}

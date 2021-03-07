@@ -1,0 +1,28 @@
+encourage_debate = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	modifier = {
+		country_unity_produces_mult = 0.05
+		pop_ethics_shift_speed_mult = 0.5
+	}	
+	
+	potential = {
+		#is_authoritarian = yes
+		has_policy_flag = censored_media
+		NOT = { has_valid_civic = civic_media_conglomerate }
+		NOT = { has_edict = media_censorship }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}	
+}

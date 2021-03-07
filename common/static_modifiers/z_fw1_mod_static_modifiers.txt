@@ -1,0 +1,51 @@
+###_mod平衡性 modifier
+
+######################################################################
+###_Expanded Stellaris Ascension Perks
+######################################################################
+
+###_移民
+#planet_immigration_pull_mult = 0.33
+#planet_immigration_pull_add = 5
+#planet_emigration_push_add = 100
+
+###_有机
+#pop_growth_speed = -0.5
+#pop_growth_speed_reduction = 0.5
+#pop_growth_from_immigration = -0.5
+
+###_机械
+#pop_assembly_speed = -0.5
+#planet_pop_assembly_mult = 0.5
+#planet_pop_assembly_reduction = 0.5
+#planet_pop_assembly_add = 1
+
+###_ESAP 完美飞升
+z_esap_pop_robotic_1_modifier {
+	pop_growth_speed_reduction = 0.5
+	planet_pop_assembly_reduction = -0.5
+	
+	icon = "gfx/interface/icons/planet_modifiers/z_fw_mod_plnt_normal.dds"
+	icon_frame = 1
+}
+z_esap_pop_robotic_2_modifier {
+	pop_growth_speed_reduction = 1.0
+	planet_pop_assembly_reduction = -1.0
+	
+	icon = "gfx/interface/icons/planet_modifiers/z_fw_mod_plnt_normal.dds"
+	icon_frame = 1
+}
+z_esap_pop_organism_1_modifier {
+	pop_growth_speed_reduction = -0.5
+	planet_pop_assembly_reduction = 0.5
+	
+	icon = "gfx/interface/icons/planet_modifiers/z_fw_mod_plnt_normal.dds"
+	icon_frame = 1
+}
+z_esap_pop_organism_2_modifier {
+	pop_growth_speed_reduction = -1.0
+	planet_pop_assembly_reduction = 1.0
+	
+	icon = "gfx/interface/icons/planet_modifiers/z_fw_mod_plnt_normal.dds"
+	icon_frame = 1
+}

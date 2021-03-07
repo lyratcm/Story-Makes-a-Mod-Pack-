@@ -1,0 +1,617 @@
+###_[eft_r_hok_old]	###############################################################
+#_[country_leader同化]
+#_[country_重设主物种权利]
+#_[country_替换主物种]
+#_[plnt_debug防止同化中断]
+#_[country_合并多余karyl]
+##_[创建karyl_species]
+
+
+
+
+
+
+
+
+###_[eft_r_hok_old]	###############################
+
+
+#_[country_leader同化-old]
+#_已有条件	[has_owner][event_target:z_fw_tgt_species_kayrl_main]
+z_fw_eft_r_hok_leader_assimilation = {
+	if = {
+		limit = { owner_species = { z_fw_r_koh_is_species_karyl = yes } }	#_已完成主物种同化
+		owner_species = { save_event_target_as = z_fw_tgt_species_kayrl_main }
+		every_owned_leader = {
+			limit = { NOT = { is_same_species = z_fw_tgt_species_kayrl_main } }
+			change_species = event_target:z_fw_tgt_species_kayrl_main
+		}
+		every_pool_leader = {
+			limit = { NOT = { is_same_species = z_fw_tgt_species_kayrl_main } }
+			change_species = event_target:z_fw_tgt_species_kayrl_main
+		}
+		every_envoy = {#_使节
+			limit = { NOT = { is_same_species = z_fw_tgt_species_kayrl_main } }
+			change_species = event_target:z_fw_tgt_species_kayrl_main
+		}
+		#_元首
+		ruler = {
+			if = {
+				limit = { NOT = { is_same_species = z_fw_tgt_species_kayrl_main } }
+				change_species = event_target:z_fw_tgt_species_kayrl_main
+			}
+			change_leader_portrait = species
+		}
+	}
+}
+
+#_[country_重设主物种权利]	<主物种权力自动设置为全公民权,防止军国无法设置权利>
+z_fw_eft_spcs_r_hok_citizenship_main = {
+	#_主物种权利检测
+	if = {
+		limit = { owner_species = { z_fw_r_koh_is_species_karyl = yes } }	#_主物种已占据
+		if = {
+			limit = { has_authority = auth_machine_intelligence }
+			owner_species = {
+				set_citizenship_type = {
+					type = citizenship_full_machine
+					country = root
+					cooldown = no
+				}
+			}
+		}
+		else = {
+			owner_species = {
+				set_citizenship_type = {
+					type = citizenship_full
+					country = root
+					cooldown = no
+				}
+			}
+		}
+	}
+}
+
+#_[country_替换主物种]
+z_fw_eft_r_hok_change_dominant_spcs = {
+	if = {
+		limit = {#_臭鼬人口比例达标且没有占据主物种
+			owner_species = { z_fw_r_koh_is_species_karyl = no }
+			pop_percentage = {
+				percentage >= 0.65
+				limit = { z_fw_r_koh_is_species_karyl = yes } 
+			}
+		}
+		#_regular
+		if = {
+			limit = {
+				is_regular_empire = yes
+				is_lithoid_empire = no
+				is_robot_empire = no
+				owner_species = {
+					NOR = {
+						z_fw_r_koh_is_spcs_neg_regular = yes
+						z_fw_r_koh_is_spcs_pos_regular = yes
+					}
+				}
+			}
+			random_owned_species = {
+				limit = {
+					OR = {
+						z_fw_r_koh_is_spcs_neg_regular = yes
+						z_fw_r_koh_is_spcs_pos_regular = yes
+					}
+				}
+				save_event_target_as = z_fw_tgt_species_kayrl_main
+			}
+		}
+		#_hive
+		else_if = {
+			limit = {
+				is_hive_empire = yes
+				is_lithoid_empire = no
+				owner_species = {
+					NOR = {
+						z_fw_r_koh_is_spcs_neg_hive = yes
+						z_fw_r_koh_is_spcs_pos_hive = yes
+					}
+				}
+			}
+			random_owned_species = {
+				limit = {
+					OR = {
+						z_fw_r_koh_is_spcs_neg_hive = yes
+						z_fw_r_koh_is_spcs_pos_hive = yes
+					}
+				}
+				save_event_target_as = z_fw_tgt_species_kayrl_main
+			}
+		}
+		#_synth
+		else_if = {
+			limit = {
+				is_regular_empire = yes
+				is_robot_empire = yes
+				owner_species = {
+					NOR = {
+						z_fw_r_koh_is_spcs_neg_robot = yes
+						z_fw_r_koh_is_spcs_pos_robot = yes
+					}
+				}
+			}
+			random_owned_species = {
+				limit = {
+					OR = {
+						z_fw_r_koh_is_spcs_neg_robot = yes
+						z_fw_r_koh_is_spcs_pos_robot = yes
+					}
+				}
+				save_event_target_as = z_fw_tgt_species_kayrl_main
+			}
+		}
+		#_machine
+		else_if = {
+			limit = {
+				is_machine_empire = yes
+				owner_species = {
+					NOR = {
+						z_fw_r_koh_is_spcs_neg_machine = yes
+						z_fw_r_koh_is_spcs_pos_machine = yes
+					}
+				}
+			}
+			random_owned_species = {
+				limit = {
+					OR = {
+						z_fw_r_koh_is_spcs_neg_machine = yes
+						z_fw_r_koh_is_spcs_pos_machine = yes
+					}
+				}
+				save_event_target_as = z_fw_tgt_species_kayrl_main
+			}
+		}
+		#_lithoid
+		else_if = {
+			limit = {
+				is_regular_empire = yes
+				is_lithoid_empire = yes
+				is_robot_empire = no
+				owner_species = {
+					NOR = {
+						z_fw_r_koh_is_spcs_neg_lithoid = yes
+						z_fw_r_koh_is_spcs_pos_lithoid = yes
+					}
+				}
+			}
+			random_owned_species = {
+				limit = {
+					OR = {
+						z_fw_r_koh_is_spcs_neg_lithoid = yes
+						z_fw_r_koh_is_spcs_pos_lithoid = yes
+					}
+				}
+				save_event_target_as = z_fw_tgt_species_kayrl_main
+			}
+		}
+		#_lithoid_hive
+		else_if = {
+			limit = {
+				is_hive_empire = yes
+				is_lithoid_empire = yes
+				owner_species = {
+					NOR = {
+						z_fw_r_koh_is_spcs_neg_brick = yes
+						z_fw_r_koh_is_spcs_pos_brick = yes
+					}
+				}
+			}
+			random_owned_species = {
+				limit = {
+					OR = {
+						z_fw_r_koh_is_spcs_neg_brick = yes
+						z_fw_r_koh_is_spcs_pos_brick = yes
+					}
+				}
+				save_event_target_as = z_fw_tgt_species_kayrl_main
+			}
+		}
+		#_OTHER
+		else_if = {
+			limit = { NOT = { owner_species = { z_fw_r_koh_is_species_karyl = yes } } }
+			random_owned_species = {
+				limit = { z_fw_r_koh_is_species_karyl = yes }
+				save_event_target_as = z_fw_tgt_species_kayrl_main
+			}
+		}
+		#_占据主物种
+		if = {
+			limit = { exists = event_target:z_fw_tgt_species_kayrl_main }
+			#_主物种成为臭鼬子物种
+			root.species = { set_species_identity = event_target:z_fw_tgt_species_kayrl_main }
+			change_dominant_species = { species = event_target:z_fw_tgt_species_kayrl_main }
+			z_fw_eft_r_hok_leader_assimilation = yes	#_leader
+			country_event = { id = z_fw1_relic_koh.1011 days = 7 }
+		}
+	}
+}
+
+#_[plnt_debug防止同化中断]	debug防止出现意外导致同化感染无法进行 即为非/relic持有者的星球只有对立karyl
+z_fw_plnt_eft_r_hok_debug = {
+	if = {#_持有者
+		limit = {
+			owner = { has_relic = z_fw_r_head_of_karyl }
+			any_owned_species = { z_fw_r_koh_is_species_karyl = yes }
+			NOT = {
+				any_owned_species = {
+					z_fw_r_koh_is_species_karyl = yes
+					has_trait = z_fw_trait_r_hok_kayrl_positive
+				}
+			}
+		}
+		random_owned_pop = {
+			limit = { z_fw_r_koh_is_species_karyl = yes }
+			modify_species = {
+				species = this
+				remove_trait = z_fw_trait_r_hok_kayrl_negative
+				add_trait = z_fw_trait_r_hok_kayrl_positive
+				add_traits_at_start_of_list = yes
+				change_scoped_species = yes
+			}
+		}
+	}
+	else_if = {#_受害者
+		limit = {
+			any_owned_species = { z_fw_r_koh_is_species_karyl = yes }
+			NOT = {
+				any_owned_species = {
+					z_fw_r_koh_is_species_karyl = yes
+					has_trait = z_fw_trait_r_hok_kayrl_negative
+				}
+			}
+		}
+		random_owned_pop = {
+			limit = { z_fw_r_koh_is_species_karyl = yes }
+			modify_species = {
+				species = this
+				remove_trait = z_fw_trait_r_hok_kayrl_positive
+				add_trait = z_fw_trait_r_hok_kayrl_negative
+				add_traits_at_start_of_list = yes
+				change_scoped_species = yes
+			}
+		}
+	}
+}
+
+#_[country_合并多余karyl-old]	spcs/按照大类来,无需考虑trait的正负
+#_species tgt	[z_fw_r_hok_tgt_spcs_debug_karyl][z_fw_r_hok_tgt_spcs_debug_karyl_robot][z_fw_r_hok_tgt_spcs_debug_karyl_machine][z_fw_r_hok_tgt_spcs_debug_karyl_lithoid]
+z_fw_eft_cntr_r_hok_debug_merge = {
+	#_regular
+	if = {
+		limit = { any_owned_species = { is_species_class = Z_KARYL } }
+		if = {
+			limit = { owner_species = { is_species_class = Z_KARYL } }
+			owner_species = { save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl }
+		}
+		else = {
+			random_owned_species = {
+				limit = { is_species_class = Z_KARYL }
+				save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				is_species_class = Z_KARYL
+				NOT = { is_same_species = event_target:z_fw_r_hok_tgt_spcs_debug_karyl }
+			}
+			modify_species = {
+				species = this
+				base = event_target:z_fw_r_hok_tgt_spcs_debug_karyl
+				change_scoped_species = yes
+			}
+		}	
+	}
+	#_robot
+	if = {
+		limit = { any_owned_species = { is_species_class = Z_KARYL_ROBOT } }
+		if = {
+			limit = { owner_species = { is_species_class = Z_KARYL_ROBOT } }
+			owner_species = { save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_robot }
+		}
+		else = {
+			random_owned_species = {
+				limit = { is_species_class = Z_KARYL_ROBOT }
+				save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_robot
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				is_species_class = Z_KARYL_ROBOT
+				NOT = { is_same_species = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_robot }
+			}
+			modify_species = {
+				species = this
+				base = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_robot
+				change_scoped_species = yes
+			}
+		}
+	}
+	#_machine
+	if = {
+		limit = { any_owned_species = { is_species_class = Z_KARYL_MACHINE } }
+		if = {
+			limit = { owner_species = { is_species_class = Z_KARYL_MACHINE } }
+			owner_species = { save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_machine }
+		}
+		else = {
+			random_owned_species = {
+				limit = { is_species_class = Z_KARYL_MACHINE }
+				save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_machine
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				is_species_class = Z_KARYL_MACHINE
+				NOT = { is_same_species = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_machine }
+			}
+			modify_species = {
+				species = this
+				base = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_machine
+				change_scoped_species = yes
+			}
+		}
+	}
+	#_lithoid
+	if = {
+		limit = { any_owned_species = { is_species_class = Z_KARYL_LITHOID } }
+		if = {
+			limit = { owner_species = { is_species_class = Z_KARYL_LITHOID } }
+			owner_species = { save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_lithoid }
+		}
+		else = {
+			random_owned_species = {
+				limit = { is_species_class = Z_KARYL_LITHOID }
+				save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_lithoid
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				is_species_class = Z_KARYL_LITHOID
+				NOT = { is_same_species = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_lithoid }
+			}
+			modify_species = {
+				species = this
+				base = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_lithoid
+				change_scoped_species = yes
+			}
+		}	
+	}
+}
+
+
+
+
+
+###_[创建karyl_species]	可向mod拓展	###############################################################
+#_[all]
+z_fw_eft_r_koh_spcs_neg_regular = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL"
+		portrait = z_fw_spcs_karyl
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_negative
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+z_fw_eft_r_koh_spcs_pos_regular = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL"
+		portrait = z_fw_spcs_karyl
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_positive
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+z_fw_eft_r_koh_spcs_neg_hive = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL"
+		portrait = z_fw_spcs_karyl
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_negative
+			trait = trait_hive_mind
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+z_fw_eft_r_koh_spcs_pos_hive = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL"
+		portrait = z_fw_spcs_karyl
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_positive
+			trait = trait_hive_mind
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+
+#_[species]	[robot]
+z_fw_eft_r_koh_spcs_neg_robot = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_robot_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL_ROBOT"
+		portrait = z_fw_spcs_karyl_robot
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_negative
+			trait = trait_mechanical
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+z_fw_eft_r_koh_spcs_pos_robot = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_robot_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL_ROBOT"
+		portrait = z_fw_spcs_karyl_robot
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_positive
+			trait = trait_mechanical
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+
+#_[species]	[machine]
+z_fw_eft_r_koh_spcs_neg_machine = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_machine_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL_MACHINE"
+		portrait = z_fw_spcs_karyl_machine
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_negative
+			trait = trait_machine_unit
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+z_fw_eft_r_koh_spcs_pos_machine = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_machine_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL_MACHINE"
+		portrait = z_fw_spcs_karyl_machine
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_positive
+			trait = trait_machine_unit
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+
+z_fw_eft_r_koh_spcs_neg_lithoid = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_lithoid_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL_LITHOID"
+		portrait = z_fw_spcs_karyl_lithoid
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_negative
+			trait = trait_lithoid
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+z_fw_eft_r_koh_spcs_pos_lithoid = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_lithoid_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL_LITHOID"
+		portrait = z_fw_spcs_karyl_lithoid
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_positive
+			trait = trait_lithoid
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+z_fw_eft_r_koh_spcs_neg_brick = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_lithoid_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL_LITHOID"
+		portrait = z_fw_spcs_karyl_lithoid
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_negative
+			trait = trait_lithoid
+			trait = trait_hive_mind
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+z_fw_eft_r_koh_spcs_pos_brick = {
+	create_species = {
+		is_mod = no
+		immortal = yes
+		name = z_karyl_lithoid_1
+		namelist = this
+		plural = this
+		class = "Z_KARYL_LITHOID"
+		portrait = z_fw_spcs_karyl_lithoid
+		traits = {
+			trait = z_fw_trait_r_hok_kayrl_positive
+			trait = trait_lithoid
+			trait = trait_hive_mind
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+}
+

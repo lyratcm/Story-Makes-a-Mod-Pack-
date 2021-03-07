@@ -1,0 +1,163 @@
+
+################################
+### Multihive Governments ###
+################################
+
+# Hive Autocracy Imperial
+gov_hive_autocracy_imperial = {
+	ruler_title = RT_MASTER_HIVE
+	ruler_title_female = RT_MASTER_HIVE
+	heir_title = RT_VICE_MASTER_HIVE
+	heir_title_female = RT_VICE_MASTER_HIVE
+
+	use_regnal_names = yes
+	dynastic_last_names = no
+
+	possible = {
+		has_authority = auth_imperial
+		has_trait = trait_multihive
+	}
+
+	weight = {
+		base = 30000
+	}
+}
+
+# Hive Autocracy Dictatorial
+gov_hive_autocracy_dictatorial = {
+	ruler_title = RT_MASTER_HIVE
+	ruler_title_female = RT_MASTER_HIVE
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+			species = { has_trait = trait_multihive_core }
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+			species = { has_trait = trait_multihive_core }
+		}
+	}
+
+	possible = {
+		has_authority = auth_dictatorial
+		has_trait = trait_multihive
+	}
+
+	weight = {
+		base = 30000
+	}
+}
+
+# Hive Oligarchy
+gov_hive_hierarchy = {
+	ruler_title = RT_ASCENDANT_HIVE
+	ruler_title_female = RT_ASCENDANT_HIVE
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+			species = { has_trait = trait_multihive_core }
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+			species = { has_trait = trait_multihive_core }
+		}
+	}
+
+	possible = {
+		has_authority = auth_dictatorial
+		has_trait = trait_multihive
+	}
+
+	weight = {
+		base = 30000
+	}
+}
+
+# Hive Democracy
+gov_hive_alliance = {
+	ruler_title = RT_HIVE_COUNCIL_CHAIR
+	ruler_title_female = RT_HIVE_COUNCIL_CHAIR
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+			species = { has_trait = trait_multihive_core }
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+			species = { has_trait = trait_multihive_core }
+		}
+	}
+
+	possible = {
+		has_authority = auth_dictatorial
+		has_trait = trait_multihive
+	}
+
+	weight = {
+		base = 30000
+	}
+}
+
+# Hive Megacorporation
+gov_hive_plutocracy = {
+	ruler_title = RT_CHIEF_INVESTOR
+	ruler_title_female = RT_CHIEF_INVESTOR
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+			species = { has_trait = trait_multihive_core }
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+			species = { has_trait = trait_multihive_core }
+		}
+	}
+
+	possible = {
+		OR = {
+			has_valid_civic = civic_corporate_dominion
+			has_authority = auth_corporate
+		}
+		has_trait = trait_multihive
+	}
+
+	weight = {
+		base = 30000
+	}
+}
+
+# Hive Cult
+gov_hive_cult = {
+	ruler_title = RT_DIVINE_BROOD
+	ruler_title_female = RT_DIVINE_BROOD
+	heir_title = RT_LESSER_DIVINITY
+	heir_title_female = RT_LESSER_DIVINITY
+
+	use_regnal_names = yes
+	dynastic_last_names = yes
+
+	possible = {
+		has_authority = auth_imperial
+		has_trait = trait_multihive
+		has_valid_civic = civic_imperial_cult
+	}
+
+	weight = {
+		base = 40000
+	}
+}
+

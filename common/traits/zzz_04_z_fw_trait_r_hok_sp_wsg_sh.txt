@@ -1,0 +1,24 @@
+z_fw_trait_r_hok_sp_wsg_sh = {
+    cost = 0
+    potential_crossbreeding_chance = 0
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        SHENHAI
+    }
+    opposites = {
+        "z_fw_trait_r_hok_sp_wsg"
+    }
+    modifier = {
+        ship_hull_regen_add_perc = 0.5
+        ship_armor_regen_add_perc = 0.5
+        army_damage_mult = 0.25
+    }
+    slave_cost = {
+        energy = 100
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

@@ -1,0 +1,24 @@
+trait_complex_genetic_code = {
+    potential_crossbreeding_chance = 0.75
+    cost = -5
+    initial = no
+    randomized = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            has_technology = "tech_genetic_mastery"
+        }
+    }
+    modifier = {
+        pop_environment_tolerance = -0.1
+        planet_pops_organics_food_upkeep_mult = 0.1
+        planet_pops_organics_minerals_upkeep_mult = 0.1
+    }
+    ai_weight = {
+        weight = 0.5
+    }
+}

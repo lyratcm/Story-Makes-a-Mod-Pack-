@@ -1,0 +1,3 @@
+﻿l_english:
+ exponentgrowth: "Planetary Growth Effects"
+ exponentgrowth_desc: "This modifier affects planets in 3 ways:\n-Biological pops grow at an exponential rate of §Y1.01§!.\n-Robots get 1 §YRoboticist§! job per 25 robotic pops and grow incrementally.\n-Machines get 1 §YReplicator§! job per 20 pops and grow incrementally."

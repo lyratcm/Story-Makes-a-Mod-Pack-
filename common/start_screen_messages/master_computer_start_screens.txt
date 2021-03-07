@@ -1,0 +1,45 @@
+part = {
+    location = 1
+    localization = START_SCREEN_PART_TWO_MC_GENERIC
+
+    trigger = {
+        OR = {
+            has_government = gov_master_computer_generic
+            has_government = gov_master_computer_defense_grid
+            has_government = gov_master_computer_eminence
+        }
+    }
+}
+part = {
+    location = 1
+    localization = START_SCREEN_PART_TWO_MC_INTEGRATOR
+
+    trigger = {
+        has_government = gov_master_computer_integrator
+    }
+}
+part = {
+    location = 1
+    localization = START_SCREEN_PART_TWO_MC_PURIFIER
+
+    trigger = {
+        has_government = gov_master_computer_purifiers
+    }
+}
+part = {
+    location = 1
+    localization = START_SCREEN_PART_TWO_MC_VIRTUAL
+
+    trigger = {
+        has_government = gov_master_computer_virtual
+    }
+}
+part = {
+    location = 1
+    localization = START_SCREEN_PART_TWO_MC_DATAVORE
+
+    trigger = {
+        has_government = gov_master_computer_datavore
+    }
+}
+

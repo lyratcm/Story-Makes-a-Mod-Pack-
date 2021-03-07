@@ -1,0 +1,30 @@
+decision_GAPS_Plant_Spreading_Fields = {
+	icon = decision_GAPS_Plant_Spreading_Fields
+	owned_planets_only = yes
+	#sound = event_air_raid_siren
+	enactment_time = 30
+
+	resources = {
+		category = decisions
+		cost = {
+			food = 0
+		}
+	}
+	
+	potential = {
+		owner = { has_civic = Civic_GAPS_Planters }
+		NOR = { has_planet_flag = Planet_Flag_GAPS_Prosperous_Plant_Added }
+	}
+	effect = {
+		custom_tooltip = decision_GAPS_Plant_Spreading_Fields_short
+		hidden_effect = {
+			add_modifier = { modifier = "Planet_Modifier_GAPS_Spreading_Fields" days = -1 }
+			set_planet_flag = Planet_Flag_GAPS_Prosperous_Plant_Added
+			#add_district = d_GAPS_Spreading_Fields
+		}
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}

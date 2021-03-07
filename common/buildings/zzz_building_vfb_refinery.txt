@@ -1,0 +1,105 @@
+building_vfb_refinery = {
+    category = government
+    base_buildtime = 180
+    base_cap_amount = 1
+    icon = building_vfb_refinery
+    potential = {
+        NOR = {
+            has_building = building_vfb_refinery
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_refinery
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_refinery
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+    }
+    planet_modifier = {
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_translucer_add = 1
+        job_gas_refiner_add = 1
+        job_chemist_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_translucer_drone_add = 1
+        job_gas_refiner_drone_add = 1
+        job_chemist_drone_add = 1
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = 400
+        }
+        produces = {
+            exotic_gases = 1
+            volatile_motes = 1
+            rare_crystals = 1
+        }
+        upkeep = {
+            minerals = 4
+            energy = 4
+        }
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 10
+            factor = 10
+            owner = {
+                OR = {
+                    has_monthly_income = {
+                        resource = rare_crystals
+                        value < 0
+                    }
+                    has_monthly_income = {
+                        resource = volatile_motes
+                        value < 0
+                    }
+                    has_monthly_income = {
+                        resource = exotic_gases
+                        value < 0
+                    }
+                }
+                AND = {
+                    has_technology = tech_exotic_gases
+                    has_technology = tech_rare_crystals
+                    has_technology = tech_volatile_motes
+                }
+            }
+        }
+        modifier = {
+            weight = 10
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = minerals
+                    value > 60
+                }
+            }
+        }
+    }
+}

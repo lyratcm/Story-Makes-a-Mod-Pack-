@@ -1,0 +1,124 @@
+namespace = caretaker_origin_event
+country_event = {
+    id = caretaker_origin_event.3002
+    is_triggered_only = yes
+    hide_window = yes
+    trigger = {
+        has_origin = origin_caretaker
+        NOR = {
+            has_country_flag = caretaker_break_up
+            has_country_flag = caretaker_secession
+            has_country_flag = caretaker_experiment_scrapped
+        }
+    }
+    immediate = {
+        create_species = {
+            is_mod = no
+            name = "NAME_CARETAKER_SPECIES"
+            plural = "NAME_CARETAKER_SPECIES_PLURAL"
+            namelist = this
+            class = MACHINE
+            portrait = default_robot
+            traits = {
+                trait = trait_machine_unit
+                trait = trait_robot_caretaker_directives
+                trait = trait_robot_efficient_processors
+                trait = trait_robot_bulky
+            }
+            effect = {
+                PREV = {
+                    switch = {
+                        trigger = is_species_class
+                        HUM = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "sd_hum_robot"
+                                }
+                            }
+                        }
+                        MAM = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "sd_mam_robot"
+                                }
+                            }
+                        }
+                        REP = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "sd_rep_robot"
+                                }
+                            }
+                        }
+                        AVI = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "sd_avi_robot"
+                                }
+                            }
+                        }
+                        ART = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "sd_art_robot"
+                                }
+                            }
+                        }
+                        MOL = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "sd_mol_robot"
+                                }
+                            }
+                        }
+                        FUN = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "sd_fun_robot"
+                                }
+                            }
+                        }
+                        PLANT = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "sd_pla_robot"
+                                }
+                            }
+                        }
+                        LITHOID = {
+                            PREV = {
+                                change_species_characteristics = {
+                                    portrait = "lith_machine"
+                                }
+                            }
+                        }
+                    }
+                }
+                save_global_event_target_as = caretaker_robotic_species@root
+            }
+        }
+        random_owned_planet = {
+            limit = {
+                colony_type = col_wardworld
+                num_pops > 20
+                NOT = {
+                    solar_system = {
+                        any_system_planet = {
+                            is_colony = yes
+                            NOT = {
+                                is_same_value = PREVPREV
+                            }
+                        }
+                    }
+                }
+            }
+            save_global_event_target_as = caretaker_secession_target_planet@root
+        }
+        event_target:caretaker_secession_target_planet@root = {
+            planet_event = {
+                id = caretaker_origin_event.3003
+                days = 0
+            }
+        }
+    }
+}

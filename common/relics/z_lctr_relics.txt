@@ -1,0 +1,43 @@
+###_z lctr---relics	##########################################################################
+
+#_vanila variables
+@activation_cost = 150
+@triumph_duration = 3600
+@triumph_duration_short = 1800
+@triumph_duration_veryshort = 900
+
+
+
+
+#_苍雪山矩阵
+z_lctr_r_adv_sensor = {
+	activation_duration = 0
+	portrait = "GFX_z_lctr_r_adv_sensor"
+	sound = "relic_activation_the_omnicodex"
+	
+	ai_weight = { weight = 0 }
+	score = 500
+
+	resources = {
+		category = relics
+		cost = { influence = 50 }
+	}
+
+	active_effect = {
+		custom_tooltip = z_lctr_r_adv_sensor_effect
+		hidden_effect = {
+		#	set_timed_country_flag = { flag = z_lctr_r_adv_sensor_activated_full days = 360 }
+		#	set_timed_country_flag = { flag = z_lctr_r_adv_sensor_activated days = 3600 }
+			if = {
+				limit = { has_modifier = z_lctr_mod_cntr_sensor }
+				remove_modifier = z_lctr_mod_cntr_sensor
+			}
+			else = {
+				add_modifier = { modifier = z_lctr_mod_cntr_sensor days = -1 }
+			}
+		}
+	}
+
+	# Possible check for activation
+	possible = { always = yes }
+}

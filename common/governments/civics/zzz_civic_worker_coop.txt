@@ -1,0 +1,5 @@
+civic_worker_coop = {
+    potential = {
+        always = no
+    }
+}

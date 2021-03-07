@@ -1,0 +1,14 @@
+district_GAPS_Underground_Districts = {
+    base_buildtime = 480
+    is_capped_by_modifier = yes
+    min_for_deposits_on_planet = 1
+    max_for_deposits_on_planet = 50
+    show_on_uncolonized = {
+        exists = owner
+    }
+    potential = {
+        not = {
+            exists = owner
+        }
+    }
+}

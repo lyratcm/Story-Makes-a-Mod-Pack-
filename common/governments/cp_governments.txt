@@ -1,0 +1,78 @@
+# Toothpaste Conglomerate
+cp_gov_toothpaste_conglomerate = {
+	ruler_title = RT_CEO
+	ruler_title_female = RT_CEO_FEMALE
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+		}
+	}
+	possible = {
+		AND = {
+			has_authority = auth_corporate
+			has_valid_civic = cp_civic_toothpaste_enterprise
+		}
+	}
+	weight = {
+		base = 1000
+	}
+}
+cp_gov_space_cantina = { ##Space Cantina
+	ruler_title = RT_OLIGARCH
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+		}
+	}
+	possible = {
+		AND = {
+			has_authority = auth_corporate
+			has_valid_civic = cp_civic_space_cantina
+		}
+	}
+	weight = {
+		base = 1200
+	}
+}
+cp_gov_shady_establishment = { ##Shady Establishment
+	ruler_title = RT_OLIGARCH
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+		}
+	}
+	possible = {
+		AND = {
+			has_authority = auth_corporate
+			has_valid_civic = cp_civic_space_cantina
+			has_valid_civic = civic_criminal_heritage
+		}
+	}
+	weight = {
+		base = 2100
+	}
+}

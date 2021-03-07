@@ -1,0 +1,18 @@
+###_Z FW 星级建筑 占位符	#############################################################
+
+###_Z POTE
+#_space engineer
+z_sbb_n_constructor = {
+	icon = "GFX_z_fw_addon"
+	construction_days = 7
+	potential = { always = no }
+	possible = { always = no }
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 7 }
+		upkeep = { energy = 1 }
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = no
+	ai_weight = { weight = 0 }
+}

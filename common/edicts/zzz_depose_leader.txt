@@ -1,0 +1,31 @@
+depose_leader = {
+	length = 1
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+	
+	allow = {
+		NOT = { has_modifier = recently_deposed_ruler }
+	}
+	
+	effect = {
+		custom_tooltip = edict_depose_leader_tooltip_effect
+		hidden_effect = {
+			country_event = { id = civicsexpanded.38 }
+		}
+	}
+	
+	potential = {
+		OR = {
+			has_valid_civic = civic_shadow_council
+			has_valid_civic = civic_shadow_council_megacorp
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

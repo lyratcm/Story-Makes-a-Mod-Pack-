@@ -1,0 +1,5 @@
+trait_robot_quarrelsome = {
+    cost = -1
+    initial = no
+    modification = no
+}

@@ -1,0 +1,36 @@
+origin_ancient_dynasty = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_ancient_dynasty.dds"
+	picture = GFX_origin_syncretic_evolution
+	max_once_global = yes
+    potential = {
+		always = no
+	}
+	possible = {
+		authority = {
+			value = auth_imperial
+		}
+		ethics = {
+			OR = {
+				text = civic_tooltip_authoritarian
+				value = ethic_authoritarian
+				value = ethic_fanatic_authoritarian
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_merchant_guilds
+				value = civic_technocracy
+				value = eco_civic_consumerist
+			}
+		}
+	}
+	
+	description = "civic_tooltip_ancient_dynasty_effects"
+
+	flags = { custom_gov_desc }
+
+	random_weight = {
+		base = 10
+	}
+}

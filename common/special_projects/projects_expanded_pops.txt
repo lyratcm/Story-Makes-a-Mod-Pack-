@@ -1,0 +1,193 @@
+# Available requirements:
+#
+#	SKILLS
+#	skill = 2
+#
+#	LEADER
+#	leader = scientist
+#	leader = admiral
+#	leader = general
+#	leader = ruler
+#	leader = governor
+#	
+#	MILITARY SHIPS
+#	shipclass_military = 1
+#	
+#	CIVILIAN SHIPS
+#	shipclass_constructor = 2
+#	shipclass_science_ship = 1
+#	shipclass_colonizer = 2
+#	
+#	ARMIES
+#	shipclass_transport = 1
+#	assault_armies = 2
+#	defense_armies = 1
+#	
+#	STATIONS
+#	research_station = yes
+#	mining_station = yes
+#	observation_station = yes
+#
+#	SCOPES
+#	abort_trigger
+#	this = country (project owner)
+#	from = event scope (planet or ship, MIGHT NOT EXIST)
+#	fromfrom = project creation scope (usually equals location)
+#	
+#	on_success
+#	this = event scope (ship or planet)
+#	from = project creation scope (usually equals location)
+#	
+#	on_fail
+#	this = country (project owner)
+#	from = project creation scope (usually equals location)
+
+### Modded ###
+special_project = {
+	key = "MIGRATING_VENERABLE_COLONY_1_PROJECT"
+	event_chain = "migrating_venerable_colony_chain"
+	cost = 2000
+	tech_department = engineering_technology
+	picture = GFX_evt_engineering_research
+	
+	event_scope = planet_event
+	
+	on_success = {
+		planet_event = { id = popexpanded.14 }
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "MIGRATING_VENERABLE_COLONY_2_PROJECT"
+	event_chain = "migrating_venerable_colony_chain"
+	cost = 0
+	days_to_research = 120
+	tech_department = society_technology
+	picture = GFX_evt_big_landing_ship
+	
+	event_scope = planet_event
+	
+	requirements = {
+		shipclass_transport = 2
+	}
+	
+	on_success = {
+		planet_event = { id = popexpanded.15 }
+		owner = { end_event_chain = "migrating_venerable_colony_chain" }
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "SPECIES_INFEST"
+	cost = 0
+	days_to_research = 1800
+	#days_to_research = 7
+	tech_department = society_technology
+	picture = GFX_evt_society_research
+
+	event_scope = planet_event
+
+	requirements = {
+	}
+	
+	on_success = {
+		owner = { country_event = { id = civicsexpanded.28 } }
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "FE_PROBE_PROJECT"
+	cost = 0
+	days_to_research = 360
+	tech_department = society_technology
+	picture = GFX_evt_engineering_research
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill = 4
+	}
+	
+	on_success = {
+		ship_event = { id = civicsexpanded.86 }
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "FE_CONTINGENCY_PROJECT"
+	cost = 0
+	days_to_research = 360
+	tech_department = society_technology
+	picture = GFX_evt_physics_research
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill = 4
+	}
+	
+	on_success = {
+		ship_event = { id = civicsexpanded.88 }
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "FE_BIO_SAMPLE_PROJECT"
+	cost = 0
+	days_to_research = 360
+	tech_department = society_technology
+	picture = GFX_evt_physics_research
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = {
+		random_list = {
+			1 = { ship_event = { id = civicsexpanded.90 } }
+			1 = { ship_event = { id = civicsexpanded.91 } }
+			1 = { ship_event = { id = civicsexpanded.92 } }
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "FE_DEBUGGING_PROJECT"
+	cost = 4000
+	tech_department = engineering_technology
+	picture = GFX_evt_glitchy_matrix
+	
+	event_scope = planet_event
+	
+	on_success = {
+		planet_event = { id = civicsexpanded.96 }
+	}
+	
+	on_fail = {
+	}
+}

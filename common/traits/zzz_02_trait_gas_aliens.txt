@@ -1,0 +1,12 @@
+trait_gas_aliens = {
+    icon = "gfx/interface/icons/traits/trait_gas_aliens.dds"
+    cost = 0
+    sorting_priority = 20
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modification = no
+    modifier = {
+        pop_growth_speed = -0.1
+    }
+}

@@ -1,0 +1,23 @@
+trait_governor_master_of_works = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_governor_master_of_works.dds"
+    modifier = {
+        planet_max_districts_add = 1
+        planet_max_buildings_add = 1
+    }
+    leader_trait = {
+        governor
+    }
+    leader_class = {
+        governor
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_presapient_earthbound
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

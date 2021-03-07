@@ -1,0 +1,10 @@
+
+namespace = tcf
+
+###placeholder###
+country_event = {
+	id = tcf.9
+	hide_window = yes	#_
+	is_triggered_only = yes
+	immediate = {}
+}

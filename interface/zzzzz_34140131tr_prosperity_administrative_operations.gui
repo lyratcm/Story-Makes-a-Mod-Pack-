@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_2 = 96
+    @y_1 = 55
+    positionType = {
+        name = "tr_prosperity_administrative_operations"
+        position = {
+            x = @x_2
+            y = @y_1
+        }
+    }
+}

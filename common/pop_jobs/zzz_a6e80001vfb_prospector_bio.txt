@@ -1,0 +1,36 @@
+vfb_prospector_bio = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_vfb_asteroid
+    clothes_texture_index = 3
+    icon = vfb_prospector_bio
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        specialist_job_check_trigger = yes
+        hidden_trigger = {
+            exists = owner
+        }
+        or = {
+            has_job = vfb_prospector_bio
+            z_pop_job_trigger = yes
+        }
+    }
+    resources = {
+        category = planet_miners
+        produces = {
+            engineering_research = 2
+            minerals = 8
+        }
+        upkeep = {
+            energy = 2
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+    }
+}

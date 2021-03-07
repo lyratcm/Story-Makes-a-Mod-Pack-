@@ -1,0 +1,23 @@
+trait_governor_for_the_horde = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_governor_for_the_horde.dds"
+    modifier = {
+        armies_cost_mult = -0.50
+        planet_army_build_speed_mult = 0.50
+    }
+    leader_trait = {
+        governor
+    }
+    leader_class = {
+        governor
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_fertile
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

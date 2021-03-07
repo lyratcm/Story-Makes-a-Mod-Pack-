@@ -1,0 +1,87 @@
+###_[ASB]
+#_[ship_behavior]=禁用			增长了所有距离,舰队空隙增大,拥挤随机移动减少
+#_[sound]=禁用					新增爆炸声响,不适合快节奏混战
+#_[component_templates]=禁用	隐藏武器entity,战机速度变慢/火力下降
+
+	NCamera = {
+		###_realistic_camera + Cinematic Camera
+		FOV								= 45 	#_[RC]60 [VANILLA]35
+
+		GALAXY_SHOW_FLEETS_ZOOM 		= 1450	#_2300
+		GALAXY_SHOW_STARNAME_ZOOM 		= 650	#_800
+	#	GALAXY_SHOW_FILTERICONS_ZOOM 	= 350	# Camera zoom interval to show filter icons
+		
+		ZOOM_STEPS_GALAXY 			 	= { 100 170 250 350 500 700 1000 1400 2000 2800}
+		#_{ 100 200 400 600 900 1500 3000 }
+		ZOOM_STEPS_SYSTEM_PERCENTAGES	= { 0.005 0.01 0.02 0.04 0.08 0.16 0.32 0.64 1.2 2.2 3.0} #_星系尺寸对缩放比例影响{ 0.025 0.1 0.25 0.5 1.0 1.5 3.0 }
+		
+		HIDE_ORBITS_ZOOM 				= 1500	#_0	no orbital line in 这个范围
+		
+		LEAVE_SYSTEM_ZOOM_STEP 			= 2		#_1 缩放几次出星系
+		ENTER_SYSTEM_ZOOM_STEP 			= 10	#_6 缩放几次入星系
+		SYSTEM_FOCUS_PLANET_STEP 		= 4		# Controls which zoom step to planet zoom to in a system
+		
+		#_反转幅度
+		SYSTEM_MIN_PITCH				= 0.0	#_20
+		SYSTEM_MAX_PITCH				= 89.0	#_80
+		FOCUSED_MIN_PITCH				= -85.0 #_-80
+		FOCUSED_MAX_PITCH				= 89.0	#_80
+		GALAXY_MIN_PITCH				= 15.0	#_30
+		GALAXY_MAX_PITCH				= 89.0	#_85
+		
+		SYSTEM_CAMERA_RESTRICT_EXTRA_SPACE 		= 100.0	#_100
+		
+		FOCUSED_MIN_ZOOM_BASE			= 10.0	#_20
+		FOCUSED_MIN_ZOOM_MULT			= 0.6	#_0.5
+		FOCUSED_PLANET_MIN_ZOOM_MULT	= 1.1	#_1.6
+		FOCUSED_ZOOM_RATE				= 0.1	#_0.2 缩放速度
+		FOCUS_START_ZOOM_STEP			= 3 	#_4 聚焦一个新物体的默认缩放
+		
+		NEBULA_NAMES_FADEOUT_ZOOM		= 200	#_250
+		ROTATION_RADIANS_PER_MOUSE_UNIT = 0.002 #_0.004 鼠标移动1像素镜头转动角度
+	}
+
+	NGraphics = {
+		###_[Z_GRAPHIC_2]
+		RELATION_COLOR_PLAYER_HSV			= { 0.62 0.9 0.44 }		#_{ 0.67 0.8 0.35 }
+		RELATION_COLOR_ALLIED_HSV			= { 0.78 0.85 0.55 }	#_{ 0.8 0.35 0.4 }
+		RELATION_COLOR_NEUTRAL_HSV			= { 0.0 0.0 0.16 }		#_{ 0.0 0.0 0.22 }
+		RELATION_COLOR_HOSTILE_HSV			= { 0.0 0.85  0.75 }	#_{ 0.0 0.3  0.3 }
+		RELATION_COLOR_SELECTED_RGB			= { 2.5 2.5 2.5}		#_{ 1.5 1.1 0.0}
+		
+	#	PLANET_SCALE_SYSTEM 				= { 0.425 0.325 0.35 0.5 0.5 0.5 0.75 }		#_与ZOOM_STEPS_SYSTEM_PERCENTAGES对应
+		###_realistic_camera	拉进镜头轨道线消失
+		ORBIT_HSV							= { 0.0 0.0 0.75 }	#_{ 0.44 0.8 0.6 }
+	#	SYSTEM_INNER_BORDER_HSV				= { 0.0 0.0 1.0 }
+	#	SYSTEM_OUTER_BORDER_HSV				= { 0.1 0.8 0.9 }
+	#	SYSTEM_LINE_ALPHA_FADE_STEP			= { 1 5 }			#_{ 1 6 }
+	#	SYSTEM_LINE_ALPHA_FADE_VALUE		= { 0.1 0.04 }		#_{ 0.1 0.05 }
+		
+		###_smaller_names_defines
+		MAPNAME_BORDER_SCALE				= 0.55		#_1.0
+		MAPNAME_BORDER_MIN_SIZE				= 80		#_100
+		#MAPNAME_BORDER_OFFSET_MUL			= 0.75
+		#MAPNAME_BORDER_OFFSET_ADD			= 4.0
+		MAPNAME_NEBULA_SCALE				= 0.65		#_0.8
+		MAPNAME_SECTOR_SCALE				= 2.8		#_3
+		
+		###_Better Galaxy
+		GALAXY_STAR_ICON_SCALE				= 1.25		#_1.5	BGM 0.55
+		GALAXY_STAR_ICON_MAX_SCALE 			= 1.0		#_1.25	BGM 0.6
+		GALAXY_DUST_SIZE 					= 35.0		#_25	BGM 40
+		GALAXY_DUST_SIZE_EXTRA 				= 40.0		#_35	BGM 45
+		GALAXY_DUST_ROTATION_SPEED			= 0.055
+		GALAXY_NEBULA_DUST_SIZE 			= 20.0		#_10	BGM 25
+		GALAXY_NEBULA_DUST_SIZE_EXTRA 		= 30.0		#_25	BGM 35
+		GALAXY_NEBULA_DUST_ROTATION_SPEED	= 0.080
+		
+		STAR_PIN_CIRCLE_RADIUS				= 2.0		# The lines that go from solar systems down to the 0-plane. This is the radius of that circle
+		STAR_PIN_CIRCLE_NUM_POINTS			= 0			# how many points in the circle on the 0-plane
+		STAR_PIN_ENABLE_NEUTRAL				= no		# Should the game draw pins for stars that are not within any borders?
+		STAR_PIN_ENABLE_FACTION				= no		# Should the game draw pins for stars that are not within any borders?
+		STAR_PIN_NEUTRAL_COLOR				= { 0 0 0 0 }	# The color for pins that are not inside any borders
+		
+		#_星系高度差
+		RANDOM_HEIGHT_MIN					= -7.0		#_-20	BGM-10
+		RANDOM_HEIGHT_MAX					= 7.0		#_20	BGM10
+	}

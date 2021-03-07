@@ -1,0 +1,25 @@
+namespace = ss
+
+event = {
+	id = ss.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_playable_country = {
+			if = {
+				limit = {
+					any_owned_pop_species = {
+						has_citizenship_type = {
+							type = citizenship_assimilation
+							country = prev
+						}
+					}
+				}
+				every_owned_planet = {
+					planet_event = { id = ss.5 }
+				}
+			}
+		}
+	}
+}

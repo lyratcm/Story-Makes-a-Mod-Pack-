@@ -1,0 +1,27 @@
+civic_survivors_of_invasion = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_xenophobe
+                value = ethic_xenophobe
+                value = ethic_fanatic_xenophobe
+            }
+        }
+        authority = {
+        }
+    }
+    modification = no
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        army_morale = 0.20
+        country_leader_pool_size = 3
+        max_rivalries = 5
+        ship_home_territory_fire_rate_mult = 0.3
+        country_trust_cap_add = -30
+    }
+}

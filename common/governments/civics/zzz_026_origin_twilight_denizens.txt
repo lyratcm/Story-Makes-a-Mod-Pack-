@@ -1,0 +1,23 @@
+origin_twilight_denizens = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_twilight_denizens.dds"
+	picture = GFX_origin_twilight_denizens
+	max_once_global = yes
+
+	starting_colony = pc_tidallylocked
+	habitability_preference = pc_tidallylocked
+
+	possible = {
+	}
+	
+	modifier = {
+		pop_environment_tolerance = 0.10
+	}
+
+	description = "civic_tooltip_twilight_denizens_effects"
+	flags = { custom_start_screen }
+
+	random_weight = {
+		base = 2
+	}
+}

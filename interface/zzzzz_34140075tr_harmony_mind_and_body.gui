@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_1 = 61
+    @y_1 = 55
+    positionType = {
+        name = "tr_harmony_mind_and_body"
+        position = {
+            x = @x_1
+            y = @y_1
+        }
+    }
+}

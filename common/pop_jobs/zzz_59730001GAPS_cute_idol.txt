@@ -1,0 +1,31 @@
+GAPS_cute_idol = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_GAPS_Fawning_Den
+    clothes_texture_index = 1
+    possible = {
+        ruler_job_check_trigger = yes
+    }
+    pop_modifier = {
+        planet_pops_upkeep_mult = 1
+    }
+    planet_modifier = {
+        trade_value_add = 1
+        planet_immigration_pull_mult = 0.1
+        pop_growth_from_immigration = 0.1
+        pop_happiness = 0.05
+    }
+    triggered_country_modifier = {
+        potential = {
+            solar_System.starbase = {
+                has_starbase_building = Starbase_Bulding_GAPS_Broadcasting_station
+            }
+        }
+        modifier = {
+            country_trust_growth = 0.05
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+    }
+}

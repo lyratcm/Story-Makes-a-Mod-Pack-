@@ -1,0 +1,122 @@
+namespace = marauder
+
+country_event = {
+	id = marauder.507
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		create_2nd_khan_fleet = yes
+		create_marauder_fleet = yes
+		create_marauder_armies = yes
+		create_marauder_armies = yes
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					OR = {
+						fleet_power > 40000
+						any_owned_planet = {
+							has_planet_flag = fallen_empire_world
+						}
+					}
+				}
+			}
+			create_marauder_fleet = yes
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					OR = {
+						fleet_power > 50000
+						any_owned_planet = {
+							has_planet_flag = fallen_empire_world
+						}
+					}
+				}
+			}
+			create_marauder_fleet = yes
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					OR = {
+						fleet_power > 60000
+						any_owned_planet = {
+							has_planet_flag = fallen_empire_world
+						}
+					}
+				}
+			}
+			create_marauder_fleet = yes
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					OR = {
+						fleet_power > 70000
+						any_owned_planet = {
+							has_planet_flag = fallen_empire_world
+						}
+					}
+				}
+			}
+			create_marauder_fleet = yes
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					OR = {
+						fleet_power > 80000
+						any_owned_planet = {
+							has_planet_flag = fallen_empire_world
+						}
+					}
+				}
+			}
+			create_marauder_fleet = yes
+			create_marauder_fleet = yes
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					OR = {
+						fleet_power > 90000
+						any_owned_planet = {
+							has_planet_flag = fallen_empire_world
+						}
+					}
+				}
+			}
+			create_marauder_fleet = yes
+			create_marauder_fleet = yes
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					OR = {
+						fleet_power > 100000
+						any_owned_planet = {
+							has_planet_flag = fallen_empire_world
+						}
+					}
+				}
+			}
+			create_marauder_fleet = yes
+			create_marauder_fleet = yes
+			create_marauder_fleet = yes
+		}
+		observer_event = { id = observer.15 }
+		every_country = {
+			limit = { is_ai = no }
+			country_event = { id = marauder.508 }
+		}
+	}
+}

@@ -1,0 +1,35 @@
+guiTypes = {
+    containerWindowType = {
+        name = "order_window"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = 452
+            height = 30
+        }
+        clipping = yes
+        buttonType = {
+            name = "background"
+            quadTextureSprite = "GFX_event_button_452"
+            position = {
+                x = -12
+                y = -1
+            }
+            clicksound = confirmation
+        }
+        instantTextBoxType = {
+            name = "text"
+            font = "cg_16b"
+            position = {
+                x = 10
+                y = 7
+            }
+            maxHeight = 16
+            maxWidth = 432
+            fixedSize = yes
+            alwaysTransparent = yes
+        }
+    }
+}

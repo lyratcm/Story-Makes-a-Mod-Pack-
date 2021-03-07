@@ -1,0 +1,9 @@
+lrsk_gov_var_civic_hive_caste_quickening = {
+	potential = { authority = { value = auth_hive_mind } }
+    #icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_hive.dds"
+	random_weight = { base = 5 }
+	modifier = {
+		species_leader_exp_gain = 0.1
+    	modify_species_cost_mult = -0.075
+	}
+}

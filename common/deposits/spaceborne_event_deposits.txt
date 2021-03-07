@@ -1,0 +1,165 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# blocked_modifier - applied to planet
+# planet_modifier - applied to planet always
+# station = station class in orbit to gather
+
+d_artist_monument = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_monument
+	
+	planet_modifier = {
+		planet_amenities_mult = 0.15
+		planet_jobs_unity_produces_mult = 0.15
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_immigration_pull_mult = 0.50
+			pop_ethic_xenophile_attraction_mult = 0.15
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_xenophobe = yes
+			}
+		}
+		modifier = {
+			pop_ethic_xenophobe_attraction_mult = 0.15
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_spiritualist = no
+				is_megacorp = no
+			}
+		}
+		modifier = {
+			job_culture_worker_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_spiritualist = yes
+			}
+		}
+		modifier = {
+			job_priest_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_spiritualist = no
+				is_megacorp = yes
+			}
+		}
+		modifier = {
+			job_manager_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_global_flag = expanded_pops_active
+				has_civic = civic_technocracy
+			}					
+		}
+		modifier = {
+			job_culture_worker_add = -2
+			job_culture_science_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = expanded_pops_active
+			exists = owner
+			owner = {
+				has_valid_civic = civic_private_military_companies
+			}
+		}
+		modifier = {	
+			job_chaplain_add = 2
+			job_priest_add = -2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = expanded_pops_active
+			exists = owner
+			owner = {
+				has_valid_civic = civic_crusaders
+			}
+		}
+		modifier = {	
+			job_templar_add = 2
+			job_priest_add = -2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = expanded_pops_active
+			exists = owner
+			owner = {
+				has_valid_civic = civic_private_military_companies
+				is_spiritualist = no
+			}
+		}
+		modifier = {	
+			job_logistics_officer_add = 2
+			job_manager_add = -2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_synapse_drone_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {	
+			job_evaluator_add = 2
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

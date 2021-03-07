@@ -1,0 +1,50 @@
+@speed9 = 170
+@acceleration6 = 0.9
+@rotation6 = 5
+lithoid_colonizer = {
+    graphical_culture = no
+    entity = "lithoid_01_meteor_colonyship_entity"
+    max_speed = @speed9
+    acceleration = @acceleration6
+    rotation_speed = @rotation6
+    modifier = {
+        ship_evasion_add = @colony_evasion
+    }
+    max_hitpoints = @colony_hp
+    size_multiplier = 1
+    fleet_slot_size = 1
+    section_slots = {
+        "mid" = {
+            locator = "part1"
+        }
+    }
+    num_target_locators = 0
+    icon_frame = 10
+    base_buildtime = 150
+    combat_disengage_chance = 0.2
+    is_space_station = no
+    enable_default_design = yes
+    is_designable = no
+    is_civilian = yes
+    components_add_to_cost = no
+    valid_target_aggressive_stance = no
+    auto_upgrade = yes
+    potential_country = {
+        has_origin = origin_lithoid
+    }
+    prerequisites = {
+        "tech_colonization_1"
+    }
+    class = shipclass_colonizer
+    construction_type = starbase_shipyard
+    resources = {
+        category = ships
+        cost = {
+            minerals = 500
+        }
+    }
+    required_component_set = "power_core"
+    required_component_set = "ftl_components"
+    required_component_set = "thruster_components"
+    required_component_set = "sensor_components"
+}

@@ -1,0 +1,27 @@
+civic_war_economy = {
+    description = "civic_tooltip_war_economy_effects"
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                value = ethic_militarist
+                value = ethic_fanatic_militarist
+            }
+        }
+        civics = {
+            NOT = {
+                value = civic_peaceful_society
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        starbase_shipyard_build_time_mult = -0.15
+        planet_jobs_alloys_produces_mult = 0.20
+        planet_jobs_consumer_goods_produces_mult = -0.15
+    }
+}

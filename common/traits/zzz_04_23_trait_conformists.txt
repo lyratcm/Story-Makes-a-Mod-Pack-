@@ -1,0 +1,52 @@
+trait_conformists = {
+    cost = 2
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    modifier = {
+        pop_government_ethic_attraction = 0.30
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    opposites = {
+        "trait_eusocial"
+        "trait_deviants"
+        "trait_iconoclasts"
+        "trait_hive_mind"
+        "trait_machine_unit"
+        "trait_additrait_iconoclastic"
+        "trait_additrait_free_spirits"
+        "trait_obedient"
+    }
+    ai_weight = {
+        weight = 100
+        modifier = {
+            factor = 2
+            is_authoritarian = yes
+        }
+        modifier = {
+            factor = 0
+            is_egalitarian = yes
+            root = {
+                NOT = {
+                    has_citizenship_type = {
+                        country = prev
+                        type = citizenship_slavery
+                    }
+                }
+            }
+        }
+        modifier = {
+            factor = 0
+            root = {
+                has_citizenship_type = {
+                    country = prev
+                    type = citizenship_organic_trophy
+                }
+            }
+        }
+    }
+}

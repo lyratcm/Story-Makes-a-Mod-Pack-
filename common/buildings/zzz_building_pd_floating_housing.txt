@@ -1,0 +1,109 @@
+building_floating_housing = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	category = amenity
+
+	potential = {
+		NOT = { is_planet_class = pc_habitat }
+		NOT = { is_planet_class = pc_pd_barren_hab }
+		NOT = { is_planet_class = pc_pd_barren_cold_hab }
+		NOT = { is_planet_class = pc_pd_gas_giant_hab }
+		NOT = { is_planet_class = pc_pd_frozen_hab }
+		NOT = { is_planet_class = pc_pd_molten_hab }
+		NOT = { is_planet_class = pc_pd_toxic_hab }
+		NOT = { is_planet_class = pc_pd_hothouse_hab }
+		NOT = { is_planet_class = pc_pd_asteroid_hab }
+		NOT = { has_modifier = slave_colony }
+		exists = owner
+		owner = {
+			resource_stockpile_compare = {
+				resource = sr_eludium
+				value >= 1
+			}
+		}
+	}
+
+	allow = {
+		buildings_simple_allow = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			AND = {
+				free_building_slots = 0
+				free_jobs < 1
+				free_housing > 10
+				owner = {
+					is_ai = yes
+				}
+			}
+			has_modifier = slave_colony
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_amenities_add = 10
+		planet_housing_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_functional_architecture
+                    has_valid_civic = civic_functional_architecture_megacorp
+                }
+            }
+        }
+        planet_housing_add = 2
+    }
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+			sr_eludium = 500
+		}
+		upkeep = {
+			rare_crystals = 1
+			energy = 5
+		}
+	}
+	
+	prerequisites = {
+		"tech_floating_housing"
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 100 #High weight to gurantee that if the below is true then the AI should build it
+			free_housing < 5 #Prevents the AI from running out of residences when nearly out of tiles
+			OR = {
+				free_jobs > 0 #prevents spamming of residence buildings when no jobs are open
+				AND = {
+					free_housing <= 0 #Prevents the AI from running out of residences when nearly out of tiles
+					not = { any_owned_pop = { is_unemployed = yes } }
+				}
+			}
+			free_district_slots = 0 #Do not build when city districts can still be built
+			NOT = { is_planet_class = pc_habitat }
+		}
+	}
+}

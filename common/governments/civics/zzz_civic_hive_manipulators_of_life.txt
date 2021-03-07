@@ -1,0 +1,15 @@
+civic_hive_manipulators_of_life = {
+    description = "civic_tooltip_manipulators_of_life_effects"
+    modification = no
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        pop_growth_speed = 0.05
+        BIOLOGICAL_species_trait_points_add = 1
+        modify_species_cost_mult = -0.25
+    }
+}

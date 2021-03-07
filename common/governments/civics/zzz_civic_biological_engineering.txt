@@ -1,0 +1,7 @@
+civic_biological_engineering = {
+    modification = no
+    description = "civic_tooltip_biological_engineering_effects"
+    potential = {
+        always = no
+    }
+}

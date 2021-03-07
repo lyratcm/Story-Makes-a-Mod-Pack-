@@ -1,0 +1,255 @@
+###_Z FW MISSILE & STRIKECRAFT WEAPONS	#############################################################
+
+# ──z_fw_tech_weap_missile_6~9
+#     └─
+# ──z_fw_tech_weap_torpedo_6~9
+#     └─
+# ──z_fw_tech_weap_missile_swarm_6~9
+#     └─
+# ──z_fw_tech_weap_hanger_6~9
+#     └─
+
+
+
+
+###_Z FW ADV MISSILE	##############################################
+
+z_fw_tech_weap_missile_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_missiles_5"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_missile_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_missile_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_missile_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_missile_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_missile_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_missile_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV TORPEDO	##############################################
+
+z_fw_tech_weap_torpedo_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_torpedoes_3"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_torpedo_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_torpedo_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_torpedo_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_torpedo_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_torpedo_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_torpedo_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV M SWARMER	##############################################
+
+z_fw_tech_weap_missile_swarm_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_swarmer_missiles_2"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_missile_swarm_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_missile_swarm_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_missile_swarm_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_missile_swarm_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_missile_swarm_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_missile_swarm_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV H STRIKECRAFT	##############################################
+
+z_fw_tech_weap_hanger_6 = {
+	area = engineering
+	category = { voidcraft }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_strike_craft_3"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_hanger_7 = {
+	area = engineering
+	category = { voidcraft }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_hanger_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_hanger_8 = {
+	area = engineering
+	category = { voidcraft }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_hanger_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_hanger_9 = {
+	area = engineering
+	category = { voidcraft }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_hanger_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+

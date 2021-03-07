@@ -1,0 +1,48 @@
+﻿l_polish:
+ ##############################################
+ # Replaced localisation for Superior Species #
+ ##############################################
+ 
+ TRAIT_NERVE_STAPLED_EFFECT:2 "$mod_planet_jobs_produces_mult$: §G+10%§!\nCannot generate §YLeaders§!\nCannot be employed in §Y$pop_cat_ruler$§! or §Y$pop_cat_specialist$§! Jobs§!"
+ trait_fertile:0 "Fertile"
+ trait_fertile_desc:1 "§LThe natural fecundity and geniality of this species is quite dramatic. Can generate §GFor the Horde§! governors.§!\n"
+ trait_erudite:0 "Erudite"
+ trait_erudite_desc:1 "§LThe mental acuity seen in members of this species is quite remarkable. Can generate §GMentat§! rulers.§!\n"
+ trait_robust:0 "Robust"
+ trait_robust_desc:0 "§LNumerous redundant organs and an optimised biochemistry make this species extraordinarily resistant to environmental hazards and disease. Can generate §GManifest Destiny§! rulers, §GSurvivalist§! governors, and §GNegligible Senescence§! leaders.§!\n"
+ trait_venerable:0 "Venerable"
+ trait_venerable_desc:0 "§LThis species can grow to an age that commands dignity and respect. Can generate §GWisdom of the Ages§! leaders.§!\n"
+ trait_natural_engineers:0 "Natural Engineers"
+ trait_natural_engineers_desc:0 "§LMembers of this species have a natural inclination towards engineering and material sciences. Can generate §GSingularitarian§! rulers§!\n"
+ trait_natural_physicists:0 "Natural Physicists"
+ trait_natural_physicists_desc:0 "§LMembers of this species have a natural inclination towards theoretical physics and astral phenomena. Can generate §GCryptologist§! rulers.§!\n"
+ trait_natural_sociologists:0 "Natural Sociologists"
+ trait_natural_sociologists_desc:0 "§LMembers of this species have a natural inclination towards sociology and biological studies. Can generate §GSpymaster§! rulers.§!\n"
+ trait_very_strong:0 "Mighty"
+ trait_very_strong_desc:0 "§LMembers of this species possess a strength that almost defies the laws of physics. Can generate §GStar Paladins§! generals. §!\n"
+ trait_presapient_starborn:0 "Starborn"
+ trait_presapient_starborn_desc:0 "§LThis species has always, consciously or not, longed to traverse the void between the stars. Can generate §GUnstoppable Force§! leaders. §!\n"
+ trait_presapient_earthbound:0 "Earthbound"
+ trait_presapient_earthbound_desc:0 "§LMembers of this species are very possessive of the planets they call home. Can generate §GMaster of Works§! leaders. §!\n"
+ trait_presapient_natural_intellectuals:0 "Natural Intellectuals"
+ trait_presapient_natural_intellectuals_desc:0 "§LMembers of this species are more philosophically inclined than most. Can generate §GMegalomaniac§! leaders. §!\n"
+ trait_presapient_proles:0 "Proles"
+ trait_presapient_proles_desc:0 "§LThis species has traditionally shunned intellectual pursuits in favor of physical labor. Can generate §GOccam's Razor§! leaders. §!\n"
+ trait_presapient_conservative:0 "Conservative"
+ trait_presapient_conservative_desc:0 "§LMembers of this species often prefer old wisdom over new experiences. Can generate §GLaw and Order§! leaders. §!\n"
+ trait_presapient_irradiated:0 "Irradiated"
+ trait_presapient_irradiated_desc:0 "§LThis species has evolved to thrive in environments subject to extremely high levels of background radiation. Can generate §GApocalypse§! leaders. §!\n"
+ trait_robot_efficient_processors:0 "Efficient Processors"
+ trait_robot_efficient_processors_desc:1 "§LThese highly efficient processors increases the potential workload and endurance of all units. Can generate §GOptical Circuits§! leaders.§!"
+ trait_robot_emotion_emulators:1 "Emotive Programming"
+ trait_robot_emotion_emulators_desc:0 "§LAdvanced pseudorealistic emotion emulators and complex social predictive models help these units to anticipate the needs of both organics and synthetics alike.§!\n"
+ trait_robot_uncanny:1 "Uncanny Programming"
+ trait_robot_uncanny_desc:0 "§LHardcoded software quirks prevent these units from anticipating future needs or expressing even the facade of sapience, rendering them deeply uncanny to most lifeforms.§!\n"
+ ap_engineered_evolution_modifier_desc:1 "$species_trait_points_add$: $POINTS|0=+$\n$MOD_COUNTRY_MODIFY_SPECIES_COST_MULT$: $COST_MULT|%0=-$\n§HUnlocks Edict:§! Begin Genetic Experiments"
+ ap_evolutionary_mastery_modifier_desc:0 "$species_trait_points_add$: $POINTS|0=+$\n$MOD_COUNTRY_MODIFY_SPECIES_COST_MULT$: $COST_MULT|%0=-$"
+ ASSIMILATED_DESC:3 "This species is being assimilated. Every month, §Y1-4§! £pop£ Pop(s) will be altered to better match the dominant species of our empire."
+
+ 
+ 
+ 
+ 

@@ -1,0 +1,19 @@
+civic_strategic_cache = {
+    modification = no
+    description = "civic_tooltip_strategic_cache_effects"
+    potential = {
+        always = no
+    }
+    possible = {
+        civics = {
+            NOT = {
+                value = civic_crystalline_energy_grid
+            }
+        }
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+    }
+}

@@ -1,0 +1,39 @@
+xuracorp_edict = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		cost = {
+			exotic_gases = 25
+		}
+	}
+
+	modifier = {
+		pop_environment_tolerance = 0.1
+	}
+	
+	potential = {
+		has_country_flag = purchased_xuragel
+	}
+	
+	allow = {
+		OR = {
+			has_active_xuracorp_trade = yes
+			has_edict = xuracorp_edict
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			ROOT = {
+				NOT = {
+					any_owned_planet = {
+						habitability = { who = ROOT.owner_species value < 0.7 }
+					}
+				}
+			}
+		}
+	}	
+}

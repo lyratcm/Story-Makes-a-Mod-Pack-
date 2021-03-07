@@ -1,0 +1,33 @@
+civic_exploration = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_materialist
+                value = ethic_materialist
+                value = ethic_fanatic_materialist
+            }
+            OR = {
+                text = civic_tooltip_pacifist
+                value = ethic_pacifist
+                value = ethic_fanatic_pacifist
+            }
+        }
+    }
+    modifier = {
+        science_ship_survey_speed = 0.15
+        ship_anomaly_generation_chance_mult = 0.15
+        ship_anomaly_research_speed_mult = 0.25
+        ship_archaeological_site_excavation_speed_mult = 0.25
+        ship_archeaological_site_clues_add = 1
+        station_researchers_produces_mult = 0.15
+        ship_hyperlane_range_add = 1
+        station_researchers_upkeep_mult = 0.15
+        ship_armor_mult = -0.15
+    }
+    random_weight = {
+        base = 5
+    }
+}

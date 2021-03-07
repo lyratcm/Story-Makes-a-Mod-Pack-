@@ -1,0 +1,9 @@
+migration_pacts = {
+    parent = diplomacy
+    generate_mult_modifiers = {
+        upkeep
+    }
+    generate_add_modifiers = {
+        upkeep
+    }
+}

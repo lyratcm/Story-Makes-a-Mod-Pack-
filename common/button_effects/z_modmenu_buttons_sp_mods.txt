@@ -1,0 +1,912 @@
+###_z modmenu 支持 mods	##################################################################################
+###_[button effects 只读 root的东西]
+
+#_[line_1]
+#_[line_2]	nhsc/ACOT/SOFE
+#_[line_3]	天灾管理器/GIGA
+#_[line_4]	ACE
+
+
+
+
+###_false按钮---标题	############################################################################
+#_Z_SP_MODS
+z_mm_btn_title_sp_mods = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+	}
+}
+
+
+
+
+
+
+
+
+#_ISR
+z_mm_sp_mods_isr_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = ig_menu_opened_first_time
+	}
+	effect = {
+		hidden_effect = { country_event = { id = ig_menu.0 } }
+		custom_tooltip = z_mm_sp_ig_desc	#_ig_menu.0.name
+	}
+}
+z_mm_sp_mods_isr_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = ig_menu_opened_first_time }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = ig_menu.0 } }
+		custom_tooltip = z_mm_sp_ig_desc
+	}
+}
+#_ISR-CHT
+z_mm_sp_mods_isr_gautlet_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = ig_menu_opened_first_time
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = z_mm_tips_isr_cheat_on
+			hidden_trigger = { has_global_flag = ig_cheats_enabled }
+		}
+	}
+	effect = {
+		hidden_effect = { country_event = { id = ig_cheats.0 } }
+		custom_tooltip = z_mm_sp_ig_cht_desc	#_ig_cheats.0.name
+	}
+}
+z_mm_sp_mods_isr_gautlet_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = ig_menu_opened_first_time }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = ig_cheats.0 } }
+		custom_tooltip = z_mm_sp_ig_cht_desc
+	}
+}
+#_EAC DPL
+z_mm_sp_mods_eac_dpl_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = eac_aw_dpl_installed
+	}
+	effect = {
+		hidden_effect = { country_event = { id = eac_aw_dpl_options.10 } }
+		custom_tooltip = z_mm_sp_eac_dpl_desc
+	}
+}
+z_mm_sp_mods_eac_dpl_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = eac_aw_dpl_installed }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = eac_aw_dpl_options.10 } }
+		custom_tooltip = z_mm_sp_eac_dpl_desc
+	}
+}
+#_地形改造候选
+z_mm_sp_mods_tcf_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = terraforming_candidate_finder_installed
+	}
+	effect = {
+		hidden_effect = { country_event = { id = tcf_menu.1 } }
+		custom_tooltip = z_mm_sp_tcf_desc
+	}
+}
+z_mm_sp_mods_tcf_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = terraforming_candidate_finder_installed }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = tcf_menu.1 } }
+		custom_tooltip = z_mm_sp_tcf_desc
+	}
+}
+#_hadab
+z_mm_sp_mods_had_ab_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = autobuild_installed
+	}
+	effect = {
+		hidden_effect = { country_event = { id = autobuild_menu.1 } }
+		custom_tooltip = z_mm_sp_mods_had_ab_desc
+	}
+}
+z_mm_sp_mods_had_ab_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = autobuild_installed }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = autobuild_menu.1 } }
+		custom_tooltip = z_mm_sp_mods_had_ab_desc
+	}
+}
+#_hadbts
+z_mm_sp_mods_had_bts_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = board_that_ship_installed
+	}
+	effect = {
+		hidden_effect = { country_event = { id = board_that_ship.1000 } }
+		custom_tooltip = z_mm_sp_mods_had_bts_desc	#_had_bts_debug
+	}
+}
+z_mm_sp_mods_had_bts_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = board_that_ship_installed }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = board_that_ship.1000 } }
+		custom_tooltip = z_mm_sp_mods_had_bts_desc
+	}
+}
+
+
+
+
+
+
+
+
+###_[line_1]	#######################################
+#_EV
+z_mm_sp_mods_ev_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = enable_empty_vagrant_mod
+	}
+    allow = { is_country_type = default_ev }
+	effect = {
+		hidden_effect = {
+			set_country_flag = ev_has_menu_event
+			z_mm_lock_setting_panel = yes		#_锁定面板
+			country_event = { id = ev_resource.20001 }
+		}
+		custom_tooltip = z_mm_sp_ev_desc
+	}
+}
+z_mm_sp_mods_ev_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = enable_empty_vagrant_mod }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = ev_resource.2000 } }
+		custom_tooltip = z_mm_sp_ev_desc
+	}
+}
+#_kuat
+z_mm_sp_mods_kuat_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = install_kuat_mod
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = {
+			z_mm_lock_setting_panel = yes		#_锁定面板
+			country_event = { id = exe_invasion.7777 }
+		}
+		custom_tooltip = z_mm_sp_kuat_desc
+	}
+}
+z_mm_sp_mods_kuat_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = install_kuat_mod }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = exe_invasion.1001 } }
+		custom_tooltip = z_mm_sp_kuat_desc
+	}
+}
+#_wsg
+z_mm_sp_mods_wsg_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = has_wsg_mod
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = {
+			remove_global_flag = wg_crisis_very_easy
+			remove_global_flag = wg_crisis_easy
+			remove_global_flag = wg_crisis_normal
+			remove_global_flag = wg_crisis_hard
+			remove_global_flag = wg_crisis_insane
+			remove_global_flag = wg_crisis_disabled
+			country_event = { id = wg_crisis.10000 }
+		}
+		custom_tooltip = z_mm_sp_wsg_desc
+	}
+}
+z_mm_sp_mods_wsg_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = has_wsg_mod }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = wg_crisis.10000 } }
+		custom_tooltip = z_mm_sp_wsg_desc
+	}
+}
+#_wsggal	按钮
+z_mm_sp_mods_wsg_leader_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = has_wsg_mod
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = already_has_wsg_shimakaze_diplo
+			hidden_trigger = {
+				OR = {
+					shimakaze_active_diplo = no
+					NOT = { has_country_flag = wsg_shimakaze_engaged }
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = z_mm_tips_sp_wsg_shimakaze
+			hidden_trigger = {
+				OR = {
+					has_country_flag = get_wsg_shimakaze
+					is_same_value = event_target:wsg_shimakaze_own_country
+				}
+			}
+		}
+	}
+	effect = {
+		hidden_effect = { z_mm_eft_sp_mod_1 = yes }
+		custom_tooltip = z_mm_sp_wsg_leader_desc
+	}
+}
+z_mm_sp_mods_wsg_leader_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = has_wsg_mod }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = wsg_shimakaze.10 } }
+		custom_tooltip = z_mm_sp_wsg_leader_desc
+	}
+}
+
+
+
+
+
+
+
+
+###_[line_2]	#######################################
+#_mem
+z_mm_mem_button_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = mem_more_events_mod
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = { country_event = { id = mem_options.4 } }
+		custom_tooltip = z_mm_sm_mem_desc
+	}
+}
+z_mm_mem_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = mem_more_events_mod }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = mem_options.4 } }
+		custom_tooltip = z_mm_sm_mem_desc
+	}
+}
+#_ESC
+z_mm_esc_button_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = nhsc_v30
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = { country_event = { id = esc_options.1 } }
+		custom_tooltip = z_mm_sm_esc_desc
+	}
+}
+z_mm_esc_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = nhsc_v30 }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = esc_options.1 } }
+		custom_tooltip = z_mm_sm_esc_desc
+	}
+}
+#_DDUC
+z_mm_dduc_button_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = custom_difficulty_active
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = { country_event = { id = custom_difficulty.0 } }
+		custom_tooltip = z_mm_sm_dduc_desc
+	}
+}
+z_mm_dduc_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = custom_difficulty_active }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = custom_difficulty.0 } }
+		custom_tooltip = z_mm_sm_dduc_desc
+	}
+}
+#_RLS	按钮
+z_mm_rls_button_1 = {
+    potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = play_as_ruler_started
+    }
+    allow = {
+		if = {
+            limit = {
+                NOR = {
+                    has_authority = auth_hive_mind
+                    has_authority = auth_machine_intelligence
+                    has_authority = auth_ancient_machine_intelligence
+                }
+            }
+            custom_tooltip = tab_ruler_hobbies_tooltip
+        }
+        if = {
+            limit = {
+                OR = {
+                    has_authority = auth_hive_mind
+                }
+            }
+            custom_tooltip = tab_ruler_hobbies_tooltip_hivemind
+        }
+        if = {
+            limit = {
+                OR = {
+                    has_authority = auth_machine_intelligence
+                    has_authority = auth_ancient_machine_intelligence
+                }
+            }
+            custom_tooltip = tab_ruler_hobbies_tooltip_machine
+        }
+		custom_tooltip = {
+			fail_text = play_as_ruler.9499.tooltip2
+			hidden_trigger = {
+				any_owned_leader = {
+					leader_class = ruler
+					has_leader_flag = play_as_ruler_ruler_itself
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = play_as_ruler.9499.tooltip3
+			hidden_trigger = {
+				NOT = { has_country_flag = ruler_hobby_view_opened }	
+			}
+		}
+    }
+    effect = {
+        z_mm_eft_sp_mod_2 = yes
+		custom_tooltip = z_mm_sm_rls_desc
+    }
+}
+z_mm_rls_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = play_as_ruler_started }
+	}
+	effect = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOR = {
+						has_authority = auth_hive_mind
+						has_authority = auth_machine_intelligence
+						has_authority = auth_ancient_machine_intelligence
+					}
+				}
+				country_event = {
+					id = play_as_ruler.42689
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_authority = auth_hive_mind
+					}
+				}
+				country_event = {
+					id = play_as_ruler.42690
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_authority = auth_machine_intelligence
+						has_authority = auth_ancient_machine_intelligence
+					}
+				}
+				country_event = {
+					id = play_as_ruler.42691
+				}
+			}
+		}
+		custom_tooltip = z_mm_sm_rls_desc
+	}
+}
+#_ACOT
+z_mm_acot_button_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = acot_activated
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = { country_event = { id = acot_mod_options.1 } }
+		custom_tooltip = z_mm_sm_acot_desc
+	}
+}
+z_mm_acot_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = acot_activated }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = acot_mod_options.1 } }
+		custom_tooltip = z_mm_sm_acot_desc
+	}
+}
+#_SOFE
+z_mm_sofe_button_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = sofe_activated
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = { country_event = { id = sofe_options.1 } }
+		custom_tooltip = z_mm_sp_sofe_desc
+	}
+}
+z_mm_sofe_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = sofe_activated }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = sofe_options.1 } }
+		custom_tooltip = z_mm_sp_sofe_desc
+	}
+}
+
+
+
+
+
+
+
+
+###_[line_3]	#######################################
+#_银河大学
+z_mm_tgu_button_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = eac_empire_university_installed
+	}
+	effect = {
+		hidden_effect = { country_event = { id = eac_university.1 } }
+		custom_tooltip = z_mm_sm_tgu_desc
+	}
+}
+z_mm_tgu_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = eac_empire_university_installed }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = eac_university.1 } }
+		custom_tooltip = z_mm_sm_tgu_desc
+	}
+}
+#_FTM
+z_mm_ftm_button_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = ftm_mod_active
+	}
+	effect = {
+		hidden_effect = { country_event = { id = ftm_transfer.901 } }
+		custom_tooltip = z_mm_sm_ftm_desc
+	}
+}
+z_mm_ftm_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = ftm_mod_active }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = ftm_transfer.901 } }
+		custom_tooltip = z_mm_sm_ftm_desc
+	}
+}
+#_天灾管理器	<200815>
+z_mm_cmn_button_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = CmtFlagActivated
+	}
+	effect = {
+		hidden_effect = { country_event = { id = CrisisManagerMenu.0100 } }
+		custom_tooltip = z_mm_sm_cmn_desc
+	}
+}
+z_mm_cmn_button_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = CmtFlagActivated }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = CrisisManagerMenu.0100 } }
+		custom_tooltip = z_mm_sm_cmn_desc
+	}
+}
+#_cm致命风暴
+z_mm_sp_mods_cmdt_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = dmm_mod_10	#_a_deadly_tempest_mod_active
+	}
+	effect = {
+		hidden_effect = { country_event = { id = CrisisManagerMenu.0003 } }
+		custom_tooltip = z_mm_sp_mods_cmdt_desc
+	}
+}
+z_mm_sp_mods_cmdt_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = dmm_mod_10 }	#_a_deadly_tempest_mod_active
+	}
+	effect = {
+		hidden_effect = { country_event = { id = CrisisManagerMenu.0003 } }
+		custom_tooltip = z_mm_sp_mods_cmdt_desc
+	}
+}
+#_had人类堕落帝国
+z_mm_sp_mods_had_hfe_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = hfe_installed
+	}
+	effect = {
+		hidden_effect = { country_event = { id = hfe_menu.1 } }
+		custom_tooltip = z_mm_sp_hfe_desc	#_modmenu_hfe
+	}
+}
+z_mm_sp_mods_had_hfe_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = hfe_installed }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = hfe_menu.1 } }
+		custom_tooltip = z_mm_sp_hfe_desc
+	}
+}
+#_更多巨建	按钮
+z_mm_sp_mods_giga_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = giga_game_started
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = { z_mm_eft_sp_mod_3 = yes }
+		custom_tooltip = giga_menu.1.name
+		custom_tooltip = giga_menu.1.desc
+	}
+}
+z_mm_sp_mods_giga_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = giga_game_started }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = giga_menu.1 } }
+		custom_tooltip = z_mm_sp_giga_desc
+	}
+}
+
+
+
+
+
+###_[line_4]	#######################################
+#_UAP
+z_mm_sp_mods_uap_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = z_mm_flg_sp_mods_uap_non }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = UniqueAscensionPerksMenuEvents.1 } }
+		custom_tooltip = UniqueAscensionPerksEvents.1.Name
+		custom_tooltip = UniqueAscensionPerksEvents.1.Desc
+	}
+}
+z_mm_sp_mods_uap_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = z_mm_flg_sp_mods_uap_non
+	}
+	effect = {
+		hidden_effect = { country_event = { id = UniqueAscensionPerksMenuEvents.7777 } }
+		custom_tooltip = z_mm_sp_uap_desc
+	}
+}
+#_complex-potv	按钮
+z_mm_sp_mods_complex_potv_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		OR = {#_[pop_set_random_religion]	2052636859
+			has_ethic = ethic_no_religion
+			has_ethic = ethic_atheism
+			has_ethic = ethic_agnosticism
+			has_ethic = ethic_deism
+			has_ethic = ethic_polytheism
+			has_ethic = ethic_animatism
+			has_ethic = ethic_animism
+		}
+	}
+	allow = { is_gestalt = no }
+	effect = {
+		hidden_effect = { z_mm_eft_sp_mod_4 = yes }
+		custom_tooltip = z_mm_sp_complex_potv_desc
+	}
+}
+z_mm_sp_mods_complex_potv_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOR = {
+			has_ethic = ethic_no_religion
+			has_ethic = ethic_atheism
+			has_ethic = ethic_agnosticism
+			has_ethic = ethic_deism
+			has_ethic = ethic_polytheism
+			has_ethic = ethic_animatism
+			has_ethic = ethic_animism
+		}
+	}
+	effect = {
+		hidden_effect = { country_event = { id = potv_religion_dialog.7777 } }
+		custom_tooltip = z_mm_sp_complex_potv_desc
+	}
+}
+#_better_cheat_mod
+z_mm_sp_mods_bcm_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_country_flag = bc_hosting
+	}
+	allow = { hidden_trigger = { has_country_flag = bc_hosting } }
+	effect = {
+		hidden_effect = { country_event = { id = bccheatmenu.999 } }
+		custom_tooltip = z_mm_sp_bcm_desc
+	}
+}
+z_mm_sp_mods_bcm_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_country_flag = bc_hosting }
+	}
+	allow = { hidden_trigger = { has_country_flag = bc_hosting } }
+	effect = {
+		hidden_effect = { country_event = { id = bccheatmenu.999 } }
+		custom_tooltip = z_mm_sp_bcm_desc
+	}
+}
+#_ACE
+z_mm_sp_mods_ace_1 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		has_global_flag = acemod_installed
+	}
+	allow = {
+		custom_tooltip = {#_非主机
+			hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+			fail_text = z_mm_tips_mp_not_host
+		}
+	}
+	effect = {
+		hidden_effect = { country_event = { id = acemod_menu.1 } }
+		custom_tooltip = z_mm_sp_ace_desc
+	}
+}
+z_mm_sp_mods_ace_2 = {
+	potential = {
+		exists = from
+		z_mm_setting_panel_locked = no
+		z_mm_trgr_expanded_sub_ui = no
+		NOT = { has_global_flag = acemod_installed }
+	}
+	effect = {
+		hidden_effect = { country_event = { id = acemod_menu.1 } }
+		custom_tooltip = z_mm_sp_ace_desc
+	}
+}
+
+
+
+
+
+

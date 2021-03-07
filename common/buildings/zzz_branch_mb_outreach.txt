@@ -1,0 +1,52 @@
+building_tourism_campaign = {
+	base_buildtime = 480
+	
+	branch_office_building = yes
+	
+	allow = {
+		num_pops >= 35
+	}
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { 
+			has_valid_civic = civic_mutualistic_behavior		
+			NOT = { is_organic = yes }
+		}
+		owner = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+	}
+	
+	planet_modifier = {
+		pop_growth_from_immigration = 1.00
+		pop_ethic_xenophile_attraction_mult = 0.50
+	}
+
+
+	country_modifier = {
+		diplo_weight_mult = 0.05
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 400
+		}	
+		produces = {
+			society_research = 10
+			unity = 20
+		}		
+		upkeep = {
+			energy = 5
+			minerals = 5
+			food = 5
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

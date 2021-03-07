@@ -1,0 +1,24 @@
+gov_fury_road_kingdom = {
+	ruler_title = RT_IMMORTAN
+	heir_title = RT_CORPUS
+	possible = {
+		OR = {
+			has_authority = auth_dictatorial
+			has_authority = auth_imperial
+		}
+		has_valid_civic = secret_fury_road
+	}
+	weight = {
+		base = 9999999
+	}
+	election_candidates = {
+		modifier = {
+			add = 60
+			leader_class = general
+		}
+		modifier = {
+			add = 40
+			leader_class = admiral
+		}
+	}
+}

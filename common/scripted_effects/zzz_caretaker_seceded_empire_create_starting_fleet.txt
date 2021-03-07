@@ -1,0 +1,61 @@
+caretaker_seceded_empire_create_starting_fleet = {
+    create_fleet = {
+        name = "NAME_CARETAKER_CORE_FLEET"
+        effect = {
+            set_owner = event_target:caretaker_secession_empire
+            while = {
+                count = 4
+                create_ship = {
+                    name = random
+                    random_existing_design = battleship
+                    prefix = no
+                }
+            }
+            while = {
+                count = 8
+                create_ship = {
+                    name = random
+                    random_existing_design = cruiser
+                    prefix = no
+                }
+            }
+            while = {
+                count = 16
+                create_ship = {
+                    name = random
+                    random_existing_design = destroyer
+                    prefix = no
+                }
+            }
+            while = {
+                count = 32
+                create_ship = {
+                    name = random
+                    random_existing_design = corvette
+                    prefix = no
+                }
+            }
+            add_modifier = {
+                modifier = caretaker_core_fleet_upkeep_fix
+                days = -1
+            }
+            set_location = $FLEET_TARGET$
+            save_event_target_as = caretaker_core_fleet
+        }
+    }
+    create_leader = {
+        class = admiral
+        species = owner_main_species
+        name = random
+        skill = 5
+        traits = {
+            trait = leader_trait_cautious
+        }
+        effect = {
+            save_event_target_as = caretaker_initial_admiral
+        }
+    }
+    event_target:caretaker_core_fleet = {
+        assign_leader = event_target:caretaker_initial_admiral
+    }
+}

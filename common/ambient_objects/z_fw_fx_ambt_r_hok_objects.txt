@@ -1,0 +1,18 @@
+###_ÎÞ¾¡ÈºÐÇ ambient objects	############################################################################
+
+
+
+###_[r_hok]
+
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_hok_execute_1"
+	entity = "z_fw_fx_ambt_tgt_r_hok_execute_1_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_hok_execute_2"
+	entity = "z_fw_fx_ambt_tgt_r_hok_execute_2_entity"
+	selectable = no
+	show_name = no
+}

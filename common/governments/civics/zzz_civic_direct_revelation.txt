@@ -1,0 +1,34 @@
+lrsk_gov_var_civic_direct_revelation = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    description = "civic_tooltip_lrsk_gov_var_civic_direct_revelation_effects"
+    possible = {
+        ethics = {
+            value = ethic_fanatic_spiritualist
+            OR = {
+                text = civic_tooltip_green
+                value = ethic_green
+                value = ethic_fanatic_green
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        job_lrsk_gov_var_job_hedge_preacher_per_pop = 0.04
+    }
+}

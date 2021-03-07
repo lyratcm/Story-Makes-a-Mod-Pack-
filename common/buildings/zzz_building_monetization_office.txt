@@ -1,0 +1,37 @@
+cp_building_monetization_office = { #Monetization Office
+	base_buildtime = @b1_time
+	icon = building_public_relations_office
+	category = government
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = cp_civic_monetization_office }
+	}
+	planet_modifier = {
+		job_cp_inhumer_add = 3
+		planet_technician_energy_produces_mult = 0.10
+	}
+	destroy_trigger = {
+		exists = owner
+		NOT = {
+			owner = { has_civic = cp_civic_monetization_office }
+		}
+	}
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_inhumer_effect_desc
+	}
+	ai_weight = {
+		factor = 1
+	}
+}

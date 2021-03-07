@@ -1,0 +1,68 @@
+guiTypes = {
+    containerWindowType = {
+        name = "order_selector"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = 472
+            height = 10
+        }
+        moveable = yes
+        background = {
+            name = "bg"
+            quadTextureSprite = "GFX_tile_outliner_bg"
+        }
+        iconType = {
+            name = "hex_bg"
+            spriteType = "GFX_hex_bg"
+            position = {
+                x = -20
+                y = -12
+            }
+            alwaysTransparent = yes
+        }
+        iconType = {
+            name = "governor_line"
+            quadTextureSprite = "GFX_line"
+            position = {
+                x = 3
+                y = 22
+            }
+            alwaysTransparent = yes
+        }
+        instantTextBoxType = {
+            name = "label"
+            font = "malgun_goth_24"
+            position = {
+                x = 20
+                y = 5
+            }
+            maxHeight = 16
+            maxWidth = 249
+            fixedSize = yes
+            alwaysTransparent = yes
+            text = "ORDERS"
+            appendText = ":"
+            text_color_code = "H"
+        }
+        smoothListboxType = {
+            name = "orders"
+            position = {
+                x = 10
+                y = 40
+            }
+            priority = 100
+            size = {
+                x = 460
+                y = 0
+            }
+            scrollbarType = "standardlistbox_slider_thick_low"
+            offset = {
+                x = -10
+                y = 0
+            }
+        }
+    }
+}

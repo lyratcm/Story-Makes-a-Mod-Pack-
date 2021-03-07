@@ -1,0 +1,19 @@
+origin_awakened = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_awakened.dds"
+	picture = GFX_origin_awakened
+	max_once_global = yes
+
+	starting_colony = pc_gaia
+
+	possible = {
+		civics = { NOT = { value = civic_machine_servitor } }
+	}
+
+	description = "civic_tooltip_awakened_effects"
+	flags = { custom_start_screen }
+
+	random_weight = {
+		base = 2
+	}
+}

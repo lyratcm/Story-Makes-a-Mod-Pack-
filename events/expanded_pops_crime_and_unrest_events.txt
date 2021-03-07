@@ -1,0 +1,583 @@
+############################
+#
+# Expanded Crime / Unrest Events
+#
+############################
+
+namespace = popcrime
+
+### Hive Mind Non-Gestalt Residents ###
+# gatekeeper
+country_event = {
+	id = popcrime.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_ethic = ethic_gestalt_consciousness
+		NOR = {
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_machine_assimilator
+			has_valid_civic = civic_machine_servitor
+			has_valid_civic = civic_machine_consciousness
+			has_valid_civic = civic_machine_terminator
+		}
+		any_owned_planet = {
+			OR = {
+				has_modifier = gestalt_criminal_underworld
+				has_modifier = gestalt_criminal_underworld_mach
+				count_pops = {
+					limit = { is_free_pop_gestalt = yes }
+					count >= 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		country_event = { id = popcrime.2 }
+	}
+}
+country_event = {
+	id = popcrime.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_owned_planet = {
+			limit = {
+				OR = {
+					has_modifier = gestalt_criminal_underworld
+					has_modifier = gestalt_criminal_underworld_mach
+					count_pops = {
+						limit = { is_free_pop_gestalt = yes }
+						count >= 5
+					}
+				}
+			}
+			random_list = {
+				350 = { }
+				10 = { planet_event = { id = popcrime.3 days = 1 random = 300 } }
+				10 = { planet_event = { id = popcrime.4 days = 1 random = 300 } }
+				10 = { planet_event = { id = popcrime.5 days = 1 random = 300 } }
+				10 = { planet_event = { id = popcrime.6 days = 1 random = 300 } }
+				20 = {
+					modifier = {
+						factor = 15
+						NOT = {
+							count_pops = {
+								limit = { is_free_pop_gestalt = yes }
+								count >= 5
+							}
+						}
+					}
+					planet_event = { id = popcrime.7 days = 1 random = 300 }
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						owner = { NOT = { has_authority = auth_machine_intelligence } }
+					}
+					planet_event = { id = popcrime.8 days = 1 random = 300 }
+				}
+			}
+		}
+		every_owned_pop = {
+			limit = { is_free_pop_gestalt = yes }
+			remove_modifier = gestalt_residents_auth
+			remove_modifier = gestalt_residents_egal
+			if = {
+				limit = { pop_has_ethic = ethic_authoritarian }
+				add_modifier = { modifier = gestalt_residents_auth days = -1 }
+			}
+			else_if = {
+				limit = { pop_has_ethic = ethic_egalitarian }
+				add_modifier = { modifier = gestalt_residents_egal days = -1 }
+			}
+		}
+	}
+}
+
+# Residents start fighting among themselves
+planet_event = {
+	id = popcrime.3
+	title = popcrime.3.name
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = popcrime.3.desc.hive
+	}
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = popcrime.3.desc.mach
+	}
+	picture = GFX_evt_burning_settlement
+	show_sound = event_air_raid_siren
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		count_pops = {
+			limit = { is_free_pop_gestalt = yes }
+			count >= 5
+		}
+		exists = controller
+		controller = { is_same_value = root.owner }
+		has_orbital_bombardment = no
+		NOT = { has_modifier = gestalt_residents_infighting }
+		NOT = { has_planet_flag = recent_unrest_event }
+		planet_stability < 30
+	}
+	
+	immediate = {
+		add_modifier = { modifier = "gestalt_residents_infighting" days = 3600 }
+		add_planet_devastation = 25
+		random_pop = {
+			limit = { is_free_pop_gestalt = yes }
+			kill_pop = yes
+		}
+		set_timed_planet_flag = {
+			flag = recent_unrest_event
+			days = 720
+		}
+	}
+	
+	option = {
+		name = popcrime.3.a
+		tooltip = {
+			add_modifier = { modifier = "gestalt_residents_infighting" days = 3600 }
+			add_planet_devastation = 25
+			random_pop = {
+				limit = { is_free_pop_gestalt = yes }
+				kill_pop = yes
+			}
+		}
+	}
+}
+
+# Residents protest
+planet_event = {
+	id = popcrime.4
+	title = popcrime.4.name
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = popcrime.4.desc.hive
+	}
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = popcrime.4.desc.mach
+	}
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_public_unrest
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		count_pops = {
+			limit = { is_free_pop_gestalt = yes }
+			count >= 5
+		}
+		exists = controller
+		controller = { is_same_value = root.owner }
+		has_orbital_bombardment = no
+		NOT = { has_modifier = gestalt_protest }
+		NOT = { has_modifier = gestalt_broken_protest }
+		NOT = { has_modifier = gestalt_appeased_protest }
+		NOT = { has_planet_flag = recent_unrest_event }
+		planet_stability < 30
+	}
+	
+	immediate = {
+		add_modifier = { modifier = "gestalt_protest" days = 1800 }
+		set_timed_planet_flag = {
+			flag = recent_unrest_event
+			days = 720
+		}
+	}
+	
+	option = {
+		name = popcrime.4.a
+		tooltip = {
+			add_modifier = { modifier = "gestalt_protest" days = 1800 }
+		}
+	}
+	option = {
+		name = popcrime.4.b
+		trigger = {
+			owner = {
+				NOR = {
+					has_valid_civic = civic_harm_hive
+					has_valid_civic = civic_harm_machine
+				}
+			}
+		}
+		allow = {
+			count_pops = {
+				limit = { has_job = patrol_drone }
+				count >= 2
+			}
+		}
+		hidden_effect = { remove_modifier = gestalt_protest }
+		add_modifier = { modifier = "gestalt_broken_protest" days = 1800 }
+		add_planet_devastation = 10
+	}
+	option = {
+		name = popcrime.4.c
+		hidden_effect = { remove_modifier = gestalt_protest }
+		add_modifier = { modifier = "gestalt_appeased_protest" days = 3600 }
+	}
+}
+
+# Residents harbor deviant drones
+planet_event = {
+	id = popcrime.5
+	title = popcrime.5.name
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = popcrime.5.desc.hive
+	}
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = popcrime.5.desc.mach
+	}
+	picture = {
+		trigger = { 
+			owner = { has_authority = auth_hive_mind }
+		}
+		picture = GFX_evt_hive_mind
+	}
+	picture = {
+		trigger = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		picture = GFX_evt_glitchy_matrix
+	}
+	show_sound = event_criminal_activity
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		count_pops = {
+			limit = { is_free_pop_gestalt = yes }
+			count >= 5
+		}
+		exists = controller
+		controller = { is_same_value = root.owner }
+		has_orbital_bombardment = no
+		NOT = { has_modifier = gestalt_hiding_deviants }
+		NOT = { has_modifier = gestalt_hiding_deviants_mach }
+		#NOT = { has_planet_flag = recent_unrest_event }
+		planet_stability <= 45
+		planet_crime >= 30
+	}
+	
+	immediate = {
+		if = {
+			limit = { owner = { has_authority = auth_hive_mind } }
+			add_modifier = { modifier = "gestalt_hiding_deviants" days = 3600 }
+		}
+		else = {
+			add_modifier = { modifier = "gestalt_hiding_deviants_mach" days = 3600 }
+		}
+		#set_timed_planet_flag = {
+		#	flag = recent_unrest_event
+		#	days = 720
+		#}
+	}
+	
+	option = {
+		name = popcrime.5.a
+		tooltip = {
+			if = {
+				limit = { owner = { has_authority = auth_hive_mind } }
+				add_modifier = { modifier = "gestalt_hiding_deviants" days = 3600 }
+			}
+			else = {
+				add_modifier = { modifier = "gestalt_hiding_deviants_mach" days = 3600 }
+			}
+		}
+	}
+	option = {
+		name = popcrime.5.b
+		trigger = {
+			owner = {
+				NOR = {
+					has_valid_civic = civic_harm_hive
+					has_valid_civic = civic_harm_machine
+				}
+			}
+		}
+		allow = {
+			count_pops = {
+				limit = { has_job = patrol_drone }
+				count >= 2
+			}
+		}
+		hidden_effect = { remove_modifier = gestalt_hiding_deviants }
+		hidden_effect = { remove_modifier = gestalt_hiding_deviants_mach }
+		add_modifier = { modifier = "gestalt_burned_out_deviants" days = 3600 }
+		add_planet_devastation = 25
+		random_pop = {
+			limit = { is_free_pop_gestalt = yes }
+			kill_pop = yes
+		}
+	}
+}
+
+# criminals
+planet_event = {
+	id = popcrime.6
+	title = popcrime.6.name
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = popcrime.6.desc.hive
+	}
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = popcrime.6.desc.mach
+	}
+	picture = {
+		trigger = { 
+			owner = { has_authority = auth_hive_mind }
+		}
+		picture = GFX_evt_hive_mind
+	}
+	picture = {
+		trigger = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		picture = GFX_evt_glitchy_matrix
+	}
+	show_sound = event_criminal_activity
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		count_pops = {
+			limit = { is_free_pop_gestalt = yes }
+			count >= 5
+		}
+		exists = controller
+		controller = { is_same_value = root.owner }
+		has_orbital_bombardment = no
+		NOT = { has_modifier = gestalt_criminal_underworld }
+		NOT = { has_modifier = gestalt_criminal_underworld_mach }
+		#NOT = { has_planet_flag = recent_unrest_event }
+		planet_stability <= 45
+		planet_crime >= 30
+	}
+	
+	immediate = {
+		if = {
+			limit = { owner = { has_authority = auth_hive_mind } }
+			add_modifier = { modifier = "gestalt_criminal_underworld" days = -1 }
+		}
+		else = {
+			add_modifier = { modifier = "gestalt_criminal_underworld_mach" days = -1 }
+		}
+		#set_timed_planet_flag = {
+		#	flag = recent_unrest_event
+		#	days = 720
+		#}
+	}
+	
+	option = {
+		name = UNFORTUNATE
+		tooltip = {
+			if = {
+				limit = { owner = { has_authority = auth_hive_mind } }
+				add_modifier = { modifier = "gestalt_criminal_underworld" days = -1 }
+			}
+			else = {
+				add_modifier = { modifier = "gestalt_criminal_underworld_mach" days = -1 }
+			}
+		}
+	}
+}
+
+# criminals
+planet_event = {
+	id = popcrime.7
+	title = crime.41.name
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = popcrime.7.desc.hive
+	}
+	desc = {
+		trigger = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = popcrime.7.desc.mach
+	}
+	picture = {
+		trigger = { 
+			owner = { has_authority = auth_hive_mind }
+		}
+		picture = GFX_evt_hive_mind
+	}
+	picture = {
+		trigger = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		picture = GFX_evt_circuitry_modification
+	}
+	show_sound = event_cityscape
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = controller
+		controller = { is_same_value = root.owner }
+		has_orbital_bombardment = no
+		OR = {
+			has_modifier = gestalt_criminal_underworld
+			has_modifier = gestalt_criminal_underworld_mach
+		}
+		#NOT = { has_planet_flag = recent_unrest_event }
+		OR = {
+			planet_stability >= 70
+			planet_crime <= 25
+			NOT = {
+				count_pops = {
+					limit = { is_free_pop_gestalt = yes }
+					count >= 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { owner = { has_authority = auth_hive_mind } }
+			remove_modifier = gestalt_criminal_underworld
+		}
+		else = {
+			remove_modifier = gestalt_criminal_underworld_mach
+		}
+		#set_timed_planet_flag = {
+		#	flag = recent_unrest_event
+		#	days = 720
+		#}
+	}
+	
+	option = {
+		name = GOOD
+		tooltip = {
+			if = {
+				limit = { owner = { has_authority = auth_hive_mind } }
+				remove_modifier = gestalt_criminal_underworld
+			}
+			else = {
+				remove_modifier = gestalt_criminal_underworld_mach
+			}
+		}
+	}
+}
+
+# organic gives habitability modifiers
+planet_event = {
+	id = popcrime.8
+	title = popcrime.8.name
+	desc = {
+		trigger = {
+			NOT = { has_modifier = mach_habitability_1 }
+		}
+		text = popcrime.8.desc.a
+	}
+	desc = {
+		trigger = {
+			NOT = { has_modifier = mach_habitability_2 }
+			has_modifier = mach_habitability_1
+		}
+		text = popcrime.8.desc.b
+	}
+	desc = {
+		trigger = {
+			NOT = { has_modifier = mach_habitability_3 }
+			has_modifier = mach_habitability_2
+		}
+		text = popcrime.8.desc.c
+	}
+	desc = {
+		trigger = {
+			NOT = { has_modifier = mach_habitability_4 }
+			has_modifier = mach_habitability_3
+		}
+		text = popcrime.8.desc.d
+	}
+	picture = GFX_evt_colony_settlement
+	show_sound = event_laboratory_sound
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {
+			has_authority = auth_machine_intelligence
+			OR = {
+				NOT = { has_modifier = mach_habitability_1 }
+				AND = {
+					has_technology = tech_society_1
+					NOT = { has_modifier = mach_habitability_2 }
+				}
+				AND = {
+					has_technology = tech_society_2
+					NOT = { has_modifier = mach_habitability_3 }
+				}
+				AND = {
+					has_technology = tech_society_3
+					NOT = { has_modifier = mach_habitability_4 }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = INTRIGUING
+		owner = {
+			if = {
+				limit = { NOT = { has_modifier = mach_habitability_1 } }
+				add_modifier = { modifier = mach_habitability_1 days = -1 }
+			}
+			else_if = {
+				limit = { NOT = { has_modifier = mach_habitability_2 } }
+				add_modifier = { modifier = mach_habitability_2 days = -1 }
+			}
+			else_if = {
+				limit = { NOT = { has_modifier = mach_habitability_3 } }
+				add_modifier = { modifier = mach_habitability_3 days = -1 }
+			}
+			else_if = {
+				limit = { NOT = { has_modifier = mach_habitability_4 } }
+				add_modifier = { modifier = mach_habitability_4 days = -1 }
+			}
+		}
+	}
+}
+
+# smugglers/pirates
+
+# Too many residents

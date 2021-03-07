@@ -1,0 +1,163 @@
+namespace = story
+
+country_event = {
+	id = story.101
+	title = story.101.name
+	desc = {
+		trigger = {
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_xenophile = { text = story.101.desc.phile }
+				ethic_fanatic_xenophobe = { text = story.101.desc.phobe }
+				ethic_fanatic_militarist = { text = story.101.desc.milit }
+				ethic_fanatic_pacifist = { text = story.101.desc.pacif }
+				ethic_fanatic_materialist = { text = story.101.desc.mater }
+				ethic_xenophile = { text = story.101.desc.phile }
+				ethic_xenophobe = { text = story.101.desc.phobe}
+				ethic_militarist = { text = story.101.desc.milit }
+				ethic_pacifist = { text = story.101.desc.pacif }
+				ethic_materialist = { text = story.101.desc.mater }
+				ethic_gestalt_consciousness = { text = story.101.desc.gesta }
+				default = { text = story.101.desc.pacif }
+			}
+		}
+	}
+	picture = GFX_evt_unidentified_monster
+	show_sound = event_space_amoeba
+	location = fromfromfrom
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = story.101.aa
+		trigger = {
+			OR = {
+				is_xenophobe = yes
+				is_militarist = yes
+				is_homicidal = yes
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+		add_modifier = {
+			modifier = amoeba_hunting_buff
+			days = -1
+		}
+		custom_tooltip = story.101.aa.amoebahunt
+	}
+
+	option = {
+		name = story.101.bb
+		trigger = {
+			NOT = { has_civic = civic_machine_terminator }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 9
+				OR = {
+					is_xenophile = yes
+					is_pacifist = yes
+					has_civic = civic_machine_servitor
+				}
+			}
+		}
+		capital_scope = {
+			enable_special_project = {
+				name = "AMOEBAS_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+
+	option = {
+		name = story.101.bb.exter
+		trigger = {
+			has_civic = civic_machine_terminator
+		}
+		ai_chance = {
+			factor = 10
+		}
+		capital_scope = {
+			enable_special_project = {
+				name = "AMOEBAS_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+}
+
+# Project complete
+country_event = {
+	id = story.105
+	title = story.105.name
+	desc = {
+		trigger = {
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_xenophile = { text = story.105.desc.phile }
+				ethic_xenophile = { text = story.105.desc.phile }
+				ethic_fanatic_pacifist = { text = story.105.desc.pacif }
+				ethic_pacifist = { text = story.105.desc.pacif }
+				ethic_gestalt_consciousness = { text = story.105.desc.gesta }
+				default = { text = story.105.desc }
+			}
+		}
+	}
+	picture = GFX_evt_friendly_amoeba
+	show_sound = event_space_amoeba
+	location = from
+
+	is_triggered_only = yes
+
+	option = {
+		name = story.105.bb
+		add_modifier = {
+			modifier = flagellating_movement # +5% evasion
+			days = -1
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+	option = {
+		trigger = {
+			NOT = { has_technology = tech_regenerative_hull_tissue }
+		}
+		name = story.105.aa
+		add_research_option = tech_regenerative_hull_tissue
+		add_tech_progress = {
+			tech = tech_regenerative_hull_tissue
+			progress = 0.5
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+	
+	option = {
+		name = story.101.cc
+		trigger = {
+			OR = {
+				is_xenophile = yes
+				is_pacifist = yes
+				has_civic = civic_machine_servitor
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+		capital_scope = {
+			enable_special_project = {
+				name = "AMOEBAS_PACIFICATION_PROJECT_MOD"
+				location = this
+				owner = root
+			}
+		}
+	}
+}

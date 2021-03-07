@@ -1,0 +1,272 @@
+namespace = nomad
+
+fleet_event = {
+	id = nomad.5
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = { is_country_type = nomad }
+		NOT = { has_fleet_flag = nomad_on_mission }
+		solar_system = {
+			NOR = {
+				exists = space_owner
+				has_star_flag = hostile_system
+				has_star_flag = nomad_mid_point
+				has_star_flag = nomad_end_point
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+			10 = { #Fly to random planet and construct more ships
+				modifier = {
+					factor = 10
+					owner = { fleet_power < 3000 }
+				}
+				modifier = {
+					factor = 5
+					owner = { fleet_power < 5000 }
+				}
+				#modifier = {
+				#	factor = 0.5
+				#	owner = { fleet_power > 5000 }
+				#}
+				modifier = {
+					factor = 0
+					OR = {
+						owner = { fleet_power > 40000 }
+						has_fleet_flag = nomad_built_new_ships
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							check_variable = {
+								which = nomads_built_ships
+								value > 0
+							}
+						}
+						change_variable = {
+							which = nomads_built_ships
+							value = 0
+						}
+					}
+					else_if = {
+						limit = {
+							NOT = { 
+								check_variable = {
+									which = nomads_built_ships
+									value = 0
+								}
+							}
+						}
+						set_variable = {
+							which = nomads_built_ships
+							value = 0
+						}
+					}
+				}
+				queue_actions = {
+					repeat = {
+						max_iterations = 1
+						find_random_planet = {
+							found_planet = {
+								orbit_planet = this
+							}
+							failed = {
+								effect = {
+									id = "nomad.5.leaving_safe_system_3"
+									root = {
+										fleet_event = { id = nomad.2 } #Nomads fly towards current destination
+										owner = {
+											#country_event = { id = nomad.995 }
+										}
+									}
+								}
+							}
+						}
+					}
+					repeat = {
+						while = {
+							id = nomad.5.trigger.1
+							NOT = { has_fleet_flag = nomad_built_new_ships }
+						}
+						wait = {
+							duration = 30
+							random = 10
+						}
+						effect = {
+							id = "nomad.5.repairing_ships"
+							owner = {
+								every_owned_ship = {
+									limit = {
+										fleet = {
+											has_fleet_flag = nomad_main_fleet
+										}
+									}
+									repair_ship = yes
+								}
+							}
+						}
+						wait = {
+							duration = 30
+							random = 10
+						}
+						effect = {
+							id = "nomad.5.building_ships"
+							owner = {
+								change_variable = {
+									which = nomads_built_ships
+									value = 1
+								}
+							}
+							create_ship = {
+								name = "NAME_Defender"
+								design = NAME_Defender
+							}
+							create_ship = {
+								name = "NAME_Defender"
+								design = NAME_Defender
+							}
+							create_ship = {
+								name = "NAME_Defender"
+								design = NAME_Defender
+							}
+							create_ship = {
+								name = "NAME_Defender"
+								design = NAME_Defender
+							}
+							create_ship = {
+								name = "NAME_Protector"
+								design = NAME_Protector
+							}
+							create_ship = {
+								name = "NAME_Protector"
+								design = NAME_Protector
+							}
+							random_list = {
+								50 = {
+									modifier = {
+										factor = 0
+										owner = {
+											fleet_power < 3000
+										}
+									}
+									modifier = {
+										factor = 5
+										owner = {
+											check_variable = {
+												which = nomads_built_ships
+												value > 4
+											}
+										}
+									}
+									set_timed_fleet_flag = { flag = nomad_built_new_ships days = 120 }
+								}
+								50 = {
+									modifier = {
+										factor = 10
+										owner = {
+											fleet_power < 5000
+										}
+									}
+									modifier = {
+										factor = 0.5
+										owner = {
+											fleet_power > 12000
+										}
+									}
+									modifier = {
+										factor = 0.2
+										owner = {
+											fleet_power > 20000
+										}
+									}
+									modifier = {
+										factor = 0
+										owner = {
+											fleet_power > 40000
+										}
+									}
+								}
+							}
+						}
+					}
+					repeat = {
+						max_iterations = 1
+						effect = {
+							id = "nomad.5.built_ships"
+							fleet_event = { id = nomad.2 } #Nomads fly towards current destination
+							owner = {
+								#country_event = { id = nomad.995 }
+							}
+						}
+					}
+				}
+			}
+			80 = { #Fly to random planet and hang around for a bit
+				modifier = {
+					factor = 0
+					owner = {
+						fleet_power < 1500
+					}
+				}
+				queue_actions = {
+					repeat = {
+						max_iterations = 3
+						while = {
+							id = nomad.5.trigger.2
+							owner = {
+								NOT = { has_country_flag = nomad_exploring_done }
+							}
+						}
+						find_random_planet = {
+							found_planet = {
+								orbit_planet = this
+							}
+							failed = {
+								effect = {
+									id = "nomad.5.leaving_safe_system_2"
+									root = {
+										fleet_event = { id = nomad.2 } #Nomads fly towards current destination
+										owner = {
+											#country_event = { id = nomad.995 }
+										}
+									}
+								}
+							}
+						}
+						wait = {
+							duration = 40
+							random = 10
+						}
+						effect = {
+							id = "nomad.5.keep_looking_or_not"
+							owner = {
+								random_list = {
+									25 = {
+										set_timed_country_flag = { flag = nomad_exploring_done days = 3 }
+									}
+									75 = {}
+								}
+							}
+						}
+					}
+					effect = {
+						id = "nomad.5.leaving_safe_system_1"
+						root = {
+							fleet_event = { id = nomad.2 } #Nomads fly towards current destination
+							owner = {
+								#country_event = { id = nomad.995 }
+							}
+						}
+					}
+				}
+			}
+			10 = { } #Do nothing
+		}
+	}
+}

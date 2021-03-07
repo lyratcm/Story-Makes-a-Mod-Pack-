@@ -1,0 +1,45 @@
+###_++++ z lctr 游戏规则	######################################################
+
+###_[z_fw][z_lctr][teif][sofe]	##################
+# Check if full sensor range in entire galaxy
+# root: country
+has_full_sensor_range = {
+	NOR = {
+		has_country_flag = z_fw_misc_full_sensor_off	#_[z_fw]开关
+		has_country_flag = had_closed_spy_orb			#_[teif]开关
+	}
+	OR = {
+		has_megastructure = spy_orb_4
+		has_megastructure = spy_orb_restored
+		has_megastructure = sofe_omega_spy_orb_center		#_[SOFE]
+		has_country_flag = z_fw_r_celestial_orrey_activited			#_[z_fw]璀璨星图
+		has_country_flag = z_fw_r_cheat_quantum_beacon_activited	#_[z_fw]永恒星炬
+		has_country_flag = z_lctr_r_adv_sensor_activated_full		#_[z_lctr]暗能量传感器
+	}
+}
+
+###_[z_fw][z_lctr][wsg][teif][ag][ws][smco]	##################
+#_sys_trgr	ws_[is_ws_system]
+# this = system
+# root = country
+system_blocks_sensors = {
+	#_z_fw/z_lctr
+	root = {
+		NOR = {
+			has_modifier = z_lctr_mod_cntr_sensor			#_[z_lctr]
+		}
+	}
+	OR = {
+		is_inside_nebula = yes
+		has_modifier = space_storm
+		has_star_flag = lcluster
+		has_star_flag = sealed_system
+		has_star_flag = wg_sealed_system			#_wsg
+		has_star_flag = fallen_sol_system			#_teif
+		root = { is_country_type = teif_primitive }	#_teif
+		has_star_flag = ag_no_sensor_system			#_ag
+		has_star_flag = bok_globules					#_smco
+		has_star_flag = star_flag_GAPS_sealed_system	#_smco
+		is_ws_system = yes			#_ws
+	}
+}

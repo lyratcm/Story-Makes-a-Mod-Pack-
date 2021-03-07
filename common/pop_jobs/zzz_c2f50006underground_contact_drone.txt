@@ -1,0 +1,170 @@
+underground_contact_drone = {
+    category = simple_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_holo_theatres
+    clothes_texture_index = 3
+    icon = spawning_drone
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        drone_job_check_trigger = yes
+        OR = {
+            traits_restrict_worker_jobs = no
+            has_pop_flag = allow_underground_trade_worker_traits
+        }
+    }
+    planet_modifier = {
+        planet_amenities_no_happiness_add = 3
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_emotion_emulators
+                has_trait = trait_charismatic
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.6
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_global_flag = expanded_pops_active
+            is_robot_pop = yes
+            exists = owner
+            owner = {
+                has_relic = r_three_londor
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.6
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 1.2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_uncanny
+                has_trait = trait_repugnant
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = -0.6
+        }
+    }
+    triggered_pop_modifier = {
+        pop_housing_usage_add = -1
+    }
+    resources = {
+        category = planet_jobs
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_hive_empire = yes
+                    is_lithoid = no
+                }
+            }
+            energy = 3
+            food = 2
+        }
+        produces = {
+            trigger = {
+                owner = {
+                    is_hive_empire = yes
+                    is_lithoid = yes
+                }
+            }
+            energy = 3
+            minerals = 2
+        }
+        produces = {
+            trigger = {
+                owner = {
+                    is_hive_empire = yes
+                    is_lithoid = no
+                }
+                OR = {
+                    has_trait = trait_charismatic
+                    has_trait = trait_pheremones
+                }
+            }
+            energy = 1
+            food = 1
+        }
+        produces = {
+            trigger = {
+                owner = {
+                    is_hive_empire = yes
+                    is_lithoid = yes
+                }
+                OR = {
+                    has_trait = trait_charismatic
+                    has_trait = trait_lithoid_shiny
+                }
+            }
+            energy = 1
+            minerals = 1
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_machine_empire = yes
+                }
+            }
+            energy = 6
+        }
+        produces = {
+            trigger = {
+                owner = {
+                    is_machine_empire = yes
+                }
+                has_trait = trait_robot_emotion_emulators
+            }
+            energy = 2
+        }
+        produces = {
+            trigger = {
+                OR = {
+                    has_trait = trait_repugnant
+                    has_trait = trait_robot_uncanny
+                }
+            }
+            energy = -1
+        }
+    }
+    weight = {
+        weight = @simple_drone_job_weight
+        modifier = {
+            factor = 0.5
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_charismatic
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+    }
+}

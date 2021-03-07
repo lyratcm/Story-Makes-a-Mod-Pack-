@@ -1,0 +1,24 @@
+trait_admiral_bringer_of_light = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_admiral_bringer_of_light.dds"
+    modifier = {
+        weapon_type_energy_weapon_damage_mult = 0.33
+        ship_disengage_chance_reduction = 0.25
+        ship_emergency_ftl_min_days_mult = 1.00
+    }
+    leader_trait = {
+        admiral
+    }
+    leader_class = {
+        admiral
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_bioreactor
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

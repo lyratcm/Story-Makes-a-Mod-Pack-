@@ -1,0 +1,22 @@
+trait_high_metabolism = {
+    potential_crossbreeding_chance = 1.0
+    cost = -1
+    icon = "gfx/interface/icons/traits/trait_fleeting.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    modifier = {
+        planet_pops_organics_food_upkeep_mult = 0.1
+        planet_pops_organics_minerals_upkeep_mult = 0.1
+    }
+    opposites = {
+        "trait_photosynthetic"
+        "trait_low_metabolism"
+        "trait_sleepless"
+        "trait_additrait_thermosynthetic"
+    }
+    ai_weight = {
+        weight = 0.1
+    }
+}

@@ -1,0 +1,5 @@
+#	on_game_start = {
+#		events = {
+#			z_statistic.1		#_数据统计
+#		}
+#	}

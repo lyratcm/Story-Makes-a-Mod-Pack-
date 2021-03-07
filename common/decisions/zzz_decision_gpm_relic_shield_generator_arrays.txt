@@ -1,0 +1,52 @@
+decision_gpm_shield_generator_arrays = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_gpm_shield_generator_arrays
+	enactment_time = 0
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+    potential = {
+		FROM = {
+			check_variable = {
+				which = "gpm_shield_generator_decision_count"
+				value > 0
+			}
+		}
+		
+		NOT = { has_deposit = gpm_d_planetary_shield_array }
+	}
+	
+	allow = {
+		NOT = { has_deposit = gpm_d_planetary_shield_array }
+		NOR = {
+			gpm_is_planet_class_ringworld = yes
+			gpm_is_planet_class_habitat = yes
+		}
+	}
+
+    effect = {
+		custom_tooltip = decision_gpm_shield_generator_arrays_tt
+		hidden_effect = {
+			from = {
+				change_variable = {
+					which = "gpm_shield_generator_decision_count"
+					value = -1
+				}
+			}
+			#add_deposit = gpm_d_planetary_shield_array
+		}
+		#add_modifier = { modifier = gpm_precursor_planetary_shield_on }
+		add_deposit = gpm_d_planetary_shield_array
+		hidden_effect = { gpm_set_precursor_planetary_shields = yes }
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

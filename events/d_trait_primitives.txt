@@ -1,0 +1,18 @@
+namespace = d_traits_primitives
+
+# start
+country_event = {
+	id = d_traits_primitives.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_primitive = yes
+	}
+	immediate = {
+		country_event = {
+			id = d_traits.503
+			days = 4
+		}
+	}
+}
+

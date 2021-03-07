@@ -1,0 +1,54 @@
+guiTypes = {
+    containerWindowType = {
+        name = "artifact_action_grid_entry"
+        size = {
+            width = 482
+            height = 40
+        }
+        background = {
+            name = "bg"
+            quadTextureSprite = "GFX_tiles_dark_area_cut_8"
+        }
+        instantTextBoxType = {
+            name = "title"
+            font = "cg_16b"
+            position = {
+                x = 10
+                y = 14
+            }
+            text = "MINOR_ARTIFACTS"
+            maxWidth = 300
+            maxHeight = 22
+            fixedSize = yes
+            format = left
+            alwaysTransparent = yes
+        }
+        instantTextBoxType = {
+            name = "cost"
+            font = "cg_16b"
+            position = {
+                x = 320
+                y = 14
+            }
+            maxWidth = 150
+            maxHeight = 22
+            fixedSize = yes
+            format = right
+            text = "45"
+            alwaysTransparent = yes
+        }
+        buttonType = {
+            name = "button"
+            quadTextureSprite = "GFX_button_light"
+            position = {
+                x = -1
+                y = -1
+            }
+            clicksound = "queuing_building"
+            size = {
+                x = 484
+                y = 42
+            }
+        }
+    }
+}

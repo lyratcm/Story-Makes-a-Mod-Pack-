@@ -1,0 +1,51 @@
+building_education_center = {
+	base_buildtime = 480
+	
+	branch_office_building = yes
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_machine_servitor
+		}
+		owner = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+	}
+	
+	planet_modifier = {
+		resources = {
+			produces = {
+				physics_research = 4
+				engineering_research = 4
+				society_research = 4
+			}
+		}
+		job_offworld_trophy_add = 1
+		pop_ethic_materialist_attraction_mult = 0.5
+		planet_bio_trophies_produces_mult = 0.10
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 800
+		}	
+		produces = {
+			physics_research = 2
+			engineering_research = 2
+			society_research = 6
+			unity = 1
+		}	
+		upkeep = {
+			energy = 5
+			consumer_goods = 1
+		}
+	}
+	
+	ai_weight = {
+		weight = 300
+	}
+}

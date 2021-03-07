@@ -1,0 +1,14 @@
+trait_poor_work_ethic = {
+    icon = "gfx/interface/icons/traits/trait_poor_work_ethic.dds"
+    cost = -2
+    opposites = {
+        "trait_good_work_ethic"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        planet_jobs_minerals_produces_mult = -0.05
+        planet_pops_consumer_goods_upkeep_mult = 0.10
+    }
+}

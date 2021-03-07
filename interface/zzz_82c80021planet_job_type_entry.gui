@@ -1,0 +1,57 @@
+guiTypes = {
+    containerWindowType = {
+        name = "planet_job_type_entry"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = 60
+            height = 60
+        }
+        background = {
+            name = "job_background"
+            quadTextureSprite = "GFX_button_dark"
+            clicksound = "menu_slide_open"
+        }
+        iconType = {
+            name = "job_icon"
+            quadTextureSprite = "GFX_job_unknown"
+            position = {
+                x = 15
+                y = 7
+            }
+            alwaysTransparent = yes
+        }
+        iconType = {
+            name = "favorite_icon"
+            spriteType = "GFX_job_favorite"
+            position = {
+                x = 2
+                y = 0
+            }
+        }
+        iconType = {
+            name = "downprio_icon"
+            spriteType = "GFX_job_depreciate"
+            position = {
+                x = 42
+                y = 2
+            }
+            scale = 0.9
+        }
+        instantTextBoxType = {
+            name = "amount"
+            font = "cg_16b"
+            text = "5"
+            position = {
+                x = 0
+                y = 38
+            }
+            maxWidth = 60
+            maxHeight = 20
+            fixedSize = yes
+            format = center
+        }
+    }
+}

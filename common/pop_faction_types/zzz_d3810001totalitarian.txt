@@ -1,0 +1,840 @@
+totalitarian = {
+    election_header = "GFX_faction_header_yellow"
+    guiding_ethic = ethic_authoritarian
+    unique = yes
+    support_multiplier = 1
+    resources = {
+        category = pop_factions
+        produces = {
+            influence = 2
+        }
+    }
+    is_potential = {
+        years_passed > 10
+        NOT = {
+            has_ethic = ethic_gestalt_consciousness
+        }
+        count_owned_pops = {
+            count >= 5
+            limit = {
+                has_ethic = ethic_authoritarian
+            }
+        }
+    }
+    parameters = {
+        empire = {
+            type = country
+            valid_objects = {
+                is_same_value = root
+            }
+        }
+    }
+    can_join_pre_triggers = {
+        is_enslaved = no
+        is_being_purged = no
+    }
+    can_join_faction = {
+        is_shackled_robot = no
+        has_culture_shock = no
+        NOT = {
+            has_trait = trait_nerve_stapled
+        }
+        OR = {
+            has_ethic = ethic_authoritarian
+            has_ethic = ethic_fanatic_authoritarian
+        }
+    }
+    attraction = {
+        base = 150
+        modifier = {
+            factor = 1.25
+            exists = from
+            from = {
+                exists = leader
+                leader = {
+                    leader_class = ruler
+                }
+            }
+        }
+        modifier = {
+            factor = 0.75
+            exists = from
+            from = {
+                NOT = {
+                    exists = leader
+                }
+            }
+        }
+        modifier = {
+            factor = 0.25
+            NOT = {
+                is_same_species = owner_species
+            }
+        }
+    }
+    leader = {
+        base = 100
+        modifier = {
+            factor = 0.0
+            is_event_leader = yes
+        }
+    }
+    demand = {
+        title = "FACTION_OUTRAGED_GC"
+        unfulfilled_title = "FACTION_OUTRAGED_GC"
+        desc = "FACTION_OUTRAGED_GC_DESC"
+        fulfilled_effect = -20
+        unfulfilled_effect = -0.001
+        potential = {
+            exists = owner
+            owner = {
+                has_country_flag = faction_authoritarian_outraged_gc
+            }
+        }
+        trigger = {
+            owner = {
+                has_country_flag = faction_authoritarian_outraged_gc
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_HARMONIOUS"
+        unfulfilled_title = "TOTALITARIAN_NO_HARMONIOUS"
+        desc = "TOTALITARIAN_HARMONIOUS_DESC"
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+        potential = {
+            exists = owner
+            owner = {
+                has_ai_personality = harmonious_hierarchy
+            }
+        }
+        trigger = {
+            owner = {
+                has_ai_personality = harmonious_hierarchy
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_HEIR"
+        unfulfilled_title = "TOTALITARIAN_NO_HEIR"
+        desc = "TOTALITARIAN_HEIR_DESC"
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -5
+        potential = {
+            exists = owner
+            owner = {
+                has_authority = auth_imperial
+            }
+        }
+        trigger = {
+            owner = {
+                exists = heir
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_WISE_KING"
+        unfulfilled_title = "TOTALITARIAN_NO_WISE_KING"
+        desc = "TOTALITARIAN_WISE_KING_DESC"
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+        potential = {
+            exists = owner
+            owner = {
+                has_civic = civic_philosopher_king
+            }
+        }
+        trigger = {
+            owner = {
+                has_civic = civic_philosopher_king
+                any_owned_leader = {
+                    leader_class = ruler
+                    has_level > 4
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_FAMILY_OWNED"
+        unfulfilled_title = "TOTALITARIAN_NO_FAMILY_OWNED"
+        desc = "TOTALITARIAN_FAMILY_OWNED_DESC"
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -10
+        potential = {
+            exists = owner
+            owner = {
+                is_megacorp = yes
+                OR = {
+                    has_valid_civic = civic_corp_philosopher_king
+                    has_country_flag = has_corp_philosopher_king
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                has_valid_civic = civic_corp_philosopher_king
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_ANCIENT"
+        unfulfilled_title = "TOTALITARIAN_NO_ANCIENT"
+        desc = "TOTALITARIAN_ANCIENT_DESC"
+        fulfilled_effect = 5
+        unfulfilled_effect = -30
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_ancient_dynasty
+            }
+        }
+        trigger = {
+            owner = {
+                has_authority = auth_imperial
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_ARISTOCRAT"
+        unfulfilled_title = "TOTALITARIAN_NO_ARISTOCRAT"
+        desc = "TOTALITARIAN_ARISTOCRAT_DESC"
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -30
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_aristocratic_elite
+                    has_valid_civic = civic_royal_trading_company
+                    has_country_flag = has_aristocratic_elite
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                OR = {
+                    has_valid_civic = civic_aristocratic_elite
+                    has_valid_civic = civic_royal_trading_company
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_AUTOCRACY"
+        unfulfilled_title = "TOTALITARIAN_NO_AUTOCRACY"
+        desc = "TOTALITARIAN_AUTOCRACY_DESC"
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+        potential = {
+            exists = owner
+            owner = {
+                NOR = {
+                    has_authority = auth_democratic
+                    has_authority = auth_cooperative
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                OR = {
+                    has_authority = auth_imperial
+                    has_authority = auth_dictatorial
+                    has_authority = auth_private
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_DEMOCRACY"
+        unfulfilled_title = "TOTALITARIAN_NO_DEMOCRACY"
+        desc = "TOTALITARIAN_DEMOCRACY_DESC"
+        unfulfilled_effect = -25
+        fulfilled_effect = 0.001
+        potential = {
+            exists = owner
+            owner = {
+                NOR = {
+                    has_authority = auth_imperial
+                    has_authority = auth_dictatorial
+                    has_authority = auth_private
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                NOR = {
+                    has_authority = auth_democratic
+                    has_authority = auth_cooperative
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_STRATIFICATION"
+        unfulfilled_title = "TOTALITARIAN_NO_STRATIFICATION"
+        desc = "TOTALITARIAN_STRATIFICATION_DESC"
+        fulfilled_effect = 10
+        unfulfilled_effect = -20
+        potential = {
+            exists = owner
+        }
+        trigger = {
+            owner = {
+                OR = {
+                    NOT = {
+                        any_owned_pop = {
+                            NOR = {
+                                has_living_standard = {
+                                    type = living_standard_stratified
+                                }
+                                has_living_standard = {
+                                    type = living_standard_academic_privilege
+                                }
+                            }
+                        }
+                    }
+                    any_owned_pop = {
+                        OR = {
+                            has_citizenship_type = {
+                                type = citizenship_slavery
+                            }
+                            has_citizenship_type = {
+                                type = citizenship_purge
+                            }
+                            has_citizenship_type = {
+                                type = citizenship_ai_servitude
+                            }
+                        }
+                    }
+                    AND = {
+                        NOT = {
+                            any_owned_pop = {
+                                NOT = {
+                                    is_same_species = owner_species
+                                }
+                                has_citizenship_type = {
+                                    type = citizenship_full
+                                }
+                            }
+                        }
+                        any_owned_pop = {
+                            has_citizenship_type = {
+                                type = citizenship_limited
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_GOVERNORS"
+        unfulfilled_title = "TOTALITARIAN_FEW_GOVERNORS"
+        desc = "TOTALITARIAN_GOVERNORS_DESC"
+        fulfilled_effect = 0
+        unfulfilled_effect = -5
+        potential = {
+            exists = owner
+            owner = {
+                any_owned_sector = {
+                    NOT = {
+                        has_sector_type = core_sector
+                    }
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                NOT = {
+                    any_owned_sector = {
+                        NOT = {
+                            has_sector_type = core_sector
+                        }
+                        NOT = {
+                            exists = leader
+                        }
+                    }
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_STATE_MEDIA"
+        unfulfilled_title = "TOTALITARIAN_NO_STATE_MEDIA"
+        desc = "TOTALITARIAN_STATE_MEDIA_DESC"
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_policy_flag = free_press
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                NOT = {
+                    has_policy_flag = free_press
+                }
+                NOT = {
+                    has_policy_flag = censored_media
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_FREE_PRESS"
+        unfulfilled_title = "TOTALITARIAN_NO_FREE_PRESS"
+        desc = "TOTALITARIAN_FREE_PRESS_DESC"
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -10
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_policy_flag = free_press
+                    has_policy_flag = censored_media
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                NOT = {
+                    has_policy_flag = free_press
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_NO_UNIONS"
+        unfulfilled_title = "TOTALITARIAN_UNIONS"
+        desc = "TOTALITARIAN_NO_UNIONS"
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -20
+        potential = {
+            exists = owner
+        }
+        trigger = {
+            NOR = {
+                owner = {
+                    has_policy_flag = full_union_rights
+                }
+                owner = {
+                    has_policy_flag = normal_union_rights
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_HEALTHCARE"
+        unfulfilled_title = "TOTALITARIAN_NO_HEALTHCARE"
+        desc = "TOTALITARIAN_HEALTHCARE_DESC"
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -5
+        potential = {
+            exists = owner
+            owner = {
+                NOR = {
+                    is_robot_empire = yes
+                    is_megacorp = yes
+                    has_valid_civic = civic_corporate_dominion
+                    has_valid_civic = civic_merchant_guilds
+                    has_valid_civic = eco_civic_consumerist
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                NOT = {
+                    has_policy_flag = healthcare_universal
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_ELITISM"
+        unfulfilled_title = "TOTALITARIAN_NO_ELITISM"
+        desc = "TOTALITARIAN_ELITISM_DESC"
+        fulfilled_effect = 5
+        unfulfilled_effect = -5
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_technology = tech_selected_lineages
+                    has_technology = tech_capacity_boosters
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                OR = {
+                    has_policy_flag = leader_enhancement_selected_lineages
+                    has_policy_flag = leader_enhancement_capacity_boosters
+                }
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_EXTRANATIONAL_AUTHORITY"
+        unfulfilled_title = "TOTALITARIAN_NO_EXTRANATIONAL_AUTHORITY"
+        desc = "TOTALITARIAN_EXTRANATIONAL_AUTHORITY_DESC"
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ai_personality = harmonious_hierarchy
+                }
+                num_communications > 2
+            }
+        }
+        trigger = {
+            owner = {
+                is_overlord = yes
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_VASSAL_CONTROL"
+        unfulfilled_title = "TOTALITARIAN_NO_VASSAL_CONTROL"
+        desc = "TOTALITARIAN_VASSAL_CONTROL_DESC"
+        fulfilled_effect = 5
+        unfulfilled_effect = -5
+        potential = {
+            exists = owner
+            owner = {
+                is_overlord = yes
+                NOR = {
+                    has_valid_civic = civic_feudal_realm
+                    is_megacorp = yes
+                }
+            }
+        }
+        trigger = {
+            owner = {
+                has_policy_flag = vassal_expansion_not_allowed
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_UNDERLING"
+        unfulfilled_title = "TOTALITARIAN_NOT_UNDERLING"
+        desc = "TOTALITARIAN_UNDERLING_DESC"
+        unfulfilled_effect = -10
+        fulfilled_effect = 0.001
+        potential = {
+            exists = owner
+            owner = {
+                is_subject = yes
+            }
+        }
+        trigger = {
+            owner = {
+                is_subject = yes
+            }
+        }
+    }
+    demand = {
+        title = "TOTALITARIAN_EXTENDED_SHIFTS"
+        unfulfilled_title = "TOTALITARIAN_NO_EXTENDED_SHIFTS"
+        desc = "TOTALITARIAN_EXTENDED_SHIFTS_DESC"
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+        potential = {
+            exists = owner
+            owner = {
+                has_non_swapped_tradition = tr_domination_workplace_motivators
+            }
+        }
+        trigger = {
+            owner = {
+                has_edict = extended_shifts
+            }
+        }
+    }
+    on_create = {
+        pop_faction_event = {
+            id = factions.1
+        }
+    }
+    on_destroy = {
+        if = {
+            limit = {
+                has_modifier = promoted_authoritarian
+            }
+            remove_modifier = promoted_authoritarian
+        }
+        if = {
+            limit = {
+                has_modifier = suppressed_authoritarian
+            }
+            remove_modifier = suppressed_authoritarian
+        }
+    }
+    actions = {
+        embrace_faction = {
+            title = "EMBRACE_FACTION"
+            description = "EMBRACE_FACTION_DESC"
+            cost = {
+                influence = 500
+            }
+            potential = {
+                exists = owner
+                owner = {
+                    NOT = {
+                        has_authority = auth_master_computer
+                    }
+                    OR = {
+                        is_subject = no
+                        NOT = {
+                            is_subject_type = dominion
+                        }
+                    }
+                }
+            }
+            valid = {
+                custom_tooltip = {
+                    fail_text = EMBRACE_FACTION_COOLDOWN
+                    parameter:empire = {
+                        NOT = {
+                            has_modifier = embraced_faction_timer
+                        }
+                    }
+                }
+                support > 0.20
+                parameter:empire = {
+                    NOT = {
+                        has_ethic = "ethic_fanatic_authoritarian"
+                    }
+                }
+            }
+            effect = {
+                add_modifier = {
+                    modifier = embraced_faction
+                    days = 3600
+                }
+                parameter:empire = {
+                    shift_ethic = ethic_authoritarian
+                    hidden_effect = {
+                        add_modifier = {
+                            modifier = embraced_faction_timer
+                            days = 3600
+                        }
+                        every_pop_faction = {
+                            limit = {
+                                NOT = {
+                                    is_same_value = root
+                                }
+                            }
+                            add_modifier = {
+                                modifier = embraced_another_faction
+                                days = 3600
+                            }
+                        }
+                        if = {
+                            limit = {
+                                has_ethic = ethic_fanatic_authoritarian
+                                NOT = {
+                                    has_authority = auth_imperial
+                                }
+                                NOT = {
+                                    has_authority = auth_private
+                                }
+                            }
+                            if = {
+                                limit = {
+                                    is_megacorp = no
+                                }
+                                change_government = {
+                                    authority = auth_dictatorial
+                                }
+                            }
+                            else = {
+                                change_government = {
+                                    authority = auth_private
+                                }
+                            }
+                        }
+                        else_if = {
+                            limit = {
+                                has_authority = auth_democratic
+                            }
+                            change_government = {
+                                authority = auth_oligarchic
+                            }
+                        }
+                        else_if = {
+                            limit = {
+                                has_authority = auth_cooperative
+                            }
+                            change_government = {
+                                authority = auth_corporate
+                            }
+                        }
+                    }
+                }
+                hidden_effect = {
+                    save_event_target_as = TargetFaction
+                    parameter:empire = {
+                        every_relation = {
+                            limit = {
+                                is_ai = no
+                                OR = {
+                                    is_country_type = default
+                                    is_country_type = ascended_empire
+                                    is_country_type = lost_empire
+                                }
+                                has_communications = prev
+                            }
+                            country_event = {
+                                id = factions.2000
+                            }
+                        }
+                    }
+                }
+            }
+            ai_weight = {
+                base = 1
+                modifier = {
+                    factor = 0
+                    support < 0.50
+                    owner = {
+                        has_ethic = ethic_authoritarian
+                    }
+                }
+                modifier = {
+                    factor = 0.25
+                    support < 0.50
+                }
+                modifier = {
+                    factor = 0
+                    owner = {
+                        has_valid_civic = civic_fanatic_purifiers
+                    }
+                }
+                modifier = {
+                    factor = 0
+                    NOT = {
+                        owner = {
+                            exists = ruler
+                            ruler = {
+                                leader_of_faction = totalitarian
+                            }
+                        }
+                    }
+                }
+                modifier = {
+                    factor = 0.1
+                    owner = {
+                        has_ethic = ethic_egalitarian
+                    }
+                }
+                modifier = {
+                    factor = 0
+                    owner = {
+                        has_ethic = ethic_fanatic_egalitarian
+                    }
+                }
+                modifier = {
+                    factor = 0.5
+                    owner = {
+                        has_authority = auth_democratic
+                    }
+                }
+            }
+        }
+        promote_faction = {
+            title = "PROMOTE_FACTION"
+            description = "PROMOTE_FACTION_DESC"
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    NOR = {
+                        has_modifier = suppressed_authoritarian
+                        has_modifier = promoted_authoritarian
+                    }
+                }
+            }
+            effect = {
+                parameter:empire = {
+                    add_modifier = {
+                        modifier = promoted_authoritarian
+                        days = -1
+                    }
+                }
+            }
+            ai_weight = {
+                base = 0
+            }
+        }
+        cancel_promote_faction = {
+            title = "CANCEL_PROMOTE_FACTION"
+            description = "CANCEL_PROMOTE_FACTION_DESC"
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    has_modifier = promoted_authoritarian
+                }
+            }
+            effect = {
+                parameter:empire = {
+                    remove_modifier = promoted_authoritarian
+                }
+            }
+            ai_weight = {
+                base = 0
+            }
+        }
+        suppress_faction = {
+            title = "SUPPRESS_FACTION"
+            description = "SUPPRESS_FACTION_DESC"
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    NOR = {
+                        has_modifier = suppressed_authoritarian
+                        has_modifier = promoted_authoritarian
+                    }
+                }
+            }
+            effect = {
+                add_modifier = {
+                    modifier = suppressed_faction
+                    days = -1
+                }
+                parameter:empire = {
+                    add_modifier = {
+                        modifier = suppressed_authoritarian
+                        days = -1
+                    }
+                }
+            }
+            ai_weight = {
+                base = 0
+            }
+        }
+        cancel_suppress_faction = {
+            title = "CANCEL_SUPPRESS_FACTION"
+            description = "CANCEL_SUPPRESS_FACTION_DESC"
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    has_modifier = suppressed_authoritarian
+                }
+            }
+            effect = {
+                remove_modifier = suppressed_faction
+                parameter:empire = {
+                    remove_modifier = suppressed_authoritarian
+                }
+            }
+            ai_weight = {
+                base = 0
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+cp_building_local_cantina = { #Local Cantina
+	base_buildtime = @b1_time
+	branch_office_building = yes
+	icon = building_primitive_dwellings
+	potential = {
+		has_branch_office = yes
+		exists = owner
+		branch_office_owner = {
+			has_valid_civic = cp_civic_space_cantina
+		}
+		owner = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+	}
+	planet_modifier = {
+		job_cp_patron_add = 2
+		job_entertainer_add = 1
+		pop_government_ethic_attraction = -0.25
+	}
+	country_modifier = {
+		planet_immigration_pull_mult = 0.5
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			consumer_goods = 3
+		}
+	}
+	destroy_trigger = {
+		exists = owner
+		NOT = {
+			branch_office_owner = { has_valid_civic = cp_civic_space_cantina }
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_entertainer_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_patron_effect_desc
+	}
+	ai_weight = {
+		factor = 1
+	}
+}

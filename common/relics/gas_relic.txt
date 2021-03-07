@@ -1,0 +1,61 @@
+@activation_cost = 150
+@triumph_duration = 3600
+@triumph_duration_short = 1800
+
+r_gas_relic = {
+	activation_duration = @triumph_duration
+	portrait = "GFX_gas_relic"
+	sound = "relic_activation_miniature_galaxy"
+
+	resources = {
+		category = relics
+		# Activation cost
+		cost = {
+			influence = @activation_cost
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			always = yes
+		}
+		pop_government_ethic_attraction = 0.20
+		country_unity_produces_mult = 0.05
+	}
+
+	score = 2000
+
+	active_effect = {
+		custom_tooltip = gas_relic_active
+		custom_tooltip = relic_triumph_cooldown
+			
+		hidden_effect = {
+			add_modifier = {
+				modifier = "relic_activation_cooldown"
+				days = @triumph_duration
+			}
+			owner = {						
+				change_variable = { which = gas_burner_build_count value = 1 }
+			}
+			random_planet_within_border = { add_deposit = d_exotic_gases_4 }
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_relic_no_cooldown"
+			NOT = { has_modifier = relic_activation_cooldown }
+		}
+	}
+}
+
+#hidden_effect = {
+#			owner = {						
+#				change_variable = { which = dimensional_fabricator_build_count value = 1 }
+#			}
+#		}

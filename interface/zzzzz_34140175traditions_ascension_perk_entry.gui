@@ -1,0 +1,26 @@
+guiTypes = {
+    containerWindowType = {
+        name = "traditions_ascension_perk_entry"
+        size = {
+            width = 44
+            height = 44
+        }
+        iconType = {
+            name = "icon"
+            position = {
+                x = 9
+                y = 5
+            }
+            quadTextureSprite = "GFX_ascension_perk_slot_locked"
+            alwaystransparent = yes
+            scale = 1.0
+        }
+        buttonType = {
+            name = "ascension_perk_button"
+            spriteType = "GFX_flag_64_frame"
+            buttonFont = "cg_16b"
+            clicksound = click
+            oversound = no_sound
+        }
+    }
+}

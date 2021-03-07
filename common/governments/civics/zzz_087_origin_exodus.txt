@@ -1,0 +1,37 @@
+origin_exodus = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_third_time_charm.dds"
+    picture = GFX_evt_city_planet
+    max_once_global = yes
+    starting_colony = pc_jph
+    non_colonizable_planet_class_neighbor = yes
+    playable = {
+    }
+    possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        civics = {
+            NOT = {
+                value = civic_agrarian_idyll
+            }
+        }
+        species = {
+            NOT = {
+                value = LITHOID
+            }
+        }
+    }
+    description = "origin_tooltip_exodus_effects"
+    flags = {
+        custom_start_screen
+    }
+    traits = {
+    }
+    advanced_start = yes
+    random_weight = {
+        base = 0
+    }
+}

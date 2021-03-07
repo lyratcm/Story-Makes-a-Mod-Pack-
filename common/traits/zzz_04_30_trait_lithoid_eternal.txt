@@ -1,0 +1,17 @@
+trait_lithoid_eternal = {
+    cost = 5
+    icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_world_shaper.dds"
+    potential_crossbreeding_chance = 1.0
+    modifier = {
+        leader_age = 300
+    }
+    opposites = {
+        "trait_venerable_lithoid"
+        "trait_enduring_lithoid"
+        "trait_fleeting_lithoid"
+        "trait_ageless"
+    }
+    allowed_archetypes = {
+        LITHOID
+    }
+}

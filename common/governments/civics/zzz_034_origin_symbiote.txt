@@ -1,0 +1,30 @@
+origin_symbiote = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_symbiote.dds"
+    picture = GFX_origin_symbiote
+    max_once_global = yes
+    possible = {
+        authority = {
+            value = auth_hive_mind
+        }
+        civics = {
+            NOR = {
+                value = civic_hive_devouring_swarm
+                value = civic_closed_collective
+                value = civic_infestation
+                value = civic_living_hosts
+            }
+        }
+    }
+    modifier = {
+        planet_stability_add = 5
+        pop_growth_from_immigration = 0.50
+    }
+    description = "civic_tooltip_origin_symbiote_effects"
+    traits = {
+        trait = trait_brainslug
+    }
+    random_weight = {
+        base = 10
+    }
+}

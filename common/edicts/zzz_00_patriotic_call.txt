@@ -1,0 +1,26 @@
+patriotic_call = {
+	length = -1
+	icon = "GFX_edict_type_time"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	potential = {
+		has_valid_civic = civic_citizen_service
+	}
+
+	modifier = {
+		country_naval_cap_mult = 0.2
+		army_morale = 0.2
+		pop_government_ethic_attraction = 0.2
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

@@ -1,0 +1,27 @@
+decision_est_industry_5_machines_deactivate = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_est_industry_5_deactivate
+	
+	resources = {
+		category = decisions
+		cost = {
+			minerals = 360
+		}
+	}
+	
+	potential = {
+		has_modifier = mod_est_industry_5_machines
+	}
+	
+	effect = {
+		custom_tooltip = decision_est_industry_5_machines_deactivate_tooltip
+		hidden_effect = {
+			remove_modifier = "mod_est_industry_5_machines" 
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

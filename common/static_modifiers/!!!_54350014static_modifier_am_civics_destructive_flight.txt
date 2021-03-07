@@ -1,0 +1,5 @@
+static_modifier_am_civics_destructive_flight = {
+    planet_stability_add = -40
+    icon = "gfx/interface/icons/planet_modifiers/pm_landing_ship.dds"
+    icon_frame = 3
+}

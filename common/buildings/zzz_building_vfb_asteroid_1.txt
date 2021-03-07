@@ -1,0 +1,87 @@
+building_vfb_asteroid_station = {
+    category = government
+    base_buildtime = 180
+    base_cap_amount = 1
+    icon = building_vfb_asteroid
+    potential = {
+        NOR = {
+            has_building = building_vfb_asteroid_station
+            has_building = building_vfb_asteroid_hub
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_asteroid_station
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_asteroid_station
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+    }
+    planet_modifier = {
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_miner_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_mining_drone_add = 2
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            alloys = 100
+        }
+        upkeep = {
+            alloys = 1
+        }
+        produces = {
+            engineering_research = 4
+        }
+    }
+    upgrades = {
+        building_vfb_asteroid_hub
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 10
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = minerals
+                    value < 80
+                }
+            }
+        }
+        modifier = {
+            weight = 100
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = minerals
+                    value < 40
+                }
+            }
+        }
+    }
+}

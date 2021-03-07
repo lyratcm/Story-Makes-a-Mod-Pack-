@@ -1,0 +1,26 @@
+trait_robot_recurrent_neural_network = {
+    cost = 1
+    opposites = {
+        "trait_robot_dynamic_neural_network"
+        "trait_robot_modular_neural_network"
+    }
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            OR = {
+                has_authority = auth_machine_intelligence
+                has_technology = tech_synthetic_workers
+            }
+            NOT = {
+                has_policy_flag = ai_outlawed
+            }
+        }
+    }
+    modifier = {
+        planet_jobs_engineering_research_produces_mult = 0.25
+    }
+}

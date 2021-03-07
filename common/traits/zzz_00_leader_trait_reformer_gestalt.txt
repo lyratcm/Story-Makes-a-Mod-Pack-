@@ -1,0 +1,5 @@
+leader_trait_reformer_gestalt = {
+    cost = 1
+    initial = no
+    modification = no
+}

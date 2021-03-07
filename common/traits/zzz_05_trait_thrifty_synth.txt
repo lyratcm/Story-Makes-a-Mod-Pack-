@@ -1,0 +1,5 @@
+trait_thrifty_synth = {
+    cost = 2
+    initial = no
+    modification = no
+}

@@ -1,0 +1,20 @@
+origin_starship_graveyard = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_starship_graveyard.dds"
+	picture = GFX_origin_starship_graveyard
+
+	playable = {
+	}
+
+	possible = {
+	}
+
+	description = "origin_tooltip_starship_graveyard_effects"
+	#flags = { custom_start_screen }
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 5
+	}
+}

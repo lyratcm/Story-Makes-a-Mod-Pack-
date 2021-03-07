@@ -1,0 +1,26 @@
+encourage_free_thought = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	modifier = {
+		country_unity_produces_mult = 0.1
+		pop_ethics_shift_speed_mult = 1
+	}
+
+	potential = {
+		#is_egalitarian = yes
+		has_policy_flag = free_press
+	}
+	
+	ai_weight = {
+		weight = 0	
+	}
+}

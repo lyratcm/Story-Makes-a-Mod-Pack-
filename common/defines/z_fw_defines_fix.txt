@@ -1,0 +1,30 @@
+###_	[2.8 defines for 2.7 mods (pop growth bug fix)]	2293478298
+
+	NGameplay = {
+		SPAWN_SYSTEM_BUFFER_DISTANCE		= 10.0		# Systems created via spawn_system will not spawn within this distance to another system unless there really is no space for them to not do so
+		SPAWN_SYSTEM_ATTEMPTS				= 15		# Number of times the game will try and find a location for a system created via spawn_system before it defaults to the center of the galaxy. Note: The last two tries ignore SPAWN_SYSTEM_BUFFER_DISTANCE
+	}
+
+	NPop = {
+		#_动态人口限制(官方的)
+		OVERCROWDING_NO_GROWTH_THRESHOLD				= 1.15	# At this amount of overcrowding (required housing / actual housing), growth stops entirely
+		OVERCROWDING_DECLINE_THRESHOLD					= 1.25	# At this amount of overcrowding (required housing / actual housing), pops start declining
+		OVERCROWDING_ABSOLUTE_THRESHOLD_FOR_NO_GROWTH	= 5		# Planet needs this amount of overcrowding (required housing - actual housing) for OVERCROWDING_NO_GROWTH_THRESHOLD to kick in
+		MAX_NUM_GROWTH_OR_DECLINE_PER_MONTH				= 10 	# No more than this amount of pops can grow, assemble or decline in the same month
+	}
+
+	NAI = {
+		CRISIS_MILITARY_AGGRESSIVENESS		= 2		#_天灾国家的aggressiveness,和国家性格里类似,默认1
+		CRISIS_CONSTRUCTOR_TARGET_SCORE 	= 3		#_天灾保护建设者的额外权重
+		SLAVE_SELL_MIN_POPS 				= 1		#_星球的最低人口低于或等于它,禁止卖奴隶防止殖民地废掉
+		SWARM_NUM_DEFENSIVE_FLEETS			= 3
+		CONTINGENCY_LINKUP_DESIRE			= 10	# how much the contingency wants to link up its various hubs
+		CONTINGENCY_BASE_DEFENSIVE_FLEETS	= 4		# Number of active hubs is added to this
+		CONTINGENCY_CONSTRUCTION_DEPTH		= 3		# Number of systems not owned by the contingency construction fleet are willing to go through
+		FLEET_MAX_DISTANCE_LOOKUP			= 20	# Maximum number of hops the fleet AI should consider when assigning mission.没有目标,默认AI将会让它去最近的目标点或返回基地
+		FLEET_MAX_DISTANCE_LOOKUP_LARGE		= 30	# Maximum number of hops the fleet AI should consider when assigning mission on a large map (800 systems or more).
+		FLEET_MAX_DISTANCE_LOOKUP_HUGE		= 50	# Maximum number of hops the fleet AI should consider when assigning mission on a huge map (1000 systems or more)
+		CRISIS_INHIBITOR_EXTRA_VALUE		= 10	# extra incentive for crisis to destroy inhibitors, currently only used by the extra dimensionals
+		AI_FOLLOW_FLEET_DESIRE				= 5		# AI desire to follow "take point" fleets from random people
+		AI_FOLLOW_WAR_LEADER_DESIRE			= 10	# AI desire to follow "take point" fleets from the war leader
+	}

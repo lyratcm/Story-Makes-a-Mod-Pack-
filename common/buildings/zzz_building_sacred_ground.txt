@@ -1,0 +1,36 @@
+cp_building_sacred_ground = { #Sacred Ground
+	base_buildtime = @b1_time
+	icon = building_autocurating_vault
+	category = government
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = cp_civic_immortal_ascendancy }
+	}
+	planet_modifier = {
+		job_cp_acolyte_add = 4
+	}
+	destroy_trigger = {
+		exists = owner
+		NOT = {
+			owner = { has_civic = cp_civic_immortal_ascendancy }
+		}
+	}
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_acolyte_effect_desc
+	}
+	ai_weight = {
+		factor = 1
+	}
+}

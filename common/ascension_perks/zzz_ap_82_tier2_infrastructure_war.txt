@@ -1,0 +1,32 @@
+ap_esap_ct2_infrastructure_war = {
+	on_enabled = {
+		#custom_tooltip = ap_esap_ct2_infrastructure_war_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct2_infrastructure_war_req_1"
+			has_ascension_perk = ap_esap_ct1_infrastructure
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct2_infrastructure_war_req_2"
+			has_ascension_perk = ap_esap_ct1_war
+		}
+	}
+
+	modifier = {
+		country_starbase_capacity_mult = 0.20
+		shipclass_starbase_hull_mult = 0.20
+		starbase_defense_platform_capacity_add = 10
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct2_infrastructure_war
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

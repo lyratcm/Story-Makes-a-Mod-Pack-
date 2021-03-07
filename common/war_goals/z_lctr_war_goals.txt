@@ -1,0 +1,60 @@
+#_[ÇÀ¶áÊ¥ÒÅÎï]
+
+
+
+
+#_[ÇÀ¶áÊ¥ÒÅÎï]
+z_lctr_wg_plunder_relic = {
+	casus_belli = z_cltr_cb_plunder_relic
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+	surrender_acceptance = -25
+
+	potential = { always = yes }
+	possible = { always = yes }
+
+	on_accept = {
+		#_winner
+		steal_relic = {
+			target = from
+			relic = z_lctr_r_adv_sensor
+		}
+		hidden_effect = { country_event = { id = z_lctr.21 } }
+		#_loser
+		from = {
+			add_threat = { who = root amount = 1 }
+			add_modifier = { modifier = humiliated days = 3600 }
+			hidden_effect = { country_event = { id = z_lctr.22 } }
+		}
+	}
+	#_±£³ÖÏÖ×´
+	on_status_quo = {
+		from = {
+			set_closed_borders = {
+				who = prev
+				status = no
+			}
+		}
+	}
+	ai_weight = {
+		weight = 20
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_1 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_2 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_3 value > 3 }
+		}
+	}
+}

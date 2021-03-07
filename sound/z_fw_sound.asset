@@ -1,0 +1,18 @@
+##########PLACEHOLDERS####################
+
+sound = {
+	name = "z_fw_sfx_ui_mouse_over"
+	file = "ui/z_fw_sfx_ui_mouse_over.wav"
+	volume = 1.0
+	#_always_load = no
+}
+sound = {
+	name = "z_fw_sfx_ui_click"
+	file = "ui/z_fw_sfx_ui_click.wav"
+	volume = 1.0
+}
+sound = {
+	name = "z_fw_sfx_menu_sc"
+	file = "ui/z_fw_sfx_menu_sc.wav"
+	volume = 1.0
+}

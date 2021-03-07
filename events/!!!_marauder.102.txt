@@ -1,0 +1,554 @@
+namespace = marauder
+
+country_event = {
+	id = marauder.102
+	title = "marauder_diplo_header_3"
+	desc = { 
+		text = marauder.102.1.desc
+		trigger = { 
+			from = { has_country_flag = marauder_1 }
+		}
+	}
+	desc = { 
+		text = marauder.102.2.desc
+		trigger = { 
+			from = { has_country_flag = marauder_2 }
+		}
+	}
+	desc = { 
+		text = marauder.102.3.desc
+		trigger = { 
+			from = { has_country_flag = marauder_3 }
+		}
+	}
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = from
+		room = "ethic_spaceship_room"
+	}
+	
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				has_relation_flag = {
+					who = from
+					flag = current_target
+				}
+				from = { is_country_type = dormant_marauders }
+			}
+			AND = {
+				from = { is_country_type = marauder_raiders }
+				any_country = {
+					is_country_type = dormant_marauders
+					has_country_flag = parent_of@from
+					root = {
+						has_relation_flag = {
+							who = prev
+							flag = current_target
+						}
+					}
+
+				}
+			}
+		}
+		NOT = { has_country_flag = marauder_diplomacy_engaged }
+	}
+
+	immediate = {
+		from = {
+			owner_species = { save_event_target_as = marauder_species }
+		}
+		set_country_flag = marauder_diplomacy_engaged
+		if = {
+			limit = {
+				from = { is_country_type = marauder_raiders }
+			}
+			random_country = {
+				limit = {
+					is_country_type = dormant_marauders
+					has_country_flag = parent_of@from
+				}
+				save_event_target_as = marauder_country
+			}
+			from = { save_event_target_as = marauder_raiding_country }
+		}
+		else = {
+			from = { save_event_target_as = marauder_country }
+			random_country = {
+				limit = {
+					is_country_type = marauder_raiders
+					from = { has_country_flag = parent_of@prev }
+				}
+				save_event_target_as = marauder_raiding_country
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = marauder_diplomacy_engaged
+		}
+	}
+	
+	# Marauder 1
+	option = { # Offer Energy tribute
+		name = marauder.101.a
+		response_text = marauder.102.1.a.response
+		trigger = {
+			from = { has_country_flag = marauder_1 }
+		}
+		allow = { 
+			determine_energy_tribute_raided = yes
+		}
+		tribute_cost_energy_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Mineral tribute
+		name = marauder.101.b
+		response_text = marauder.102.1.a.response
+		trigger = {
+			from = { has_country_flag = marauder_1 }
+		}
+		allow = { 
+			determine_mineral_tribute_raided = yes
+		}
+		tribute_cost_minerals_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Food tribute
+		name = marauder.101.c
+		response_text = marauder.102.1.a.response
+		trigger = {
+			from = { has_country_flag = marauder_1 }
+		}
+		allow = { 
+			determine_food_tribute_raided = yes
+		}
+		tribute_cost_food_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Alloy tribute
+		name = marauder.101.e_mod
+		response_text = marauder.102.1.a.response
+		trigger = {
+			from = { has_country_flag = marauder_1 }
+		}
+		allow = { 
+			determine_alloy_tribute_raided = yes
+		}
+		tribute_cost_alloy_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Ugly
+		name = marauder.102.d
+		response_text = marauder.102.1.b.response
+		is_dialog_only = yes
+		trigger = {
+			from = { has_country_flag = marauder_1 }
+			NOT = { has_country_flag = marauder_ugly }
+			NOR = {
+				has_valid_civic = "civic_fanatic_purifiers"
+				has_valid_civic = "civic_hive_devouring_swarm"
+				has_valid_civic = "civic_machine_terminator"
+			}
+		}
+		set_country_flag = marauder_ugly
+	}
+
+	# Marauder 2
+	option = { # Offer Energy tribute
+		name = marauder.101.a
+		response_text = marauder.102.2.a.response
+		trigger = {
+			from = { has_country_flag = marauder_2 }
+		}
+		allow = { 
+			determine_energy_tribute_raided = yes
+		}
+		tribute_cost_energy_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Mineral tribute
+		name = marauder.101.b
+		response_text = marauder.102.2.a.response
+		trigger = {
+			from = { has_country_flag = marauder_2 }
+		}
+		allow = { 
+			determine_mineral_tribute_raided = yes
+		}
+		tribute_cost_minerals_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Food tribute
+		name = marauder.101.c
+		response_text = marauder.102.2.a.response
+		trigger = {
+			from = { has_country_flag = marauder_2 }
+		}
+		allow = { 
+			determine_food_tribute_raided = yes
+		}
+		tribute_cost_food_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Alloy tribute
+		name = marauder.101.e_mod
+		response_text = marauder.102.2.a.response
+		trigger = {
+			from = { has_country_flag = marauder_2 }
+		}
+		allow = { 
+			determine_alloy_tribute_raided = yes
+		}
+		tribute_cost_alloy_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+
+	# Marauder 3
+	option = { # Offer Energy tribute
+		name = marauder.101.a
+		response_text = marauder.102.3.a.response
+		trigger = {
+			from = { has_country_flag = marauder_3 }
+		}
+		allow = { 
+			determine_energy_tribute_raided = yes
+		}
+		tribute_cost_energy_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Mineral tribute
+		name = marauder.101.b
+		response_text = marauder.102.3.a.response
+		trigger = {
+			from = { has_country_flag = marauder_3 }
+		}
+		allow = { 
+			determine_mineral_tribute_raided = yes
+		}
+		tribute_cost_minerals_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Food tribute
+		name = marauder.101.c
+		response_text = marauder.102.3.a.response
+		trigger = {
+			from = { has_country_flag = marauder_3 }
+		}
+		allow = { 
+			determine_food_tribute_raided = yes
+		}
+		tribute_cost_food_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+	option = { # Offer Alloy tribute
+		name = marauder.101.e_mod
+		response_text = marauder.102.3.a.response
+		trigger = {
+			from = { has_country_flag = marauder_3 }
+		}
+		allow = { 
+			determine_alloy_tribute_raided = yes
+		}
+		tribute_cost_alloy_raided = yes
+		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			remove_relation_flag = {
+				who = event_target:marauder_country
+				flag = current_target
+			}
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
+				random_owned_fleet = {
+					limit = { has_fleet_flag = raiding_fleet }
+					delete_fleet = this
+				}
+				destroy_country = yes
+			}
+		}
+	}
+
+	option = { # Refuse
+		name = marauder.102.e
+		default_hide_option = yes
+	}
+}

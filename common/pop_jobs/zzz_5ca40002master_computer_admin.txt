@@ -1,0 +1,143 @@
+master_computer_admin = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_master_computer_capital_1
+    clothes_texture_index = 1
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        ruler_job_check_trigger = yes
+        exists = owner
+        owner = {
+            has_authority = auth_master_computer
+        }
+    }
+    planet_modifier = {
+        planet_amenities_add = 8
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+            }
+        }
+        modifier = {
+            planet_amenities_add = 1.6
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_repugnant
+        }
+        modifier = {
+            planet_amenities_add = -1.6
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                exists = owner
+                owner = {
+                    has_valid_civic = civic_master_computer_surveillance
+                }
+            }
+        }
+        modifier = {
+            planet_crime_add = -5
+        }
+    }
+    resources = {
+        category = planet_researchers
+        produces = {
+            physics_research = 2
+            engineering_research = 2
+            society_research = 2
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+        modifier = {
+            factor = 0.1
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+            }
+        }
+        modifier = {
+            factor = 0.5
+            has_trait = trait_repugnant
+        }
+        modifier = {
+            factor = 0.2
+            has_trait = trait_presapient_proles
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_latent_psionic
+        }
+        modifier = {
+            factor = 1.25
+            has_trait = trait_psionic
+        }
+        modifier = {
+            factor = 0.2
+            has_trait = trait_enigmatic_intelligence_failed
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_enigmatic_intelligence_poor
+                has_trait = trait_enigmatic_intelligence
+            }
+        }
+        modifier = {
+            factor = 1.25
+            has_trait = trait_presapient_natural_intellectuals
+        }
+        modifier = {
+            factor = 1.25
+            has_trait = trait_brainslug
+        }
+        modifier = {
+            factor = 2
+            has_living_standard = {
+                type = living_standard_academic_privilege
+            }
+        }
+        modifier = {
+            factor = 3
+            has_trait = trait_erudite
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_robot_logic_engines
+                has_trait = trait_intelligent
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_natural_engineers
+                has_trait = trait_natural_physicists
+                has_trait = trait_natural_sociologists
+            }
+        }
+        modifier = {
+            factor = 5
+            has_job = master_computer_admin
+        }
+    }
+}

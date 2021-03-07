@@ -1,0 +1,480 @@
+###_无尽群星 framework-MISC	##############################################################
+
+#_[country_misc]	法令/AP
+#_[修正]
+#_[archaeology_runes]
+#_[z_fw_relic]	<relic只支持2个animation>	cure_hok
+#_[巨型构造]
+#_[地图模式]
+#_[z战争]
+
+
+
+
+spriteTypes = {
+	###_component templates	####################################################
+	#_通用z配件
+	spriteType = {
+		name = "GFX_z_fw_addon"
+		texturefile = "gfx/interface/icons/ship_parts/z_fw_addon.dds"
+	}
+
+
+
+
+
+
+
+
+	###_[country_misc]	法令/AP	###################################################
+	#_[法令]
+	spriteType = {
+		name = "GFX_z_fw_edict_gray"
+		textureFile = "gfx/interface/icons/z_fw_edict_gray.dds"
+	}
+	spriteType = {
+		name = "GFX_z_fw_edict_blue"
+		textureFile = "gfx/interface/icons/z_fw_edict_blue.dds"
+	}
+	spriteType = {
+		name = "GFX_z_fw_edict_green"
+		textureFile = "gfx/interface/icons/z_fw_edict_green.dds"
+	}
+	spriteType = {
+		name = "GFX_z_fw_edict_yellow"
+		textureFile = "gfx/interface/icons/z_fw_edict_yellow.dds"
+	}
+	spriteType = {
+		name = "GFX_z_fw_edict_red"
+		textureFile = "gfx/interface/icons/z_fw_edict_red.dds"
+	}
+	#_[AP]
+	spriteType = {
+		name = "GFX_z_fw_ap_take"
+		textureFile = "gfx/interface/z_modmenu/z_fw_ap_take.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		noOfFrames = 3
+	#	animation = {#_会拉伸
+	#		animationmaskfile = "gfx/interface/z_modmenu/z_fw_ap_take_fx_mask.dds"
+	#		animationtexturefile = "gfx/interface/z_modmenu/z_fw_ap_take_fx.dds"
+	#		animationrotation = 90			# -90 clockwise 90 counterclockwise(by default)
+	#		animationlooping = yes			# yes or no ;)
+	#		animationtime = 4				# in seconds
+	#		animationdelay = 0				# in seconds
+	#		animationblendmode = "add"      #add, multiply, overlay
+	#		animationtype = "rotating"     #scrolling, rotating, pulsing
+	#		animationrotationoffset = { x = 0.0 y = 0.0 }
+	#		animationtexturescale = { x = 1.0 y = 1.0 }
+	#		animationframes = { 1 }
+	#	}
+	}
+
+
+
+
+
+
+
+
+	###_[修正]	####################################################
+	#_通用modifier
+	spriteType = {
+		name = "GFX_z_fw_mod_normal"
+		texturefile = "gfx/interface/icons/modifiers/z_fw_normal.dds"
+	}
+	#_资源储存
+	spriteType = {
+		name = "GFX_z_fw_mod_res_stock"
+		texturefile = "gfx/interface/icons/modifiers/z_fw_mod_res_stock.dds"
+	}
+	#_modifier_怒
+	spriteType = {
+		name = "GFX_z_fw_mod_fury"
+		texturefile = "gfx/interface/icons/modifiers/z_fw_mod_fury.dds"
+	}
+	#_z_fw_core_battle
+	spriteType = {
+		name = "GFX_z_fw_core_battle"
+		texturefile = "gfx/interface/icons/modifiers/z_fw_core_battle.dds"
+	}
+	spriteType = {
+		name = "GFX_z_fw_core_battle_pb"
+		texturefile = "gfx/interface/icons/modifiers/z_fw_core_battle_pb.dds"
+	}
+	spriteType = {
+		name = "GFX_z_fw_core_battle_ptw"
+		texturefile = "gfx/interface/icons/modifiers/z_fw_core_battle_ptw.dds"
+	}
+	
+	
+	###_planet modifiers	####################################################
+	#_planet_modifier只能用完整地址指定
+
+
+
+
+
+
+
+
+	###_[archaeology_runes]	##################################################
+	spriteType = {
+		name = "GFX_z_acolg_runes_blue_01"
+		textureFile = "gfx/interface/archaeology/runes/z_acolg_runes_blue_01.dds"
+	}
+	spriteType = {
+		name = "GFX_z_acolg_runes_blue_02"
+		textureFile = "gfx/interface/archaeology/runes/z_acolg_runes_blue_02.dds"
+	}
+	spriteType = {
+		name = "GFX_z_acolg_runes_blue_03"
+		textureFile = "gfx/interface/archaeology/runes/z_acolg_runes_blue_03.dds"
+	}
+	spriteType = {
+		name = "GFX_z_acolg_runes_blue_04"
+		textureFile = "gfx/interface/archaeology/runes/z_acolg_runes_blue_04.dds"
+	}
+	spriteType = {
+		name = "GFX_z_acolg_runes_blue_05"
+		textureFile = "gfx/interface/archaeology/runes/z_acolg_runes_blue_05.dds"
+	}
+	spriteType = {
+		name = "GFX_z_acolg_runes_blue_06"
+		textureFile = "gfx/interface/archaeology/runes/z_acolg_runes_blue_06.dds"
+	}
+	spriteType = {
+		name = "GFX_z_acolg_runes_blue_done"
+		textureFile = "gfx/interface/archaeology/runes/z_acolg_runes_blue_done.dds"
+	}
+	
+	
+	
+	
+	###_[z_fw_relic]	##########################################################
+	#_cheat-celestial orrey
+	SpriteType = {
+		name = "GFX_z_fw_r_celestial_orrey"
+		texturefile = "gfx/interface/icons/relics/z_fw_cheat_celestial_orrery.dds"			
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_celestial_orrery_shine.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_r_fx_green.dds"
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 4				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	###_cheat-quantum_beacon	#############################
+	SpriteType = {
+		name = "GFX_z_fw_r_cheat_quantum_beacon"
+		texturefile = "gfx/interface/icons/relics/z_fw_cheat_quantum_beacon.dds"			
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_quantum_beacon_shine.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_r_fx_green.dds"
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 3				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_quantum_beacon_shine_2.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_r_fx_green.dds"
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 6				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	###_cheat-维度解构剑	#############################
+	SpriteType = {
+		name = "GFX_z_fw_r_cheat_hyper_blade"
+		texturefile = "gfx/interface/icons/relics/z_fw_cheat_hyper_blade.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_hyper_blade_shine.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_cheat_hyper_blade_shine.dds"
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_hyper_blade_fx_mask.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_cheat_hyper_blade_fx.dds"
+			animationrotation = -40.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 8				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	#_evt
+	spriteType = {
+		name = "GFX_evt_z_fw_r_cht_hyper"
+		texturefile = "gfx/event_pictures/z_fw_r_co_necron_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_r_cht_hyper_doom"
+		texturefile = "gfx/event_pictures/z_fw_r_co_necron_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	###_cheat-物质湮灭剑	#############################
+	SpriteType = {
+		name = "GFX_z_fw_cheat_mega_sword"
+		texturefile = "gfx/interface/icons/relics/z_fw_cheat_mega_blade.dds"			
+		effectFile = "gfx/FX/buttonstate.lua"
+		#_闪烁
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_mega_blade_fx_mask_light.dds"
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_cheat_mega_blade_fx_light.dds"
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+		#_外圈
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_mega_blade_fx_mask_ring.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_cheat_mega_blade_fx_ring.dds"
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 12				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"		#add, multiply, overlay
+			animationtype = "rotating"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	###_cheat-怒	#############################
+	SpriteType = {
+		name = "GFX_z_fw_r_cheat_fury"
+		texturefile = "gfx/interface/icons/relics/z_fw_cheat_fury.dds"			
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_fury_fx_mask.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_cheat_fury_fx.dds"
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 4				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}###_cheat-cure_hok	#############################
+	SpriteType = {
+		name = "GFX_z_fw_r_cheat_cure_hok"
+		texturefile = "gfx/interface/icons/relics/z_fw_cheat_cure_hok.dds"			
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_cure_hok_fx_1.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_cheat_cure_hok_fx_1.dds"
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 3				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_cheat_cure_hok_fx_2_mask.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_cheat_cure_hok_fx_2.dds"
+			animationrotation = -45.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2.5				# in seconds
+			animationdelay = 0.5			# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "scrolling"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	
+	
+	
+	
+	###_无限星辰纪念碑	#############################
+	SpriteType = {
+		name = "GFX_z_fw_r_monument"
+		texturefile = "gfx/interface/icons/relics/z_fw_r_monument.dds"			
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_r_monument_shine.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 185.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2				# in seconds
+			animationdelay = 1				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "scrolling"     #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_r_monument_shine.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 185.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "scrolling"     #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	#_head of karyl
+	SpriteType = {
+		name = "GFX_z_fw_r_karyl_head"
+		texturefile = "gfx/interface/icons/relics/z_fw_r_karyl_head.dds"			
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_fw_r_karyl_head_shine.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_fw_r_fx_golden.dds"
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 3				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	
+	
+	
+	
+	
+	
+	
+	###_[巨型构造]	###############################################
+	#_target marker
+	spriteType = {
+		name = "GFX_z_mm_mega_star_target_marker_bg"
+		textureFile = "gfx/interface/planetview/z_mm_mega_star_target_marker_bg.dds"
+	}
+	spriteType = {
+		name = "GFX_z_mm_mega_planet_target_marker_bg"
+		textureFile = "gfx/interface/planetview/z_mm_mega_planet_target_marker_bg.dds"
+	}
+	
+	
+	
+	
+	
+	
+
+	###_[地图模式]	##################################################
+	spriteType = {
+		name = GFX_z_map_mode_fleet
+		texturefile = "gfx/interface/z_modmenu/z_map_mode_fleet.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = GFX_z_map_mode_science
+		texturefile = "gfx/interface/z_modmenu/z_map_mode_science.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = GFX_z_map_mode_relic
+		texturefile = "gfx/interface/z_modmenu/z_map_mode_relic.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = GFX_z_map_mode_zenith
+		texturefile = "gfx/interface/z_modmenu/z_map_mode_zenith.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = GFX_z_map_mode_rivals
+		texturefile = "gfx/interface/z_modmenu/z_map_mode_rivals.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = GFX_z_map_mode_borders
+		texturefile = "gfx/interface/z_modmenu/z_map_mode_borders.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = GFX_z_map_mode_claims
+		texturefile = "gfx/interface/z_modmenu/z_map_mode_claims.dds"
+		noOfFrames = 2
+	}
+	
+	
+	
+	
+	###_[z战争] <内镜像法对应>	####################################################
+	#_去军事化
+	spriteType = {
+		name = "GFX_z_fw_wg_demilitarize"
+		texturefile = "gfx/interface/icons/diplomacy/z_fw_wg_demilitarize.dds"
+	}
+	#_争夺relic
+	spriteType = {
+		name = "GFX_z_fw_plunder_one_relic"
+		texturefile = "gfx/interface/icons/diplomacy/z_fw_wg_relic.dds"
+	}
+	spriteType = {
+		name = "GFX_z_fw_plunder_all_relics"
+		texturefile = "gfx/interface/icons/diplomacy/z_fw_wg_relic.dds"
+	}
+	#_边境战争
+	spriteType = {
+		name = "GFX_z_fw_wg_open_border"
+		texturefile = "gfx/interface/icons/diplomacy/z_fw_wg_border.dds"
+	}
+	spriteType = {
+		name = "GFX_z_fw_wg_open_border_long"
+		texturefile = "gfx/interface/icons/diplomacy/z_fw_wg_border.dds"
+	}
+	#_掠夺伞鼬
+	spriteType = {
+		name = "GFX_z_fw_wg_r_hok_kogasa"
+		texturefile = "gfx/interface/icons/diplomacy/z_fw_wg_r_hok_kogasa.dds"
+	}
+}

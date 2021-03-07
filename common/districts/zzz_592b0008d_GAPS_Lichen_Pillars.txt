@@ -1,0 +1,188 @@
+@Plant_Cost = 300
+@Plant_Lesser_Upkeep = 1
+d_GAPS_Lichen_Pillars = {
+    base_buildtime = 480
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        exists = owner
+        has_modifier = Planet_Modifier_GAPS_Lichen_Pillars
+    }
+    potential = {
+        exists = owner
+        has_modifier = Planet_Modifier_GAPS_Lichen_Pillars
+    }
+    conversion_ratio = 0
+    convert_to = {
+    }
+    resources = {
+        category = planet_GAPS_world_plants
+        cost = {
+            minerals = @Plant_Cost
+        }
+        upkeep = {
+            minerals = @Plant_Lesser_Upkeep
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+        }
+        modifier = {
+            job_gas_refiner_add = 1
+            job_chemist_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+            }
+        }
+        modifier = {
+            job_gas_refiner_drone_add = 1
+            job_chemist_drone_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        modifier = {
+            planet_housing_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            planet_housing_add = 18
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            planet_housing_add = 10
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            job_gas_refiner_add = 9
+            job_chemist_add = 9
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+            }
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            job_gas_refiner_drone_add = 9
+            job_chemist_drone_add = 9
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            job_gas_refiner_add = 9
+            job_chemist_add = 9
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+            }
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            job_gas_refiner_drone_add = 9
+            job_chemist_drone_add = 9
+        }
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            factor = 0
+            owner = {
+                NOT = {
+                    has_country_flag = CountryFlag_GAPS_Planters_Has_Lichen_Pillars
+                }
+            }
+        }
+        modifier = {
+            weight = 50
+            owner = {
+                has_monthly_income = {
+                    resource = exotic_gases
+                    value < 5
+                }
+            }
+            buildings_build_building = yes
+        }
+        modifier = {
+            weight = 200
+            owner = {
+                has_monthly_income = {
+                    resource = exotic_gases
+                    value < 1
+                }
+            }
+        }
+    }
+    ai_resource_production = {
+        minerals = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

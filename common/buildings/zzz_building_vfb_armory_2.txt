@@ -1,0 +1,120 @@
+building_vfb_plaza = {
+    category = government
+    base_buildtime = 360
+    can_build = no
+    icon = building_vfb_plaza
+    add_to_first_building_slot = yes
+    potential = {
+        NOR = {
+            has_building = building_vfb_plaza
+            has_building = building_vfb_administration
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_armory
+            is_machine_empire = no
+            is_hive_empire = no
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_armory
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+        }
+    }
+    destroy_trigger = {
+        OR = {
+            OR = {
+                has_modifier = slave_colony
+                has_modifier = resort_colony
+            }
+            owner = {
+                OR = {
+                    is_machine_empire = yes
+                    is_hive_empire = yes
+                }
+            }
+            planet = {
+                num_pops < 10
+            }
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 2
+        planet_building_build_speed_mult = 0.1
+        pop_environment_tolerance = 0.1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+        }
+        job_healthcare_add = 2
+        job_clerk_add = 2
+        job_enforcer_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                any_owned_planet = {
+                    has_building = building_vfb_administration
+                }
+            }
+        }
+        job_vfb_functionary_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    any_owned_planet = {
+                        has_building = building_vfb_administration
+                    }
+                }
+            }
+        }
+        job_bureaucrat_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_functional_architecture
+                    has_valid_civic = civic_functional_architecture_megacorp
+                }
+            }
+        }
+        planet_housing_add = 2
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = 400
+        }
+        upkeep = {
+            energy = 2
+        }
+    }
+    upgrades = {
+        building_vfb_administration
+    }
+    ai_weight = {
+        weight = 1000
+        factor = 5
+        modifier = {
+            weight = 100
+            factor = 10
+            num_pops > 14
+        }
+        modifier = {
+            weight = 100
+            factor = 10
+            num_pops > 24
+        }
+    }
+}

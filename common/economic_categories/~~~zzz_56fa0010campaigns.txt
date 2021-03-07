@@ -1,0 +1,12 @@
+campaigns = {
+    use_for_ai_budget = yes
+    parent = edicts
+    generate_mult_modifiers = {
+        produces
+        cost
+    }
+    generate_add_modifiers = {
+        produces
+        cost
+    }
+}

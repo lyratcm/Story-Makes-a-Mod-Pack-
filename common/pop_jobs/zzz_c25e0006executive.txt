@@ -1,0 +1,369 @@
+executive = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_capital
+    clothes_texture_index = 1
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        ruler_job_check_trigger = yes
+    }
+    resources = {
+        category = planet_executives
+        produces = {
+            unity = 2
+        }
+    }
+    planet_modifier = {
+        planet_amenities_add = 5
+        trade_value_add = 4
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_shadow_council
+                    has_valid_civic = civic_shadow_council_megacorp
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                has_modifier = "planet_manager_awards"
+            }
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                pop_percentage = {
+                    percentage >= 0.50
+                    limit = {
+                        has_very_high_living_standard_type = yes
+                    }
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 0.25
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                pop_percentage = {
+                    percentage >= 0.50
+                    limit = {
+                        OR = {
+                            has_very_high_living_standard_type = yes
+                            has_high_living_standard_type = yes
+                            has_academic_living_standard_type = yes
+                        }
+                    }
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 0.25
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                pop_percentage = {
+                    percentage >= 0.50
+                    limit = {
+                        OR = {
+                            has_very_high_living_standard_type = yes
+                            has_high_living_standard_type = yes
+                            has_academic_living_standard_type = yes
+                            has_shared_burden_living_standard_type = yes
+                        }
+                    }
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet
+            planet = {
+                num_pops > 99
+            }
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet
+            planet = {
+                num_pops > 199
+            }
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet
+            planet = {
+                num_pops > 299
+            }
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet
+            planet = {
+                num_pops > 399
+            }
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_thrifty
+                has_trait = trait_thrifty_synth
+            }
+        }
+        modifier = {
+            trade_value_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_nuumismatic_administration
+        }
+        modifier = {
+            trade_value_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+                has_trait = trait_robust
+            }
+        }
+        modifier = {
+            trade_value_add = 0.2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_ageless
+        }
+        modifier = {
+            trade_value_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_sleepless
+        }
+        modifier = {
+            trade_value_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            planet_amenities_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_global_flag = expanded_pops_active
+            is_robot_pop = yes
+            exists = owner
+            owner = {
+                has_relic = r_three_londor
+            }
+        }
+        modifier = {
+            planet_amenities_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            planet_amenities_add = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_shadow_council
+                    has_valid_civic = civic_shadow_council_megacorp
+                }
+            }
+        }
+        modifier = {
+            planet_amenities_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            planet_amenities_add = -1
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+        modifier = {
+            factor = 1.25
+            OR = {
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_robot_efficient_processors
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_adaptable_evolution_robot
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_ageless
+        }
+        modifier = {
+            factor = 2.5
+            has_trait = trait_sleepless
+        }
+        modifier = {
+            factor = 2.0
+            OR = {
+                has_trait = trait_thrifty
+                has_trait = trait_thrifty_synth
+            }
+        }
+        modifier = {
+            factor = 2.0
+            has_trait = trait_nuumismatic_administration
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            factor = 1.25
+            has_trait = trait_brainslug
+        }
+        modifier = {
+            factor = 1.2
+            has_trait = trait_presapient_natural_intellectuals
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            factor = 0.5
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            factor = 5
+            has_job = merchant
+        }
+        modifier = {
+            factor = 5
+            has_job = executive
+        }
+        modifier = {
+            factor = 1.2
+            is_unemployed = yes
+            is_pop_category = ruler
+        }
+        modifier = {
+            factor = 1.1
+            is_unemployed = yes
+            is_pop_category = specialist
+        }
+        modifier = {
+            factor = 0.01
+            has_living_standard = {
+                type = living_standard_chemical_bliss
+            }
+        }
+        modifier = {
+            factor = 0.01
+            exists = planet
+            exists = planet.controller
+            planet.controller = {
+                OR = {
+                    is_country_type = swarm
+                    is_country_type = ai_empire
+                }
+            }
+            OR = {
+                NOT = {
+                    exists = event_target:custodian_bot
+                }
+                AND = {
+                    exists = event_target:custodian_bot
+                    NOT = {
+                        species = {
+                            is_same_value = event_target:custodian_bot
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

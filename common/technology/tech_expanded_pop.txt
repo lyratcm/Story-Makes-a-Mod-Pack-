@@ -1,0 +1,1031 @@
+### Modded ###
+
+# ##################
+# Basic Science Lab
+# ##################
+
+# Organic Probability Theory
+tech_probability_theory = {
+	cost = @tier4cost1
+	area = physics
+	tier = 4
+	category = { computing }
+	prerequisites = { "tech_colonial_centralization" "tech_self_aware_logic" }
+	weight = @tier4weight1
+	is_rare = yes
+	icon = tech_galactic_markets
+	
+	modifier = {
+		planet_researchers_energy_produces_add = 1
+	}
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+		NOT = { has_valid_civic = civic_machine_terminator }
+	}
+	
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0.25
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_computing"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_probability_theory }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+		modifier = {
+			factor = 0
+			num_communications < 2
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}
+
+# ##################
+# Unity
+# ##################
+
+tech_virtual_combat_arena = {
+	cost = @tier1cost3
+	area = society
+	category = { statecraft }
+	tier = 1
+	prerequisites = { "tech_holo_entertainment" }
+	weight = @tier1weight3
+	icon = tech_hyper_entertainment_forum
+	
+	potential = {
+		is_gestalt = no
+		has_valid_civic = civic_warrior_culture
+	}
+
+	weight_modifier = {	
+		modifier = {
+			factor = 0
+			NOR = {
+				has_technology = tech_mine_exotic_gases
+				has_technology = tech_exotic_gases
+				has_country_flag = has_market_access
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+		modifier = {
+			factor = 2
+			years_passed > 30
+		}
+		modifier = {
+			factor = 3
+			years_passed > 50
+		}
+		modifier = {
+			factor = 4
+			years_passed > 70
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+		modifier = {
+			factor = 1.5
+			years_passed > 30
+		}
+		modifier = {
+			factor = 1.5
+			years_passed > 50
+		}
+		modifier = {
+			factor = 1.5
+			years_passed > 70
+		}
+	}
+}
+
+# Hive Unity
+#tech_hive_primary_confluence = {
+#	cost = @tier4cost2
+#	area = society
+#	category = { statecraft }
+#	tier = 4
+#	prerequisites = { "tech_hive_confluence" "tech_administrative_ai" "tech_galactic_administration" }
+#	weight = @tier4weight2
+#	
+#	weight_modifier = {	
+#		modifier = {
+#			factor = 1.25
+#			research_leader = {
+#				area = society
+#				has_trait = "leader_trait_expertise_statecraft"
+#			}
+#		}
+#	}
+#	
+#	ai_weight = {
+#		modifier = {
+#			factor = 1.25
+#			research_leader = {
+#				area = society
+#				has_trait = "leader_trait_expertise_statecraft"
+#			}
+#		}
+#	}
+#}
+
+# ##################
+# Biolab and Colonization
+# ##################
+
+#Psionic Healthcare
+tech_psionic_healthcare = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { psionics }
+	is_rare = yes
+	prerequisites = { "tech_psionic_theory" "tech_frontier_health" }
+	weight = @tier3weight3
+	is_reverse_engineerable = no
+	
+	potential = {
+		is_gestalt = no
+		has_ascension_perk = ap_mind_over_matter
+	}
+	
+	modifier = {
+		custom_tooltip = feature_improved_healthcare_workers
+	}
+	
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0.5
+			NOT = { has_policy_flag = robots_outlawed }
+		}
+		modifier = {
+			factor = 0.50
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_psionics"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+			}
+		}
+		modifier = {
+			factor = 1.10
+			research_leader = {
+				area = society
+				has_level > 2
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+		modifier = {
+			factor = 1.5
+			research_leader = {
+				area = society
+				has_level > 3
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+		modifier = {
+			factor = 2
+			research_leader = {
+				area = society
+				has_level > 4
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_psionic_healthcare }
+			}
+		}
+		modifier = {
+			factor = 2
+			has_ethic = "ethic_spiritualist"
+		}
+		modifier = {
+			factor = 3
+			has_ethic = "ethic_fanatic_spiritualist"
+		}
+		modifier = {
+			factor = 4
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_maniacal"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2 #rare tech
+		modifier = {
+			factor = 0.5
+			NOT = { has_policy_flag = robots_outlawed }
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_psionics"
+			}
+		}
+	}
+}
+
+# ##################
+# Fleet Organization
+# ##################
+
+# Undead Fleet Support
+tech_reanimated_fleets = {
+	cost = @tier2cost3
+	area = society
+	tier = 2
+	category = { military_theory }
+	prerequisites = { "tech_interstellar_fleet_traditions" }
+	weight = @tier2weight3
+	
+	potential = { has_valid_civic = civic_reanimated_armies }
+	
+	modifier = {
+		country_naval_cap_add = 15
+		ships_upkeep_mult = -0.05
+		country_war_exhaustion_mult = -0.05
+	}
+	
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}
+
+tech_reanimated_bombardment = {
+	cost = @tier3cost2
+	area = society
+	tier = 3
+	category = { military_theory }
+	prerequisites = { "tech_gene_tailoring" }
+	weight = @tier3weight2
+	
+	potential = { has_valid_civic = civic_reanimated_armies }
+	
+	modifier = {
+		custom_tooltip = UNLOCKS_DEATH_BOMBARDMENT
+	}
+	
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}
+
+# ##################
+# Army Organization
+# ##################
+
+# Biomechanics
+tech_biomechanics_synth = {
+	icon = tech_biomechanics
+	cost = @tier4cost2
+	area = society
+	category = { military_theory }
+	tier = 4
+	is_rare = yes
+	prerequisites = { "tech_combat_computers_3" }
+	weight = @tier4weight2
+
+	potential = { has_country_flag = synthetic_empire }
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0.10
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_military_theory"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_biomechanics_synth }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_spark_of_genius"
+			}
+		}
+		modifier = {
+			factor = 1.5
+			research_leader = {
+				area = society
+				has_level > 4
+			}
+		}
+		modifier = {
+			factor = 0.75
+			NOT = {
+				research_leader = {
+					area = society
+					has_level > 3
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 3 #rare tech
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}
+
+tech_ground_defense_planning_2 = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { military_theory }
+	prerequisites = { "tech_global_defense_grid" }
+	weight = @tier3weight1
+	
+	modifier = {
+		army_defense_health_mult = 0.15
+		army_defense_morale_mult = 0.15
+		show_only_custom_tooltip = no
+		custom_tooltip = ADD_NAVAL_CAPACITY_FROM_SOLDIERS
+	}
+	
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}
+
+# Planetary Citadels
+tech_planetary_citadel = {
+	icon = tech_global_defense_grid
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { military_theory }
+	prerequisites = { "tech_ground_defense_planning_2" "tech_colonial_centralization" }
+	weight = @tier3weight3
+	
+	# unlocks citadels
+	modifier = {
+		army_defense_health_mult = 0.15
+		army_defense_damage_mult = 0.15
+	}
+	
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}
+
+# ##################
+# Genetics
+# ##################
+
+# Genetic Mastery
+@tech_genetic_mastery_POINTS = 3
+@tech_genetic_mastery_COST_MULT = -0.20
+tech_genetic_mastery = {
+	icon = tech_gene_expressions
+	cost = @tier5cost2
+	area = society
+	tier = 5
+	is_rare = yes
+	category = { biology }
+	prerequisites = { "tech_genetic_resequencing" }
+	weight = @tier5weight2
+	
+	modifier = {
+		description = ap_engineered_evolution_modifier_desc
+		description_parameters = {
+			POINTS = @tech_genetic_mastery_POINTS
+			COST_MULT = @tech_genetic_mastery_COST_MULT
+		}
+		BIOLOGICAL_species_trait_points_add = @tech_genetic_mastery_POINTS
+		modify_species_cost_mult = @tech_genetic_mastery_COST_MULT
+	}	
+	
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0
+			NOT = { has_ascension_perk = ap_evolutionary_mastery }
+		}
+		modifier = {
+			factor = 1.25
+			has_authority = auth_hive_mind
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_genetic_mastery }
+			}
+		}
+		modifier = {
+			factor = 0.50
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_biology"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+			}
+		}
+		modifier = {
+			factor = 1.50
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_spark_of_genius"
+			}
+		}
+	}	
+	
+	ai_weight = {
+		factor = 100 #rare tech
+		modifier = {
+			factor = 1.25
+			OR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_biology"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+			}
+		}
+	}
+}
+
+# ##################
+# Farming
+# ##################
+
+# Hive Food Production
+tech_hive_food_production = {
+	icon = tech_food_processing_2
+	cost = @tier4cost2
+	area = society
+	tier = 4
+	is_rare = yes
+	category = { biology }
+	prerequisites = { "tech_gene_expressions" "tech_nano_vitality_crops" }
+	weight = @tier4weight2
+		
+	modifier = {
+		planet_farmers_food_produces_add = 1
+	}
+	
+	potential = {
+		has_authority = auth_hive_mind
+		is_lithoid_empire = no
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0.50
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_biology"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_hive_food_production }
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 4
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}
+
+# Hive Food Production
+tech_hive_food_production_lithoid = {
+	icon = tech_mineral_purification_2
+	cost = @tier4cost2
+	area = society
+	tier = 4
+	is_rare = yes
+	category = { biology }
+	prerequisites = { "tech_gene_expressions" "tech_mining_3" }
+	weight = @tier4weight2
+		
+	modifier = {
+		planet_miners_minerals_produces_add = 1
+	}
+	
+	potential = {
+		has_authority = auth_hive_mind
+		is_lithoid_empire = yes
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0.50
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_biology"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_hive_food_production_lithoid }
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 4
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}
+
+# ##################
+# Industry and Robotics
+# ##################
+
+tech_agrarian_goods = {
+	cost = @tier4cost3
+	area = society
+	tier = 4
+	category = { new_worlds }
+	prerequisites = { "tech_housing_agrarian_idyll" "tech_luxuries_1" }
+	weight = @tier4weight3
+	
+	potential = {
+		has_valid_civic = civic_agrarian_idyll
+		is_lithoid_empire = no
+	}
+	
+	modifier = {
+		planet_artisans_produces_mult = 0.05
+		show_only_custom_tooltip = no
+		custom_tooltip = ADD_ARTISANS_FROM_FARMS
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 5
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+}
+
+tech_agrarian_goods_lithoid = {
+	icon = tech_agrarian_goods
+	cost = @tier4cost3
+	area = society
+	tier = 4
+	category = { new_worlds }
+	prerequisites = { "tech_housing_agrarian_idyll" "tech_luxuries_1" }
+	weight = @tier4weight3
+	
+	potential = {
+		has_valid_civic = civic_agrarian_idyll
+		is_lithoid_empire = yes
+	}
+	
+	modifier = {
+		planet_artisans_produces_mult = 0.05
+		show_only_custom_tooltip = no
+		custom_tooltip = ADD_ARTISANS_FROM_MINES
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 5
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+}
+
+tech_agrarian_alloys = {
+	cost = @tier4cost3
+	area = engineering
+	tier = 4
+	category = { materials }
+	prerequisites = { "tech_housing_agrarian_idyll" "tech_alloys_1" }
+	weight = @tier4weight3
+	
+	potential = {
+		has_valid_civic = civic_agrarian_idyll
+	}
+	
+	modifier = {
+		planet_metallurgists_produces_mult = 0.05
+		show_only_custom_tooltip = no
+		custom_tooltip = ADD_FOUNDRY_FROM_MINES
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 5
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}
+
+# ##################
+# Other
+# ##################
+
+# Infestation
+tech_infestation_0 = {
+	cost = 0
+	area = society
+	start_tech = yes
+	category = { biology }
+	tier = 0
+	icon = tech_infestation_1
+	
+	potential = {
+		has_valid_civic = civic_infestation
+	}
+	
+	modifier = {
+		custom_tooltip = UNLOCKS_INFESTATION_0
+	}
+	
+	## unlock infestation
+}
+
+tech_infestation_1 = {
+	cost = @tier2cost2
+	area = society
+	tier = 2
+	category = { biology }
+	prerequisites = { "tech_infestation_0" }
+	weight = @tier2weight2
+	
+	modifier = {
+		custom_tooltip = UNLOCKS_INFESTATION_1
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_biology"
+			}			
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}
+
+tech_infestation_2 = {
+	cost = @tier4cost2
+	area = society
+	tier = 4
+	category = { biology }
+	prerequisites = { "tech_infestation_1" }
+	weight = @tier4weight2
+	
+	modifier = {
+		custom_tooltip = UNLOCKS_INFESTATION_2
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_biology"
+			}			
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}

@@ -1,0 +1,58 @@
+decision_hibernating_lithoids = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		owner = { 
+			is_lithoid_empire = yes 
+			NOT = { has_policy_flag = population_controls_not_allowed }
+		}
+	}
+
+
+	allow = {
+		owner = {
+			NOT = { has_policy_flag = population_controls_not_allowed }
+		}
+		NOT = { has_modifier = planet_population_hibernation }
+		any_pop = {
+			is_lithoid = yes
+			is_unemployed = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_hibernating_lithoids_effects
+		add_modifier = { modifier = "planet_population_hibernation" days = 1800 }		
+		hidden_effect = {
+			while = {
+				count = 10
+				limit = {
+					any_pop = {
+						is_lithoid = yes
+						is_unemployed = yes
+					}
+				}
+				random_pop = {
+					limit = {
+						is_lithoid = yes
+						is_unemployed = yes
+					}
+					kill_pop = yes
+				}
+				add_deposit = d_sleeping_lithoid
+			}		
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

@@ -1,0 +1,36 @@
+pitharan_fertilizer = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		cost = {
+			exotic_gases = 25
+		}
+	}
+	
+	potential = {
+		OR = {
+			is_robot_empire = no
+			has_valid_civic = civic_machine_servitor
+			has_valid_civic = civic_machine_assimilator
+			has_valid_civic = civic_machine_consciousness
+		}
+	}
+
+	modifier = {
+		country_food_produces_mult = 0.15
+	}
+	
+	ai_weight = {
+		weight = @EdictLowPrio
+		modifier = {
+			factor = 0
+			ROOT = {
+				has_monthly_income = {
+					resource = food
+					value > 10
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,71 @@
+###_++++ z pf2 游戏规则 ######################################################
+
+#_跟随UGRP	添加对fq支持
+
+
+
+
+# Root = species
+# This = country
+###_[z_pf2]	##################
+can_modify_species = {
+	root.owner = {
+		#_	z_pf2
+		OR = {
+			is_ai = no	#_玩家
+			AND = {
+				is_ai = yes
+				OR = {
+					has_global_flag = z_pf2_ai_species_mod
+					AND = {
+						has_global_flag = z_pf2_ai_species_mod_limit
+						count_exact_species = {
+							count < 3
+							limit = {
+								OR = {
+									is_same_species = root
+									is_subspecies = root
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		#_vanilla
+		OR = {
+			NOT = { has_trait = trait_self_modified }
+			is_same_species = root
+		}
+	}
+}
+###_[z_pf2][fq]	##################
+# This = planet
+can_crossbreed_species_on_planet = {
+	exists = owner
+	#_	z_pf2
+	NAND = {
+		owner = { is_ai = yes }
+		has_global_flag = z_pf2_no_ai_hybird
+	}
+	#_+fq
+	OR = {
+		#_vanilla
+		AND = {
+			owner = { has_ascension_perk = ap_xeno_compatibility }
+			count_species = {
+				limit = { is_crossbreeding_possible = yes }
+				count >= 2
+			}
+		}
+		#_fq
+		AND = {
+			owner = { has_ascension_perk = ap_life_masters }	
+			count_species = {
+				limit = { has_trait = trait_hive_mind }
+				count >= 2
+			}
+		}
+	}
+}
+

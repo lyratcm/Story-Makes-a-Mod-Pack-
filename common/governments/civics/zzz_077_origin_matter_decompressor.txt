@@ -1,0 +1,20 @@
+origin_amo_matter_decompressor = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_amo_matter_decompressor.dds"
+	picture = GFX_evt_amo_matter_decompressor
+
+	potential = {
+		always = yes
+	}
+
+	possible = {
+	}
+
+	description = "origin_tooltip_amo_matter_decompressor_effects"
+
+	initializers = {
+		system_amo_matter_decompressor_init
+	}
+
+	advanced_start = no
+}

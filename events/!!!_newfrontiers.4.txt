@@ -1,0 +1,792 @@
+namespace = newfrontiers
+
+country_event = {
+	id = newfrontiers.4
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		every_planet = {
+			limit = {
+				is_homeworld = no
+				is_planet_subclass = no
+				NOT = { is_planet_class = pc_tidallylocked }
+				solar_system = { NOT = { has_star_flag = sol_sector }}
+			}
+			random_list = {
+				40 = {
+					#Set Subclass
+					modifier = {
+						factor = 0.5
+						is_colonizable = no
+					}
+					
+					#Settings
+					modifier = {
+						factor = 2
+						has_global_flag = subclasses_x2_setting
+					}
+					modifier = {
+						factor = 1.5
+						has_global_flag = subclasses_x1_5_setting
+					}
+					modifier = {
+						factor = 0.5
+						has_global_flag = subclasses_x0_5_setting
+					}
+					modifier = {
+						factor = 0.25
+						has_global_flag = subclasses_x0_25_setting
+					}
+					switch = {
+					trigger = is_planet_class
+						pc_desert = {
+							random_list = {
+								50 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_dune
+										entity = dune_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "dune_world"
+										days = -1
+									}
+								}
+								20 = {
+									modifier = {
+										factor = 2
+										has_favorable_conditions = yes
+									}
+									modifier = {
+										factor = 0.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_oasis
+										entity = oasis_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "oasis_world"
+										days = -1
+									}
+								}
+								30 = {
+									set_planet_entity = {
+										picture = pc_salt
+										entity = salt_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "salt_world"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_arid = {
+							random_list = {
+								25 = {
+									set_planet_entity = {
+										picture = pc_karstic
+										entity = karstic_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "karstic_world"
+										days = -1
+									}
+								}
+								25 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_dust
+										entity = dust_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "dust_world"
+										days = -1
+									}
+								}
+								25 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_coriolis
+										entity = coriolis_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "coriolis_world"
+										days = -1
+									}
+								}
+								25 = {
+									set_planet_entity = {
+										picture = pc_mediterranean
+										entity = mediterranean_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "mediterranean_world"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_savannah = {
+							random_list = {
+								50 = {
+									set_planet_entity = {
+										picture = pc_steppe
+										entity = steppe_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "steppe_world"
+										days = -1
+									}
+								}
+								50 = {
+									set_planet_entity = {
+										picture = pc_mesa
+										entity = mesa_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "mesa_world"
+										days = -1
+									}
+								}
+							}
+						}
+						pc_tropical = {
+							random_list = {
+								25 = {
+									set_planet_entity = {
+										picture = pc_forest
+										entity = forest_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "forest_world"
+										days = -1
+									}
+								}
+								25 = {
+									set_planet_entity = {
+										picture = pc_jungle
+										entity = jungle_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "jungle_world"
+										days = -1
+									}
+								}
+								25 = {
+									set_planet_entity = {
+										picture = pc_swamp
+										entity = swamp_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "swamp_world"
+										days = -1
+									}
+								}
+								25 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_monsoon
+										entity = monsoon_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "monsoon_world"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_continental = {
+							random_list = {
+								25 = {
+									set_planet_entity = {
+										picture = pc_boreal
+										entity = boreal_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "boreal_world"
+										days = -1
+									}
+								}
+								25 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_pangea
+										entity = pangea_world_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "pangea_world"
+										days = -1
+									}
+								}
+								25 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_young
+										entity = young_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "young_world"
+										days = -1
+									}
+								}
+								25 = {
+									set_planet_entity = {
+										picture = pc_primal
+										entity = primal_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "primal_world"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_ocean = {
+							random_list = {
+								50 = {
+									set_planet_entity = {
+										picture = pc_panthalassic
+										entity = panthalassic_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "panthalassic_world"
+										days = -1
+									}
+								}
+								30 = {
+									set_planet_entity = {
+										picture = pc_storm
+										entity = storm_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "storm_world"
+										days = -1
+									}
+								}
+								20 = {
+									modifier = {
+										factor = 2
+										has_favorable_conditions = yes
+									}
+									modifier = {
+										factor = 0.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_atoll
+										entity = atoll_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "atoll_world"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_tundra = {
+							random_list = {
+								30 = {
+									set_planet_entity = {
+										picture = pc_geothermal
+										entity = geothermal_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "geothermal_world"
+										days = -1
+									}
+								}
+								30 = {
+									set_planet_entity = {
+										picture = pc_bog
+										entity = bog_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "bog_world"
+										days = -1
+									}
+								}
+								40 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_cold_desert
+										entity = cold_desert_01_entity
+									}
+									add_modifier = {
+										modifier = "cold_desert"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_arctic = {
+							random_list = {
+								30 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_glacial
+										entity = glacial_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "glacial_world"
+										days = -1
+									}
+								}
+								25 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_ice
+										entity = ice_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "ice_world"
+										days = -1
+									}
+								}
+								25 = {
+									set_planet_entity = {
+										picture = pc_melting
+										entity = melting_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "melting_world"
+										days = -1
+									}
+								}
+								20 = {
+									modifier = {
+										factor = 2
+										has_favorable_conditions = yes
+									}
+									modifier = {
+										factor = 0.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_temperate
+										entity = temperate_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "temperate_zone"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_alpine = {
+							random_list = {
+								30 = {
+									modifier = {
+										factor = 1.5
+										has_natural_hazards = yes
+									}
+									set_planet_entity = {
+										picture = pc_mineral
+										entity = mineral_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "mineral_world"
+										days = -1
+									}
+								}
+								30 = {
+									set_planet_entity = {
+										picture = pc_snow
+										entity = snow_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "snow_world"
+										days = -1
+									}
+								}
+								40 = {
+									set_planet_entity = {
+										picture = pc_plateau
+										entity = plateau_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "plateau_world"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_asteroid = {
+							set_planet_entity = {
+								picture = pc_planetoid
+								entity = planetoid_planet_01_entity
+							}
+							add_modifier = {
+								modifier = "planetoid"
+								days = -1
+							}					
+						}
+						pc_ice_asteroid = {
+							set_planet_entity = {
+								picture = pc_ice_planetoid
+								entity = ice_planetoid_planet_01_entity
+							}
+							add_modifier = {
+								modifier = "ice_planetoid"
+								days = -1
+							}				
+						}
+						pc_molten = {
+							set_planet_entity = {
+								picture = pc_sulfur
+								entity = sulfur_planet_01_entity
+							}
+							add_modifier = {
+								modifier = "sulfur_world"
+								days = -1
+							}				
+						}
+						pc_toxic = {
+							random_list = {
+								30 = {
+									random_list = {
+										35 = {
+											set_planet_entity = {
+												picture = pc_greenhouse
+												entity = greenhouse_planet_01_entity
+											}
+										}
+										35 = {
+											set_planet_entity = {
+												picture = pc_greenhouse
+												entity = greenhouse_planet_02_entity
+											}
+										}
+										30 = {
+											set_planet_entity = {
+												picture = pc_greenhouse
+												entity = greenhouse_planet_03_entity
+											}
+										}
+									}
+									add_modifier = {
+										modifier = "greenhouse_world"
+										days = -1
+									}
+								}
+								30 = {
+									set_planet_entity = {
+										picture = pc_methane
+										entity = methane_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "methane_world"
+										days = -1
+									}
+								}
+								20 = {
+									set_planet_entity = {
+										picture = pc_carbon
+										entity = carbon_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "carbon_world"
+										days = -1
+									}
+								}
+								20 = {
+									set_planet_entity = {
+										picture = pc_ammonia
+										entity = ammonia_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "ammonia_world"
+										days = -1
+									}
+								}
+							}					
+						}
+						pc_frozen = {
+							set_planet_entity = {
+								picture = pc_frozen_ocean
+								entity = frozen_ocean_planet_01_entity
+							}
+							add_modifier = {
+								modifier = "frozen_ocean"
+								days = -1
+							}				
+						}
+						pc_nuked = {
+							random_list = {
+								30 = {
+									set_planet_entity = {
+										picture = pc_depleted
+										entity = depleted_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "depleted_world"
+										days = -1
+									}
+								}
+								70 = {
+									#Null
+								}
+							}
+						}
+						pc_gaia = {
+							random_list = {
+								70 = {
+									set_planet_entity = {
+										picture = pc_ancient
+										entity = ancient_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "ancient_world"
+										days = -1
+									}
+								}
+								30 = {
+									#Null
+								}
+							}
+						}
+						pc_sterile = {
+							random_list = {
+								50 = {
+									random_list = {
+										50 = {
+											set_planet_entity = {
+												picture = pc_lava
+												entity = lava_planet_01_entity
+											}
+										}
+										50 = {
+											set_planet_entity = {
+												picture = pc_lava
+												entity = lava_planet_02_entity
+											}
+										}
+									}
+									add_modifier = {
+										modifier = "lava_world"
+										days = -1
+									}
+								}
+								50 = {
+									set_planet_entity = {
+										picture = pc_ash
+										entity = ash_planet_01_entity
+									}
+									add_modifier = {
+										modifier = "ash_world"
+										days = -1
+									}
+								}
+							}
+						}
+					}
+					
+					reroll_deposits = yes
+				}
+				60 = {
+					#Null
+				}
+			}
+		}
+		
+		#Set Exotic Subclass
+		random_planet = {
+			limit = {
+				is_planet_class = pc_tropical
+				is_homeworld = no
+				is_planet_subclass = no
+			}
+			set_planet_entity = {
+				picture = pc_fungal
+				entity = fungal_planet_01_entity
+			}
+			add_modifier = {
+				modifier = "fungal_world"
+				days = -1
+			}
+			reroll_deposits = yes
+		}
+		
+		random_planet = {
+			limit = {
+				is_planet_class = pc_ocean
+				is_homeworld = no
+				is_planet_subclass = no
+			}
+			set_planet_entity = {
+				picture = pc_algic
+				entity = algic_planet_01_entity
+			}
+			add_modifier = {
+				modifier = "algic_seas"
+				days = -1
+			}
+			reroll_deposits = yes
+		}
+		
+		random_planet = {
+			limit = {
+				is_planet_class = pc_tropical
+				is_homeworld = no
+				is_planet_subclass = no
+			}
+			set_planet_entity = {
+				picture = pc_poisonous
+				entity = poisonous_planet_01_entity
+			}
+			add_modifier = {
+				modifier = "poisonous_world"
+				days = -1
+			}
+			reroll_deposits = yes
+		}
+		
+		random_planet = {
+			limit = {
+				is_planet_class = pc_continental
+				is_homeworld = no
+				is_planet_subclass = no
+			}
+			set_planet_entity = {
+				picture = pc_rocky
+				entity = rocky_planet_01_entity
+			}
+			add_modifier = {
+				modifier = "rocky_world"
+				days = -1
+			}
+			reroll_deposits = yes
+		}
+		
+		
+		#Set Tidally Locked
+		every_planet = {
+			limit = { has_planet_modifier = "pm_tidal_locked" }
+			remove_modifier = "tidal_locked"
+		}
+		
+		every_planet = {
+			limit = {
+				OR = {
+					is_dry = yes
+					is_wet = yes
+					is_cold = yes
+				}
+				NOR = {
+					is_homeworld = yes
+					is_planet_subclass = yes
+					has_ring = yes
+					is_moon = yes
+					has_moon = yes
+					has_modifier = "living_sea" 
+				}
+			}
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 3
+						has_planet_flag = hot_zone
+					}
+					modifier = {
+						factor = 2
+						has_planet_flag = warm_zone
+					}
+					modifier = {
+						factor = 1.5
+						has_planet_flag = temperate_zone
+					}
+					random_list = {
+						25 = {
+							modifier = {
+								factor = 2
+								has_planet_flag = hot_zone
+							}
+							
+							change_pc = pc_tidallylocked
+							set_planet_entity = {
+								picture = pc_arid_tidallylocked
+								entity = tidallylocked_arid_planet_01_entity
+							}
+							add_modifier = {
+								modifier = "arid_tidally_locked"
+								days = -1
+							}
+							reroll_deposits = yes
+						}
+						25 = {
+							modifier = {
+								factor = 2
+								has_planet_flag = warm_zone
+							}
+							
+							change_pc = pc_tidallylocked
+							set_planet_entity = {
+								picture = pc_ocean_tidallylocked
+								entity = tidallylocked_ocean_planet_01_entity
+							}
+							add_modifier = {
+								modifier = "ocean_tidally_locked"
+								days = -1
+							}
+							reroll_deposits = yes
+						}
+						25 = {
+							modifier = {
+								factor = 2
+								has_planet_flag = temperate_zone
+							}
+							
+							change_pc = pc_tidallylocked
+							reroll_deposits = yes
+						}
+						25 = {
+							change_pc = pc_tidallylocked
+							set_planet_entity = {
+								picture = pc_arctic_tidallylocked
+								entity = tidallylocked_arctic_planet_01_entity
+							}
+							add_modifier = {
+								modifier = "arctic_tidally_locked"
+								days = -1
+							}
+							reroll_deposits = yes
+						}
+					}
+				}
+				90 = {
+					#Null
+				}
+			}
+		}
+	}
+}

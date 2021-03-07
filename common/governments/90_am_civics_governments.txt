@@ -1,0 +1,28 @@
+
+
+
+gov_am_civics_locust_corporation = {
+	ruler_title = RT_CEO
+	ruler_title_female = RT_CEO_FEMALE
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+		}
+	}
+
+	possible = {
+		has_valid_civic = civic_am_civics_locust_capitalism
+	}
+
+	weight = {
+		base = 10000
+	}
+}

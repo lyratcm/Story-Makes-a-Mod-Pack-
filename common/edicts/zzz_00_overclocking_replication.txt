@@ -1,0 +1,43 @@
+overclocking_replication = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = overclocking_replication }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = overclocking_replication
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_pop_assembly_mult = 0.10
+		empire_size_pops_mult = 0.10
+		planet_pop_assemblers_upkeep_mult = 0.25
+	}
+	
+	potential = {
+		has_valid_civic = civic_machine_replication
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictLowPrio
+			root = {
+				any_owned_planet = {
+					free_housing > 5
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,39 @@
+mature_leader = {
+	IF = {
+		limit = { has_trait = trait_younger_form }
+		change_phenotype_targeted = { trait = trait_older_form }
+		change_leader_portrait = species
+	}
+	IF = {
+		limit = {
+			exists = fleet
+			species = {
+				OR = {
+					has_trait = trait_rooted_adults
+					has_trait = trait_rooted_adults_rooted
+					has_trait = trait_potential_living_architecture
+					has_trait = trait_living_architecture
+				}
+			}
+		}
+		kill_leader = { show_notification = yes }
+	}
+	IF = {
+		limit = { species = { has_trait = trait_rooted_adults } }
+		modify_species = {
+			species = this
+			remove_trait = trait_rooted_adults
+			add_trait = trait_rooted_adults_rooted
+		}
+		set_cooldown = 90000
+	}
+	ELSE_IF = {
+		limit = { species = { has_trait = trait_potential_living_architecture } }
+		modify_species = {
+			species = this
+			remove_trait = trait_potential_living_architecture
+			add_trait = trait_living_architecture
+		}
+		set_cooldown = 90000
+	}
+}

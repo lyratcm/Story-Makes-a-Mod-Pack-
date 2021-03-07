@@ -1,0 +1,131 @@
+mortal_initiate = {
+    category = worker
+    condition_string = WORKER_JOB_TRIGGER
+    building_icon = building_sacrificial_temple_1
+    clothes_texture_index = 3
+    icon = mortal_initiate
+    possible_pre_triggers = {
+        has_owner = yes
+        is_sapient = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        complex_worker_job_check_trigger = yes
+        NOT = {
+            has_ethic = ethic_materialist
+        }
+    }
+    resources = {
+        category = planet_culture_workers
+        produces = {
+            unity = 1
+            society_research = 1
+        }
+    }
+    triggered_pop_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_citizen_service
+                    has_valid_civic = civic_natural_hunters
+                    has_valid_civic = civic_crusaders
+                    has_valid_civic = civic_distinguished_admiralty
+                    has_valid_civic = civic_warrior_culture
+                    has_valid_civic = civic_nationalistic_zeal
+                    has_valid_civic = civic_private_military_companies
+                    has_valid_civic = civic_naval_contractors
+                    has_valid_civic = civic_barbaric_despoilers
+                    has_origin = origin_militarist
+                }
+            }
+        }
+        modifier = {
+            pop_defense_armies_add = 1
+        }
+    }
+    planet_modifier = {
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            factor = 0.2
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 2
+            owner = {
+                has_civic = civic_exalted_priesthood
+            }
+        }
+        modifier = {
+            factor = 1.2
+            has_ethic = ethic_spiritualist
+        }
+        modifier = {
+            factor = 1.33
+            OR = {
+                has_trait = trait_conformists
+                has_trait = trait_docile
+                has_trait = trait_obedient
+            }
+        }
+        modifier = {
+            factor = 0.5
+            OR = {
+                has_trait = trait_quarrelsome
+                has_trait = trait_deviants
+                has_trait = trait_unruly
+            }
+        }
+        modifier = {
+            factor = 0.1
+            can_take_servant_job = yes
+        }
+        modifier = {
+            factor = 0.1
+            has_ethic = ethic_materialist
+            NOT = {
+                has_job = mortal_initiate
+            }
+        }
+        modifier = {
+            factor = 1.05
+            owner = {
+                is_militarist = no
+            }
+            OR = {
+                has_trait = trait_weak
+                has_trait = trait_delicate
+                has_trait = mem_caretakers_trait
+            }
+        }
+        modifier = {
+            factor = 0.95
+            owner = {
+                is_militarist = yes
+            }
+            OR = {
+                has_trait = trait_weak
+                has_trait = trait_delicate
+                has_trait = mem_caretakers_trait
+            }
+        }
+        modifier = {
+            factor = 1.05
+            OR = {
+                has_trait = trait_presapient_natural_intellectuals
+                has_trait = trait_mem_surveyor_freebotomites
+            }
+        }
+        modifier = {
+            factor = 0.01
+            has_trait = trait_nerve_stapled
+        }
+    }
+}

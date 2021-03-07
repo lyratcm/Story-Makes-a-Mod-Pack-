@@ -1,0 +1,13 @@
+trait_additrait_defective_scanners = {
+    cost = -2
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    opposites = {
+        "trait_robot_power_drills"
+    }
+    modifier = {
+        planet_jobs_minerals_produces_mult = -0.15
+    }
+}

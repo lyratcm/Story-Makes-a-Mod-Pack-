@@ -1,0 +1,36 @@
+ap_esap_ct1_finance = {
+	on_enabled = {
+		#custom_tooltip = ap_esap_ct1_finance_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_finance_req_1"
+			has_resource = { 
+				type = energy 
+				amount > 2499
+			}
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_finance_req_2"
+			Not = {
+				has_ascension_perk = ap_esap_ct3_not_finance
+			}
+		}
+	}
+
+	modifier = {
+		description = ap_esap_ct1_finance_tooltip
+		planet_districts_cities_energy_upkeep_add = -1
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct1_finance
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

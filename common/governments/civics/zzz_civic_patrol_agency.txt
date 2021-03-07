@@ -1,0 +1,13 @@
+civic_patrol_agency = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 4
+    }
+    modifier = {
+        piracy_suppression_mult = 2.5
+        local_trade_protection_add = 10
+        trade_value_mult = 0.05
+    }
+}

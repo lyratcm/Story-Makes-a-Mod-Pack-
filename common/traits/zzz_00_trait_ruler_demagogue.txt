@@ -1,0 +1,27 @@
+trait_ruler_demagogue = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_demagogue.dds"
+    leader_potential_add = {
+        NOT = {
+            from = {
+                has_ethic = "ethic_gestalt_consciousness"
+            }
+        }
+        NOT = {
+            has_trait = trait_iconoclasts
+        }
+    }
+    modifier = {
+        pop_factions_influence_produces_mult = 0.50
+    }
+    leader_trait = {
+        ruler
+    }
+    leader_class = {
+        ruler
+    }
+    opposites = {
+        trait_ruler_demagogue2
+    }
+}

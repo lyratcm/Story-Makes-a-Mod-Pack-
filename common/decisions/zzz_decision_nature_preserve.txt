@@ -1,0 +1,38 @@
+decision_nature_preserve = {
+	owned_planets_only = yes
+	icon = decision_animal_wildlife
+	
+	enactment_time = 30
+	resources = {
+		category = decisions
+		cost = {
+			energy = 100
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		NOT = { is_planet_class = pc_machine }
+		NOT = { is_planet_class = pc_city }
+		NOT = { has_deposit = d_nature_preserve }
+		NOT = { has_global_flag = EcologyMod_active }
+		exists = owner
+		owner = { has_civic = civic_environmentalist }
+	}
+	
+	allow = {
+		free_district_slots > 0
+	}
+	
+	effect = {
+		add_deposit = d_nature_preserve
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			num_pops < 6
+		}
+	}
+}

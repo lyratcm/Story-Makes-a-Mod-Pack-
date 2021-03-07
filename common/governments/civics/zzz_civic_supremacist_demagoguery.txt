@@ -1,0 +1,31 @@
+lrsk_gov_var_civic_supremacist_demagoguery = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            NOR = {
+                text = civic_tooltip_not_xenophile
+                value = ethic_xenophile
+                value = ethic_fanatic_xenophile
+            }
+            NOR = {
+                text = civic_tooltip_not_egalitarian
+                value = ethic_egalitarian
+                value = ethic_fanatic_egalitarian
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_fanatic_purifiers
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        max_rivalries = 2
+        army_morale_damage_mult = 0.2
+    }
+}

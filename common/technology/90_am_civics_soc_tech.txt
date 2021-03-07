@@ -1,0 +1,73 @@
+
+### Locust Capitalism: Unlocks an Edict to slow down draining of planets.
+tech_am_civics_locust_recycling_industries = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { statecraft }
+	prerequisites = { }
+	weight = @tier3weight3
+	is_rare = yes
+	icon = "tech_atmospheric_manipulation"
+
+	potential = {
+		has_valid_civic = civic_am_civics_locust_capitalism
+	}
+
+	modifier = {
+		description = tech_am_civics_locust_recycling_industries_effect
+	}
+
+	weight_modifier = {
+		factor = 1
+		### These techs are more likely to show up if we're already low on planets.
+		modifier = {
+			factor = 2
+			num_owned_planets <= 4
+		}
+		modifier = {
+			factor = 10
+			num_owned_planets <= 2
+		}
+	}
+	
+	ai_weight = {
+		factor = 5		# Important for AI
+	}
+}
+### Locust Capitalism: Unlocks an Edict to remove draining of planets.
+tech_am_civics_locust_sustainability_industries = {
+	cost = @tier5cost1
+	area = society
+	tier = 5
+	category = { statecraft }
+	prerequisites = { }
+	weight = @tier5weight1
+	is_rare = yes
+	icon = "tech_atmospheric_manipulation"
+
+	potential = {
+		has_valid_civic = civic_am_civics_locust_capitalism
+	}
+
+	modifier = {
+		description = tech_am_civics_locust_sustainability_industries_effect
+	}
+
+	weight_modifier = {
+		factor = 1
+		### These techs are more likely to show up if we're already low on planets.
+		modifier = {
+			factor = 2
+			num_owned_planets <= 4
+		}
+		modifier = {
+			factor = 10
+			num_owned_planets <= 2
+		}
+	}
+	
+	ai_weight = {
+		factor = 5		# Important for AI
+	}
+}

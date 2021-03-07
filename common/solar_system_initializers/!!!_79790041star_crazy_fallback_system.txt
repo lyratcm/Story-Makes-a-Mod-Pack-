@@ -1,0 +1,195 @@
+star_crazy_fallback_system = {
+    class = "rl_standard_stars"
+    usage = misc_system_init
+    usage_odds = 0
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = {
+            min = 20
+            max = 30
+        }
+        has_ring = no
+    }
+    change_orbit = 45
+    planet = {
+        count = 1
+        orbit_distance = 20
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = 1
+        orbit_distance = 20
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = 25
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = 30
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = 35
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = 40
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = 50
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = 60
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 5
+        }
+    }
+}

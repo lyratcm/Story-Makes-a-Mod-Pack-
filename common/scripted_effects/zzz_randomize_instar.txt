@@ -1,0 +1,37 @@
+randomize_instar = {
+	random_list = {
+		50 = {
+			IF = {
+				limit = { has_trait = trait_younger_form }
+				change_phenotype_targeted = { trait = trait_older_form }
+			}
+			IF = {
+				limit = { has_trait = trait_rooted_adults }
+				modify_species = {
+					species = this
+					remove_trait = trait_rooted_adults
+					add_trait = trait_rooted_adults_rooted
+				}
+			}
+			modifier = {
+				factor = 0
+				is_being_purged = yes
+				has_purge_type = { type = purge_neutering }
+			}
+		}
+		50 = {
+			IF = {
+				limit = { has_trait = trait_older_form }
+				change_phenotype_targeted = { trait = trait_younger_form }
+			}
+			IF = {
+				limit = { has_trait = trait_rooted_adults_rooted }
+				modify_species = {
+					species = this
+					remove_trait = trait_rooted_adults_rooted
+					add_trait = trait_rooted_adults
+				}
+			}
+		}
+	}
+}

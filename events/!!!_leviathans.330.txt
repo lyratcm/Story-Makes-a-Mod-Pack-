@@ -1,0 +1,47 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.330
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		from = {
+			has_country_flag = artist_enclave_country
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_artist_patron
+					has_country_flag = artist_patron
+				}
+			}
+			remove_modifier = enclave_artist_patron
+			remove_country_flag = artist_patron
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = enclave_artist_ignores }
+			}
+			set_country_flag = enclave_artist_ignores
+		}
+		# send news letter about attack to all patrons
+		if = {
+			limit = { NOT = { has_global_flag = recent_artist_enclave_attack } }
+			set_timed_global_flag = { flag = recent_artist_enclave_attack days = 360 } # one year cooldown
+			every_country = {
+				limit = {
+					NOR = {
+						has_country_flag = enclave_stopped_patronage
+						has_country_flag = enclave_artist_ignores
+						has_country_flag = unsubscribed_from_newsletter
+					}
+				}
+				country_event = { id = spaceleviathans.122 days = 300 random = 60 }
+			}
+		}
+	}
+}

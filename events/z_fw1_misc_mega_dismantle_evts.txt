@@ -1,0 +1,477 @@
+namespace = z_fw1_misc_mega_dismantle
+
+
+#_dec			[z_fw_dec_mega_dismantle]
+#_plnt			[z_fw_dummy_pc]
+
+#_plnt_tgt_glbl	[z_fw_tgt_plnt_mega_dismantle]
+#_glbl_flg		[z_fw_flg_glbl_mega_dismantle_ongoing]拆除检测进行中
+
+#_sys_eft		[z_fw_eft_sys_mega_dismantle_marker]
+#_plnt_eft		[z_fw_eft_plnt_mega_dismantle_marker_init][z_fw_eft_plnt_mega_dismantle_mega_init][z_fw_eft_plnt_mega_dismantle_set_ambt]
+#_mega_eft		[z_fw_eft_mega_dismantle_debug_flg]
+#_mega_trgr		[z_fw_trgr_mega_dismantle_counted]
+
+
+
+
+#_[z_fw_dec_mega_dismantle]		巨建选择器_dec
+#_glbl_flg		[z_fw_flg_glbl_mega_dismantle_ongoing]
+country_event = {
+	id = z_fw1_misc_mega_dismantle.1
+	title = z_fw_evt_mega_dismantle
+	desc = z_fw_evt_mega_dismantle_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_gui_evt_620_620_right"
+	picture_event_data = {
+		room = z_mm_evt_tips_room
+	}
+	
+	immediate = {
+		#_reroll巨建,添加ambt_marker,含disassembling_flg的巨建将使对应NUM的marker不被统计
+		event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 1 }
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 2 }
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 3 }
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 4 }
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 5 }
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 6 }
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 7 }
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 8 }
+			z_fw_eft_sys_mega_dismantle_marker = { NUM = 9 }
+		}
+	}
+
+	#_刷新列表
+	option = {
+		name = z_fw_tips_mega_dismantle_reroll
+		custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { z_fw_trgr_mega_dismantle_counted = yes }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init,不会清除disassembling_flg
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_无可清除目标
+	option = {
+		name = z_fw_tips_mega_dismantle_non
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				NOT = { any_system_megastructure = { z_fw_trgr_mega_dismantle_counted = yes } }
+			}
+		}
+		hidden_effect = {
+			#_巨建与marker归零
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			#_核心元素归零
+			remove_global_flag = z_fw_flg_glbl_mega_dismantle_ongoing
+			clear_global_event_target = z_fw_tgt_plnt_mega_dismantle
+		}
+	}
+	#_放弃清除
+	option = {
+		name = z_fw_tips_mega_dismantle_0
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { z_fw_trgr_mega_dismantle_counted = yes }
+			}
+		}
+		hidden_effect = {
+			#_巨建与marker归零
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			#_核心元素归零
+			remove_global_flag = z_fw_flg_glbl_mega_dismantle_ongoing
+			clear_global_event_target = z_fw_tgt_plnt_mega_dismantle
+		}
+	}
+	#_1
+	option = {
+		name = z_fw_tips_mega_dismantle_1
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_1 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.21 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 1 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_2
+	option = {
+		name = z_fw_tips_mega_dismantle_2
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_2 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.22 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 2 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_3
+	option = {
+		name = z_fw_tips_mega_dismantle_3
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_3 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.23 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 3 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_4
+	option = {
+		name = z_fw_tips_mega_dismantle_4
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_4 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.24 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 4 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_5
+	option = {
+		name = z_fw_tips_mega_dismantle_5
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_5 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.25 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 5 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_6
+	option = {
+		name = z_fw_tips_mega_dismantle_6
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_6 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.26 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 6 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_7
+	option = {
+		name = z_fw_tips_mega_dismantle_7
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_7 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.27 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 7 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_8
+	option = {
+		name = z_fw_tips_mega_dismantle_8
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_8 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.28 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 8 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+	#_9
+	option = {
+		name = z_fw_tips_mega_dismantle_9
+		custom_tooltip = z_fw_tips_mega_dismantle
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_plnt_mega_dismantle.solar_system = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_dismantle_9 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_mega_dismantle = {
+				#_延迟事件
+				planet_event = { id = z_fw1_misc_mega_dismantle.29 days = 30 }
+				#_拆解ambt设置
+				z_fw_eft_plnt_mega_dismantle_set_ambt = { NUM = 9 }
+				#_重新刷新目标
+				z_fw_eft_plnt_mega_dismantle_marker_init = yes	#_星系marker_init
+				z_fw_eft_plnt_mega_dismantle_mega_init = yes	#_巨建flg_init
+			}
+			country_event = { id = z_fw1_misc_mega_dismantle.1 }
+		}
+	}
+}
+
+
+
+
+#_拆解时间到达,清理含有disassembling_flg的巨建与mega拆解器,并debug_flg
+country_event = {
+	id = z_fw1_misc_mega_dismantle.20
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	location = this
+	option = { name = z_fw_evt_not_bad }
+}
+
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.21
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 1 } }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.22
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 2 } }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.23
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 3 } }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.24
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 4 } }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.25
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 5 } }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.26
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 6 } }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.27
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 7 } }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.28
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 8 } }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.29
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = { z_fw_eft_plnt_mega_dismantle_monthly = { NUM = 9 } }
+}
+
+#_拆解栖息地
+country_event = {
+	id = z_fw1_misc_mega_dismantle.30
+	title = z_fw_evt_mega_dismantle_plnt_ongoing
+	desc = z_fw_evt_mega_dismantle_plnt_ongoing_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	location = this
+	option = { name = z_fw_evt_good }
+}
+planet_event = {
+	id = z_fw1_misc_mega_dismantle.31
+	hide_window = yes
+	title = z_fw_evt_mega_dismantle_done
+	desc = z_fw_evt_mega_dismantle_done_desc
+	picture = GFX_evt_megastructure_construction
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { check_variable = { which = z_fw_var_habitat_dismantle value <= 5 } }
+			planet_event = { id = z_fw1_misc_mega_dismantle.31 days = 30 }	#_自循环
+			change_variable = { which = z_fw_var_habitat_dismantle value = 1 }
+			solar_system.space_owner = { add_resource = { energy = 250 alloys = 1250 } }
+		}
+		else = {
+			solar_system = {
+				#_清理目标habitat
+				every_system_planet = {
+					limit = { has_planet_flag = z_fw_flg_plnt_habitat_dismantle }
+					#_clean_colony
+					if = {
+						limit = { is_colony = yes }
+						destroy_colony = yes
+					}
+					#_不同类型habitats
+					if = {
+						limit = {
+							OR = {
+								is_planet_class = pc_habitat
+								is_planet_class = pc_habitat_shielded
+							}
+						}
+						spawn_habitat_cracker_effect = yes
+						remove_planet = yes
+					}
+				}
+				#_清理额外habitat_mega_flg
+				z_fw_eft_sys_annihilation_debug = yes
+				every_system_ambient_object = {
+					limit = { has_ambient_object_flag = z_fw_flg_ambt_habitat_dismantle }
+					destroy_ambient_object = this
+				}
+			}
+			set_variable = { which = z_fw_var_habitat_dismantle value = 0 }
+			solar_system.space_owner = { country_event = { id = z_fw1_misc_mega_dismantle.20 } }
+		}
+	}
+}

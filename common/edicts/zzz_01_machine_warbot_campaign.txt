@@ -1,0 +1,33 @@
+machine_warbot_campaign = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			energy = 1000
+		}
+	}
+
+	modifier = {
+		planet_army_build_speed_mult = 0.25
+		army_starting_experience_add = 100
+	}
+	
+	potential = {
+		OR = {
+			has_civic = civic_machine_warbots	
+			has_civic = civic_machine_terminator	
+		}
+		has_comms_with_alien_civilization = yes
+		has_technology = tech_planetary_unification
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictMedPrio
+			is_at_war = yes
+			has_resource = { type = energy amount > 5000 }
+		}
+	}
+}

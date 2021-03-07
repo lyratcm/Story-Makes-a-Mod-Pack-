@@ -1,0 +1,25 @@
+masters_writings_diplomacy = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	potential = {
+		has_country_flag = edict_masters_writings_diplomacy
+	}
+	
+	modifier = {
+		country_trust_growth = 1
+	}
+
+	allow = {
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

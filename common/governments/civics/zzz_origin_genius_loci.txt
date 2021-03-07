@@ -1,0 +1,22 @@
+origin_genius_loci = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_genius_loci.dds"
+    picture = GFX_origin_genius_loci
+    starting_colony = pc_hive
+    potential = {
+        always = no
+    }
+    playable = {
+        host_has_dlc = "Utopia"
+    }
+    possible = {
+        authority = {
+            value = auth_hive_mind
+        }
+    }
+    description = "origin_tooltip_genius_loci_effects"
+    advanced_start = yes
+    random_weight = {
+        base = 2
+    }
+}

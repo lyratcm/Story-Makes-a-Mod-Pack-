@@ -1,0 +1,31 @@
+origin_primitive_cyborgs = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_primitive_cyborgs.dds"
+	picture = GFX_origin_mechanist
+	max_once_global = yes
+
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_materialist
+				value = ethic_fanatic_materialist
+				value = ethic_materialist
+			}
+		}
+	}
+	
+	modifier = {
+		category_computing_research_speed_mult = 0.1
+		category_industry_research_speed_mult = 0.1
+	}
+	
+	description = "civic_tooltip_primitive_cyborgs_effects"
+	
+	traits = {
+		trait = trait_primitive_cybernetic
+	}
+
+	random_weight = {
+		base = 10
+	}
+}

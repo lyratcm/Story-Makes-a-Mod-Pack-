@@ -1,0 +1,345 @@
+﻿l_simp_chinese:
+#_[misc]
+#_[evts]
+#_[设置菜单]
+#_[特殊目标]
+#_[目标与持有者]  [z_遗珍][无限宝石]
+#_[特殊flt]
+#_[LCTR_RES]
+#_[P_C]
+#_[特殊星系]
+#_[LCTR_MEGA]
+
+
+
+
+#_[ref]
+ z_name_graysnow:0 "§B苍雪山§!"
+ z_name_entropius:0 "§H熵魔§!"
+ z_name_entropy_mist:0 "§H熵雾§!"
+ 
+#_[misc]
+ #_standalone
+ edict_z_lctr_edt: "§G无尽群星§!: 全知之眼 $edict_z_lctr_edt_desc$"
+ edict_z_lctr_edt_desc: "开启高级定位器。"
+
+ #_事件链
+ z_lctr_research_to_mute:0 "§B研究特殊项目§!以清除当前类型的定位或§C1年后§!定位将§B自动取消§!。"
+ z_lctr_chain_sensor_title:0 "$z_lctr_r_adv_sensor$定位器"
+ z_lctr_chain_sensor_desc:0 "查找$z_lctr_r_adv_sensor$所在的位置。$TRACK_ALL$以在地图上标示。"
+ z_lctr_chain_holder_title:0 "目标定位器与持有者信息"
+ z_lctr_chain_holder_desc:0 "展开事件链查看特殊项目以获取目标所有者信息。$TRACK_ALL$以在地图上标示。"
+ z_lctr_chain_res_title:0 "战略资源定位器"
+ z_lctr_chain_res_desc:0 "所有已知该种类战略资源的位置。$TRACK_ALL$以在地图上标示。"
+ z_lctr_chain_plnt_title:0 "特殊星体定位器"
+ z_lctr_chain_plnt_desc:0 "所有已知该种类天体的位置。$TRACK_ALL$以在地图上标示。"
+ z_lctr_chain_sstm_title:0 "特殊星系定位器"
+ z_lctr_chain_sstm_desc:0 "所有符合条件星系的位置。$TRACK_ALL$以在地图上标示。"
+ z_lctr_chain_mega_title:0 "$megastructures$定位器"
+ z_lctr_chain_mega_desc:0 "所有已知$megastructures$的位置（不包括$gateway_final$、$lgate$）。$TRACK_ALL$以在地图上标示。"
+ z_lctr_chain_gate_title:0 "$gateway_final$定位器"
+ z_lctr_chain_gate_desc:0 "所有已知$gateway_final$的位置（包括失效的、建造中的）。$TRACK_ALL$以在地图上标示。"
+ z_lctr_chain_lgate_title:0 "$lgate$定位器"
+ z_lctr_chain_lgate_desc:0 "所有已知$lgate$的位置。$TRACK_ALL$以在地图上标示。"
+ z_lctr_chain_wormhole_title:0 "$apoc.5.name$定位器" # 虫洞
+ z_lctr_chain_wormhole_desc:0 "所有已知$apoc.5.name$的位置。$TRACK_ALL$以在地图上标示。"
+
+ #_sp
+ Z_LCTR_SP_SENSOR:0 "$z_lctr_r_adv_sensor$所在位置"
+ Z_LCTR_SP_SENSOR_DESC:0 "$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_RELIC:0 "目标地点与所有者"
+ Z_LCTR_SP_RELIC_DESC:0 "一个已知的目标所在地，目标拥有者为§G[from.z_lctr_loc_cntr_holder_check]§!。$z_lctr_research_to_mute$."
+ z_lctr_loc_cntr_holder_1:0 "[event_target:z_lctr_tgt_glbl_cntr_1.GetName]"
+ z_lctr_loc_cntr_holder_2:0 "[event_target:z_lctr_tgt_glbl_cntr_2.GetName]"
+ z_lctr_loc_cntr_holder_3:0 "[event_target:z_lctr_tgt_glbl_cntr_3.GetName]"
+ z_lctr_loc_cntr_holder_4:0 "[event_target:z_lctr_tgt_glbl_cntr_4.GetName]"
+ z_lctr_loc_cntr_holder_5:0 "[event_target:z_lctr_tgt_glbl_cntr_5.GetName]"
+ z_lctr_loc_cntr_holder_6:0 "[event_target:z_lctr_tgt_glbl_cntr_6.GetName]"
+ z_lctr_loc_cntr_holder_7:0 "[event_target:z_lctr_tgt_glbl_cntr_7.GetName]"
+ z_lctr_loc_cntr_holder_8:0 "[event_target:z_lctr_tgt_glbl_cntr_8.GetName]"
+ z_lctr_loc_cntr_holder_9:0 "[event_target:z_lctr_tgt_glbl_cntr_9.GetName]"
+ Z_LCTR_SP_RES:0 "战略资源点"
+ Z_LCTR_SP_RES_DESC:0 "一个已知的战略资源点。$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_PLNT:0 "特殊天体"
+ Z_LCTR_SP_PLNT_DESC:0 "一个已知的特殊天体。$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_SSTM:0 "指定星系"
+ Z_LCTR_SP_SSTM_DESC:0 "一个符合条件的星系。$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_MEGA:0 "$megastructures$"
+ Z_LCTR_SP_MEGA_DESC:0 "一个已知的$megastructures$。"
+ Z_LCTR_SP_GATE:0 "$gateway_final$"
+ Z_LCTR_SP_GATE_DESC:0 "一个已知的$gateway_final$。$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_LGATE:0 "$lgate$"
+ Z_LCTR_SP_LGATE_DESC:0 "一个已知的$lgate$。$z_lctr_research_to_mute$"
+ Z_LCTR_SP_WORMHOLE:0 "$apoc.5.name$"
+ Z_LCTR_SP_WORMHOLE_DESC:0 "一个已知的$apoc.5.name$。$z_lctr_research_to_mute$。"
+
+#_modifier
+ z_lctr_mod_cntr_sensor: "$z_lctr_r_adv_sensor$"
+ z_lctr_mod_cntr_sensor_desc: "来自古老$z_name_graysnow$的传感器阵列能够强化我们所有的探测系统，使我们甚至能探测到被遮蔽的星系中的目标，不过缺点是需要消耗大量电力来维持其运行。"
+ z_lctr_r_adv_sensor_activited: "探测矩阵 §G已激活§!"
+ z_lctr_r_adv_sensor_disabled: "探测矩阵 $§H已关闭§!"
+#_tooltips
+ z_lctr_r_adv_sensor_effect:0 "选择§G开启§!或§H关闭§!矩阵，当前[root.z_lctr_loc_cntr_relic_condition]。\n\n开启矩阵将提升我们所有传感器的强度，让我们探知更远处的目标(开启国家修正面板查看具体参数)。同时，只要拥有视野，即使被遮蔽的星系也无法阻碍我们的探测。\n另一方面，维持矩阵运行需要消耗大量能量，所以不用的时候请关掉。"
+#_relic
+ z_lctr_r_adv_sensor:0 "$z_name_graysnow$探测矩阵"
+ z_lctr_r_adv_sensor_desc:0 "从宇宙诞生之时起，$z_name_graysnow$便一直致力于对抗$z_name_entropius$。为了探知那些被$z_name_entropy_mist$掩盖的世界，$z_lctr_r_adv_sensor$被设计了出来。这种神奇的传感器矩阵可以精确地捕捉星系中溢出的§B暗能量§!信号，无论是处于宇宙风暴中的信息，还是因为其他种种原因被封印的星系都无所遁形。因为§B暗能量，无所不能！§!\n\n拥有此遗珍，使用高级定位器可定位宇宙中任意角落的目标，即便它处在黑暗中未知世界的星系里。\n此外，激活此遗珍后，你的传感器可以探知所有被隐藏的星系，只要你拥有那里的视野。"
+ 
+#_war
+ z_cltr_cb_plunder_relic: "持有$z_lctr_r_adv_sensor$"
+ war_goal_z_lctr_wg_plunder_relic: "夺取$z_lctr_r_adv_sensor$"
+ war_goal_z_lctr_wg_plunder_relic_desc: "发动战争夺取$z_lctr_r_adv_sensor$，如果获胜，传感器和高级定位器的功能就会被强化。"
+ z_lctr_tips_good: "真是太棒了"
+ z_lctr.war_winner: "得到$z_lctr_r_adv_sensor$"
+ z_lctr.war_winner.desc: "我们胜利了，$z_lctr_r_adv_sensor$是我们的了，这将让我们获得情报的优势。"
+ z_lctr.war_loser: "失去$z_lctr_r_adv_sensor$"
+ z_lctr.war_loser.desc: "我们被击败了，$z_lctr_r_adv_sensor$是他们的了，将来有一天我们一定要把优势夺回来。"
+
+#_[evts]
+ z_lctr.no_target:0 "§G高级定位器：§!没有目标"
+ z_lctr.no_target_desc:0 "所选范围内并没有指定范畴的目标。"
+ z_lctr_no_target:0 "真是遗憾"
+
+#_archeaology site
+ NAME_z_lctr_r_site_planet_0: "古老的研究站"
+ NAME_z_lctr_r_site_planet: "$z_name_graysnow$研究站Theta"
+ z_lctr_site:0 "古老的研究站"
+ z_lctr_site_intro:0 "深入星球内部的巨大深渊，底部闪烁着翠绿的光芒。残垣断壁诉说着它悠久的历史，几百公里的深渊布满了人工雕琢的痕迹。这里到底发生了什么，下面隐藏着什么，又是怎么被毁灭成现在这副样子，一切的谜底必须由你来揭开。"
+ 
+ z_lctr_chain_site_title:0 "§G诡异的暗能量信号§!"
+ z_lctr_chain_site_desc:0 "科研部门最近接收到了一段有序的暗能量信号，如同闪烁的灯塔一般指引着一个坐标，那里肯定有什么重要的东西在等待着我们。(无尽群星：全知之眼主线)"
+ Z_LCTR_SP_SITE:0 "锁定坐标点"
+ Z_LCTR_SP_SITE_DESC:0 "我们已经精确地定位了信号源头，这个信号中用易于破解的明文发布了精确的星系坐标，这意味着其他可能的智能存在也会接受这个信号，我们应该尽快赶过去探索一番，以防被别人抢先。"
+ 
+ z_lctr_chain_story_title:0 "奇特的坐标"
+ z_lctr_chain_story_desc:0 "我们接受了一些特定星系的坐标，让我们看看它们是什么。$TRACK_ALL$以在地图上标示。"
+ Z_LCTR_SP_STORY_0:0 "奇特的坐标"
+ Z_LCTR_SP_STORY_0_DESC:0 "似乎是所有宇宙文明母星位置，$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_STORY_1:0 "$Z_LCTR_SP_STORY_0$"
+ Z_LCTR_SP_STORY_1_DESC:0 "似乎是所有远古文明母星位置，$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_STORY_2:0 "$Z_LCTR_SP_STORY_0$"
+ Z_LCTR_SP_STORY_2_DESC:0 "似乎是所有稀有资源的位置，$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_STORY_3:0 "$Z_LCTR_SP_STORY_0$"
+ Z_LCTR_SP_STORY_3_DESC:0 "似乎是所有飞地文明的位置，$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_STORY_4:0 "$Z_LCTR_SP_STORY_0$"
+ Z_LCTR_SP_STORY_4_DESC:0 "似乎是所有利维坦级存在的位置，$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_STORY_5:0 "$Z_LCTR_SP_STORY_0$"
+ Z_LCTR_SP_STORY_5_DESC:0 "似乎是所有巨型构造的位置，$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_STORY_6:0 "$Z_LCTR_SP_STORY_0$"
+ Z_LCTR_SP_STORY_6_DESC:0 "似乎是所有星门和虫洞的位置，$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_STORY_7:0 "$Z_LCTR_SP_STORY_0$"
+ Z_LCTR_SP_STORY_7_DESC:0 "似乎是所有非正常存在(mod特殊星系)的位置，$z_lctr_research_to_mute$。"
+ Z_LCTR_SP_STORY_8:0 "$Z_LCTR_SP_STORY_0$"
+ Z_LCTR_SP_STORY_8_DESC:0 "，$z_lctr_research_to_mute$。"
+
+ z_lctr_relic.exordium.name:0 "$z_lctr_chain_site_title$"
+ z_lctr_relic.exordium.desc:0 "$z_lctr_chain_site_desc$"
+
+ z_lctr_relic.abyss.name:0 "深渊"
+ z_lctr_relic.abyss.desc:0 "我们的飞船降落在这颗荒芜的星球上，这里是一片荒凉的土地，几乎看不到文明存在过的迹象。整个星球都是肆虐的风暴与沙尘，科研船甚至要打开偏转护盾来避免沙尘暴带来的磨损。经过数小时的搜索，我们终于在漫天黄沙之下锁定了信号的发源地。当我们到达那里后，整个研究团队都为之所震惊。\n\n这并不是一颗自然产生的星球，这似乎是某个强大文明建造的人工星体，一条巨大的裂谷贯穿星球的赤道并且布满了通往星球深处的巨大垂直通道。而通道深处，这是闪烁着绿色光芒的核心，看来那里就是我们的目的地了。\n\n几天后，科研团在巨大科研船的下面建立了简单的考古营地，并且在领袖[root.GetLeaderName]的带领下乘坐小型穿梭机进入裂谷。几十分钟后，它们便到达了星球的核心，诡异的是星球似乎很欢迎这些来客，任何防御机制都没有触发。\n\n无论怎样，这是一个好的开始。"
+ z_lctr_relic.entropius.name:0 "$z_name_graysnow$与$z_name_entropius$"
+ z_lctr_relic.entropius.desc:0 "星球的核心并不复杂，只是似乎被废弃了很久，阴暗的环境中到处闪烁着幽幽的绿光，就像是墓地里的鬼火一般摄人心魄。整颗星球似乎是某种巨大天线的延伸，以某种我们无法理解的方式探测并发射着暗能量信号。\n几天的探索后，研究团队接入了星球的数据库并在接下来的几个月中接收到了足以震撼他们一生的远古知识。\n\n§G维持世界的平衡，并消除可能的异常。§!这句话似乎是远古文明的某种问候，我们了解到这颗星球的主人被称作$z_name_graysnow$，它们是一群从宇宙诞生开始便存在的古老神明。尽管关于他们近况的资料都被人为地抹掉了，但是我们还是了解到他们一直都在对抗一种被称作$z_name_entropius$的敌对势力。\n\n就像是光与影，$z_name_graysnow$与$z_name_entropius$从上古时代一直战斗到今日，银河系只是他们战斗过的无数战场之一。$z_name_graysnow$致力于维持宇宙的有序化，让熵尽可能减少。而$z_name_entropius$则致力于让宇宙变成混沌一团，回到它最初的样子。\n\n解读仍然在继续，但是一股强大的能量突然从核心爆发，并横扫了整个星球。一片混乱之后，我们的数据库中突然出现了无数的星系坐标。(打开项目日志查看§G$z_lctr_chain_story_title$§!)"
+ z_lctr_relic.war.name:0 "无尽的战争"
+ z_lctr_relic.war.desc:0 "混乱过后，解读工作继续进行。\n\n$z_name_graysnow$与$z_name_entropius$的战争从未停止过，自宇宙诞生起一直进行到现在。$z_name_graysnow$在战争中似乎扮演者保护者的角色，他们一直致力于保存已有的星系不受$z_name_entropius$的破坏，不过很显然字里行间中透露出了$z_name_graysnow$对其他文明的傲慢，或许他们根本就不把其他文明视为文明。不过无论怎样，他们的目的至少不是破坏。\n\n$z_name_entropius$则相对更加不顾一切一些，它们不在乎任何损失和打击的精确性，无论是对宇宙还是他们自己的，它们甚至使用过一种超出物理规则的武器，可以一瞬间熄灭整个星系。它们唯一的目的就是清除$z_name_graysnow$并造成尽可能多的破坏，或许有形的东西被撕碎和扭曲，就是它们所要的高熵与混沌吧。\n\n解读仍然在继续，但是一股强大的能量再次从核心爆发，并横扫了整个星球。一片混乱之后，我们的数据库中突然出现了无数新的星系坐标。(打开项目日志查看§G$z_lctr_chain_story_title$§!)"
+ z_lctr_relic.core.name:0 "寂静之雾"
+ z_lctr_relic.core.desc:0 "混乱过后，解读工作继续进行。\n\n$z_name_entropius$最恐怖的武器不是能瞬间熄灭星系的恐怖能量，显然战争的双方都在释放着我们所无法理解的强大力量，这种程度的火力对他们来说并不算什么。$z_name_entropius$最重要的武器是一种被称作$z_name_entropy_mist$神秘能量，这种能量稀薄而致命，当它弥漫在空间中时会瓦解所有有形的存在，让一切变得均衡而死寂。\n\n$z_name_graysnow$似乎非常恐惧这种武器，他们的所有策略都围绕着$z_name_entropy_mist$，阻止它扩散和蔓延。但是在最初的战斗中$z_name_graysnow$总是处于下风，他们对$z_name_entropy_mist$毫无办法，为此他们失去了一个又一个星系，并被驱赶到星系的核心，围绕着巨大黑洞以光速环行尝试避开$z_name_entropy_mist$的侵蚀。直到最近几亿年，因为一种全新设备的发明战况才有了转机。\n\n解读仍然在继续，但是一股强大的能量再次从核心爆发，并横扫了整个星球。一片混乱之后，我们的数据库中突然出现了无数新的星系坐标。(打开项目日志查看§G$z_lctr_chain_story_title$§!)"
+ z_lctr_relic.matrix.name:0 "传感器矩阵"
+ z_lctr_relic.matrix.desc:0 "$z_name_entropy_mist$会阻碍所有已知的通信方式并隐藏$z_name_entropius$舰队的位置，$z_name_graysnow$因此总是处于被动的位置，唯一阻止$z_name_entropius$的手段就是预测它们的计划，并在$z_name_entropy_mist$被投放扩散前消灭它们。很明显，$z_name_entropius$只需要一次机会，$z_name_graysnow$却不能失误一次。\n\n直到有一天，$z_name_graysnow$的科研部门发现暗能量信号可以穿越厚重的$z_name_entropy_mist$，他们开发了一种全新的传感器矩阵，战争的天平也开始扭转。$z_name_graysnow$开始反攻并收复每一块失地，$z_name_entropius$则变得更加疯狂，不顾一切地散布$z_name_entropy_mist$，并引爆星系核心的巨大黑洞群。\n\n记录到了这里嘎然而止，我们不知道银河系中时候还有$z_name_graysnow$与$z_name_entropius$，也不清楚他们的战争进行到了何种程度，但是我们很清楚，一切争斗都失去了意义，最恐怖的危机一直伴随在我们身边。\n\n一股强大的能量再次从星球的核心爆发，每次能量冲击都会激活这个星球沉睡的部分，现在，它似乎彻底激活了。"
+ z_lctr_relic.matrix.a: "无比震撼，顺便把遗珍带回首都吧！"
+
+ z_lctr_relic.epilogue.name:0 "尾声-风暴将至"
+ z_lctr_relic.epilogue.desc:0 "我们的英雄们归来了，帝国的子民们撒着花瓣夹道欢迎，尽管如此他们每个人脸上依然是一副忧心忡忡的样子。科学领袖亲自向最高统帅献上了他们的发掘成果$z_lctr_r_adv_sensor$，并告诉他自己在遗迹中看到的一切。最高统帅看着闪着幽绿光芒的$z_lctr_r_adv_sensor$，内心却如同坠入了漆黑冰冷的湖底一般，他第一次感受到恐惧和不安，即便在帝国临近灭亡的最危难关头他都没有如此感受过。\n或许能平安生存到现在不过是一系列巧合的结果，但是即便如此我们也不应当放弃生存的骄傲。在这无尽的黑暗中，存在本身就是一种荣耀。他与最高统帅站在帝国大厦的高耸入云的楼顶，看着往来的飞行器组成的点阵，在火红的夕阳下如同一群辛勤的蚂蚁。\n没错，即便我们的文明面对终极的存在如同蝼蚁，我们依然要继续战斗下去。\n§G活着，是一种骄傲。§!"
+ z_lctr_relic.epilogue.a: "敬生者，敬文明，敬蝼蚁！"
+ z_lctr_relic.lost.name:0 "信号消失"
+ z_lctr_relic.lost.desc:0 "研究部门最近发现暗能量信号居然消失了，看来那里的秘密已经被人捷足先登了，大家都表示非常遗憾。但是最高统帅敏锐地意识到，我们似乎失去了一个重要的机会。\n无论它是什么，我们必须想办法重新把它夺回来，即便为之发动战争。巧合地是，我们又收到了一个全新的信号。(开启§G无尽群星：§!高级定位器，并使用$z_lctr_r_adv_sensor_holder$，重新锁定坐标。)"
+
+#_[设置菜单]
+ z_lctr_name:0 "§G无尽群星：§!高级定位器"
+ z_lctr_desc:0 "[root.z_lctr_loc_cntr_menu_desc]"
+ z_lctr_desc_relic:0 "§B您好，主人。探测矩阵Theta为您服务。§!请选择您要定位的目标，然后开启项目日志选择对应的定位器并选择在地图上显示。因为拥有了$z_lctr_r_adv_sensor$，您可以获得整个银河系中所有的目标位置，但同一时刻只会显示一个类型的目标。"
+ z_lctr_desc_no_relic:0 "请选择你要定位的目标，然后开启项目日志选择对应的定位器并选择在地图上显示。只会定位已探索的星系中的目标，且同一时刻只会显示一个类型的目标。"
+ 
+ z_lctr_r_adv_sensor_holder:0 "$z_lctr_r_adv_sensor$ 持有者"
+ z_lctr_r_adv_sensor_holder_tips:0 "如果$z_lctr_r_adv_sensor$已被其他帝国挖掘并持有，这个选项可以定位遗珍所在的位置。"
+ 
+ z_lctr_menu_target:0 "选择一类特定目标在地图上定位，显示为兴趣点。"
+ z_lctr_menu_holder:0 "选择一类特定目标在地图上定位，显示为兴趣点，同时在特殊项目中显示目标持有者的信息。"
+ z_lctr_menu_flt:0 "选择一类特殊NPC在地图上定位，显示为兴趣点。"
+ z_lctr_menu_sr:0 "选择一种战略资源在地图上定位，显示为兴趣点。"
+ z_lctr_menu_plnt:0 "选择一种天体类型在地图上定位，显示为兴趣点。"
+ z_lctr_menu_sstm:0 "选择一类特殊星系在地图上定位，显示为兴趣点。"
+ z_lctr_menu_mega:0 "选择一种巨构或通路在地图上定位，显示为兴趣点。"
+ 
+ z_lctr_tips_need_matrix:0 "拥有$z_lctr_r_adv_sensor$后解锁。"
+
+
+#_[特殊目标]
+ z_lctr_menu.target_a:0 "---其他目标：定位选项§H已收起§!---"
+ z_lctr_menu.target_b:0 "+++其他目标：定位选项§G已展开§!+++"
+ 
+ z_lctr_menu.target.primitive:0 "§B其他目标：§! 原始文明"
+ z_lctr_menu.target.primitive.tooltip:0 "$z_lctr_menu_target$ 原始文明的星球。"
+ z_lctr_menu.target.capital:0 "§B其他目标：§! 普通文明国母星"
+ z_lctr_menu.target.capital.tooltip:0 "$z_lctr_menu_target$ §H普通帝国/巅峰帝国/失落帝国/虚空舰队§!首都所在地。"
+ z_lctr_menu.target.capital_fallen:0 "§Y其他目标：§! 高级文明母星"
+ z_lctr_menu.target.capital_fallen.tooltip:0 "$z_lctr_menu_target$ §H堕落帝国/复兴圣权/始源帝国/永恒帝国/夸特文明§!首都所在地。"
+ z_lctr_menu.target.holy_planet:0 "§B其他目标：§! 圣地"
+ z_lctr_menu.target.holy_planet.tooltip:0 "$z_lctr_menu_target$ 圣地所在地。"
+
+
+#_[目标与持有者]
+ z_lctr_menu.holder_a:0 "---目标与持有者：定位选项§H已收起§!---"
+ z_lctr_menu.holder_b:0 "+++目标与持有者：定位选项§G已展开§!+++"
+#_vanilla
+ z_lctr_menu.holder.r_dragon_trophy:0 "§Y遗珍与持有者：§! $r_dragon_trophy$"
+ z_lctr_menu.holder.r_dragon_trophy.tooltip:0 "$z_lctr_menu_holder$\n$r_dragon_trophy_desc$"
+ z_lctr_menu.holder.r_khans_throne:0 "§Y遗珍与持有者：§! $r_khans_throne$"
+ z_lctr_menu.holder.r_khans_throne.tooltip:0 "$z_lctr_menu_holder$\n$r_khans_throne_desc$"
+ z_lctr_menu.holder.r_worm_scales:0 "§Y遗珍与持有者：§! $r_worm_scales$"
+ z_lctr_menu.holder.r_worm_scales.tooltip:0 "$z_lctr_menu_holder$\n$r_worm_scales_desc$"
+ z_lctr_menu.holder.r_rubricator:0 "§Y遗珍与持有者：§! $r_rubricator$"
+ z_lctr_menu.holder.r_rubricator.tooltip:0 "$z_lctr_menu_holder$\n$r_rubricator_desc$"
+ z_lctr_menu.holder.r_galaxy:0 "§Y遗珍与持有者：§! $r_galaxy$"
+ z_lctr_menu.holder.r_galaxy.tooltip:0 "$z_lctr_menu_holder$\n$r_galaxy_desc$"
+ z_lctr_menu.holder.r_omnicodex:0 "§Y遗珍与持有者：§! $r_omnicodex$"
+ z_lctr_menu.holder.r_omnicodex.tooltip:0 "$z_lctr_menu_holder$\n$r_omnicodex_desc$"
+ z_lctr_menu.holder.r_surveyor:0 "§Y遗珍与持有者：§! $r_surveyor$"
+ z_lctr_menu.holder.r_surveyor.tooltip:0 "$z_lctr_menu_holder$\n$r_surveyor_desc$"
+ z_lctr_menu.holder.r_galatron:0 "§Y遗珍与持有者：§! $r_galatron$"
+ z_lctr_menu.holder.r_galatron.tooltip:0 "$z_lctr_menu_holder$\n$r_galatron_desc$"
+ z_lctr_menu.holder.r_ancient_sword:0 "§Y遗珍与持有者：§! $r_ancient_sword$"
+ z_lctr_menu.holder.r_ancient_sword.tooltip:0 "$z_lctr_menu_holder$\n$r_ancient_sword_desc$"
+ z_lctr_menu.holder.r_severed_head:0 "§Y遗珍与持有者：§! $r_severed_head$"
+ z_lctr_menu.holder.r_severed_head.tooltip:0 "$z_lctr_menu_holder$\n$r_severed_head_desc$"
+ z_lctr_menu.holder.r_prethoryn_queen:0 "§Y遗珍与持有者：§! $r_prethoryn_queen$"
+ z_lctr_menu.holder.r_prethoryn_queen.tooltip:0 "$z_lctr_menu_holder$\n$r_prethoryn_queen_desc$"
+ z_lctr_menu.holder.r_unbidden_warlock:0 "§Y遗珍与持有者：§! $r_unbidden_warlock$"
+ z_lctr_menu.holder.r_unbidden_warlock.tooltip:0 "$z_lctr_menu_holder$\n$r_unbidden_warlock_desc$"
+ z_lctr_menu.holder.r_contingency_core:0 "§Y遗珍与持有者：§! $r_contingency_core$"
+ z_lctr_menu.holder.r_contingency_core.tooltip:0 "$z_lctr_menu_holder$\n$r_contingency_core_desc$"
+ z_lctr_menu.holder.r_zro_crystal:0 "§Y遗珍与持有者：§! $r_zro_crystal$"
+ z_lctr_menu.holder.r_zro_crystal.tooltip:0 "$z_lctr_menu_holder$\n$r_zro_crystal_desc$"
+ z_lctr_menu.holder.r_the_last_baol:0 "§Y遗珍与持有者：§! $r_the_last_baol$"
+ z_lctr_menu.holder.r_the_last_baol.tooltip:0 "$z_lctr_menu_holder$\n$r_the_last_baol_desc$"
+ z_lctr_menu.holder.r_the_defragmentor:0 "§Y遗珍与持有者：§! $r_the_defragmentor$"
+ z_lctr_menu.holder.r_the_defragmentor.tooltip:0 "$z_lctr_menu_holder$\n$r_the_defragmentor_desc$"
+ z_lctr_menu.holder.r_reality_perforator:0 "§Y遗珍与持有者：§! $r_reality_perforator$"
+ z_lctr_menu.holder.r_reality_perforator.tooltip:0 "$z_lctr_menu_holder$\n$r_reality_perforator_desc$"
+ z_lctr_menu.holder.r_pox_sample:0 "§Y遗珍与持有者：§! $r_pox_sample$"
+ z_lctr_menu.holder.r_pox_sample.tooltip:0 "$z_lctr_menu_holder$\n$r_pox_sample_desc$"
+ z_lctr_menu.holder.r_cryo_core:0 "§Y遗珍与持有者：§! $r_cryo_core$"
+ z_lctr_menu.holder.r_cryo_core.tooltip:0 "$z_lctr_menu_holder$\n$r_cryo_core_desc$"
+ z_lctr_menu.holder.r_war_forge:0 "§Y遗珍与持有者：§! $r_war_forge$"
+ z_lctr_menu.holder.r_war_forge.tooltip:0 "$z_lctr_menu_holder$\n$r_war_forge_desc$"
+#_z_遗珍
+ z_lctr_menu.holder.z_fw_r_head_of_karyl:0 "§Y遗珍与持有者：§! $z_fw_r_head_of_karyl$"
+ z_lctr_menu.holder.z_fw_r_head_of_karyl.tooltip:0 "$z_lctr_menu_holder$\n$z_fw_r_head_of_karyl_desc$"
+#_无限宝石
+ z_lctr_menu.holder.r_space_stone:0 "§Y遗珍与持有者：§! $r_space_stone$"
+ z_lctr_menu.holder.r_space_stone.tooltip:0 "$z_lctr_menu_holder$\n$r_space_stone_desc$"
+ z_lctr_menu.holder.r_power_stone:0 "§Y遗珍与持有者：§! $r_power_stone$"
+ z_lctr_menu.holder.r_power_stone.tooltip:0 "$z_lctr_menu_holder$\n$r_power_stone_desc$"
+ z_lctr_menu.holder.r_time_stone:0 "§Y遗珍与持有者：§! $r_time_stone$"
+ z_lctr_menu.holder.r_time_stone.tooltip:0 "$z_lctr_menu_holder$\n$r_time_stone_desc$"
+ z_lctr_menu.holder.r_reality_stone:0 "§Y遗珍与持有者：§! $r_reality_stone$"
+ z_lctr_menu.holder.r_reality_stone.tooltip:0 "$z_lctr_menu_holder$\n$r_reality_stone_desc$"
+ z_lctr_menu.holder.r_soul_stone:0 "§Y遗珍与持有者：§! $r_soul_stone$"
+ z_lctr_menu.holder.r_soul_stone.tooltip:0 "$z_lctr_menu_holder$\n$r_soul_stone_desc$"
+ z_lctr_menu.holder.r_mind_stone:0 "§Y遗珍与持有者：§! $r_mind_stone$"
+ z_lctr_menu.holder.r_mind_stone.tooltip:0 "$z_lctr_menu_holder$\n$r_mind_stone_desc$"
+ z_lctr_menu.holder.r_mjolnir:0 "§Y遗珍与持有者：§! $r_mjolnir$"
+ z_lctr_menu.holder.r_mjolnir.tooltip:0 "$z_lctr_menu_holder$\n$r_mjolnir_desc$"
+ z_lctr_menu.holder.r_infinity_gauntlet:0 "§Y遗珍与持有者：§! $r_infinity_gauntlet$"
+ z_lctr_menu.holder.r_infinity_gauntlet.tooltip:0 "$z_lctr_menu_holder$\n$r_infinity_gauntlet_desc$"
+
+
+#_[特殊flt]
+ z_lctr_menu.flt_a:0 "---特殊NPC：定位选项§H已收起§!---"
+ z_lctr_menu.flt_b:0 "+++特殊NPC：定位选项§G已展开§!+++"
+ 
+ z_lctr_menu.flt.enclave_1:0 "§B特殊星系：§! 飞地"
+ z_lctr_menu.flt.enclave_1.tooltip:0 "$z_lctr_menu_flt$ 策展人/贸易商/艺术家所在的星系。"
+ z_lctr_menu.flt.guardian_1:0 "§B特殊星系：§! 利维坦"
+ z_lctr_menu.flt.guardian_1.tooltip:0 "$z_lctr_menu_flt$ 危险的大型利维坦所在的星系。"
+ z_lctr_menu.flt.crystal:0 "§B特殊星系：§! 水晶护甲持有者"
+ z_lctr_menu.flt.crystal.tooltip:0 "$z_lctr_menu_flt$ $crystal_station_large$所在的星系。"
+
+
+#_[LCTR_RES]
+ z_lctr_menu.2a:0 "---§B战略资源：§!定位选项§H已收起§!---"
+ z_lctr_menu.2b:0 "+++§B战略资源：§!定位选项§G已展开§!+++"
+ z_lctr_menu.2.0:0 "§B战略资源：§! £volatile_motes£ $volatile_motes$"
+ z_lctr_menu.2.0.tooltip:0 "$z_lctr_menu_sr$$volatile_motes_desc$"
+ z_lctr_menu.2.1:0 "§B战略资源：§!£exotic_gases£ $exotic_gases$"
+ z_lctr_menu.2.1.tooltip:0 "$z_lctr_menu_sr$$exotic_gases_desc$"
+ z_lctr_menu.2.2:0 "§B战略资源：§!£rare_crystals£ $rare_crystals$"
+ z_lctr_menu.2.2.tooltip:0 "$z_lctr_menu_sr$$rare_crystals_desc$"
+ z_lctr_menu.2.3:0 "§B战略资源：§!£sr_dark_matter£ $sr_dark_matter$"
+ z_lctr_menu.2.3.tooltip:0 "$z_lctr_menu_sr$$sr_dark_matter_desc$"
+ z_lctr_menu.2.4:0 "§B战略资源：§!£sr_living_metal£ $sr_living_metal$"
+ z_lctr_menu.2.4.tooltip:0 "$z_lctr_menu_sr$$sr_living_metal_desc$"
+ z_lctr_menu.2.5:0 "§B战略资源：§!£sr_zro£ $sr_zro$"
+ z_lctr_menu.2.5.tooltip:0 "$z_lctr_menu_sr$$sr_zro_desc$"
+ z_lctr_menu.2.6:0 "§B战略资源：§!£nanites£ $nanites$"
+ z_lctr_menu.2.6.tooltip:0 "$z_lctr_menu_sr$$nanites_desc$"
+
+
+#_[P_C]
+ z_lctr_menu.1a:0 "---特殊星体：定位选项§H已收起§!---"
+ z_lctr_menu.1b:0 "+++特殊星体：定位选项§G已展开§!+++"
+
+ z_lctr_menu.1.relic:0 "§B星球类型：§! $pc_relic$"
+ z_lctr_menu.1.relic.tooltip:0 "$z_lctr_menu_plnt$$pc_relic_desc$"
+ z_lctr_menu.1.gaia:0 "§B星球类型：§! $pc_gaia$"
+ z_lctr_menu.1.gaia.tooltip:0 "$z_lctr_menu_plnt$$pc_gaia_desc$"
+ z_lctr_menu.1.pc_molten:0 "§B星球类型：§! $pc_molten$"
+ z_lctr_menu.1.pc_molten.tooltip:0 "$z_lctr_menu_plnt$$pc_molten_desc$"
+ 
+ z_lctr_menu.1.pc_habitat:0 "§B人工栖息地类型：§! $pc_habitat$"
+ z_lctr_menu.1.pc_habitat.tooltip:0 "$z_lctr_menu_plnt$$pc_habitat_desc$"
+ z_lctr_menu.1.pc_ringworld_habitable:0 "§B人工栖息地类型：§! $pc_ringworld_habitable$"
+ z_lctr_menu.1.pc_ringworld_habitable.tooltip:0 "$z_lctr_menu_plnt$$pc_ringworld_habitable_desc$"
+ z_lctr_menu.1.pc_ringworld_habitable_damaged:0 "§B人工栖息地类型：§! 破碎$pc_ringworld_habitable_damaged$"
+ z_lctr_menu.1.pc_ringworld_habitable_damaged.tooltip:0 "$z_lctr_menu_plnt$$pc_ringworld_habitable_damaged_desc$"
+ 
+ z_lctr_menu.1.bh:0 "§B天体类型：§! $pc_black_hole$"
+ z_lctr_menu.1.bh.tooltip:0 "$z_lctr_menu_plnt$$pc_black_hole_desc$"
+ z_lctr_menu.1.neutron:0 "§B天体类型：§! $pc_neutron_star$"
+ z_lctr_menu.1.neutron.tooltip:0 "$z_lctr_menu_plnt$$pc_neutron_star_desc$"
+ z_lctr_menu.1.pc_a_star:0 "§B天体类型：§! $pc_a_star$"
+ z_lctr_menu.1.pc_a_star.tooltip:0 "$z_lctr_menu_plnt$$pc_a_star_desc$"
+ z_lctr_menu.1.pc_b_star:0 "§B天体类型：§! $pc_b_star$"
+ z_lctr_menu.1.pc_b_star.tooltip:0 "$z_lctr_menu_plnt$$pc_b_star_desc$"
+
+
+#_[特殊星系]
+ z_lctr_menu.sstm_a:0 "---特殊星系：定位选项§H已收起§!---"
+ z_lctr_menu.sstm_b:0 "+++特殊星系：定位选项§G已展开§!+++"
+ 
+ z_lctr_menu.sstm.sol_system:0 "§Y特殊星系：§! 太阳系"
+ z_lctr_menu.sstm.sol_system.tooltip:0 "$z_lctr_menu_sstm$ 太阳系定位器，该回家看看了。"
+ z_lctr_menu.sstm.sealed:0 "§Y特殊星系：§! 封印星系"
+ z_lctr_menu.sstm.sealed.tooltip:0 "$z_lctr_menu_sstm$ 此类星系往往是特殊虫洞所通向的目标，藏有秘密剧情与奖励。"
+ z_lctr_menu.sstm.lcluster:0 "§Y特殊星系：§! L星团"
+ z_lctr_menu.sstm.lcluster.tooltip:0 "$z_lctr_menu_sstm$ L星团，一个被灰蛊毁灭的文明处于其中。"
+ z_lctr_menu.sstm.wsg_1:0 "§Y特殊星系：§! 舰娘R世界"
+ z_lctr_menu.sstm.wsg_1.tooltip:0 "$z_lctr_menu_sstm$ 舰娘与联合舰队的奥秘隐藏于其中。"
+ z_lctr_menu.sstm.ag_1:0 "§Y特殊星系：§! 古代帝国遗址"
+ z_lctr_menu.sstm.ag_1.tooltip:0 "$z_lctr_menu_sstm$ 古代帝国的奥秘隐藏其中。"
+ z_lctr_menu.sstm.kuat_1:0 "§Y特殊星系：§! 夸特世界"
+ z_lctr_menu.sstm.kuat_1.tooltip:0 "$z_lctr_menu_sstm$ 狡猾少年的奥秘隐藏其中。"
+ z_lctr_menu.sstm.sofe_1:0 "§B特殊星系：§! 外星门"
+ z_lctr_menu.sstm.sofe_1.tooltip:0 "$z_lctr_menu_sstm$ 光能勇士的外星门所在地，那一刻，我变成了光！"
+ z_lctr_menu.sstm.ehof_1:0 "§B特殊星系：§! EHOF复合世界"
+ z_lctr_menu.sstm.ehof_1.tooltip:0 "$z_lctr_menu_sstm$ 黑洞小英雄所占据的星系。"
+ z_lctr_menu.sstm.ehof_2:0 "§B特殊星系：§! EHOF传送门世界"
+ z_lctr_menu.sstm.ehof_2.tooltip:0 "$z_lctr_menu_sstm$ 引力子枢纽的奥秘隐藏其中。"
+
+
+#_[LCTR_MEGA]
+ z_lctr_menu.3.0:0 "§H巨构：§!所有$megastructures$（不包括$gateway_final$、$lgate$）"
+ z_lctr_menu.3.1:0 "§H通路：§!$gateway_final$（包括建造中的、失效的）"
+ z_lctr_menu.3.2:0 "§H通路：§!$lgate$"
+ z_lctr_menu.3.3:0 "§H通路：§!$apoc.5.name$"
+ 
+ z_lctr_menu_clear:0 "清除所有定位"
+ 

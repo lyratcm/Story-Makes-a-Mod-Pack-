@@ -1,0 +1,42 @@
+civic_crime_heaven = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            NOR = {
+                value = ethic_pacifist
+                value = ethic_fanatic_pacifist
+            }
+            NOR = {
+                value = ethic_spiritualist
+                value = ethic_fanatic_spiritualist
+            }
+        }
+        authority = {
+            OR = {
+            }
+        }
+        civics = {
+            NOT = {
+                value = civic_moral_enforcement
+                value = civic_eugenic_idealism
+                value = civic_intended_ignorance
+            }
+        }
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        pop_growth_from_immigration = 0.5
+        pop_ethics_shift_speed_mult = 0.5
+        piracy_growth_mult = 3
+        planet_amenities_mult = 0.2
+        species_leader_exp_gain = 0.25
+        trade_value_mult = 0.2
+        planet_stability_add = -10
+        diplomacy_upkeep_mult = 0.3
+        empire_size_penalty_mult = 0.5
+    }
+}

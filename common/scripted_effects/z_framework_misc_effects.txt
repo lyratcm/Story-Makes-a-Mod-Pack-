@@ -1,0 +1,831 @@
+###_z modmenu-framework-misc effects	###############################################################
+
+#_[开局科技]
+#_[彩蛋遗珍_pc数目检测]
+#_[资源储存buff]
+#_[自动工程船]
+#_[cht_物质湮灭剑]
+#_[巨建_dismantle]
+
+
+
+
+###_[misc]	########################################################################################
+
+#_[开局科技]
+#_[country]	[start tech]
+z_fw_eft_start_tech = {
+	if = {
+		limit = { NOT = { has_technology = tech_automated_exploration } }
+		give_technology = { tech = tech_automated_exploration message = no }
+	}	
+}
+
+
+#_[彩蛋遗珍_pc数目检测]		pc>1,设定隔离flg,随机分配遗珍位置
+z_fw_eft_cntr_misc_relic_init_flg_cntr = {
+	if = {
+		limit = {
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = { check_variable = { which = z_fw_var_glbl_num_pc value > 1 } }
+		}
+		set_timed_country_flag = { flag = z_fw_flg_cntr_r days = 1 }
+	}
+}
+
+
+#_[资源储存buff]]
+z_fw_eft_all_res_stock_debug = {
+	if = {#_50000
+		limit = {
+			any_country = {
+				is_ai = no
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					is_country_type = ascended_empire	#_ZOFE
+					is_country_type = lost_empire		#_ZOFE
+					is_country_type = default_ev		#_EV
+				}
+				has_modifier = z_fw_mod_cntr_res_stock_50000
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					is_country_type = ascended_empire	#_ZOFE
+					is_country_type = lost_empire		#_ZOFE
+					is_country_type = default_ev		#_EV
+				}
+				NOT = { has_modifier = z_fw_mod_cntr_res_stock_50000 }
+			}
+			remove_modifier = z_fw_mod_cntr_res_stock_50000
+			remove_modifier = z_fw_mod_cntr_res_stock_500000
+			remove_modifier = z_fw_mod_cntr_res_stock_5000000
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_50000 days = -1 }
+		}
+	}
+	else_if = {#_500000
+		limit = {
+			any_country = {
+				is_ai = no
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					is_country_type = ascended_empire	#_ZOFE
+					is_country_type = lost_empire		#_ZOFE
+					is_country_type = default_ev		#_EV
+				}
+				has_modifier = z_fw_mod_cntr_res_stock_500000
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					is_country_type = ascended_empire	#_ZOFE
+					is_country_type = lost_empire		#_ZOFE
+					is_country_type = default_ev		#_EV
+				}
+				NOT = { has_modifier = z_fw_mod_cntr_res_stock_500000 }
+			}
+			remove_modifier = z_fw_mod_cntr_res_stock_50000
+			remove_modifier = z_fw_mod_cntr_res_stock_500000
+			remove_modifier = z_fw_mod_cntr_res_stock_5000000
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_500000 days = -1 }
+		}
+	}
+	else_if = {#_5000000
+		limit = {
+			any_country = {
+				is_ai = no
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					is_country_type = ascended_empire	#_ZOFE
+					is_country_type = lost_empire		#_ZOFE
+					is_country_type = default_ev		#_EV
+				}
+				has_modifier = z_fw_mod_cntr_res_stock_5000000
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					is_country_type = ascended_empire	#_ZOFE
+					is_country_type = lost_empire		#_ZOFE
+					is_country_type = default_ev		#_EV
+				}
+				NOT = { has_modifier = z_fw_mod_cntr_res_stock_5000000 }
+			}
+			remove_modifier = z_fw_mod_cntr_res_stock_50000
+			remove_modifier = z_fw_mod_cntr_res_stock_500000
+			remove_modifier = z_fw_mod_cntr_res_stock_5000000
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_5000000 days = -1 }
+		}
+	}
+}
+
+
+
+
+
+
+
+
+###_[自动工程船]	########################################################################################
+
+#_[fleet]	清理tgt
+z_fw_eft_flt_autostation_tgt_clean = {
+	if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_1 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_1
+	}
+	else_if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_2 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_2
+	}
+	else_if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_3 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_3
+	}
+	else_if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_4 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_4
+	}
+	else_if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_5 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_5
+	}
+	else_if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_6 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_6
+	}
+	else_if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_7 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_7
+	}
+	else_if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_8 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_8
+	}
+	else_if = {
+		limit = { is_same_value = event_target:z_fw_tgt_flt_autostation_9 }
+		clear_global_event_target = z_fw_tgt_flt_autostation_9
+	}
+}
+
+#_[fleet]	到达目的地	<z_fw1_misc.124>
+#_from = planet
+#_FromFrom = ?
+#_tgt继承	[z_fw_tgt_plnt_autostation]
+z_fw_eft_flt_autostation_executing = {
+	#_采矿建造
+	if = {
+		limit = {
+			from = {
+				NOR = {#_防止途中被码了巨建
+					has_planet_flag = megastructure
+					has_planet_flag = has_megastructure
+					has_any_megastructure = yes
+				}
+				has_orbital_station = no
+				has_deposit_for = shipclass_mining_station
+			}
+			NOT = {
+				solar_system = {
+					any_fleet_in_system = {
+						OR = {
+							is_constructing = megastructure
+							is_constructing = mining_station
+							is_constructing = research_station
+							#is_constructing = observation_post
+						}
+					}
+				}
+			}
+		}
+		from = { create_mining_station = { owner = solar_system.space_owner } }
+		solar_system = {
+			if = {
+				limit = {
+					NOR = {#_太空工程师
+						starbase = { has_starbase_building = z_sbb_n_constructor }
+						any_neighbor_system = {
+							exists = starbase
+							starbase = { has_starbase_building = z_sbb_n_constructor }
+						}
+					}
+				}
+				space_owner = { add_resource = { minerals = -100 } }
+			}
+			space_owner = { set_timed_country_flag = { flag = z_fw_autostation_debug_cd days = @z_fw_autostation_cd } }
+		}
+	}
+	#_科研建造
+	else_if = {
+		limit = {
+			from = {
+				NOR = {#_防止途中被码了巨建
+					has_planet_flag = megastructure
+					has_planet_flag = has_megastructure
+					has_any_megastructure = yes
+				}
+				has_orbital_station = no
+				has_deposit_for = shipclass_research_station
+			}
+			NOT = {
+				solar_system = {
+					any_fleet_in_system = {
+						OR = {
+							is_constructing = megastructure
+							is_constructing = mining_station
+							is_constructing = research_station
+							#is_constructing = observation_post
+						}
+					}
+				}
+			}
+		}
+		from = { create_research_station = { owner = solar_system.space_owner } }
+		solar_system = {
+			if = {
+				limit = {
+					NOR = {#_太空工程师
+						starbase = { has_starbase_building = z_sbb_n_constructor }
+						any_neighbor_system = {
+							exists = starbase
+							starbase = { has_starbase_building = z_sbb_n_constructor }
+						}
+					}
+				}
+				space_owner = { add_resource = { minerals = -100 } }
+			}
+			space_owner = { set_timed_country_flag = { flag = z_fw_autostation_debug_cd days = @z_fw_autostation_cd } }
+		}
+	}
+	#_检测星系内其他符合条件星球
+	solar_system = {#_solar_system
+		random_system_planet = {
+			limit = {#_[探索过/非殖民地/可建造矿站/资源科技满足/禁用条件/无建设冲突]
+				#_[探索过]
+				is_surveyed = { who = solar_system.space_owner status = yes }
+				#_[非殖民地]
+				is_colony = no
+				has_orbital_station = no
+				#has_mining_station = no
+				#has_research_station = no
+				#_[可建造矿站]
+				OR = {
+					has_deposit_for = shipclass_mining_station
+					has_deposit_for = shipclass_research_station
+				}
+				#_[资源科技满足]
+				z_fw_trgr_plnt_autostation_res_tech_flt = yes
+				#_[禁用条件]
+				NOR = {
+					has_deposit = d_trade_value_1
+					has_deposit = d_trade_value_2
+					has_deposit = d_trade_value_3
+					has_deposit = d_trade_value_4
+					has_deposit = d_trade_value_5
+					has_deposit = d_trade_value_6
+					has_deposit = d_trade_value_7
+					has_deposit = d_trade_value_8
+					has_deposit = d_trade_value_9
+					has_deposit = d_trade_value_10
+					#_巨建相关
+					has_planet_flag = megastructure		#_不是居住站/环之类伪星球
+					has_planet_flag = has_megastructure
+					has_any_megastructure = yes
+				}
+				#_[无建设冲突]
+				NOT = {
+					prev = {
+						any_fleet_in_system = {
+							OR = {
+								is_constructing = megastructure
+								is_constructing = mining_station
+								is_constructing = research_station
+							#	is_constructing = observation_post
+							}
+						}
+					}
+				}
+			}
+			set_planet_flag = z_fw_flg_plnt_autostation		#_星球标记
+		}
+	}
+	#_自循环
+	fleet_event = { id = z_fw1_misc.124 days = @z_fw_autostation_cd random = 7 }
+}
+
+
+
+
+
+
+
+
+###_[cht_物质湮灭剑]	####################################################################################
+
+#_[sys]			添加ambt_marker
+#_parameter		NUM
+z_fw_eft_sys_add_ambt_marker = {
+	random_system_megastructure = {
+		limit = {
+			z_fw_trgr_mega_demolish_ignore = no
+			z_fw_trgr_mega_r_cht_mega_counted = no
+		}
+		prev = {
+			random_system_megastructure = {
+				limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_$NUM$ }
+				remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_$NUM$
+			}
+		}
+		set_megastructure_flag = z_fw_flg_mega_r_cht_mega_$NUM$
+		create_ambient_object = {
+			type = z_fw_fx_ambt_tgt_r_cht_mega_$NUM$
+			location = this
+			use_3d_location = yes
+			entity_offset = { min = 0 max = 0 }
+			entity_offset_height = { min = 17 max = 17 }
+		#	base_angle_towards = star
+		#	entity_face_object = star
+			entity_scale_to_size = no
+			scale = 12.0
+		}
+		last_created_ambient_object = { set_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_$NUM$ }
+	}
+}
+
+#_[cntr]	z_fw_r_cht_mega归零
+#_cntr_flg			[z_fw_flg_cntr_r_cht_mega_ongoing]		当前进行中cntr
+#_glbl_flg			[z_fw_flg_glbl_r_cht_mega_ongoing]		当前进行中glbl
+z_fw_eft_cntr_r_cht_mega_init = {
+	remove_country_flag = z_fw_flg_cntr_r_cht_mega_ongoing
+	remove_global_flag = z_fw_flg_glbl_r_cht_mega_ongoing
+	event_target:z_fw_tgt_sys_r_cht_mega = {
+		every_system_megastructure = {
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_1
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_2
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_3
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_4
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_5
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_6
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_7
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_8
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_9
+		}
+	}
+	z_fw_eft_cntr_r_cht_mega_marker_init = yes		#_标记FX归零
+	clear_global_event_target = z_fw_tgt_sys_r_cht_mega
+	#清理ambt
+}
+#_[cntr]	z_fw_r_cht_mega_标记FX归零
+z_fw_eft_cntr_r_cht_mega_marker_init = {
+	event_target:z_fw_tgt_sys_r_cht_mega = {
+		every_system_ambient_object = {
+			limit = {
+				OR = {
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_1
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_2
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_3
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_4
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_5
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_6
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_7
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_8
+					has_ambient_object_flag = z_fw_flg_ambt_r_cht_mega_9
+				}
+			}
+			destroy_ambient_object = this
+		}
+	}
+}
+#_[cntr]	z_fw_r_cht_mega_重投标记
+z_fw_eft_cntr_r_cht_mega_recheck = {
+	#_星系marker_init
+	z_fw_eft_cntr_r_cht_mega_marker_init = yes
+	#_星系巨建init
+	event_target:z_fw_tgt_sys_r_cht_mega = {
+		every_system_megastructure = {
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_1
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_2
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_3
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_4
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_5
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_6
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_7
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_8
+			remove_megastructure_flag = z_fw_flg_mega_r_cht_mega_9
+		}
+	}
+	#_重新检测
+	country_event = { id = z_fw1_misc.332 }
+}
+
+#_[mega]		z_fw_r_cht_mega拆毁
+z_fw_eft_r_cht_mega_demolish = {
+	#_dyson球
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = dyson_sphere_0
+				is_megastructure_type = dyson_sphere_1
+				is_megastructure_type = dyson_sphere_2
+				is_megastructure_type = dyson_sphere_3
+				is_megastructure_type = dyson_sphere_4
+				is_megastructure_type = dyson_sphere_5
+			}
+		}
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			owner = { remove_country_flag = built_dyson_sphere }
+			remove_star_flag = dyson_sphere_built
+		}
+	}
+	#_哨兵
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = spy_orb_0
+				is_megastructure_type = spy_orb_1
+				is_megastructure_type = spy_orb_2
+				is_megastructure_type = spy_orb_3
+				is_megastructure_type = spy_orb_4
+			}
+		}
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			owner = { remove_country_flag = built_spyorb }
+			remove_star_flag = spy_orb_built
+		}
+	}
+	#_思考战车
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = think_tank_0
+				is_megastructure_type = think_tank_1
+				is_megastructure_type = think_tank_2
+				is_megastructure_type = think_tank_3
+				is_megastructure_type = think_tank_4
+			}
+		}
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			owner = { remove_country_flag = built_think_tank }
+			remove_star_flag = think_tank_built
+		}
+	}
+	#_解压缩
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = matter_decompressor_0
+				is_megastructure_type = matter_decompressor_1
+				is_megastructure_type = matter_decompressor_2
+				is_megastructure_type = matter_decompressor_3
+				is_megastructure_type = matter_decompressor_4
+			}
+		}
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			remove_star_flag = matter_decompressor_built
+		}
+	}
+	#_战略协调中心
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = strategic_coordination_center_0
+				is_megastructure_type = strategic_coordination_center_1
+				is_megastructure_type = strategic_coordination_center_2
+				is_megastructure_type = strategic_coordination_center_3
+			}
+		}
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			owner = { remove_country_flag = built_strategic_coordination_center_site }
+			remove_star_flag = strategic_coordination_center_built
+		}
+	}
+	#_艺术
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = mega_art_installation_0
+				is_megastructure_type = mega_art_installation_1
+				is_megastructure_type = mega_art_installation_2
+				is_megastructure_type = mega_art_installation_3
+				is_megastructure_type = mega_art_installation_4
+			}
+		}
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			owner = { remove_country_flag = built_mega_art_installation_site }
+			remove_star_flag = mega_art_installation_built
+		}
+	}
+	#_集会
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = interstellar_assembly_0
+				is_megastructure_type = interstellar_assembly_1
+				is_megastructure_type = interstellar_assembly_2
+				is_megastructure_type = interstellar_assembly_3
+				is_megastructure_type = interstellar_assembly_4
+			}
+		}
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			owner = { remove_country_flag = built_interstellar_assembly_site }
+			remove_star_flag = interstellar_assembly_built
+		}
+	}
+	#_船坞
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = mega_shipyard_0
+				is_megastructure_type = mega_shipyard_1
+				is_megastructure_type = mega_shipyard_2
+				is_megastructure_type = mega_shipyard_3
+			}
+		}
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			owner = { remove_country_flag = built_mega_shipyard_site }
+			remove_star_flag = mega_shipyard_built
+		}
+	}
+}
+
+
+
+
+###_[巨建_dismantle]	####################################################################################
+#_r_cht_mega的镜像事件
+#_mega_trgr		[z_fw_trgr_mega_demolish_ignore]	唯一共用
+
+#_[sys]			添加ambt_marker
+#_parameter		NUM
+#_mega_trgr		[z_fw_trgr_mega_dismantle_counted]	已统计
+z_fw_eft_sys_mega_dismantle_marker = {
+	if = {
+		limit = {#_若NUM已存在于disassembling_mega中,则此NUM不再被用于巨建定位
+			NOT = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_disassembling_$NUM$ }
+			}
+		}
+		random_system_megastructure = {
+			limit = {
+				z_fw_trgr_mega_demolish_ignore = no		#_可摧毁
+				z_fw_trgr_mega_dismantle_counted = no	#_已统计
+			}
+			prev = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_dismantle_$NUM$ }
+					remove_megastructure_flag = z_fw_flg_mega_dismantle_$NUM$
+				}
+			}
+			set_megastructure_flag = z_fw_flg_mega_dismantle_$NUM$
+			create_ambient_object = {
+				type = z_fw_fx_ambt_mega_dismantle_$NUM$
+				location = this
+				use_3d_location = yes
+				entity_offset = { min = 0 max = 0 }
+				entity_offset_height = { min = 17 max = 17 }
+				entity_scale_to_size = no
+				scale = 12.0
+			}
+			last_created_ambient_object = { set_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_$NUM$ }
+		}
+	}
+}
+
+#_[plnt]		mega_dismantle_标记FX归零
+z_fw_eft_plnt_mega_dismantle_marker_init = {
+	solar_system = {
+		every_system_ambient_object = {
+			limit = {
+				OR = {
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_1
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_2
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_3
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_4
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_5
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_6
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_7
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_8
+					has_ambient_object_flag = z_fw_flg_ambt_mega_dismantle_9
+				}
+			}
+			destroy_ambient_object = this
+		}
+	}
+}
+#_[plnt]		mega_dismantle_巨建flg_init
+z_fw_eft_plnt_mega_dismantle_mega_init = {
+	#_星系巨建init
+	solar_system = {
+		every_system_megastructure = {
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_1
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_2
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_3
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_4
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_5
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_6
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_7
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_8
+			remove_megastructure_flag = z_fw_flg_mega_dismantle_9
+		}
+	}
+}
+#_[plnt]		mega_dismantle_拆解ambt设置
+#_mega_flg		[z_fw_flg_mega_dismantle_$NUM$][z_fw_flg_mega_disassembling_$NUM$]
+#_ambt_flg		[z_fw_flg_ambt_disassembling_$NUM$]
+#_<按照dismantle_flg添加disassembling_flg,重新刷新目标后对应NUM的marker将被占用而不再刷新>
+#_parameter		NUM
+z_fw_eft_plnt_mega_dismantle_set_ambt = {
+	solar_system = {
+		random_system_megastructure = {
+			limit = { has_megastructure_flag = z_fw_flg_mega_dismantle_$NUM$ }
+		#	save_event_target_as = z_fw_tgt_mega_dismantle
+			set_megastructure_flag = z_fw_flg_mega_disassembling_$NUM$
+			create_ambient_object = {
+				type = z_fw_fx_ambt_mega_dismantle
+				location = this
+				use_3d_location = yes
+				entity_offset = { min = 0 max = 0 }
+				entity_offset_height = { min = 6 max = 6 }
+				entity_scale_to_size = no
+				scale = 8.5
+			}
+			last_created_ambient_object = { set_ambient_object_flag = z_fw_flg_ambt_disassembling_$NUM$ }
+		}
+	}
+}
+#_[plnt]		mega_dismantle_拆解月度检测循环
+#_parameter		NUM
+z_fw_eft_plnt_mega_dismantle_monthly = {
+	if = {
+		limit = { check_variable = { which = z_fw_var_plnt_mega_disassembling_$NUM$ value <= 11 } }
+		planet_event = { id = z_fw1_misc_mega_dismantle.2$NUM$ days = 30 }	#_自循环
+		change_variable = { which = z_fw_var_plnt_mega_disassembling_$NUM$ value = 1 }
+		solar_system.space_owner = { add_resource = { energy = 250 alloys = 1250 } }
+	}
+	else = {
+		solar_system = {
+			every_system_megastructure = {
+				limit = { has_megastructure_flag = z_fw_flg_mega_disassembling_$NUM$ }
+				remove_megastructure = this
+				z_fw_eft_mega_dismantle_debug_flg = yes
+			}
+			every_system_ambient_object = {
+				limit = { has_ambient_object_flag = z_fw_flg_ambt_disassembling_$NUM$ }
+				destroy_ambient_object = this
+			}
+		}
+		set_variable = { which = z_fw_var_plnt_mega_disassembling_$NUM$ value = 0 }
+		solar_system.space_owner = { country_event = { id = z_fw1_misc_mega_dismantle.20 } }
+	}
+}
+
+#_[mega]
+z_fw_eft_mega_dismantle_debug_flg = {
+	#_dyson球
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = dyson_sphere_0
+				is_megastructure_type = dyson_sphere_1
+				is_megastructure_type = dyson_sphere_2
+				is_megastructure_type = dyson_sphere_3
+				is_megastructure_type = dyson_sphere_4
+				is_megastructure_type = dyson_sphere_5
+			}
+		}
+		prev = {
+			owner = { remove_country_flag = built_dyson_sphere }
+			remove_star_flag = dyson_sphere_built
+		}
+	}
+	#_哨兵
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = spy_orb_0
+				is_megastructure_type = spy_orb_1
+				is_megastructure_type = spy_orb_2
+				is_megastructure_type = spy_orb_3
+				is_megastructure_type = spy_orb_4
+			}
+		}
+		prev = {
+			owner = { remove_country_flag = built_spyorb }
+			remove_star_flag = spy_orb_built
+		}
+	}
+	#_思考战车
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = think_tank_0
+				is_megastructure_type = think_tank_1
+				is_megastructure_type = think_tank_2
+				is_megastructure_type = think_tank_3
+				is_megastructure_type = think_tank_4
+			}
+		}
+		prev = {
+			owner = { remove_country_flag = built_think_tank }
+			remove_star_flag = think_tank_built
+		}
+	}
+	#_解压缩
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = matter_decompressor_0
+				is_megastructure_type = matter_decompressor_1
+				is_megastructure_type = matter_decompressor_2
+				is_megastructure_type = matter_decompressor_3
+				is_megastructure_type = matter_decompressor_4
+			}
+		}
+		prev = {
+			remove_star_flag = matter_decompressor_built
+		}
+	}
+	#_战略协调中心
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = strategic_coordination_center_0
+				is_megastructure_type = strategic_coordination_center_1
+				is_megastructure_type = strategic_coordination_center_2
+				is_megastructure_type = strategic_coordination_center_3
+			}
+		}
+		prev = {
+			owner = { remove_country_flag = built_strategic_coordination_center_site }
+			remove_star_flag = strategic_coordination_center_built
+		}
+	}
+	#_艺术
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = mega_art_installation_0
+				is_megastructure_type = mega_art_installation_1
+				is_megastructure_type = mega_art_installation_2
+				is_megastructure_type = mega_art_installation_3
+				is_megastructure_type = mega_art_installation_4
+			}
+		}
+		prev = {
+			owner = { remove_country_flag = built_mega_art_installation_site }
+			remove_star_flag = mega_art_installation_built
+		}
+	}
+	#_集会
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = interstellar_assembly_0
+				is_megastructure_type = interstellar_assembly_1
+				is_megastructure_type = interstellar_assembly_2
+				is_megastructure_type = interstellar_assembly_3
+				is_megastructure_type = interstellar_assembly_4
+			}
+		}
+		prev = {
+			owner = { remove_country_flag = built_interstellar_assembly_site }
+			remove_star_flag = interstellar_assembly_built
+		}
+	}
+	#_船坞
+	if = {
+		limit = {
+			OR = {
+				is_megastructure_type = mega_shipyard_0
+				is_megastructure_type = mega_shipyard_1
+				is_megastructure_type = mega_shipyard_2
+				is_megastructure_type = mega_shipyard_3
+			}
+		}
+		prev = {
+			owner = { remove_country_flag = built_mega_shipyard_site }
+			remove_star_flag = mega_shipyard_built
+		}
+	}
+}
+
+
+

@@ -1,0 +1,36 @@
+wg_humiliation = {
+	casus_belli = cb_humiliation
+
+	hide_if_no_cb = no
+	defender_default = yes
+	
+	surrender_acceptance = -25
+
+	potential = {
+		has_total_war_cb = no
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		if = {
+			limit = {
+				is_country_type = fallen_empire			
+			}
+			custom_tooltip = wg_humiliation_fe_accept
+			save_event_target_as = fallen_empire_humiliator
+			from = { fallen_empire_humiliate_effect = yes }			
+			else = {			
+				custom_tooltip = wg_humiliation_accept
+				hidden_effect = {	
+					add_resource = { influence = 100 }
+					from = { add_modifier = { modifier = humiliated days = 3600 } }
+				}			
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

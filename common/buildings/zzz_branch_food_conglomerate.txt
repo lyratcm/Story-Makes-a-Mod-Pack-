@@ -1,0 +1,64 @@
+building_food_conglomerate = {
+    base_buildtime = @b1_time
+    branch_office_building = yes
+    potential = {
+        has_branch_office = yes
+        branch_office_owner = {
+            is_megacorp = yes
+            is_criminal_syndicate = no
+            OR = {
+                is_ai = no
+                has_valid_civic = civic_agribusiness
+            }
+        }
+        NOR = {
+            is_planet_class = pc_habitat
+            is_planet_class = pc_hive
+            is_planet_class = pc_machine
+            is_planet_class = pc_city
+            is_planet_class = pc_relic
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+    }
+    planet_modifier = {
+        job_farmer_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = branch_office_owner
+            branch_office_owner = {
+                has_valid_civic = civic_agribusiness
+            }
+        }
+        modifier = {
+            trade_value_add = 8
+        }
+    }
+    resources = {
+        category = planet_branch_office_buildings
+        cost = {
+            minerals = 500
+        }
+        produces = {
+            food = 20
+        }
+        upkeep = {
+            energy = 2
+        }
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 100
+            NOT = {
+                has_building = building_food_conglomerate
+            }
+            exists = branch_office_owner
+            branch_office_owner = {
+                has_valid_civic = civic_agribusiness
+            }
+        }
+    }
+}

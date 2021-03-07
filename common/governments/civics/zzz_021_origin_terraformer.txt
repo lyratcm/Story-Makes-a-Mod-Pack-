@@ -1,0 +1,29 @@
+origin_terraformer = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_terraformer.dds"
+	picture = "GFX_origin_terraformer"
+
+	possible = {
+		authority = {
+			NOT = {
+				value = auth_machine_intelligence
+			}
+		}
+	}
+
+	description = "civic_tooltip_terraformer_effects"
+
+	modifier = {
+        deposit_blockers_cost_mult = -0.25
+        planet_clear_blocker_time_mult = -0.50
+        terraforming_cost_mult = -0.25
+        terraform_speed_mult = 0.25
+        category_new_worlds_research_speed_mult = 0.25
+    }
+
+	flags = { custom_start_screen }
+
+	random_weight = {
+		base = 5
+	}
+}

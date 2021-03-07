@@ -1,0 +1,32 @@
+
+on_monthly_pulse = {
+	events = {
+		ss.4 # Monthly Species Assimilation (triggers planet event ss.5)
+	}
+}
+
+on_game_start = {
+	events = {
+		ss.1 # Sets a global flag for cross-mod compatibility
+	}
+}
+
+on_modification_complete = {
+	events = {
+		ss.3 # Genetic Memory leaders gets the appropriate Genetic Savant traits
+		ss.10 # Removes the Erudite trait from leaders, if needed
+	}
+}
+
+on_leader_level_up = {
+	events = {
+		sslead.20 # gives head scientists a trait
+	}
+}
+
+on_leader_spawned = {
+	events = {
+		ss.2 # Genetic Memory leaders gets the appropriate Genetic Savant traits
+		ss.10 # Removes the Erudite trait from leaders, if needed
+	}
+}

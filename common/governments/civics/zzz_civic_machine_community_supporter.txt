@@ -1,0 +1,21 @@
+civic_machine_community_supporter = {
+    potential = {
+        always = no
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_machine_terminator
+                value = civic_machine_assimilator
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        envoys_add = 2
+        diplo_weight_mult = 0.15
+        envoy_improve_relations_mult = 0.50
+    }
+}

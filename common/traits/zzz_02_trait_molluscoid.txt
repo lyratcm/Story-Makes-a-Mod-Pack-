@@ -1,0 +1,16 @@
+trait_molluscoid = {
+    cost = 0
+    potential_crossbreeding_chance = 0
+    sorting_priority = 20
+    initial = no
+    randomized = no
+    modification = no
+    forced_happiness = no
+    immortal_leaders = no
+    modifier = {
+        pop_growth_speed = 0.025
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+}

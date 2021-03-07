@@ -1,0 +1,141 @@
+building_vfb_manufactory = {
+    category = government
+    base_buildtime = 360
+    can_build = no
+    icon = building_vfb_manufactory
+    add_to_first_building_slot = yes
+    potential = {
+        NOR = {
+            has_building = building_vfb_manufactory
+            has_building = building_vfb_constructor
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_workshop
+            OR = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+                has_origin = origin_extant_creators
+                has_origin = origin_symbiote
+                has_valid_civic = civic_mutualistic_behavior
+                has_valid_civic = civic_harm_hive
+                has_valid_civic = civic_harm_machine
+            }
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_workshop
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+        }
+    }
+    destroy_trigger = {
+        OR = {
+            OR = {
+                has_modifier = slave_colony
+                has_modifier = resort_colony
+            }
+            owner = {
+                NOR = {
+                    NOT = {
+                        has_ethic = ethic_gestalt_consciousness
+                    }
+                    has_origin = origin_extant_creators
+                    has_origin = origin_symbiote
+                    has_valid_civic = civic_mutualistic_behavior
+                    has_valid_civic = civic_harm_hive
+                    has_valid_civic = civic_harm_machine
+                }
+            }
+            planet = {
+                num_pops < 10
+            }
+        }
+    }
+    planet_modifier = {
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_artisan_add = 1
+        job_artisan_per_pop = 0.025
+        job_foundry_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_artisan_drone_add = 1
+        job_artisan_drone_per_pop = 0.025
+        job_alloy_drone_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                AND = {
+                    any_owned_planet = {
+                        has_building = building_vfb_constructor
+                    }
+                    NOT = {
+                        has_ethic = ethic_gestalt_consciousness
+                    }
+                }
+            }
+        }
+        job_artisan_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                AND = {
+                    any_owned_planet = {
+                        has_building = building_vfb_constructor
+                    }
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_artisan_drone_add = 1
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = 400
+        }
+        upkeep = {
+            energy = 2
+        }
+    }
+    upgrades = {
+        building_vfb_constructor
+    }
+    ai_weight = {
+        weight = 1000
+        factor = 5
+        modifier = {
+            weight = 100
+            factor = 10
+            num_pops > 14
+        }
+        modifier = {
+            weight = 100
+            factor = 10
+            num_pops > 24
+        }
+    }
+}

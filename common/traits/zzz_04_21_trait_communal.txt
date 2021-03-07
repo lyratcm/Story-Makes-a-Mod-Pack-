@@ -1,0 +1,53 @@
+trait_communal = {
+    cost = 1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_solitary"
+        "trait_additrait_easily_satisfied"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pop_housing_usage_mult = -0.1
+    }
+    ai_weight = {
+        weight = 100
+        modifier = {
+            factor = 4
+            has_valid_civic = civic_environmentalist
+        }
+        modifier = {
+            factor = 4
+            has_valid_civic = civic_shared_burden
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                is_pacifist = yes
+                is_xenophile = yes
+            }
+        }
+        modifier = {
+            factor = 2
+            has_origin = origin_void_dwellers
+        }
+        modifier = {
+            factor = 2
+            root = {
+                OR = {
+                    has_trait = trait_rapid_breeders
+                    has_trait = trait_rapid_breeders_lithoid
+                    has_trait = trait_very_rapid_breeders
+                    has_trait = trait_fertile
+                }
+            }
+        }
+    }
+}

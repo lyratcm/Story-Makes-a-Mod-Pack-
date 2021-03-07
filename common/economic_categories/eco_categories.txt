@@ -1,0 +1,118 @@
+# New Jobs
+
+planet_waste = {
+	parent = planet_jobs
+	generate_mult_modifiers = {
+		produces
+	}
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+planet_ranger = {
+	parent = planet_jobs
+	generate_mult_modifiers = {
+		produces
+	}
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+# Category Overrides
+
+pop_category_rulers = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_specialists = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_workers = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+unemployment_resources = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+		upkeep
+	}
+}
+
+pop_category_slave = {
+	parent = planet_pops
+	generate_mult_modifiers = {
+		upkeep
+	}
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_robot = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_drones = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_assimilation = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_purge = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_pre_sapients = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_bio_trophy = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_xeno_ward = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}
+
+pop_category_precursor = {
+	parent = planet_pops
+	generate_add_modifiers = {
+		produces
+	}
+}

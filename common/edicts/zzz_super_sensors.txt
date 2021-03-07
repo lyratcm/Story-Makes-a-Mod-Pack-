@@ -1,0 +1,26 @@
+super_sensors = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = 200
+		}
+	}
+
+	potential = {
+		has_country_flag = edict_super_sensors
+	}
+
+	modifier = {
+		ship_sensor_range_add = 1
+		ship_hyperlane_range_add = 2
+	}
+
+	allow = {
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

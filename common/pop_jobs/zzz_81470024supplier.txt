@@ -1,0 +1,114 @@
+supplier = {
+    category = resident_gestalt
+    condition_string = WORKER_JOB_TRIGGER
+    building_icon = building_galactic_stock_exchange
+    clothes_texture_index = 1
+    icon = merchant
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        is_free_pop_gestalt = yes
+    }
+    planet_modifier = {
+        planet_amenities_no_happiness_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_robot_domestic_protocols
+                has_trait = trait_charismatic
+                has_trait = trait_robot_emotion_emulators
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_global_flag = expanded_pops_active
+            is_robot_pop = yes
+            exists = owner
+            owner = {
+                has_relic = r_three_londor
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_repugnant
+                has_trait = trait_robot_uncanny
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = -0.4
+        }
+    }
+    resources = {
+        category = planet_artisans
+        produces = {
+            consumer_goods = 6
+        }
+        upkeep = {
+            energy = 3
+            minerals = 3
+        }
+    }
+    weight = {
+        weight = @complex_drone_job_weight
+        modifier = {
+            factor = 5
+            owner = {
+                has_monthly_income = {
+                    resource = consumer_goods
+                    value < 10
+                }
+            }
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_charismatic
+        }
+        modifier = {
+            factor = 0.8
+            has_trait = trait_repugnant
+        }
+    }
+}

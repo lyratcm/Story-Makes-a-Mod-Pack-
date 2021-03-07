@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_2 = 96
+    @y_2 = 125
+    positionType = {
+        name = "tr_harmony_bulwark_of_harmony"
+        position = {
+            x = @x_2
+            y = @y_2
+        }
+    }
+}

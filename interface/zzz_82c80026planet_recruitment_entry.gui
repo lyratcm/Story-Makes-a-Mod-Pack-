@@ -1,0 +1,84 @@
+guiTypes = {
+    @sidebar_inner_w = 430
+    @sidebar_inner_button_w = 432
+    containerWindowType = {
+        name = "planet_recruitment_entry"
+        position = {
+            x = 0
+            y = 8
+        }
+        size = {
+            width = @sidebar_inner_w
+            height = 40
+        }
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_dark_area_cut_8"
+            clicksound = "queuing_army"
+        }
+        iconType = {
+            name = "army_icon"
+            position = {
+                x = 0
+                y = 0
+            }
+            spriteType = "GFX_army_icons"
+        }
+        instantTextBoxType = {
+            name = "army_name"
+            font = "malgun_goth_24"
+            text = "Army Name"
+            position = {
+                x = 30
+                y = 0
+            }
+            maxWidth = 180
+            maxHeight = 20
+            fixedSize = yes
+            format = left
+        }
+        instantTextBoxType = {
+            name = "army_species"
+            font = "cg_16b"
+            text = "Army Species"
+            position = {
+                x = 30
+                y = 20
+            }
+            maxWidth = 180
+            maxHeight = 20
+            fixedSize = yes
+            format = left
+        }
+        instantTextBoxType = {
+            name = "army_cost"
+            font = "cg_16b"
+            text = "50"
+            position = {
+                x = -190
+                y = 5
+            }
+            orientation = upper_right
+            maxWidth = 180
+            maxHeight = 80
+            fixedSize = yes
+            text = "1 mineral"
+            format = right
+            alwaysTransparent = yes
+            text_color_code = "Y"
+        }
+        buttonType = {
+            name = "recruit_button"
+            position = {
+                x = -1
+                y = -1
+            }
+            size = {
+                x = @sidebar_inner_button_w
+                y = 40
+            }
+            quadTextureSprite = "GFX_button_light"
+            clicksound = "back_click"
+        }
+    }
+}

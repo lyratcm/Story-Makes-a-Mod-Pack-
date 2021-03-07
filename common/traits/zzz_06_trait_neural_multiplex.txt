@@ -1,0 +1,22 @@
+trait_neural_multiplex = {
+    icon = "gfx/interface/icons/traits/trait_neural_multiplex.dds"
+    cost = 4
+    improves_leaders = yes
+    advanced_trait = yes
+    initial = no
+    randomized = no
+    opposites = {
+        "trait_simple"
+        "trait_high_pressure"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        planet_researchers_produces_mult = 0.3
+        leader_skill_levels = 2
+    }
+    slave_cost = {
+        energy = 200
+    }
+}

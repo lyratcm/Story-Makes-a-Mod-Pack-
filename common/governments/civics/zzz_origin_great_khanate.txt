@@ -1,0 +1,25 @@
+BOO_origin_great_khanate = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_default.dds"
+    picture = GFX_evt_victorious_army
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+            NOR = {
+                text = civic_tooltip_not_pacifist
+                value = ethic_pacifist
+                value = ethic_fanatic_pacifist
+            }
+        }
+    }
+    random_weight = {
+        base = 15
+    }
+    description = "BOO_origin_great_khanate_tooltip_effects"
+    advanced_start = yes
+}

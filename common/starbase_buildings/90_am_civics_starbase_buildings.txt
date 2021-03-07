@@ -1,0 +1,51 @@
+
+
+starbase_building_am_civics_tourist_quarters = {
+	icon = "GFX_starbase_building_am_civics_tourist_quarters"
+	construction_days = 360
+	
+	potential = {
+		exists = owner
+		owner = { 
+			has_valid_civic = civic_am_civics_stellar_travel_agency
+		}
+	}
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_colonized_planet"
+			solar_system = {
+				any_system_planet = {
+					is_owned_by = from
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		produces = {
+			unity = 4
+		}
+
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	system_modifier = {
+		trade_value_mult = 0.25
+	}	
+
+	custom_tooltip = starbase_building_am_civics_tourist_quarters_desc_modifier
+	
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 150
+	}
+}

@@ -1,0 +1,612 @@
+###_z mm framework FX megastructure	######################################################################
+
+#_[head_of_karyl_定位器]
+
+
+
+#my_piquant_megastructure = {
+#	entity = "bawling_pink_rainbow_graphics"
+#	construction_entity = "bawling_pink_rainbow_graphics_construction"
+#	portrait = "GFX_my_piquant_megastructure_background"
+#	upgrade_desc = default|hide		# default: 'default'. Use 'hide' to hide to hide this stage from the upgrade list.
+#	upgrade_from = {
+#		my_flamboyant_megastructure
+#	}
+#	prerequisites = { "tech" }		# required technologies
+#	potential = {}					# trigger, scope: country
+#	possible = {}					# trigger, scope: galactic object, from: country
+#	build_time = 5					# days
+#	build_cost = {
+#		minerals = 8
+#		energy = 13
+#		influence = 21
+#	}
+#	monthly_production = {
+#		energy = 34
+#	}
+#	maintenance = {
+#		energy = 10
+#	}
+#	country_modifier = {}
+#
+#	placement_rules = {
+#		planet_possible = {}		# trigger, scope: planet
+#	}
+#
+#	on_build_start = {}				# effects, scope: galactic object, from: country, fromfrom: megastructure instance (when upgrading existing megastructure)
+#	on_build_cancel = {}			# effects, scope: galactic object, from: country
+#	on_build_complete = {}			# effects, scope: galactic object, from: country, fromfrom: megastructure instance
+#
+#	ai_weight = {					# scope = country, default = 100
+#		modifier = {
+#			weight = 0
+#			NOT = { has_ethic = ethic_militarist }
+#		}
+#	}
+#
+#	construction_blocked_by_others = no # default yes, set to no if other constructions in same system
+#										should block construction of this type
+#}
+
+z_fw_mega_test = {
+	entity = ""
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = yes
+	entity_offset = { x = -7 y = -7 }
+	build_time = 1800
+
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5
+			influence = 1
+		}
+	}
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+
+	potential = {
+		always = no
+	}
+
+	possible = {
+		from = { is_ai = no }
+	}
+
+	placement_rules = {
+		planet_possible = {
+			#custom_tooltip = {
+			#	fail_text = "requires_surveyed_planet"
+			#	is_surveyed = {
+			#		who = prev.from
+			#		status = yes
+			#	}
+			#}
+			#custom_tooltip = {
+			#	fail_text = "requires_no_anomaly"
+			#	NOT = { has_anomaly = yes }
+			#}
+			custom_tooltip = {
+				fail_text = "requires_no_existing_megastructure"
+				NOR = {
+					has_planet_flag = megastructure
+					has_planet_flag = has_megastructure
+					solar_system = {
+						has_star_flag = ring_world_built
+					}
+					is_planet_class = pc_ringworld_habitable
+					is_planet_class = pc_ringworld_habitable_damaged
+					is_planet_class = pc_ringworld_tech
+					is_planet_class = pc_ringworld_tech_damaged
+					is_planet_class = pc_ringworld_seam
+					is_planet_class = pc_ringworld_seam_damaged
+					is_planet_class = pc_habitat
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_orbital_station"
+				has_orbital_station = no
+			}
+
+ 			# balance for habitats
+			#custom_tooltip = {
+			#	fail_text = "requires_not_minor_planetary_body"
+			#	NOR = {
+			#		is_asteroid = yes
+			#		is_moon = yes
+			#	}
+			#}
+			#custom_tooltip = {
+			#	fail_text = "requires_not_star"
+			#	is_star = no
+			#}
+		} # use these for all non-star megastructures
+	}
+
+	# root = system
+	# from = country
+	ai_weight = {
+		factor = 0
+	}
+
+	on_build_start = {
+		fromfrom = {
+			set_graphical_culture = root.from
+		}
+	}
+	on_build_cancel = {}
+	on_build_complete = {
+		spawn_planet = {
+			class = "pc_habitat"
+			location = fromfrom.planet	#_低点
+			orbit_location = yes
+			orbit_angle_offset = 45
+			orbit_distance_offset = 9.899
+			size = 6
+			has_ring = no
+
+			init_effect = {
+				set_name = "HABITAT_PLANET_NAME"
+				set_planet_entity = {
+					entity = "construction_platform_entity"
+					graphical_culture = fromfrom
+				}
+				surveyed = {
+					set_surveyed = yes
+					surveyor = FROM
+				}
+				set_all_comms_surveyed = yes
+				clear_blockers = yes
+				if = {
+					limit = {
+						from = { has_ascension_perk = ap_voidborn }
+						NOT = { has_modifier = master_builders_habitats }
+					}
+					add_modifier = {
+						modifier = master_builders_habitats
+						days = -1
+					}
+				}
+				set_planet_flag = megastructure
+				set_planet_flag = habitat
+			}
+
+		}
+		fromfrom.planet = {
+			set_planet_flag = has_megastructure
+			save_event_target_as = habitat_planet
+		}
+		remove_megastructure = fromfrom
+	}
+}
+
+
+
+
+
+
+
+
+
+###_cheat	############################################################
+
+##_r_cht_co
+
+#_star target marker [co]可破坏恒星 璀璨星图-星核引爆信标
+z_fw_mega_r_cht_co_tgt_marker_1 = {
+	entity = ""
+	construction_entity = ""
+	portrait = "GFX_z_mm_mega_star_target_marker_bg"
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	entity_offset = { x = 0 y = 0 }
+	build_time = 0
+	
+	#resources = {
+	#	category = megastructures
+	#	cost = {
+	#	}
+	#}
+	
+	potential = {
+		has_relic = z_fw_r_celestial_orrey
+	}
+	
+	possible = {
+		custom_tooltip = {#_璀璨星图激活
+			fail_text = "z_fw_r_celestial_orrey_not_activited"
+			hidden_trigger = {
+				from  = {
+					is_ai = no
+					has_country_flag = z_fw_r_celestial_orrey_activited
+				}
+			}
+		}
+		custom_tooltip = {#_每个月同一个星系只能存在唯一的信标
+			fail_text = "z_fw_target_marker_co_ongoing"
+			hidden_trigger = {
+				NOR = {
+					has_megastructure = z_fw_mega_r_cht_co_tgt_marker_1
+					has_megastructure = z_fw_mega_r_cht_co_tgt_marker_2
+				}
+				from  = { NOT = { has_country_flag = z_fw_target_marker_co_ongoing } }
+			}
+		}
+	}
+	
+	placement_rules = {#_this = planet
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "z_fw_target_marker_co_1_placement"
+				is_star = yes
+				z_is_destructible_stars = yes
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+	
+	on_build_start = {
+	}
+	on_build_cancel = {
+	}
+	on_build_complete = {
+		from = {#_建设者国家
+			set_timed_country_flag = { flag = z_fw_target_marker_co_ongoing days = 30 }
+			country_event = { id = z_fw1_misc.31 }	#_选择引爆方式
+		}
+		fromfrom.planet = {#_planet of this megastructure
+			save_global_event_target_as = z_fw_tgt_plnt_r_co
+			planet_event = { id = z_fw1_misc.317 days = 29 }	#_debug自动清理信标, 星系毁灭也将清理信标
+		}
+	}
+}
+#_star target marker [co]不可破坏恒星 璀璨星图-引力冲击信标
+z_fw_mega_r_cht_co_tgt_marker_2 = {
+	entity = ""
+	construction_entity = ""
+	portrait = "GFX_z_mm_mega_star_target_marker_bg"
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	entity_offset = { x = 0 y = 0 }
+	build_time = 0
+	
+	potential = {
+		has_relic = z_fw_r_celestial_orrey
+	}
+	
+	possible = {
+		custom_tooltip = {#_璀璨星图激活
+			fail_text = "z_fw_r_celestial_orrey_not_activited"
+			hidden_trigger = {
+				from  = {
+					is_ai = no
+					has_country_flag = z_fw_r_celestial_orrey_activited
+				}
+			}
+		}
+		custom_tooltip = {#_每个月同一个星系只能存在唯一的信标
+			fail_text = "z_fw_target_marker_co_ongoing"
+			hidden_trigger = {
+				NOR = {
+					has_megastructure = z_fw_mega_r_cht_co_tgt_marker_1
+					has_megastructure = z_fw_mega_r_cht_co_tgt_marker_2
+				}
+				from  = { NOT = { has_country_flag = z_fw_target_marker_co_ongoing } }
+			}
+		}
+	}
+	
+	placement_rules = {#_this = planet
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "z_fw_target_marker_co_2_placement"
+				OR = {
+					is_star = yes
+					is_planet_class = pc_black_hole
+				}
+				z_is_destructible_stars = no
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+	
+	on_build_start = {
+	}
+	on_build_cancel = {
+	}
+	on_build_complete = {
+		from = {#_建设者国家
+			set_timed_country_flag = { flag = z_fw_target_marker_co_ongoing days = 30 }
+			country_event = { id = z_fw1_misc.31 }	#_选择引爆方式
+		}
+		fromfrom.planet = {#_planet of this megastructure
+			save_global_event_target_as = z_fw_tgt_plnt_r_co
+			planet_event = { id = z_fw1_misc.317 days = 29 }	#_一个月后清理信标
+		}
+	}
+}
+
+
+
+
+##_r_cht_hyper
+#_global_tgt		[z_fw_tgt_sys_r_cht_hyper_1][z_fw_tgt_sys_r_cht_hyper_2]
+
+#_超空间航道截断者信标
+z_fw_mega_r_cht_hyper_tgt_marker_0 = {
+	entity = ""
+	construction_entity = ""
+	portrait = "GFX_z_mm_mega_star_target_marker_bg"
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	entity_offset = { x = 0 y = 0 }
+	build_time = 0
+	
+	potential = {
+		has_country_flag = z_fw_flg_cntr_r_cht_hyper_on
+		NOT = { exists = event_target:z_fw_tgt_sys_r_cht_hyper_1 }
+	}
+	
+	possible = {
+		always = yes
+	}
+	
+	placement_rules = {#_this = planet
+		planet_possible = { is_star = yes }
+	}
+	
+	ai_weight = { factor = 0 }
+	
+	on_build_start = {}
+	on_build_cancel = {}
+	on_build_complete = {
+		fromfrom.planet.solar_system = {
+			every_system = {
+				limit = { has_hyperlane_to = prev }
+				remove_hyperlane = {
+					from = this
+					to = prev
+				}
+			}
+		}
+		every_country = {
+			limit = { has_country_flag = z_fw_flg_cntr_r_cht_hyper_on }
+			country_event = { id = z_fw1_misc.322 }
+		}
+		remove_megastructure = fromfrom		#_起点marker应当保留
+	}
+}
+
+#_超空间航道斩起点
+z_fw_mega_r_cht_hyper_tgt_marker_1 = {
+	entity = ""
+	construction_entity = ""
+	portrait = "GFX_z_mm_mega_star_target_marker_bg"
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	entity_offset = { x = 0 y = 0 }
+	build_time = 0
+	
+	potential = {
+		has_country_flag = z_fw_flg_cntr_r_cht_hyper_on
+		NOT = { exists = event_target:z_fw_tgt_sys_r_cht_hyper_1 }
+	}
+	
+	possible = {
+		always = yes
+	}
+	
+	placement_rules = {#_this = planet
+		planet_possible = { is_star = yes }
+	}
+	
+	ai_weight = { factor = 0 }
+	
+	on_build_start = {}
+	on_build_cancel = {}
+	on_build_complete = {
+		fromfrom.planet.solar_system = {
+			save_global_event_target_as = z_fw_tgt_sys_r_cht_hyper_1
+			set_star_flag = z_fw_flg_sys_r_cht_hyper_1
+		}
+		#remove_megastructure = fromfrom		#_起点marker应当保留
+	}
+}
+
+#_超空间航道斩终点
+z_fw_mega_r_cht_hyper_tgt_marker_2 = {
+	entity = ""
+	construction_entity = ""
+	portrait = "GFX_z_mm_mega_star_target_marker_bg"
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	entity_offset = { x = 0 y = 0 }
+	build_time = 0
+	
+	potential = {
+		has_country_flag = z_fw_flg_cntr_r_cht_hyper_on
+		exists = event_target:z_fw_tgt_sys_r_cht_hyper_1		#_已设立起点
+	}
+	possible = {
+		hidden_trigger = {
+			NOT = { has_star_flag = z_fw_flg_sys_r_cht_hyper_1 }	#_非起点星系
+		}
+	}
+	
+	placement_rules = {#_this = planet
+		planet_possible = { is_star = yes }
+	}
+	
+	ai_weight = { factor = 0 }
+	
+	on_build_start = {}
+	on_build_cancel = {}
+	on_build_complete = {
+		save_global_event_target_as = z_fw_tgt_sys_r_cht_hyper_2
+		#_断开连接
+		if = {
+			limit = {
+				event_target:z_fw_tgt_sys_r_cht_hyper_1 = {
+					has_hyperlane_to = event_target:z_fw_tgt_sys_r_cht_hyper_2
+				}
+			}
+			remove_hyperlane = {
+				from = event_target:z_fw_tgt_sys_r_cht_hyper_1
+				to = event_target:z_fw_tgt_sys_r_cht_hyper_2
+			}
+			every_country = {
+				limit = { has_country_flag = z_fw_flg_cntr_r_cht_hyper_on }
+				country_event = { id = z_fw1_misc.323 }
+			}
+		}
+		#_建立连接
+		else = {
+			add_hyperlane = {
+				from = event_target:z_fw_tgt_sys_r_cht_hyper_1
+				to = event_target:z_fw_tgt_sys_r_cht_hyper_2
+			}
+			every_country = {
+				limit = { has_country_flag = z_fw_flg_cntr_r_cht_hyper_on }
+				country_event = { id = z_fw1_misc.324 }
+			}
+		}
+		#_清理对象
+		event_target:z_fw_tgt_sys_r_cht_hyper_1 = {
+			remove_star_flag = z_fw_flg_sys_r_cht_hyper_1
+			every_system_megastructure = {
+				limit = { is_megastructure_type = z_fw_mega_r_cht_hyper_tgt_marker_1 }
+				remove_megastructure = this
+			}
+		}
+	#	clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_1
+	#	clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_2
+		remove_megastructure = fromfrom
+	}
+}
+
+
+
+
+##_r_cht_mega
+#_cntr_flg			[z_fw_flg_cntr_r_cht_mega_on]开启	[z_fw_flg_cntr_r_cht_mega_ongoing]进行中
+#_glbl_flg			[z_fw_flg_glbl_r_cht_mega_ongoing]	当前进行中
+#_glbl_tgt			[z_fw_tgt_sys_r_cht_mega]		当前进行的sys
+
+#_mega清除者
+z_fw_mega_r_cht_mega_tgt_marker = {
+	entity = ""
+	construction_entity = ""
+	portrait = "GFX_z_mm_mega_star_target_marker_bg"
+	place_entity_on_planet_plane = no
+	build_outside_gravity_well = yes	#_这将使之随意建设
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	entity_offset = { x = 0 y = 0 }
+	build_time = 0
+	
+	potential = {
+		has_country_flag = z_fw_flg_cntr_r_cht_mega_on
+	}
+	possible = {
+		NOT = { has_global_flag = z_fw_flg_glbl_r_cht_mega_ongoing }
+	}
+	
+	placement_rules = {#_this = planet
+	}
+	
+	ai_weight = { factor = 0 }
+	
+	on_build_start = {}
+	on_build_cancel = {}
+	on_build_complete = {
+		root = { save_global_event_target_as = z_fw_tgt_sys_r_cht_mega }
+		from = { set_country_flag = z_fw_flg_cntr_r_cht_mega_ongoing }		#_当前进行中cntr
+		set_global_flag = z_fw_flg_glbl_r_cht_mega_ongoing		#_当前进行中glbl
+		from = { country_event = { id = z_fw1_misc.332 } }		#_选择目标
+		remove_megastructure = fromfrom							#_清除自己
+	}
+}
+
+
+
+
+
+
+
+
+###_[head_of_karyl_定位器]	############################################################
+#_flg_cntr	[z_fw_flg_cntr_hok_contacted]已接触,成为感染源国家
+z_fw_mega_target_marker_hok = {
+	entity = ""
+	construction_entity = ""
+	portrait = "GFX_z_mm_mega_planet_target_marker_bg"
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	entity_offset = { x = 0 y = 0 }
+	build_time = 0
+	
+	potential = {
+		has_country_flag = z_fw_r_head_of_karyl_activited
+	}
+	
+	possible = {
+		hidden_trigger = {
+			from  = { has_country_flag = z_fw_r_head_of_karyl_activited }
+		}
+	}
+	
+	placement_rules = {#_this = planet
+		planet_possible = {
+			is_colony = yes
+			NOT = { has_planet_flag = z_fw_flg_plnt_r_hok_infection }	#_relic同化进行中
+		}
+	}
+	
+	ai_weight = {
+		factor = 100
+	}
+	
+	on_build_start = {
+	}
+	on_build_cancel = {
+	}
+	on_build_complete = {
+		from = { remove_country_flag = z_fw_r_head_of_karyl_activited }
+		fromfrom.planet = {#_planet of this megastructure
+			owner = {
+				set_country_flag = z_fw_flg_cntr_hok_contacted			#_设为已接触
+				country_event = { id = z_fw1_relic_koh.102 days = 20 }	#_感染开始通知
+			}	#_一个月后通知,下蛊
+			create_ambient_object = {
+				type = z_fw_fx_ambt_tgt_r_hok_execute_1
+				location = this
+				duration = 30
+				use_3d_location = yes
+				entity_offset = { min = 0 max = 0 }
+				entity_offset_height = { min = 0 max = 0 }
+				entity_scale_to_size = yes
+				scale = 1.2
+			}
+			create_ambient_object = {
+				type = z_fw_fx_ambt_tgt_r_hok_execute_2
+				location = this
+				duration = 30
+				use_3d_location = yes
+				entity_offset = { min = 0 max = 0 }
+				entity_offset_height = { min = 0 max = 0 }
+				entity_scale_to_size = yes
+				scale = 0.8
+			}
+			planet_event = { id = z_fw1_relic_koh.111 }	#_受害者
+			planet_event = { id = z_fw1_relic_koh.121 }	#_持有者
+		}
+		remove_megastructure = fromfrom
+	}
+}

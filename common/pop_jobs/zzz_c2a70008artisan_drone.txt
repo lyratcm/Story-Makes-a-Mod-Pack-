@@ -1,0 +1,101 @@
+artisan_drone = {
+    category = complex_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_organic_sanctuary
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        drone_job_check_trigger = yes
+        OR = {
+            traits_restrict_specialist_jobs = no
+            has_pop_flag = allow_artisan_traits
+        }
+    }
+    resources = {
+        category = planet_artisans
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_machine_empire = yes
+                }
+            }
+            consumer_goods = 8
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_hive_empire = yes
+                }
+            }
+            consumer_goods = 6
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_machine_empire = yes
+                }
+            }
+            minerals = 8
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_hive_empire = yes
+                }
+            }
+            minerals = 6
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_edict = industrial_subsidies
+                }
+            }
+            energy = 1
+        }
+    }
+    weight = {
+        weight = 5000
+        modifier = {
+            factor = 1.1
+            has_trait = trait_clever
+        }
+        modifier = {
+            factor = 4
+            has_trait = trait_living_architecture
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 0.9
+            years_passed < 1
+            owner = {
+                has_valid_civic = civic_machine_assimilator
+            }
+            has_trait = trait_cybernetic
+        }
+    }
+}

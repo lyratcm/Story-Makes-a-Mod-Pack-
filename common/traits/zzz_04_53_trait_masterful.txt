@@ -1,0 +1,22 @@
+trait_masterful = {
+    cost = 3
+    potential_crossbreeding_chance = 1.0
+    initial = yes
+    modification = yes
+    randomized = yes
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    opposites = {
+        "trait_nerve_stapled"
+        "trait_talented"
+        "trait_inept"
+    }
+    modifier = {
+        leader_skill_levels = 3
+        planet_jobs_ruler_produces_mult = 0.15
+    }
+}

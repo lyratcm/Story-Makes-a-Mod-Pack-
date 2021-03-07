@@ -1,0 +1,57 @@
+﻿l_english:
+
+### Edicts and Decitions ###
+decision_lithoid_swarm_consume_world_effect_desc:0 "Devastate this world, creating one or more blockers that reduce the habitability and districts of this world but will provide the swarm with a new pop, minerals, alloys, unity, and engineering research, and sometimes other effects."
+
+edict_capacity_subsidies_tooltip:0 "Increases the upkeep of £job_technician£ $job_technician_plural$ by £consumer_goods£§Y0.25§!\nIncreases the upkeep of £job_technician£ $job_technician_drone_plural$ by £minerals£§Y0.5§!"
+
+### Government ###
+civic_tooltip_philosopher_king_effects:0 "Your §YRulers§! and §YGovernors§! are less likely to gain negative traits.\n§G+5§! §Y$MOD_PLANET_STABILITY_ADD$§! when §YRuler Leader Level§! is §Y5§! or higher"
+civic_tooltip_exalted_priesthood_effects:1 "£building£ §YCapital Buildings§! replace some £job_administrator£ §Y$job_administrator$§! Jobs with £job_high_priest §Y$job_high_priest_plural$§!\n£job_priest£ §Y$job_priest_plural$§! produce §Y2§! additional £unity£ Unity and £amenities£ Amenities"
+civic_tooltip_technocracy_effects:1 "n£building£ §YCapital Buildings§! replace some £job_administrator£ §Y$job_administrator$§! Jobs with £job_head_researcher£ §Y$job_head_researcher_plural$§!\nReplaces £job_culture_worker£ §Y$job_culture_worker$§! jobs with £job_researcher£ §Y$job_culture_science$§! Jobs."
+civic_tooltip_merchant_guilds_effects:1 "§YCapital Buildings§! provide £job_merchant£ §Y$job_merchant$§! Jobs\n§YTrade Buildings§! provide 1 more £job_merchant£ §Y$job_merchant$§! and 1 less £job_clerk£ §Y$job_clerk$§! jobs\n£job_merchant£ §Y$job_merchant_plural$§! also produce §Y2§! £unity£ Unity"
+civic_tooltip_feudal_realm_effects:3 "Uses Duchies instead of Vassals, which provide §G+15%§! of their mineral and energy credits as tribute, but can expand and conduct diplomacy."
+civic_tooltip_functional_architecture_effects:0 "Increases housing from housing buildings by §G+2§!"
+civic_tooltip_franchising_effects:2 "Subsidiaries give an additional flat §G+5§! §YMonthly§! £energy£ §YEnergy§! and §G+0.25§! §YMonthly§! £influence£ §YInfluence§!"
+civic_tooltip_natural_neural_network_effects:1 "Unemployed drones also produce £physics£ £society£ £engineering£ §YResearch Points§! and £unity£ §YUnity§!"
+civic_tooltip_inward_perfection_effects:9 "Cannot have §YRivals§!\nCannot form §YDefensive Pacts§!\nCannot form §YMigration Treaties§!\nCannot form §YResearch Agreements§!\nCannot form §YCommercial Pacts§!\nCannot §YGuarantee Independence§!\nCannot join §YFederations§!\nCannot §YInfiltrate§! primitives\nCannot have forced §YSubjects§!\nCannot use §YUnrestricted Wars§! policy\nFree Non-Aggression Pacts"
+
+AUTH_HIVE_MIND_FOREIGN_POP_SURVIVAL:1 ""
+#AUTH_HIVE_MIND_GENEMODDING:0 "Can genetically modify §H£pop£ Pops§! to become §HHive Mind§! compatible if §HBiological Ascension Path§! is completed"
+#AUTH_HIVE_MIND_ASCENSION_RESTRICTIONS:0 "Cannot follow §HPsionic§! or §HSynthetic Ascension Paths§!"
+#AUTH_HIVE_MIND_AI_RESTRICTIONS:0 "Cannot research or build §HRobot§! Pops"
+#AUTH_MACHINE_INTELLIGENCE_IMMORTAL_LEADERS:0 "Leaders are §HImmortal§!"
+#AUTH_MACHINE_INTELLIGENCE_EXPENSIVE_NATIVE_LEADERS:0 "Machine Leader Recruitment Cost: §R+100%§!"
+#AUTH_MACHINE_TECH_ADDITIONS:0 "Has access to special §HMachine§! technologies"
+#AUTH_MACHINE_TECH_RESTRICTIONS:1 "Cannot research §HRobot§! technologies"
+#AUTH_MACHINE_ASCENSION_RESTRICTIONS:0 "Cannot follow §HPsionic§!, §HBiological§!, or §HSynthetic Ascension Paths§!"
+AUTH_MACHINE_FOREIGN_POP_SURVIVAL:0 ""
+#AUTH_MACHINE_NATIVE_POPS:0 "§HMachine§! £pop£ Pops do not grow but are built"
+
+origin_tooltip_lost_colony_effects:1 "- An Advanced Empire of this species is spawned somewhere in the galaxy\n- Starts with a random blocker removal technology"
+civic_tooltip_post_apocalyptic_effects:3 "Capital starts as a §YTomb World§!\nGain the §Y$trait_survivor$§! trait, granting:\n  Tomb World Habitability: §G+60%§!\n  Habitability: §G+10%§!\n  Leader Lifespan: §G+10§! Years"
+origin_tooltip_void_dwellers_effects:3 "- Start with three §YOrbital Habitats§! and the technology to build more\n- §YIf Not Machine§!: Members of your species thrive on Habitats and produce §G15%§! more there\n- Severe habitability and growth penalties on all normal planets\n- §YIf Machine§!: Machine units require §G15%§! less £amenities£ Amenities on Habitats\n- Hydroponic Farms have §G+1§! £job_farmer£ $job_farmer$ Job"
+
+### Policy ###
+trade_policy_trade_league:0 "Trade League: Acquisitions"
+trade_conversion_trade_league_name:0 "$trade_policy_trade_league$"
+trade_policy_trade_league_desc:1 "By banding together in a trade league, we are able to prosper and secure profits on a whole new level.\n\n§EEach collected £trade_value£ §YTrade Value§! earns us £energy£ §Y0.8§!, £unity£ §Y0.25§!, £consumer_goods£ §Y0.25§!, and £society£ §Y0.1§!§!"
+
+### Pop Jobs ###
+job_duelist_effect_desc:0 "£job_duelist£ $job_duelist_plural$ turn £alloys£ §Y$alloys$§! into £unity£ §Y$unity$§!, £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and £mod_country_naval_cap_add£ §Y$MOD_COUNTRY_NAVAL_CAP_ADD$§!, and spawn £defense_army£ §YDefense Armies§!"
+job_evaluator_desc:0 "These drones run and evaluate the complex predictive simulations required for decision optimization."
+job_mortal_initiate_effect_desc:0 "£job_mortal_initiate£ $job_mortal_initiate_plural$ turn £consumer_goods£ §Y$consumer_goods$§! into £unity£ §Y$unity$§! and £society£ §Y$society_research$§!"
+job_death_chronicler_effect_desc:0 "£job_death_chronicler£ $job_death_chronicler_plural$ turn £consumer_goods£ §Y$consumer_goods$§! into £unity£ §Y$unity$§!, £society£ §Y$society_research$§!, and £stability£ §YStability§!"
+job_chronicle_drone_effect_desc:1 "£job_chronicle_drone£ $job_chronicle_drone_plural$ turn £energy£ §Y$energy$§! and £minerals£ §Y$minerals$§! into £unity£ §Y$unity$§!, £society£ §Y$society_research$§!, and £stability£ §YStability§!"
+
+### Tech ###
+district_housing_agrarian_idyll_tech_effect:0 "Non-Lithoids: $district_farming$ Housing: §G+1§!\nLithoids: $district_mining$ Housing: §G+1§!"
+
+### Traits ###
+TRAIT_NERVE_STAPLED_EFFECT:2 "$mod_planet_jobs_produces_mult$: §G+10%§!\nCannot generate §YLeaders§!\nCannot be employed in §Y$pop_cat_ruler$§! or §Y$pop_cat_specialist$§! Jobs"
+TRAIT_LITHOID_EFFECT:0 "Consumes £minerals£ §YMinerals§! instead of £food£ §YFood§!\n\n$MOD_POP_GROWTH_SPEED$: §R-20%§!\n$MOD_POP_ENVIRONMENT_TOLERANCE$: §G+50%§!\n$MOD_ARMY_HEALTH$: §G+50%§!\n$MOD_LEADER_AGE$: §G+50§!"
+TRAIT_LITHOID_GASEOUS_BYPRODUCTS_EFFECT:0 "Each pop with living standards of slavery or better produces 0.02 £exotic_gases£ §Y$exotic_gases$§! per month."
+TRAIT_LITHOID_SCINTILLATING_EFFECT:0 "Each pop with living standards of slavery or better produces 0.02 £rare_crystals£ §Y$rare_crystals$§! per month."
+TRAIT_LITHOID_VOLATILE_EXCRETIONS_EFFECT:0 "Each pop with living standards of slavery or better produces 0.02 £volatile_motes£ §Y$volatile_motes$§! per month."
+trait_rapid_breeders_lithoid:0 "Supersaturated Growth"
+trait_rapid_breeders_lithoid_desc:0 "§LThe crystalline growth of this species is especially rapid.§!\n"

@@ -1,0 +1,15 @@
+###_z pf °´Å¥	###########################################################################################
+
+
+
+
+#_guide
+z_mm_pf2_btn_misc_guide = {
+	potential = { always = yes }
+	allow = { always = yes }
+	
+	effect = {
+		custom_tooltip = z_mm_tips_pf2_btn_misc_guide
+	}
+}
+

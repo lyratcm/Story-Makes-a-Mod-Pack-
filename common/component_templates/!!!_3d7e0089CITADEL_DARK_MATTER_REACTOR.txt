@@ -1,0 +1,22 @@
+@hqpower = 30000
+utility_component_template = {
+    key = "CITADEL_DARK_MATTER_REACTOR"
+    size = large
+    icon = "GFX_ship_part_dark_matter_power_core"
+    icon_frame = 1
+    power = @hqpower
+    component_set = "power_core"
+    class_restriction = {
+        shipclass_starbase
+    }
+    size_restriction = {
+        starbase_citadel
+        starbase_stronghold
+        starbase_headquarters
+        juggernaut
+        headquarters
+    }
+    ai_weight = {
+        weight = 10000
+    }
+}

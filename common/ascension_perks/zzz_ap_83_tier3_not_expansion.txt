@@ -1,0 +1,39 @@
+ap_esap_ct3_not_expansion = {
+	on_enabled = {
+		#custom_tooltip = ap_esap_ct3_not_expansion_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_expansion_req_1"
+			has_ascension_perk = ap_esap_ct2_diplomacy_finance
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_expansion_req_2"
+			has_ascension_perk = ap_esap_ct2_infrastructure_war
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_expansion_req_3"
+			Not = {
+				has_ascension_perk = ap_esap_ct1_expansion
+			}
+		}
+	}
+
+	modifier = {
+		country_unity_produces_mult = 0.25
+		planet_jobs_specialist_produces_mult = 0.20
+		planet_stability_add = 5
+		empire_size_penalty_mult = 0.50
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct3_not_expansion
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

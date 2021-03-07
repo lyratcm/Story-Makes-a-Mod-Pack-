@@ -1,0 +1,38 @@
+decision_establish_kaiju = {
+    owned_planets_only = yes
+    icon = "gfx/interface/icons/deposits/d_titanic_life_blocker.dds"
+    enactment_time = 720
+    resources = {
+        category = decisions
+        cost = {
+            influence = 25
+            energy = 500
+            food = 500
+        }
+    }
+    potential = {
+        habitable_structure = no
+        NOR = {
+            is_planet_class = pc_machine
+            is_planet_class = pc_hive
+            is_planet_class = pc_city
+            has_deposit = d_titanic_life_blocker
+            has_deposit = d_titan_hunting_grounds
+        }
+        owner = {
+            has_origin = origin_monster_tamers
+            any_controlled_planet = {
+                OR = {
+                    has_deposit = d_titanic_life_blocker
+                    has_deposit = d_titan_hunting_grounds
+                }
+                NOT = {
+                    has_planet_flag = lithoid_kaiju
+                }
+            }
+        }
+    }
+    effect = {
+        add_deposit = d_titanic_life_blocker
+    }
+}

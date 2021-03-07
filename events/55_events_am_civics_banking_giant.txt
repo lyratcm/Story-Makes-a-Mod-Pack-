@@ -1,0 +1,37 @@
+
+
+###############################################################################
+### Civic: Off World Investors                                              ###
+###############################################################################
+
+namespace = events_am_civics_banking_giant
+
+# Checks if the player (still) has access to the building.
+# Triggered by on_game_start_country and on_yearly_pulse_country
+country_event = {
+	id = events_am_civics_banking_giant.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_civic = civic_am_civics_banking_giant
+		### Don't need to check if we still have the modifier
+		NOT = { has_country_flag = am_civics_can_build_stellar_banking_institute }
+		### Don't need to check if we're currently constructing the building
+		NOT = { has_country_flag = am_civics_is_building_stellar_banking_institute }		
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					any_owned_planet = {
+						has_building = building_am_civics_stellar_banking_institute
+					}
+				}
+			}
+			set_country_flag = am_civics_can_build_stellar_banking_institute
+			remove_country_flag = am_civics_has_built_stellar_banking_institute
+		}
+	}
+}

@@ -1,0 +1,16 @@
+trait_mechanical = {
+    cost = 0
+    sorting_priority = 20
+    initial = no
+    randomized = no
+    modification = no
+    immortal_leaders = yes
+    allowed_archetypes = {
+        ROBOT
+    }
+    modifier = {
+        pop_environment_tolerance = 2.0
+        planet_jobs_worker_produces_mult = 0.025
+        planet_jobs_simple_drone_produces_mult = 0.025
+    }
+}

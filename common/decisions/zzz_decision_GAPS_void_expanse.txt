@@ -1,0 +1,29 @@
+decision_GAPS_Black_Matter_Expanse = {
+	owned_planets_only = yes
+	sound = event_ghost_town
+	icon = decision_GAPS_Black_Matter_Expanse
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			sr_dark_matter = 100
+		}
+	}
+	
+	potential = {
+		is_colony = yes
+		is_planet_class = pc_GAPS_void
+		owner = { has_origin = Origin_GAPS_Void_Callers }
+	}
+	effect = {
+		add_deposit = d_GAPS_Void_World_Expanded
+		add_deposit = d_GAPS_Void_World_Junk
+		change_planet_size = 1
+		#planet_event = { id = Events_GAPS_Void_Callers.6  days = 0 }
+	}
+	
+	ai_weight = {
+		weight = 10
+	}	
+}

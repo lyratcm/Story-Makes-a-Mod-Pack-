@@ -1,0 +1,21 @@
+fallen_1_pulsar = {
+    class = sc_pulsar
+    usage = fallen_empire_init
+    planet = {
+        class = star
+        orbit_distance = 0
+    }
+    change_orbit = 45
+    planet = {
+        count = 1
+        class = "pc_barren"
+        orbit_distance = 25
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+    init_effect = {
+        create_fe_outpost = yes
+    }
+}

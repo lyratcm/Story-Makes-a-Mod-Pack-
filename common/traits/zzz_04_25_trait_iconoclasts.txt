@@ -1,0 +1,30 @@
+trait_iconoclasts = {
+    cost = -4
+    potential_crossbreeding_chance = 1
+    initial = yes
+    modification = yes
+    randomized = yes
+    advanced_trait = yes
+    opposites = {
+        "trait_eusocial"
+        "trait_conformists"
+        "trait_deviants"
+        "trait_quarrelsome"
+        "trait_traditional"
+        "trait_hive_mind"
+        "trait_nerve_stapled"
+        "trait_docile"
+        "trait_unruly"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        pop_government_ethic_attraction = -0.50
+        planet_jobs_unity_produces_mult = -0.20
+        species_empire_size_mult = 0.20
+    }
+}

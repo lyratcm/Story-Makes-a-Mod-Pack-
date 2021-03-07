@@ -1,0 +1,32 @@
+civic_shadow_council_megacorp = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = {
+			OR = {
+				value = auth_corporate
+				value = auth_cooperative
+				value = auth_private
+			}
+		}
+	}
+	possible = {
+		authority = {
+			OR = {
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+		civics = {
+			NOT = {
+				value = civic_free_traders
+				value = civic_corp_iron_despot
+			}
+		}
+	}
+	random_weight = { base = 3 }
+	modifier = {
+		country_election_influence_cost_mult = -0.75
+		pop_cat_ruler_political_power = 2
+		planet_jobs_ruler_produces_mult = 0.10
+	}
+}

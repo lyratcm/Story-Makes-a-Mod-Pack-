@@ -1,0 +1,59 @@
+namespace = mem_options
+country_event = {
+    id = mem_options.4
+    title = mem_options.4.name
+    desc = mem_options.4.desc
+    picture = GFX_evt_mem_options
+    is_triggered_only = yes
+    option = {
+        name = mem_options.4.a
+        hidden_effect = {
+            country_event = {
+                id = mem_options.5
+            }
+        }
+    }
+    option = {
+        name = mem_options.4.b
+        hidden_effect = {
+            country_event = {
+                id = mem_options.6
+            }
+        }
+    }
+    option = {
+        name = mem_options.4.e
+        hidden_effect = {
+            country_event = {
+                id = mem_options.7
+            }
+        }
+    }
+    option = {
+        name = mem_options.4.f
+        hidden_effect = {
+            country_event = {
+                id = mem_options.11
+            }
+        }
+    }
+    option = {
+        name = mem_options.4.g
+        hidden_effect = {
+            country_event = {
+                id = mem_options.12
+            }
+        }
+    }
+    option = {
+        name = mem_options.4.h
+        hidden_effect = {
+            country_event = {
+                id = mem_options.13
+            }
+        }
+    }
+    option = {
+        name = mem_options.exit
+    }
+}

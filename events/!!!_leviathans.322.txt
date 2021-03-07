@@ -1,0 +1,81 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.322
+	title = leviathans.322.name
+	desc = leviathans.322.desc
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:artist_enclave_country
+		has_modifier = enclave_artist_patron
+		has_country_flag = artist_patron
+		NOR = {
+			has_country_flag = enclave_stopped_patronage
+			has_country_flag = enclave_artist_ignores
+			has_country_flag = artist_building_patron
+		}
+	}
+
+	immediate = {
+		set_country_flag = enclave_artist_patron_events
+		set_country_flag = enclave_artist_patron_event_1
+		random_system = {
+			limit = {
+				any_system_planet = {
+					has_planet_flag = guardians_artists_planet
+				}
+				root = {
+					intel_level = {
+						level > none
+						system = prev
+					}
+				}
+			}
+			save_event_target_as = this_planet
+		}
+	}
+	option = {
+		name = DEAL
+		IF = {
+			limit = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			custom_tooltip = leviathans.322.a.tooltip.mod
+		}
+		ELSE = { custom_tooltip = leviathans.322.a.tooltip.gesta.mod }
+		response_text = leviathans.316.a.reply
+		allow = {
+			NOT = { resource_stockpile_compare = { resource = energy value < 2000 } }
+		}
+		hidden_effect = {
+			add_resource = { energy = -2000 }
+			set_country_flag = artist_building_patron
+		}
+	}
+	option = {
+		name = TOOPOOR
+		trigger = {
+			resource_stockpile_compare = { resource = energy value < 2000 }
+		}
+	}
+	option = {
+		name = NODEAL
+		trigger = {
+			NOT = { resource_stockpile_compare = { resource = energy value < 2000 } }
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			country_event = { id = leviathans.320 days = 100 random = 25 }
+		}
+	}
+}

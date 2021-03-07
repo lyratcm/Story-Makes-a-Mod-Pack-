@@ -1,0 +1,104 @@
+
+
+###############################################################################
+### Civic: Off World Investors                                              ###
+###############################################################################
+
+namespace = events_am_civics_off_world_investors
+
+### Triggered by on_action: yearly_pulse
+### Summary: Upgrades Orbital Trade Value Deposits over time. Smaller deposits have a higher chance to be upgraded.
+country_event = {
+	id = events_am_civics_off_world_investors.1
+	hide_window = yes
+	
+	is_triggered_only = yes
+	trigger = { has_valid_civic = civic_am_civics_off_world_investors }
+	
+	
+	immediate = {
+		every_planet_within_border = {
+			limit = {
+				OR = {
+					has_deposit = d_trade_value_1
+					has_deposit = d_trade_value_2
+					has_deposit = d_trade_value_3
+					has_deposit = d_trade_value_4
+					has_deposit = d_trade_value_5
+					has_deposit = d_trade_value_6
+				}
+			}
+			random_list = {
+				90 = { }
+				10 = { # Split into two rolls so we don't have to check for deposit if first roll fails.
+					IF = {
+						limit = { has_deposit = d_trade_value_1 } ## This one isn't actually spawned in the unmodded game, but might be used by some other mods.			
+						random_list = {
+							0 = { }
+							100 = { ## 10% Overall
+								clear_deposits = yes
+								set_deposit = d_trade_value_2
+								# log = "AM Civics: ([from.GetName]) [this.GetName] Trade Value Depot upgraded from 1 to 2."
+							}
+						}
+					}
+					ELSE_IF = {
+						limit = { has_deposit = d_trade_value_2 }				
+						random_list = {
+							20 = { }
+							80 = { ## 8% Overall
+								clear_deposits = yes
+								set_deposit = d_trade_value_3
+								# log = "AM Civics: ([from.GetName]) [this.GetName] Trade Value Depot upgraded from 2 to 3."
+							}
+						}
+					}
+					ELSE_IF = {
+						limit = { has_deposit = d_trade_value_3 }	
+						random_list = {
+							50 = { }
+							50 = { ## 5% Overall
+								clear_deposits = yes
+								set_deposit = d_trade_value_4
+								# log = "AM Civics: ([from.GetName]) [this.GetName] Trade Value Depot upgraded from 3 to 4."
+							}
+						}
+					}
+					ELSE_IF = {
+						limit = { has_deposit = d_trade_value_4 }	
+						random_list = {
+							75 = { }
+							25 = { ## 2.5% Overall
+								clear_deposits = yes
+								set_deposit = d_trade_value_5
+								# log = "AM Civics: ([from.GetName]) [this.GetName] Trade Value Depot upgraded from 4 to 5."
+							}
+						}
+					}
+					ELSE_IF = {
+						limit = { has_deposit = d_trade_value_5 }	
+						random_list = {
+							90 = { }
+							10 = { ## 1% Overall
+								clear_deposits = yes
+								set_deposit = d_trade_value_6
+								# log = "AM Civics: ([from.GetName]) [this.GetName] Trade Value Depot upgraded from 5 to 6."
+							}
+						}
+					}
+					ELSE_IF = {
+						limit = { has_deposit = d_trade_value_6 }	
+						random_list = {
+							98 = { }
+							2 = { ## 0.2% Overall
+								clear_deposits = yes
+								set_deposit = d_trade_value_7
+								# log = "AM Civics: ([from.GetName]) [this.GetName] Trade Value Depot upgraded from 6 to 7."
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

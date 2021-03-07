@@ -1,0 +1,106 @@
+gov_master_computer_generic = {
+    ruler_title = RT_MASTER_COMPUTER
+    ruler_title_female = RT_MASTER_COMPUTER
+    should_force_rename = yes
+
+    possible = {
+        has_authority = auth_master_computer
+        OR = {
+            has_ethic = ethic_fanatic_materialist
+            has_ethic = ethic_materialist
+        }
+    }
+
+    weight = {
+        base = 10
+    }
+}
+
+gov_master_computer_integrator = {
+    ruler_title = RT_MASTER_COMPUTER
+    ruler_title_female = RT_MASTER_COMPUTER
+    should_force_rename = yes
+
+    possible = {
+        has_authority = auth_master_computer
+        has_valid_civic = civic_master_computer_mm_integrator
+    }
+
+    weight = {
+        base = 1000
+    }
+}
+gov_master_computer_purifiers = {
+    ruler_title = RT_MASTER_COMPUTER
+    ruler_title_female = RT_MASTER_COMPUTER
+    should_force_rename = yes
+
+    possible = {
+        has_authority = auth_master_computer
+        has_valid_civic = civic_master_computer_purifier
+    }
+
+    weight = {
+        base = 1000
+    }
+}
+
+gov_master_computer_virtual = {
+    ruler_title = RT_MASTER_COMPUTER
+    ruler_title_female = RT_MASTER_COMPUTER
+    should_force_rename = yes
+
+    possible = {
+        has_authority = auth_master_computer
+        has_valid_civic = civic_master_computer_virtual_world
+    }
+
+    weight = {
+        base = 1000
+    }
+}
+
+gov_master_computer_datavore = {
+    ruler_title = RT_MASTER_COMPUTER
+    ruler_title_female = RT_MASTER_COMPUTER
+    should_force_rename = yes
+
+    possible = {
+        has_authority = auth_master_computer
+        has_valid_civic = civic_master_computer_datavore
+    }
+
+    weight = {
+        base = 1000
+    }
+}
+
+gov_master_computer_defense_grid = {
+    ruler_title = RT_MASTER_COMPUTER
+    ruler_title_female = RT_MASTER_COMPUTER
+    should_force_rename = yes
+
+    possible = {
+        has_authority = auth_master_computer
+        has_valid_civic = civic_master_computer_wargamer
+    }
+
+    weight = {
+        base = 100
+    }
+}
+
+gov_master_computer_eminence = {
+    ruler_title = RT_MASTER_COMPUTER
+    ruler_title_female = RT_MASTER_COMPUTER
+    should_force_rename = yes
+
+    possible = {
+        has_authority = auth_master_computer
+        has_valid_civic = civic_master_computer_eminence
+    }
+
+    weight = {
+        base = 100
+    }
+}

@@ -1,0 +1,14 @@
+civic_machine_atomsplitters = {
+    potential = {
+        authority = {
+            value = auth_machine_intelligence
+        }
+    }
+    random_weight = {
+        base = 4
+    }
+    modifier = {
+        planet_technician_drone_energy_produces_add = 1
+        station_gatherers_produces_mult = 0.10
+    }
+}

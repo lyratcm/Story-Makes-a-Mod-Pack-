@@ -1,0 +1,45 @@
+namespace = precursor
+
+ship_event = {
+	id = precursor.2010
+	title = "precursor.2010.name"
+	desc = "precursor.2010.desc"
+	picture = GFX_evt_dead_city
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = cybrex_2 }
+		}
+	}
+	
+	option = {
+		name = REMARKABLE
+		from = {
+			hidden_effect = {
+				gpm_designate_precursor_world = yes
+				gpm_colour_planet_name = yes
+				if = { 
+					limit = { 
+						gpm_has_required_terraform_modifier = no
+						gpm_is_planet_class_normal_uninhabitable = yes
+					}
+					add_modifier = { modifier = terraforming_candidate_precursor }
+				}
+			}			
+			if = {
+				limit = { gpm_are_precursors_enabled = yes NOT = { has_modifier = gpm_precursor_capital_complex } }
+				add_modifier = { modifier = gpm_precursor_capital_complex }
+				add_deposit = gpm_d_precursor_capital_complex
+			}
+			enable_special_project = {
+				name = "CYBREX_ARCHEOLOGY_2"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}

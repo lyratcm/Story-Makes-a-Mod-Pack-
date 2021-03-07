@@ -1,0 +1,255 @@
+###_Z FW KINETIC WEAPONS	#########################################################################
+
+# ──z_fw_tech_weap_kinetic_gauss_6~9
+#     └─
+# ──z_fw_tech_weap_kinetic_artillery_6~9
+#     └─
+# ──z_fw_tech_weap_kinetic_gatling_6~9
+#     └─
+# ──z_fw_tech_weap_kinetic_flak_6~9
+#     └─
+
+
+
+
+###_Z FW ADV GAUSS	##############################################
+
+z_fw_tech_weap_kinetic_gauss_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_mass_drivers_5"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_gauss_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_gauss_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_gauss_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_gauss_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_gauss_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_gauss_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV ARTILLERY	##############################################
+
+z_fw_tech_weap_kinetic_artillery_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_kinetic_artillery_2"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_artillery_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_artillery_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_artillery_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_artillery_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_artillery_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_artillery_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV gatling	##############################################
+
+z_fw_tech_weap_kinetic_gatling_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_autocannons_3"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_gatling_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_gatling_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_gatling_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_gatling_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_gatling_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_gatling_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV k flak	##############################################
+
+z_fw_tech_weap_kinetic_flak_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_flak_batteries_3"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_flak_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_flak_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_flak_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_flak_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_kinetic_flak_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_kinetic_flak_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+

@@ -1,0 +1,14 @@
+civic_machine_predictive_analysis = {
+    description = "civic_tooltip_predictive_analysis_effects"
+    potential = {
+        authority = {
+            value = auth_machine_intelligence
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        num_tech_alternatives_add = 1
+    }
+}

@@ -1,0 +1,71 @@
+@Plant_Cost = 300
+@Plant_Upkeep = 3
+d_GAPS_Shroom_Scape = {
+    base_buildtime = 480
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        exists = owner
+        has_modifier = World_Modifier_GAPS_Shroom_Scape
+    }
+    potential = {
+        exists = owner
+        has_modifier = World_Modifier_GAPS_Shroom_Scape
+    }
+    conversion_ratio = 0
+    convert_to = {
+    }
+    resources = {
+        category = planet_GAPS_world_plants
+        cost = {
+            food = @Plant_Cost
+        }
+        upkeep = {
+            food = @Plant_Upkeep
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_synthetic_empire = yes
+            }
+        }
+        modifier = {
+            planet_pop_assembly_mult = 0.075
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_synthetic_empire = no
+            }
+        }
+        modifier = {
+            pop_growth_speed = 0.15
+        }
+    }
+    planet_modifier = {
+        species_empire_size_mult = -0.1
+        planet_stability_add = 5
+        pop_demotion_time_mult = -0.1
+    }
+    ai_weight = {
+        weight = 50
+        modifier = {
+            factor = 0
+            count_pops = {
+                limit = {
+                    is_sapient = yes
+                }
+                count > 75
+            }
+        }
+    }
+    ai_resource_production = {
+        minerals = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

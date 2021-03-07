@@ -1,0 +1,36 @@
+cp_building_toothpaste_factory = { #Toothpaste Factory
+	base_buildtime = @b1_time
+	icon = building_waste_reprocessing_center
+	category = manufacturing
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = cp_civic_toothpaste_enterprise }
+	}
+	destroy_trigger = {
+		exists = owner
+		NOT = {
+			owner = { has_civic = cp_civic_toothpaste_enterprise }
+		}
+	}
+	planet_modifier = {
+		job_cp_toothpaste_add = 2
+	}
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_toothpaste_effect_desc
+	}
+	ai_weight = {
+		factor = 1
+	}
+}

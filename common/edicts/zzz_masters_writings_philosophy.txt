@@ -1,0 +1,26 @@
+masters_writings_philosophy = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	potential = {
+		has_country_flag = edict_masters_writings_philosophy
+	}
+	
+	modifier = {
+		country_society_tech_research_speed = 0.1
+		country_leader_pool_size = 1
+	}
+
+	allow = {
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

@@ -1,0 +1,60 @@
+namespace = story
+
+country_event = {
+	id = story.207
+	title = story.207.name
+	desc = story.207.desc
+	picture = GFX_evt_fleet_evil
+	show_sound = event_crystal_ship
+	location = from
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = crystal_nonhostile_approach
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = crystal
+					has_country_flag = crystal_country
+				}
+			}
+			set_faction_hostility = {
+				set_hostile = no
+				set_neutral = yes
+				target = root
+			}
+		}
+	}
+
+	option = {
+		name = story.207.a
+		custom_tooltip = story.207.a.tooltip
+		hidden_effect = {
+			add_modifier = {
+				modifier = pacified_crystals # friendly crystals
+				days = -1
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_technology = tech_crystal_armor_1 }
+				NOT = { has_tech_option = tech_crystal_armor_1 }
+			}
+			add_research_option = tech_crystal_armor_1
+		}
+		else_if = {
+			limit = { has_tech_option = tech_crystal_armor_1 }
+			add_tech_progress = {
+				tech = tech_crystal_armor_1
+				progress = 0.25
+			}
+		}
+		else = {
+			add_modifier = {
+				modifier = crystal_focus # +5% energy
+				days = -1
+			}
+		}
+	}
+}

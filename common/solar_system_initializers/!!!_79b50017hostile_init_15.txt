@@ -1,0 +1,186 @@
+hostile_init_15 = {
+    class = "rl_standard_stars"
+    usage = misc_system_init
+    usage_odds = {
+        base = 6
+        modifier = {
+            factor = 0.1
+            NOT = {
+                is_in_cluster = resource_cluster_5
+            }
+        }
+        modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+    }
+    flags = {
+        tiyanki_home_system
+    }
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = {
+            min = @standard_min
+            max = @standard_max
+        }
+        has_ring = no
+    }
+    change_orbit = {
+        min = 20
+        max = 60
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        flags = {
+            hot_zone
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 35
+            max = 40
+        }
+        class = pc_gas_giant
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        size = {
+            min = 25
+            max = 30
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 1
+                max = 4
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 6
+            size = {
+                min = 8
+                max = 20
+            }
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 40
+            max = 45
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+    planet = {
+        count = 1
+        orbit_distance = {
+            min = 45
+            max = 55
+        }
+        class = pc_gas_giant
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        size = {
+            min = 25
+            max = 30
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 1
+                max = 4
+            }
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+            orbit_distance = 6
+            size = {
+                min = 8
+                max = 20
+            }
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 55
+            max = 65
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 65
+            max = 75
+        }
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+    init_effect = {
+        create_tiyanki_country = yes
+        random_system_planet = {
+            limit = {
+                is_planet_class = pc_gas_giant
+            }
+            save_event_target_as = giant
+            event_target:tiyanki_country = {
+                save_event_target_as = tiyanki_country2
+                random_list = {
+                    10 = {
+                        create_tiyanki_fleet_1 = yes
+                    }
+                    10 = {
+                        create_tiyanki_fleet_2 = yes
+                    }
+                    10 = {
+                        create_tiyanki_fleet_3 = yes
+                    }
+                    10 = {
+                        create_tiyanki_fleet_4 = yes
+                    }
+                    10 = {
+                        create_tiyanki_fleet_5 = yes
+                    }
+                }
+            }
+        }
+    }
+}

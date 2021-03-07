@@ -1,0 +1,363 @@
+#Tooltips will be generated from these rules when they fail. Use of custom_tooltip is recommended
+#There are still multiple hard-coded rules that apply in addition to these.
+#If rules here evaluate to true, there might still be other rules that make the action unavailable.
+#If a rule here evaluates to false the action will become unavailable
+
+# Checks if a pop can procreate
+# This = Species
+# Root = Planet
+can_species_procreate = {
+	is_sapient = yes
+	NOR = {
+		has_trait = trait_machine_unit
+		has_trait = trait_mechanical
+		has_trait = trait_dimorphic_male
+		# has_trait = trait_eusocial_worker
+	}
+	NAND = {
+		root = { has_modifier = slave_colony }
+		NOT = { has_citizenship_type = { type = citizenship_slavery country = root.owner } }
+	}
+	NAND = {
+		has_trait = trait_exotic_gas_dependency
+		exists = root.owner
+		root.owner = {
+			resource_stockpile_compare = {
+				resource = exotic_gases
+				value <= 0
+			}
+		}
+	}
+	NAND = {
+		has_trait = trait_delicate
+		exists = root.owner
+		has_citizenship_type = { type = citizenship_slavery country = root.owner }
+	}
+	NAND = {
+		has_trait = trait_sterile
+		exists = root.owner
+		root.owner = {
+			has_artificial_wombs = no
+		}
+	}
+	if = {
+		limit = {
+			has_trait = trait_necrophage
+		}
+		NOT = {
+			root = {
+				any_owned_species = {
+					species_can_be_necrophaged = yes
+				}
+			}
+		}
+	}
+}
+
+# Checks if a pop can be assembled
+# This = Species
+# Root = Planet
+can_species_be_assembled = {
+	is_sapient = yes
+	OR = {
+		has_trait = trait_machine_unit
+		has_trait = trait_mechanical
+	}
+	NAND = {
+		has_trait = trait_robot_rare_crystal_components
+		exists = root.owner
+		root.owner = {
+			resource_stockpile_compare = {
+				resource = rare_crystals
+				value <= 0
+			}
+		}
+	}
+}
+
+#Root = country
+#This = pop
+can_vote_in_democratic_election = {
+	has_citizenship_rights = yes
+	is_sapient = yes
+	is_enslaved = no
+	is_being_purged = no
+	NOT = { has_trait = trait_multihive_drone }
+}
+
+#Root = country
+#This = pop
+can_generate_leader_from_pop = {
+	has_citizenship_rights = yes
+	NOR = {
+		has_trait = trait_syncretic_proles
+		has_trait = trait_nerve_stapled
+		has_trait = trait_subsapient_form
+		has_trait = trait_living_architecture
+	}
+	OR = {
+		is_robot_pop = no
+		root = { has_technology = tech_synthetic_leaders }
+		root = { has_authority = auth_machine_intelligence }
+		root = { is_mechanical_empire = yes }
+	}
+	OR = {
+		is_same_species = root
+		root = {
+			NAND = {
+				has_origin = origin_necrophage
+				has_trait = trait_necrophage
+			}
+		}
+	}
+}
+
+#Root = country
+#This = species
+can_generate_leader_from_species = {
+	is_sapient = yes
+	NOR = {
+		has_trait = trait_syncretic_proles
+		has_trait = trait_nerve_stapled
+		has_trait = trait_subsapient_form
+		has_trait = trait_living_architecture
+	}
+	OR = {
+		NAND = {
+			NOT = { root = { has_technology = "tech_synthetic_leaders" } }
+			has_trait = "trait_mechanical"
+		}
+		has_citizenship_type = { type = citizenship_full country = root }
+	}
+}
+
+#Root = country
+#This = pop
+can_generate_military_leader_from_pop = {
+	can_be_military_leader = yes
+	NOR = {
+		has_trait = trait_subsapient_form
+		has_trait = trait_living_architecture
+	}
+	OR = {
+		is_robot_pop = no
+		root = { has_technology = tech_synthetic_leaders }
+		root = { has_authority = auth_machine_intelligence }
+		root = { is_mechanical_empire = yes }
+	}
+	OR = {
+		is_same_species = root
+		root = {
+			NAND = {
+				has_origin = origin_necrophage
+				has_trait = trait_necrophage
+			}
+		}
+	}
+}
+
+#Root = country
+#This = pop
+can_colonize_with_pop = {
+	has_colonization_control = {
+		value = no
+		country =root
+	}
+	NOR = {
+		# has_trait = trait_eusocial_worker
+		has_trait = trait_subsapient_form
+		has_trait = trait_rooted_adults_rooted
+		has_trait = trait_living_architecture
+		has_trait = trait_dimorphic_male
+	}
+	OR = {
+		NOT = { has_trait = trait_self_modified }
+		is_same_species = root
+	}
+	if = {
+		limit = {
+			is_sapient = no
+		}
+		custom_tooltip = {
+			always = no
+		}
+	}
+	else = {
+		always = yes
+	}
+}
+
+#Root = country
+#This = species
+can_colonize_with_species = {
+	has_colonization_control = {
+		value = no
+		country =root
+	}
+	NOR = {
+		# has_trait = trait_eusocial_worker
+		has_trait = trait_subsapient_form
+		has_trait = trait_living_architecture
+		has_trait = trait_rooted_adults_rooted
+		AND = {
+			has_trait = trait_dimorphic_male
+			root = { is_ai = yes }
+		}
+	}
+	OR = {
+		NOT = { has_trait = trait_self_modified }
+		is_same_species = root
+	}
+	if = {
+		limit = {
+			is_sapient = no
+		}
+		custom_tooltip = {
+			always = no
+		}
+	}
+	else = {
+		always = yes
+	}
+}
+
+# Root = Pop
+# From = Country
+# This = Pop
+# NOTE: species_has_happiness is also checked for this
+pop_has_random_ethics = {
+	NOT = { has_trait = trait_subsapient_form }
+}
+
+# Root = Species
+# From = Country
+# This = Species
+species_has_happiness = {
+	NOR = {
+		has_trait = trait_machine_unit
+		has_trait = trait_hive_mind
+		has_trait = trait_nerve_stapled
+		has_trait = trait_multihive_drone
+		AND = {
+			has_trait = trait_mechanical
+			OR = {
+				NOT = { exists = from }
+				from = { has_authority = auth_machine_intelligence }
+				from = { NOT = { has_technology = tech_synthetic_workers } }
+				from = { has_policy_flag = ai_outlawed }
+			}
+		}
+		AND = {
+			has_trait = trait_cybernetic
+			exists = from
+			from = {
+				has_authority = auth_machine_intelligence
+				has_civic = civic_machine_assimilator # Assimilator empire
+			}
+		}
+	}
+}
+
+# This = pop
+can_resettle_pop = {
+	IF = {
+		limit = {
+			OR = {
+				has_trait = trait_living_architecture
+				has_trait = trait_rooted_adults_rooted
+			}
+		}
+		always = no
+	}
+	ELSE_IF = { #Done as an IF/ELSE so the tooltip isn't hideous and unreadable
+		limit = { is_shackled_robot = yes }
+		always = yes
+	}
+	ELSE_IF = {
+		limit = {
+			planet = {
+				OR = {
+					has_modifier = doomsday_1
+					has_modifier = doomsday_2
+					has_modifier = doomsday_3
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+		always = yes
+	}
+	ELSE_IF = {
+		limit = {
+			planet = {
+				has_modifier = planet_culture_shock
+			}
+		}
+		OR = {
+			is_same_species = planet.owner
+			planet = {
+				NOT = { has_modifier = planet_culture_shock }
+			}
+		}
+	}
+	ELSE = {
+		owner = {
+			OR = {
+				has_policy_flag = resettlement_allowed
+				is_gestalt = yes
+			}
+		}
+	}
+}
+
+can_be_sold_on_slave_market = {
+	OR = {
+		is_enslaved = yes
+		is_non_sapient_robot = yes
+		is_shackled_robot = yes
+	}
+	OR ={
+		ROOT = { is_ai = no }
+		has_citizenship_rights = no
+		AND = {
+			is_unemployed = yes
+			planet = {
+				count_pops = {
+					count > 3
+					limit = { is_unemployed = yes }
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = organic_slave_trade_banned_flag
+		}
+		is_organic_species = no
+	}
+	if = {
+		limit = {
+			has_global_flag = sentient_slave_trade_banned_flag
+		}
+		is_sapient = no
+	}
+	if = {
+		limit = { has_trait = trait_living_architecture }
+		always = no
+	}
+}
+
+# Root = species
+# This = country
+can_generate_army_from_species = {
+	root = {
+		OR = {
+			has_military_service_type = { type = military_service_full country = prev }
+			has_military_service_type = { type = military_service_limited country = prev }
+		}
+		NOR = {
+			has_trait = trait_rooted_adults_rooted
+			has_trait = trait_living_architecture
+		}
+	}
+}

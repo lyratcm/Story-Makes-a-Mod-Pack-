@@ -1,0 +1,82 @@
+building_war_factory = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+	icon = building_robot_assembly_plant
+
+	category = army
+	
+	potential = {
+		buildings_simple_allow = yes
+		exists = owner
+		owner = { has_valid_civic = civic_machine_terminator }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { NOT = { has_valid_civic = civic_machine_terminator } }
+	}
+	
+	convert_to = {
+		building_military_academy
+	}
+	
+	allow = {
+		OR = {
+			has_building = building_stronghold
+			has_building = building_fortress
+			has_building = building_citadel
+		}
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = 0.5
+		job_warrior_drone_add = 1
+		job_warrior_drone_per_pop = 0.04
+		job_patrol_drone_add = 1
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}			
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+	
+	prerequisites = {
+		"tech_centralized_command"
+	}
+	
+	show_tech_unlock_if = { 
+		has_valid_civic = civic_machine_terminator
+	}
+	
+	triggered_desc = {
+		text = job_warrior_drone_effect_desc
+	}
+	
+	triggered_desc = {
+		text = job_patrol_drone_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			weight = 500
+			or = {
+				free_jobs < 1
+				and = {
+					free_jobs < 5
+					exists = owner
+					owner = { is_at_war = yes }
+				}
+			}
+		}
+	}
+}

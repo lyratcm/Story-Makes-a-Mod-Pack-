@@ -1,0 +1,4 @@
+trait_additrait_swarm = {
+    initial = no
+    randomized = no
+}

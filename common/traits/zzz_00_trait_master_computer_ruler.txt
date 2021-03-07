@@ -1,0 +1,15 @@
+trait_master_computer_ruler = {
+    leader_trait = {
+        ruler
+    }
+    leader_class = {
+        ruler
+    }
+    cost = 0
+    modification = no
+    initial = no
+    randomized = no
+    icon = "gfx/interface/icons/traits/leader_traits/leader_trait_expertise_computing.dds"
+    immortal_leaders = yes
+    hide_age = yes
+}

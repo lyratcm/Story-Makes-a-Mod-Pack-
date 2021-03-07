@@ -1,0 +1,26 @@
+trait_moronic = {
+    cost = -4
+    potential_crossbreeding_chance = 1
+    initial = yes
+    modification = yes
+    randomized = yes
+    advanced_trait = yes
+    opposites = {
+        "trait_intelligent"
+        "trait_simple"
+        "trait_nerve_stapled"
+        "trait_erudite"
+        "trait_very_intelligent"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_jobs_engineering_research_produces_mult = -0.20
+        planet_jobs_physics_research_produces_mult = -0.20
+        planet_jobs_society_research_produces_mult = -0.20
+    }
+}

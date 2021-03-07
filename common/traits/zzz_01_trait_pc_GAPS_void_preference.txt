@@ -1,0 +1,18 @@
+trait_pc_GAPS_void_preference = {
+    icon = "gfx/interface/icons/traits/trait_pc_GAPS_void_preference.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    sorting_priority = 30
+    modifier = {
+        pc_GAPS_void_habitability = 0.3
+        pc_rogue_habitability = 0.3
+        pop_environment_tolerance = 0.3
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

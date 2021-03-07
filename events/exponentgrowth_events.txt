@@ -1,0 +1,71 @@
+namespace = exponentgrowth
+
+event = {
+	id = exponentgrowth.0
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+		every_planet = {
+			limit = {
+				OR = {
+					is_colonizable = yes
+					is_colony = yes
+				}
+			}
+			planet_event = {
+				id = exponentgrowth.1
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = exponentgrowth.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+		effect_population_counter = yes
+		planet_event = {
+			id = exponentgrowth.2
+		}
+	}
+}
+
+planet_event = {
+	id = exponentgrowth.2
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+		remove_deposit = exponentgrowth
+		add_deposit = exponentgrowth
+	}
+}
+
+country_event = {
+	id = exponentgrowth.3
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_owned_planet = {
+			effect_population_counter = yes
+		}
+	}
+}
+
+planet_event = {
+	id = exponentgrowth.4
+	hide_window = yes	
+	is_triggered_only = yes
+	immediate = {
+		planet_event = {
+			id = exponentgrowth.1
+			days = 2
+		}
+	}
+}

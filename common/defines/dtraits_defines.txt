@@ -1,0 +1,5 @@
+
+	NSpecies = {
+		TRAIT_CLIMATE_MODIFICATION_COST		= 2
+		HOMEWORLD_HABITABILITY				= 0.4		# Habitability on homeworld is increased by this value
+	}

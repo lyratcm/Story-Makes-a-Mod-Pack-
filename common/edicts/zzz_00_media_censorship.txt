@@ -1,0 +1,37 @@
+media_censorship = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = media_censorship }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = media_censorship
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_stability_add = 2.5
+		pop_government_ethic_attraction = 0.25
+	}	
+	
+	potential = {
+		#is_authoritarian = yes
+		has_policy_flag = censored_media
+		NOT = { has_valid_civic = civic_media_conglomerate }
+		NOT = { has_edict = encourage_debate }
+	}
+	
+	ai_weight = {
+		weight = @EdictLowPrio
+	}	
+}

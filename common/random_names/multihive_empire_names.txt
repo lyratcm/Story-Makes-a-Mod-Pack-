@@ -1,0 +1,250 @@
+##############
+# NAME PARTS #
+##############
+
+### GENERIC
+
+# Autocratic Hive
+empire_name_parts_list = {
+	key = "atocracy_hive"
+	parts = {
+		"Hegemony" = 3
+		"Authority" = 2
+		"Union" = 3
+		"Hierarchy" = 3
+	}
+}
+
+# Oligarchic Generic
+empire_name_parts_list = {
+	key = "oligarchic_hive"
+	parts = {
+		"Hierarchy" = 3
+		"Alliance" = 2
+		"Union" = 4
+		"League" = 4
+		"Mandate" = 1
+		"Coalition" = 4
+		"Commonality" = 2
+		"Sovereignty" = 1
+		"Council" = 4
+		"Polity" = 1
+	}
+}
+
+# Democratic Hive
+empire_name_parts_list = {
+	key = "democratic_hive"
+	parts = {
+		"Alliance" = 3
+		"Union" = 3
+		"League" = 2
+		"Assembly" = 4
+		"Council" = 4
+		"Commonality" = 1
+		"Accord" = 1
+		"Polity" = 1
+	}
+}
+
+# Hive Imperial Cult
+empire_name_parts_list = {
+	key = "hive_imperial_cult"
+	parts = {
+		"Dominion" = 1
+		"Authority" = 1
+		"Hierarchy" = 1
+	}
+}
+
+# Hive Megacorporation
+empire_name_parts_list = {
+	key = "hive_oligarchic_corp"
+	parts = {
+		"Enterprises" = 5
+		"Partnership" = 5
+		"Exchange" = 1
+		"Trading Coalition" = 3
+		"Shipping Alliance" = 3
+		"Trade Association" = 3
+		"Free Traders" = 3
+	}
+}
+
+################
+# NAME FORMATS #
+################
+
+### Imperial Militarist 
+
+# Hive Autocracy
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			OR = {
+				has_government = "gov_hive_autocracy_imperial"
+				has_government = "gov_hive_autocracy_dictatorial"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.aut_hive.1"
+	prefix_format = "[This.Capital.GetName] <atocracy_hive>"
+	noun = "[This.Capital.GetName]"
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			OR = {
+				has_government = "gov_hive_autocracy_imperial"
+				has_government = "gov_hive_autocracy_dictatorial"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.aut_hive.2"
+	prefix_format = "[This.GetSpeciesName] <atocracy_hive>"
+	noun = "[This.GetSpeciesName]"
+}
+
+# Hive Oligarchy
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_hive_hierarchy"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.olig_hive.1"
+	prefix_format = "[This.Capital.GetName] <oligarchic_hive>"
+	noun = "[This.Capital.GetName]"
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_hive_hierarchy"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.olig_hive.2"
+	prefix_format = "[This.GetSpeciesName] <oligarchic_hive>"
+	noun = "[This.GetSpeciesName]"
+}
+
+### Hive Imperial Cult
+
+# Hive Imperial Cult 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_hive_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.hive_cult.1"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <hive_imperial_cult>"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_hive_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.hive_cult.2"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <hive_imperial_cult>"
+	# Empire of Earth
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_hive_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.imp_cult.3"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <hive_imperial_cult>"
+	# Great Human Empire
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 2
+			has_government = "gov_hive_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.imp_cult.4"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <hive_imperial_cult>"
+	# Great Human Empire
+}
+
+
+### Imperial Materialist
+
+# Imperial Materialist 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_hive_plutocracy"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.hive_corp.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <hive_oligarchic_corp>"
+}

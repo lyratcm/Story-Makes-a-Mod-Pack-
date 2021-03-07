@@ -1,0 +1,194 @@
+#_[类型]
+#_[可定位条件]
+#_[SSTM_TRGR]
+#_[PLNT_TRGR]
+#_[HOLDER_TRGR]
+#_[SSTM_TRGR_mod_debug]
+
+
+
+
+###_[类型]	###########################################################################
+z_lctr_trgr_mega_type_gate = {
+	OR = {
+		is_megastructure_type = gateway_0
+		is_megastructure_type = gateway_final
+		is_megastructure_type = gateway_restored
+		is_megastructure_type = gateway_ruined
+	}
+}
+
+
+
+
+###_[可定位条件]	###########################################################################
+
+#_intel_level	条件						可用信息			<国家对某星系>
+#	[none]		处在黑雾中					non
+#	[low]		不在黑雾中					星系(星球是灰的)
+#	[medium]	传感器曾有视野				星系/星球类型
+#	[high]		传感器当前有视野			星系/星球类型/舰队
+#	[full]		传感器当前有视野+勘探过		星系/星球类型/舰队/星球细节
+
+#_[mega]		巨建
+#_relic			[z_lctr_r_adv_sensor]
+z_lctr_trgr_mega = {
+	OR = {
+		#_高级传感器-不在黑雾中
+		root = { has_relic = z_lctr_r_adv_sensor }
+		#_信息>low
+		root = { intel_level = { level > low system = prev.solar_system } }		#_mega含有单一scope sstm
+	#	star = { solar_system = { is_surveyed = { who = root status = yes } } }	#_this=sstm
+	}
+}
+
+#_[plnt]		星球类型
+z_lctr_trgr_plnt_pc = {
+	OR = {
+		#_高级传感器-不在黑雾中
+		root = { has_relic = z_lctr_r_adv_sensor }
+		#_信息>low
+		root = { intel_level = { level > low system = prev.solar_system } }
+	}
+}
+
+#_[sstm]		星系
+z_lctr_trgr_sstm = {
+	OR = {
+		#_高级传感器-不在黑雾中
+		root = { has_relic = z_lctr_r_adv_sensor }
+		#_信息>low
+		root = { intel_level = { level > low system = prev } }
+	}
+}
+
+#_[plnt]		资源/地块
+z_lctr_trgr_plnt_res = {
+	OR = {
+		#_探索过
+		is_surveyed = { who = root status = yes }
+		#_高级传感器-全图
+		root = { has_relic = z_lctr_r_adv_sensor }
+	}
+}
+
+
+
+
+###_[SSTM_TRGR]	###########################################################################
+#_飞地
+z_lctr_trgr_sstm_flt_enclave = {
+	any_fleet_in_system = { is_ship_size = enclave_station }
+}
+
+#_利维坦_v
+z_lctr_trgr_sstm_flt_guardian = {
+	any_fleet_in_system = {
+		OR = {
+			is_ship_size = space_dragon_red
+			is_ship_size = space_dragon_baby
+			is_ship_size = space_dragon_blue
+			is_ship_size = stellarite
+			is_ship_size = sphere
+			is_ship_size = dimensional_horror
+			is_ship_size = npc_warship_01
+		#	is_ship_size = homebase
+		#	is_ship_size = hive_asteroid
+			is_ship_size = wraith_01_blue
+			is_ship_size = wraith_01_red
+			is_ship_size = wraith_01_yellow
+			is_ship_size = leviathan_01_scavenger_bot
+			is_ship_size = leviathan_01_elder_tiyanki
+			is_ship_size = leviathan_01_voidspawn
+			is_ship_size = enigmatic_cache
+		#	is_ship_size = nanite_space_dragon_baby
+		#	is_ship_size = space_amoeba_centenarian
+		}
+	}
+}
+
+#_红甲
+z_lctr_trgr_sstm_flt_crystal = {
+	any_fleet_in_system = { is_ship_size = crystal_station_large }
+}
+
+
+
+
+###_[PLNT_TRGR]	###########################################################################
+#_原始
+z_lctr_trgr_plnt_owner_primitive = {
+	exists = controller
+	controller = { is_primitive = yes }
+}
+
+#_母星
+z_lctr_trgr_plnt_capital_normal = {
+	is_capital = yes
+	owner = {
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire	#_ZOFE
+			is_country_type = lost_empire		#_ZOFE
+			is_country_type = default_ev
+		}
+	}
+}
+
+#_母星_堕落
+z_lctr_trgr_plnt_capital_fallen = {
+	is_capital = yes
+	owner = {
+		OR = {
+			is_country_type = fallen_empire
+			is_country_type = ascended_empire
+			is_country_type = original_empire				#_SOFE
+			is_country_type = original_empire_passive		#_SOFE
+			is_country_type = original_empire_active		#_SOFE
+			is_country_type = eternal_empire				#_EE
+			is_country_type = kuat_fallen_empire			#_kaut
+			is_country_type = kuat_awakened_fallen_empire	#_kaut
+		}
+	}
+}
+
+#_圣地
+z_lctr_trgr_plnt_holy_planet = {
+	has_modifier = "holy_planet"
+}
+
+
+
+
+#_[HOLDER_TRGR]
+
+
+
+
+###_[SSTM_TRGR_mod_debug]	###########################################################################
+z_lctr_trgr_sstm_mod_debug = {
+	OR = {
+	#	any_system_planet = {
+	#		OR = {
+	#			#_gpm
+	#			has_planet_flag = gpm_has_planet_rings
+	#			has_planet_flag = has_spaceship_graveyard_ambient_objects
+	#			has_modifier = gpm_precursor_energy_grid
+	#			has_modifier = gpm_precursor_shipyards
+	#			has_modifier = gpm_precursor_planetary_shield
+	#		}
+	#	}
+	
+		#_mem
+	#	has_star_flag = mem_sadrell_homeworld_system
+		any_system_ambient_object = {
+			OR = {
+				has_ambient_object_flag = mem_planetary_shield_01
+				has_ambient_object_flag = mem_planetary_shield_02
+				has_ambient_object_flag = mem_planetary_shield_03
+				has_ambient_object_flag = mem_planetary_shield_worlds
+			}
+		}
+	}
+}
+

@@ -1,0 +1,23 @@
+civic_master_computer_surveillance = {
+    description = civic_master_computer_surveillance_effect
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+
+    possible = {
+        ethics = {
+            NOT = { value = ethic_fanatic_egalitarian }
+        }
+        # civics = {
+        #     NOT = { value = civic_master_computer_wargamer }
+        # }
+    }
+
+    modifier = {
+        planet_stability_add = 5
+    }
+
+    random_weight = { base = 5 }
+}

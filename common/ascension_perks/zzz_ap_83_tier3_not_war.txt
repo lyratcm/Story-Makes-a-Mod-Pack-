@@ -1,0 +1,42 @@
+ap_esap_ct3_not_war = {
+	on_enabled = {
+		#custom_tooltip = ap_esap_ct3_not_war_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_war_req_1"
+			has_ascension_perk = ap_esap_ct2_expansion_diplomacy
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_war_req_2"
+			has_ascension_perk = ap_esap_ct2_finance_infrastructure
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_war_req_3"
+			Not = {
+				has_ascension_perk = ap_esap_ct1_war
+			}
+		}
+	}
+
+	modifier = {
+		pop_growth_speed = 0.20
+		country_starbase_influence_cost_mult = -0.15
+		all_technology_research_speed = 0.15	
+		planet_jobs_produces_mult = 0.10
+		ships_upkeep_mult = 0.25
+		armies_upkeep_mult = 0.25
+		country_naval_cap_mult = -0.25
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct3_not_war
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

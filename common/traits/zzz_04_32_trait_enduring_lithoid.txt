@@ -1,0 +1,17 @@
+trait_enduring_lithoid = {
+    cost = 1
+    icon = "gfx/interface/icons/traits/trait_enduring.dds"
+    potential_crossbreeding_chance = 1.0
+    modifier = {
+        leader_age = 40
+    }
+    opposites = {
+        "trait_lithoid_eternal"
+        "trait_venerable_lithoid"
+        "trait_fleeting_lithoid"
+        "trait_ageless"
+    }
+    allowed_archetypes = {
+        LITHOID
+    }
+}

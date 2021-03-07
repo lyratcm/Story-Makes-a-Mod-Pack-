@@ -1,0 +1,47 @@
+on_game_start = {
+	events = {
+		exponentgrowth.0
+	}
+}
+
+on_colonized = {
+	events = {
+		exponentgrowth.4
+	}
+}
+
+on_pop_grown = {
+	events = {
+		exponentgrowth.4
+	}
+}
+
+on_pop_assembled = {
+	events = {
+		exponentgrowth.4
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		exponentgrowth.0
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		exponentgrowth.0
+	}
+}
+
+on_district_complete = {
+	events = {
+		exponentgrowth.4
+	}
+}
+
+on_building_complete = {
+	events = {
+		exponentgrowth.4
+	}
+}

@@ -1,0 +1,13 @@
+civic_master_computer_logistitian = {
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+    modifier = {
+        planet_pops_upkeep_mult = -0.20
+    }
+    random_weight = {
+        base = 5
+    }
+}

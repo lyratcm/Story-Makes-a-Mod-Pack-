@@ -1,0 +1,279 @@
+############################
+#
+# Refugee Events
+#
+# Written by Martin Anward
+#
+############################
+
+namespace = refugees
+
+# Refugees Arrive (new species)
+pop_event = {
+	id = refugees.1
+	title = refugees.1.name	
+	picture = GFX_evt_unknown_ships
+	location = root
+	
+	desc = {
+		text = refugees.1.desc.1
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}
+			event_target:RefugeeEscapedFrom = {
+				root = {
+					OR = {
+						NOT = { has_citizenship_type = { type = citizenship_purge country = prev } }
+						has_purge_type = { type = purge_displacement country = prev }
+					}
+					NOR = {
+						has_pop_flag = pop_escaped_war
+						has_pop_flag = pop_escaped_starvation
+						has_pop_flag = pop_escaped_slavery
+						has_pop_flag = pop_escaped_poverty
+						has_pop_flag = pop_escaped_religious
+						has_pop_flag = pop_escaped_doomsday
+					}
+				}
+			}
+		}
+	}
+	
+	# Modded Descriptions
+	desc = {
+		text = refugees.1.desc.war
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}
+			has_pop_flag = pop_escaped_war
+		}
+	}
+	desc = {
+		text = refugees.1.desc.starve
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}
+			has_pop_flag = pop_escaped_starvation
+		}
+	}
+	desc = {
+		text = refugees.1.desc.slave
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}
+			has_pop_flag = pop_escaped_slavery
+		}
+	}
+	desc = {
+		text = refugees.1.desc.poverty
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}
+			has_pop_flag = pop_escaped_poverty
+		}
+	}
+	desc = {
+		text = refugees.1.desc.religion
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}
+			has_pop_flag = pop_escaped_religious
+		}
+	}
+	desc = {
+		text = refugees.1.desc.doomsday
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}
+			has_pop_flag = pop_escaped_doomsday
+		}
+	}
+	
+	desc = {
+		text = refugees.1.desc.2
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}		
+			event_target:RefugeeEscapedFrom = { 
+				root = {
+					has_citizenship_type = { type = citizenship_purge country = prev }
+					NOT = { has_purge_type = { type = purge_displacement country = prev } }
+					prev = { is_gestalt = no }
+				}
+			}
+		}
+	}
+	desc = {
+		text = refugees.1.desc.2.b
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}		
+			event_target:RefugeeEscapedFrom = { 
+				root = {
+					has_citizenship_type = { type = citizenship_purge country = prev }
+					NOT = { has_purge_type = { type = purge_displacement country = prev } }
+					prev = { is_gestalt = yes }
+				}
+			}
+		}
+	}		
+	desc = {
+		text = refugees.1.desc.3
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = yes
+			}		
+		}
+	}
+	desc = {
+		text = refugees.1.desc.presapient
+		exclusive_trigger = {
+			is_robot_pop = no
+			is_sapient = no		
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = refugees.1.a
+		hidden_effect = {
+			remove_pop_flag = pop_escaped_war
+			remove_pop_flag = pop_escaped_starvation
+			remove_pop_flag = pop_escaped_slavery
+			remove_pop_flag = pop_escaped_poverty
+			remove_pop_flag = pop_escaped_religious
+			remove_pop_flag = pop_escaped_doomsday
+		}
+	}
+	option = {
+		name = refugees.1.a.presapient
+		exclusive_trigger = {
+			is_robot_pop = no
+			is_sapient = no		
+		}
+		hidden_effect = {
+			remove_pop_flag = pop_escaped_war
+			remove_pop_flag = pop_escaped_starvation
+			remove_pop_flag = pop_escaped_slavery
+			remove_pop_flag = pop_escaped_poverty
+			remove_pop_flag = pop_escaped_religious
+			remove_pop_flag = pop_escaped_doomsday
+		}
+	}
+}
+
+# Refugees Arrive (species already present in empire)
+pop_event = {
+	id = refugees.2
+	title = OK
+	desc = OK
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		remove_pop_flag = pop_escaped_war
+		remove_pop_flag = pop_escaped_starvation
+		remove_pop_flag = pop_escaped_slavery
+		remove_pop_flag = pop_escaped_poverty
+		remove_pop_flag = pop_escaped_religious
+		remove_pop_flag = pop_escaped_doomsday
+		create_message = {
+			type = MESSAGE_TYPE_REFUGEES_ARRIVED
+			localization = MESSAGE_REFUGEES_ARRIVED
+			days = 30
+			target = event_target:RefugeeEscapedPlanet # the Go To
+			variable = {
+				type = name
+				localization = SPECIES
+				scope = root.species
+			}
+			variable = {
+				type = name
+				localization = PLANET
+				scope = root.planet
+			}
+			variable = {
+				type = name
+				localization = COUNTRY
+				scope = event_target:RefugeeEscapedFrom
+			}
+		}	
+
+	}
+}
+
+# Pop is made refugee (triggered)
+planet_event = {
+	id = refugees.3
+	title = OK
+	desc = OK
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		fromfrom = { pop_event = { id = refugees.4 } }
+	}
+}
+
+# Pop is made refugee (triggered)
+pop_event = {
+	id = refugees.4
+	title = OK
+	desc = OK
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { is_valid_refugee_pop = yes }
+			save_event_target_as = refugee_pop #Must be saved for refugee_pop_effect to work
+			refugee_pop_effect = yes
+		}		
+		else = { kill_pop = yes }
+	}
+}
+
+# Pop escapes crisis, fleeing to another empire
+planet_event = {
+	id = refugees.5
+	title = OK
+	desc = OK
+	
+	hide_window = yes
+	
+	pre_triggers = {
+		has_owner = yes
+	}
+	
+	trigger = {
+		exists = owner
+		owner = { OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire } }
+		is_controlled_by = owner
+		is_under_crisis_bombardment = yes	
+	}
+	
+	mean_time_to_happen = {
+		months = 3		
+	}
+	
+	immediate = {
+		random_pop = {
+			limit = { is_valid_refugee_pop = yes }
+			save_event_target_as = refugee_pop #Must be saved for refugee_pop_effect to work
+			refugee_pop_effect = yes
+		}		
+	}
+}

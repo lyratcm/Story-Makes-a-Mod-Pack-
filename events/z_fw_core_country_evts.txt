@@ -1,0 +1,358 @@
+###_infinite stellaris core-国家事件	####################################################################
+#_与国家有关的核心功能
+namespace = z_fw_core_country
+
+
+###_外部联动	######################################
+#_<z_performance2>
+	#_[z_fw_core_country.20]=debug			初始化和清理额外modifier
+	#_[z_fw_core_country.2]=添加deposit		根据var添加deposit
+
+
+
+
+###_引用
+#_global_flag	[z_fw_plnt_capacity_disabled]				星球人口限制
+
+
+
+
+###_xxxxx	[id=1]	###############################################################################
+
+
+
+
+
+
+
+
+###_星球人口限制	[id=2]	######################################################################
+
+#_CORE	星球人口限制	[debug]	[id=20]
+#_global_flag	[z_fw_plnt_capacity_disabled]禁用人口上限	等同[z_pr_installed]
+country_event = {
+	id = z_fw_core_country.20
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {#_存在[产业革命],禁用[星球人口限制]
+			has_global_flag = z_fw_plnt_capacity_disabled
+			has_global_flag = z_pr_installed
+		}
+		OR = {
+			is_country_type = default
+			is_country_type = prikki					#_远星
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+			is_country_type = ascended_empire			#_ZOFE
+			is_country_type = lost_empire				#_ZOFE
+			is_country_type = original_empire			#_SOFE
+			is_country_type = original_empire_passive	#_SOFE
+			is_country_type = original_empire_active	#_SOFE
+		}
+	}
+	immediate = {
+		every_owned_planet = {
+			limit = { is_colony = yes }		#_必须是colony
+			###_debug
+			z_fw_eft_plnt_debug_pop_cap = yes	#_初始化
+		}
+	}
+}
+
+#_[引用触发]	星球人口限制---添加deposit	[id=2]
+#_global_flag	[z_fw_plnt_capacity_disabled]禁用人口上限	等同[z_pr_installed]
+#_plnt_flag		[z_fw_flg_plnt_pop_cap_ignore]星球忽略
+country_event = {
+	id = z_fw_core_country.2
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		NOR = {#_存在[产业革命],禁用[星球人口限制]
+			has_global_flag = z_fw_plnt_capacity_disabled
+			has_global_flag = z_pr_installed
+		}
+		OR = {
+			is_country_type = default
+			is_country_type = prikki					#_远星
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+			is_country_type = ascended_empire			#_ZOFE
+			is_country_type = lost_empire				#_ZOFE
+			is_country_type = original_empire			#_SOFE
+			is_country_type = original_empire_passive	#_SOFE
+			is_country_type = original_empire_active	#_SOFE
+		}
+	}
+
+	immediate = {
+		every_owned_planet = {
+			limit = { is_colony = yes }		#_必须是colony
+			###_debug
+			z_fw_eft_plnt_debug_pop_cap = yes	#_初始化
+			
+			###_[星球size变量]	###########################################################################
+			if = {
+				limit = { planet_size < 10 }
+				switch = {
+					trigger = planet_size
+					1 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 1 } }
+					2 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 2 } }
+					3 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 3 } }
+					4 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 4 } }
+					5 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 5 } }
+					6 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 6 } }
+					7 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 7 } }
+					8 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 8 } }
+					9 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 9 } }
+				}
+			}
+			else_if = {
+				limit = { planet_size >= 10 planet_size <= 35 }
+				switch = {
+					trigger = planet_size
+					10 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 10 } }
+					11 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 11 } }
+					12 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 12 } }
+					13 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 13 } }
+					14 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 14 } }
+					15 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 15 } }
+					16 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 16 } }
+					17 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 17 } }
+					18 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 18 } }
+					19 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 19 } }
+					20 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 20 } }
+					21 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 21 } }
+					22 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 22 } }
+					23 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 23 } }
+					24 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 24 } }
+					25 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 25 } }
+					26 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 26 } }
+					27 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 27 } }
+					28 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 28 } }
+					29 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 29 } }
+					30 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 30 } }
+					31 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 31 } }
+					32 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 32 } }
+					33 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 33 } }
+					34 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 34 } }
+					35 = { set_variable = { which = z_fw_var_plnt_pop_cap value = 35 } }
+				}
+			}
+			else_if = {
+				limit = { planet_size > 35 }
+				set_variable = { which = z_fw_var_plnt_pop_cap value = 35 }
+			}
+			###_special_pc
+			switch = {
+				trigger = is_planet_class
+				pc_city = { change_variable = { which = z_fw_var_plnt_pop_cap value = 2 } }						#_理想城
+				pc_gaia = { change_variable = { which = z_fw_var_plnt_pop_cap value = 3 } }						#_盖娅
+				pc_hive = { change_variable = { which = z_fw_var_plnt_pop_cap value = 4 } }
+				pc_machine = { change_variable = { which = z_fw_var_plnt_pop_cap value = 4 } }
+				#pc_habitat = { change_variable = { which = z_fw_var_plnt_pop_cap value = -3 } }				#_轨道栖息地
+				pc_ringworld_habitable = { set_variable = { which = z_fw_var_plnt_pop_cap value = 34 } }		#_环
+				pc_goodman_gaia_world = { set_variable = { which = z_fw_var_plnt_pop_cap value = 28 } }			#_SOFE
+				pc_golden_world_habitable = { set_variable = { which = z_fw_var_plnt_pop_cap value = 28 } }		#_SOFE
+				pc_golden_fortress = { set_variable = { which = z_fw_var_plnt_pop_cap value = 25 } }			#_SOFE
+				pc_omega_ringworld_habitable = { set_variable = { which = z_fw_var_plnt_pop_cap value = 30 } }	#_SOFE
+				pc_omega_ringworld_seam = { set_variable = { which = z_fw_var_plnt_pop_cap value = 30 } }		#_SOFE
+			}
+			###_deposit
+			#if = {
+			#	limit = {
+			#		OR = {
+			#			has_deposit = d_uisparadise_engine	#_UIS
+			#			has_deposit = d_uistime_engine		#_UIS
+			#		}
+			#	}
+			#	set_variable = { which = z_fw_var_plnt_pop_cap value = 34 }
+			#}
+			
+			###_国家修正
+			if = {#_蜂群帝国
+				limit = { owner = { is_hive_empire = yes } }
+				change_variable = { which = z_fw_var_plnt_pop_cap value = 2 }
+			}
+			else_if = {#_虚空居者
+				limit = { owner = { has_origin = origin_void_dwellers } }
+				change_variable = { which = z_fw_var_plnt_pop_cap value = 4 }	
+			}
+			###_平衡性调整
+			if = {#_+4
+				limit = { has_global_flag = z_fw_planet_cap_1 }
+				change_variable = { which = z_fw_var_plnt_pop_cap value = 4 }
+			}
+			else_if = {#_+8
+				limit = { has_global_flag = z_fw_planet_cap_2 }
+				change_variable = { which = z_fw_var_plnt_pop_cap value = 8 }
+			}
+			else_if = {#_+12
+				limit = { has_global_flag = z_fw_planet_cap_3 }
+				change_variable = { which = z_fw_var_plnt_pop_cap value = 12 }
+			}
+			else_if = {#_+16
+				limit = { has_global_flag = z_fw_planet_cap_4 }
+				change_variable = { which = z_fw_var_plnt_pop_cap value = 16 }
+			}
+			
+			###_[添加deposit]	###########################################################################
+			#_忽略星球
+			if = {
+				limit = { has_planet_flag = z_fw_flg_plnt_pop_cap_ignore }
+			}
+			#_巨型世界
+			else_if = {
+				limit = {
+					OR = {
+						is_planet_class = pc_birch				#_GIGA桦树世界
+						has_planet_flag = uis_ghroth_planet		#_UIS-格赫罗斯
+					}
+				}
+				add_deposit = z_capacity_2000
+			}
+			#_正常世界
+			else_if = {#_1-2
+				limit = { check_variable = { which = z_fw_var_plnt_pop_cap value < 3 } }
+				add_deposit = z_capacity_40
+			}
+			else_if = {#_3-4
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 3 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 5 }
+				}
+				add_deposit = z_capacity_55
+			}
+			else_if = {#_5 6
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 5 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 7 }
+				}
+				add_deposit = z_capacity_70
+			}
+			else_if = {#_7 8
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 7 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 9 }
+				}
+				add_deposit = z_capacity_85
+			}
+			else_if = {#_9 10
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 9 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 11 }
+				}
+				add_deposit = z_capacity_100
+			}
+			else_if = {#_11 12
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 11 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 13 }
+				}
+				add_deposit = z_capacity_115
+			}
+			else_if = {#_13 14
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 13 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 15 }
+				}
+				add_deposit = z_capacity_130
+			}
+			else_if = {#_15 16
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 15 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 17 }
+				}
+				add_deposit = z_capacity_145
+			}
+			else_if = {#_17 18
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 17 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 19 }
+				}
+				add_deposit = z_capacity_160
+			}
+			else_if = {#_19 20
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 19 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 21 }
+				}
+				add_deposit = z_capacity_175
+			}
+			else_if = {#_21 22
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 21 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 23 }
+				}
+				add_deposit = z_capacity_190
+			}
+			else_if = {#_23 24
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 23 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 25 }
+				}
+				add_deposit = z_capacity_205
+			}
+			else_if = {#_25 26
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 25 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 27 }
+				}
+				add_deposit = z_capacity_220
+			}
+			else_if = {#_27 28
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 27 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 29 }
+				}
+				add_deposit = z_capacity_235
+			}
+			else_if = {#_29 30
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 29 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 31 }
+				}
+				add_deposit = z_capacity_250
+			}
+			else_if = {#_31 32
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 31 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 33 }
+				}
+				add_deposit = z_capacity_265
+			}
+			else_if = {#_33 34
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 33 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 35 }
+				}
+				add_deposit = z_capacity_280
+			}
+			else_if = {#_35 36
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 35 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 37 }
+				}
+				add_deposit = z_capacity_295
+			}
+			else_if = {#_37 38
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 37 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 39 }
+				}
+				add_deposit = z_capacity_310
+			}
+			else_if = {#_39 40
+				limit = {
+					check_variable = { which = z_fw_var_plnt_pop_cap value >= 39 }
+					check_variable = { which = z_fw_var_plnt_pop_cap value < 41 }
+				}
+				add_deposit = z_capacity_325
+			}
+			else_if = {#_41+
+				limit = { check_variable = { which = z_fw_var_plnt_pop_cap value >= 41 } }
+				add_deposit = z_capacity_340
+			}
+		}
+	}
+}

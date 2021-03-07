@@ -1,0 +1,240 @@
+ethic_green = {
+	cost = 1
+	category = "grn"
+	category_value = 1
+
+    fanatic_variant = ethic_fanatic_green
+
+	tags = {
+		BLOCKERS_BENEFITS
+		WASTE_RECYCLING
+	}
+
+	country_modifier = {
+	    pop_environment_tolerance = 0.05
+		planet_pops_consumer_goods_upkeep_mult = -0.1
+		planet_structures_upkeep_mult = -0.1
+	}
+
+	random_weight = {
+		value = 100
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_GREEN_POS
+		trigger = {
+			OR = {
+				has_ethic = ethic_green
+				has_ethic = ethic_fanatic_green
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FACTION_POS
+		trigger = {
+			NOR = {
+				has_ethic = ethic_green
+				has_ethic = ethic_fanatic_green
+			}
+			has_faction = environmentalists
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_FACTION_POS
+		trigger = {
+			exists = ruler
+			ruler = { leader_of_faction = environmentalists }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_TRAIT_WORLD_SHAPER_POS
+		trigger = {
+			exists = ruler
+			ruler = { has_trait = "trait_ruler_world_shaper" }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CIVIC_POS
+		trigger = {
+			OR = {
+				has_valid_civic = civic_environmentalist
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_TRADITION_POS
+		trigger = {
+			OR = {
+				has_tradition = tr_environmentalism_adopt
+                has_tradition = tr_harmony_adopt
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_AGRARIAN_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					OR = {
+						has_trait = "trait_agrarian"
+					}
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CONSERVATIONAL_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_conservational"
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_ADAPTIVE_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					OR = {
+						has_trait = "trait_adaptive"
+						has_trait = "trait_extremely_adaptive"
+					}
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_WASTEFUL_NEG
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_wasteful"
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_INDUSTRIOUS_NEG
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_industrious"
+				}
+			}
+		}
+	}
+
+	# from = planet
+	country_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				is_country_type = default
+				has_ethic = ethic_green
+				has_ethic = ethic_fanatic_green
+				AND = {
+					is_country_type = primitive
+					capital_scope = {
+						has_observation_outpost = yes
+						observation_outpost = {
+							has_mission = native_indoctrination
+						}
+						observation_outpost_owner = {
+							OR = {
+								has_ethic = ethic_fanatic_green
+								has_ethic = ethic_green
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			NOR = {
+				has_ethic = ethic_green
+				has_ethic = ethic_fanatic_green
+			}
+			has_faction = environmentalists
+		}
+		modifier = {
+			factor = 1.5
+			is_country_type = default
+			exists = ruler
+			ruler = { leader_of_faction = environmentalists }
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_green
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_green
+		}
+		# Effects of indoctrination mission
+		modifier = {
+			factor = 10
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_fanatic_green }
+			}
+		}
+		modifier = {
+			factor = 5
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_green }
+			}
+		}
+	}
+
+	# from = planet
+	pop_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			has_trait = trait_hive_mind
+		}
+		modifier = {
+			factor = 1.2
+			has_trait = "trait_adaptive"
+		}
+		modifier = {
+			factor = 1.4
+			has_trait = "trait_extremely_adaptive"
+		}
+		modifier = {
+			factor = 1.75
+			has_trait = "trait_agrarian"
+		}
+		modifier = {
+			factor = 0.5
+			has_trait = "trait_industrious"
+		}
+		modifier = {
+			factor = 0.75
+			has_trait = "trait_wasteful"
+		}
+	}
+}

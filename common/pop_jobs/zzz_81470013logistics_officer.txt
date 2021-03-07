@@ -1,0 +1,261 @@
+logistics_officer = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_autochthon_monument
+    clothes_texture_index = 3
+    icon = manager
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        specialist_job_check_trigger = yes
+    }
+    planet_modifier = {
+        trade_value_add = 2
+    }
+    country_modifier = {
+        country_naval_cap_add = 2
+    }
+    triggered_country_modifier = {
+        potential = {
+            planet = {
+                exists = owner
+                owner = {
+                    has_technology = "tech_ground_defense_planning"
+                }
+            }
+        }
+        modifier = {
+            country_naval_cap_add = 2
+        }
+    }
+    triggered_country_modifier = {
+        potential = {
+            planet = {
+                exists = owner
+                owner = {
+                    has_technology = "tech_ground_defense_planning_2"
+                }
+            }
+        }
+        modifier = {
+            country_naval_cap_add = 2
+        }
+    }
+    pop_modifier = {
+        pop_defense_armies_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                any_pop = {
+                    has_very_high_living_standard_type = yes
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 0.33
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                NOT = {
+                    any_pop = {
+                        has_very_high_living_standard_type = yes
+                    }
+                }
+                any_pop = {
+                    OR = {
+                        has_high_living_standard_type = yes
+                        has_academic_living_standard_type = yes
+                    }
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 0.25
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                NOT = {
+                    any_pop = {
+                        has_very_high_living_standard_type = yes
+                        has_high_living_standard_type = yes
+                        has_academic_living_standard_type = yes
+                    }
+                }
+                any_pop = {
+                    has_shared_burden_living_standard_type = yes
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 0.1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_thrifty
+                has_trait = trait_thrifty_synth
+            }
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_nuumismatic_administration
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+                has_trait = trait_robust
+            }
+        }
+        modifier = {
+            trade_value_add = 0.1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_ageless
+        }
+        modifier = {
+            trade_value_add = 0.2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_sleepless
+        }
+        modifier = {
+            trade_value_add = 0.5
+        }
+    }
+    resources = {
+        category = planet_managers
+        produces = {
+            unity = 4
+            society_research = 4
+        }
+        upkeep = {
+            alloys = 1
+            consumer_goods = 1
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            factor = 1.1
+            has_trait = trait_clever
+        }
+        modifier = {
+            factor = 0.2
+            has_citizenship_rights = no
+            NOT = {
+                has_trait = trait_mechanical
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_robot_propaganda_machines
+            OR = {
+                is_non_sapient_robot = yes
+                is_shackled_robot = yes
+            }
+        }
+        modifier = {
+            factor = 3
+            has_trait = trait_brainslug
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_presapient_natural_intellectuals
+                has_trait = trait_mem_surveyor_freebotomites
+                has_trait = mem_ashes_survivors
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_erudite
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robot_propaganda_machines
+                has_trait = trait_traditional
+            }
+        }
+        modifier = {
+            factor = 0.5
+            has_trait = trait_quarrelsome
+        }
+        modifier = {
+            factor = 0.1
+            can_take_servant_job = yes
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_natural_sociologists
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_thrifty
+                has_trait = trait_thrifty_synth
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_nuumismatic_administration
+        }
+        modifier = {
+            factor = 1.5
+            has_job = logistics_officer
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 2
+            is_unemployed = yes
+            is_pop_category = specialist
+        }
+        modifier = {
+            factor = 0.01
+            has_living_standard = {
+                type = living_standard_chemical_bliss
+            }
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_necrophage
+        }
+    }
+}

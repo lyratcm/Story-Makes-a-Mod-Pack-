@@ -1,0 +1,23 @@
+civic_sophisticated_communication = {
+    potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	modification = no
+	modifier = {
+		country_admin_cap_mult = -0.25
+		empire_size_penalty_mult = 0.50
+		planet_pops_society_research_produces_add = 1
+		planet_pops_unity_produces_add = 1
+	}
+}

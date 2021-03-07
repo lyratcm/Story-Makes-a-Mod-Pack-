@@ -1,0 +1,51 @@
+guiTypes = {
+    containerWindowType = {
+        name = "single_resource_entry"
+        size = {
+            width = 100
+            height = 28
+        }
+        background = {
+            name = "background"
+            spriteType = "GFX_ui_topbar_bg_tile"
+            clicksound = interface
+        }
+        containerWindowType = {
+            name = "background_notrans"
+            position = {
+                x = 2
+                y = 2
+            }
+            size = {
+                width = 96
+                height = 24
+            }
+            background = {
+                name = "background_notrans"
+                spriteType = "GFX_tiles_frame_notrans"
+                alwaysTransparent = yes
+            }
+        }
+        iconType = {
+            name = "icon"
+            spriteType = "GFX_resource_consumer_goods"
+            position = {
+                x = 4
+                y = 5
+            }
+            alwaysTransparent = yes
+        }
+        instantTextBoxType = {
+            name = "amount"
+            font = "cg_16b"
+            position = {
+                x = 25
+                y = 6
+            }
+            maxWidth = 70
+            maxHeight = 16
+            text = "0 / 0"
+            alwaysTransparent = yes
+        }
+    }
+}

@@ -1,0 +1,26 @@
+trait_general_star_paladins2 = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_general_star_paladins.dds"
+    modifier = {
+        army_morale = 0.25
+        army_collateral_damage_mult = -0.75
+    }
+    leader_trait = {
+        general
+    }
+    leader_class = {
+        general
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_presapient_proles
+        }
+    }
+    opposites = {
+        trait_general_star_paladins
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

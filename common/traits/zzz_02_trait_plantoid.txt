@@ -1,0 +1,26 @@
+trait_plantoid = {
+    cost = 1
+    potential_crossbreeding_chance = 0
+    sorting_priority = 20
+    initial = no
+    randomized = no
+    modification = no
+    forced_happiness = no
+    immortal_leaders = no
+    custom_tooltip = TRAIT_PLANTOID_EFFECT
+    modifier = {
+        pc_ocean_habitability = -0.2
+        pc_tropical_habitability = -0.1
+        pc_continental_habitability = -0.2
+        pc_arctic_habitability = -0.3
+        pc_tundra_habitability = -0.3
+        pc_alpine_habitability = -0.3
+        pc_desert_habitability = -0.3
+        pc_arid_habitability = -0.3
+        pc_savannah_habitability = -0.3
+        planet_pops_food_upkeep_mult = -0.7
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+}

@@ -1,0 +1,30 @@
+###_z mm framework --- star classes	##########################################################################
+
+# Nova 1
+#z_sc_nova = {
+#	class 			= z_nova
+#	planet			= { key = z_pc_nova }
+#	spawn_odds 		= 1.2
+#	num_planets 	= { min = 1 max = 4 }
+#
+#	icon_scale		= 1.65
+#	
+#	pc_continental 	= { spawn_odds = 0.0 }
+#	pc_desert		= { spawn_odds = 0.1 }
+#	pc_tropical		= { spawn_odds = 0.0 }
+#	pc_arid 		= { spawn_odds = 0.1 }
+#	pc_ocean		= { spawn_odds = 0.0 }
+#	pc_tundra		= { spawn_odds = 0.0 }
+#	pc_arctic		= { spawn_odds = 0.0 }
+#	pc_alpine		= { spawn_odds = 0.0 }
+#	pc_savannah		= { spawn_odds = 0.0 }
+#	pc_gaia			= { spawn_odds = 0.0 }
+#	
+#	is_environmental_hazard = yes
+#	modifier = {
+#		ship_weapon_range_mult = -0.25
+#		ship_fire_rate_mult = -0.25
+#		ship_evasion_mult = -0.50
+#		ship_speed_mult = 0.40
+#	}	
+#}

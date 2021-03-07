@@ -1,0 +1,75 @@
+decision_bastion_project = {
+	owned_planets_only = yes
+	sound = event_construction
+	icon = decision_bastion_project
+	
+	enactment_time = 2160
+	resources = {
+		category = decisions
+		cost = {
+			alloys = 4000
+			influence = 250
+		}
+	}
+	
+	potential = {
+		NOT = { is_planet_class = pc_habitat }
+		NOT = { owner = { has_technology = tech_habitat_1 } }
+		NOT = { solar_system = { has_star_flag = star_disaster } }
+		owner = { num_owned_planets = 1 }
+		OR = {
+			has_modifier = apocalypse
+			has_modifier = moon_collision
+			has_modifier = moon_fall
+			has_modifier = orbit_reduction
+			has_modifier = orbit_increase
+			has_modifier = volcanic_activity
+			has_modifier = secret_disaster
+			has_modifier = doomsday_1
+			has_modifier = doomsday_2
+			has_modifier = doomsday_3
+			has_modifier = doomsday_4
+			has_modifier = doomsday_5
+		}
+	}
+	
+	allow = {
+		is_controlled_by = owner
+		has_ground_combat = no
+		has_orbital_bombardment = no
+	}
+	
+	effect = {
+		custom_tooltip = decision_bastion_project_effect_desc
+		hidden_effect = {
+			
+			build_bastion_project = yes
+			
+			event_target:bastion_project = {
+				random_list = {
+					25 = { set_name = "NAME_Bastion" }
+					25 = { set_name = "NAME_Sentinel" }
+					25 = { set_name = "NAME_Spectator" }
+					25 = { set_name = "NAME_Witness" }
+				}
+			}
+			
+			owner = {
+				capital_scope = {
+					random_pop = {
+						resettle_pop = {
+							pop = this
+							planet = event_target:bastion_project
+						}
+					}
+					set_planet_flag = has_megastructure
+				}
+				country_event =  { id = newfrontiers_decision_event.18 days = 1 }
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

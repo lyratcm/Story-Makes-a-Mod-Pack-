@@ -1,0 +1,13 @@
+planet_districts_mining = {
+    parent = planet_districts
+    generate_add_modifiers = {
+        cost
+        upkeep
+        produces
+    }
+    generate_mult_modifiers = {
+        cost
+        upkeep
+        produces
+    }
+}

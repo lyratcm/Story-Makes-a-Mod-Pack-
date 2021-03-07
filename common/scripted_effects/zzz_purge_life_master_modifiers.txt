@@ -1,0 +1,62 @@
+purge_life_master_modifiers = {
+	if = {
+		limit = {
+			has_modifier = life_masters_1_trait
+		}
+		remove_modifier = life_masters_1_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_2_trait
+		}
+		remove_modifier = life_masters_2_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_3_trait
+		}
+		remove_modifier = life_masters_3_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_4_trait
+		}
+		remove_modifier = life_masters_4_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_5_trait
+		}
+		remove_modifier = life_masters_5_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_6_trait
+		}
+		remove_modifier = life_masters_6_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_7_trait
+		}
+		remove_modifier = life_masters_7_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_8_trait
+		}
+		remove_modifier = life_masters_8_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_9_trait
+		}
+		remove_modifier = life_masters_9_trait
+	}
+	if = {
+		limit = {
+			has_modifier = life_masters_10_trait
+		}
+		remove_modifier = life_masters_10_trait
+	}
+}

@@ -1,0 +1,13 @@
+# for civic "Wargamer" from the Master Computer authority
+on_leader_spawned = {
+	events = {
+		master_computer.6
+	}
+}
+
+# for civic 'Emergency Government'
+on_change_government = {
+	events = {
+		story.0
+	}
+}

@@ -1,0 +1,424 @@
+###_无尽群星-mapmode	#####################################################################
+
+###_舰队FP/10
+z_map_mode_fleet = {
+	icon = GFX_z_map_mode_fleet
+	enable_terra_incognita = yes
+	#shortcut = ""
+
+######
+	color = {#_白
+		value = hsv { 0 0 0 1 }
+		custom_tooltip = DIPLOMATIC_MAP_MODE_SAME_EMPIRE
+		condition = {
+			is_same_empire = FROM
+		}
+	}
+######pathetic/inferior/equivalent/superior/overwhelming
+	color = {#_蓝
+		value = hsv { 0.56 0.84 1 1 }
+		custom_tooltip = z_map_mode_fleet_negligible
+		condition = {
+			relative_power = { who = from category = fleet value < pathetic }
+		}
+	}
+	color = {#_青
+		value = hsv { 0.44 0.84 1 1 }
+		custom_tooltip = z_map_mode_fleet_pathetic
+		condition = {
+			relative_power = { who = from category = fleet value < inferior }
+		}
+	}
+	color = {#_绿
+		value = hsv { 0.32 0.84 1 1 }
+		custom_tooltip = z_map_mode_fleet_inferior
+		condition = {
+			relative_power = { who = from category = fleet value < equivalent }
+		}
+	}
+	color = {#_黄
+		value = hsv { 0.16 0.84 1 1 }
+		custom_tooltip = z_map_mode_fleet_equivalent
+		condition = {
+			relative_power = { who = from category = fleet value < superior }
+		}
+	}
+	color = {#_橙
+		value = hsv { 0.08 0.84 1 1 }
+		custom_tooltip = z_map_mode_fleet_superior
+		condition = {
+			relative_power = { who = from category = fleet value < overwhelming }
+		}
+	}
+	color = {#_红
+		value = hsv { 0.02 0.84 1 1 }
+		custom_tooltip = z_map_mode_fleet_overwhelming
+		condition = {
+			always = yes
+		}
+	}
+}
+
+###_科研对比
+z_map_mode_science = {
+	icon = GFX_z_map_mode_science
+	enable_terra_incognita = yes
+	#shortcut = ""
+
+	color = {
+		value = hsv { 0.32 0.9 1 1 }
+		custom_tooltip = DIPLOMATIC_MAP_MODE_SAME_EMPIRE
+		condition = {
+			is_same_empire = from
+		}
+	}
+###### more
+	color = {
+		value = hsv { 0.04 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_more_4
+		condition = {
+			tech_unlocked_ratio = {
+				who = from
+				ratio > 5
+			}
+		}
+	}
+	color = {
+		value = hsv { 0.08 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_more_3
+		condition = {
+			tech_unlocked_ratio = {
+				who = from
+				ratio > 3
+			}
+		}
+	}
+	color = {
+		value = hsv { 0.16 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_more_2
+		condition = {
+			tech_unlocked_ratio = {
+				who = from
+				ratio > 1.75
+			}
+		}
+	}	
+	color = {
+		value = hsv { 0.28 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_more_1
+		condition = {
+			tech_unlocked_ratio = {
+				who = from
+				ratio > 1.15
+			}
+		}
+	}
+###### equal
+	color = {
+		value = hsv { 0.32 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_equal
+		condition = {
+			tech_unlocked_ratio = {
+				who = from
+				ratio > 0.85
+			}
+		}
+	}
+###### less
+	color = {
+		value = hsv { 0.44 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_less_1
+		condition = {
+			tech_unlocked_ratio = {
+				who = from
+				ratio > 0.5
+			}
+		}
+	}	
+	color = {
+		value = hsv { 0.48 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_less_2
+		condition = {
+			tech_unlocked_ratio = {
+				who = from
+				ratio > 0.25
+			}
+		}
+	}
+	color = {
+		value = hsv { 0.52 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_less_3
+		condition = {
+			tech_unlocked_ratio = {
+				who = from
+				ratio > 0.1
+			}
+		}
+	}
+	color = {
+		value = hsv { 0.56 0.9 1 1 }
+		custom_tooltip = z_map_mode_science_less_4
+		condition = {
+			always = yes
+		}
+	}
+}
+
+###_遗珍
+z_map_mode_relic = {
+	icon = GFX_z_map_mode_relic
+	enable_terra_incognita = yes
+	#shortcut = ""
+######
+	color = {
+		value = hsv { 0.32 0.9 1 1 }
+		custom_tooltip = DIPLOMATIC_MAP_MODE_SAME_EMPIRE
+		condition = {
+			is_same_empire = FROM
+		}
+	}
+######
+	color = {#_无限宝石 蓝
+		value = hsv { 0.56 0.9 1 1 }
+		custom_tooltip = z_map_mode_relic_infinite
+		condition = {
+			OR = {
+				has_relic = r_power_stone
+				has_relic = r_time_stone
+				has_relic = r_reality_stone
+				has_relic = r_soul_stone
+				has_relic = r_mind_stone
+				has_relic = r_space_stone
+			}
+		}
+	}
+	color = {#_拥有特别的东西 青
+		value = hsv { 0.44 0.9 1 1 }
+		custom_tooltip = z_map_mode_relic_4
+		condition = {
+			OR = {
+				has_country_flag = z_fw_flg_cntr_r_hok_kogasa	#_有伞鼬
+				has_relic = z_fw_r_head_of_karyl	#_有臭鼬头
+			}
+		}
+	}
+	color = {#_遗珍 > 3 红
+		value = hsv { 0.04 0.9 1 1 }
+		custom_tooltip = z_map_mode_relic_3
+		condition = {
+			num_owned_relics >= 3
+		}
+	}
+	color = {#_遗珍 = 2 橙
+		value = hsv { 0.08 0.9 1 1 }
+		custom_tooltip = z_map_mode_relic_2
+		condition = {
+			num_owned_relics = 2
+		}
+	}
+	color = {#_遗珍 = 1 黄
+		value = hsv { 0.16 0.9 1 1 }
+		custom_tooltip = z_map_mode_relic_1
+		condition = {
+			num_owned_relics = 1
+		}
+	}
+######
+	color = {#_无
+		value = hsv { 0 0 0.5 1 }
+		custom_tooltip = z_map_mode_relic_none
+		condition = {
+			always = yes
+		}
+	}
+}
+
+###_巅峰
+z_map_mode_zenith = {
+	icon = GFX_z_map_mode_zenith
+	enable_terra_incognita = yes
+	#shortcut = ""
+######
+	color = {
+		value = hsv { 0.32 0.9 1 1 }
+		custom_tooltip = DIPLOMATIC_MAP_MODE_SAME_EMPIRE
+		condition = {
+			is_same_empire = FROM
+		}
+	}
+######
+	color = {#_觉醒 红
+		value = hsv { 0.04 0.9 1 1 }
+		custom_tooltip = z_map_mode_zenith_awakened
+		condition = {
+			is_country_type = awakened_fallen_empire
+		}
+	}
+	color = {#_堕落 黄
+		value = hsv { 0.16 0.9 1 1 }
+		custom_tooltip = z_map_mode_zenith_fallen
+		condition = {
+			is_country_type = fallen_empire
+		}
+	}
+	color = {#_巅峰 蓝
+		value = hsv { 0.56 0.9 1 1 }
+		custom_tooltip = z_map_mode_zenith_ascended
+		condition = {
+			is_country_type = ascended_empire
+		}
+	}
+	color = {#_失落 青色
+		value = hsv { 0.48 0.9 1 1 }
+		custom_tooltip = z_map_mode_zenith_lost
+		condition = {
+			is_country_type = lost_empire
+		}
+	}
+	color = {#_普通 白
+		value = hsv { 0 0 1 1 }
+		custom_tooltip = z_map_mode_zenith_default
+		condition = {
+			is_country_type = default
+		}
+	}
+}
+
+###_竞争
+z_map_mode_rivals = {
+	icon = GFX_z_map_mode_rivals
+	enable_terra_incognita = yes
+	#shortcut = ""
+######
+	color = {
+		value = hsv { 0.32 0.9 1 1 }
+		custom_tooltip = DIPLOMATIC_MAP_MODE_SAME_EMPIRE
+		condition = {
+			is_same_empire = FROM
+		}
+	}
+######
+	color = {
+		value = hsv { 0.16 0.9 1 1 }
+		custom_tooltip = z_map_mode_rivals_both
+		condition = {
+			FROM = { has_rival = PREV }
+			has_rival = FROM
+		}
+	} 
+	color = {#_我的宿敌
+		value = hsv { 0.56 0.9 1 1 }
+		custom_tooltip = z_map_mode_rivals_ours
+		condition = { 
+			FROM = { has_rival = PREV }
+		}
+	}
+	color = {#_宣我宿敌
+		value = hsv { 0.04 0.9 1 1 }
+		custom_tooltip = z_map_mode_rivals_their
+		condition = { 
+			has_rival = FROM
+		}
+	}
+######
+	color = {#_无
+		value = hsv { 0 0 0.5 1 }
+		custom_tooltip = z_map_mode_rivals_none
+		condition = {
+			always = yes
+		}
+	}
+}
+
+###_锁边
+z_map_mode_borders = {
+	icon = GFX_z_map_mode_borders
+	enable_terra_incognita = yes
+	#shortcut = ""
+######
+	color = {
+		value = hsv { 0.32 0.9 1 1 }
+		custom_tooltip = DIPLOMATIC_MAP_MODE_SAME_EMPIRE
+		condition = {
+			is_same_empire = FROM
+		}
+	}
+######
+	color = {#_互相锁边
+		value = hsv { 0.16 0.9 1 1 }
+		custom_tooltip = z_map_mode_borders_both
+		condition = {
+			FROM = { has_closed_borders = PREV }
+			has_closed_borders = FROM
+		}
+	} 
+	color = {#_我们对他们锁边
+		value = hsv { 0.56 0.9 1 1 }
+		custom_tooltip = z_map_mode_borders_ours
+		condition = { 
+			FROM = { has_closed_borders = PREV }
+		}
+	}
+	color = {#_他们对我们锁边
+		value = hsv { 0.04 0.9 1 1 }
+		custom_tooltip = z_map_mode_borders_their
+		condition = { 
+			has_closed_borders = FROM
+		}
+	}
+######
+	color = {#_互相通行
+		value = hsv { 0.32 0 0.5 1 }
+		custom_tooltip = z_map_mode_borders_none
+		condition = {
+			always = yes
+		}
+	}
+}
+
+###_宣称
+z_map_mode_claims = {
+	icon = GFX_z_map_mode_claims
+	enable_terra_incognita = yes
+	display_claims = yes
+	#shortcut = ""
+######
+	color = {
+		value = hsv { 0.32 0.9 1 1 }
+		custom_tooltip = DIPLOMATIC_MAP_MODE_SAME_EMPIRE
+		condition = {
+			is_same_empire = FROM
+		}
+	}
+######
+	color = {#_互相宣称
+		value = hsv { 0.16 0.9 1 1 }
+		custom_tooltip = z_map_mode_claims_both
+		condition = {
+			FROM = { has_claim = PREV }
+			has_claim = FROM
+		}
+	} 
+	color = {#_我们对他们宣称
+		value = hsv { 0.56 0.9 1 1 }
+		custom_tooltip = z_map_mode_claims_ours
+		condition = { 
+			FROM = { has_claim = PREV }
+		}
+	}
+	color = {#_对我们宣称
+		value = hsv { 0.04 0.9 1 1 }
+		custom_tooltip = z_map_mode_claims_their
+		condition = { 
+			has_claim = FROM
+		}
+	}
+######
+	color = {
+		value = hsv { 0 0 0.5 1 }
+		custom_tooltip = z_map_mode_claims_none
+		condition = {
+			always = yes
+		}
+	}
+}

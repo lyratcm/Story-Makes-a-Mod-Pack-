@@ -1,0 +1,34 @@
+GAPS_water_celebrant = {
+    category = specialist
+    condition_string = SPECIALIST_JOB_TRIGGER
+    building_icon = building_power_plant
+    clothes_texture_index = 2
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        specialist_job_check_trigger = yes
+        owner = {
+            is_gestalt = no
+        }
+    }
+    planet_modifier = {
+        planet_amenities_add = 2
+    }
+    resources = {
+        category = planet_jobs
+        produces = {
+            unity = 10
+        }
+        upkeep = {
+            sr_GAPS_water = 5
+        }
+    }
+    weight = {
+        weight = @specialist_job_weight
+        modifier = {
+            factor = 10
+            exists = owner
+        }
+    }
+}

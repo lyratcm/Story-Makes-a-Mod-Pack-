@@ -1,0 +1,6 @@
+trait_syncretic_equal = {
+    cost = -1
+    initial = no
+    randomized = no
+    modification = no
+}

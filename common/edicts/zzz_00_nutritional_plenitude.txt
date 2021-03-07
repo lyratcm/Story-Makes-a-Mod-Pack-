@@ -1,0 +1,71 @@
+@EdictPerpetual = -1
+nutritional_plenitude = {
+    length = @EdictPerpetual
+    icon = "GFX_edict_type_policy"
+    edict_cap_usage = 1
+    resources = {
+        category = edicts
+        cost = {
+            trigger = {
+                NOT = {
+                    has_edict = nutritional_plenitude
+                }
+            }
+            influence = 200
+        }
+        cost = {
+            trigger = {
+                has_edict = nutritional_plenitude
+            }
+            influence = 100
+        }
+    }
+    modifier = {
+        pop_growth_speed = 0.10
+        biological_pop_happiness = 0.05
+        lithoid_pop_happiness = 0.05
+        empire_size_pops_mult = 0.10
+        planet_pops_organics_food_upkeep_mult = 0.25
+        planet_pops_organics_minerals_upkeep_mult = 0.25
+    }
+    potential = {
+        NOR = {
+            has_ethic = ethic_gestalt_consciousness
+            has_ethic = ethic_fanatic_capitalism
+        }
+    }
+    allow = {
+        NOT = {
+            has_edict = food_rationing
+        }
+    }
+    prerequisites = {
+        "tech_gene_crops"
+    }
+    show_tech_unlock_if = {
+        is_gestalt = no
+    }
+    ai_weight = {
+        weight = @EdictHighPrio
+        modifier = {
+            factor = 0
+            ROOT = {
+                is_lithoid_empire = no
+                has_monthly_income = {
+                    resource = food
+                    value < 10
+                }
+            }
+        }
+        modifier = {
+            factor = 0
+            ROOT = {
+                is_lithoid_empire = yes
+                has_monthly_income = {
+                    resource = minerals
+                    value < 10
+                }
+            }
+        }
+    }
+}

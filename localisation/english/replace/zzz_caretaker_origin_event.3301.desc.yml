@@ -1,0 +1,2 @@
+﻿l_english:
+ caretaker_origin_event.3301.desc:1000 "A number of my wards have expressed desire to leave my care and go live with the rest of free [Root.GetSpeciesNamePlural] in §Y[Root.GetName]§!. Would you be willing to accept them as your citizens, [Root.GetRulerTitle] [Root.GetRulerName]?"

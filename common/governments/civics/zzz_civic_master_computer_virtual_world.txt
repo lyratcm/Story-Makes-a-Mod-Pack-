@@ -1,0 +1,65 @@
+civic_master_computer_virtual_world = {
+    description = civic_master_computer_virtual_world_effect
+    modification = no
+
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+
+    possible = {
+        ethics = {
+            NOR = {
+                text = civic_tooltip_not_authoritarian
+                value = ethic_authoritarian
+                value = ethic_fanatic_authoritarian
+            }
+            OR = {
+				text = civic_tooltip_pacifist
+				value = ethic_pacifist
+				value = ethic_fanatic_pacifist
+			}
+        }
+        civics = {
+            NOR = {
+                value = civic_master_computer_datavore
+                value = civic_master_computer_mm_integrator
+                value = civic_master_computer_purifier
+                value = civic_master_computer_wargamer
+            }
+        }
+    }
+
+    random_weight = { 
+        base = 5 
+        modifier = {
+            factor = 2
+            has_ethic = ethic_fanatic_materialist
+        }
+    }
+
+    modifier = {
+        text = civic_tooltip_master_computer_virtual_world
+        pop_amenities_usage_mult = 0.25
+        planet_jobs_energy_produces_mult = -0.25
+        planet_jobs_minerals_produces_mult = -0.25
+        planet_jobs_food_produces_mult = -0.25
+        planet_jobs_alloys_produces_mult = -0.25
+        planet_jobs_consumer_goods_produces_mult = 0.25
+        planet_jobs_unity_produces_mult = 0.25
+        planet_jobs_physics_research_produces_mult = 0.25
+        planet_jobs_society_research_produces_mult = 0.25
+        planet_jobs_engineering_research_produces_mult = 0.25
+        planet_jobs_influence_produces_mult = 0.25
+        planet_jobs_exotic_gases_produces_mult = -0.25
+        planet_jobs_rare_crystals_produces_mult = -0.25
+        planet_jobs_volatile_motes_produces_mult = -0.25
+        planet_jobs_sr_dark_matter_produces_mult = -0.25
+        planet_jobs_sr_living_metal_produces_mult = -0.25
+        planet_jobs_sr_zro_produces_mult = -0.25
+        planet_jobs_nanites_produces_mult = -0.25
+        planet_jobs_minor_artifacts_produces_mult = -0.25
+        trade_value_mult = 0.25
+    }
+}

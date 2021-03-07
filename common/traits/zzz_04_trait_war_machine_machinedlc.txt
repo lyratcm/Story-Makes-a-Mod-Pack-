@@ -1,0 +1,19 @@
+trait_war_machine_machinedlc = {
+    cost = 1
+    initial = no
+    randomized = no
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+        BIOMACHINE
+    }
+    modifier = {
+        army_damage_mult = 0.25
+    }
+    opposites = {
+        "trait_delicate"
+    }
+    species_potential_add = {
+        has_global_flag = xvcv_machinedlcmod_enabled
+    }
+}

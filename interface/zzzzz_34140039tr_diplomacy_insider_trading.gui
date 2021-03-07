@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_3 = 131
+    @y_2 = 125
+    positionType = {
+        name = "tr_diplomacy_insider_trading"
+        position = {
+            x = @x_3
+            y = @y_2
+        }
+    }
+}

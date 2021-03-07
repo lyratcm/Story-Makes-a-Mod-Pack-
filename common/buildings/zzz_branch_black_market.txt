@@ -1,0 +1,50 @@
+building_black_market = {
+	base_buildtime = 480
+	base_cap_amount = 1
+	icon = building_commercial_zone
+	
+	branch_office_building = yes
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_megacorp = yes
+			is_criminal_syndicate = yes
+			has_valid_civic = civic_megastore
+		}
+		owner = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+	}
+	
+	planet_modifier = {
+		planet_crime_add = 50
+		branch_office_value_mult = 0.10
+		trade_value_add = 5
+		job_smuggler_add = 2
+	}	
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 400
+			consumer_goods = 100
+		}
+		produces = {
+			energy = 12
+		}
+		upkeep = {
+			consumer_goods = 2
+		}
+	}
+	
+	ai_weight = {
+		weight = 250
+		modifier = {
+			factor = 3
+			num_pops >= 50
+		}
+	}
+}

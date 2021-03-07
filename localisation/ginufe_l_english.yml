@@ -1,0 +1,22 @@
+﻿l_english:
+
+ ####################################
+ # Species Classes
+ ####################################
+ 
+GINUFE:0 "Ginufeiian"
+ GINUFE_desc:1 "Species Class has no effect on your Empire, but certain Species may consider these species to be less alien than other Species Classes."
+ GINUFE_plural:0 "Ginufeiians"
+ GINUFE_insult_01:0 "scallywag"
+ GINUFE_insult_plural_01:0 "scallywags"
+ GINUFE_compliment_01:0 "hydra"
+ GINUFE_compliment_plural_01:0 "hydras"
+ GINUFE_spawn:0 "spawn"
+ GINUFE_spawn_plural:0 "spawn"
+ GINUFE_sound_01:0 "growling"
+ GINUFE_sound_02:0 "grunting"
+ GINUFE_sound_03:0 "shrieking"
+ GINUFE_sound_04:0 "shouting"
+ GINUFE_sound_05:0 "breathing"
+ GINUFE_organ:0 "liver"
+ GINUFE_mouth:0 "jaw"

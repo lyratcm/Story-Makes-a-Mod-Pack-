@@ -1,0 +1,199 @@
+est_fury = {
+
+	potential = {
+		has_swapped_tradition = tr_est_fury_adopt
+	}
+	
+	option = {
+		name = "est_fury_0"	
+		policy_flags = {
+			est_fury_0
+		}		
+		valid = {
+			custom_tooltip = "est_fury_policy_tooltip_0"
+			hidden_trigger = {
+				Not = {
+					has_policy_flag = est_fury_2
+					has_policy_flag = est_fury_3
+					has_policy_flag = est_fury_4
+					has_policy_flag = est_fury_5
+				}
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				country_event = {
+					id = est_liberty.6
+					days = 1
+				}
+			}
+		}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = "est_fury_1"	
+		policy_flags = {
+			est_fury_1
+		}		
+		valid = {
+			custom_tooltip = "est_fury_policy_tooltip_1"
+			hidden_trigger = {
+				Or = {
+					has_policy_flag = est_fury_0
+					has_policy_flag = est_fury_1
+					has_policy_flag = est_fury_2	
+				}
+				has_country_flag = 	flag_est_fury_max_level_1	
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				country_event = {
+					id = est_liberty.6
+					days = 1
+				}
+			}
+		}
+		AI_weight = {
+			factor = 5
+			modifier = {
+				factor = 0
+				num_owned_planets < 5
+			}
+		}
+	}
+	
+	option = {
+		name = "est_fury_2"	
+		policy_flags = {
+			est_fury_2
+		}		
+		valid = {
+			custom_tooltip = "est_fury_policy_tooltip_2"
+			hidden_trigger = {
+				Or = {
+					has_policy_flag = est_fury_1
+					has_policy_flag = est_fury_2
+					has_policy_flag = est_fury_3		
+				}
+				has_country_flag = 	flag_est_fury_max_level_2	
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				country_event = {
+					id = est_liberty.6
+					days = 1
+				}
+			}
+		}
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				num_owned_planets < 15
+			}
+		}
+	}
+	
+	option = {
+		name = "est_fury_3"	
+		policy_flags = {
+			est_fury_3
+		}		
+		valid = {
+			custom_tooltip = "est_fury_policy_tooltip_3"
+			hidden_trigger = {
+				Or = {
+					has_policy_flag = est_fury_2
+					has_policy_flag = est_fury_3
+					has_policy_flag = est_fury_4		
+				}
+				has_country_flag = 	flag_est_fury_max_level_3		
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				country_event = {
+					id = est_liberty.6
+					days = 1
+				}
+			}
+		}
+		AI_weight = {
+			factor = 15
+			modifier = {
+				factor = 0
+				num_owned_planets < 25
+			}
+		}
+	}
+	
+	option = {
+		name = "est_fury_4"	
+		policy_flags = {
+			est_fury_4
+		}		
+		valid = {
+			custom_tooltip = "est_fury_policy_tooltip_4"
+			hidden_trigger = {
+				Or = {
+					has_policy_flag = est_fury_3
+					has_policy_flag = est_fury_4	
+				}
+				has_country_flag = 	flag_est_fury_max_level_4			
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				country_event = {
+					id = est_liberty.6
+					days = 1
+				}
+			}
+		}
+		AI_weight = {
+			factor = 20
+			modifier = {
+				factor = 0
+				num_owned_planets < 40
+			}
+		}
+	}
+	
+	option = {
+		name = "est_fury_5"	
+		policy_flags = {
+			est_fury_5
+		}		
+		valid = {
+			custom_tooltip = "est_fury_policy_tooltip_5"
+			hidden_trigger = {
+				Or = {
+					has_policy_flag = est_fury_4
+					has_policy_flag = est_fury_5	
+				}
+				has_country_flag = 	flag_est_fury_max_level_5		
+			}
+		}
+		on_enabled = {
+			hidden_effect = {
+				country_event = {
+					id = est_liberty.6
+					days = 1
+				}
+			}
+		}
+		AI_weight = {
+			factor = 25
+			modifier = {
+				factor = 0
+				num_owned_planets < 100
+			}
+		}	
+	}
+}

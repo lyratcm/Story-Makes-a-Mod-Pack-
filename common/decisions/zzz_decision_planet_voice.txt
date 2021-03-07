@@ -1,0 +1,39 @@
+decision_planet_voice = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			unity = 200
+		}
+	}
+
+	potential = {
+		owner = { is_regular_empire = yes }
+		owner = { has_valid_civic = civic_keepers_harmony }
+	}
+
+
+	effect = {
+		custom_tooltip = edict_voice_planet_1.tooltip
+		planet_event = { id = voice_planet.1 }
+		}
+
+		ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			NOR = {
+			has_modifier = "dangerous_wildlife"
+			has_modifier = "bleak_planet"
+			has_modifier = "wild_storms"
+			has_modifier = "hazardous_weather"
+			has_modifier = "damaged_ecology"
+			has_modifier = "wasteland_radiation"
+			has_modifier = "irradiated_planet"
+			}
+		}
+	}
+}

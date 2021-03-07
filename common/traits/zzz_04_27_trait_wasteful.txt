@@ -1,0 +1,34 @@
+trait_wasteful = {
+    cost = -1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_conservational"
+        "trait_hedonists"
+        "trait_ecologists"
+        "trait_resourceful"
+        "trait_hive_mind"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_pops_consumer_goods_upkeep_mult = 0.10
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_wasteful@prev
+                }
+            }
+        }
+    }
+}

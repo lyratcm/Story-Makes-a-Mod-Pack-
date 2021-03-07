@@ -1,0 +1,6 @@
+leader_trait_governor_shroud_pact = {
+    cost = 0
+    modification = no
+    initial = no
+    randomized = no
+}

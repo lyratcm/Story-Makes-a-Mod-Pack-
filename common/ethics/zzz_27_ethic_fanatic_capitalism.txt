@@ -1,0 +1,29 @@
+ethic_fanatic_capitalism = {
+	cost = 2
+	category = "soc"
+	category_value = 4
+
+	regular_variant = ethic_capitalism
+
+	category_opposite = yes
+
+	use_for_pops = no
+
+	tags = {
+		ELITIST_ETHIC_ALLOWS_STRATIFIED
+		PROHIBITS_WELFARE
+		NO_CAMPAIGNS
+	}
+
+	country_modifier = {
+		trade_value_mult = 0.2
+		country_trade_fee = -0.10
+		species_leader_exp_gain = 0.2
+		pop_cat_worker_political_power = -1
+		planet_crime_mult = 0.25
+	}
+
+	random_weight = {
+		value = 150
+	}
+}

@@ -1,0 +1,51 @@
+@Plant_Cost = 300
+d_GAPS_Moss_Monuments = {
+    base_buildtime = 480
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        exists = owner
+        has_modifier = World_Modifier_GAPS_Moss_Monuments
+    }
+    potential = {
+        exists = owner
+        has_modifier = World_Modifier_GAPS_Moss_Monuments
+    }
+    conversion_ratio = 0
+    convert_to = {
+    }
+    resources = {
+        category = planet_GAPS_world_plants
+        cost = {
+            minerals = @Plant_Cost
+        }
+        upkeep = {
+            minerals = 50
+        }
+        produces = {
+            food = 75
+        }
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 100
+            free_jobs < 5
+            owner = {
+                has_resource = {
+                    type = food
+                    amount < 10
+                }
+                has_monthly_income = {
+                    resource = food
+                    value = 0
+                }
+            }
+        }
+    }
+    ai_resource_production = {
+        minerals = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

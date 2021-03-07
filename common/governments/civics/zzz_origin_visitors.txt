@@ -1,0 +1,31 @@
+origin_visitors = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origin_visitors.dds"
+    picture = GFX_origin_visitors
+    max_once_global = yes
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    modification = no
+    initializers = {
+        visitors_home
+    }
+    modifier = {
+        colony_start_num_pops_add = 4
+        country_starbase_capacity_add = 3
+    }
+    flags = {
+        custom_start_screen
+    }
+    random_weight = {
+        base = 1
+        modifier = {
+            factor = 0
+            has_global_flag = game_started
+        }
+    }
+    advanced_start = no
+    description = origin_tooltip_visitors_effects
+}

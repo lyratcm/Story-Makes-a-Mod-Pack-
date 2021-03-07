@@ -1,0 +1,16 @@
+civic_energy_supremacy = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        country_energy_produces_mult = 0.10
+        weapon_type_energy_weapon_damage_mult = 0.10
+        weapon_type_energy_weapon_fire_rate_mult = 0.10
+        country_minerals_produces_mult = -0.10
+    }
+}

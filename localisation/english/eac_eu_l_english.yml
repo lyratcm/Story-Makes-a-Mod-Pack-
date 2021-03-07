@@ -1,0 +1,32 @@
+﻿l_english:
+
+ ###################
+ # Decisions
+ ###################
+ decision_eac_empire_university:0 "The Galactic University"
+ decision_eac_empire_university_desc:1 "In order to meet our ambitions, we require the greatest minds to get us there. Only the Galactic University has the means to provide us this, for a cost."
+ decision_eac_empire_university_tooltip:0 "Chancellor Howard of the Galactic University is contacted."
+ 
+ # Static Modifiers
+ eac_waiting_for_psionic_leader:0 "Searching for a Psionic Leader"
+ eac_waiting_for_psionic_leader_desc:0 "Searching for a Psionic Leader" 
+
+
+ #############################
+ # Modded Trait
+ #############################
+ leader_trait_university_educated_admiral:0 "University Educated"
+ leader_trait_university_educated_admiral_desc:1 "This leader is a graduate from the prestegious Galactic University."
+
+ leader_trait_university_educated_general:0 "University Educated"
+ leader_trait_university_educated_general_desc:1 "This leader is a graduate from the prestegious Galactic University."
+
+ leader_trait_university_educated_scientist:0 "University Educated"
+ leader_trait_university_educated_scientist_desc:1 "This leader is a graduate from the prestegious Galactic University."
+
+ leader_trait_university_educated_governor:0 "University Educated"
+ leader_trait_university_educated_governor_desc:1 "This leader is a graduate from the prestegious Galactic University."
+
+ 
+ #before
+ #decision_eac_empire_university:0 "£eac_lightbulb The Galactic University"

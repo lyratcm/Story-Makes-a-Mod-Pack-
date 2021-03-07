@@ -1,0 +1,176 @@
+namespace = cara
+
+country_event = {
+	id = cara.2200
+	title = cara_fleet2_deals.title
+	desc = {
+		text = fleet2dealdesc1
+		trigger = {
+			has_country_flag = fleet2deal1
+		}
+	}
+	desc = {
+		text = fleet2dealdesc2
+		trigger = {
+			has_country_flag = fleet2deal2
+		}
+	}
+	desc = {
+		text = fleet2dealdesc3
+		trigger = {
+			has_country_flag = fleet2deal3
+		}
+	}
+	desc = {
+		text = fleet2dealdesc4
+		trigger = {
+			has_country_flag = fleet2deal4
+		}
+	}
+	desc = {
+		text = fleet2dealdesc5
+		trigger = {
+			has_country_flag = fleet2deal5
+		}
+	}
+	desc = {
+		text = fleet2dealdesc6
+		trigger = {
+			has_country_flag = fleet2deal6
+		}
+	}
+	desc = {
+		text = fleet2dealdesc7
+		trigger = {
+			has_country_flag = fleet2deal7
+		}
+	}
+	desc = {
+		text = fleet2dealdesc8
+		trigger = {
+			has_country_flag = fleet2deal8
+		}
+	}
+	desc = {
+		text = fleet2dealdesc9
+		trigger = {
+			has_country_flag = fleet2deal9
+		}
+	}
+	desc = {
+		text = fleet2dealdesc10
+		trigger = {
+			has_country_flag = fleet2deal10
+		}
+	}
+	desc = {
+		text = fleet2dealdesc11.a
+		trigger = {
+			has_country_flag = fleet2deal11.a
+		}
+	}
+	desc = {
+		text = fleet2dealdesc11.b
+		trigger = {
+			has_country_flag = fleet2deal11.b
+		}
+	}
+	desc = {
+		text = fleet2dealdesc11.c
+		trigger = {
+			has_country_flag = fleet2deal11.c
+		}
+	}
+	desc = {
+		text = fleet2dealdesc12
+		trigger = {
+			has_country_flag = fleet2deal12
+		}
+	}
+	desc = {
+		text = fleet2dealdesc13
+		trigger = {
+			has_country_flag = fleet2deal13
+		}
+	}
+	desc = {
+		text = fleet2dealdesc14
+		trigger = {
+			has_country_flag = fleet2deal14
+		}
+	}
+	desc = {
+		text = fleet2dealdesc15
+		trigger = {
+			has_country_flag = fleet2deal15
+		}
+	}
+	desc = {
+		text = fleet2dealdesc16
+		trigger = {
+			has_country_flag = fleet2deal16
+		}
+	}
+	
+
+	diplomatic = yes
+	is_triggered_only = yes
+	custom_gui = "enclave_caravaneer_window"
+
+	picture_event_data = {
+		portrait = event_target:caravaneer_fleet2_country
+		room = ethic_spaceship_room
+	}
+
+	immediate = {
+		cara_generate_deal2 = yes
+	}
+
+	option = {
+		name = cara_fleet2_take_deal
+		allow = { cara_allow_deal2 = yes }
+		cara_execute_deal2 = yes
+		response_text = "cara_fleet2_dealtaken"
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = fleet2getback
+		response_text = fleet2getbackreply
+		hidden_effect = {
+			set_country_flag = cara_fleet2_getback
+		}
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = cara_fleet2_exit
+		hidden_effect = {
+			while = { #Clear Fleet 2 deal planet flags with added failsafe
+				limit = {
+					any_owned_planet = {
+						OR = {
+							has_planet_flag = fleet2deal8planet
+							has_planet_flag = fleet2deal9planet
+						}
+					}
+				}
+				random_owned_planet = {
+					limit = {
+						OR = {
+							has_planet_flag = fleet2deal8planet
+							has_planet_flag = fleet2deal9planet
+						}
+					}
+					switch = {
+						trigger = has_planet_flag
+						fleet2deal8planet = { remove_planet_flag = fleet2deal8planet }
+						fleet2deal9planet = { remove_planet_flag = fleet2deal9planet }
+					}
+				}
+			}
+		}
+		default_hide_option = yes
+		custom_gui = "enclave_caravaneer_option"
+	}
+}

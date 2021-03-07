@@ -1,0 +1,27 @@
+civic_cutthroat_politics = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        edicts_cost_mult = -0.20
+        campaigns_cost_mult = -0.20
+        leader_skill_levels = 1
+        pop_demotion_time_mult = -0.25
+    }
+    description = "civic_tooltip_cutthroat_politics_effects"
+}

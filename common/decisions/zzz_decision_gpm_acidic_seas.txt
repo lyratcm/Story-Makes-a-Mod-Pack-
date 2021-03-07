@@ -1,0 +1,30 @@
+decision_gpm_acidic_seas = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_acidic_seas
+	enactment_time = 180
+
+    resources = {
+		category = decisions
+		cost = {
+			rare_crystals = 250
+		}
+	}
+
+    potential = {
+		# owner = { is_regular_empire = yes }
+		has_modifier = gpm_acidic_seas
+	}
+	
+	allow = {
+		has_modifier = gpm_acidic_seas
+	}
+
+    effect = {
+		remove_modifier = gpm_acidic_seas
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

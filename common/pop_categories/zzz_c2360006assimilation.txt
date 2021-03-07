@@ -1,0 +1,69 @@
+assimilation = {
+    rank = 0
+    assign_to_pop = {
+        is_being_assimilated = yes
+    }
+    weight = {
+        weight = 15
+    }
+    allow_resettlement = {
+        always = yes
+    }
+    resettlement_cost = {
+        energy = 100
+    }
+    pop_modifier = {
+        pop_political_power = -1
+    }
+    resources = {
+        category = pop_category_assimilation
+    }
+    triggered_planet_modifier = {
+        potential = {
+            valuable_secretions_check = yes
+            can_generate_trade_value = yes
+        }
+        trade_value_add = 0.4
+    }
+    triggered_planet_modifier = {
+        potential = {
+            can_generate_crime = yes
+            planet = {
+                exists = owner
+                owner = {
+                    is_gestalt = no
+                }
+            }
+        }
+        planet_crime_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            can_generate_crime = yes
+            planet = {
+                exists = owner
+                owner = {
+                    is_gestalt = yes
+                }
+            }
+        }
+        planet_crime_no_happiness_add = 1
+    }
+    resources = {
+        category = pop_category_assimilation
+        upkeep = {
+            trigger = {
+                is_organic_species = yes
+                is_lithoid = no
+            }
+            food = @living_standard_food_normal
+        }
+        upkeep = {
+            trigger = {
+                is_organic_species = yes
+                is_lithoid = yes
+            }
+            minerals = @living_standard_food_normal
+        }
+    }
+}

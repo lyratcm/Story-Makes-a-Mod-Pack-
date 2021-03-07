@@ -1,0 +1,19 @@
+civic_star_pioneers = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        voidcraft_propulsion_materials_research_bonus = 0.15
+        starbase_shipyard_build_speed_mult = 0.10
+        starbase_shipyard_build_cost_mult = 0.05
+    }
+}

@@ -1,0 +1,23 @@
+trait_reluctant = {
+    cost = -2
+    initial = yes
+    modification = yes
+    randomized = yes
+    opposites = {
+        "trait_bioreactor"
+        "trait_ingenious"
+    }
+    potential_crossbreeding_chance = 1.0
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_jobs_energy_produces_mult = -0.15
+    }
+    slave_cost = {
+        energy = -50
+    }
+}

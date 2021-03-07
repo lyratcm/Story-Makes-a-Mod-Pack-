@@ -1,0 +1,46 @@
+gun_rights = {
+	potential = {
+	    NOT = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+
+	option = {
+		name = "gun_rights_limited"
+		valid = {
+			NOR = {
+				has_valid_civic = civic_beacon_of_liberty
+			}
+		}
+		policy_flags = {
+			gun_rights_limited
+		}
+		modifier = {
+		}
+    	AI_weight = {
+		}
+	}
+
+	option = {
+		name = "gun_rights_allowed"
+		valid = {
+			is_country_type = default
+		}
+		policy_flags = {
+			gun_rights_allowed
+		}
+		modifier = {
+			army_damage_mult = 0.2
+			planet_crime_mult = 0.15
+		}
+    	AI_weight = {
+			weight = 50
+			modifier = {
+				factor = 10
+				OR = {
+					has_ethic = "ethic_fanatic_militarist"
+				}
+			}
+		}
+	}
+}

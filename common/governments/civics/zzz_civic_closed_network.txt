@@ -1,0 +1,37 @@
+civic_closed_network = {
+	modification = no
+	potential = { authority = { value = auth_machine_intelligence } }
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_machine_assimilator
+				value = civic_machine_terminator
+				value = civic_machine_servitor
+				value = civic_machine_warbots
+				value = civic_machine_deepspace_networking
+				value = civic_machine_emotions
+				value = civic_machine_memorialist
+			}
+		}
+		origin = {
+			NOR = {
+				value = origin_scion
+				value = origin_hegemon
+				value = origin_extant_creators
+				value = origin_research_coop
+				value = origin_research_coop_npc
+			}
+		}
+	}
+	
+	random_weight = { base = 1 }
+	
+	modifier = {
+		country_unity_produces_mult = 0.20
+		planet_jobs_produces_mult =  0.05
+		country_edict_cap_add = 1
+		envoys_add = -1
+	}
+	
+	description = "civic_tooltip_closed_collective_effects"
+}

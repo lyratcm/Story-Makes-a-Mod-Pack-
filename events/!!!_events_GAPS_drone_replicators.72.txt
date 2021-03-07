@@ -1,0 +1,73 @@
+namespace = Events_GAPS_Drone_Replicators
+country_event = {
+    id = Events_GAPS_Drone_Replicators.72
+    title = Events_GAPS_Drone_Replicators.72.name
+    desc = Events_GAPS_Drone_Replicators.72.desc
+    picture = GFX_evt_unidentified_ship
+    hide_window = no
+    is_triggered_only = yes
+    immediate = {
+        begin_event_chain = {
+            event_chain = "Event_Chain_GAPS_Drone_Trail"
+            target = root
+        }
+        every_system = {
+            limit = {
+                OR = {
+                    has_star_flag = drone_system_4
+                    has_star_flag = manufactory_system
+                    has_star_flag = drone_system_1
+                    has_star_flag = drone_system_2
+                    has_star_flag = drone_destroyer_system
+                    has_star_flag = drone_system_3
+                    has_star_flag = drone_home_system
+                    has_star_flag = wenkwort_system
+                }
+            }
+            random_system_planet = {
+                limit = {
+                    is_primary_star = yes
+                }
+                save_event_target_as = Target_Planet_GAPS_Home_Star
+                if = {
+                    limit = {
+                        not = {
+                            has_modifier = Planet_Modifier_GAPS_Is_A_Drone_System
+                        }
+                    }
+                    add_modifier = {
+                        modifier = Planet_Modifier_GAPS_Is_A_Drone_System
+                        days = -1
+                    }
+                }
+                if = {
+                    limit = {
+                        not = {
+                            has_modifier = Planet_Modifier_GAPS_Is_A_Special_Drone_System
+                        }
+                        solar_system = {
+                            OR = {
+                                has_star_flag = drone_home_system
+                                has_star_flag = wenkwort_system
+                                has_star_flag = manufactory_system
+                            }
+                        }
+                    }
+                    add_modifier = {
+                        modifier = Planet_Modifier_GAPS_Is_A_Special_Drone_System
+                        days = -1
+                    }
+                }
+            }
+            enable_special_project = {
+                name = Special_Project_GAPS_Drone_System_Location
+                owner = root
+                location = event_target:Target_Planet_GAPS_Home_Star
+            }
+            add_modifier = {
+                modifier = Planet_Modifier_GAPS_Is_A_Drone_System
+                days = -1
+            }
+        }
+    }
+}

@@ -1,0 +1,1808 @@
+###_z fw buildings	#############################################################################################################
+
+
+###_minerals
+z_fw_b_mining_1 = {
+	base_buildtime = @z_fw_sv_b_basic_time_1
+	category = resource
+	base_cap_amount = 3
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		NOR = { # Ringworlds don't have mines
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_cybrex
+			is_planet_class = pc_habitat 
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_mechanized_mining"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_1
+		}
+		upkeep = {
+			energy = 1
+		}
+		produces = {#_z fw
+			minerals = 6
+		}
+	}
+	upgrades = {
+		z_fw_b_mining_2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_minerals = yes
+				num_districts = { type = district_mining value >= 3 }
+				num_districts = { type = district_mining_uncapped value >= 3 }
+				num_districts = { type = district_hab_mining value >= 2 }
+				owner = {
+					has_monthly_income = {
+						resource = minerals
+						value < 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 50
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		minerals = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_mining_2 = {
+	base_buildtime = @z_fw_sv_b_basic_time_2
+	category = resource
+	can_build = no
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		NOR = { # Ringworlds don't have mines
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_cybrex
+			is_planet_class = pc_habitat 
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_mining_1"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_2
+		}
+		upkeep = {
+			energy = 2
+		}
+		produces = {#_z fw
+			minerals = 14
+		}
+	}
+	upgrades = {
+		z_fw_b_mining_3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_minerals = yes
+				num_districts = { type = district_mining value >= 3 }
+				num_districts = { type = district_mining_uncapped value >= 3 }
+				num_districts = { type = district_hab_mining value >= 2 }
+				owner = {
+					has_monthly_income = {
+						resource = minerals
+						value < 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 50
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		minerals = 2
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_mining_3 = {
+	base_buildtime = @z_fw_sv_b_basic_time_3
+	category = resource
+	can_build = no
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		NOR = { # Ringworlds don't have mines
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_cybrex
+			is_planet_class = pc_habitat 
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_mining_2"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_3
+		}
+		upkeep = {
+			energy = 3
+		}
+		produces = {#_z fw
+			minerals = 24
+		}
+	}
+	upgrades = {
+		z_fw_b_mining_4
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_motes = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_minerals = yes
+				num_districts = { type = district_mining value >= 3 }
+				num_districts = { type = district_mining_uncapped value >= 3 }
+				num_districts = { type = district_hab_mining value >= 2 }
+				owner = {
+					has_monthly_income = {
+						resource = minerals
+						value < 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 50
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		minerals = 3
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_mining_4 = {
+	base_buildtime = @z_fw_sv_b_basic_time_4
+	category = resource
+	can_build = no
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		NOR = { # Ringworlds don't have mines
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_cybrex
+			is_planet_class = pc_habitat 
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_mining_3"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_4
+			volatile_motes = 50
+		}
+		upkeep = {
+			energy = 4
+			volatile_motes = 1
+		}
+		produces = {#_z fw
+			minerals = 36
+		}
+	}
+	upgrades = {
+		z_fw_b_mining_5
+	}
+
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_motes = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_minerals = yes
+				num_districts = { type = district_mining value >= 3 }
+				num_districts = { type = district_mining_uncapped value >= 3 }
+				num_districts = { type = district_hab_mining value >= 2 }
+				owner = {
+					has_monthly_income = {
+						resource = minerals
+						value < 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 50
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		minerals = 4
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_mining_5 = {
+	base_buildtime = @z_fw_sv_b_basic_time_5
+	category = resource
+	can_build = no
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		NOR = { # Ringworlds don't have mines
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_cybrex
+			is_planet_class = pc_habitat 
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_5
+			volatile_motes = 100
+		}
+		upkeep = {
+			energy = 5
+			volatile_motes = 2
+		}
+		produces = {#_z fw
+			minerals = 50
+		}
+	}
+
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_motes = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_minerals = yes
+				num_districts = { type = district_mining value >= 3 }
+				num_districts = { type = district_mining_uncapped value >= 3 }
+				num_districts = { type = district_hab_mining value >= 2 }
+				owner = {
+					has_monthly_income = {
+						resource = minerals
+						value < 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 50
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		minerals = 5
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+
+
+
+
+
+
+
+###_energy
+z_fw_b_energy_1 = {
+	base_buildtime = @z_fw_sv_b_basic_time_1
+	category = resource
+	base_cap_amount = 3
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+			has_planet_flag = energy_habitat
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_power_plant_1"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_1
+		}
+		upkeep = {
+			minerals = 1
+		}
+		produces = {
+			energy = 6
+		}
+	}
+	upgrades = {
+		z_fw_b_energy_2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_energy = yes
+				num_districts = { type = district_generator value >= 3 }
+				num_districts = { type = district_generator_uncapped value >= 3 }
+				num_districts = { type = district_hab_energy value >= 2 }
+				num_districts = { type = district_rw_generator value >= 1 }
+				AND = {
+					exists = owner
+					owner = {
+						has_monthly_income = {
+							resource = energy
+							value < 0
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 50
+				}
+			}
+		}
+	}
+	
+	ai_resource_production = {
+		energy = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_energy_2 = {
+	base_buildtime = @z_fw_sv_b_basic_time_2
+	category = resource
+	can_build = no
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+			has_planet_flag = energy_habitat
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_power_plant_2"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_2
+		}
+		upkeep = {
+			minerals = 2
+		}
+		produces = {
+			energy = 14
+		}
+	}
+	upgrades = {
+		z_fw_b_energy_3
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_energy = yes
+				num_districts = { type = district_generator value >= 3 }
+				num_districts = { type = district_generator_uncapped value >= 3 }
+				num_districts = { type = district_hab_energy value >= 2 }
+				num_districts = { type = district_rw_generator value >= 1 }
+				AND = {
+					exists = owner
+					owner = {
+						has_monthly_income = {
+							resource = energy
+							value < 0
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 50
+				}
+			}
+		}
+	}
+	
+	ai_resource_production = {
+		energy = 2
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_energy_3 = {
+	base_buildtime = @z_fw_sv_b_basic_time_3
+	category = resource
+	can_build = no
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+			has_planet_flag = energy_habitat
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_power_plant_3"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_3
+		}
+		upkeep = {
+			minerals = 3
+		}
+		produces = {
+			energy = 24
+		}
+	}
+	upgrades = {
+		z_fw_b_energy_4
+	}
+	
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_exotic_gases = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_energy = yes
+				num_districts = { type = district_generator value >= 3 }
+				num_districts = { type = district_generator_uncapped value >= 3 }
+				num_districts = { type = district_hab_energy value >= 2 }
+				num_districts = { type = district_rw_generator value >= 1 }
+				AND = {
+					exists = owner
+					owner = {
+						has_monthly_income = {
+							resource = energy
+							value < 0
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 50
+				}
+			}
+		}
+	}
+	
+	ai_resource_production = {
+		energy = 3
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_energy_4 = {
+	base_buildtime = @z_fw_sv_b_basic_time_4
+	category = resource
+	can_build = no
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+			has_planet_flag = energy_habitat
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_power_plant_4"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_4
+			exotic_gases = 50
+		}
+		upkeep = {
+			minerals = 4
+			exotic_gases = 1
+		}
+		produces = {
+			energy = 36
+		}
+	}
+	upgrades = {
+		z_fw_b_energy_5
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+	
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_exotic_gases = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_energy = yes
+				num_districts = { type = district_generator value >= 3 }
+				num_districts = { type = district_generator_uncapped value >= 3 }
+				num_districts = { type = district_hab_energy value >= 2 }
+				num_districts = { type = district_rw_generator value >= 1 }
+				AND = {
+					exists = owner
+					owner = {
+						has_monthly_income = {
+							resource = energy
+							value < 0
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 50
+				}
+			}
+		}
+	}
+	
+	ai_resource_production = {
+		energy = 4
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_energy_5 = {
+	base_buildtime = @z_fw_sv_b_basic_time_5
+	category = resource
+	can_build = no
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+	potential = {
+		always = no
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+			has_planet_flag = energy_habitat
+		}
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_5
+			exotic_gases = 100
+		}
+		upkeep = {
+			minerals = 5
+			exotic_gases = 2
+		}
+		produces = {
+			energy = 50
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+	
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_exotic_gases = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				districts_good_energy = yes
+				num_districts = { type = district_generator value >= 3 }
+				num_districts = { type = district_generator_uncapped value >= 3 }
+				num_districts = { type = district_hab_energy value >= 2 }
+				num_districts = { type = district_rw_generator value >= 1 }
+				AND = {
+					exists = owner
+					owner = {
+						has_monthly_income = {
+							resource = energy
+							value < 0
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 50
+				}
+			}
+		}
+	}
+	
+	ai_resource_production = {
+		energy = 5
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+
+
+
+
+
+
+
+###_farm
+z_fw_b_farm_1 = {
+	base_buildtime = @z_fw_sv_b_basic_time_1
+	category = resource
+	base_cap_amount = 3
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					has_monthly_income = { resource = food value > 100 }
+				}
+			}
+			has_modifier = resort_colony
+		}
+	}
+	potential = {
+		always = no
+		exists = owner
+		planet = {
+			or = {
+				owner = {
+					country_uses_food = yes
+				}
+				owner = { is_ai = no }
+			}
+		}
+		NOT = { is_planet_class = pc_machine }
+		NOT = { has_modifier = resort_colony }
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_industrial_farming"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_1
+		}
+		upkeep = {
+			energy = 1
+		}
+		produces = {
+			food = 6
+		}
+	}
+	upgrades = {
+		z_fw_b_farm_2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+	
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			OR = {
+				num_free_districts = { type = district_farming value = 0 }
+				free_district_slots = 0
+			}
+			owner = {
+				OR = {
+					is_mechanical_empire = no
+					AND = {
+						is_mechanical_empire = yes
+						OR = {
+							has_civic = civic_machine_servitor
+							has_civic = civic_machine_assimilator
+						}
+					}
+				}
+				has_monthly_income = {
+					resource = food
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			weight = 20
+			OR = {
+				free_housing > 3
+				owner = { is_gestalt = no }
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			is_planet_class = pc_habitat
+			OR = {
+				owner = {
+					OR = {
+						is_mechanical_empire = no
+						AND = {
+							is_mechanical_empire = yes
+							OR = {
+								has_civic = civic_machine_servitor
+								has_civic = civic_machine_assimilator
+							}
+						}
+					}
+					has_monthly_income = {
+						resource = food
+						value < 50
+					}
+				}
+				has_building = building_hydroponics_farm
+			}
+		}
+	}
+
+	ai_resource_production = {
+		food = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_farm_2 = {
+	base_buildtime = @z_fw_sv_b_basic_time_2
+	category = resource
+	can_build = no
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					has_monthly_income = { resource = food value > 100 }
+				}
+			}
+			has_modifier = resort_colony
+		}
+	}
+	potential = {
+		always = no
+		exists = owner
+		planet = {
+			or = {
+				owner = {
+					country_uses_food = yes
+				}
+				owner = { is_ai = no }
+			}
+		}
+		NOT = { is_planet_class = pc_machine }
+		NOT = { has_modifier = resort_colony }
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_hydroponics"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_2
+		}
+		upkeep = {
+			energy = 2
+		}
+		produces = {
+			food = 14
+		}
+	}
+	upgrades = {
+		z_fw_b_farm_3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			OR = {
+				num_free_districts = { type = district_farming value = 0 }
+				free_district_slots = 0
+			}
+			owner = {
+				OR = {
+					is_mechanical_empire = no
+					AND = {
+						is_mechanical_empire = yes
+						OR = {
+							has_civic = civic_machine_servitor
+							has_civic = civic_machine_assimilator
+						}
+					}
+				}
+				has_monthly_income = {
+					resource = food
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			weight = 20
+			OR = {
+				free_housing > 3
+				owner = { is_gestalt = no }
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			is_planet_class = pc_habitat
+			OR = {
+				owner = {
+					OR = {
+						is_mechanical_empire = no
+						AND = {
+							is_mechanical_empire = yes
+							OR = {
+								has_civic = civic_machine_servitor
+								has_civic = civic_machine_assimilator
+							}
+						}
+					}
+					has_monthly_income = {
+						resource = food
+						value < 50
+					}
+				}
+				has_building = building_hydroponics_farm
+			}
+		}
+	}
+
+	ai_resource_production = {
+		food = 2
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_farm_3 = {
+	base_buildtime = @z_fw_sv_b_basic_time_3
+	category = resource
+	can_build = no
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					has_monthly_income = { resource = food value > 100 }
+				}
+			}
+			has_modifier = resort_colony
+		}
+	}
+	potential = {
+		always = no
+		exists = owner
+		planet = {
+			or = {
+				owner = {
+					country_uses_food = yes
+				}
+				owner = { is_ai = no }
+			}
+		}
+		NOT = { is_planet_class = pc_machine }
+		NOT = { has_modifier = resort_colony }
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_gene_crops"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_3
+		}
+		upkeep = {
+			energy = 3
+		}
+		produces = {
+			food = 24
+		}
+	}
+	upgrades = {
+		z_fw_b_farm_4
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+	
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_crystals = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			OR = {
+				num_free_districts = { type = district_farming value = 0 }
+				free_district_slots = 0
+			}
+			owner = {
+				OR = {
+					is_mechanical_empire = no
+					AND = {
+						is_mechanical_empire = yes
+						OR = {
+							has_civic = civic_machine_servitor
+							has_civic = civic_machine_assimilator
+						}
+					}
+				}
+				has_monthly_income = {
+					resource = food
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			weight = 20
+			OR = {
+				free_housing > 3
+				owner = { is_gestalt = no }
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			is_planet_class = pc_habitat
+			OR = {
+				owner = {
+					OR = {
+						is_mechanical_empire = no
+						AND = {
+							is_mechanical_empire = yes
+							OR = {
+								has_civic = civic_machine_servitor
+								has_civic = civic_machine_assimilator
+							}
+						}
+					}
+					has_monthly_income = {
+						resource = food
+						value < 50
+					}
+				}
+				has_building = building_hydroponics_farm
+			}
+		}
+	}
+
+	ai_resource_production = {
+		food = 3
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_farm_4 = {
+	base_buildtime = @z_fw_sv_b_basic_time_4
+	category = resource
+	can_build = no
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					has_monthly_income = { resource = food value > 100 }
+				}
+			}
+			has_modifier = resort_colony
+		}
+	}
+	potential = {
+		always = no
+		exists = owner
+		planet = {
+			or = {
+				owner = {
+					country_uses_food = yes
+				}
+				owner = { is_ai = no }
+			}
+		}
+		NOT = { is_planet_class = pc_machine }
+		NOT = { has_modifier = resort_colony }
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_nano_vitality_crops"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_4
+			rare_crystals = 50
+		}
+		upkeep = {
+			energy = 4
+			rare_crystals = 1
+		}
+		produces = {
+			food = 36
+		}
+	}
+	upgrades = {
+		z_fw_b_farm_5
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+	
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_crystals = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			OR = {
+				num_free_districts = { type = district_farming value = 0 }
+				free_district_slots = 0
+			}
+			owner = {
+				OR = {
+					is_mechanical_empire = no
+					AND = {
+						is_mechanical_empire = yes
+						OR = {
+							has_civic = civic_machine_servitor
+							has_civic = civic_machine_assimilator
+						}
+					}
+				}
+				has_monthly_income = {
+					resource = food
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			weight = 20
+			OR = {
+				free_housing > 3
+				owner = { is_gestalt = no }
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			is_planet_class = pc_habitat
+			OR = {
+				owner = {
+					OR = {
+						is_mechanical_empire = no
+						AND = {
+							is_mechanical_empire = yes
+							OR = {
+								has_civic = civic_machine_servitor
+								has_civic = civic_machine_assimilator
+							}
+						}
+					}
+					has_monthly_income = {
+						resource = food
+						value < 50
+					}
+				}
+				has_building = building_hydroponics_farm
+			}
+		}
+	}
+
+	ai_resource_production = {
+		food = 4
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+z_fw_b_farm_5 = {
+	base_buildtime = @z_fw_sv_b_basic_time_5
+	category = resource
+	can_build = no
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					has_monthly_income = { resource = food value > 100 }
+				}
+			}
+			has_modifier = resort_colony
+		}
+	}
+	potential = {
+		always = no
+		exists = owner
+		planet = {
+			or = {
+				owner = {
+					country_uses_food = yes
+				}
+				owner = { is_ai = no }
+			}
+		}
+		NOT = { is_planet_class = pc_machine }
+		NOT = { has_modifier = resort_colony }
+	}
+	allow = {
+		always = no
+		buildings_simple_allow = yes
+	}
+	prerequisites = {
+		"tech_nutrient_replication"
+	}
+	show_tech_unlock_if = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @z_fw_sv_b_basic_cost_5
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 5
+			rare_crystals = 2
+		}
+		produces = {
+			food = 50
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			factor = 0
+			buildings_has_crystals = no
+		}
+		modifier = {
+			weight = 10
+			NOR = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			OR = {
+				num_free_districts = { type = district_farming value = 0 }
+				free_district_slots = 0
+			}
+			owner = {
+				OR = {
+					is_mechanical_empire = no
+					AND = {
+						is_mechanical_empire = yes
+						OR = {
+							has_civic = civic_machine_servitor
+							has_civic = civic_machine_assimilator
+						}
+					}
+				}
+				has_monthly_income = {
+					resource = food
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			weight = 20
+			OR = {
+				free_housing > 3
+				owner = { is_gestalt = no }
+			}
+			OR = {
+				free_jobs < 3
+				buildings_unemployed = yes
+			}
+			is_planet_class = pc_habitat
+			OR = {
+				owner = {
+					OR = {
+						is_mechanical_empire = no
+						AND = {
+							is_mechanical_empire = yes
+							OR = {
+								has_civic = civic_machine_servitor
+								has_civic = civic_machine_assimilator
+							}
+						}
+					}
+					has_monthly_income = {
+						resource = food
+						value < 50
+					}
+				}
+				has_building = building_hydroponics_farm
+			}
+		}
+	}
+
+	ai_resource_production = {
+		food = 5
+		trigger = {
+			always = yes
+		}
+	}
+}
+

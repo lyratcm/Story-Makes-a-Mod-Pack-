@@ -1,0 +1,293 @@
+#_[relic_story]
+#_[relic_site]
+#_[苍雪山矩阵]
+#_[LCTR_RELIC]
+#_[LCTR_RES]
+#_[星球类型]
+#_[特殊星系]
+#_[巨建]
+#_[普通星门]
+#_[L星门]
+#_[虫洞]
+
+
+
+
+#_[relic_story]
+special_project = {#_普通国家母星
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_0"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_metropolis
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+special_project = {#_堕落帝国母星
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_1"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_metropolis
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+special_project = {#_res
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_2"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_strategic_resources
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+special_project = {#_飞地
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_3"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_z_lctr_r_2
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+special_project = {#_利维坦
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_4"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_z_lctr_r_2
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+special_project = {#_巨构
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_5"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_dyson_sphere
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+special_project = {#_星门
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_6"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_l-gateway
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_7"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_z_lctr_r_2
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_STORY_8"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_story
+	picture = GFX_evt_z_lctr_r_2
+	cost = 0
+	days_to_research = 1
+	timelimit = 360
+
+	on_success = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_story_chain_clean = yes } }
+}
+
+
+
+
+#_[relic_site]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_SITE"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_site
+	picture = GFX_evt_z_lctr_r_2
+	cost = 0
+	days_to_research = 1
+	timelimit = -1
+
+	on_success = {}
+	on_fail = {}
+}
+
+
+
+
+#_[苍雪山矩阵]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_SENSOR"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_sensor
+	picture = GFX_evt_z_lctr_r_2
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}
+
+
+
+
+#_[LCTR_RELIC]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_RELIC"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_holder
+	picture = GFX_evt_glitchy_matrix
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}
+
+
+
+
+#_[LCTR_RES]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_RES"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_res
+	picture = GFX_evt_strategic_resources
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}
+
+
+
+
+#_[星球类型]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_PLNT"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_plnt
+	picture = GFX_evt_star_pulsar
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}
+
+
+
+
+#_[特殊星系]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_SSTM"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_sstm
+	picture = GFX_evt_binary_stars
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}
+
+
+
+
+#_[巨建]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_MEGA"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_mega
+	picture = GFX_evt_dyson_sphere
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}
+
+#_[普通星门]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_GATE"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_gate
+	picture = GFX_evt_drifting_gateway
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}
+#_[L星门]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_LGATE"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_lgate
+	picture = GFX_evt_l-gateway
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}
+#_[虫洞]
+special_project = {
+	icon = "gfx/interface/icons/situation_log/z_lctr_log_sub.dds"
+	key = "Z_LCTR_SP_WORMHOLE"
+	event_scope = planet_event
+	event_chain = z_lctr_chain_wormhole
+	picture = GFX_evt_wormhole
+	cost = 0
+	days_to_research = 1
+	timelimit = 3600
+	on_success = { fromfromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+	on_fail = { fromfromfrom = { z_lctr_eft_cntr_chain_init = yes } }
+}

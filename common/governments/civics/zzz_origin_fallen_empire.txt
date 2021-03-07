@@ -1,0 +1,11 @@
+origin_fallen_empire = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_elder_race.dds"
+    playable = {
+        always = no
+    }
+    description = origin_no_effect
+    random_weight = {
+        base = 0
+    }
+}

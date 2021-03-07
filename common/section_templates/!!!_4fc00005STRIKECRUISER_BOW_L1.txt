@@ -1,0 +1,19 @@
+ship_section_template = {
+    key = "STRIKECRUISER_BOW_L1"
+    ship_size = StrikeCruiser
+    fits_on_slot = bow
+    entity = "StrikeCruiser_bow_L1_entity"
+    icon = "GFX_ship_part_core_bow"
+    component_slot = {
+        name = "LARGE_GUN_01"
+        template = "large_turret"
+        locatorname = "large_gun_01"
+    }
+    medium_utility_slots = 4
+    resources = {
+        category = ship_sections
+        cost = {
+            alloys = 200
+        }
+    }
+}

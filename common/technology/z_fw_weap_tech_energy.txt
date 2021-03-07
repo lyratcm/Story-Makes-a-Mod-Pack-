@@ -1,0 +1,323 @@
+###_Z FW ENERGY WEAPONS	#########################################################################
+
+# ──z_fw_tech_weap_energy_laser_6~9
+#     └─ 
+# ──z_fw_tech_weap_energy_disr_6~9
+#     └─ 
+# ──z_fw_tech_weap_energy_plasm_6~9
+#     └─ 
+# ──z_fw_tech_weap_energy_torpedo_6~9
+#     └─ 
+# ──z_fw_tech_weap_energy_pd_6~9
+#     └─ 
+
+
+
+
+###_Z FW ADV BEAM	##############################################
+
+z_fw_tech_weap_energy_laser_6 = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_lasers_5"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_laser_7 = {
+	area = physics
+	category = { particles }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_laser_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_laser_8 = {
+	area = physics
+	category = { particles }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_laser_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_laser_9 = {
+	area = physics
+	category = { particles }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_laser_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV DISRUPTOR	##############################################
+
+z_fw_tech_weap_energy_disr_6 = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_disruptors_3"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_disr_7 = {
+	area = physics
+	category = { particles }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_disr_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_disr_8 = {
+	area = physics
+	category = { particles }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_disr_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_disr_9 = {
+	area = physics
+	category = { particles }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_disr_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV plasm	##############################################
+
+z_fw_tech_weap_energy_plasm_6 = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_plasma_3"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_plasm_7 = {
+	area = physics
+	category = { particles }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_plasm_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_plasm_8 = {
+	area = physics
+	category = { particles }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_plasm_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_plasm_9 = {
+	area = physics
+	category = { particles }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_plasm_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV photon torpedo	##############################################
+
+z_fw_tech_weap_energy_torpedo_6 = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_pd_tracking_3"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_torpedo_7 = {
+	area = physics
+	category = { particles }
+	tier = 6
+	cost = @z_techTier6cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_torpedo_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_torpedo_8 = {
+	area = physics
+	category = { particles }
+	tier = 7
+	cost = @z_techTier7cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_torpedo_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_torpedo_9 = {
+	area = physics
+	category = { particles }
+	tier = 8
+	cost = @z_techTier8cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_torpedo_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV energy pd	##############################################
+
+z_fw_tech_weap_energy_pd_6 = {
+	area = physics
+	category = { computing }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_energy_torpedoes_2"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_pd_7 = {
+	area = physics
+	category = { computing }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_pd_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_pd_8 = {
+	area = physics
+	category = { computing }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_pd_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_energy_pd_9 = {
+	area = physics
+	category = { computing }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_energy_pd_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+
+

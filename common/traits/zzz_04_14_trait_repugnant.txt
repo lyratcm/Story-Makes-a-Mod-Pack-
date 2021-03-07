@@ -1,0 +1,37 @@
+trait_repugnant = {
+    cost = -2
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_charismatic"
+        "trait_additrait_hateful"
+        "trait_additrait_sociable"
+        "trait_additrait_violent"
+        "trait_pheremones"
+        "trait_delicious"
+        "trait_lithoid_shiny"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    custom_tooltip = TRAIT_REPUGNANT_EFFECT
+    modifier = {
+        planet_livestock_food_produces_add = -2
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_repugnant@prev
+                }
+            }
+        }
+    }
+}

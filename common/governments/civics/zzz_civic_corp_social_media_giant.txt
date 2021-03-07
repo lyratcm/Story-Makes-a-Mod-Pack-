@@ -1,0 +1,15 @@
+civic_am_civics_social_media_giant = {
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    description = "tooltip_civic_am_civics_social_media_giant_effects"
+}

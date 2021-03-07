@@ -1,0 +1,35 @@
+propaganda_broadcasts = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = propaganda_broadcasts }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = propaganda_broadcasts
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		pop_government_ethic_attraction = 0.5
+		country_war_exhaustion_mult = -0.05
+		country_claim_influence_cost_mult = -0.05
+	}	
+	
+	potential = {
+		has_valid_civic = civic_media_conglomerate
+	}
+	
+	ai_weight = {
+		weight = @EdictLowPrio
+	}	
+}

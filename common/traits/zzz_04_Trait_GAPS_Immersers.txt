@@ -1,0 +1,17 @@
+Trait_GAPS_Immersers = {
+    icon = "gfx/interface/icons/traits/Trait_GAPS_Immersers.dds"
+    cost = 1
+    initial = no
+    randomized = no
+    modification = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        PRESAPIENT
+        LITHOID
+        ROBOT
+        MACHINE
+    }
+    custom_tooltip = Trait_GAPS_Immersers_Effect
+    modifier = {
+    }
+}

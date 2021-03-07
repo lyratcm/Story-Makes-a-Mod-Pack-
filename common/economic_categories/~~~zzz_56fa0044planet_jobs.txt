@@ -1,0 +1,688 @@
+planet_jobs = {
+    parent = planets
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_slave
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = slave
+                has_job = z_pr_freeman_slaved
+            }
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_slave
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = slave
+                has_job = z_pr_freeman_slaved
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_worker
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = worker
+                is_pop_category = slave
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_worker
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = worker
+                is_pop_category = slave
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_specialist
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = specialist
+                is_pop_category = complex_drone
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_specialist
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = specialist
+                is_pop_category = complex_drone
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_ruler
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = ruler
+                has_job = z_pr_freeman_admin
+            }
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_ruler
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = ruler
+                has_job = z_pr_freeman_admin
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_simple_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_simple_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_complex_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = complex_drone
+                has_job = z_pr_freeman_admin
+            }
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_complex_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = complex_drone
+                has_job = z_pr_freeman_admin
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_organic
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            is_robot_pop = no
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_organic
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            is_robot_pop = no
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_robotic
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            is_robot_pop = yes
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_robotic
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            is_robot_pop = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_organic_slave
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = slave
+                has_job = z_pr_freeman_slaved
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_organic_slave
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = slave
+                has_job = z_pr_freeman_slaved
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_robotic_slave
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = slave
+                has_job = z_pr_freeman_slaved
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_robotic_slave
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = slave
+                has_job = z_pr_freeman_slaved
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_organic_worker
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = worker
+                is_pop_category = slave
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_organic_worker
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = worker
+                is_pop_category = slave
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_robotic_worker
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = worker
+                is_pop_category = slave
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_robotic_worker
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = worker
+                is_pop_category = slave
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_organic_specialist
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = specialist
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_organic_specialist
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = specialist
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_robotic_specialist
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = specialist
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_robotic_specialist
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = specialist
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_organic_ruler
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = ruler
+                has_job = z_pr_freeman_admin
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_organic_ruler
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = ruler
+                has_job = z_pr_freeman_admin
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_robotic_ruler
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = ruler
+                has_job = z_pr_freeman_admin
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_robotic_ruler
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = ruler
+                has_job = z_pr_freeman_admin
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_organic_simple_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_organic_simple_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_robotic_simple_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_robotic_simple_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = simple_drone
+                is_pop_category = resident_gestalt
+                has_job = z_pr_freeman_full
+                has_job = z_pr_freeman_limited
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_resident_gestalt
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            is_pop_category = resident_gestalt
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_resident_gestalt
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            is_pop_category = resident_gestalt
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_organic_complex_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = complex_drone
+                has_job = z_pr_freeman_admin
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_organic_complex_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = complex_drone
+                has_job = z_pr_freeman_admin
+            }
+            is_robot_pop = no
+        }
+    }
+    triggered_produces_modifier = {
+        key = planet_jobs_robotic_complex_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = complex_drone
+                has_job = z_pr_freeman_admin
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_upkeep_modifier = {
+        key = planet_jobs_robotic_complex_drone
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            OR = {
+                is_pop_category = complex_drone
+                has_job = z_pr_freeman_admin
+            }
+            is_robot_pop = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = hfe_planet_jobs_psionic
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            hfe_trigger_is_psionic = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = hfe_planet_jobs_war
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            exists = owner
+            owner = {
+                is_at_war = yes
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = hfe_planet_jobs_war_militarist
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_militarist
+                is_at_war = yes
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = hfe_planet_jobs_ocean
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            exists = planet
+            planet = {
+                is_planet_class = pc_ocean
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = hfe_planet_jobs_non_ocean
+        modifier_types = {
+            mult
+            add
+        }
+        trigger = {
+            exists = planet
+            planet = {
+                NOT = {
+                    is_planet_class = pc_ocean
+                }
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_purge
+        modifier_types = {
+            add
+        }
+        trigger = {
+            OR = {
+                has_job = purge
+                has_job = event_purge
+            }
+            exists = owner
+            owner = {
+                has_valid_civic = civic_hive_devouring_swarm
+            }
+        }
+    }
+}

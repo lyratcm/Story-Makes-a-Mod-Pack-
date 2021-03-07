@@ -1,0 +1,21 @@
+guiTypes = {
+    containerWindowType = {
+        name = "flag_texture_entry"
+        size = {
+            width = 60
+            height = 60
+        }
+        buttonType = {
+            name = "flag"
+            quadTextureSprite = "GFX_flag_no_mask"
+            scale = 5
+            clicksound = "select_click"
+        }
+        iconType = {
+            name = "highlight"
+            spriteType = "GFX_flag_highlight"
+            alwaysTransparent = yes
+            scale = 0.6
+        }
+    }
+}

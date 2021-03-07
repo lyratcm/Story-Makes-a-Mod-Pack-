@@ -1,0 +1,292 @@
+###_z fw---行星决策	##########################################################################
+
+#_[星球人口限制]
+#_[星辰大海的渴望]
+#_[璀璨星图_boom]
+#_[巨建_dismantle]
+
+
+
+
+###_test	##################################
+z_fw_dec_test = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	potential = { always = no }
+	allow = { always = no }
+	ai_weight = { weight = 0 }
+}
+
+#	z_fw_dec_test_free_jobs = {
+#		icon = z_fw_dec_test
+#		owned_planets_only = yes
+#		sound = event_administrative_work
+#		potential = {
+#			is_colony = yes
+#			owner = { is_ai = no }
+#		}
+#		allow = {
+#			is_colony = yes
+#			owner = { is_ai = no }
+#		}
+#		ai_weight = { weight = 0 }
+#		
+#		effect = {
+#			switch = {
+#				trigger = free_jobs
+#				0 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 0 } }
+#				1 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 1 } }
+#				2 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 2 } }
+#				3 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 3 } }
+#				4 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 4 } }
+#				5 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 5 } }
+#				6 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 6 } }
+#				7 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 7 } }
+#				8 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 8 } }
+#				9 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 9 } }
+#				10 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 10 } }
+#				11 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 11 } }
+#				12 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 12 } }
+#				13 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 13 } }
+#				14 = { set_variable = { which = z_fw_var_plnt_free_jobs value = 14 } }
+#				14 > { set_variable = { which = z_fw_var_plnt_free_jobs value = 15 } }
+#			}
+#		}
+#	}
+
+
+
+
+###_[星球人口限制]	##################################
+#_plnt_flg		[z_fw_flg_plnt_pop_cap_ignore]星球忽略
+#_blbl_flg		[z_fw_plnt_capacity_disabled][z_pr_installed]
+
+#_当前忽略
+z_fw_dec_pop_cap_ignore = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	potential = {
+		owner = { is_ai = no }
+		has_planet_flag = z_fw_flg_plnt_pop_cap_ignore
+		NOR = {
+			has_global_flag = z_fw_plnt_capacity_disabled
+			has_global_flag = z_pr_installed	#_产业革命
+		}
+	}
+	allow = { always = yes }
+	ai_weight = { weight = 1 }
+	
+	effect = {
+		custom_tooltip = z_fw_tips_dec_pop_cap_ignore
+		hidden_effect = {
+			remove_planet_flag = z_fw_flg_plnt_pop_cap_ignore
+			owner = { country_event = { id = z_fw_core_country.2 } }
+		}
+	}
+}
+#_当前默认
+z_fw_dec_pop_cap_default = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	potential = {
+		owner = { is_ai = no }
+		NOT = { has_planet_flag = z_fw_flg_plnt_pop_cap_ignore }
+		NOR = {
+			has_global_flag = z_fw_plnt_capacity_disabled
+			has_global_flag = z_pr_installed	#_产业革命
+		}
+	}
+	allow = { owner = { is_ai = no } }
+	ai_weight = { weight = 0 }
+	
+	effect = {
+		custom_tooltip = z_fw_tips_dec_pop_cap_ignore
+		hidden_effect = {
+			set_planet_flag = z_fw_flg_plnt_pop_cap_ignore
+			owner = { country_event = { id = z_fw_core_country.2 } }
+		}
+	}
+}
+
+
+
+
+###_[星辰大海的渴望]	##################################
+z_fw_dec_desire_for_stars = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	
+	resources = {
+		category = decisions
+		cost = { influence = 10 }
+	}
+	
+	potential = {
+		owner = {
+			is_ai = no
+			check_variable = { which = z_fw_desire_point_var value >= 1 }	#_点数足够
+		}
+	}
+	allow = {
+		NOR = {
+			has_modifier =  z_fw_mod_desire_growth_normal
+			has_modifier =  z_fw_mod_desire_growth_hive
+			has_modifier =  z_fw_mod_desire_assembly_machine
+		}
+	}
+	
+	effect = {
+		custom_tooltip = z_fw_dec_desire_for_stars_effect
+		hidden_effect = {
+			if = {
+				limit = { owner = { is_gestalt = no } }
+				add_modifier = { modifier = z_fw_mod_desire_growth_normal days = 5400 }
+			}
+			else_if = {
+				limit = { owner = { is_hive_empire = yes } }
+				add_modifier = { modifier = z_fw_mod_desire_growth_hive days = 5400 }
+			}
+			else_if = {
+				limit = { owner = { is_machine_empire = yes } }
+				add_modifier = { modifier = z_fw_mod_desire_assembly_machine days = 5400 }
+			}
+			owner = {
+				change_variable = { which = z_fw_desire_point_var value = -1 }
+			}
+		}
+	}
+	
+	ai_weight = { weight = 0 }
+}
+
+
+
+
+###_[璀璨星图_boom]	##################################
+z_fw_dec_detonate_star = {
+	sound = event_air_raid_siren	#_警报声
+
+	#resources = {
+	#	category = decisions
+	#	cost = {
+	#	}
+	#}
+	
+	potential = {
+		always = no
+		#is_star = yes
+		#z_is_destructible_stars = yes
+		#from = { has_relic = z_fw_r_celestial_orrey }
+	}
+	allow = {
+		always = no
+		#from = {
+		#	is_ai = no
+		#	has_country_flag = z_fw_r_celestial_orrey_activited
+		#}
+	}
+	
+	effect = {
+		custom_tooltip = z_fw_dec_detonate_star_effect
+		hidden_effect = {
+			create_ambient_object = {
+				type = z_fw_star_explosion_green
+				scale = 200
+				location = this
+				duration = 5
+			}
+			#_z super nova
+			planet_event = { id = z_fw1_planet_destruction.21 days = 4 }	#_nova
+			#planet_event = { id = z_fw1_planet_destruction.22 days = 100 random = 25 }	#_aftermath
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+
+
+
+###_[巨建_dismantle]	###################################
+#_glbl_flg			[z_fw_flg_glbl_mega_dismantle_ongoing]
+#_plnt_tgt_glbl		[z_fw_tgt_plnt_mega_dismantle]
+z_fw_dec_mega_dismantle = {
+	sound = event_air_raid_siren	#_警报声
+	
+	owned_planets_only = no
+	prerequisites = { "tech_mega_engineering" }
+	potential = {
+		has_global_flag = z_framework_activated
+		is_star = yes
+	}
+	allow = {
+		custom_tooltip = {
+			#_mega拆解菜单不能正在使用中
+			hidden_trigger = {
+				from = { is_ai = no }
+				NOT = { has_global_flag = z_fw_flg_glbl_mega_dismantle_ongoing }
+			}
+            fail_text = z_fw_tips_mega_dismentle_ongoing
+		}
+	}
+	
+	effect = {
+		custom_tooltip = z_fw_tips_dec_mega_dismantle
+		hidden_effect = {
+			save_global_event_target_as = z_fw_tgt_plnt_mega_dismantle
+			from = { country_event = { id = z_fw1_misc_mega_dismantle.1 } }
+			set_global_flag = z_fw_flg_glbl_mega_dismantle_ongoing
+		}
+	}
+	
+	ai_weight = { weight = 0 }
+}
+z_fw_dec_mega_dismantle_plnt = {
+	icon = z_fw_dec_mega_dismantle
+	sound = event_air_raid_siren	#_警报声
+	
+	owned_planets_only = no
+	prerequisites = { "tech_mega_engineering" }
+	potential = {
+		has_global_flag = z_framework_activated
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_habitat_shielded
+		}
+	}
+	allow = { always = yes }
+	
+	effect = {
+		custom_tooltip = z_fw_tips_dec_mega_dismantle
+		hidden_effect = {
+			if = {
+				limit = {
+					solar_system = {
+						any_system_planet = {
+							has_planet_flag = z_fw_flg_plnt_habitat_dismantle
+						}
+					}
+				}
+				from = { country_event = { id = z_fw1_misc_mega_dismantle.30 } }
+			}
+			else = {
+				set_planet_flag = z_fw_flg_plnt_habitat_dismantle
+				planet_event = { id = z_fw1_misc_mega_dismantle.31 days = 30 }
+				create_ambient_object = {
+					type = z_fw_fx_ambt_mega_dismantle
+					location = root
+					use_3d_location = yes
+					entity_offset = { min = 0 max = 0 }
+					entity_offset_height = { min = 4 max = 4 }
+					entity_scale_to_size = no
+					scale = 6.0
+				}
+				last_created_ambient_object = { set_ambient_object_flag = z_fw_flg_ambt_habitat_dismantle }
+			}
+		}
+	}
+	
+	ai_weight = { weight = 0 }
+}

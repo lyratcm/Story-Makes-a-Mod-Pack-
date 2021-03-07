@@ -1,0 +1,24 @@
+trait_pc_GAPS_pure_water_preference = {
+    icon = "gfx/interface/icons/traits/trait_pc_GAPS_pure_water_preference.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+        PRESAPIENT
+    }
+    cost = 0
+    initial = no
+    randomized = no
+    modification = no
+    sorting_priority = 30
+    modifier = {
+        pc_GAPS_pure_water_habitability = 5.0
+        army_defense_damage_mult = 1.0
+        army_defense_morale_mult = 1.4
+        army_defense_health_mult = 3.0
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

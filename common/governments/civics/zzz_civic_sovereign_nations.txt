@@ -1,0 +1,25 @@
+civic_sovereign_nations = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_base_influence_produces_add = 0.5
+        country_unity_produces_mult = 0.20
+        pop_government_ethic_attraction = -0.60
+    }
+}

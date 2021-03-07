@@ -1,0 +1,22 @@
+trait_robot_unstable_matrix = {
+    cost = 2
+    opposites = {
+        "trait_robot_loyalty_circuits"
+    }
+    allowed_archetypes = {
+        ROBOT
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            has_technology = tech_synthetic_workers
+            NOT = {
+                has_policy_flag = ai_outlawed
+            }
+        }
+    }
+    modifier = {
+        pop_happiness = -0.1
+        pop_government_ethic_attraction = -0.25
+    }
+}

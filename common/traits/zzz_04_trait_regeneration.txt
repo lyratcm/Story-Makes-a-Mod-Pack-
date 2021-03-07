@@ -1,0 +1,16 @@
+trait_regeneration = {
+    potential_crossbreeding_chance = 0.33
+    cost = 1
+    icon = "gfx/interface/icons/traits/trait_limited_regeneration.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    modifier = {
+        army_health_mult = 0.15
+        leader_age = 15
+    }
+    slave_cost = {
+        energy = 30
+    }
+}

@@ -1,0 +1,26 @@
+trait_apex_predator = {
+    cost = 4
+    initial = yes
+    modification = no
+    randomized = yes
+    opposites = {
+        "trait_undisciplined"
+        "trait_sedentary"
+        "trait_nomadic"
+        "trait_antimetabolic"
+        "trait_oligotroph"
+    }
+    potential_crossbreeding_chance = 1.0
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+    }
+    modifier = {
+        army_damage_mult = 1.00
+        pop_growth_from_immigration = 0.25
+        planet_pops_organics_food_upkeep_mult = 0.25
+    }
+    slave_cost = {
+        energy = 50
+    }
+}

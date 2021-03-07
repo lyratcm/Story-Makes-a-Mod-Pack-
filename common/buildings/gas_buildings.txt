@@ -1,0 +1,29 @@
+building_gas_burner = { 
+	icon = gas_burner
+    base_buildtime = 400
+	can_build = yes
+	can_demolish = yes
+	
+	potential = {
+		exists = owner
+		owner = {
+					check_variable = { which = gas_burner_build_count value >= 1 }
+				}
+	}	
+	
+    resources = {
+        category = planet_buildings
+			
+        cost = {
+            minerals = 1500
+            energy = 1500
+        }
+        upkeep = {
+            exotic_gases = 5
+        }
+        produces = {
+            energy = 75
+			minerals = 20
+        }
+    }
+}

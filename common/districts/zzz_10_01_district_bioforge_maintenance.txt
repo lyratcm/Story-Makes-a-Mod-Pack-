@@ -1,0 +1,54 @@
+district_bioforge_maintenance = {
+    base_buildtime = 600
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        uses_district_set = pdbioforge
+    }
+    potential = {
+        uses_district_set = pdbioforge
+        owner = {
+            exists = owner
+            is_hive_empire = yes
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 10
+    }
+    conversion_ratio = 1
+    convert_to = {
+        district_city
+        district_nexus
+        district_hive
+        district_arcology_housing
+    }
+    resources = {
+        category = planet_districts
+        cost = {
+            minerals = 1000
+            rare_crystals = 50
+        }
+        upkeep = {
+            energy = 5
+            rare_crystals = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        modifier = {
+            job_synapse_drone_add = 5
+            job_maintenance_drone_add = 4
+            job_patrol_drone_add = 1
+        }
+    }
+    triggered_desc = {
+        text = job_synapse_drone_effect_desc
+    }
+    ai_weight = {
+        weight = 1
+    }
+}

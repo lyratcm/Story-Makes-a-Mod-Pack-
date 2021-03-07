@@ -1,0 +1,108 @@
+building_hall_judgment = {
+    base_buildtime = @b2_time
+    category = government
+    can_build = no
+    potential = {
+        owner = {
+            is_regular_empire = yes
+        }
+        NOT = {
+            has_modifier = slave_colony
+        }
+    }
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            buildings_no_exotic_gases = yes
+            NOT = {
+                owner = {
+                    is_regular_empire = yes
+                }
+            }
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            OR = {
+                owner = {
+                    NOT = {
+                        has_ascension_perk = ap_mind_over_matter
+                    }
+                }
+                NOT = {
+                    has_planet_flag = built_one_psi_corps
+                }
+            }
+        }
+        modifier = {
+            job_enforcer_add = @b2_jobs
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ascension_perk = ap_mind_over_matter
+            }
+            has_planet_flag = built_one_psi_corps
+        }
+        modifier = {
+            job_telepath_add = @b2_jobs
+        }
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+            exotic_gases = @b2_rare_cost
+        }
+        upkeep = {
+            energy = @b1_upkeep
+            exotic_gases = @b2_rare_upkeep
+        }
+        upkeep = {
+            trigger = {
+                owner = {
+                    has_valid_civic = civic_police_state
+                }
+            }
+            energy = 2
+        }
+    }
+    prerequisites = {
+        "tech_colonial_centralization"
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            OR = {
+                owner = {
+                    NOT = {
+                        has_ascension_perk = ap_mind_over_matter
+                    }
+                }
+                NOT = {
+                    has_planet_flag = built_one_psi_corps
+                }
+            }
+        }
+        text = job_enforcer_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                has_ascension_perk = ap_mind_over_matter
+            }
+            has_planet_flag = built_one_psi_corps
+        }
+        text = job_telepath_effect_desc
+    }
+    show_tech_unlock_if = {
+        is_regular_empire = yes
+    }
+    ai_weight = {
+        weight = 1
+    }
+}

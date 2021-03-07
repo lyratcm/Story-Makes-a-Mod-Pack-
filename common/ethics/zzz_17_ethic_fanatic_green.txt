@@ -1,0 +1,25 @@
+ethic_fanatic_green = {
+	cost = 2
+	category = "grn"
+	category_value = 0
+
+	use_for_pops = no
+
+	regular_variant = ethic_green
+	
+	tags = {
+		BLOCKERS_BENEFITS
+		WASTE_RECYCLING
+	}
+
+	country_modifier = {
+		pop_environment_tolerance = 0.1
+		planet_pops_consumer_goods_upkeep_mult = -0.2
+		planet_structures_upkeep_mult = -0.2
+		pop_growth_speed = -0.15
+	}
+
+	random_weight = {
+		value = 100
+	}
+}

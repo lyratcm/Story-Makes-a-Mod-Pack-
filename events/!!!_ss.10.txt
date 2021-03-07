@@ -1,0 +1,26 @@
+namespace = ss
+
+country_event = {
+	id = ss.10
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		every_owned_leader = {
+			remove_trait = leader_trait_admiral_erudite
+			remove_trait = leader_trait_general_erudite
+			remove_trait = leader_trait_governor_erudite
+			remove_trait = leader_trait_scientist_erudite
+			remove_trait = leader_trait_ruler_erudite
+			remove_ruler_trait = leader_trait_ruler_erudite
+		}
+		every_pool_leader = {
+			remove_trait = leader_trait_admiral_erudite
+			remove_trait = leader_trait_general_erudite
+			remove_trait = leader_trait_governor_erudite
+			remove_trait = leader_trait_scientist_erudite
+			remove_trait = leader_trait_ruler_erudite
+			remove_ruler_trait = leader_trait_ruler_erudite
+		}
+	}
+}

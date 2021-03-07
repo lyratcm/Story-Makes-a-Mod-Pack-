@@ -1,0 +1,33 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_origin_sterile"
+		texturefile = "gfx/event_pictures/origins/origin_sterile.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_origin_gas_dependency"
+		texturefile = "gfx/event_pictures/origins/origin_gas_dependency.dds"
+		alwaystransparent = yes
+	}
+		
+	spriteType = {
+		name = "GFX_origin_dimorphic"
+		texturefile = "gfx/event_pictures/origins/origin_dimorphic.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_origin_dimorphic_sexual"
+		texturefile = "gfx/event_pictures/origins/origin_dimorphic_sexual.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_origin_instars"
+		texturefile = "gfx/event_pictures/origins/origin_instars.dds"
+		alwaystransparent = yes
+	}
+
+}

@@ -1,0 +1,5 @@
+civic_syncretic_evolution = {
+    potential = {
+        always = no
+    }
+}

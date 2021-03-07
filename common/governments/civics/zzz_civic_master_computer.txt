@@ -1,0 +1,21 @@
+civic_master_computer = {
+	potential = { authority = { value = auth_machine_intelligence } }
+	possible = {
+		civics = {
+			NOT = {
+				value = civic_machine_delegated_functions
+				value = civic_machine_administrator
+			}
+		}
+	}
+	
+	modifier = {
+		country_edict_cap_add = 1
+		ruler_skill_levels = 1
+	}
+	
+	modification = no
+	random_weight = {
+		base = 3
+	}
+}

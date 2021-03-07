@@ -1,0 +1,57 @@
+scrap_dealer = {
+    category = criminal
+    building_icon = building_junkheap
+    clothes_texture_index = 2
+    icon = ratling_scavenger
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        hidden_trigger = {
+            exists = owner
+        }
+        exists = owner
+        NOR = {
+            has_citizenship_type = {
+                country = owner
+                type = citizenship_robot_servitude
+            }
+            has_trait = trait_hive_mind
+            has_trait = trait_machine_unit
+            AND = {
+                owner = {
+                    has_valid_civic = civic_machine_assimilator
+                }
+                has_trait = trait_cybernetic
+            }
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_dystopia
+                    has_valid_civic = civic_corp_dystopia
+                }
+            }
+        }
+        modifier = {
+            trade_value_add = 3
+        }
+    }
+    resources = {
+        category = planet_metallurgists
+        produces = {
+            alloys = 3
+        }
+        upkeep = {
+            energy = 6
+        }
+    }
+    weight = {
+        weight = @criminal_job_weight
+    }
+}

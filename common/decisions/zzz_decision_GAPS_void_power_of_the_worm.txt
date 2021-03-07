@@ -1,0 +1,24 @@
+decision_GAPS_Power_Of_The_Worm = {
+	owned_planets_only = no
+	sound = event_ghost_town
+	icon = decision_GAPS_Power_Of_The_Worm
+	enactment_time = 0
+	resources = {
+		category = decisions
+		cost = {
+			sr_dark_matter = 1000
+		}
+	}
+	#
+	potential = {
+		NOT = { is_planet_class = pc_black_hole }
+		solar_system = { owner = { has_origin = Origin_GAPS_Void_Callers has_country_flag = Country_Flag_GAPS_Completed_Project_Study_Worm_Rift NOT = { has_country_flag = Country_Flag_GAPS_Void_Caller_System_Changed } } }
+	}
+	effect = { 
+		planet_event = { id = Events_GAPS_Void_Callers.741 days = 1 }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}	
+}

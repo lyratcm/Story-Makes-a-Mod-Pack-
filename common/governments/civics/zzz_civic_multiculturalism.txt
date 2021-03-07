@@ -1,0 +1,28 @@
+civic_multiculturalism = {
+    description = "civic_tooltip_multiculturalism_effects"
+    potential = {
+        always = no
+    }
+    possible = {
+        authority = {
+            NOR = {
+                value = auth_imperial
+                value = auth_dictatorial
+            }
+        }
+        ethics = {
+            OR = {
+                value = ethic_xenophile
+                value = ethic_fanatic_xenophile
+            }
+        }
+    }
+    random_weight = {
+        base = 6
+    }
+    modifier = {
+        pop_ethic_xenophile_attraction_mult = 0.50
+        pop_growth_speed = 0.10
+        pop_government_ethic_attraction = -0.25
+    }
+}

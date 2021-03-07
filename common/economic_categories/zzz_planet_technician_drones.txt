@@ -1,0 +1,12 @@
+planet_technician_drone = {
+    icon = "job_technician_drone"
+    parent = planet_jobs
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+}

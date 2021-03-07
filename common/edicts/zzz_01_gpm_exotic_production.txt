@@ -1,0 +1,45 @@
+gpm_edict_exotic_production  = {
+	length = 1800
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			minor_artifacts = 15
+		}
+	}
+
+	potential = {
+		has_technology = tech_arcane_deciphering
+	}
+
+	modifier = {
+		country_volatile_motes_produces_mult = 0.25
+        country_exotic_gases_produces_mult = 0.25
+        country_rare_crystals_produces_mult = 0.25
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictLowPrio
+			has_monthly_income = {
+				resource = volatile_motes
+				value < 0
+			}
+		}
+		modifier = {
+			weight = @EdictLowPrio
+			has_monthly_income = {
+				resource = exotic_gases
+				value < 0
+			}
+		}
+		modifier = {
+			weight = @EdictLowPrio
+			has_monthly_income = {
+				resource = rare_crystals
+				value < 0
+			}
+		}
+	}
+}

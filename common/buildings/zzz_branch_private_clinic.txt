@@ -1,0 +1,47 @@
+building_private_clinic = {
+
+	base_buildtime = @b1_time
+	icon = building_clinic
+	
+	branch_office_building = yes
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_hmo
+			is_criminal_syndicate = no
+		}
+	}
+	
+	planet_modifier = {
+		job_healthcare_add = 1
+		job_clerk_add = 2
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}	
+		produces = {
+			energy = 12
+			society_research = 12
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_policy_flag = healthcare_universal }
+			}
+			energy = -6
+			society_research = 6
+		}
+	}
+
+	ai_weight = {
+		weight = 400
+		modifier = {
+			factor = 0
+			has_building = building_private_clinic
+		}
+	}
+}

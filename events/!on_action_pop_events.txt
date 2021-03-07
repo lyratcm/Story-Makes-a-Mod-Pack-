@@ -1,0 +1,1421 @@
+#########################################
+#
+# on_action_events
+#
+#########################################
+
+namespace = action
+
+# Won War
+country_event = {
+	id = action.37
+	title = action.37.name
+	message_desc = action.37.message
+	
+	picture_event_data = {
+		portrait = FROM
+		planet_background = FROM
+		graphical_culture = FROM
+		city_level = FROM
+		room = FROM.ruler
+	}
+
+	desc = {
+		trigger = {
+			hidden:from = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+		text = action.37.desc.ketlings
+	}
+
+	desc = {
+		trigger = {
+			hidden:from = {
+				is_megacorp = yes
+			}
+		}
+		text = action.37.desc.corporate
+	}
+	
+	desc = {
+		trigger = {
+			hidden:from = {
+				switch = {
+					trigger = has_ai_personality
+					honorbound_warriors = { text = action.37.desc.hw }
+					technological_warriors = { text = action.37.desc.hw }
+					ruthless_capitalists = { text = action.37.desc.rc }
+					peaceful_traders = { text = action.37.desc.pt }
+					hegemonic_imperialists = { text = action.37.desc.hi }
+					vb_ambitious_unifiers = { text = action.37.desc.hi }
+					federation_builders = { text = action.37.desc.fb }
+					vb_keepers_of_peace = { text = action.37.desc.fb }
+					xenophobic_isolationists = { text = action.37.desc.xi }
+					hive_mind = { text = action.37.desc.hm }
+					infested_hive_mind = { text = action.37.desc.hm }
+					migrating_flock = { text = action.37.desc.mf }
+					evangelising_zealots = { text = action.37.desc.ez }
+					fanatic_purifiers = { text = action.37.desc.fp }
+					democratic_crusaders = { text = action.37.desc.dc }
+					egalitarian_imperialists = { text = action.37.desc.dc }
+					slaving_despots = { text = action.37.desc.sd }
+					decadent_hierarchy = { text = action.37.desc.dh }
+					decadent_technocracy = { text = action.37.desc.dh }
+					closed_hive_mind = { text = action.37.desc.dh }
+					erudite_explorers = { text = action.37.desc.ee }
+					knowledge_seekers = { text = action.37.desc.ee }
+					vb_rational_crusaders = { text = action.37.desc.ee }
+					vb_sneering_technocrats = { text = action.37.desc.ee }
+					spiritual_seekers = { text = action.37.desc.ss }
+					harmonious_hierarchy = { text = action.37.desc.hc }
+					open_hive_mind = { text = action.37.desc.hc }
+					open_machine_intelligence = { text = action.37.desc.hc }
+					vb_naive_appeasers = { text = action.37.desc.hc }
+					fallen_empire_spiritualist = { text = action.37.desc.hg }
+					fallen_empire_materialist = { text = action.37.desc.kk }
+					fallen_empire_xenophobe = { text = action.37.desc.mi }
+					fallen_empire_xenophile = { text = action.37.desc.eo }
+					fallen_empire_machine = { text = action.37.desc.fme } 
+					awakened_fallen_empire_machine = { text = action.37.desc.fme } 
+					berserk_fallen_empire_machine = { text = action.37.desc.bme } 					
+					metalhead = { text = action.37.desc.mh }
+					default = { text = action.37.desc.default }
+				}
+			}
+		}
+	}
+	
+	diplomatic = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = no
+	}
+
+	option = {
+		name = action.37.a
+	}
+}
+
+# Lost War
+country_event = {
+	id = action.38
+	title = action.38.name
+	message_desc = action.38.message
+	
+	picture_event_data = {
+		portrait = FROM
+		planet_background = FROM
+		graphical_culture = FROM
+		city_level = FROM
+		room = FROM.ruler
+	}
+
+	desc = {
+		trigger = {
+			hidden:from = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+		text = action.38.desc.ketlings
+	}
+
+	desc = {
+		trigger = {
+			hidden:from = {
+				is_megacorp = yes
+			}
+		}
+		text = action.38.desc.corporate
+	}
+	
+	desc = {
+		trigger = {
+			hidden:from = {
+				switch = {
+					trigger = has_ai_personality
+					honorbound_warriors = { text = action.38.desc.hw }
+					technological_warriors = { text = action.38.desc.hw }
+					ruthless_capitalists = { text = action.38.desc.rc }
+					peaceful_traders = { text = action.38.desc.pt }
+					hegemonic_imperialists = { text = action.38.desc.hi }
+					egalitarian_imperialists = { text = action.38.desc.hi }
+					federation_builders = { text = action.38.desc.fb }
+					xenophobic_isolationists = { text = action.38.desc.xi }
+					egalitarian_imperialists = { text = action.38.desc.xi }
+					closed_hive_mind = { text = action.38.desc.xi }
+					hive_mind = { text = action.38.desc.hm }
+					infested_hive_mind = { text = action.38.desc.hm }
+					migrating_flock = { text = action.38.desc.mf }
+					evangelising_zealots = { text = action.38.desc.ez }
+					fanatic_purifiers = { text = action.38.desc.fp }
+					democratic_crusaders = { text = action.38.desc.dc }
+					slaving_despots = { text = action.38.desc.sd }
+					decadent_hierarchy = { text = action.38.desc.dh }
+					decadent_technocracy = { text = action.38.desc.dh }
+					erudite_explorers = { text = action.38.desc.ee }
+					knowledge_seekers = { text = action.38.desc.ee }
+					vb_rational_crusaders = { text = action.38.desc.ee }
+					vb_sneering_technocrats = { text = action.38.desc.ee }
+					spiritual_seekers = { text = action.38.desc.ss }
+					harmonious_hierarchy = { text = action.38.desc.hc }
+					open_hive_mind = { text = action.38.desc.hc }
+					open_machine_intelligence = { text = action.38.desc.hc }
+					vb_keepers_of_peace = { text = action.38.desc.kp }
+					vb_naive_appeasers = { text = action.38.desc.na }
+					vb_ambitious_unifiers = { text = action.38.desc.au }
+					fallen_empire_spiritualist = { text = action.38.desc.hg }
+					fallen_empire_materialist = { text = action.38.desc.kk }
+					fallen_empire_xenophobe = { text = action.38.desc.mi }
+					fallen_empire_xenophile = { text = action.38.desc.eo }
+					fallen_empire_machine = { text = action.38.desc.fme } 
+					awakened_fallen_empire_spiritualist = { text = action.38.desc.hg }
+					awakened_fallen_empire_materialist = { text = action.38.desc.kk }
+					awakened_fallen_empire_xenophobe = { text = action.38.desc.mi }
+					awakened_fallen_empire_xenophile = { text = action.38.desc.eo }
+					fallen_empire_machine = { text = action.38.desc.fme } 
+					awakened_fallen_empire_machine = { text = action.38.desc.fme } 
+					berserk_fallen_empire_machine = { text = action.38.desc.bme } 
+					metalhead = { text = action.38.desc.mh }
+					default = { text = action.38.desc.default }
+				}
+			}
+		}
+	}
+	
+	diplomatic = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = no
+	}
+
+	option = {
+		name = action.38.a
+	}
+}
+
+# White Peace
+country_event = {
+	id = action.39
+	title = action.39.name
+	message_desc = action.39.message
+	
+	picture_event_data = {
+		portrait = FROM
+		planet_background = FROM
+		graphical_culture = FROM
+		city_level = FROM
+		room = FROM.ruler
+	}
+
+	desc = {
+		trigger = {
+			hidden:from = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+		text = action.39.desc.ketlings
+	}
+	
+	desc = {
+		trigger = {
+			hidden:from = {
+				switch = {
+					trigger = has_ai_personality
+					honorbound_warriors = { text = action.39.desc.hw }
+					technological_warriors = { text = action.39.desc.hw }
+					ruthless_capitalists = { text = action.39.desc.rc }
+					peaceful_traders = { text = action.39.desc.pt }
+					hegemonic_imperialists = { text = action.39.desc.hi }
+					vb_ambitious_unifiers = { text = action.39.desc.hi }
+					federation_builders = { text = action.39.desc.fb }
+					vb_naive_appeasers = { text = action.39.desc.fb }
+					xenophobic_isolationists = { text = action.39.desc.xi }
+					hive_mind = { text = action.39.desc.hm }
+					infested_hive_mind = { text = action.39.desc.hm }
+					closed_hive_mind = { text = action.39.desc.hm }
+					migrating_flock = { text = action.39.desc.mf }
+					evangelising_zealots = { text = action.39.desc.ez }
+					fanatic_purifiers = { text = action.39.desc.fp }
+					democratic_crusaders = { text = action.39.desc.dc }
+					slaving_despots = { text = action.39.desc.sd }
+					decadent_hierarchy = { text = action.39.desc.dh }
+					decadent_technocracy = { text = action.39.desc.dh }
+					erudite_explorers = { text = action.39.desc.ee }
+					knowledge_seekers = { text = action.39.desc.ee }
+					vb_rational_crusaders = { text = action.39.desc.ee }
+					vb_sneering_technocrats = { text = action.39.desc.ee }
+					spiritual_seekers = { text = action.39.desc.ss }
+					harmonious_hierarchy = { text = action.39.desc.hc }
+					open_hive_mind = { text = action.39.desc.hc }
+					open_machine_intelligence = { text = action.39.desc.hc }
+					vb_keepers_of_peace = { text = action.39.desc.kp }
+					fallen_empire_spiritualist = { text = action.39.desc.hg }
+					fallen_empire_materialist = { text = action.39.desc.kk }
+					fallen_empire_xenophobe = { text = action.39.desc.mi }
+					fallen_empire_xenophile = { text = action.39.desc.eo }
+					awakened_fallen_empire_spiritualist = { text = action.39.desc.hg }
+					awakened_fallen_empire_materialist = { text = action.39.desc.kk }
+					awakened_fallen_empire_xenophobe = { text = action.39.desc.mi }
+					awakened_fallen_empire_xenophile = { text = action.39.desc.eo }
+					fallen_empire_machine = { text = action.39.desc.fme } 
+					awakened_fallen_empire_machine = { text = action.39.desc.fme } 
+					berserk_fallen_empire_machine = { text = action.39.desc.bme } 					
+					metalhead = { text = action.39.desc.mh }
+					default = { text = action.39.desc.default }
+				}
+			}
+		}
+	}
+	
+	diplomatic = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = no
+	}
+
+	option = {
+		name = action.39.a
+	}
+}
+
+# Country Destroyed Notification (default countries)
+country_event = {
+	id = "action.62"
+	title = "action.62.name"
+	desc = "action.62.desc"
+	show_sound = event_default
+	picture = "GFX_evt_city_ruins"
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+
+	option = {
+		name = "action.62.memorialist.a"
+		exclusive_trigger = {
+			OR = {
+				has_valid_civic = civic_memorialist
+				has_valid_civic = civic_memorialist_corp
+				has_valid_civic = civic_hive_memorialist
+				has_valid_civic = civic_machine_memorialist
+			}
+		}
+	}
+}
+
+# Country Destroyed Notification (fallen/awakened empires)
+country_event = {
+	id = "action.63"
+	title = "action.63.name"
+	desc = "action.63.desc"
+	show_sound = event_default
+	picture = "GFX_evt_city_ruins"
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+
+	option = {
+		name = "action.62.memorialist.a"
+		exclusive_trigger = {
+			OR = {
+				has_valid_civic = civic_memorialist
+				has_valid_civic = civic_memorialist_corp
+				has_valid_civic = civic_hive_memorialist
+				has_valid_civic = civic_machine_memorialist
+			}
+		}
+	}
+}
+
+# Assimilate Pops on Yearly Pulse
+event = {
+	id = action.64
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "action.64"
+        every_playable_country = {
+            limit = {
+				NOT = { owner = { has_civic = civic_infestation } }
+                num_unique_species > 1
+                any_owned_species = {
+                    has_citizenship_type = {
+						type = citizenship_assimilation
+						country = prev
+                    }
+                }
+            }
+			log = "action.64.epc"
+
+			if = { # ascended synths
+				limit = {
+					NOT = { has_country_flag = synthetic_empire }
+				}
+				every_owned_species = {
+					limit = {
+						has_citizenship_type = {
+							type = citizenship_assimilation
+							country = prev
+						}
+					}
+					if = { # assimilator empire or cyborg empire
+						limit = {
+							prev = {
+								OR = {
+									has_country_flag = flesh_weakened
+									AND = {
+										has_authority = auth_machine_intelligence
+										has_civic = civic_machine_assimilator
+									}
+								}
+							}
+						}
+						if = {
+							limit = { NOT = { has_trait = trait_cybernetic } }
+							if = {
+								limit = {
+									has_trait = trait_hive_mind
+									has_trait = trait_self_modified
+								}
+								modify_species = {
+									species = this
+									add_trait = trait_cybernetic
+									add_traits_at_start_of_list = yes
+									remove_trait = trait_hive_mind
+									remove_trait = trait_self_modified
+									remove_trait = trait_primitive_cybernetic
+									change_scoped_species = no
+
+									effect = {
+										set_timed_species_flag = {
+											flag = assimilation_species_of_species@prev
+											days = 30
+										}
+										set_timed_species_flag = {
+											flag = assimilation_species_of_empire@prevprev
+											days = 30
+										}
+									}
+								}
+							}
+							else_if = {
+								limit = {
+									has_trait = trait_hive_mind
+								}
+								modify_species = {
+									species = this
+									add_trait = trait_cybernetic
+									add_traits_at_start_of_list = yes
+									remove_trait = trait_hive_mind
+									remove_trait = trait_primitive_cybernetic
+									change_scoped_species = no
+
+									effect = {
+										set_timed_species_flag = {
+											flag = assimilation_species_of_species@prev
+											days = 30
+										}
+										set_timed_species_flag = {
+											flag = assimilation_species_of_empire@prevprev
+											days = 30
+										}
+									}
+								}
+							}
+							else_if = {
+								limit = {
+									has_trait = trait_self_modified
+								}
+								modify_species = {
+									species = this
+									add_trait = trait_cybernetic
+									add_traits_at_start_of_list = yes
+									remove_trait = trait_self_modified
+									remove_trait = trait_primitive_cybernetic
+									change_scoped_species = no
+
+									effect = {
+										set_timed_species_flag = {
+											flag = assimilation_species_of_species@prev
+											days = 30
+										}
+										set_timed_species_flag = {
+											flag = assimilation_species_of_empire@prevprev
+											days = 30
+										}
+									}
+								}
+							}
+							else = {
+								modify_species = {
+									species = this
+									add_trait = trait_cybernetic
+									add_traits_at_start_of_list = yes
+									remove_trait = trait_primitive_cybernetic
+									change_scoped_species = no
+
+									effect = {
+										set_timed_species_flag = {
+											flag = assimilation_species_of_species@prev
+											days = 30
+										}
+										set_timed_species_flag = {
+											flag = assimilation_species_of_empire@prevprev
+											days = 30
+										}
+									}
+								}
+							}
+						}
+					}
+					else_if = { # hive mind
+						limit = {
+							prev = {
+								has_authority = auth_hive_mind
+								NOT = { has_civic = civic_hive_devouring_swarm }
+							}
+						}
+						if = {
+							limit = {
+								has_trait = trait_self_modified
+							}
+							modify_species = {
+								species = this
+								add_trait = trait_hive_mind
+								remove_trait = trait_self_modified
+								change_scoped_species = no
+
+								effect = {
+									set_timed_species_flag = {
+										flag = assimilation_species_of_species@prev
+										days = 30
+									}
+									set_timed_species_flag = {
+										flag = assimilation_species_of_empire@prevprev
+										days = 30
+									}
+								}
+							}
+						}
+						else = {
+							modify_species = {
+								species = this
+								add_trait = trait_hive_mind
+								change_scoped_species = no
+
+								effect = {
+									set_timed_species_flag = {
+										flag = assimilation_species_of_species@prev
+										days = 30
+									}
+									set_timed_species_flag = {
+										flag = assimilation_species_of_empire@prevprev
+										days = 30
+									}
+								}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							prev = {
+								NOR = {
+									has_ethic = ethic_gestalt_consciousness
+									has_country_flag = synthetic_empire
+									has_country_flag = flesh_weakened
+								}
+							}
+							has_trait = trait_hive_mind
+						}
+						modify_species = {
+							species = this
+							remove_trait = trait_hive_mind
+							change_scoped_species = no
+
+							effect = {
+								set_timed_species_flag = {
+									flag = assimilation_species_of_species@prev
+									days = 30
+								}
+								set_timed_species_flag = {
+									flag = assimilation_species_of_empire@prevprev
+									days = 30
+								}
+							}
+						}
+					}
+					else_if = { #### Psionic Assimilation ADD OTHER RANDOM OPTIONS TOO
+						limit = {
+							prev = {
+								has_ascension_perk = ap_transcendence
+							}
+						}
+						if = {
+							limit = {
+								NOR = {
+									has_trait = trait_psionic
+									has_trait = trait_latent_psionic
+								}
+							}
+							modify_species = {
+								species = this
+								add_trait = trait_psionic
+								add_traits_at_start_of_list = yes
+								change_scoped_species = no
+
+								effect = {
+									set_timed_species_flag = {
+										flag = assimilation_species_of_species@prev
+										days = 30
+									}
+									set_timed_species_flag = {
+										flag = assimilation_species_of_empire@prevprev
+										days = 30
+									}
+								}
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_trait = trait_psionic}
+								has_trait = trait_latent_psionic
+							}
+							modify_species = {
+								species = this
+								remove_trait = trait_latent_psionic
+								add_trait = trait_psionic
+								add_traits_at_start_of_list = yes
+								change_scoped_species = no
+
+								effect = {
+									set_timed_species_flag = {
+										flag = assimilation_species_of_species@prev
+										days = 30
+									}
+									set_timed_species_flag = {
+										flag = assimilation_species_of_empire@prevprev
+										days = 30
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+            every_owned_planet = {
+                planet_event = { id = action.65 }
+            }
+        }
+    }
+}
+
+# Clear deposits after some terraforming actions
+planet_event = {
+	id = action.68
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				is_planet_class = pc_machine
+			}
+			#clear_deposits = yes
+			every_deposit = {
+				limit = {
+					NOR = { # rare non-event deposits should not be cleared
+						is_deposit_type = d_dust_caverns
+						is_deposit_type = d_dust_desert
+						is_deposit_type = d_bubbling_swamp
+						is_deposit_type = d_fuming_bog
+						is_deposit_type = d_crystalline_caverns
+						is_deposit_type = d_crystal_forest
+						is_deposit_type = d_crystal_reef
+						is_deposit_type = d_betharian_deposit
+						is_deposit_type = d_alien_pets_deposit
+						is_deposit_type = d_tree_of_life_home
+						is_deposit_type = d_tree_of_life_colony
+						is_deposit_type = d_holy_mountain
+						is_deposit_type = d_exploited_homeworld
+						is_deposit_type = d_chrysanthemum
+						is_deposit_type = d_lost_colony
+						is_deposit_type = d_united_nations
+						is_deposit_type = d_default
+						is_deposit_type = d_default_hive
+						is_deposit_type = d_default_machine
+						is_deposit_type = d_ego_statue
+						is_deposit_type = d_ancient_palace
+						is_deposit_type = d_preserve_habitability
+						is_deposit_type = d_ship_graveyard_start
+						is_deposit_type = d_ship_wreckage
+					}
+				}
+				remove_deposit = yes
+			}
+			remove_modifier = "natural_beauty"
+			remove_modifier = "atmospheric_aphrodisiac"
+			remove_modifier = "atmospheric_hallucinogen"
+			remove_modifier = "lush_planet"
+			if = {
+				limit = {
+					any_owned_pop = {
+						NOR = {
+							has_trait = trait_cybernetic
+							has_trait = trait_machine_unit
+							has_trait = trait_mechanical
+						}
+					}
+				}
+				add_deposit = d_organic_slurry
+				every_owned_pop = {
+					limit = {
+						NOR = {
+							has_trait = trait_cybernetic
+							has_trait = trait_machine_unit
+							has_trait = trait_mechanical
+						}
+					}
+					if = {
+						limit = {
+							planet.owner = { has_valid_civic = civic_machine_terminator }
+						}
+						planet.owner = {
+							add_resource = { unity = 100 }
+						}
+					}
+					kill_pop = yes
+				}
+			}
+		}
+		if = {
+			limit = { is_planet_class = pc_hive }
+			random_list = {
+				10 = {
+					add_modifier = { modifier = natural_beauty days = -1 }
+					modifier = {
+						factor = 0
+						has_modifier = natural_beauty
+					}
+				}
+				10 = {
+					add_modifier = { modifier = lush_planet days = -1 }
+					modifier = {
+						factor = 0
+						has_modifier = lush_planet
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = owner
+				owner = { has_origin = origin_terraformer }
+				NOT = { has_modifier = terraformer_homeworld }
+			}
+			add_modifier = { modifier = terraformer_homeworld days = -1 }
+		}
+		remove_modifier = "bleak_planet"
+		remove_modifier = "dangerous_wildlife"
+		remove_modifier = "hazardous_weather"
+		remove_modifier = "wild_storms"
+		remove_modifier = "irradiated_planet"
+		remove_modifier = "dune_world"
+		remove_modifier = "karstic_world"
+		remove_modifier = "young_world"
+		remove_modifier = "boundless_ocean"
+		remove_modifier = "swamp_world"
+		remove_modifier = "fog_world"
+		remove_modifier = "exotic_world"
+		remove_modifier = "boreal_world"
+		remove_modifier = "megaflora"
+		remove_modifier = "tempest_world"
+		remove_modifier = "geothermal_world"
+		remove_modifier = "glacial_world"
+		remove_modifier = "incessant_thunderstorm"
+		remove_modifier = "terrible_hurricanes"
+		remove_modifier = "heavy_sandstorms"
+		remove_modifier = "heavy_blizzards"
+		remove_modifier = "giant_waves"
+		remove_modifier = "prolonged_drought"
+		remove_modifier = "monstrous_avalanches"
+		remove_modifier = "toxic_atmosphere"
+		remove_modifier = "heavy_wear"
+		
+		if = {
+			limit = {
+				NOT = {
+					is_planet_class = pc_gaia
+				}
+				OR = {
+					is_active_resolution = "resolution_ecology_environmental_control_board"
+					is_active_resolution = "resolution_ecology_paradise_initiative"
+				}
+			}
+			from.owner = {
+				set_timed_country_flag = { flag = resolution_breached_terraformed days = 3600 }
+			}
+		}
+		if = {
+			limit = {
+				exists = mining_station
+			}
+			mining_station = {
+				delete_fleet = this
+			}
+		}
+		if = {
+			limit = {
+				exists = research_station
+			}
+			research_station = {
+				delete_fleet = this
+			}
+		}
+	}
+}
+
+# Removes existing Android Armies when AI is Outlawed, and Robotic Armies when Robot Workers are Outlawed
+country_event = {
+	id = action.80
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				last_changed_policy = artificial_intelligence_policy
+				has_policy_flag = ai_outlawed
+				any_owned_army = {
+					OR = {
+						army_type = robotic_army
+						army_type = android_army
+						army_type = robotic_defense_army
+						army_type = android_defense_army
+					}
+				}
+			}
+			AND = {
+				last_changed_policy = robot_pop_policy
+				has_policy_flag = robots_outlawed
+				any_owned_army = {
+					OR = {
+						army_type = robotic_army
+						army_type = android_army
+						army_type = robotic_defense_army
+						army_type = android_defense_army
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { last_changed_policy = artificial_intelligence_policy has_policy_flag = ai_outlawed }
+			every_owned_army = {
+				limit = {
+					OR = {
+						army_type = robotic_army
+						army_type = android_army
+						army_type = robotic_defense_army
+						army_type = android_defense_army
+					}
+				}
+				remove_army = yes
+			}
+		}
+		else_if = {
+			limit = { last_changed_policy = robot_pop_policy has_policy_flag = robots_outlawed }
+			every_owned_army = {
+				limit = {
+					OR = {
+						army_type = robotic_army
+						army_type = android_army
+						army_type = robotic_defense_army
+						army_type = android_defense_army
+					}
+				}
+				remove_army = yes
+			}
+		}
+	}
+}
+
+# Planet is turned into tomb world by special bombing stance
+planet_event = {
+	id = action.81
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_orbital_bombardment_stance = armageddon
+			has_orbital_bombardment_stance = pox
+			has_orbital_bombardment_stance = death
+		}
+		from = {
+			OR = {
+				is_country_type = default
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		habitable_planet = yes
+	}
+
+	immediate = {
+		owner = {
+			add_static_war_exhaustion = {
+				attacker = from
+				location = root
+				value_for_planet_destruction = 0.5
+			}
+			country_event = { id = action.82 }
+		}
+		from = { country_event = { id = action.83 } }
+		change_pc = pc_nuked
+		set_planet_flag = nuked_planet_anomalies_disabled
+		remove_all_buildings = yes
+		reroll_deposits = yes
+		remove_modifier = "natural_beauty"
+		remove_modifier = "atmospheric_aphrodisiac"
+		remove_modifier = "atmospheric_hallucinogen"
+		remove_modifier = "lush_planet"
+		remove_modifier = "dangerous_wildlife"
+		set_planet_flag = armageddon_nuked
+	}
+}
+
+# Remove modifiers on owner change
+planet_event = {
+	id = action.89
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		remove_modifier = planet_population_control
+		remove_modifier = planet_growth_discouraged
+		remove_modifier = hunter_killer_drones
+		remove_modifier = compliance_protocols
+		remove_modifier = martial_law
+		remove_modifier = crime_lord_deal
+		remove_modifier = crime_lord_deal_broken
+		remove_modifier = anticrime_campaign
+		remove_modifier = penal_colony
+		remove_modifier = resort_colony
+		remove_deposit = d_resort_world
+		remove_deposit = d_resort_world_robot
+		remove_modifier = slave_colony
+		remove_modifier = gang_wars
+		remove_modifier = drone_corruption
+		remove_modifier = drone_deviancy
+		remove_modifier = criminal_underworld
+		remove_modifier = center_of_drug_trade
+		remove_modifier = mob_rule
+		remove_modifier = crime_wave
+		remove_modifier = smuggler_activity
+		remove_modifier = substance_abuse
+		remove_modifier = bribed_officials
+		remove_modifier = cartel_war
+		remove_modifier = travel_advisory
+		remove_modifier = trade_pilfering
+		remove_modifier = protection_racket
+		remove_modifier = cartel_war
+		remove_modifier = ringleader_killed
+		remove_modifier = corrupt_network_terminated
+		remove_modifier = unemployment_benefits
+		remove_modifier = activity_program
+		remove_modifier = standby_mode
+	}
+}
+
+# Market Founder event
+country_event = {
+	id = action.96
+	title = action.96.name
+	desc = {
+		text = action.96.desc
+		trigger = { is_xenophobe = no }
+	}
+	desc = {
+		text = action.96.desc.phobe
+		trigger = { is_xenophobe = yes }
+	}
+	picture = GFX_evt_financial_instruments
+	show_sound = event_galactic_market
+
+	is_triggered_only = yes
+
+	fire_only_once = yes # failsafe
+
+	immediate = {
+		set_global_flag = ongoing_market_nomination
+		set_country_flag = market_nomination_eligible
+		event_target:global_event_country = {
+			country_event = { id = action.98 days = 1800 }
+		}
+		begin_event_chain = {
+			event_chain = market_founding_chain
+			target = this
+		}
+		every_playable_country = {
+			limit = {
+				NOT = { is_same_value = root }
+				is_galactic_community_member = yes
+			}
+			begin_event_chain = {
+				event_chain = market_founding_chain
+				target = this
+			}
+			country_event = { id = action.97 }
+		}
+	}
+
+	after = {
+		custom_tooltip = enable_decision_market_nomination
+		# Notification
+		tooltip = {
+			begin_event_chain = {
+				event_chain = market_founding_chain
+				target = this
+			}
+		}
+	}
+
+	option = {
+		name = action.96.a
+		trigger = {
+			OR = {
+				is_megacorp = yes
+				has_valid_civic = civic_corporate_dominion
+				has_valid_civic = civic_merchant_guilds
+				has_valid_civic = eco_civic_consumerist
+			}
+		}
+	}
+
+	option = {
+		name = action.96.b
+		trigger = {
+			NOR = {
+				is_megacorp = yes
+				has_valid_civic = civic_corporate_dominion
+				has_valid_civic = civic_merchant_guilds
+				has_valid_civic = eco_civic_consumerist
+			}
+		}
+	}
+}
+
+# Market Nomination started notification event
+country_event = {
+	id = action.97
+	title = action.97.name
+	desc = {
+		text = action.97.desc
+		trigger = {
+			NOR = {
+				is_xenophobe = yes
+				is_megacorp = yes
+				has_valid_civic = civic_corporate_dominion
+				has_valid_civic = civic_merchant_guilds
+				has_valid_civic = eco_civic_consumerist
+			}
+		}
+	}
+	desc = {
+		text = action.97.desc.phobe
+		trigger = { is_xenophobe = yes }
+	}
+	desc = {
+		text = action.97.desc.corp
+		trigger = {
+			OR = {
+				is_megacorp = yes
+				has_valid_civic = civic_corporate_dominion
+				has_valid_civic = civic_merchant_guilds
+				has_valid_civic = eco_civic_consumerist
+			}
+		}
+	}
+	picture = GFX_evt_financial_instruments
+	show_sound = event_galactic_market
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = market_nomination_eligible
+	}
+
+	after = {
+		tooltip = {
+			begin_event_chain = {
+				event_chain = market_founding_chain
+				target = this
+			}
+		}
+	}
+
+	option = {
+		name = action.96.a
+		trigger = {
+			OR = {
+				is_megacorp = yes
+				has_valid_civic = civic_corporate_dominion
+				has_valid_civic = civic_merchant_guilds
+				has_valid_civic = eco_civic_consumerist
+			}
+		}
+		custom_tooltip = enable_decision_market_nomination
+	}
+
+	option = {
+		name = action.96.b
+		trigger = {
+			NOR = {
+				is_megacorp = yes
+				has_valid_civic = civic_corporate_dominion
+				has_valid_civic = civic_merchant_guilds
+				has_valid_civic = eco_civic_consumerist
+			}
+		}
+		custom_tooltip = enable_decision_market_nomination
+	}
+}
+
+# Market Founder luck-of-the-draw
+country_event = {
+	id = action.98
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_playable_country = {
+			limit = { has_event_chain = market_founding_chain }
+			end_event_chain = market_founding_chain
+		}
+		remove_global_flag = ongoing_market_nomination
+		# nominees start equal, modifiers improve chances
+		random_country = {
+			limit = {
+				is_country_type = default
+				has_country_flag = market_nomination_eligible
+			}
+			weights = {
+				# can use add or mult
+				base = 1
+				modifier = {
+					add = 75
+					check_variable = {
+						which = market_rating
+						value = 5
+					}
+				}
+				modifier = {
+					add = 50
+					check_variable = {
+						which = market_rating
+						value = 4
+					}
+				}
+				modifier = {
+					add = 30
+					check_variable = {
+						which = market_rating
+						value = 3
+					}
+				}
+				modifier = {
+					add = 20
+					check_variable = {
+						which = market_rating
+						value = 2
+					}
+				}
+				modifier = {
+					add = 10
+					check_variable = {
+						which = market_rating
+						value = 1
+					}
+				}
+				modifier = {
+					mult = 2
+					OR = {
+						is_megacorp = yes
+						has_valid_civic = civic_corporate_dominion
+						has_valid_civic = civic_merchant_guilds
+						has_valid_civic = eco_civic_consumerist
+					}
+				}
+				modifier = {
+					mult = 0.5
+					NOT = {
+						any_owned_planet = {
+							OR = {
+								has_modifier = market_nominee_level_1
+								has_modifier = market_nominee_level_2
+								has_modifier = market_nominee_level_3
+								has_modifier = market_nominee_level_4
+								has_modifier = market_nominee_level_5
+							}
+						}
+					}
+				}
+				modifier = {
+					mult = 0.1
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+			save_global_event_target_as = market_founder
+			random_owned_planet = {
+				weights = {
+					base = 1
+					modifier = {
+						mult = 9999
+						OR = {
+							has_modifier = market_nominee_level_1
+							has_modifier = market_nominee_level_2
+							has_modifier = market_nominee_level_3
+							has_modifier = market_nominee_level_4
+							has_modifier = market_nominee_level_5
+						}
+					}
+				}
+				save_global_event_target_as = market_founder_planet
+			}
+			country_event = { id = action.99 }
+		}
+		every_playable_country = {
+			limit = { has_country_flag = market_nomination_eligible }
+			every_owned_planet = {
+				limit = {
+					OR = {
+						has_modifier = market_nominee_level_1
+						has_modifier = market_nominee_level_2
+						has_modifier = market_nominee_level_3
+						has_modifier = market_nominee_level_4
+						has_modifier = market_nominee_level_5
+					}
+				}
+				# remove boosted flags
+				if = {
+					limit = { has_planet_flag = boosted_once }
+					remove_planet_flag = boosted_once
+				}
+				if = {
+					limit = { has_planet_flag = boosted_twice }
+					remove_planet_flag = boosted_twice
+				}
+				# remove modifiers
+				if = {
+					limit = { has_modifier = market_nominee_level_1 }
+					remove_modifier = market_nominee_level_1
+				}
+				else_if = {
+					limit = { has_modifier = market_nominee_level_2 }
+					remove_modifier = market_nominee_level_2
+				}
+				else_if = {
+					limit = { has_modifier = market_nominee_level_3 }
+					remove_modifier = market_nominee_level_3
+				}
+				else_if = {
+					limit = { has_modifier = market_nominee_level_4 }
+					remove_modifier = market_nominee_level_4
+				}
+				else_if = {
+					limit = { has_modifier = market_nominee_level_5 }
+					remove_modifier = market_nominee_level_5
+				}
+			}
+			set_variable = {
+				which = market_rating
+				value = 0
+			}
+		}
+	}
+}
+
+# Market station lost, is conquered or moved
+country_event = {
+	id = action.102
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:galactic_market_station
+		from = {
+			any_system_ambient_object = {
+				is_same_value = event_target:galactic_market_station
+			}
+		}
+	}
+
+	immediate = {
+		if = { # no new owner or homicidal empire
+			limit = {
+				OR = {
+					NOT = { exists = fromfrom }
+					AND = {
+						exists = fromfrom
+						fromfrom = {
+							OR = {
+								is_homicidal = yes
+								is_galactic_community_member = yes
+							}
+						}
+					}
+				}
+			}
+			# transfer to contact
+			event_target:galactic_market_station = {
+				destroy_ambient_object = this
+			}
+			clear_global_event_target = galactic_market_station
+			clear_global_event_target = market_founder_planet
+			remove_modifier = galactic_market_founder
+
+			random_playable_country = {
+				limit = {
+					is_homicidal = no
+					is_galactic_community_member = yes
+				}
+				weights = {
+					base = 1
+					modifier = {
+						mult = 999
+						has_communications = root
+						has_country_flag = market_nomination_eligible
+					}
+					modifier = {
+						mult = 20
+						capital_scope = {
+							is_planet_class = pc_city
+						}
+					}
+					modifier = {
+						mult = 9
+						OR = {
+							is_megacorp = yes
+							has_valid_civic = civic_corporate_dominion
+							has_valid_civic = civic_merchant_guilds
+							has_valid_civic = eco_civic_consumerist
+						}
+					}
+					modifier = {
+						mult = 2
+						trade_income >= 120
+					}
+					modifier = {
+						mult = 0.5
+						trade_income <= 50
+					}
+					modifier = {
+						mult = 0.75
+						has_ethic = ethic_gestalt_consciousness
+					}
+				}
+				capital_scope = {
+					create_ambient_object = {
+						type = "galactic_market_station"
+						location = this
+					}
+					save_event_target_as = market_founder_planet
+					last_created_ambient_object = {
+						save_global_event_target_as = galactic_market_station
+						set_ambient_object_flag = galactic_market_station_flag
+						set_location = {
+							target = event_target:market_founder_planet.solar_system.star
+							angle = random
+							distance = 40
+						}
+					}
+				}
+				add_modifier = {
+					modifier = galactic_market_founder
+					days = -1
+				}
+				set_market_leader = yes
+
+				country_event = { id = action.103 }
+			}
+			create_message = {
+				type = MESSAGE_TYPE_LOST_MARKET_STATION
+				localization = MESSAGE_LOST_MARKET_STATION
+				days = 30
+				target = root.from # the Go To
+				variable = {
+					type = name
+					localization = SYSTEM
+					scope = root.from
+				}
+			}
+		}
+		else_if = { # lost to valid empire without market access (somehow)
+			limit = {
+				exists = fromfrom
+				fromfrom = {
+					is_country_type = default
+					NOT = { has_country_flag = has_market_access }
+				}
+			}
+			fromfrom = {
+				set_country_flag = has_market_access
+				enable_galactic_market = yes
+				add_modifier = {
+					modifier = galactic_market_founder
+					days = -1
+				}
+				set_market_leader = yes
+			}
+			remove_modifier = galactic_market_founder
+			create_message = {
+				type = MESSAGE_TYPE_LOST_MARKET_STATION
+				localization = MESSAGE_LOST_MARKET_STATION
+				days = 30
+				target = root.from # the Go To
+				variable = {
+					type = name
+					localization = SYSTEM
+					scope = root.from
+				}
+			}
+		}
+		else = {
+			remove_modifier = galactic_market_founder
+			fromfrom = {
+				add_modifier = {
+					modifier = galactic_market_founder
+					days = -1
+				}
+				set_market_leader = yes
+			}
+			create_message = {
+				type = MESSAGE_TYPE_LOST_MARKET_STATION
+				localization = MESSAGE_LOST_MARKET_STATION
+				days = 30
+				target = root.from # the Go To
+				variable = {
+					type = name
+					localization = SYSTEM
+					scope = root.from
+				}
+			}
+		}
+	}
+}

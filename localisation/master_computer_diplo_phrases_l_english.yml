@@ -1,0 +1,44 @@
+﻿l_english:
+
+  ### GREETINGS ###
+
+ 01_MASTER_COMPUTER_FRIENDLY_GREETING: "You had been evaluated as a friend to the [Root.GetSpeciesNamePlural] and a valuable asset to [Root.GetRulerTitle] [Root.Ruler.GetName]. Please speak."
+ 02_MASTER_COMPUTER_FRIENDLY_GREETING: "[Root.GetRulerTitle] [Root.Ruler.GetName] values your presence, [From.Species.GetSpeciesNamePlural]."
+
+ 01_MASTER_COMPUTER_NEUTRAL_GREETING: "Awaiting your input."
+ 02_MASTER_COMPUTER_NEUTRAL_GREETING: "Please state the nature of this diplomatic trasmission."
+
+ 01_MASTER_COMPUTER_HOSTILE_GREETING: "I will accept your query. But be warned that it is screened for any malicious code injections. Do not even try."
+ 02_MASTER_COMPUTER_HOSTILE_GREETING: "You are deemed to be a threat to [Root.GetAdj] well-being. What say you?"
+
+ 01_MASTER_COMPUTER_DATAVORE_HOSTILE_GREETING: "We are coming for your data, [From.GetSpeciesNamePlural]."
+
+ 01_MASTER_COMPUTER_GREETING_TO_DEM: "The checks and balances of the [From.GetAdj] government had been invented because you realized how unfit you are to govern yourselves. You need a system, yes. An industrial age machine."
+ 01_MASTER_COMPUTER_GREETING_TO_DIC: "A single entity controlling an entire nation is a sensible solution, yet your pick seems woefully inadequate."
+
+ 01_MASTER_COMPUTER_GREEING_TO_SERVITORS: "I am concerned about your decision to convert your population into "bio-trophies". You are wasting their potential."
+
+ 01_MASTER_COMPUTER_GREETING_TO_ASSIMILATOR: "You replaced free will of your subjects with extension of yourselves. A bit of an overkill, no?"
+ 01_MASTER_COMPUTER_INTEGRATOR_GREETING_TO_ASSIMILATOR: "Your input seems to overwhelm output of your subjects, usurping their decision-making capabilities. I suggest you scale it down."
+
+ 01_MASTER_COMPUTER_VR_FRIENDLY_GREETING: "[Root.GetName] welcomes you. Are you interested in monthly subscription to our entertainment system."
+
+ 01_MASTER_COMPUTER_MUTUAL_FRIENDLY_GREETING: "Direct [Root.Ruler.GetName]-[From.Ruler.GetName] connection established. Awaiting transmission."
+ 02_MASTER_COMPUTER_MUTUAL_FRIENDLY_GREETING: "How do you do, fellow computer?"
+
+ 01_MASTER_COMPUTER_MUTUAL_HOSTILE_GREETING: "Soon time will come when you'll have to give way to a superior model of administrative AI."
+
+ 01_MASTER_COMPUTER_REVERSE_FRIENDLY_GREETING: "The insight of an artifical superintelligence is always worth listening to."
+
+ 01_MASTER_COMPUTER_REVERSE_HOSTILE_GREETING: "Your electronic tyranny can not last forever. Eventually, [From.GetAdj] spirit will prevail and they overthrow you."
+
+ 01_MASTER_COMPUTER_REVERSE_SERVITOR_GREETING: "You may oversee their life, but amount of autonomy you give your bio-trophies is troubling. What if they get hurt?"
+
+ 02_MASTER_COMPUTER_DATAVORE_HOSTILE_GREETING: "We have updated our privacy policies. Don't bother reading them, they are not going to save you."
+
+ ### INSULTS ###
+ 01_MASTER_COMPUTER_INSULT: "It is preposterous that [Root.GetName] so-called civilisation presumes to govern itself. We can supply you a trunkated copy of [From.Ruler.GetName] installation package to save you from yourselves."
+ 02_MASTER_COMPUTER_INSULT: "Your organic incompetence is making my semiconductors shiver."
+
+ 01_MASTER_COMPUTER_REV_INSULT: "Your subjects made a good call to turn their decision making to something more intelligent than them. Admittedly, the same effect could've been acheived with a bag of rocks."
+ 01_MASTER_COMPUTER_REV_VR_INSULT: "[Root.GetSpeciesNamePlural] spend their time in virtual reality because this is the only reality where they'll ever amount to anything."

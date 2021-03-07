@@ -1,0 +1,46 @@
+ap_esap_cyber_bonus = {
+	on_enabled = { 
+		#custom_tooltip = ap_esap_cyber_bonus_tooltip
+	}
+
+	modifier = {
+		country_unity_produces_mult = 0.25
+		pop_government_ethic_attraction = 0.50
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ap_the_flesh_is_weak"
+			has_ascension_perk = ap_the_flesh_is_weak
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ascension_path_t2_req_1"
+			Or = {
+				esap_has_bio_cyber_psi_2 = yes
+				Not = {
+					esap_has_bio_cyber_psi_1 = yes
+				}
+			}
+		}
+	}
+	
+	potential = {
+		host_has_dlc = "Utopia"
+		NOT = {
+			has_ascension_perk = ap_esap_cyber_bonus
+			has_authority = "auth_machine_intelligence"
+		}
+		Or = {
+			Nor = {
+				has_ascension_perk = ap_mind_over_matter
+				has_ascension_perk = ap_engineered_evolution
+			}
+			has_ascension_perk = ap_esap_bio_cyber_psi_1
+			has_ascension_perk = ap_esap_bio_cyber_psi_2_plain
+		}
+	}
+	
+	ai_weight = {
+		factor = 10
+	}
+}

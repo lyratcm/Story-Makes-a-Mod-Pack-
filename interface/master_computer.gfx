@@ -1,0 +1,26 @@
+spriteTypes = {
+  spriteType = {
+      name = "GFX_text_specialist_production"
+      texturefile = "gfx/interface/icons/modifiers/planet_jobs_specialist_produces_mult.dds"
+  }
+  # spriteType = {
+  #     name = "GFX_mod_planet_jobs_specialist_produces_mult"
+  #     texturefile = "gfx\interface\icons\modifiers\planet_jobs_specialist_produces_mult.dds"
+  # }
+  spriteType = {
+    name = "GFX_wg_master_computer_solution"
+    texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+  }
+  spriteType = {
+    name = "GFX_wg_master_computer_containment"
+    texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+  }
+  spriteType = {
+    name = GFX_wg_master_computer_steal_information
+    texturefile = "gfx/interface/icons/diplomacy/diplomacy_research_agreement.dds"
+  }
+  spriteType = {
+    name = GFX_tr_domination_master_computer_deus_ex_machina
+    textureFile = "gfx/interface/icons/traditions/tradition_prosperity_efficiency_algorithms.dds"
+  }
+}

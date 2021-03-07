@@ -1,0 +1,47 @@
+namespace = anomaly
+
+fleet_event = {
+	id = anomaly.143
+	title = "anomaly.143.name"
+	desc = "anomaly.143.desc"
+	picture = GFX_evt_ship_travel
+	show_sound = event_mystic_reveal
+	location = event_target:shrine
+	trackable = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = { has_event_chain = "old_gods_chain" }
+		FROM = {
+			has_star_flag = old_gods_system_2@root.owner
+		}
+	}
+
+	immediate = {
+		FROM = { remove_star_flag = old_gods_system_2@root.owner }
+		owner = { remove_point_of_interest = old_gods_shrine_poi.2 }
+		create_ambient_object = {
+			type = "shrine_object"
+			location = solar_system
+		}
+		last_created_ambient_object = {
+			save_event_target_as = shrine
+			enable_special_project = {
+				name = "OLD_GODS_UNDAUNTED_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+		owner = { set_country_flag = old_gods_undaunted }
+	}
+
+	option = {
+		name = "anomaly.143.a"
+		hidden_effect = {
+			event_target:shrine = {
+				add_modifier = { modifier = old_god_shrine days = -1 }
+			}
+		}
+	}
+}

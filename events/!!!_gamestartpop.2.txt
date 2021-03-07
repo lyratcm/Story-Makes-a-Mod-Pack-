@@ -1,0 +1,65 @@
+namespace = gamestartpop
+event = {
+    id = gamestartpop.2
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        every_country = {
+            if = {
+                limit = {
+                    has_civic = civic_shared_burden
+                    NOT = {
+                        has_country_flag = has_shared_burden
+                    }
+                }
+                set_country_flag = has_shared_burden
+            }
+            if = {
+                limit = {
+                    has_civic = civic_imperial_cult
+                    NOT = {
+                        has_country_flag = has_imperial_cult
+                    }
+                }
+                set_country_flag = has_imperial_cult
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_civic = civic_aristocratic_elite
+                        has_civic = civic_royal_trading_company
+                    }
+                    NOT = {
+                        has_country_flag = has_aristocratic_elite
+                    }
+                }
+                set_country_flag = has_aristocratic_elite
+            }
+            if = {
+                limit = {
+                    has_civic = civic_corp_philosopher_king
+                    NOT = {
+                        has_country_flag = has_corp_philosopher_king
+                    }
+                }
+                set_country_flag = has_corp_philosopher_king
+            }
+            if = {
+                limit = {
+                    has_origin = origin_research_coop
+                }
+                country_event = {
+                    id = gamestartpop.5
+                }
+            }
+            if = {
+                limit = {
+                    has_origin = origin_private_colony
+                }
+                country_event = {
+                    id = gamestartpop.10
+                }
+            }
+        }
+    }
+}

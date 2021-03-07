@@ -1,0 +1,13 @@
+civic_machine_built_to_last = {
+    potential = {
+        authority = {
+            value = auth_machine_intelligence
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        pop_amenities_usage_no_happiness_mult = -0.25
+    }
+}

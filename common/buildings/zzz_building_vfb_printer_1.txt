@@ -1,0 +1,81 @@
+building_vfb_plastic_plant = {
+    category = government
+    base_buildtime = 180
+    base_cap_amount = 1
+    icon = building_vfb_plastic
+    potential = {
+        NOR = {
+            has_building = building_vfb_plastic_plant
+            has_building = building_vfb_plastic_facility
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_plastic_plant
+            country_uses_food = yes
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_plastic_plant
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            country_uses_food = no
+        }
+    }
+    planet_modifier = {
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_farmer_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_agri_drone_add = 2
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            alloys = 100
+        }
+        upkeep = {
+            alloys = 1
+        }
+        produces = {
+            society_research = 4
+        }
+    }
+    upgrades = {
+        building_vfb_plastic_facility
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 100
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = food
+                    value < 20
+                }
+            }
+        }
+    }
+}

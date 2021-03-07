@@ -1,0 +1,5 @@
+trait_ruler_one_mind = {
+    cost = 1
+    initial = no
+    modification = no
+}

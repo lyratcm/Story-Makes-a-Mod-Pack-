@@ -1,0 +1,1241 @@
+could_use_1_more_trait_points_biological = {
+	IF = {
+		limit = {
+			has_citizenship_type = {
+				type = citizenship_slavery
+				country = from
+			}	
+		}
+		switch = {
+			trigger = num_traits
+			0 = {
+				always = yes
+			}
+			1 = {
+				switch = {
+					trigger = num_trait_points
+					4 > {
+						always = yes
+					}
+					3 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					1 > {
+						calc_true_if = {
+							amount < 2
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					-1 > {
+						NOR = {
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			2 = {
+				switch = {
+					trigger = num_trait_points
+					6 > {
+						always = yes
+					}
+					5 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					3 > {
+						calc_true_if = {
+							amount < 2
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			3 = {
+				switch = {
+					trigger = num_trait_points
+					8 > {
+						always = yes
+					}
+					7 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			default = {
+				always = no
+			}
+		}
+	}
+	else = {
+		switch = {
+			trigger = num_traits
+			0 = {
+				always = yes
+			}
+			1 = {
+				switch = {
+					trigger = num_trait_points
+					4 > {
+						always = yes
+					}
+					2 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					0 > {
+						calc_true_if = {
+							amount < 2
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					-2 > {
+						NOR = {
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			2 = {
+				switch = {
+					trigger = num_trait_points
+					6 > {
+						always = yes
+					}
+					4 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					2 > {
+						calc_true_if = {
+							amount < 2
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			3 = {
+				switch = {
+					trigger = num_trait_points
+					8 > {
+						always = yes
+					}
+					6 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			default = {
+				always = no
+			}
+		}
+	}
+}
+
+could_use_2_more_trait_points_biological = {
+	IF = {
+		limit = {
+			has_citizenship_type = {
+				type = citizenship_slavery
+				country = from
+			}	
+		}
+		switch = {
+			trigger = num_traits
+			0 = {
+				always = yes
+			}
+			1 = {
+				switch = {
+					trigger = num_trait_points
+					6 > {
+						always = yes
+					}
+					5 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					3 > {
+						calc_true_if = {
+							amount < 2
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					1 > {
+						NOR = {
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			2 = {
+				switch = {
+					trigger = num_trait_points
+					8 > {
+						always = yes
+					}
+					7 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					5 > {
+						calc_true_if = {
+							amount < 2
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			3 = {
+				switch = {
+					trigger = num_trait_points
+					10 > {
+						always = yes
+					}
+					9 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			default = {
+				always = no
+			}
+		}
+	}
+	else = {
+		switch = {
+			trigger = num_traits
+			0 = {
+				always = yes
+			}
+			1 = {
+				switch = {
+					trigger = num_trait_points
+					5 > {
+						always = yes
+					}
+					3 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					1 > {
+						calc_true_if = {
+							amount < 2
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					-1 > {
+						NOR = {
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			2 = {
+				switch = {
+					trigger = num_trait_points
+					7 > {
+						always = yes
+					}
+					5 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					3 > {
+						calc_true_if = {
+							amount < 2
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			3 = {
+				switch = {
+					trigger = num_trait_points
+					9 > {
+						always = yes
+					}
+					7 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			default = {
+				always = no
+			}
+		}
+	}
+}
+
+could_use_4_more_trait_points_biological = {
+	IF = {
+		limit = {
+			has_citizenship_type = {
+				type = citizenship_slavery
+				country = from
+			}	
+		}
+		switch = {
+			trigger = num_traits
+			0 = {
+				always = yes
+			}
+			1 = {
+				switch = {
+					trigger = num_trait_points
+					8 > {
+						always = yes
+					}
+					7 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					5 > {
+						calc_true_if = {
+							amount < 2
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					3 > {
+						NOR = {
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			2 = {
+				switch = {
+					trigger = num_trait_points
+					10 > {
+						always = yes
+					}
+					9 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					7 > {
+						calc_true_if = {
+							amount < 2
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			3 = {
+				switch = {
+					trigger = num_trait_points
+					12 > {
+						always = yes
+					}
+					11 > {
+						calc_true_if = {
+							amount < 3
+							OR = {
+								has_trait = trait_nerve_stapled
+								has_trait = trait_delicious
+							}
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			default = {
+				always = no
+			}
+		}
+	}
+	else = {
+		switch = {
+			trigger = num_traits
+			0 = {
+				always = yes
+			}
+			1 = {
+				switch = {
+					trigger = num_trait_points
+					7 > {
+						always = yes
+					}
+					5 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					3 > {
+						calc_true_if = {
+							amount < 2
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					1 > {
+						NOR = {
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			2 = {
+				switch = {
+					trigger = num_trait_points
+					9 > {
+						always = yes
+					}
+					7 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					5 > {
+						calc_true_if = {
+							amount < 2
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			3 = {
+				switch = {
+					trigger = num_trait_points
+					11 > {
+						always = yes
+					}
+					9 > {
+						calc_true_if = {
+							amount < 3
+							has_trait = trait_erudite
+							OR = {
+								has_trait = trait_extremely_adaptive	
+								has_trait = trait_robust	
+							}
+							OR = {
+								has_trait = trait_very_rapid_breeders
+								has_trait = trait_fertile
+							}
+						}		
+					}
+					default = {
+						always = no
+					}
+				}
+			}
+			default = {
+				always = no
+			}
+		}
+	}
+}
+
+
+could_use_1_more_trait_points_robotic = {
+	OR = {
+		AND = {
+			is_archetype = ROBOT
+			OR = {
+				num_traits = 0
+				AND = {
+					num_traits < 2
+					num_trait_points > 1
+				}
+				AND = {
+					num_traits < 3
+					num_trait_points > 3
+				}		
+			}
+		}
+		AND = {
+			is_archetype = MACHINE
+			OR = {
+				AND = {
+					num_traits < 2
+					num_trait_points > 0
+				}
+				AND = {
+					num_traits < 3
+					num_trait_points > 2
+				}
+				AND = {
+					num_traits < 4
+					num_trait_points > 4
+				}		
+			}
+		}
+	}
+}
+
+could_use_2_more_trait_points_robotic = {
+	OR = {
+		AND = {
+			is_archetype = ROBOT
+			OR = {
+				AND = {
+					num_traits < 2
+					num_trait_points > 2
+				}
+				AND = {
+					num_traits < 3
+					num_trait_points > 4
+				}		
+			}
+		}
+		AND = {
+			is_archetype = MACHINE
+			OR = {
+				AND = {
+					num_traits < 2
+					num_trait_points > 1
+				}
+				AND = {
+					num_traits < 3
+					num_trait_points > 3
+				}
+				AND = {
+					num_traits < 4
+					num_trait_points > 5
+				}		
+			}
+		}
+	}
+}
+
+valuable_secretions_check = {
+	has_trait = trait_valuable_secretions
+	owner = {
+		OR = {
+			any_owned_species = {
+				NAND = {
+					is_same_species = prevprev
+					has_trait = trait_valuable_secretions
+				}
+				is_sapient = yes
+				NOR = {
+					has_living_standard = { country = prev type = living_standard_subsistence }
+					has_living_standard = { country = prev type = living_standard_servitude }
+					has_living_standard = { country = prev type = living_standard_none }
+					has_citizenship_type = { country = prev type = citizenship_assimilation }
+				}
+			}
+			any_relation = {
+				OR = {
+					has_commercial_pact = prev
+					AND = {
+						prev = { is_megacorp = yes }
+						any_owned_planet = { has_branch_office = prev }
+					}
+					AND = {
+						is_in_federation_with = prev
+						federation = { has_federation_type = trade_federation }
+					}
+				}
+				any_owned_species = {
+					NAND = {
+						is_same_species = prevprevprev
+						has_trait = trait_valuable_secretions
+					}
+					is_sapient = yes
+					NOR = {
+						has_living_standard = { country = prev type = living_standard_subsistence }
+						has_living_standard = { country = prev type = living_standard_servitude }
+						has_living_standard = { country = prev type = living_standard_none }
+						has_citizenship_type = { country = prev type = citizenship_assimilation }
+					}
+				}	
+			}
+		}
+	}
+}
+
+traits_restrict_worker_jobs = {
+	has_pop_flag = traits_restrict_jobs_flag
+	OR = {
+		has_trait = trait_obsessive
+		has_trait = trait_robot_specialized
+	}
+}
+traits_restrict_specialist_jobs = {
+	has_pop_flag = traits_restrict_jobs_flag
+	OR = {
+		has_trait = trait_obsessive
+		has_trait = trait_robot_specialized
+	}
+}
+
+species_has_subsapient_form = {
+	species = {
+		OR = {
+			has_trait = trait_has_subsapient_form
+			has_trait = trait_subsapient_form
+			has_trait = trait_sapient_form
+		}			
+	}
+}
+species_is_multihive = {
+	species = {
+		OR = {
+			has_trait = trait_multihive
+			has_trait = trait_multihive_drone
+			has_trait = trait_multihive_core
+		}			
+	}
+}
+undefined_phenotype = {
+	OR = {
+		has_trait = trait_has_subsapient_form
+		has_trait = trait_multihive
+	}
+}
+defined_polymorphic_phenotype = {
+	OR = {
+		has_trait = trait_subsapient_form
+		has_trait = trait_sapient_form
+		has_trait = trait_multihive_drone
+		has_trait = trait_multihive_core
+		has_trait = trait_dimorphic_1
+		has_trait = trait_dimorphic_2
+		has_trait = trait_dimorphic_male
+		has_trait = trait_dimorphic_female
+	}
+}
+species_has_instars = {
+	OR = {
+		has_trait = trait_rooted_adults
+		has_trait = trait_rooted_adults_rooted
+		has_trait = trait_younger_form
+		has_trait = trait_older_form
+	}
+}
+
+has_same_preference = {
+	NOT = {
+		switch = {
+			trigger = has_trait
+			trait_pc_desert_preference = {
+				$compare_species$ = { has_trait = trait_pc_desert_preference }
+			}
+			trait_pc_arid_preference = {
+				$compare_species$ = { has_trait = trait_pc_arid_preference }
+			}
+			trait_pc_savannah_preference = {
+				$compare_species$ = { has_trait = trait_pc_savannah_preference }
+			}
+			trait_pc_tropical_preference = {
+				$compare_species$ = { has_trait = trait_pc_tropical_preference }
+			}
+			trait_pc_continental_preference = {
+				$compare_species$ = { has_trait = trait_pc_continental_preference }
+			}
+			trait_pc_ocean_preference = {
+				$compare_species$ = { has_trait = trait_pc_ocean_preference }
+			}
+			trait_pc_arctic_preference = {
+				$compare_species$ = { has_trait = trait_pc_arctic_preference }
+			}
+			trait_pc_tundra_preference = {
+				$compare_species$ = { has_trait = trait_pc_tundra_preference }
+			}
+			trait_pc_alpine_preference = {
+				$compare_species$ = { has_trait = trait_pc_alpine_preference }
+			}
+			trait_pc_nuked_preference = {
+				$compare_species$ = { has_trait = trait_pc_nuked_preference }
+			}
+			trait_pc_gaia_preference = {
+				$compare_species$ = { has_trait = trait_pc_gaia_preference }
+			}
+			trait_pc_ringworld_habitable_preference = {
+				$compare_species$ = { has_trait = trait_pc_habitat_preference }
+			}
+			trait_pc_habitat_preference = {
+				$compare_species$ = { has_trait = trait_pc_desert_preference }
+			}
+			trait_pc_relic_preference = {
+				$compare_species$ = { has_trait = trait_pc_relic_preference }
+			}
+		}	
+	}
+}
+
+has_similar_preference = {
+	NOT = {
+		switch = {
+			trigger = has_trait
+			trait_pc_desert_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_arid_preference
+						has_trait = trait_pc_savannah_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_arid_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_desert_preference
+						has_trait = trait_pc_savannah_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_savannah_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_desert_preference
+						has_trait = trait_pc_arid_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_tropical_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_continental_preference
+						has_trait = trait_pc_ocean_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_continental_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_tropical_preference
+						has_trait = trait_pc_ocean_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_ocean_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_tropical_preference
+						has_trait = trait_pc_continental_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_arctic_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_tundra_preference
+						has_trait = trait_pc_alpine_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_tundra_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_arctic_preference
+						has_trait = trait_pc_alpine_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_alpine_preference = {
+				$compare_species$ = {
+					OR = {
+						has_trait = trait_pc_arctic_preference
+						has_trait = trait_pc_tundra_preference
+						has_trait = trait_pc_gaia_preference
+						has_trait = trait_pc_ringworld_habitable_preference
+						has_trait = trait_pc_relic_preference
+					}
+				}
+			}
+			trait_pc_nuked_preference = {
+				always = yes
+			}
+			trait_pc_gaia_preference = {
+				OR = {
+					has_trait = trait_pc_ringworld_habitable_preference
+					has_trait = trait_pc_relic_preference
+				}
+			}
+			trait_pc_ringworld_habitable_preference = {
+				OR = {
+					has_trait = trait_pc_gaia_preference
+					has_trait = trait_pc_relic_preference
+				}
+			}
+			trait_pc_habitat_preference = {
+				always = no
+			}
+			trait_pc_relic_preference = {
+				OR = {
+					has_trait = trait_pc_gaia_preference
+					has_trait = trait_pc_ringworld_habitable_preference
+				}
+			}
+			default = {
+				always = no
+			}
+		}	
+	}
+}
+
+weight_species_portrait = {
+	NOT = {
+		has_species_flag = template_species
+		# has_trait = trait_polymorphic_big
+		# has_trait = trait_polymorphic_small
+		has_trait = trait_subsapient_form
+		has_trait = trait_sapient_form
+		has_trait = trait_multihive_drone
+		has_trait = trait_multihive_core
+		# has_trait = trait_motile_form
+		# has_trait = trait_sessile_form
+	}
+}
+
+pop_can_be_male = {
+	NOT = { has_trait = trait_dimorphic_female }
+}
+pop_can_be_female = {
+	NOT = { has_trait = trait_dimorphic_male }
+}
+species_can_be_male = {
+	NOT = { has_trait = trait_dimorphic_female }
+}
+species_can_be_female = {
+	NOT = { has_trait = trait_dimorphic_male }
+}
+
+# has_trait_eusocial = {
+# 	OR = {
+# 		has_trait = trait_eusocial
+# 		has_trait = trait_eusocial_breeder
+# 		has_trait = trait_eusocial_worker
+# 	}
+# }
+

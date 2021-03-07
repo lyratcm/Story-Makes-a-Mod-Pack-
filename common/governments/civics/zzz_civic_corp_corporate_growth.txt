@@ -1,0 +1,9 @@
+civic_am_civics_corporate_growth = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    description = "tooltip_civic_am_civics_corporate_growth_effects"
+}

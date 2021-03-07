@@ -1,0 +1,15 @@
+civic_hive_natural_neural_network = {
+    description = "civic_tooltip_natural_neural_network_effects"
+    potential = {
+        authority = {
+            value = auth_hive_mind
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        num_tech_alternatives_add = 1
+        all_technology_research_speed = 0.05
+    }
+}

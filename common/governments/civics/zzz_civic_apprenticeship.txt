@@ -1,0 +1,34 @@
+civic_apprenticeship = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_elitism
+                value = ethic_elitism
+                value = ethic_fanatic_elitism
+            }
+        }
+    }
+    random_weight = {
+        base = 1
+    }
+    modifier = {
+        leader_skill_levels = 2
+        country_leader_pool_size = -2
+        leader_exp_gain = -0.10
+    }
+}

@@ -1,0 +1,108 @@
+
+##############################
+##############################
+### SYNTHETIC DAWN events  ###
+### by Maximilian Olbers,  ###
+### Miranda van den Brink, ###
+### & Dee Majek			   ###
+##############################
+##############################
+
+namespace = syndaw
+
+planet_event = {
+	id = syndaw.540
+	title = syndaw.540.name
+	desc = syndaw.540.desc
+	picture = GFX_evt_organic_oppression
+	show_sound = event_ghost_town
+	location = root
+	is_triggered_only = yes
+
+	trigger = { host_has_dlc = "Synthetic Dawn Story Pack" }
+
+	immediate = {
+		owner = {
+			set_country_flag = triggered_syndaw_540
+		}
+	}
+
+	option = {
+		name = syndaw.540.a
+		custom_tooltip = syndaw.540.a.tooltip
+		trigger = {
+			any_owned_pop = {
+				has_trait = trait_mechanical
+			}
+		}
+		hidden_effect = {
+			random_owned_pop = {
+				limit = { has_trait = trait_mechanical }
+				kill_pop = yes
+			}
+			owner = {
+				add_resource = { minerals = 100 }
+				#country_event = { id = syndaw.402 }
+				fire_warning_sign = yes
+			}
+		}
+	}
+
+	option = {
+		name = syndaw.540.b
+		custom_tooltip = syndaw.540.b.tooltip
+		trigger = {
+			AND = {
+				NOT = { any_owned_pop = { has_trait = trait_mechanical } }
+				
+				owner = {
+					any_owned_army = {
+						exists = planet
+						planet = { is_same_value = root }
+						OR = {
+							army_type = robotic_army
+							army_type = android_army
+							army_type = robotic_defense_army
+							army_type = android_defense_army
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			owner = {
+				add_resource = { minerals = 100 }
+				#country_event = { id = syndaw.402 }
+				fire_warning_sign = yes
+				random_owned_army = {
+					limit = {
+						exists = planet
+						planet = { is_same_value = root }
+						OR = {
+							army_type = robotic_army
+							army_type = android_army
+							army_type = robotic_defense_army
+							army_type = android_defense_army
+						}
+					}
+					remove_army = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = syndaw.540.c
+		custom_tooltip = syndaw.540.c.tooltip
+		add_modifier = {
+			modifier = syndaw_congregating_robots
+			days = 3600
+		}
+		hidden_effect = {
+			owner = {
+				#country_event = { id = syndaw.402 }
+				fire_warning_sign = yes
+			}
+		}
+	}
+}

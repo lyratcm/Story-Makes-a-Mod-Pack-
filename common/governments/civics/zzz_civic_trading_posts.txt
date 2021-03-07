@@ -1,0 +1,25 @@
+civic_trading_posts = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_starbase_capacity_add = 4
+        starbase_buildings_cost_mult = -0.10
+        starbase_modules_cost_mult = -0.10
+    }
+    description = "civic_tooltip_trading_post_effects"
+}

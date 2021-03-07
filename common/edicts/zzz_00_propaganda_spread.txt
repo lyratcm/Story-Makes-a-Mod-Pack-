@@ -1,0 +1,31 @@
+propaganda_spread = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+	
+	resources = {
+		category = edicts
+		cost = {
+			influence = 200
+		}
+	}
+
+	modifier = {
+		pop_government_ethic_attraction = 0.75
+		country_war_exhaustion_mult = -0.25
+		country_unity_produces_mult = 0.05
+		planet_pops_consumer_goods_upkeep_mult = 0.15
+	}
+
+	potential = {
+		has_valid_civic = civic_personality_cult
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictHighPrio
+			has_resource = { type = influence amount > 100 }
+		}
+	}
+}

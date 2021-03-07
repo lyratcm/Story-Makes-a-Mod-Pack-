@@ -1,0 +1,46 @@
+namespace = precursor
+
+ship_event = {
+	id = precursor.1056
+	title = "precursor.completed.name"
+	desc = "precursor.1056.desc"
+	picture = GFX_evt_archaeological_dig
+	location = FROMFROM
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "first_league_chain" 
+				counter = "first_league_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.1097 } }
+		}
+		FROMFROM = {
+			if = {
+				limit = {
+					NOT = { exists = archaeological_site }
+					NOR = {
+						gpm_is_planet_class_star = yes
+						gpm_is_planet_class_asteroid = yes
+						gpm_is_planet_class_gas_giant = yes
+					}
+				}
+				create_archaeological_site = gpm_precursor_generic_digsite
+			}
+		}
+	}
+}

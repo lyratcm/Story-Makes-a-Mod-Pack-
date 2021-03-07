@@ -1,0 +1,69 @@
+﻿l_english:
+ d_megastructure_fragment:0 "Megastructure Fragment"
+ d_megastructure_fragment_desc:0 "A large segment of the Megastructure in this system has crashed into the planet."
+ d_megastructure_fragment_small:0 "Megastructure Fragment"
+ d_megastructure_fragment_small_desc:0 "A part of the Megastructure in this system has fallen here."
+ d_megastructure_fragment_reactor:0 "Megastructure Reactor"
+ d_megastructure_fragment_reactor_desc:0 "A huge reactor, presumably fallen from the ruined Megastructure in our system.\n\n§YThis deposit will produce Living Metal when we research the technology for it.§!"
+
+ civic_amo_constructioneers:0 "Mega Constructioneers"
+ civic_amo_constructioneers_desc:0 ""
+ civic_amo_project_handlers:0 "Mega Contracting"
+ civic_amo_project_handlers_desc:0 ""
+ civic_amo_hive_constructors:0 "Grand Construction"
+ civic_amo_hive_constructors_desc:0 ""
+ civic_amo_machine_long_term_planning:0 "Long-Term Planning"
+ civic_amo_machine_long_term_planning_desc:0 ""
+
+ # SENTRY ARRAY
+ origin_amo_sentry_array:0 "Galactic Surveyor"
+ origin_amo_sentry_array_desc:0 "Before this civilisation started, a now-deceased precursor built what we now call a Sentry Array, which indirectly but rapidly increased technological advancement."
+ origin_tooltip_amo_sentry_array_effects:0 " - Start with a ruined §YSentry Array§! in your home system.\n - Some parts of the ruined megastructure have fallen on your homeworld.\n - Gain initial progress towards §YMegaengineering§! tech.\n - Gain significant survey data on your neighbouring systems and parts of the galaxy."
+
+ # MEGA ART INSTALLATION
+ origin_amo_art_installation:0 "Divine Inspiration"
+ origin_amo_art_installation_desc:0 "In the mists before time lies a gigantic project - a Mega Art Installation. Our people have long looked up to it as a guiding figure, and now we shall go out to one day repair it."
+ origin_tooltip_amo_art_installation_effects:0 " - Start with a ruined §YMega Art Installation§! in your home system.\n - Some parts of the ruined megastructure have fallen on your homeworld.\n - Gain initial progress towards §YMegaengineering§! tech."
+
+ # DYSON SPHERE
+ origin_amo_dyson_sphere:0 "Caged Star"
+ origin_amo_dyson_sphere_desc:0 "This civilisation developed on a planet with a Dyson Sphere on its parent star. Noone knows who built it or how it got there, but the construction's impact on sunlight is and always has been quite noticeable."
+ origin_tooltip_amo_dyson_sphere_effects:0 " - Start with a ruined §YDyson Sphere§! in your home system.\n - Some parts of the ruined megastructure have fallen on your homeworld.\n - Gain initial progress towards §YMegaengineering§! tech."
+
+ # mr nexus
+ origin_amo_science_nexus:0 "Shattered Bookshelves"
+ origin_amo_science_nexus_desc:0 "A space-faring civilisation developed in a system with an oversized, shattered bookshelf filled with elementary science books."
+ origin_tooltip_amo_science_nexus_effects:0 " - Start with a ruined §YScience Nexus§! in your home system.\n - Some parts of the ruined megastructure have fallen on your homeworld.\n - Gain initial progress towards §YMegaengineering§! tech."
+
+ # MATTER DECOMPRESSOR
+ origin_amo_matter_decompressor:0 "Celestial Uncle"
+ origin_amo_matter_decompressor_desc:0 "The Black Hole in this precursor system is typically anthropomorphised as a strange uncle, with a weird hat."
+ origin_tooltip_amo_matter_decompressor_effects:0 " - Start with a ruined §YMatter Decompresor§! orbiting the Black Hole in your home system.\n - Some parts of the ruined megastructure have fallen on your homeworld.\n - Gain initial progress towards §YMegaengineering§! tech."
+
+ # INTERSTELLARI ASSEMBLY (jesus fuck im so used to spelling "stellar" as "stellaris" please help me)
+ origin_amo_interstellar_assembly:0 "Ancient Assembly"
+ origin_amo_interstellar_assembly_desc:0 "Presumably in place of its precursors, this civilisation developed on a moon in a system where intergalactic politics once took place."
+ origin_tooltip_amo_interstellar_assembly_effects:0 " - Start with a ruined §YInterstellar Assembly§! in your home system.\n - Some parts of the ruined megastructure have fallen on your homeworld.\n - Gain initial progress towards §YMegaengineering§! tech."
+ 
+ system_amo_art_installation_init_NAME:0 "Mega Art Installation System"
+ system_amo_art_installation_init_DESC:0 ""
+ system_amo_sentry_array_init_NAME:0 "Sentry Array System"
+ system_amo_sentry_array_init_DESC:0 "DID YOU KNOW? This megastructure in the files is known as the 'Spy Orb'"
+ system_amo_dyson_sphere_init_NAME:0 "Dyson Sphere System"
+ system_amo_dyson_sphere_init_DESC:0 ""
+ system_amo_science_nexus_init_NAME:0 "Science Nexus System"
+ system_amo_science_nexus_init_DESC:0 ""
+ system_amo_matter_decompressor_init_NAME:0 "Matter Decompressor System"
+ system_amo_matter_decompressor_init_DESC:0 ""
+ system_amo_interstellar_assembly_init_NAME:0 "Interstellar Assembly System"
+ system_amo_interstellar_assembly_init_DESC:0 "REMINDER! It is not 'Interstellaris Assembly', it is Interstellar Assembly."
+
+ mod_megastructures_alloys_cost_mult:0 "Megastructure Build cost"
+ mod_megastructures_influence_cost_mult:0 "Megastructure Influence cost"
+ # Overridden by Guilli's Technologies if it is enabled after this mod
+ 
+ amo_data_caches:0 "Ancient Data Caches"
+ amo_data_caches_desc:0 "Thousands of caches filled with ancient data line the equator of this moon."
+
+ edict_wonder_contracting:0 "Wonder Contracting"
+ edict_wonder_contracting_desc:0 "We will focus our efforts into constructing and maintaining grand wonders."

@@ -1,0 +1,12 @@
+check_living_architecture_modifier = {
+	IF = {
+		limit = {
+			NOT = {
+				any_owned_pop = {
+					has_trait = trait_potential_living_architecture
+				}
+			}
+		}
+		remove_modifier = living_architecture_planet_modifier
+	}
+}

@@ -1,0 +1,1211 @@
+###_z frameworks core专项 triggers	############################################################################
+
+#_[公用]	mp_玩家0_host/初始PC/是PC/	无法拆除的mega
+#_[core_battle]	dd忽略国家/dd普通AI国家/dd强力AI国家/	dd月度经济对象/dd清除弱者_普通/dd清除弱者_强力
+#_	dd_最强PC_合格/dd_AI_威胁_合格/dd_AI_威胁_上限/dd_AI_对手_合格/dd_AI_对手_上限/dd_AI_弱者_合格/dd_AI_弱者_上限/dd_AI_未达弱者/dd_AI_超级_合格/dd_AI_强力_合格/dd_AI_衰落_合格
+#_[星系构成]	是否有高能恒星等
+#_[行星类型]
+
+
+
+
+
+
+
+
+###_	公用	############################################################################
+
+###_[mp_玩家0_host]
+z_fw_trgr_cntr_host_mp = {
+	NAND = {
+		is_multiplayer = yes
+		NOT = { has_country_flag = z_fw_flg_cntr_core_host }
+	}
+}
+
+#_[country]初始PC
+z_fw_core_is_init_pc = {
+	has_country_flag = z_fw_core_init_pc
+}
+#_[是PC]	SP/MP通用
+z_fw_trgr_cntr_core_is_pc = {
+	OR = {
+		AND = {#_SP
+			is_multiplayer = no
+			OR = {
+				is_ai = no
+				has_country_flag = z_fw_core_init_pc
+			}
+		}
+		AND = {#_MP
+			is_multiplayer = yes
+			is_ai = no
+		}
+	}
+}
+
+
+#_[mege]	无法拆除的mega
+z_fw_trgr_mega_demolish_ignore = {
+	OR = {
+		#_星门
+	#	is_megastructure_type = gateway_0
+	#	is_megastructure_type = gateway_final
+	#	is_megastructure_type = gateway_ruined
+	#	is_megastructure_type = gateway_restored
+		#_L星门
+		is_megastructure_type = lgate_base
+		#_z_fw_tgt_marker
+		is_megastructure_type = z_fw_mega_r_cht_co_tgt_marker_1
+		is_megastructure_type = z_fw_mega_r_cht_co_tgt_marker_2
+	#	is_megastructure_type = z_fw_mega_r_cht_hyper_tgt_marker_0
+	#	is_megastructure_type = z_fw_mega_r_cht_hyper_tgt_marker_1
+	#	is_megastructure_type = z_fw_mega_r_cht_hyper_tgt_marker_2
+		is_megastructure_type = z_fw_mega_r_cht_mega_tgt_marker
+	#	is_megastructure_type = z_fw_mega_target_marker_hok
+		#_z_fw_misc
+		is_megastructure_type = z_fw_mega_dismantle
+	}
+}
+
+
+
+
+
+
+
+
+###_	core_battle	############################################################################
+
+###_动态难度	########################################
+
+#_[country]	dd忽略国家
+z_fw_core_dd_is_ignored_type = {
+	OR = {
+		z_fw_trgr_cntr_core_is_pc = yes
+		is_country_type = global_event		#_vanilla
+		is_country_type = adversary
+		is_country_type = primitive
+		is_country_type = ambient
+		is_country_type = shroud
+		is_country_type = caravaneer_home
+		#_[z_fw]
+		is_country_type = z_fw_npc_global
+		is_country_type = z_fw_npc_temp_neutral
+		#_[acot]
+		is_country_type = original_empire
+		is_country_type = original_empire_passive
+		is_country_type = original_empire_active
+		is_country_type = acot_crazed_stellarite		#_giga/acot
+		#_[ee]
+		is_country_type = eternal_empire
+		#_[wsg]
+		is_country_type = wsg_lady
+		is_country_type = sh2f
+		is_country_type = faction_wsg
+		is_country_type = guardian_wg_think_tank
+		is_country_type = wg_crisis_country
+		is_country_type = wg_crisis_sub_gate_country
+		is_country_type = wg_resistant_army
+		is_khan_country_type = yes
+		is_country_type = afk_crisis_country			#_swg
+		#_[giga]
+		is_country_type = compound_empire				#_giga/ehof
+		is_country_type = void_lifeforms_1				#_giga/acot
+		is_country_type = void_lifeforms_2				#_giga/acot
+		is_country_type = katzenartig_imperium			#_giga/acot
+		#_[kuat]
+		is_country_type = kuat_fallen_empire			#_kuat
+		is_country_type = kuat_awakened_fallen_empire	#_kuat
+		is_country_type = awakened_return_kuat_empire	#_kuat
+		#_[ag]
+		is_country_type = ag_kuat_invasion_country		#_ag
+		is_country_type = ag_ancient_primitive_crisis	#_ag
+		is_country_type = ag_ancient_gamma_guardian		#_ag
+		is_country_type = ag_zeta_crisis_country		#_ag
+		is_country_type = ag_ancient_psi_guardian		#_ag
+	}
+}
+
+#_[country]	dd普通AI国家
+z_fw_core_dd_is_common_ai = {
+	z_fw_trgr_cntr_core_is_pc = no
+	is_subject = no
+	z_fw_is_common_country = yes
+}
+#_[country]	dd强力AI国家
+z_fw_core_dd_is_powerful_ai = {
+	z_fw_trgr_cntr_core_is_pc = no
+	is_subject = no
+	is_country_type = awakened_fallen_empire
+}
+
+#_[country]	dd_最强PC_合格
+z_fw_core_dd_is_valid_pc = {
+	NAND = {#_单机模式下必须为初始PC
+		is_multiplayer = no
+		z_fw_core_is_init_pc = no
+	}
+	z_fw_trgr_cntr_core_is_pc = yes
+	NOT = {
+		any_country = {
+			NOT = { is_country = prev }
+			NAND = {#_单机模式下必须为初始PC
+				is_multiplayer = no
+				z_fw_core_is_init_pc = no
+			}
+			z_fw_trgr_cntr_core_is_pc = yes
+			relative_power = {
+				who = prev
+				category = fleet
+				value > equivalent
+			}
+		}
+	}
+	#_舰队力量
+	OR = {
+		#_黄金时代 180k
+		AND = {
+			mid_game_years_passed < 0
+			OR = {
+				fleet_power > 180000
+				used_naval_capacity_integer > 225
+			}
+		}
+		#_纷争时代 360k
+		AND = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+			OR = {
+				fleet_power > 360000
+				used_naval_capacity_integer > 450
+			}
+		}
+		#_黑暗时代 600k
+		AND = {
+			end_game_years_passed >= 0
+			end_game_years_passed < 50
+			OR = {
+				fleet_power > 600000
+				used_naval_capacity_integer > 900
+			}
+		}
+		#_末日时代	900k
+		AND = {
+			end_game_years_passed >= 50
+			OR = {
+				fleet_power > 900000
+				used_naval_capacity_integer > 1350
+			}
+		}
+	}
+}
+
+
+##_AI舰队规模
+	#_黄金时代	75 150 250
+	#_纷争时代	135 270 450
+	#_黑暗时代	195 390 650
+#_[country]	dd_AI_威胁_合格
+z_fw_core_dd_is_valid_ai_threat = {
+	#_used_naval_capacity_percent < 1.35
+	#_舰队力量对比
+	OR = {
+		#_黄金时代
+		AND = {
+			mid_game_years_passed < 0
+			used_naval_capacity_integer > 250
+		}
+		#_纷争时代
+		AND = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+			used_naval_capacity_integer > 450
+		}
+		#_黑暗时代
+		AND = {
+			end_game_years_passed >= 0
+			used_naval_capacity_integer > 650
+		}
+	}
+}
+#_[country]	dd_AI_威胁_上限
+z_fw_core_dd_is_fp_ai_threat = {
+	OR = {
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value >= 50 }
+			}
+			used_naval_capacity_integer > 5000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 45 }
+			}
+			used_naval_capacity_integer > 4500
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 40 }
+			}
+			used_naval_capacity_integer > 4000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 36 }
+			}
+			used_naval_capacity_integer > 3600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 32 }
+			}
+			used_naval_capacity_integer > 3200
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 29 }
+			}
+			used_naval_capacity_integer > 2900
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 26 }
+			}
+			used_naval_capacity_integer > 2600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 23 }
+			}
+			used_naval_capacity_integer > 2300
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 20 }
+			}
+			used_naval_capacity_integer > 2000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 18 }
+			}
+			used_naval_capacity_integer > 1800
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 16 }
+			}
+			used_naval_capacity_integer > 1600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 14 }
+			}
+			used_naval_capacity_integer > 1400
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 12 }
+			}
+			used_naval_capacity_integer > 1200
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 10 }
+			}
+			used_naval_capacity_integer > 1000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 8 }
+			}
+			used_naval_capacity_integer > 800
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 7 }
+			}
+			used_naval_capacity_integer > 700
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 6 }
+			}
+			used_naval_capacity_integer > 600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 5 }
+			}
+			used_naval_capacity_integer > 500
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 4 }
+			}
+			used_naval_capacity_integer > 400
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 3 }
+			}
+			used_naval_capacity_integer > 300
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 2 }
+			}
+			used_naval_capacity_integer > 225
+		}
+	}
+}
+
+#_[country]	dd_AI_对手_合格
+z_fw_core_dd_is_valid_ai_rival = {
+	#_used_naval_capacity_percent < 1.15
+	#_舰队力量
+	OR = {
+		#_黄金时代
+		AND = {
+			mid_game_years_passed < 0
+			used_naval_capacity_integer > 150
+			used_naval_capacity_integer <= 250
+		}
+		#_纷争时代
+		AND = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+			used_naval_capacity_integer > 270
+			used_naval_capacity_integer <= 450
+		}
+		#_黑暗时代
+		AND = {
+			end_game_years_passed >= 0
+			used_naval_capacity_integer > 390
+			used_naval_capacity_integer <= 650
+		}
+	}
+}
+#_[country]	dd_AI_对手_上限
+z_fw_core_dd_is_fp_ai_rival = {
+	OR = {
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value >= 50 }
+			}
+			used_naval_capacity_integer > 3000
+			used_naval_capacity_integer <= 5000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 45 }
+			}
+			used_naval_capacity_integer > 2700
+			used_naval_capacity_integer <= 4500
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 40 }
+			}
+			used_naval_capacity_integer > 2400
+			used_naval_capacity_integer <= 4000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 36 }
+			}
+			used_naval_capacity_integer > 2160
+			used_naval_capacity_integer <= 3600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 32 }
+			}
+			used_naval_capacity_integer > 1920
+			used_naval_capacity_integer <= 3200
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 29 }
+			}
+			used_naval_capacity_integer > 1740
+			used_naval_capacity_integer <= 2900
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 26 }
+			}
+			used_naval_capacity_integer > 1560
+			used_naval_capacity_integer <= 2600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 23 }
+			}
+			used_naval_capacity_integer > 1380
+			used_naval_capacity_integer <= 2300
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 20 }
+			}
+			used_naval_capacity_integer > 1200
+			used_naval_capacity_integer <= 2000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 18 }
+			}
+			used_naval_capacity_integer > 1080
+			used_naval_capacity_integer <= 1800
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 16 }
+			}
+			used_naval_capacity_integer > 960
+			used_naval_capacity_integer <= 1600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 14 }
+			}
+			used_naval_capacity_integer > 840
+			used_naval_capacity_integer <= 1400
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 12 }
+			}
+			used_naval_capacity_integer > 720
+			used_naval_capacity_integer <= 1200
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 10 }
+			}
+			used_naval_capacity_integer > 600
+			used_naval_capacity_integer <= 1000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 8 }
+			}
+			used_naval_capacity_integer > 480
+			used_naval_capacity_integer <= 800
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 7 }
+			}
+			used_naval_capacity_integer > 420
+			used_naval_capacity_integer <= 700
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 6 }
+			}
+			used_naval_capacity_integer > 360
+			used_naval_capacity_integer <= 600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 5 }
+			}
+			used_naval_capacity_integer > 300
+			used_naval_capacity_integer <= 500
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 4 }
+			}
+			used_naval_capacity_integer > 240
+			used_naval_capacity_integer <= 400
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 3 }
+			}
+			used_naval_capacity_integer > 180
+			used_naval_capacity_integer <= 300
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 2 }
+			}
+			used_naval_capacity_integer > 135
+			used_naval_capacity_integer <= 225
+		}
+	}
+}
+
+#_[country]	dd_AI_弱者_合格
+z_fw_core_dd_is_valid_ai_weak = {
+	#_used_naval_capacity_percent < 1.0
+	#_舰队力量
+	OR = {
+		#_黄金时代
+		AND = {
+			mid_game_years_passed < 0
+			used_naval_capacity_integer > 75
+			used_naval_capacity_integer <= 150
+		}
+		#_纷争时代
+		AND = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+			used_naval_capacity_integer > 135
+			used_naval_capacity_integer <= 270
+		}
+		#_黑暗时代
+		AND = {
+			end_game_years_passed >= 0
+			used_naval_capacity_integer > 195
+			used_naval_capacity_integer <= 390
+		}
+	}
+}
+#_[country]	dd_AI_弱者_上限
+z_fw_core_dd_is_fp_ai_weak = {
+	OR = {
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value >= 50 }
+			}
+			used_naval_capacity_integer > 1500
+			used_naval_capacity_integer <= 3000
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 45 }
+			}
+			used_naval_capacity_integer > 1350
+			used_naval_capacity_integer <= 2700
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 40 }
+			}
+			used_naval_capacity_integer > 1200
+			used_naval_capacity_integer <= 2400
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 36 }
+			}
+			used_naval_capacity_integer > 1080
+			used_naval_capacity_integer <= 2160
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 32 }
+			}
+			used_naval_capacity_integer > 960
+			used_naval_capacity_integer <= 1920
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 29 }
+			}
+			used_naval_capacity_integer > 870
+			used_naval_capacity_integer <= 1740
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 26 }
+			}
+			used_naval_capacity_integer > 780
+			used_naval_capacity_integer <= 1560
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 23 }
+			}
+			used_naval_capacity_integer > 690
+			used_naval_capacity_integer <= 1380
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 20 }
+			}
+			used_naval_capacity_integer > 600
+			used_naval_capacity_integer <= 1200
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 18 }
+			}
+			used_naval_capacity_integer > 540
+			used_naval_capacity_integer <= 1080
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 16 }
+			}
+			used_naval_capacity_integer > 480
+			used_naval_capacity_integer <= 960
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 14 }
+			}
+			used_naval_capacity_integer > 420
+			used_naval_capacity_integer <= 840
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 12 }
+			}
+			used_naval_capacity_integer > 360
+			used_naval_capacity_integer <= 720
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 10 }
+			}
+			used_naval_capacity_integer > 300
+			used_naval_capacity_integer <= 600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 8 }
+			}
+			used_naval_capacity_integer > 240
+			used_naval_capacity_integer <= 480
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 7 }
+			}
+			used_naval_capacity_integer > 210
+			used_naval_capacity_integer <= 420
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 6 }
+			}
+			used_naval_capacity_integer > 180
+			used_naval_capacity_integer <= 360
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 5 }
+			}
+			used_naval_capacity_integer > 150
+			used_naval_capacity_integer <= 300
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 4 }
+			}
+			used_naval_capacity_integer > 120
+			used_naval_capacity_integer <= 240
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 3 }
+			}
+			used_naval_capacity_integer > 90
+			used_naval_capacity_integer <= 180
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 2 }
+			}
+			used_naval_capacity_integer > 65
+			used_naval_capacity_integer <= 135
+		}
+	}
+}
+
+#_[country]	dd_AI_未达弱者
+z_fw_core_dd_is_fp_ai_trash = {
+	OR = {
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value >= 50 }
+			}
+			used_naval_capacity_integer <= 1500
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 45 }
+			}
+			used_naval_capacity_integer <= 1350
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 40 }
+			}
+			used_naval_capacity_integer <= 1200
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 36 }
+			}
+			used_naval_capacity_integer <= 1080
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 32 }
+			}
+			used_naval_capacity_integer <= 960
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 29 }
+			}
+			used_naval_capacity_integer <= 870
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 26 }
+			}
+			used_naval_capacity_integer <= 780
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 23 }
+			}
+			used_naval_capacity_integer <= 690
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 20 }
+			}
+			used_naval_capacity_integer <= 600
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 18 }
+			}
+			used_naval_capacity_integer <= 540
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 16 }
+			}
+			used_naval_capacity_integer <= 480
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 14 }
+			}
+			used_naval_capacity_integer <= 420
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 12 }
+			}
+			used_naval_capacity_integer <= 360
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 10 }
+			}
+			used_naval_capacity_integer <= 300
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 8 }
+			}
+			used_naval_capacity_integer <= 240
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 7 }
+			}
+			used_naval_capacity_integer <= 210
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 6 }
+			}
+			used_naval_capacity_integer <= 180
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 5 }
+			}
+			used_naval_capacity_integer <= 150
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 4 }
+			}
+			used_naval_capacity_integer <= 120
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 3 }
+			}
+			used_naval_capacity_integer <= 90
+		}
+		AND = {
+			event_target:z_fw_tgt_global_event ={
+				check_variable = { which = z_fw_var_core_battle_dd_pc_fp value = 2 }
+			}
+			used_naval_capacity_integer <= 65
+		}
+	}
+}
+
+
+#_[country]	dd_AI_超级_合格	650
+z_fw_core_dd_is_valid_ai_supreme = {
+	#_舰队力量
+	OR = {
+		#_黄金时代
+		AND = {
+			mid_game_years_passed < 0
+			used_naval_capacity_integer > 650
+		}
+		#_纷争时代
+		AND = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+			used_naval_capacity_integer > 850
+		}
+		#_黑暗时代
+		AND = {
+			end_game_years_passed >= 0
+			used_naval_capacity_integer > 1200
+		}
+	}
+}
+#_[country]	dd_AI_强力_合格	400
+z_fw_core_dd_is_valid_ai_powerful = {
+	#_舰队力量
+	OR = {
+		#_黄金时代
+		AND = {
+			mid_game_years_passed < 0
+			used_naval_capacity_integer > 390
+			used_naval_capacity_integer <= 650
+		}
+		#_纷争时代
+		AND = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+			used_naval_capacity_integer > 510
+			used_naval_capacity_integer <= 850
+		}
+		#_黑暗时代
+		AND = {
+			end_game_years_passed >= 0
+			used_naval_capacity_integer > 720
+			used_naval_capacity_integer <= 1200
+		}
+	}
+}
+#_[country]	dd_AI_衰落_合格	200
+z_fw_core_dd_is_valid_ai_decline = {
+	#_舰队力量
+	OR = {
+		#_黄金时代
+		AND = {
+			mid_game_years_passed < 0
+			used_naval_capacity_integer > 195
+			used_naval_capacity_integer <= 390
+		}
+		#_纷争时代
+		AND = {
+			mid_game_years_passed >= 0
+			end_game_years_passed < 0
+			used_naval_capacity_integer > 255
+			used_naval_capacity_integer <= 510
+		}
+		#_黑暗时代
+		AND = {
+			end_game_years_passed >= 0
+			used_naval_capacity_integer > 360
+			used_naval_capacity_integer <= 720
+		}
+	}
+}
+
+
+
+##_dd月度经济	##############################
+#_[country]	dd月度经济对象
+z_fw_core_dd_is_monthly_economy_ai = {
+	z_fw_trgr_cntr_core_is_pc = no
+	OR = {
+		is_country_type = default
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire
+		is_country_type = prikki	#_ds
+		is_country_type = ascended_empire	#_zofe
+		is_country_type = lost_empire
+		is_country_type = default_ev	#_肾虚
+	}
+}
+
+
+##_dd清除弱者	##############################
+#_[country]	dd清除弱者_普通
+z_fw_core_dd_is_ptw_normal = {
+	z_fw_trgr_cntr_core_is_pc = no
+	OR = {
+		is_country_type = default
+		is_country_type = fallen_empire
+		is_country_type = prikki	#_ds
+		is_country_type = ascended_empire	#_zofe
+		is_country_type = lost_empire
+		is_country_type = default_ev	#_肾虚
+	}
+}
+#_[country]	dd清除弱者_强力
+z_fw_core_dd_is_ptw_powerful = {
+	z_fw_trgr_cntr_core_is_pc = no
+	is_country_type = awakened_fallen_empire
+}
+
+
+
+
+
+
+
+
+##_[星系构成]	############################################################
+#_[高能恒星]
+z_fw_trgr_plnt_star_energy_high = {
+	OR = {
+		is_planet_class = pc_b_star
+		#_[RS]
+		is_planet_class = pc_o_star
+		is_planet_class = pc_o_super_star
+		is_planet_class = pc_o_hyper_star
+		is_planet_class = pc_b_super_star
+		is_planet_class = pc_w_azure_star	#_沃尔夫拉叶星
+		is_planet_class = pc_w_red_star
+		is_planet_class = pc_w_green_star
+		is_planet_class = pc_w_purple_star
+		is_planet_class = pc_lbv_blue_star	#_高光度星
+		is_planet_class = pc_lbv_green_star
+		is_planet_class = pc_lbv_red_star
+		#_[HS]
+		is_planet_class = pc_blue_dwarf_star	#_蓝矮星(天狼星)
+	}
+}
+#_[普通恒星]
+z_fw_trgr_plnt_star_energy_normal = {
+	OR = {
+		is_planet_class = pc_a_star
+		is_planet_class = pc_f_star
+	#	is_planet_class = pc_g_star
+		#_[RS]
+		is_planet_class = pc_a_super_star
+		is_planet_class = pc_f_super_star
+	#	is_planet_class = pc_g_giant_star
+	#	is_planet_class = pc_g_super_star
+		is_planet_class = pc_ae_star	#_金牛座 赫比格-哈罗天体	恒星星云
+		is_planet_class = pc_fu_star	#_猎户座fu变星
+		#_[HS]
+	}
+}
+#_[黑洞]
+z_fw_trgr_plnt_star_astronomy = {
+	OR = {
+		is_planet_class = pc_black_hole
+		is_planet_class = pc_pulsar
+		#_[RS]
+		is_planet_class = pc_collapsar			#_坍缩星
+		is_planet_class = pc_protostar
+		is_planet_class = pc_magnetar
+		is_planet_class = pc_microquasar_1
+		is_planet_class = pc_microquasar_2
+		#_[HS]
+		is_planet_class = pc_antimatter_star	#_反物质星
+		is_planet_class = pc_dark_star			#_暗星
+		is_planet_class = pc_quasi_star			#_夸克星
+		is_planet_class = pc_strange_star		#_奇异星
+		is_planet_class = pc_white_hole			#_白洞
+	}
+}
+
+
+
+
+##_[行星类型]	############################################################
+
+
+
+
+###_[殖民地类别]	热/适宜/冷/废土/天堂/特殊/环	####################################################
+#_[PD行星栖息地]	district_set = pdplanethab
+
+#_[热]
+z_fw_trgr_plnt_desert = {
+	OR = {
+		is_planet_class = pc_desert
+		#_[PD]
+		is_planet_class = pc_sandsea		#_[沙丘星球]
+		is_planet_class = pc_oasis			#_[绿洲星球]
+		is_planet_class = pc_tidallylocked	#_[潮汐锁定星球]
+	}
+}
+z_fw_trgr_plnt_arid = {
+	OR = {
+		is_planet_class = pc_arid
+		#_[PD]
+		is_planet_class = pc_mesa			#_[台地星球]
+		is_planet_class = pc_outback		#_[内陆星球]
+		is_planet_class = pc_coral			#_[珊瑚星球]
+	}
+}
+z_fw_trgr_plnt_savannah = {
+	OR = {
+		is_planet_class = pc_savannah
+		#_[PD]
+		is_planet_class = pc_steppe			#_干草原星球
+		is_planet_class = pc_veld			#_灌丛草原星球
+		is_planet_class = pc_semiarid		#_[半干旱星球]
+		is_planet_class = pc_med			#_[地中海星球]
+		is_planet_class = pc_biolumen		#_[生物发光星球]
+	}
+}
+#_[适宜]
+z_fw_trgr_plnt_tropical = {
+	OR = {
+		is_planet_class = pc_tropical
+		#_[PD]
+		is_planet_class = pc_cascadian		#_[卡斯卡迪亚星球]
+		is_planet_class = pc_mangrove		#_[红树林星球]
+		is_planet_class = pc_wetswamp		#_[木本沼泽星球]
+		is_planet_class = pc_desertislands	#_[环礁星球]
+		is_planet_class = pc_mud			#_[泥地星球]
+		is_planet_class = pc_megafloratol	#_[巨植物星球]
+		is_planet_class = pc_megaflora
+	}
+}
+z_fw_trgr_plnt_continent = {
+	OR = {
+		is_planet_class = pc_continental
+		#_[PD]
+		is_planet_class = pc_tepid			#_温带星球
+		is_planet_class = pc_prairie		#_普列里星球
+		is_planet_class = pc_hajungle		#_[特普伊星球]	雾气
+		is_planet_class = pc_retinal		#_[视黄醛星球]	叶绿素被视黄醛取代的世界
+		is_planet_class = pc_forest			#_[森林星球]
+		is_planet_class = pc_lake			#_[湖泊星球]
+		is_planet_class = pc_supercon		#_[超大陆星球]
+		is_planet_class = pc_primal			#_[原始星球]
+		is_planet_class = pc_karst			#_[喀斯特星球]
+	}
+}
+z_fw_trgr_plnt_ocean = {
+	OR = {
+		is_planet_class = pc_ocean
+		#_[PD]
+		is_planet_class = pc_aquatic		#_[沧溟星球]
+		is_planet_class = pc_aquatichot
+		is_planet_class = pc_aquaticcold
+		is_planet_class = pc_aquaticcity
+		is_planet_class = pc_ocean
+		is_planet_class = pc_subarctic		#_[峭壁星球]
+		is_planet_class = pc_eyeball		#_[眼瞳星球]
+		is_planet_class = pc_storm			#_[风暴星球]
+		
+	}
+}
+#_[冷]
+z_fw_trgr_plnt_tundra = {
+	OR = {
+		is_planet_class = pc_tundra
+		#_[PD]
+		is_planet_class = pc_duneforest		#_[沙漠林地星球]
+		is_planet_class = pc_snow			#_[冰雪星球]
+		is_planet_class = pc_boreal			#_[亚寒带星球]
+		is_planet_class = pc_swamp			#_[泥炭沼泽星球]
+		is_planet_class = pc_mushroom		#_[菌丝星球]
+	}
+}
+z_fw_trgr_plnt_arctic = {
+	OR = {
+		is_planet_class = pc_arctic
+		#_[PD]
+		is_planet_class = pc_antarctic		#_[冰盖星球]
+		is_planet_class = pc_glacial		#_[冰河星球]
+		is_planet_class = pc_frozen_desert	#_[冰漠星球]
+		is_planet_class = pc_glacio			#_[冰川火山星球]
+		is_planet_class = pc_rogue			#_[孤异星球]
+		is_planet_class = pc_geothermal		#_[地热星球]
+		#_[PD_EW]
+		is_planet_class = pc_ammonia		#_氨	-100°~-40°
+		is_planet_class = pc_ammoniacity
+	}
+}
+z_fw_trgr_plnt_alpine = {
+	OR = {
+		is_planet_class = pc_alpine
+		#_[PD]
+		is_planet_class = pc_aeolian		#_[风成星球]
+		is_planet_class = pc_hadesert		#_[阿塔卡玛星球]
+		is_planet_class = pc_highland		#_[高原星球]
+	}
+}
+#_[废土]
+z_fw_trgr_plnt_nuked = {
+	OR = {
+		is_planet_class = pc_nuked
+		#_[PD]
+		is_planet_class = pc_salt			#_[盐地星球]
+		#_[PD_EW]
+		is_planet_class = pc_methane		#_甲烷
+		is_planet_class = pc_methanecity
+		is_planet_class = pc_acid			#_酸
+		is_planet_class = pc_sulfur			#_硫
+		is_planet_class = pc_sulfurcity
+		is_planet_class = pc_ash			#_[灰烬星球]
+		is_planet_class = pc_ashcity
+		is_planet_class = pc_irradiated		#_[辐射营养星球]
+		#_[PD_SW]
+		is_planet_class = pc_pdshroud		#_[虚境星球]
+	}
+}
+#_[天堂]
+z_fw_trgr_plnt_gaia = {
+	OR = {
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+		#_[PD]
+		is_planet_class = pc_superhabitable		#_[超宜居星球]
+		#_[PD_UW]
+		is_planet_class = pc_floating			#_[浮空星球]
+		is_planet_class = pc_graveyard			#_[墓地星球]	鲸落
+		is_planet_class = pc_technoorganic		#_[电气有机星球]	自动灌溉
+	}
+}
+#_[特殊]
+z_fw_trgr_plnt_sp = {
+	OR = {
+		uses_district_set = hive_world
+		uses_district_set = machine_world
+	#	uses_district_set = habitat
+		#_[PD]
+		uses_district_set = pdfloraforge		#_[pc_pdfloraforge]	植物锻炉
+		is_planet_class = pc_megaflorahive		#_[巨植物星球_虫巢]
+		is_planet_class = pc_megaflorafort		#_[植物要塞星球]
+		#_[PD_MA]
+		uses_district_set = pdmilarc			#_[pc_milarc]	堡垒理想城
+		uses_district_set = pdbioforge			#_[pc_bioforge]
+		uses_district_set = pdbiofort			#_[pc_pdbiofort]
+		uses_district_set = pdmachinefactory	#_[pc_machine_factory]
+		uses_district_set = pdmachinefort		#_[pc_machine_fort]
+		is_planet_class = pc_milarc_relic		#_[遗落星球]	堡垒理想城前身
+		#_[PD_UW]
+		is_planet_class = pc_crystal
+		uses_district_set = pc_archive			#_[pc_archive]	档案馆栖息地
+	}
+}
+#_[环]
+z_fw_trgr_plnt_ringworld = {
+	OR = {
+		uses_district_set = ring_world
+	}
+}
+
+

@@ -1,0 +1,151 @@
+building_infesting_pool = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	add_to_first_building_slot = yes
+
+	category = pop_assembly
+	
+	potential = {
+		exists = owner
+		owner = {
+			has_valid_civic = civic_infestation
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = NO_CULTURE_SHOCK
+			NOT = { has_modifier = planet_culture_shock }
+		}
+		OR = {
+			owner = { is_ai = no }
+			any_owned_species = {
+				can_be_infested = yes
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { NOT = { has_valid_civic = civic_infestation } }
+			AND = {
+				owner = { is_ai = yes }
+				NOT = {
+					any_owned_species = {
+						can_be_infested = yes
+					}
+				}
+			}
+		}
+	}
+	
+	planet_modifier = {
+		planet_amenities_no_happiness_add = 5
+	}
+	
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = {
+				has_technology = tech_infestation_0
+				has_valid_civic = civic_infestation
+			}
+		}
+		job_infested_pop_add = 3
+	}
+	
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = {
+				has_technology = tech_infestation_1
+				has_valid_civic = civic_infestation
+			}
+		}
+		job_infested_pop_add = 5
+	}
+	
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = {
+				has_technology = tech_infestation_2
+				has_valid_civic = civic_infestation
+			}
+		}
+		job_infested_pop_add = 7
+		job_infested_pop_per_pop = 0.02
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			minerals = @b1_minerals
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOT = { has_valid_civic = civic_integrated_bioarchitecture }
+					is_lithoid_empire = no
+				}
+			}
+			minerals = @b1_hive_minerals
+			food = @b1_hive_food
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_valid_civic = civic_integrated_bioarchitecture
+					is_lithoid_empire = no
+				}
+			}
+			food = @b1_minerals
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = no
+				}
+			}
+			energy = @b1_upkeep_hive
+			food = @b1_upkeep_food
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			energy = @b1_upkeep
+		}
+	}
+	
+	prerequisites = {
+	}
+	
+	triggered_desc = {
+		text = job_infested_pop_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 50000
+	}
+
+	#this tells the AI that building the building will give it this in a way it doesn't understand. Made the number nice and high to try and force the AI to build this.
+	ai_resource_production = {
+		trigger = { always = yes }
+		alloys = 8
+		minerals = 8
+	}
+}

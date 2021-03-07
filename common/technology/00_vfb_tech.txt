@@ -1,0 +1,530 @@
+@tier1cost1 = 500
+@tier1cost2 = 750
+@tier2cost3 = 2500
+
+@tier1weight1 = 100
+
+tech_building_vfb_armory = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { statecraft }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+		pop_growth_speed = 0.05
+		pop_environment_tolerance = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_workshop = {
+	cost = @tier1cost1
+	area = physics
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { computing }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+		pop_growth_speed = 0.05
+		pop_happiness = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_harbor = {
+	cost = @tier1cost2
+	area = engineering
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { materials }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+	
+	}
+	
+	modifier = {
+		ship_orbit_upkeep_mult = -0.2
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_logistichub = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { new_worlds }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+		planet_jobs_produces_mult = 0.025
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_orbitalhub = {
+	cost = @tier2cost3
+	#REQANTIGRAVITY
+	area = society
+	tier = 2
+	is_rare = yes
+	is_reverse_engineerable = no
+	category = { new_worlds }
+	prerequisites = { "tech_housing_2" "tech_building_vfb_logistichub" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+		planet_jobs_produces_mult = 0.025
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_refinery = {
+	cost = @tier1cost2
+	area = engineering
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { industry }
+	prerequisites = { "tech_planetary_government" "tech_volatile_motes" "tech_exotic_gases" "tech_rare_crystals" }
+	weight = @tier1weight1 
+	
+	potential = {
+	
+	}
+	
+	modifier = {
+
+
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_resort = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { new_worlds }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+		#planet_administrators_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_groundsofeden = {
+	cost = @tier2cost3
+	#REQANTIGRAVITY
+	area = society
+	tier = 2
+	is_rare = yes
+	is_reverse_engineerable = no
+	category = { new_worlds }
+	prerequisites = { "tech_housing_2" "tech_building_vfb_resort" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+		#planet_administrators_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_preserve = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { new_worlds }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+		#planet_administrators_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_skysanctuary = {
+	cost = @tier2cost3
+	#REQANTIGRAVITY
+	area = society
+	tier = 2
+	is_rare = yes
+	is_reverse_engineerable = no
+	category = { new_worlds }
+	prerequisites = { "tech_housing_2" "tech_building_vfb_preserve" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+		#planet_administrators_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_asteroid_station = {
+	cost = @tier1cost1
+	area = engineering
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { voidcraft } 
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+	
+	}
+	
+	modifier = {
+		planet_miners_minerals_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_asteroid_hub_b = {
+	cost = @tier1cost2
+	area = engineering
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { voidcraft }
+	prerequisites = { "tech_planetary_government" "tech_building_vfb_asteroid_station" }
+	weight = @tier1weight1 
+	
+	potential = {
+	}
+	
+	modifier = {
+		planet_miners_minerals_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_fusion_plant = {
+	cost = @tier1cost1
+	area = physics
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { particles }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+	
+	}
+	
+	modifier = {
+		planet_technician_energy_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_fusion_complex_b = {
+	cost = @tier1cost2
+	area = physics
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { particles }
+	prerequisites = { "tech_planetary_government" "tech_building_vfb_fusion_plant" }
+	weight = @tier1weight1 
+	
+	potential = {
+	
+	}
+	
+	modifier = {
+		planet_technician_energy_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_plastic_plant = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { biology }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_lithoid_empire = no
+		}
+	}
+	
+	modifier = {
+
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_plastic_facility_b = {
+	cost = @tier1cost2
+	area = society
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { biology }
+	prerequisites = { "tech_planetary_government" "tech_building_vfb_plastic_plant" }
+	weight = @tier1weight1 
+	
+	potential = {
+	
+	}
+	
+	modifier = {
+	
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_siderurgy = {
+	cost = @tier1cost2
+	area = physics
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { field_manipulation }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+
+	}
+	
+	modifier = {
+
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_lyceum = {
+	cost = @tier1cost2
+	area = society
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { statecraft }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_museum = {
+	cost = @tier1cost2
+	area = society
+	tier = 1
+	is_rare = no
+	is_reverse_engineerable = no
+	category = { statecraft }
+	prerequisites = { "tech_planetary_government" "tech_building_vfb_lyceum" }
+	weight = @tier1weight1
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+
+	}
+	
+	ai_weight = {
+		factor = 10
+	}
+}
+
+tech_building_vfb_constructor = {
+	cost = @tier1cost2
+	area = physics
+	tier = 2
+	is_rare = yes
+	is_reverse_engineerable = no
+	category = { computing }
+	prerequisites = { "tech_planetary_government" "tech_building_vfb_workshop" }
+	weight = @tier1weight1 
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}
+
+tech_building_vfb_administration = {
+	cost = @tier1cost2
+	area = society
+	tier = 2
+	is_rare = yes
+	is_reverse_engineerable = no
+	category = { statecraft }
+	prerequisites = { "tech_planetary_government" "tech_building_vfb_armory" }
+	weight = @tier1weight1
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+	}
+	
+	modifier = {
+	}
+	
+	ai_weight = {
+		factor = 2
+	}
+}

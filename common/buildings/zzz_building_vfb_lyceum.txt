@@ -1,0 +1,172 @@
+building_vfb_lyceum = {
+    category = government
+    base_buildtime = 360
+    base_cap_amount = 1
+    icon = building_vfb_lyceum
+    potential = {
+        NOT = {
+            has_building = building_vfb_lyceum
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_lyceum
+            NOT = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_lyceum
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+        }
+        planet = {
+            OR = {
+                num_buildings = {
+                    type = building_research_lab_1
+                    value >= 2
+                }
+                num_buildings = {
+                    type = building_research_lab_2
+                    value >= 2
+                }
+                num_buildings = {
+                    type = building_research_lab_3
+                    value >= 2
+                }
+            }
+        }
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_ethic = ethic_gestalt_consciousness
+        }
+        planet = {
+            AND = {
+                num_buildings = {
+                    type = building_research_lab_1
+                    value < 2
+                }
+                num_buildings = {
+                    type = building_research_lab_2
+                    value < 2
+                }
+                num_buildings = {
+                    type = building_research_lab_3
+                    value < 2
+                }
+            }
+        }
+        planet = {
+            num_pops < 10
+        }
+    }
+    country_modifier = {
+    }
+    planet_modifier = {
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+        }
+        text = vfb_lyceum_addon_effect_desc
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        planet_researchers_produces_mult = 0.1
+        job_researcher_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+            planet = {
+                OR = {
+                    num_buildings = {
+                        type = building_research_lab_1
+                        value >= 3
+                    }
+                    num_buildings = {
+                        type = building_research_lab_2
+                        value >= 3
+                    }
+                    num_buildings = {
+                        type = building_research_lab_3
+                        value >= 3
+                    }
+                }
+            }
+        }
+        planet_researchers_produces_mult = 0.05
+        job_researcher_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+            planet = {
+                OR = {
+                    num_buildings = {
+                        type = building_research_lab_1
+                        value >= 4
+                    }
+                    num_buildings = {
+                        type = building_research_lab_2
+                        value >= 4
+                    }
+                    num_buildings = {
+                        type = building_research_lab_3
+                        value >= 4
+                    }
+                }
+            }
+        }
+        planet_researchers_produces_mult = 0.05
+        job_researcher_add = 1
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = 400
+        }
+        upkeep = {
+            energy = 16
+        }
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 1000
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = consumer_goods
+                    value > 40
+                }
+            }
+        }
+    }
+}

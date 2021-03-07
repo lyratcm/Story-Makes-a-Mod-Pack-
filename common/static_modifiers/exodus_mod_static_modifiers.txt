@@ -1,0 +1,62 @@
+#event modifiers for Exodus
+exodus_1 = {
+	#icon = "gfx/interface/icons/planet_modifiers/pm_arcology_project.dds"
+	icon = "gfx/interface/icons/planet_modifiers/pm_city_ruins.dds"
+	icon_frame = 2
+	planet_emigration_push_add = 200
+}
+
+exodus_resource_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_derelict_interior.dds"
+	icon_frame = 3
+	planet_jobs_alloys_produces_mult = -0.2
+	planet_jobs_consumer_goods_produces_mult = -0.2
+}
+
+exodus_resource_2 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_derelict_interior.dds"
+	icon_frame = 3
+	planet_jobs_alloys_produces_mult = -0.35
+	planet_jobs_consumer_goods_produces_mult = -0.35
+}
+
+exodus_resource_3 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_derelict_interior.dds"
+	icon_frame = 3
+	planet_jobs_alloys_produces_mult = -0.5
+	planet_jobs_consumer_goods_produces_mult = -0.5
+}
+
+exodus_pop_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_slave_riots.dds"
+	icon_frame = 3
+	planet_amenities_mult = -0.1
+	trade_value_mult = -0.1
+}
+
+exodus_pop_2 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_slave_riots.dds"
+	icon_frame = 3
+	planet_amenities_mult = -0.2
+	trade_value_mult = -0.20
+}
+
+exodus_pop_3 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_slave_riots.dds"
+	icon_frame = 3
+	planet_amenities_mult = -0.3
+	trade_value_mult = -0.3
+	#planet_stability_add = -10
+}
+
+exodus_reward = {
+	icon = "gfx/interface/icons/planet_modifiers/capital.dds"
+	icon_frame = 1
+	trade_value_mult = 0.10
+	pop_happiness = 0.10
+}
+
+
+exodus_first_colony = {
+	pop_happiness = 0.10
+}

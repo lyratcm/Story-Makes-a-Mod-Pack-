@@ -1,0 +1,57 @@
+decision_memorialist_excavation = {
+	owned_planets_only = yes
+	icon = decision_archaeological_dig
+	sound = event_dig_site
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			energy = 1000
+		}
+	}
+	
+	potential = {
+		has_ancrel = yes
+		NOT = { has_planet_flag = memorialist_excavated }
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_irradiated
+			is_planet_class = pc_relic
+		}
+		owner = {
+			OR = {
+				has_valid_civic = civic_memorialist
+				has_valid_civic = civic_memorialist_corp
+				has_valid_civic = civic_hive_memorialist
+				has_valid_civic = civic_machine_memorialist
+			}
+		}
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		custom_tooltip = decision_memorialist_excavation_effects_short
+		hidden_effect = {
+			set_planet_flag = memorialist_excavated
+			medium_artifact_reward = yes
+		}
+		create_message = {
+			type = MESSAGE_TYPE_PLANET_PROSPECTED
+			localization = MESSAGE_PLANET_EXCAVATED
+			days = 30
+			target = this
+			variable = {
+				type = name
+				localization = PLANET
+				scope = this
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}	
+}

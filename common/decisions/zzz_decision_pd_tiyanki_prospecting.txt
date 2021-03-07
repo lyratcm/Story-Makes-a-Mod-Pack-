@@ -1,0 +1,70 @@
+decision_tiyanki_prospecting = {
+	icon = decision_tiyanki_prospecting
+	owned_planets_only = yes
+
+	enactment_time = 500
+	resources = {
+		category = decisions
+		cost = {
+			energy = 1000
+		}
+	}
+		
+	prerequisites = { "tech_tiyanki_prospecting" }
+	
+	potential = {
+		NOT = { is_planet_class = pc_graveyard }
+		NOT = { has_planet_flag = tiyanki_prospected }
+		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_ecocity }
+		NOT = { is_planet_class = pc_hive }
+		NOT = { is_planet_class = pc_bioforge }
+		NOT = { is_planet_class = pc_machine }
+		NOT = { is_planet_class = pc_machine_factory }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = penal_colony }
+		NOT = { has_modifier = slave_colony }
+		habitable_structure = no
+	}
+
+	effect = {
+		custom_tooltip = decision_tiyanki_prospect_effects_short
+		hidden_effect = {
+			set_planet_flag = tiyanki_prospected
+			random_list = {
+				40 = { add_deposit = d_tiyanki_small }
+				30 = { add_deposit = d_bubbling_swamp }
+				20 = { add_deposit = d_fuming_bog }
+				10 = { add_deposit = d_tiyanki_large }
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 2
+    	modifier = {
+        	factor = 0
+        	OR = {
+            	# Deliberately start not on a multiple of 5 boundary, so hopefully this
+            	# will be done by the time the next building slot opens up.
+            	num_pops < 13
+            	AND = {
+        			# By late game, AI will likely keep some open building slots
+            		# This is mostly harmless if there are still jobs available
+            		# Otherwise, don't let them take this over building a building
+            		free_building_slots > 0
+            		free_jobs <= 0
+            	}
+            	free_building_slots > 2
+            	owner = {
+                	OR = {
+                    	resource_stockpile_compare = {
+							resource = energy
+							value < 8000
+						}
+                	}
+            	}
+        	}
+    	}
+	}
+}

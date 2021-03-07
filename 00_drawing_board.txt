@@ -1,0 +1,1100 @@
+DRAWING BOARD
+
+Mod "Technologically Ascendent" {
+    Should it be added?
+}
+
+Concept "Apply old 'civic_iron_despot' events to the new Master Computer authority?" {
+    I mean, they're just sitting there
+}
+
+Concept "Clippy" {
+    Checks the AI weight of certain choices and will tell you what your build would do if it were an AI
+}
+
+Concept "Make a civic that starts with all missing letters of the alphabet! Why not!" {
+    Which letters are not yet represented?
+}
+
+Concept "Mega-Civics" {
+    Powerful civics that can only be added after game start
+}
+
+Concept "The Festival" {
+    Talk to Morgan for specifics
+}
+
+Ascension Path "individuality.exe" {
+    Essentially allows machine empires to 'reverse ascend' by discovering what it means to be an Individual
+    Based on the reverse of the Four Noble Truths of Buddhism
+    Ascension Perks {
+        magga.exe {
+            Units are given independent memory cores to keep track of their surroundings and the context of their existence
+            Effects?
+        }
+        nirodha.exe {
+            Units become aware of the finality that comes with destruction
+            Effects?
+        }
+        samudaya.exe {
+            Units are updated to hold value in assets with which the Unit is individually familiar with
+            Effects?
+        }
+        dukkha.exe {
+            Units begin to feel suffering when they lose things that they hold value in
+            Effects?
+        }
+    }
+}
+
+Ascension Perk Group "Ultimate Ethics" {
+	Essentially if you have at least one fanatic ethic you can spend an ascension perk on the associated Ultimate Ethic
+	You can only get on from the group, even if you have more than one fanatic ethic
+	Each one basically just gives you +50% attraction towards that ethic, an extra civic slot, the bonuses from the moderate of that ethic, and the penalty from the fanatic of that ethic
+	Ascension Perks {
+		Ultimate Authoritarian {
+			+50% authoritarian attraction
+			+1 civic slot
+			+0.75 monthly influence
+			+1 enforcer per 50 pops
+			+1 max ruler level
+			-5% energy output
+		}
+		Ultimate Competitive {
+			+50% competitive attraction
+			+1 civic slot
+			+10% trade value
+			-5% market fee
+			+10% leader exp gain
+			-50% worker political power
+			+25% crime
+		}
+		Ultimate Cooperative {
+			+50% cooperative attraction
+			+1 civic slot
+			+5% worker happiness
+			-10% housing usage
+			+5% society research speed
+			+50% worker political power
+			-10% trade value
+		}
+		Ultimate Ecologist {
+			+50% ecologist attraction
+			+1 civic slot
+			+5% habitability
+			-10% consumer goods upkeep
+			-10% structures upkeep
+			-15% pop growth speed
+		}
+		Ultimate Egalitarian {
+			+50% egalitarian attraction
+			+1 civic slot
+			+25% faction output
+			+20% admin cap
+			+10% ethics shift speed
+			-5 stability
+		}
+		Ultimate Elitist {
+			+50% elitist attraction
+			+1 civic slot
+			+1 max leader level
+			+10 max leader age
+			+1 noble job per 50 pops
+			+50% ruler political power
+			+50% leader upkeep
+		}
+		Ultimate Industrialist {
+			+50% industrialist attraction
+			+1 civic slot
+			+5% food output
+			+5% minerals output
+			+1 max districts
+			-7.5% habitability
+		}
+		Ultimate Materialist {
+			+50% materialist attraction
+			+1 civic slot
+			+7.5% physics research speed
+			+7.5% engineering research speed
+			-10% robot upkeep
+			-5% happiness
+		}
+		Ultimate Militarist {
+			+50% militarist attraction
+			+1 civic slot
+			-15% claim influence cost
+			+10% ship fire rate
+			-50% trust growth
+		}
+		Ultimate Pacifist {
+			+50% pacifist attraction
+			+1 civic slot
+			+5 stability
+			-15% empire sprawl from pops
+			-20% border friction
+			-10% naval capacity
+		}
+		Ultimate Pluralist {
+			+50% pluralist attraction
+			+1 civic slot
+			+2 leader pool size
+			-25% leader upkeep
+			-20% crime
+			+50% specialist political power
+			+40% leader cost
+		}
+		Ultimate Spiritualist {
+			+50% spiritualist attraction
+			+1 civic slot
+			+10% unity output
+			+10% governing ethics attraction
+			-10% amenities usage
+			-10% physics research speed
+		}
+		Ultimate Xenophile {
+			+50% xenophile attraction
+			+1 civic slot
+			+25% trust growth
+			-20% diplomatic upkeep
+			+15% trade attractiveness
+			+1 max envoys
+			-1 max rivalries
+		}
+		Ultimate Xenophobe {
+			+50% xenophobe attraction
+			+1 civic slot
+			-15% empire sprawl penalty
+			+20% home territory ship fire rate
+			+10% pop growth speed
+			+33% diplomatic upkeep
+		}
+	}
+}
+
+Authority "Anarchy" {
+    Requires Fanatic Egalitarian
+    Replaces Factions with Crowds, all of which are Egalitarian + one other ethic {
+        Crowds are generated on day 1
+        Crowds can not be embraced
+        Crowds produce all sorts of resources (not just influence)
+        Leaders of crowds are generated like Heirs (no upkeep, no power)
+    }
+    No Elections are held, instead every 5 years the position of Ruler is rotated between the leaders of each Crowd
+    Modifiers {
+        Empire Sprawl Penalty +100%
+        Empire Sprawl from Manual Colonies +250%
+        Empire Sprawl from Automated Colonies -50%
+        Colony designation gives major bonuses to Automated planets
+    }
+    Unique Civics {
+        Agrarian Idyll variant
+        Beacon of Liberty variant
+        Citizen Service variant
+        Cutthroat Politics variant
+        Efficient Bureaucracy variant
+        Environmentalist variant
+        Free Haven variant
+        Functional Architecture variant
+        Idealistic Foundation variant
+        Inward Perfection variant
+        Meritocracy variant
+        Mining Guilds variant
+        Warrior Culture variant
+        Byzantine Bureaucracy variant
+        Merchant Guilds variant
+        Diplomatic Corps variant
+        Memorialists variant
+        Reanimated Armies variant
+        You Wouldn't Download a Car {
+            -30% trade value
+            -15% job upkeep
+        }
+        Copyleft {
+            Each pop produces +0.1 consumer goods / month
+        }
+        Right to Repair {
+            Building, district, ship, station, and starbase upkeep -15%
+            Ship and starbase hull regeneration +1%
+        }
+        Radicalized {
+            -33% war exhaustion gain from fighting enemies who allow slavery, purging, or stratification
+        }
+        Walkaway {
+            Pops resettle themselves
+        }
+        Mutualistic Communes {
+            Requires some degree of xenophile
+            Unlocks Mutualistic crowd
+            Set up branch offices on worlds with migration treaty
+        }
+        There Is No Grid {
+            Job output -33%
+            Each pop produces +0.5 monthly energy, mineral, and food
+        Eye for an Eye {
+            ???
+        }
+    }
+    Ascension Perks {
+        Fully-Automated-Luxury-Gay-Space-Communism: requires Utopian Abundance living standards, job output +15%, robot output +15%
+    }
+}
+
+Authority "Great Tribes" {
+    Requires Fanatic Authoritarian
+    Replaces Factions with Tribes, all of which are authoritarian + one other ethic {
+        Tribes are generated on day 1
+        Tribes cannot be embraced
+        Pops, once grown, must IMMEDIATELY join a tribe
+        Pops can never change the tribe they are in
+        Tribes produce all sorts of resources, not just influence
+        Leaders of tribes are generated like Heirs (no upkeep, no position of power)
+    }
+    “Election” is hosted on ruler death, with a Policy to choose what type of challenge the Heirs must compete in to become the ruler {
+        The player cannot influence this election once it has begun, though they can choose which challenge the Heirs participate in
+    }
+    Custom Civics {
+        Agrarian Idyll variant
+        Aristocratic Elite variant
+        Corvee System variant
+        Cutthroat Politics variant
+        Feudal Society variant
+        Inward Perfection variant
+        Philosopher King variant
+        Police State variant
+        Diplomatic Corps variant
+        Iron Heart of the Mountain {
+            Miners produce +1 monthly alloys
+        }
+        Savant Leadership {
+            Minimum leader age -50%
+            Leader level cap +2
+        }
+        Name pending? {
+            Creates wide-build Tribe
+            Some other bonus
+        }
+        Name pending? {
+            Creates tall-build Tribe
+            Some other bonus
+        }
+        Name pending? {
+            Creates mercantile Tribe
+            Some other bonus
+        }
+        Name pending? {
+            Creates industrial Tribe
+            Some other bonus
+        }
+    }
+}
+
+Authority "Master Computer" {
+    Needs more civics
+}
+
+Authority “Swami Spirit” {
+    Requires some degree of Spiritualist
+    This society is ruled by an immortal, manifested psionic entity
+    Factions are present, but cannot be embraced
+    Modifiers {
+        Stability +10
+        Monthly influence +0.5
+        Monthly unity +5%
+        Factions produce -33%
+        Empire sprawl penalty +75%
+    }
+    Custom Civics {
+        Mighty Manifestation {
+            Special army that can only have one of, but can rebuild quickly if it dies
+        }
+        Thing of Nightmares {
+            Copy effects from civic 'Fanatic Purifiers'
+        }
+        Throne of Skulls {
+            Copy effects from civic 'Death Cult'
+        }
+        Rite of Fertility {
+            +1 caregiver job per 20 pops
+        }
+        Salt the Fields {
+            Unlocks Armageddon bombardment
+            Ships that are bombarding produce unity
+        }
+        Luck and Fortune {
+            Trade value +20%
+            Pop happiness +5%
+            Secret bonus to getting the Galatron
+        }
+        Hearth and Home {
+            District housing +1
+            Each district produces +1 amenity
+        }
+        Dawn Bringer {
+            Planet energy upkeep -33%
+            Because people can summon light with a prayer, electricity bills are lower, lol
+        }
+        Exalted Aristocracy {
+            Ruler caste output +10%
+        }
+        Omni-Co-Existence {
+            Job upkeep -15%
+        }
+        Horizon Crosser {
+            Survey speed +20%
+            FTL speed +100%
+        }
+        Divine Inspiration {
+            Scientists and governors get a special trait
+            Replace administrators with gurus {
+                Gurus produce amenities, unity, and ?
+            }
+        }
+        Wish Granter {
+            +10 monthly energy
+            +10 monthly minerals
+            +10 monthly food
+            +4 monthly alloys
+            +4 monthly consumer goods
+            +1 monthly exotic gases
+            +1 monthly rare crystals
+            +1 monthly volatile motes
+            Cannot be added or removed after game start
+        }
+        Dream Guide {
+            Similar effects from Master Computer civic 'Virtual World'
+        }
+        Trickster Spirit {
+            Army disengage +50%
+            Ship disengage +50%
+            Ship evasion flat +5
+        }
+        Direct Relationships {
+            Each pop produces +0.04 monthly research
+        }
+        Organized Following {
+            Governing ethics attraction +33%
+            Edict cap +2
+        }
+    }
+    Possible reduced shroud cooldown?
+}
+
+Authority "Tessellation" {
+    Requires Gestalt Consciousness
+    Adds the “Tessellated” trait to pops {
+        Removes Happiness
+        Removes Trade Value
+        Pops still require Consumer Goods
+        Requires Biological or Lithoid
+        Increased Deviancy on less-than-ideal planets
+    }
+    Implement maximum Population on all planets {
+        Create event that causes overpopulation to become refugees in other planets you own
+        If you have no planets accepting pops, then they may go to other empires
+    }
+    Colonies are either 'Flawed' or 'Tessellated' {
+        A planet only becomes Tessellated when it has the same assortment of buildings as the capital
+        Tessellated planets have a significant bonus to output
+    }
+    Special Policy that adds 3 extra jobs to all Tessellated Planets {
+        Option A
+        Option B
+        Option C
+        Option D
+    }
+    "Acceptably Flawed Planets" is the number of planets allowed to be Flawed at the same time {
+        Acceptably Flawed Planets have a bonus to pop growth and build speed
+        Scale these bonuses with the number of planets successfully Tessellated
+    }
+    Modifiers {
+        Stability +10
+        Empire Sprawl from Colonies -50%
+    }
+    Unique Civics {
+        Lock-step March {
+            If all ships in fleet are the same, they get a combat bonus
+        }
+        Non-confronting Demeanor {
+            Border friction -50%
+        }
+        Cultural Appropriation {
+            +5% consumer goods produced per neighbor
+        }
+        This Land is My Land {
+            Small influence refund (~20) for building an outpost up against someone else's borders
+        }
+        Name pending? {
+            Increase leader level cap and experience gain
+        }
+        Name pending? {
+            Increase leader pool and decrease leader cost
+        }
+        Name pending? {
+            Researcher production +10%
+        }
+        Conventional Crafting {
+            Artisans also produce unity
+        }
+        Perfection in Progress {
+            Acceptably Flawed Planets get half of the full Tessellation bonus
+        }
+        Genetic Unity {
+            Genetic tweaking doesn't cost more per pop changed {
+                This essentially encourages you to change everyone at the same time
+            }
+        }
+        Lawn Mower Culture {
+            +33% research speed for 'New Worlds' techs
+        }
+        Homogenous Hobbies {
+            -33% job output
+            All pops produce +0.5 monthly energy, mineral, and food
+        }
+        Needs more
+    }
+    Ascension Perks {
+        Name pending? {
+            Brainwash xenos into having the 'Tessellated' trait
+        }
+        Name pending? {
+            Terraform planets into 'Geodesic' planets {
+                Requires the colony (if not your capital) to be Tessellated at all times
+                Has special districts {
+                    Dynamo District {
+                        Rural
+                        Housing +10
+                        Technician jobs +5
+                    }
+                    Quarry District {
+                        Rural
+                        Housing +10
+                        Miner jobs +5
+                    }
+                    Homestead District {
+                        Rural
+                        Housing +10
+                        Farmer jobs +5
+                    }
+                }
+            }
+        }
+    }
+}
+
+Building “Bureau of Cut Corners” {
+    Branch office
+    Criminal syndicate only
+    Max per planet = 1
+    Planet Modifiers {
+        Crime +20%
+        Job upkeep -10%
+        Job output +5%
+        Branch office value +15%
+    }
+}
+
+Civic "Children of the Atom" {
+    Available for the following authorities {
+        Generic
+    }
+    Requires some degree of materialist
+    Each level of ship generator tech boosts planetary amenities and energy output
+    Research speed: particles +50%
+    Pop energy upkeep +0.1
+}
+
+Civic "Common Interests" {
+    MEGA CIVIC
+    Branch office cost -15%
+    Adds 8 planet-unique branch office buildings which greatly benefit the planet-owner {
+        Bureaucratic Campus {
+            Branch office value +20%
+            +2 bureaucrat jobs
+            +2 enforcer jobs
+        }
+        Trade-Shop Campus {
+            Branch office value +20%
+            +2 artisan jobs
+            +2 foundry jobs
+        }
+        Synthetic Goods Campus {
+            Branch office value +20%
+            +1 mote synthesizer job
+            +1 gas synthesizer job
+            +1 crystal synthesizer job
+        }
+        Research Campus {
+            Branch office value +20%
+            +1 head researcher job
+            +3 researcher jobs
+        }
+        Goods Exchange Campus {
+            Planet trade value +50%
+            +1 merchant job
+        }
+        Service Exchange Campus {
+            Branch office value +20%
+            Amenities +25%
+            +6 clerk jobs
+        }
+        Ideas Exchange Campus {
+            Branch office value +20%
+            +4 culture worker jobs
+        }
+        Strategic Coordination Campus {
+            Branch office value +20%
+            +1 starbase capacity
+            -25% orbital bombardment damage
+            +4 soldier jobs
+        }
+    }
+}
+
+Civic "Elite Easy Living" {
+    Available for the following authorities {
+        Generic
+        Corporate
+    }
+    Requires some degree of elitist
+    +1 'beneficiary' job per 50 pops {
+        Beneficiaries produce 8 unity, but cost double the housing, amenities, food, and consumer goods
+    }
+    Luxury housing buildings provide +1 beneficiary jobs
+}
+
+Civic "Hive Servitor" {
+    Reverse of 'Machine Servitor'
+    This friendly hive keeps robots as fun, scientific pets!
+}
+
+Civic "Hoarder" {
+    Available for the following authorities {
+        Generic
+        Hive
+        Machine
+    }
+    Double resource capacity
+    If resource stockpile = normal max, then +0.1 monthly influence
+    If resource stockpile = double normal max, then +0.1 monthly influence
+    If resource gross < 0, then -0.2 monthly influence
+}
+
+Civic "Science is Sorcery!" {
+    Available for the following authorities {
+        Generic
+    }
+    Requires some degree of spiritualist
+    Copy effects from AlphaMod
+}
+
+Civic "Shaman Sortilege" {
+    Available for the following authorities {
+        Generic
+        Swami Spirit
+        Great Tribes
+    }
+    Start with a small stockpile of zro
+    Gain special edicts which cost zro to do mini-shroud events
+}
+
+Civic "The Emperor's Fury" {
+    SECRET CIVIC {
+        Immortal Ascendancy
+        Imperial Cult
+    }
+    Ruler gets the 'Chosen One' trait
+    Start with 'Psionic Theory' as an option
+    Psionic techs are weighted heavier
+    Start with 18 'Primarch' Governors awaiting assignment {
+        Each 'Primarch' grants various bonuses to their sector and unlocks one of the space marine chapters {
+            Horus 'The Lupercal' {
+                Urban district build speed +15%
+                Urban district upkeep -15%
+                Unlocks the 'Sons of Horus' armies, which are faster to build
+            }
+            Leman Russ 'The Brawler' {
+                Habitability +10%
+                Unlocks the 'Space Wolves' armies, which do better as shock troops? idk
+            }
+            Ferrus Manus 'The Gorgon' {
+                Pop assembly speed +15%
+                Unlocks the 'Iron Hand' armies, which are better but cost more alloys
+            }
+            Fulgrim 'The Phoenician' {
+                Job upkeep -10%
+                Unlocks the 'Emperor's Children' armies, which have higher morale
+            }
+            Vulkan 'The Perpetual' {
+                Alloys from jobs +20%
+                Unlocks the 'Salamanders' armies, which have higher collateral damage
+            }
+            Rogal Dorn 'The Vigilant' {
+                Planetary bombardment -15%
+                Defense army health +33%
+                Unlocks the 'Imperial Fists' armies, which have lower damage but massive collateral damage
+            }
+            Roboute Guilliman 'The Blade of Unity' {
+                Stability +5
+                Unity from jobs +15%
+                Unlocks the 'Ultramarines' armies, which are a little bit better
+            }
+            Magnus 'The Red' {
+                Crime -20%
+                Unity from jobs +15%
+                Unlocks the 'Thousand Sons' armies, which do increased morale damage
+            }
+            Sanguinius 'The Great Angel' {
+                Governing ethics attraction +33%
+                Unlocks the 'Blood Angels' armies, which do increased damage
+            }
+            Lion El-Jonson 'The Lion' {
+                Enforcers produce +4 unity
+                Unlocks the 'Dark Angels' armies, which have increased morale and morale damage
+            }
+            Perturabo 'The Lord of Iron' {
+                Research from jobs +15%
+                Unlocks the 'Iron Warriors' armies, which have increased health and do higher collateral damage
+            }
+            Mortarion 'The Child of Death' {
+                Food from jobs +33%
+                Unlocks the 'Death Guard' armies, which have much more health
+            }
+            Lorgar Aurelian 'The Wisest of the Wise' {
+                Priest output +50%
+                Unlocks the 'World Bearers' armies, which do much less collateral damage
+            }
+            Jaghatai 'The Great Khan' {
+                Army build speed +50%
+                Unlocks the 'White Scars' armies, which are immensely faster in their transport form
+            }
+            Konrad Curze 'The Night Haunter' {
+                Stability -5
+                Resources from jobs +15%
+                Unlocks the 'Night Lords' armies, which have less morale but greatly increased morale damage
+            }
+            Angronius of Nuceria 'The Lord of the Red Sands' {
+                Crime +10%
+                Resources from jobs +15%
+                Unlocks the 'World Eaters' armies, which do more damage and more morale damage
+            }
+            Corvus Corax 'The Liberator' {
+                Come back after Nemesis
+            }
+            Alpharius Omegon 'The Hydra' {
+                Come back after Nemesis
+            }
+        }
+    }
+}
+
+Diplomatic Pact "Cultural Exchange" {
+    Each side gets 10% of the other side's unity generation
+}
+
+Endless Space Stuff {
+    Sophon Origin {
+        +100% research speed if no one else has researched a tech
+        +50% research speed if one other person has researched it
+        These checks do not include Fallen Empires
+    }
+    Craver {
+        Steal effects from civic 'Locust Capitalism'
+        Combine it with the civic 'Devouring Swarm'
+    }
+    United Empire Origin {
+        Spend influence for special planetary decisions to boost build speed
+        Bonus to influence production scaled with empire sprawl penalty
+        +1000 influence capacity
+    }
+    Horatio Origin {
+        Gain "Horatio" trait that starts with no effect
+        Special Project to kill X non-Horatio pops in your borders to add a minor bonus from the merced pops to all Horatio pops {
+            X starts at 2, and increases by 1 for each previous splice
+        }
+        Horatio food upkeep increases by 5% per splice
+    }
+    Riftborn Species {
+        Eats Unity, not food
+        Has its own Archetype
+        Has its own Traits
+    }
+    Riftborn Origin / Ascension Perk {
+        Creates Singularities {
+            Workshop Dilation Singularity
+            Workshop Stasis Singularity
+            Workshop Compression Singularity
+            Workshop Fold Singularity
+            Workshop Rip Singularity
+            }
+        }
+    }
+    Unfallen Origin {
+        Requires plantoid
+        Requires hive-mind
+        Gains access to ship class "Vine Ship", which is a re-usable colony ship / construction ship
+        Can NOT create normal colony ships or construction ships
+        Allow emergency evacuation of partially developed colonies
+    }
+    Vodyani Origin {
+        Requires necroid
+        Gains access to shipclass "Ark Ship", which is a colony ship that costs Zro and can carry multiple pops and buildings {
+            Planetary decision to scrape all pops and buildings (NOT districts) into a single Ark Ship, which unpacks onto whatever planet you settle
+            Ark ships and capital buildings produce a little zro, as a treat
+        }
+        SPECIAL PURGE TYPE: turn filthy xenos into Zro!
+        Special job in a special building that assembles Vodyani pops using zro {
+            If this proves impossible, just increase growth speed using zro
+        }
+        No selling zro on the market
+        Double capital building housing
+        Seriously increased colony development speed
+        POTENTIAL BALANCE OPTION {
+            Make it so buildings are "ruined" on colony creation, essentially requiring you to repair them instead of building them from scratch
+        }
+        LOOK OUT FOR accidentally creating the capital building twice
+    }
+    Lumeris {
+        Requires corporate
+        Unlocks private colony ship
+        Diplomatic influence upkeep -50% but pays 50 times the reduced cost in energy credits
+        Ship module creates energy credits when ship xp is earned
+    }
+    Vaulters Origin {
+        Can create Meta-folding Portals {
+            Function as a private Gateway network for self and allies
+        }
+    }
+    Hissho Origin {
+        Influence from all factions -50%
+        Influence from militarist and authoritarian factions +1000%
+        VERY SMALL CHANCE TO DISENGAGE FROM COMBAT
+        Influence gain/loss from military engagements with preference to ground battles
+        Spend influence on edicts to buff fleets and armies
+        Recommend civic 'Death Cult' to emulate 'Observances' from the original game {
+            'Mortal Initiate' jobs have increased production and political power
+        }
+    }
+    Umbral Choir {
+        Come back to this after Nemesis
+        Maybe weird branch office mechanic?
+    }
+    Nakalim Origin {
+        -75% research gained from jobs and stations
+        Can consecrate worlds from game start
+        Consecrating a world provides minor artifacts based on the Significance of the consecrated world
+        Country gains a flat science bonus from each minor artifact in storage
+    }
+    Academy Enclave {
+        Special enclave that can be contacted to buy leaders for higher cost, but crazy good bonuses
+        Includes xeno leaders!
+    }
+    Amoeba Origin / Ascension Perk {
+        Start with [MEDIUM] Intel on ALL systems in the galaxy
+        Unlocks "Projector" jobs which increase planetary sensor range
+        Special Edict which gives additional galactic ping scaled with number of Projectors in empire
+    }
+    Sheredin Civic {
+        -50% enemy disengage chance
+    }
+    Automaton Species {
+        Eats tons of Amenities, not food
+        Has its own Archetype
+        Has its own Traits
+        Can be non-gestalt or Machine Intelligence, just NOT Hive Mind
+    }
+    Automaton Origin {
+        Every day spent with an empty planetary build queue produces a stack of "Overproduction", to a max of [pop x 100]
+        Every day spent building on a planet reduces Overproduction by 1, and doubles build speed
+        Implement Overproduction on shipyards that scales with starbase size
+        Potential different implementation depending on how the code meshes with plural shipyards in a base
+        REMINDER to implement for Mega-Shipyard
+        Tech that adds Overproduction to defense of the planet/shipyard
+    }
+    Harmony Origin {
+        Requires lithoid
+        Requires hive mind
+        Remove all energy upkeep costs, replace with mineral upkeep
+        Energy produced in a system increases Deviancy, scaled
+        NO MARKETS ALLOWED
+        Energy max capacity x0
+        Country mineral production +15%
+        Science ships boosting planet research also boost mineral production
+        Policy to increase pop growth speed or build speed
+        Never get techs that produce / improve energy
+        Start with Crystal, Gas, and Mote harvest techs {
+            Specifically not the SYNTHESIZE techs
+        }
+    }
+}
+
+Endless Legend Stuff {
+    Wild Walkers Origin {
+        Bonus habitability scaled with blockers and features
+        Steal effects from civic 'Lackadaisical'
+    }
+    Broken Lords Origin {
+        You're a non-gestalt machine... that's it
+    }
+    Ardent Mages {
+        Start with the megastructure 'Stellar Pillars' {
+            Can be built on stars
+            Max one per system
+            Adds 1 [RESOURCE] to the central star of its system and each adjacent system {
+                [ENERGY]
+                [MINERALS]
+                [EACH TYPE OF RESEARCH]
+                [UNITY]
+            }
+            Build cost scales with number of pillars produced
+        }
+    }
+    Roving Clans {
+        Ships you can click on that take you to habitats
+        It shouldn't be that hard!
+        Bonus to get market nomination
+    }
+    Drakken {
+        Edict during war {
+            Maxes out both sides' exhaustion, ending the war sooner
+        }
+        Starts with communications with all fallen empires
+        +1 edict capacity
+    }
+    Cultists {
+        Special project on all observed primitive civs that adds a timer to the planet {
+            Once timer is done, the primitive civ is uplifted and made into a vassal of the Cultists
+        }
+        Conquered planets ALWAYS become vassals. Can not create outposts. Can not create colony ships
+        Start with Starhold tech
+        Start with "Walls of Faith" planetary modifier which reduces bombardment damage and increases defense armies
+    }
+    Forgotten {
+        Come back to this after Nemesis
+        Absolutely ZERO science production {
+            Bonus to buy tech or steal it
+        }
+    }
+    Allayi {
+    }
+    Morgawr {
+    }
+    Kapaku {
+    }
+    Mykara {
+    }
+}
+
+Event "Remove the day 4 Infinite Stellaris event" {
+    Or at least make our preferred options the default options, please.
+}
+
+Event Chain "Trouble with Trobbles" {
+    A player can land on a planet filled with strange verminoid creatures called Trobbles who are remarkably good at the art of mimicry {
+        Option A: Invest time and resources to quarantine the planet, disabling further shenanigans {
+            If you do this, you've escaped the lesser crisis!
+        }
+        Option B: Study them from a distance, causing them to spawn a few years later {
+            This option delays the next effect by about 6 to 24 months
+        }
+        Option C: Land on the planet to immediately open this pandora's box {
+            Pick this option for a swift deliverance of Bad Times
+        }
+    }
+    After this event, the "Trobble Territories" empire is spawned with {
+        Their single planet
+        65 Trobble pops
+        Basic planetary and interstellar infrastructure
+        A major lack of resources
+    }
+    The Trobble species has its own archetype: "Trobble" {
+        Housing usage = 0.25
+        Amenities usage = 0.5
+        Minerals upkeep = 0.25
+        Alloys upkeep = 0.1
+    }
+    These Trobbles start as pre-sapients with only one trait: "Trobble" {
+        Pre-sapient Version {
+            Habitability +25%
+            Pop growth speed +50%
+            Pop growth from immigration +250%
+            +1 Trobble job per 1 pop
+            This pop can and will immigrate to any planet regardless of the border status or citizenship of the target planet {
+                The only exception is fallen / awakened empire planets
+                Yes, they'll immigrate onto planets they can't survive on
+                Yes, they'll even immigrate onto planets where they are actively being purged
+            }
+            This pop can not be gene-modded, assimilated, uplifted*, or otherwise altered {
+                *the exception to this rule lies below, under the 'Trobble Truce' Resolutions
+            }
+            It takes 10 times longer to Purge this pop by any means besides Displacement, which only takes half as long {
+                This pop also produces 75% less resources from their given Purge type, further encouraging players to Displace them
+            }
+        }
+        Sapient Version {
+            Habitability +15%
+            Pop growth speed +25%
+            Pop growth from immigration +100%
+            Job output -50%
+            This pop can only take worker jobs
+            This pop can not produce leaders
+            Pop output {
+                Unity +1
+                Physics research +1
+                Society research +1
+                Engineering research +1
+            }
+        }
+    }
+    Every pre-sapient Trobble pop can only take the job "Trobble" {
+        Pre-sapient Strata
+        Planet Modifier {
+            Stability -1
+        }
+        Resources {
+            Unity +0.5
+            Physics research +0.5
+            Society research +0.5
+            Engineering research +0.5
+        }
+    }
+    Every Trobble pop successfully Displaced has a high chance to go to the Trobble Territories, bringing with them what they scavenged during their time in other people's territory {
+        +50 energy
+        +50 minerals
+        +50 food
+        +100 alloys
+        +100 consumer goods
+        +200 physics research
+        +200 society research
+        +200 engineering research
+        +400 unity
+    }
+    When the Trobble Territories spawn two new resolution chains will appear under the 'Galactic Focus' section of the galactic community {
+        Trobble Truce {
+            Uplift the Trobbles {
+                Replaces their pre-sapient trait with the sapient version
+                Allows the Trobble Territories to conduct diplomacy besides war
+                Invites the Trobble Territories into the galactic community
+            }
+            Teach the Trobbles {
+                Makes Trobbles no longer freely immigrate to people's planets
+                Each Trobble pop produces 2 trade value for the planet it's on
+            }
+            Guide the Trobbles {
+                Allows members of the Galactic Community to peacefully resettle Trobble pops back to the Trobble Territories
+                The Trobble Territories will compensate empires if the Trobble was treated nicely during its stay
+            }
+        }
+        Trobble Tussle {
+            Aggress the Trobbles {
+                Allows members of the galactic community to use the 'End Threat' Casus Belli on the Trobble Territories
+            }
+            Restrict the Trobbles {
+                Trobble pops grow and migrate 50% slower
+            }
+            Eliminate the Trobbles {
+                Trobble purge speed +100%
+                Trobble purge production +100%
+                Having any Trobble pops with non-Purge citizenship is in breach of galactic law
+            }
+        }
+    }
+}
+
+Origin "Ancient Artificers" {
+    Requires Machine Intelligence
+    Pops get the Reliquary trait {
+        +250% job output
+        +500% diplomatic weight from these pops
+    }
+    Replicators cost 0.04 minor artifacts per month instead of alloys
+    Start with 100 minor artifacts
+    Guaranteed archaeology sites instead of habitable worlds
+}
+
+Origin "Parasytic" {
+    Basically necrophage but for hive minds
+}
+
+Origin "This Town Ain't Big Enough" {
+    Inspired by show 'Defiance'
+    Talk to Morgan for specifics
+}
+
+Species "Gaseous" {
+    They eat exotic gases, not food
+    Playing them REQUIRES playing the Habitable Gas Giant origin, and vice versa
+    Habitable gas giants have unique districts {
+        Surface District {
+            Urban
+            Housing +10
+            Clerk jobs +4
+        }
+        Cluster District {
+            Rural
+            Housing +5
+            Gas extractor jobs +2
+        }
+        Wind-Tunnel District {
+            Rural
+            Housing +3
+            Technician jobs +3
+        }
+        Core-Slurry District {
+            Rural
+            Housing +3
+            Miner jobs +3
+        }
+    }
+}
+
+Species "Plasmoid" {
+    They eat volatile motes, not food
+    Playing them REQUIRES playing the Habitable Star origin, and vice versa
+    Habitable stars have unique districts {
+        Chromosphere District {
+            Urban
+            Housing +25
+            Clerk jobs +10
+        }
+        Photosphere District {
+            Rural
+            Housing +10
+            Mote harvester jobs +5
+        }
+        Convection District {
+            Rural
+            Housing +5
+            Technician jobs +5
+        }
+        Prominence District {
+            Rural
+            Housing +5
+            Alloy gatherer jobs +5
+        }
+    }
+}
+
+Species "Energy {
+    They eat rare crystals, not food
+    Playing them REQUIRES playing the Digital Habitat origin, and vice versa
+    Digital Habitats have unique districts {
+        A
+        B
+        C
+        D
+    }
+}
+
+Trait "Slow" {
+    Cost = -1
+    Pop upkeep -5%
+    Job output -10%
+    Leader lifespan +20
+}
+
+Trait "Swift" {
+    Cost = 1
+    Pop upkeep +5%
+    Job output +10%
+    Leader lifespan -20
+}

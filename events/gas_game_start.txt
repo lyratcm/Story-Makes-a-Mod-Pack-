@@ -1,0 +1,14 @@
+event = {
+	id = gas_game_start.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# Gas Bois
+		every_playable_country = {
+			limit = { has_origin = origin_gas_species }
+			country_event = { id = gas_origin_start }
+		}
+	}
+	#add_country_flag = gas_intro
+}

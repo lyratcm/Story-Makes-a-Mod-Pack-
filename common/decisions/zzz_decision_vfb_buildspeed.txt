@@ -1,0 +1,44 @@
+decision_vfb_buildspeed_m = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_vfb_buildspeed_m
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+			influence = 10
+		}
+	}
+
+	potential = {
+		owner = {
+			is_fallen_empire = no
+		}
+		planet = {
+			OR = {
+				has_building = building_vfb_wharf
+				has_building = building_vfb_harbor
+			}
+		}
+	}
+
+	allow = {
+		planet = {
+			NOT = { has_modifier = vfb_buildspeed_m }
+			num_pops < 20
+		}
+	}
+
+	effect = {
+		add_modifier = { modifier = "vfb_buildspeed_m" days = 1800 }
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0
+			free_building_slots < 1
+		}
+	}
+}

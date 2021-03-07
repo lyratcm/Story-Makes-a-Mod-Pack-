@@ -1,0 +1,72 @@
+decision_mastery_of_nature = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			energy = 2500
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		owner = {
+			has_ascension_perk = ap_mastery_of_nature
+		}
+		NOT = { has_modifier = mastery_of_nature }
+	}
+	
+	effect = {
+		add_modifier = {
+			modifier = mastery_of_nature
+			days = -1
+		}
+		if = {
+			limit = {
+				habitable_structure = no
+				NOT = { is_planet_class = pc_machine }
+				NOT = { is_planet_class = pc_hive }
+				NOT = { is_planet_class = pc_city }
+				NOT = { is_planet_class = pc_relic }
+				NOT = { has_modifier = delicate_ecosystem }
+				NOT = { has_modifier = eco_fragile_ecosystem }
+			}
+			random_list = {
+				1 = {
+					custom_tooltip = decision_prospect_effects_short
+					hidden_effect = {
+						add_random_non_blocker_deposit = yes
+						create_message = {
+							type = MESSAGE_TYPE_PLANET_PROSPECTED
+							localization = MESSAGE_PLANET_PROSPECTED
+							days = 30
+							target = this
+							variable = {
+								type = name
+								localization = PLANET
+								scope = this
+							}				
+							variable = {
+								type = name
+								localization = DEPOSIT
+								scope = last_added_deposit
+							}
+						}			
+					}
+				}
+				1 = {
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_district_slots > 0
+		}
+	}
+}

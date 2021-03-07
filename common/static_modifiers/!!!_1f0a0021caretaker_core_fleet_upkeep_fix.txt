@@ -1,0 +1,3 @@
+caretaker_core_fleet_upkeep_fix = {
+    ships_upkeep_mult = -1.0
+}

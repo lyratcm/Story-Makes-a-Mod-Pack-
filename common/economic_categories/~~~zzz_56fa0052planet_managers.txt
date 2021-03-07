@@ -1,0 +1,20 @@
+planet_managers = {
+    parent = planet_jobs
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_manager
+        modifier_types = {
+            add
+        }
+        trigger = {
+            has_job = manager
+        }
+    }
+}

@@ -1,0 +1,205 @@
+######################################################################
+###_	z modmenu
+######################################################################
+
+#_[Hidden_buttons]
+#_[Key_Locked]
+#_[子模块功能快捷按钮effect]
+#_[sp_mods]
+
+
+###_[Hidden_buttons]	##############################################################################
+#_[country]	拓展UI
+z_mm_eft_expanded_sub_ui_open = {
+	set_country_flag = z_mm_flg_expanded_sub_ui_on
+}
+z_mm_eft_expanded_sub_ui_exit = {
+	remove_country_flag = z_mm_flg_expanded_sub_ui_on
+}
+
+
+
+
+###_[Key_Locked]	####################################################################################
+
+#_[country]	框架设置开启
+z_mm_lock_setting_panel = {
+	set_country_flag = z_mm_setting_panel_locked
+}
+#_[country] 解锁面板
+z_mm_unlock_setting_panel = {
+	remove_country_flag = z_mm_setting_panel_locked		#_框架
+}
+
+
+
+#_[country]
+z_mm_lock_menu = {
+	set_country_flag = z_mm_modmenu_opened
+}
+#_[country]
+z_mm_unlock_menu = {
+	remove_country_flag = z_mm_modmenu_opened
+}
+
+
+
+
+
+
+
+###_[子模块功能快捷按钮effect]	####################################################################################
+
+#_[country] z_pf
+z_mm_eft_pf_manual_check = {
+	set_timed_global_flag = { flag = z_pf_manual_checking_cd days = 10 }
+	#_[默认]
+	if = {
+		limit = { has_global_flag = z_performance_installed }
+		z_pf_eft_global_cd = yes	#_设置pf CD
+		every_country = {
+			limit = { z_pf_trgr_cntr_valid = yes }
+			country_event = { id = z_performance.6 days = 2 random = 1 }
+		}
+		random_country = {
+			limit = {
+				is_ai = no
+				z_pf_trgr_cntr_valid = yes	#_[产业革命]non
+			}
+			country_event = { id = z_pf_heup.1 }
+		}
+	}
+	#_[产业革命]
+	every_country = {
+		limit = { has_country_flag = z_pr_flg_cntr_1 }
+		z_pr_eft_cntr_mannual_check = yes
+	}
+	
+}
+#_[country] z_pf_own
+z_mm_eft_pf_manual_check_own = {
+	set_timed_global_flag = { flag = z_pf_manual_checking_cd days = 10 }
+	#_[默认]
+	if = {
+		limit = { has_global_flag = z_performance_installed }
+		if = {
+			limit = { z_pf_trgr_cntr_valid = yes }	#_[产业革命]non
+			country_event = { id = z_performance.6 }
+		}
+		every_country = {
+			limit = { NOT = { is_same_value = root } }
+			set_timed_country_flag = { flag = z_pf_flg_cntr_heup_on days = 1 }
+		}
+		if = {
+			limit = { z_pf_trgr_cntr_valid = yes }	#_[产业革命]non
+			country_event = { id = z_pf_heup.1 }
+		}
+	}
+	#_[产业革命]
+	if = {
+		limit = { has_country_flag = z_pr_flg_cntr_1 }
+		z_pr_eft_cntr_mannual_check = yes
+	}
+}
+
+#_[country] z pf2
+z_mm_eft_pf2_merge_ai_species = {
+	every_country = {
+		limit = {
+			is_ai = yes
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire	#_ZOFE
+				is_country_type = lost_empire		#_ZOFE
+			}
+		}
+		#_z pf2
+		z_merge_common_species = yes
+	}
+}
+
+
+
+
+
+
+
+
+###_[sp_mods]	####################################################################################
+#_cntr	mist_girls
+z_mm_eft_sp_mod_1 = {
+	country_event = { id = wsg_shimakaze.10 }
+}
+#_cntr	rls
+z_mm_eft_sp_mod_2 = {
+	if = {
+		limit = {
+			NOR = {
+				has_authority = auth_hive_mind
+				has_authority = auth_machine_intelligence
+				has_authority = auth_ancient_machine_intelligence
+			}
+		}
+		custom_tooltip = tab_ruler_hobbies_tooltip
+	}
+	if = {
+		limit = {
+			OR = {
+				has_authority = auth_hive_mind
+			}
+		}
+		custom_tooltip = tab_ruler_hobbies_tooltip_hivemind
+	}
+	if = {
+		limit = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				has_authority = auth_ancient_machine_intelligence
+			}
+		}
+		custom_tooltip = tab_ruler_hobbies_tooltip_machine
+	}
+	hidden_effect = {
+		set_country_flag = ruler_hobby_view_opened
+		if = {
+			limit = {
+				NOR = {
+					has_authority = auth_hive_mind
+					has_authority = auth_machine_intelligence
+					has_authority = auth_ancient_machine_intelligence
+				}
+			}
+			country_event = {
+				id = play_as_ruler.42689
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_authority = auth_hive_mind
+				}
+			}
+			country_event = {
+				id = play_as_ruler.42690
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_ancient_machine_intelligence
+				}
+			}
+			country_event = {
+				id = play_as_ruler.42691
+			}
+		}
+	}
+}
+z_mm_eft_sp_mod_3 = {
+	country_event = { id = giga_menu.1 }
+}
+z_mm_eft_sp_mod_4 = {
+	country_event = { id = potv_religion_dialog.1 }
+}
+

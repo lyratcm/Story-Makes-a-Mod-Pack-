@@ -1,0 +1,24 @@
+BOO_origin_xenophobe = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_default.dds"
+    picture = GFX_evt_ground_combat
+    potential = {
+        always = yes
+    }
+    possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+            value = ethic_fanatic_xenophobe
+        }
+    }
+    modifier = {
+        pop_ethic_xenophobe_attraction_mult = 0.5
+    }
+    random_weight = {
+        base = 15
+    }
+    description = "BOO_origin_xenophobe_tooltip_effects"
+    advanced_start = yes
+}

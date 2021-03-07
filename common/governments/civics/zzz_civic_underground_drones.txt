@@ -1,0 +1,10 @@
+civic_underground_drones = {
+	potential = { authority = { value = auth_hive_mind } }
+	description = "civic_tooltip_underground_drones_effects"
+	
+	random_weight = { base = 5 }
+	
+	modifier = {
+		pop_housing_usage_mult = -0.15
+	}
+}

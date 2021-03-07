@@ -1,0 +1,44 @@
+decision_energy2hab = {
+	icon = decision_energyhab
+	owned_planets_only = yes
+	
+	#prerequisites = {
+	#	"tech_terrestrial_sculpting"		
+	#}
+
+	enactment_time = 1
+	resources = {
+		category = decisions
+		cost = {
+			energy = 250
+		}
+	}
+	
+	potential = { 
+		OR = {
+			is_planet_class = pc_pd_barren_hab
+			is_planet_class = pc_pd_barren_cold_hab
+			is_planet_class = pc_pd_frozen_hab
+			is_planet_class = pc_pd_hothouse_hab
+			is_planet_class = pc_pd_toxic_hab
+			is_planet_class = pc_pd_gas_giant_hab
+			is_planet_class = pc_pd_asteroid_hab
+		}
+		NOT = { has_planet_flag = pd_energy2_hab }
+		NOT = { has_planet_flag = pd_hab_d2 }
+		owner = { NOT = { has_authority = auth_hive_mind } }
+	}
+
+	effect = {
+		custom_tooltip = decision_energy2_hab_effects_short
+		hidden_effect = {
+			set_planet_flag = pd_energy2_hab
+			IF = { limit = { NOT = { has_planet_flag = pd_hab_d1 } } set_planet_flag = pd_hab_d1 }
+			ELSE_IF = { limit = { has_planet_flag = pd_hab_d1 } set_planet_flag = pd_hab_d2 }
+		}
+	}    
+	
+	ai_weight = { 
+		weight = 1
+	}
+}

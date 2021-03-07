@@ -1,0 +1,36 @@
+vfb_synthesizer_bot = {
+    category = complex_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_vfb_plastic
+    icon = vfb_synthesizer_bot
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        drone_job_check_trigger = yes
+        hidden_trigger = {
+            exists = owner
+        }
+        or = {
+            has_job = vfb_synthesizer_bot
+            z_pop_job_trigger = yes
+        }
+    }
+    resources = {
+        category = planet_technician
+        produces = {
+            society_research = 4
+            energy = 8
+            minerals = 8
+        }
+        upkeep = {
+            food = 8
+        }
+    }
+    weight = {
+        weight = 5000
+    }
+}

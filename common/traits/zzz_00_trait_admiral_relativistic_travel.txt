@@ -1,0 +1,24 @@
+trait_admiral_relativistic_travel = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_admiral_relativistic_travel.dds"
+    modifier = {
+        ship_speed_mult = 0.33
+        ship_interstellar_speed_mult = 0.66
+        ship_emergency_ftl_mult = -0.33
+    }
+    leader_trait = {
+        admiral
+    }
+    leader_class = {
+        admiral
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_time_lords
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

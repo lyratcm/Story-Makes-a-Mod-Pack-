@@ -1,0 +1,32 @@
+###_Z FW 高级tech等级	##################################################################################
+
+#_laser=250
+###_ESC
+# - final tiers of most component techs
+# - enigmatic technologies
+# - initial space-time manipulation technologies
+# - tier 2 jump drives
+6 = { previously_unlocked = 6 }	#_esc=6
+
+#_laser=325
+###_ESC
+# - most powerful extradimensional components
+# - space-time manipulation weapons
+# - A.T.Field
+# - tier 3 jump drives
+7 = { previously_unlocked = 6 }	#_esc=6	acot=4
+
+#_laser=425
+8 = { previously_unlocked = 6 }
+
+#_laser=560
+9 = { previously_unlocked = 6 }
+
+#_laser=735
+10 = { previously_unlocked = 6 }
+
+#_laser=960
+#_11 = { previously_unlocked = 5 }
+
+#_laser=1258
+#_12 = { previously_unlocked = 5 }

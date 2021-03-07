@@ -1,0 +1,17 @@
+civic_hive_synapses = {
+	potential = { authority = { value = auth_hive_mind } }
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_hive_pooled_knowledge
+			}
+		}
+	}
+	description = "civic_tooltip_hive_synapses_effects"
+	random_weight = {
+		base = 5
+	}
+	modifier = {
+		country_edict_cap_add = 1
+	}
+}

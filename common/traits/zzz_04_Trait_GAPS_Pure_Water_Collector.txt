@@ -1,0 +1,33 @@
+Trait_GAPS_Pure_Water_Collector = {
+    icon = "gfx/interface/icons/traits/Trait_GAPS_Pure_Water_Collector.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        MACHINE
+        PLANTOID
+        PRESAPIENT
+        ROBOT
+    }
+    cost = 2
+    initial = no
+    randomized = no
+    modification = yes
+    sorting_priority = 30
+    species_potential_add = {
+        exists = from
+        from = {
+            has_origin = Origin_GAPS_Aquaifiers
+            OR = {
+                has_technology = tech_gene_tailoring
+                has_technology = tech_robomodding_m
+            }
+        }
+    }
+    modifier = {
+        planet_jobs_sr_GAPS_water_produces_mult = 0.15
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

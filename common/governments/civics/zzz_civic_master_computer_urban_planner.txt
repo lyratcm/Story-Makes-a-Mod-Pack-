@@ -1,0 +1,15 @@
+civic_master_computer_urban_planner = {
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+    description = civic_master_computer_urban_planner_effect
+
+    modifier = {
+        # planet_housing_mult = 0.1
+        job_clerk_per_pop = 0.05
+    }
+
+    random_weight = { base = 5 }
+}

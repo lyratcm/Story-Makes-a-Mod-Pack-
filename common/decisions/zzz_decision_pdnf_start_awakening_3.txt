@@ -1,0 +1,78 @@
+decision_start_awakening_3 = {
+	owned_planets_only = yes
+	sound = event_red_alert
+	icon = decision_start_awakening
+	
+	enactment_time = 500
+	resources = {
+		category = decisions
+		cost = {
+			energy = 10000
+		}
+	}
+	
+	potential = {
+		owner = { has_origin = origin_awakened }
+		has_deposit = d_sarcophagus
+	}
+	
+	allow = {
+	}
+	
+	effect = {
+		hidden_effect = {
+			random_list = {
+				10 = {
+					while = {
+						count = 30
+						create_pop = {
+							species = owner_main_species
+						}
+					}
+				}
+				30 = {
+					while = {
+						count = 20
+						create_pop = {
+							species = owner_main_species
+						}
+					}
+				}
+				40 = {
+					while = {
+						count = 10
+						create_pop = {
+							species = owner_main_species
+						}
+					}
+				}
+				10 = {
+					while = {
+						count = 5
+						create_pop = {
+							species = owner_main_species
+						}
+					}
+				}
+				10 = {
+					planet_event = { id = newfrontiers_decision_event.36 days = 1 }
+				}
+			}
+		}
+		custom_tooltip = decision_start_awakening_3_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 50
+		
+		modifier = {
+			factor = 0
+			owner = {
+				OR = {
+					produced_energy < 20000
+					income < 1000
+				}
+			}
+		}
+	}
+}

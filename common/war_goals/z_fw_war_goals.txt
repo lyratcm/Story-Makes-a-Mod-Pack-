@@ -1,0 +1,464 @@
+#_[开放边境]
+#_[夺取一件圣遗物]
+#_[夺取领袖]
+
+
+#_trgr_all		[z_fw_trgr_all_wg_cb]
+
+
+
+
+#_去军事化
+@z_fw_wg_dm_days = 5400	#_15年
+
+z_fw_wg_demilitarize = {
+	casus_belli = z_fw_cb_demilitarize
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {#_2.6 new, without this, war wont end
+		status_quo
+		surrender
+		demand_surrender
+	}
+	surrender_acceptance = -50
+
+	potential = {
+		z_fw_trgr_all_wg_cb = yes
+		NOR = {
+			has_valid_civic = civic_inwards_perfection
+			has_authority = auth_corporate
+		}
+		has_total_war_cb = no
+	}
+	possible = {
+		z_fw_trgr_all_wg_cb = yes
+		relative_power = { who = from category = fleet value <= superior }	#_构成威胁
+		from = {#_有扩张倾向且不在解除武装条约中
+			NOR = {
+				has_policy_flag = no_wars
+				has_modifier = z_fw_demilitarized
+				has_modifier = z_fw_demilitarized_militarist
+			}
+		}
+	}
+	on_accept = {
+        custom_tooltip = z_fw_demilitarize_accept
+        hidden_effect = {
+            add_resource = { influence = 100 }
+            from = {
+				if = {#_对军国造成更大影响
+					limit = { is_militarist = yes }
+					add_modifier = { modifier = z_fw_demilitarized_militarist days = @z_fw_wg_dm_days }
+				}
+				else = {
+					add_modifier = { modifier = z_fw_demilitarized days = @z_fw_wg_dm_days }
+				}
+				set_policy = {
+					policy = war_philosophy
+					option = no_wars	#_防御战争5年
+					cooldown = yes
+				}
+			}
+			guarantee_country = {
+				target = from
+				free_guarantee_days = @z_fw_wg_dm_days
+			}
+			#_和平守护者
+			add_modifier = {
+				modifier = z_fw_mod_cntr_demilitarizer
+				days = @z_fw_wg_dm_days
+			}
+			#_和平主义思潮盛行
+			every_pop_faction = {
+				limit = {
+					OR = {
+						is_pop_faction_type = isolationist 
+						is_pop_faction_type = prosperity 
+					}
+				}
+				add_modifier = {
+					modifier = z_fw_mod_popf_wg_dm_approval
+					days = @z_fw_wg_dm_days
+				}
+			}
+        }
+	}
+		
+	ai_weight = {
+		weight = 35
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_1 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_2 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_3 value > 3 }
+		}
+	}
+}
+
+#_[夺取一件圣遗物]
+z_fw_plunder_one_relic = {
+	casus_belli = z_fw_cb_plunder_relic
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+	surrender_acceptance = -35
+
+	potential = {
+		z_fw_trgr_all_wg_cb = yes
+		#has_total_war_cb = no
+	}
+
+	possible = {
+		z_fw_trgr_all_wg_cb = yes
+		#always = yes
+	}
+
+	on_accept = {
+		#_winner
+		steal_relic = {
+			target = from
+			relic = random
+		}
+		hidden_effect = { country_event = { id = z_fw1_misc.21 } }
+		#_loser
+		from = {
+			add_threat = {
+				who = root
+				amount = 1
+ 			}
+			add_opinion_modifier = { modifier = z_fw_opinion_wg_relic who = root }
+			add_modifier = { modifier = humiliated days = 3600 }
+			hidden_effect = { country_event = { id = z_fw1_misc.22 } }
+		}
+	}
+	#_保持现状
+	on_status_quo = {
+		from = {
+			set_closed_borders = {
+				who = prev
+				status = no
+			}
+		}
+	}
+	ai_weight = {
+		weight = 30
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_1 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_2 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_3 value > 4 }
+		}
+	}
+}
+#_夺取全部圣遗物
+z_fw_plunder_all_relics = {
+	casus_belli = z_fw_cb_plunder_relic_all
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+	surrender_acceptance = -100
+
+	potential = {
+		z_fw_trgr_all_wg_cb = yes
+		#has_total_war_cb = no
+	}
+
+	possible = {
+		z_fw_trgr_all_wg_cb = yes
+		#always = yes
+	}
+
+	on_accept = {
+		#_winner
+		add_modifier = { modifier = z_fw_relic_obtained days = 3600 }
+		steal_relic = {
+			target = from
+			relic = all
+		}
+		hidden_effect = { country_event = { id = z_fw1_misc.23 } }
+		#_loser
+		from = {
+			add_threat = {
+				who = root
+				amount = 1
+ 			}
+			add_opinion_modifier = { modifier = z_fw_opinion_wg_relic_all who = root }
+			add_modifier = { modifier = humiliated days = 3600 }
+			hidden_effect = { country_event = { id = z_fw1_misc.24 } }
+		}
+		#_其他国家
+		every_country = {
+			limit = { 	
+				NOR = {
+					is_country = from				#_战败国
+					is_in_federation_with = root 	#_我的盟友
+					AND = {#_我的附庸
+						is_subject = yes
+						exists = overlord
+						overlord = { is_same_value = root }
+					}
+				}
+			}
+			add_opinion_modifier = { modifier = z_fw_opinion_wg_relic_all_others who = root }	#_引起其它文明敌视
+		}
+	}
+	on_status_quo = {
+		from = {
+			set_closed_borders = {
+				who = prev
+				status = no
+			}
+		}
+	}
+	ai_weight = {
+		weight = 30
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_1 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_2 value > 4 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_3 value > 5 }
+		}
+	}
+}
+
+#_[开放边境]
+z_fw_wg_open_border = {
+	casus_belli = z_fw_cb_border
+	hide_if_no_cb = yes
+	set_defender_wargoal = z_fw_wg_open_border
+	#defender_default = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+	surrender_acceptance = 25
+	
+	potential = {
+		z_fw_trgr_all_wg_cb = yes
+		#has_total_war_cb = no
+	}
+	possible = {
+		z_fw_trgr_all_wg_cb = yes
+		#always = yes
+	}
+	on_accept = {
+        custom_tooltip = z_fw_open_border_tooltip
+        hidden_effect = {
+            add_resource = { influence = 100 }
+            from = {
+				set_closed_borders = {
+				   who = root
+				   status = no
+				   forced = 20
+				}
+			}
+        }
+	}
+		
+	ai_weight = {
+		weight = 30
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_1 value > 4 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_2 value > 4 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_3 value > 5 }
+		}
+	}
+}
+#_开放边境-长期
+z_fw_wg_open_border_long = {
+	casus_belli = z_fw_cb_border
+	hide_if_no_cb = yes
+	set_defender_wargoal = z_fw_wg_open_border_long
+	#defender_default = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+	surrender_acceptance = -30
+	
+	potential = {
+		z_fw_trgr_all_wg_cb = yes
+		#has_total_war_cb = no
+	}
+	possible = {
+		z_fw_trgr_all_wg_cb = yes
+		#always = yes
+	}
+	on_accept = {
+		custom_tooltip = z_fw_open_border_long_tooltip
+		hidden_effect = {
+			add_resource = { influence = 150 }
+			end_rivalry = from
+			from = {
+				set_closed_borders = {
+				   who = root
+				   status = no
+				   forced = 50
+				}
+				end_rivalry = root
+				add_opinion_modifier = { modifier = z_fw_opinion_wg_open_boder_long who = root }
+			}
+        }
+	}
+		
+	ai_weight = {
+		weight = 30
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_1 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_2 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_3 value > 4 }
+		}
+	}
+}
+
+#_[夺取领袖]
+#_cntr_flg	[z_fw_flg_cntr_r_hok_kogasa_silent]	<无提示>
+#_tgt_ldr	[z_fw_tgt_ldr_wg_r_hok_kogasa]传递
+z_fw_wg_r_hok_kogasa = {
+	casus_belli = z_fw_cb_r_hok_kogasa
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+	surrender_acceptance = 25
+
+	potential = {
+		z_fw_trgr_all_wg_cb = yes
+		#has_total_war_cb = no
+	}
+
+	possible = {
+		z_fw_trgr_all_wg_cb = yes
+		#always = yes
+	}
+
+	on_accept = {
+        custom_tooltip = z_fw_wg_r_hok_kogasa_tooltip
+		###_winner
+		hidden_effect = {
+			set_country_flag = z_fw_flg_cntr_r_hok_kogasa
+			set_timed_country_flag = { flag = z_fw_flg_cntr_r_hok_kogasa_silent days = 1 }	#_禁止年检复活提示
+			#_from伞鼬tgt设定
+			from = {
+				random_owned_leader = {
+					limit = { has_leader_flag = z_fw_flg_ldr_r_hok_kogasa }
+					set_owner = prevprev
+					save_event_target_as = z_fw_tgt_ldr_wg_r_hok_kogasa
+				}
+			}
+			#_存在伞鼬tgt
+			if = {
+				limit = { exists = event_target:z_fw_tgt_ldr_wg_r_hok_kogasa }
+				#_创建中转舰队	<静态>
+				z_fw_eft_core_ldr_transfer_flt = yes
+				#_执行中转
+				last_created_fleet = {
+					assign_leader = event_target:z_fw_tgt_ldr_wg_r_hok_kogasa	#_<动态>
+					delete_fleet = {#_清除中转舰队	<静态>
+						target = this
+						kill_leader = no
+						destroy_template = yes
+					}
+				}
+			}
+			#_没有伞鼬tgt
+			else = { z_fw_eft_cntr_r_hok_site_leader_restore = yes }	#_创建伞鼬
+			#_提示seize
+			country_event = { id = z_fw1_relic_koh.313 }
+		}
+		###_loser
+		from = {
+			add_threat = {
+				who = root
+				amount = 1
+ 			}
+			add_modifier = { modifier = humiliated days = 3600 }
+			hidden_effect = {
+				remove_country_flag = z_fw_flg_cntr_r_hok_kogasa
+				#_清除伞鼬
+				every_owned_leader = {
+					limit = { has_leader_flag = z_fw_flg_ldr_r_hok_kogasa }
+					kill_leader = { show_notification = no } 
+				}
+				country_event = { id = z_fw1_relic_koh.314 }
+			}
+		}
+	}
+	#_保持现状
+	on_status_quo = {
+		from = {
+			set_closed_borders = {
+				who = prev
+				status = no
+			}
+		}
+	}
+	ai_weight = {
+		weight = 25
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_1 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_2 value > 3 }
+		}
+		modifier = {
+			factor = 1.5
+			check_variable = { which = z_fw_var_cntr_rdm_dice_3 value > 3 }
+		}
+	}
+}

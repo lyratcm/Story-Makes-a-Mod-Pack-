@@ -1,0 +1,7 @@
+z_merge_common_species = {
+    z_merge_full_citizenship_species = yes
+    z_merge_limited_citizenship_species = yes
+    z_merge_organic_trophy_species = yes
+    z_merge_slavery_species_common = yes
+    z_merge_slavery_species_indentured = yes
+}

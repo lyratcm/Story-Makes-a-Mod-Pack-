@@ -1,0 +1,29 @@
+trait_ruler_occams_razor2 = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_occams_razor.dds"
+    leader_potential_add = {
+        NOT = {
+            from = {
+                has_ethic = "ethic_gestalt_consciousness"
+            }
+        }
+        has_trait = trait_presapient_proles
+    }
+    modifier = {
+        ship_fire_rate_mult = 0.15
+        max_rivalries = 2
+    }
+    leader_trait = {
+        ruler
+    }
+    leader_class = {
+        ruler
+    }
+    opposites = {
+        trait_ruler_occams_razor
+    }
+    ai_weight = {
+        weight = 1000
+    }
+}

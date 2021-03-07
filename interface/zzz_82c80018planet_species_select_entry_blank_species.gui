@@ -1,0 +1,43 @@
+guiTypes = {
+    @sidebar_inner_w = 430
+    containerWindowType = {
+        name = "planet_species_select_entry_blank_species"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = @sidebar_inner_w
+            height = 30
+        }
+        instantTextBoxType = {
+            name = "species_name"
+            font = "malgun_goth_24"
+            text = "ANY_SPECIES"
+            position = {
+                x = 0
+                y = 3
+            }
+            maxWidth = @sidebar_inner_w
+            maxHeight = 50
+            fixedSize = yes
+            format = center
+            alwaysTransparent = yes
+        }
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_frame"
+            clicksound = "click"
+        }
+        iconType = {
+            name = "selected_icon"
+            spriteType = "GFX_button_yes_active_single"
+            position = {
+                x = -39
+                y = 6
+            }
+            orientation = upper_right
+            alwaysTransparent = yes
+        }
+    }
+}

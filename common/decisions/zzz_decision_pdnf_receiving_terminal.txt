@@ -1,0 +1,86 @@
+decision_receiving_terminal = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_receiving_terminal
+	
+	resources = {
+		category = decisions
+		cost = {
+			influence = 20
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = { 
+			OR = {
+				is_machine_empire = yes
+				is_mechanical_empire = yes
+			} 
+			any_owned_planet = {
+				OR = {
+					has_modifier = apocalypse
+					has_modifier = moon_collision
+					has_modifier = moon_fall
+					has_modifier = orbit_reduction
+					has_modifier = orbit_increase
+					has_modifier = volcanic_activity
+					has_modifier = doomsday_1
+					has_modifier = doomsday_2
+					has_modifier = doomsday_3
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+					AND = {
+						solar_system = { has_star_flag = star_disaster }
+						NOT = { has_modifier = secret_disaster }
+					}
+				}
+			}
+		}
+		NOR = {
+			has_modifier = apocalypse
+			has_modifier = moon_collision
+			has_modifier = moon_fall
+			has_modifier = orbit_reduction
+			has_modifier = orbit_increase
+			has_modifier = volcanic_activity
+			has_modifier = doomsday_1
+			has_modifier = doomsday_2
+			has_modifier = doomsday_3
+			has_modifier = doomsday_4
+			has_modifier = doomsday_5
+			AND = {
+				solar_system = { has_star_flag = star_disaster }
+				NOT = { has_modifier = secret_disaster }
+			}
+		}
+	}
+	
+	allow = {
+		is_controlled_by = owner
+		has_ground_combat = no
+		has_orbital_bombardment = no
+		NOT = { has_modifier = receiving_terminal }
+	}
+	
+	effect = {
+		add_modifier = { modifier = "receiving_terminal" days = -1 }
+	}
+	
+	ai_weight = {
+		weight = 50
+		
+		modifier = {
+			factor = 2
+			num_pops < 5
+		}
+		modifier = {
+			factor = 0.5
+			num_pops > 50
+		}
+		modifier = {
+			factor = 2
+			owner = { any_owned_planet = { has_modifier = apocalypse } }
+		}
+	}
+}

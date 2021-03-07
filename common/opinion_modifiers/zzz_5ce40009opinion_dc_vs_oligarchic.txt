@@ -1,0 +1,34 @@
+opinion_dc_vs_oligarchic = {
+    opinion = {
+        modifier = {
+            add = -50
+            has_ai_personality = democratic_crusaders
+            OR = {
+                FROM = {
+                    has_authority = auth_oligarchic
+                }
+                FROM = {
+                    has_authority = auth_corporate
+                }
+            }
+        }
+        modifier = {
+            add = 25
+            FROM = {
+                OR = {
+                    has_ethic = ethic_egalitarian
+                    has_ai_personality = peaceful_traders
+                }
+                is_authoritarian = no
+            }
+            OR = {
+                FROM = {
+                    has_authority = auth_oligarchic
+                }
+                FROM = {
+                    has_authority = auth_corporate
+                }
+            }
+        }
+    }
+}

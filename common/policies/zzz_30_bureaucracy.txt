@@ -1,0 +1,76 @@
+bureaucracy = {
+	potential = {
+		NOT = {
+			has_ethic = "ethic_gestalt_consciousness"
+		}
+	}
+
+	option = {
+		name = "none_bureaucracy"
+		policy_flags = {
+			none_bureaucracy
+		}
+		modifier = {
+		}
+	}
+
+	option = {
+		name = "centralized_state"
+		valid = {
+			is_country_type = default
+			has_technology = tech_centralized_state
+			NOR = {
+				has_ethic = "ethic_fanatic_egalitarian"
+			}
+		}
+		policy_flags = {
+			centralized_state
+		}
+		modifier = {
+			country_base_influence_produces_add = 1
+			empire_size_penalty_mult = 0.50
+			pop_ethic_authoritarian_attraction_mult = 0.25
+		}
+    	AI_weight = {
+			weight = 50
+			modifier = {
+				factor = 10
+				OR = {
+					has_ethic = "ethic_fanatic_authoritarian"
+			    }
+			}
+		}
+	}
+
+	option = {
+		name = "federal_state"
+		valid = {
+			is_country_type = default
+			has_technology = tech_federal_state
+            NOT = {
+				has_valid_civic = civic_ultimate_collective
+			}
+			NOR = {
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+		policy_flags = {
+			federal_state
+		}
+		modifier = {
+			country_admin_cap_mult = 0.2
+        	governor_skill_levels = 1
+			edicts_cost_mult = 0.25
+			pop_ethic_egalitarian_attraction_mult = 0.25
+		}
+		AI_weight = {
+			weight = 50
+			modifier = {
+				factor = 10
+				OR = {
+					has_ethic = "ethic_fanatic_egalitarian"
+			    }
+			}
+	    }
+	}
+}

@@ -1,0 +1,26 @@
+trait_presapient_natural_intellectuals = {
+    cost = 1
+    opposites = {
+        "trait_presapient_proles"
+        "trait_additrait_presapient_natural_inventors"
+        "trait_additrait_presapient_natural_savants"
+    }
+    initial = no
+    sapient = no
+    modification = yes
+    icon = "gfx/interface/icons/traits/trait_presapient_natural_intellectuals.dds"
+    potential_crossbreeding_chance = 0.25
+    allowed_archetypes = {
+        BIOLOGICAL
+        PRESAPIENT
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_jobs_unity_produces_mult = 0.05
+        planet_jobs_engineering_research_produces_mult = 0.05
+        planet_jobs_physics_research_produces_mult = 0.05
+        planet_jobs_society_research_produces_mult = 0.20
+        planet_jobs_minerals_produces_mult = -0.1
+    }
+}

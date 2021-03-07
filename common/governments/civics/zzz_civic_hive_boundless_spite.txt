@@ -1,0 +1,12 @@
+lrsk_gov_var_civic_hive_boundless_spite = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        max_rivalries = 2
+        army_morale_damage_mult = 0.2
+    }
+}

@@ -1,0 +1,64 @@
+decision_spawning_food_boost = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_resources
+	
+	resources = {
+		category = decisions
+		cost = {
+			food = 100
+		}
+	}
+	
+	potential = {
+		always = no
+		owner = { is_hive_empire = yes }
+		NOR = {
+			has_modifier = planet_growth_discouraged
+			has_modifier = planet_population_control
+			has_modifier = planet_population_control_gestalt
+		}
+		OR = {
+			has_building = building_spawning_pool
+			has_building = building_spawning_pool_2
+		}
+	}
+	
+	allow = {
+		NOT = { has_modifier = hive_spawning }
+	}	
+	
+	effect = {
+		add_modifier = { modifier = "hive_spawning" days = -1 }
+	}
+	
+	ai_weight = {
+		weight = 8
+
+		# don't encourage growth if there is no free housing
+		modifier = {
+			factor = 0
+			free_housing < 1
+		}
+		modifier = {
+			factor = 0
+			has_planet_flag = ended_food
+		}
+		modifier = {
+			factor = 0
+			exists = owner
+			owner = {
+				has_monthly_income = { resource = food value < 10 }
+				is_lithoid_empire = no
+			}
+		}
+		modifier = {
+			factor = 0
+			exists = owner
+			owner = {
+				has_monthly_income = { resource = food value < 10 }
+				is_lithoid_empire = yes
+			}
+		}
+	}
+}

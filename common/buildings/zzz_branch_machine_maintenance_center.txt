@@ -1,0 +1,39 @@
+building_me_maintenance_center = {
+    base_buildtime = 480
+    base_cap_amount = 1
+    branch_office_building = yes
+    potential = {
+        has_branch_office = yes
+        owner = {
+            has_authority = auth_machine_intelligence
+        }
+        branch_office_owner = {
+            is_criminal_syndicate = no
+        }
+    }
+    planet_modifier = {
+        planet_amenities_add = 10
+        planet_branch_offices_energy_produces_add = 25
+    }
+    resources = {
+        category = planet_branch_office_buildings
+        cost = {
+            minerals = 800
+        }
+        produces = {
+            energy = 15
+        }
+    }
+    ai_weight = {
+        weight = 1
+        modifier = {
+            factor = 3
+            branch_office_owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value < 8
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+lrsk_gov_var_civic_hive_void_affinity = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        station_gatherers_produces_mult = 0.2
+        station_researchers_produces_mult = 0.2
+    }
+}

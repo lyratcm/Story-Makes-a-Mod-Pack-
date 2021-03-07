@@ -1,0 +1,180 @@
+building_hive_major_capital = {
+	base_buildtime = @b2_time
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+
+	category = government
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_hive_empire = yes
+				is_country_type = swarm
+			}
+			is_fallen_empire = no
+		}
+	}
+
+	convert_to = {
+		building_machine_major_capital
+		building_major_capital
+		building_ancient_control_center
+		building_ancient_palace
+	}
+
+	allow = {
+		num_pops >= 40
+	}
+
+	prerequisites = {
+		"tech_colonial_centralization"
+	}
+
+	show_tech_unlock_if = {
+		is_hive_empire = yes
+	}
+
+	planet_modifier = {
+		planet_housing_add = 15
+		planet_amenities_add = 15
+		job_synapse_drone_add = 3
+		job_maintenance_drone_add = 5
+		job_patrol_drone_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			exists = planet
+			planet = { num_pops >= 80 }
+			owner = { has_technology = tech_galactic_administration }		
+		}
+		job_maintenance_drone_add = 1
+		job_patrol_drone_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			OR = { has_building = building_individualist_enclave has_building = building_individualist_colony }
+		}
+		modifier = {
+			job_administrator_gestalt_add = 1
+			job_enforcer_gestalt_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			exists = owner
+			owner = {
+				has_civic = civic_starvation_fearing
+				is_lithoid_empire = no
+			}
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			job_agri_drone_per_pop = 0.05
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+				is_planet_class = pc_ringworld_habitable
+			}
+			exists = owner
+			owner = {
+				has_civic = civic_starvation_fearing
+				is_lithoid_empire = yes
+			}
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			job_mining_drone_per_pop = 0.05
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			minerals = @b2_minerals
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOT = { has_valid_civic = civic_integrated_bioarchitecture }
+					is_lithoid_empire = no
+				}
+			}
+			minerals = @b2_hive_minerals
+			food = @b2_hive_food
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_valid_civic = civic_integrated_bioarchitecture
+					is_lithoid_empire = no
+				}
+			}
+			food = @b2_minerals
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = no
+				}
+			}
+			energy = @b2_upkeep_hive
+			food = @b2_upkeep_food
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			energy = @b2_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_synapse_drone_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_maintenance_drone_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_patrol_drone_effect_desc
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			factor = 0.25
+			owner = { has_resource = { type = minerals amount < 800 } }
+			owner = { has_resource = { type = food amount < 500 } }
+		}#This is here to prevent the AI from queuing up to buy this building when it could really do with another mineral district
+	}
+}

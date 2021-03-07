@@ -1,0 +1,51 @@
+decision_gpm_unusual_seasons = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_unusual_seasons
+	enactment_time = 180
+
+    resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+		# owner = { is_regular_empire = yes }
+		has_modifier = gpm_unusual_seasons
+	}
+	
+	allow = {
+		has_modifier = gpm_unusual_seasons
+	}
+
+    effect = {
+		remove_modifier = gpm_unusual_seasons
+		hidden_effect = {
+			random_list = {
+				50 = {}
+				7 = { 
+					add_modifier = { modifier = gpm_perfect_seasons }
+					modifier = { factor = 0 has_modifier = gpm_perfect_seasons }
+				}
+				17 = { 
+					add_modifier = { modifier = gpm_clear_skies }
+					modifier = { factor = 0 has_modifier = gpm_clear_skies }
+				}
+				12 = { 
+					add_modifier = { modifier = gpm_pleasant_weather } 
+					modifier = { factor = 0 has_modifier = gpm_pleasant_weather }
+				}
+				12 = { 
+					add_modifier = { modifier = gpm_gorgeous_sky }
+					modifier = { factor = 0 has_modifier = gpm_gorgeous_sky }
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

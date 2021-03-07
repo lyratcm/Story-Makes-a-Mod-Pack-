@@ -1,0 +1,91 @@
+building_vfb_harbor = {
+    category = government
+    base_buildtime = 1440
+    can_build = no
+    icon = building_vfb_harbor
+    add_to_first_building_slot = yes
+    potential = {
+        NOT = {
+            has_building = building_vfb_harbor
+            is_planet_class = pc_pd_asteroid_hab
+            is_planet_class = pc_habitable_gas
+            is_planet_class = pc_habitat
+        }
+        owner = {
+            has_technology = tech_building_vfb_harbor
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_harbor
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+        }
+    }
+    destroy_trigger = {
+    }
+    planet_modifier = {
+        planet_max_buildings_add = 2
+        planet_sensor_range_add = 1
+    }
+    country_modifier = {
+        country_naval_cap_add = 10
+        local_trade_protection_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_technician_add = 2
+        job_clerk_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_technician_drone_add = 2
+        job_maintenance_drone_add = 2
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            alloys = 200
+        }
+        upkeep = {
+            alloys = 2
+        }
+    }
+    ai_weight = {
+        weight = 1000
+        factor = 10
+        modifier = {
+            weight = 10000
+            factor = 10
+            owner = {
+                has_monthly_income = {
+                    resource = alloys
+                    value > 40
+                }
+            }
+        }
+        modifier = {
+            weight = 100
+            factor = 10
+            owner = {
+                OR = {
+                    is_hive_empire = yes
+                    is_machine_empire = yes
+                }
+            }
+        }
+    }
+}

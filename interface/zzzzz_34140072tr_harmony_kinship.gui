@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_3 = 131
+    @y_1 = 55
+    positionType = {
+        name = "tr_harmony_kinship"
+        position = {
+            x = @x_3
+            y = @y_1
+        }
+    }
+}

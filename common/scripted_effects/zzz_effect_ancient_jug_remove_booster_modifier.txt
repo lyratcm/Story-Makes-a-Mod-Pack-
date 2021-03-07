@@ -1,0 +1,18 @@
+effect_ancient_jug_remove_booster_modifier = {
+    remove_modifier = origin_ancient_juggernaut_booster_shield
+	remove_modifier = origin_ancient_juggernaut_booster_damage
+	remove_modifier = origin_ancient_juggernaut_booster_jumpdrive
+	remove_modifier = origin_ancient_juggernaut_booster_evasion
+	remove_modifier = origin_ancient_juggernaut_booster_range
+	remove_modifier = origin_ancient_juggernaut_booster_hyperdrive
+	remove_modifier = origin_ancient_juggernaut_booster_accuracy
+	remove_modifier = origin_ancient_juggernaut_booster_subspeed
+	remove_modifier = origin_ancient_juggernaut_booster_rocket
+	remove_modifier = origin_ancient_juggernaut_booster_bomb
+	remove_modifier = origin_ancient_juggernaut_booster_craft
+	remove_modifier = origin_ancient_juggernaut_booster_penetrate
+	remove_modifier = origin_ancient_juggernaut_booster_regenerate
+	remove_modifier = origin_ancient_juggernaut_booster_home_fire
+	remove_modifier = origin_ancient_juggernaut_booster_point_defense
+	remove_modifier = origin_ancient_juggernaut_booster_upkeep
+}

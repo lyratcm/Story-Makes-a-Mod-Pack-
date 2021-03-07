@@ -1,0 +1,151 @@
+decision_lithoid_prospect = {
+	owned_planets_only = yes
+	icon = decision_prospect
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			energy = 1000
+		}
+	}
+	
+	potential = {
+		is_homeworld = no
+		habitable_structure = no
+		NOT = { is_planet_class = pc_machine }
+		NOT = { is_planet_class = pc_hive }
+		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_relic }
+		owner = {
+			is_lithoid_empire = yes
+		}
+		NOT = { has_planet_flag = planet_lithoid_prospected }
+	}
+	
+	allow = {
+		NOT = { has_modifier = delicate_ecosystem }
+		custom_tooltip = decision_lithoid_prospect_trigger
+		hidden_trigger = {
+			OR = {
+				has_deposit = d_lichen_fields
+				has_deposit = d_bountiful_plains
+				has_deposit = d_rugged_woods
+				has_deposit = d_green_hills
+				has_deposit = d_forgiving_tundra
+				has_deposit = d_boggy_fens
+				has_deposit = d_nutritious_mudland
+				has_deposit = d_fungal_caves
+				has_deposit = d_lush_jungle
+				has_deposit = d_fertile_lands
+				has_deposit = d_great_river
+				has_deposit = d_black_soil
+				has_deposit = d_teeming_reef
+				has_deposit = d_marvelous_oasis
+				has_deposit = d_tropical_island
+				has_deposit = d_fungal_forest
+				has_deposit = d_natural_farmland
+			}
+		}
+	}
+	
+	effect = {
+		custom_tooltip = decision_lithoid_prospect_effects_short
+		add_planet_devastation = 25
+		hidden_effect = {
+			set_planet_flag = planet_lithoid_prospected
+			random_deposit = {
+				limit = {
+					OR = {
+						is_deposit_type = d_lichen_fields
+						is_deposit_type = d_bountiful_plains
+						is_deposit_type = d_rugged_woods
+						is_deposit_type = d_green_hills
+						is_deposit_type = d_forgiving_tundra
+						is_deposit_type = d_boggy_fens
+						is_deposit_type = d_nutritious_mudland
+						is_deposit_type = d_fungal_caves
+						is_deposit_type = d_lush_jungle
+						is_deposit_type = d_fertile_lands
+						is_deposit_type = d_great_river
+						is_deposit_type = d_black_soil
+						is_deposit_type = d_teeming_reef
+						is_deposit_type = d_marvelous_oasis
+						is_deposit_type = d_tropical_island
+						is_deposit_type = d_fungal_forest
+						is_deposit_type = d_natural_farmland
+					}
+				}
+				remove_deposit = yes
+			}
+			random_list = {
+				3 = {
+					add_deposit = d_veiny_cliffs
+					add_deposit = d_veiny_cliffs
+					modifier = {
+						factor = 0
+						is_dry = yes
+					}
+				}
+				3 = {
+					add_deposit = d_mineral_fields
+					add_deposit = d_mineral_fields
+				}
+				3 = {
+					add_deposit = d_prosperous_mesa
+					modifier = {
+						factor = 0
+						is_cold = yes
+					}
+				}
+				3 = {
+					add_deposit = d_ore_rich_caverns
+					modifier = {
+						factor = 0
+						is_wet = yes
+					}
+				}
+				1 = {
+					add_deposit = d_rich_mountain
+					modifier = {
+						factor = 0
+						is_wet = yes # for balancing purposes only
+					}
+				}
+				1 = {
+					add_deposit = d_submerged_ore_veins
+					modifier = {
+						factor = 0
+						OR = {
+							is_dry = yes
+							is_cold = yes
+						}
+					}
+				}
+			}
+			create_message = {
+				type = MESSAGE_TYPE_PLANET_PROSPECTED
+				localization = MESSAGE_PLANET_PROSPECTED
+				days = 30
+				target = this
+				variable = {
+					type = name
+					localization = PLANET
+					scope = this
+				}				
+				variable = {
+					type = name
+					localization = DEPOSIT
+					scope = last_added_deposit
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			num_pops < 20
+		}
+	}	
+}

@@ -1,0 +1,18 @@
+# Respected Species: From Fallen Empire Colony Start
+
+triggered_opinion_g_the_mistake = {
+	trigger = {
+		OR = {
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+			has_country_flag = fallen_empire_machine
+		}
+		FROM = {
+			has_origin = origin_g_the_mistake
+			NOT = { has_country_flag = synthetic_empire }
+		}
+	}
+	opinion = {
+		base = -1000
+	}
+}

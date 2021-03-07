@@ -1,0 +1,128 @@
+technician_drone = {
+    category = simple_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_energy_grid
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        simple_drone_job_check_trigger = yes
+        OR = {
+            traits_restrict_worker_jobs = no
+            has_pop_flag = allow_technician_traits
+        }
+    }
+    resources = {
+        category = planet_technician
+        produces = {
+            energy = 4
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_robot_empire = yes
+                }
+            }
+            energy = 2
+        }
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_edict = capacity_subsidies
+                }
+            }
+            minerals = 0.5
+        }
+    }
+    weight = {
+        weight = @simple_drone_job_weight
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_robot_superconductive
+                has_trait = trait_ingenious
+                has_trait = mem_trait_redefined_productivity
+            }
+        }
+        modifier = {
+            factor = 1.1
+            years_passed < 1
+            owner = {
+                has_valid_civic = civic_machine_assimilator
+            }
+            has_trait = trait_cybernetic
+        }
+        modifier = {
+            factor = 1.3
+            has_trait = trait_titanic_strength
+        }
+        modifier = {
+            factor = 1.2
+            has_trait = trait_very_strong
+        }
+        modifier = {
+            factor = 1.2
+            has_trait = mem_caretakers_trait
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_strong
+        }
+        modifier = {
+            factor = 1.5
+            has_trait = trait_presapient_earthbound
+        }
+        modifier = {
+            factor = 1.2
+            has_job = technician_drone
+        }
+        modifier = {
+            factor = 0.1
+            NOT = {
+                has_job = technician_drone
+            }
+            owner = {
+                has_monthly_income = {
+                    resource = energy
+                    value > 20
+                }
+            }
+        }
+        modifier = {
+            factor = 0.65
+            has_trait = trait_necrophage
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_big
+        }
+        modifier = {
+            factor = 0.9
+            has_trait = trait_small
+        }
+        modifier = {
+            factor = 0.25
+            has_trait = trait_limbless
+        }
+    }
+}

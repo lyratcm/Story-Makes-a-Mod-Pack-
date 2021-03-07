@@ -1,0 +1,22 @@
+trait_touched_by_the_worm = {
+    cost = 0
+    potential_crossbreeding_chance = 0.5
+    opposites = {
+        "trait_natural_physicists"
+        "trait_nerve_stapled"
+    }
+    initial = no
+    randomized = no
+    modification = no
+    advanced_trait = yes
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_jobs_physics_research_produces_mult = 0.50
+        pop_amenities_usage_mult = 0.20
+    }
+}

@@ -1,0 +1,32 @@
+###_z modmenu triggers	############################################################################
+
+#_[Hidden_buttons]
+#_[Key_Locked]
+
+
+
+
+###_[Hidden_buttons]	##############################################################################
+#_[country]	拓展UI
+z_mm_trgr_expanded_sub_ui = {
+	has_country_flag = z_mm_flg_expanded_sub_ui_on
+}
+
+
+
+
+###_[Key_Locked]	##############################################################################
+#_[country]	设置面板锁定
+z_mm_setting_panel_locked = {
+	has_country_flag = z_mm_setting_panel_locked
+}
+
+#_[country]
+z_mm_menu_locked = {
+	has_country_flag = z_mm_modmenu_opened
+}
+
+#_[country]
+z_mm_menu_button_locked = {
+	has_country_flag = z_mm_submod_opened
+}

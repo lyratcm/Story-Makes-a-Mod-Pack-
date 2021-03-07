@@ -1,0 +1,153 @@
+building_citadel = {
+	base_buildtime = @b2_time
+	can_build = no
+	planetary_ftl_inhibitor = yes
+	add_to_first_building_slot = yes
+	icon = building_fortress
+
+	category = army
+	
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+		OR = {
+			AND = {
+				num_buildings = { type = building_citadel value > 1 }
+				free_building_slots = 0
+				owner = {
+					is_militarist = no
+					used_naval_capacity_percent < 0.4
+				}
+			}
+			AND = {
+				num_buildings = { type = building_citadel value > 2 }
+				free_building_slots = 0
+				owner = {
+					is_militarist = yes
+					used_naval_capacity_percent < 0.4
+				}
+			}
+			buildings_no_motes = yes
+		}
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 6
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_soldier_add = 6
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_warrior_drone_add = 6
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_swapped_tradition = tr_domination_synaptic_extensions
+			}					
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_functional_architecture
+                    has_valid_civic = civic_functional_architecture_megacorp
+                }
+            }
+        }
+        planet_housing_add = 2
+    }
+
+	resources = {
+		category = planet_buildings_strongholds
+		cost = {
+			minerals = @b3_minerals
+			volatile_motes = @b3_rare_cost
+		}			
+		upkeep = {
+			energy = 1
+			volatile_motes = @b3_rare_upkeep
+		}
+	}
+	
+	prerequisites = {
+		"tech_planetary_citadel"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_warrior_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_soldier_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_motes = yes
+		}
+	}
+	
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_mote_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_mote_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_mote_building days = 510 } }
+			}
+		}
+	}
+}

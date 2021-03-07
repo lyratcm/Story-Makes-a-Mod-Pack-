@@ -1,0 +1,3 @@
+NSpecies = {
+    TRAIT_MODIFICATION_BASE_COST = 2000
+}

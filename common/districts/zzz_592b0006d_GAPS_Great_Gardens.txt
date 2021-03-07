@@ -1,0 +1,410 @@
+@Plant_Cost = 300
+@Plant_Lesser_Upkeep = 1
+d_GAPS_Great_Gardens = {
+    base_buildtime = 480
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        exists = owner
+        has_modifier = Planet_Modifier_GAPS_Great_Gardens
+    }
+    category = unity
+    potential = {
+        exists = owner
+        has_modifier = Planet_Modifier_GAPS_Great_Gardens
+    }
+    conversion_ratio = 0
+    convert_to = {
+    }
+    resources = {
+        category = planet_GAPS_world_plants
+        cost = {
+            food = @Plant_Cost
+        }
+        upkeep = {
+            food = @Plant_Lesser_Upkeep
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 2
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                NOT = {
+                    has_authority = auth_corporate
+                }
+            }
+            owner = {
+                is_spiritualist = no
+            }
+        }
+        modifier = {
+            job_culture_worker_add = 1
+            planet_culture_workers_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                has_authority = auth_corporate
+            }
+            owner = {
+                is_spiritualist = no
+            }
+        }
+        modifier = {
+            job_manager_add = 1
+            planet_managers_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                is_spiritualist = yes
+            }
+        }
+        modifier = {
+            job_priest_add = 1
+            planet_priests_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+        }
+        modifier = {
+            job_synapse_drone_add = 1
+            planet_synapse_drones_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+            owner = {
+                NOT = {
+                    has_valid_civic = civic_machine_servitor
+                }
+            }
+        }
+        modifier = {
+            job_evaluator_add = 1
+            planet_evaluators_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+            owner = {
+                has_valid_civic = civic_machine_servitor
+            }
+        }
+        modifier = {
+            job_bio_trophy_add = 1
+            planet_bio_trophies_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+        }
+        modifier = {
+            planet_housing_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            planet_housing_add = 19
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            planet_housing_add = 10
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                NOT = {
+                    has_authority = auth_corporate
+                }
+            }
+            owner = {
+                is_spiritualist = no
+            }
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            job_culture_worker_add = 9
+            planet_culture_workers_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                has_authority = auth_corporate
+            }
+            owner = {
+                is_spiritualist = no
+            }
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            job_manager_add = 9
+            planet_managers_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                is_spiritualist = yes
+            }
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            job_priest_add = 9
+            planet_priests_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            job_synapse_drone_add = 9
+            planet_synapse_drones_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+            owner = {
+                NOT = {
+                    has_valid_civic = civic_machine_servitor
+                }
+            }
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            job_evaluator_add = 9
+            planet_evaluators_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+            owner = {
+                has_valid_civic = civic_machine_servitor
+            }
+            OR = {
+                is_planet_class = pc_city
+                is_planet_class = pc_ecocity
+                is_planet_class = pc_machine_factory
+                is_planet_class = pc_bioforge
+                is_planet_class = pc_pdfloraforge
+            }
+        }
+        modifier = {
+            job_bio_trophy_add = 9
+            planet_bio_trophies_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                NOT = {
+                    has_authority = auth_corporate
+                }
+            }
+            owner = {
+                is_spiritualist = no
+            }
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            job_culture_worker_add = 9
+            planet_culture_workers_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                has_authority = auth_corporate
+            }
+            owner = {
+                is_spiritualist = no
+            }
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            job_manager_add = 9
+            planet_managers_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+            owner = {
+                is_spiritualist = yes
+            }
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            job_priest_add = 9
+            planet_priests_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+            }
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            job_synapse_drone_add = 9
+            planet_synapse_drones_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+            owner = {
+                NOT = {
+                    has_valid_civic = civic_machine_servitor
+                }
+            }
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            job_evaluator_add = 9
+            planet_evaluators_upkeep_mult = -0.05
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+            }
+            owner = {
+                has_valid_civic = civic_machine_servitor
+            }
+            is_planet_class = pc_ringworld_habitable
+        }
+        modifier = {
+            job_bio_trophy_add = 9
+            planet_bio_trophies_upkeep_mult = -0.05
+        }
+    }
+    ai_weight = {
+        weight = 25
+    }
+    ai_resource_production = {
+        minerals = 1
+        trigger = {
+            always = yes
+        }
+    }
+}

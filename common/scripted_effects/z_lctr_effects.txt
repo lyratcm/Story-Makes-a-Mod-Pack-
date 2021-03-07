@@ -1,0 +1,679 @@
+#_[目标与持有者]
+#_[遗珍与持有者]
+#_[持有者目标设定]
+#_[星球_res]
+#_[星球_PC]
+#_[星球_trgr]
+#_[sstm_flg]
+#_[sstm_trgr]	universial
+#_[mega_chain]
+#_[归零]
+#_[挖掘者_rdm_定位]
+
+
+
+
+#_evt_chain		[z_lctr_chain_sensor]
+#_sp			[Z_LCTR_SP_SENSOR]
+z_lctr_eft_cntr_sensor_chain = {
+	#_debug
+	if = {
+		limit = { has_event_chain = z_lctr_chain_sensor }
+		end_event_chain = z_lctr_chain_sensor
+	}
+	#_set
+	begin_event_chain = {
+		event_chain = z_lctr_chain_sensor
+		target = root
+	}
+	#_目标
+	random_country = {
+		limit = { has_relic = z_lctr_r_adv_sensor }
+		capital_scope = {
+			enable_special_project = {
+				name = Z_LCTR_SP_SENSOR
+				location = THIS
+				owner = root
+			}
+		}
+	}
+}
+
+
+#_[目标与持有者]
+#_parameter		[HOLDER_TRGR]
+#_sp			[Z_LCTR_SP_RELIC]
+#_evt_chain		[z_lctr_chain_holder]
+z_lctr_eft_cntr_prmt_relic_chain_trgr = {
+	#_set
+	begin_event_chain = {
+		event_chain = z_lctr_chain_holder
+		target = root
+	}
+	#_星系flg参数
+	every_country = {
+		limit = {
+			$HOLDER_TRGR$ = yes
+			OR = {
+				root = { has_relic = z_lctr_r_adv_sensor }
+				root = { has_communications = prev }
+			}
+			num_owned_planets > 0
+		}
+		enable_special_project = {
+			name = Z_LCTR_SP_RELIC
+			location = capital_scope
+			owner = root
+		}
+	}
+	#_没有符合目标
+	if = {
+		limit = { NOT = { has_special_project = Z_LCTR_SP_RELIC } }
+		z_lctr_eft_cntr_chain_init = yes
+		country_event = { id = z_lctr.2 }
+	}
+}
+
+
+#_[遗珍与持有者]
+#_parameter		[RELIC_TRGR]
+#_sp			[Z_LCTR_SP_RELIC]
+#_evt_chain		[z_lctr_chain_holder]
+z_lctr_eft_cntr_prmt_holder_chain_relic = {
+	#_set
+	begin_event_chain = {
+		event_chain = z_lctr_chain_holder
+		target = root
+	}
+	#_星系flg参数
+	every_country = {
+		limit = {
+			has_relic = $RELIC_TRGR$
+			OR = {
+				root = { has_relic = z_lctr_r_adv_sensor }
+				root = { has_communications = prev }
+			}
+			num_owned_planets > 0
+		}
+		z_lctr_eft_cntr_holder_tgt_set = yes	#_设定持有者为tgt_glbl
+		enable_special_project = {
+			name = Z_LCTR_SP_RELIC
+			location = capital_scope
+			owner = root
+		}
+	}
+	#_没有符合目标
+	if = {
+		limit = { NOT = { has_special_project = Z_LCTR_SP_RELIC } }
+		z_lctr_eft_cntr_chain_init = yes
+		country_event = { id = z_lctr.2 }
+	}
+}
+
+
+#_[持有者目标设定]	检测名字用
+z_lctr_eft_cntr_holder_tgt_set = {
+	if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_1 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_1
+		root = { set_country_flag = z_lctr_flg_cntr_holder_1_checker }
+	}
+	else_if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_2 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_2
+		root = { set_country_flag = z_lctr_flg_cntr_holder_2_checker }
+	}
+	else_if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_3 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_3
+		root = { set_country_flag = z_lctr_flg_cntr_holder_3_checker }
+	}
+	else_if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_4 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_4
+		root = { set_country_flag = z_lctr_flg_cntr_holder_4_checker }
+	}
+	else_if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_5 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_5
+		root = { set_country_flag = z_lctr_flg_cntr_holder_5_checker }
+	}
+	else_if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_6 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_6
+		root = { set_country_flag = z_lctr_flg_cntr_holder_6_checker }
+	}
+	else_if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_7 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_7
+		root = { set_country_flag = z_lctr_flg_cntr_holder_7_checker }
+	}
+	else_if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_8 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_8
+		root = { set_country_flag = z_lctr_flg_cntr_holder_8_checker }
+	}
+	else_if = {
+		limit = { NOT = { exists = event_target:z_lctr_tgt_glbl_cntr_9 } }
+		save_global_event_target_as = z_lctr_tgt_glbl_cntr_9
+		root = { set_country_flag = z_lctr_flg_cntr_holder_9_checker }
+	}
+}
+
+
+#_[星球_res]
+#_parameter	[RESOURCE]	特定sr key
+#_sp		[Z_LCTR_SP_RES]
+z_lctr_eft_cntr_prmt_res_chain = {
+	#_debug
+	if = {
+		limit = { has_event_chain = z_lctr_chain_res }
+		end_event_chain = z_lctr_chain_res
+	}
+	#_chain
+	begin_event_chain = {
+		event_chain = z_lctr_chain_res
+		target = root
+	}
+	#_sr参数
+	every_planet = {
+		limit = {
+			has_resource = $RESOURCE$
+			z_lctr_trgr_plnt_res = yes
+		}
+		enable_special_project = {
+			name = Z_LCTR_SP_RES
+			location = THIS
+			owner = root
+		}
+	}
+	#_没有符合目标
+	if = {
+		limit = { NOT = { has_special_project = Z_LCTR_SP_RES } }
+		z_lctr_eft_cntr_chain_init = yes
+		country_event = { id = z_lctr.2 }
+	}
+}
+
+
+#_[星球_PC]
+#_parameter		[CLASS]	星球类型
+#_sp			[Z_LCTR_SP_PLNT]
+#_trgr_plnt		[z_lctr_trgr_plnt_pc]
+z_lctr_eft_cntr_prmt_plnt_chain_class = {
+	#_debug
+	if = {
+		limit = { has_event_chain = z_lctr_chain_plnt }
+		end_event_chain = z_lctr_chain_plnt
+	}
+	#_set
+	begin_event_chain = {
+		event_chain = z_lctr_chain_plnt
+		target = root
+	}
+	#_class参数
+	every_planet = {
+		limit = {
+			is_planet_class = $CLASS$
+			# Must be surveyed or controlled by other empires
+			z_lctr_trgr_plnt_pc = yes
+		}
+		enable_special_project = {
+			name = Z_LCTR_SP_PLNT
+			location = THIS
+			owner = root
+		}
+	}
+	#_没有符合目标
+	if = {
+		limit = { NOT = { has_special_project = Z_LCTR_SP_PLNT } }
+		z_lctr_eft_cntr_chain_init = yes
+		country_event = { id = z_lctr.2 }
+	}
+}
+
+
+#_[星球_trgr]
+#_parameter		[PLNT_TRGR]
+#_sp			[Z_LCTR_SP_PLNT]
+#_evt_chain		[z_lctr_chain_plnt]
+z_lctr_eft_cntr_prmt_plnt_chain_trgr = {
+	#_set
+	begin_event_chain = {
+		event_chain = z_lctr_chain_plnt
+		target = root
+	}
+	#_星系flg参数
+	every_planet = {
+		limit = {
+			$PLNT_TRGR$ = yes
+			z_lctr_trgr_plnt_pc = yes
+		}
+		enable_special_project = {
+			name = Z_LCTR_SP_PLNT
+			location = THIS
+			owner = root
+		}
+	}
+	#_没有符合目标
+	if = {
+		limit = { NOT = { has_special_project = Z_LCTR_SP_PLNT } }
+		z_lctr_eft_cntr_chain_init = yes
+		country_event = { id = z_lctr.2 }
+	}
+}
+
+
+#_[sstm_flg]
+#_parameter		[SSTM_FLG]	星系flg
+#_sp			[Z_LCTR_SP_SSTM]
+#_evt_chain		[z_lctr_chain_sstm]
+z_lctr_eft_cntr_prmt_sstm_chain_flg = {
+	#_set
+	if = {
+		limit = { root = { NOT = { has_event_chain = z_lctr_chain_sstm } } }
+		begin_event_chain = {
+			event_chain = z_lctr_chain_sstm
+			target = root
+		}
+	}
+	#_星系flg参数
+	every_system = {
+		limit = {
+			has_star_flag = $SSTM_FLG$
+			z_lctr_trgr_sstm = yes
+			exists = star
+		}
+		enable_special_project = {
+			name = Z_LCTR_SP_SSTM
+			location = star
+			owner = root
+		}
+	}
+	#_没有符合目标
+	if = {
+		limit = { NOT = { has_special_project = Z_LCTR_SP_SSTM } }
+		z_lctr_eft_cntr_chain_init = yes
+		country_event = { id = z_lctr.2 }
+	}
+}
+
+
+#_[sstm_trgr]
+#_parameter		[SSTM_TRGR]	星系trgr
+#_sp			[Z_LCTR_SP_SSTM]
+#_evt_chain		[z_lctr_chain_sstm]
+z_lctr_eft_cntr_prmt_sstm_chain_trgr = {
+	#_set
+	if = {
+		limit = { root = { NOT = { has_event_chain = z_lctr_chain_sstm } } }
+		begin_event_chain = {
+			event_chain = z_lctr_chain_sstm
+			target = root
+		}
+	}
+	#_星系flg参数
+	every_system = {
+		limit = {
+			$SSTM_TRGR$ = yes
+			z_lctr_trgr_sstm = yes
+			exists = star
+		}
+		enable_special_project = {
+			name = Z_LCTR_SP_SSTM
+			location = star
+			owner = root
+		}
+	}
+	#_没有符合目标
+	if = {
+		limit = { NOT = { has_special_project = Z_LCTR_SP_SSTM } }
+		z_lctr_eft_cntr_chain_init = yes
+		country_event = { id = z_lctr.2 }
+	}
+}
+
+
+#_parameter	[CHAIN_NAME]	仅执行,无需检测条件
+z_lctr_eft_cntr_prmt_mega_chain = {
+	#_debug
+	if = {
+		limit = { has_event_chain = $CHAIN_NAME$ }
+		end_event_chain = $CHAIN_NAME$
+	}
+	#_set
+	begin_event_chain = {
+		event_chain = $CHAIN_NAME$
+		target = root
+	}
+}
+
+
+#_[归零]
+z_lctr_eft_cntr_chain_init = {
+	if = {#_矩阵
+		limit = { has_event_chain = z_lctr_chain_sensor }
+		end_event_chain = z_lctr_chain_sensor
+	}
+	if = {#_relic
+		limit = { has_event_chain = z_lctr_chain_holder }
+		end_event_chain = z_lctr_chain_holder
+	}
+	if = {#_sr
+		limit = { has_event_chain = z_lctr_chain_res }
+		end_event_chain = z_lctr_chain_res
+	}
+	if = {#_星
+		limit = { has_event_chain = z_lctr_chain_plnt }
+		end_event_chain = z_lctr_chain_plnt
+	}
+	if = {#_星系
+		limit = { has_event_chain = z_lctr_chain_sstm }
+		end_event_chain = z_lctr_chain_sstm
+	}
+	if = {#_巨构
+		limit = { has_event_chain = z_lctr_chain_mega }
+		end_event_chain = z_lctr_chain_mega
+	}
+	if = {
+		limit = { has_event_chain = z_lctr_chain_gate }
+		end_event_chain = z_lctr_chain_gate
+	}
+	if = {
+		limit = { has_event_chain = z_lctr_chain_lgate }
+		end_event_chain = z_lctr_chain_lgate
+	}
+	if = {
+		limit = { has_event_chain = z_lctr_chain_wormhole }
+		end_event_chain = z_lctr_chain_wormhole
+	}
+	#_持有者init
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 1 }
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 2 }
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 3 }
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 4 }
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 5 }
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 6 }
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 7 }
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 8 }
+	z_lctr_eft_cntr_prmt_chain_init_holder = { HOLDER = 9 }
+}
+#_parameter	[HOLDER]
+z_lctr_eft_cntr_prmt_chain_init_holder = {
+	if = {
+		limit = {
+			has_country_flag = z_lctr_flg_cntr_holder_$HOLDER$_checker	#_有holder_prmt的检测flg
+			NOT = {#_没有其他cntr有holder_prmt的检测flg
+				any_country = {
+					NOT = { is_same_value = prev }
+					has_country_flag = z_lctr_flg_cntr_holder_$HOLDER$_checker
+				}
+			}
+		}
+		clear_global_event_target = z_lctr_tgt_glbl_cntr_$HOLDER$
+	}
+}
+
+
+
+
+#_[挖掘者_rdm_定位]
+#_清除定位chain
+z_lctr_eft_cntr_story_chain_clean = {
+	if = {
+		limit = { has_event_chain = z_lctr_chain_story }
+		end_event_chain = z_lctr_chain_story
+	}
+}
+
+#_挖掘中定位
+z_lctr_eft_flt_story = {
+	owner = {
+		#_debug
+		if = {
+			limit = { has_event_chain = z_lctr_chain_story }
+			end_event_chain = z_lctr_chain_story
+		}
+		#_定位
+		random_list = {
+			#_母星-普通帝国
+			1 = {
+				modifier = {
+					factor = 0
+					has_country_flag = z_lctr_flg_cntr_story_lctr_0
+				}
+				set_timed_country_flag = { flag = z_lctr_flg_cntr_story_lctr_0 days = 1500 }
+				#_set chain
+				begin_event_chain = {
+					event_chain = z_lctr_chain_story
+					target = this
+				}
+				#_class参数
+				every_planet = {
+					limit = {
+						is_capital = yes
+						owner = {
+							OR = {
+								is_country_type = default
+								is_country_type = fallen_empire
+								is_country_type = ascended_empire
+								is_country_type = lost_empire
+								is_country_type = default_ev
+							}
+						}
+					}
+					enable_special_project = {
+						name = Z_LCTR_SP_STORY_0
+						location = THIS
+						owner = prev
+					}
+				}
+			}
+			#_母星-堕落
+			1 = {
+				modifier = {
+					factor = 0
+					has_country_flag = z_lctr_flg_cntr_story_lctr_1
+				}
+				set_timed_country_flag = { flag = z_lctr_flg_cntr_story_lctr_1 days = 1500 }
+				#_set chain
+				begin_event_chain = {
+					event_chain = z_lctr_chain_story
+					target = this
+				}
+				#_class参数
+				every_planet = {
+					limit = {
+						is_capital = yes
+						owner = {
+							OR = {
+								is_country_type = fallen_empire
+								is_country_type = awakened_fallen_empire
+								is_country_type = mem_vazurans
+								is_country_type = original_empire_passive
+								is_country_type = eternal_empire
+							}
+						}
+					}
+					enable_special_project = {
+						name = Z_LCTR_SP_STORY_1
+						location = THIS
+						owner = prev
+					}
+				}
+			}
+			#_res
+			1 = {
+				modifier = {
+					factor = 0
+					has_country_flag = z_lctr_flg_cntr_story_lctr_2
+				}
+				set_timed_country_flag = { flag = z_lctr_flg_cntr_story_lctr_2 days = 1500 }
+				#_set chain
+				begin_event_chain = {
+					event_chain = z_lctr_chain_story
+					target = this
+				}
+				#_class参数
+				every_planet = {
+					limit = {
+						is_capital = yes
+						owner = {
+							OR = {
+								has_resource = volatile_motes
+								has_resource = exotic_gases
+								has_resource = rare_crystals
+								has_resource = sr_dark_matter
+								has_resource = sr_living_metal
+								has_resource = sr_zro
+								has_resource = nanites
+							}
+						}
+					}
+					enable_special_project = {
+						name = Z_LCTR_SP_STORY_2
+						location = THIS
+						owner = prev
+					}
+				}
+			}
+			#_飞地
+			1 = {
+				modifier = {
+					factor = 0
+					has_country_flag = z_lctr_flg_cntr_story_lctr_3
+				}
+				set_timed_country_flag = { flag = z_lctr_flg_cntr_story_lctr_3 days = 1500 }
+				#_set chain
+				begin_event_chain = {
+					event_chain = z_lctr_chain_story
+					target = this
+				}
+				#_class参数
+				every_system = {
+					limit = {
+						exists = star
+						any_fleet_in_system = { is_ship_size = enclave_station }
+					}
+					enable_special_project = {
+						name = Z_LCTR_SP_STORY_3
+						location = star
+						owner = prev
+					}
+				}
+			}
+			#_利维坦
+			1 = {
+				modifier = {
+					factor = 0
+					has_country_flag = z_lctr_flg_cntr_story_lctr_4
+				}
+				set_timed_country_flag = { flag = z_lctr_flg_cntr_story_lctr_4 days = 1500 }
+				#_set chain
+				begin_event_chain = {
+					event_chain = z_lctr_chain_story
+					target = this
+				}
+				#_class参数
+				every_system = {
+					limit = {
+						exists = star
+						any_fleet_in_system = {
+							OR = {
+								is_ship_size = space_dragon_red
+								is_ship_size = space_dragon_baby
+								is_ship_size = space_dragon_blue
+								is_ship_size = stellarite
+								is_ship_size = sphere
+								is_ship_size = dimensional_horror
+								is_ship_size = npc_warship_01
+							#	is_ship_size = homebase
+							#	is_ship_size = hive_asteroid
+								is_ship_size = wraith_01_blue
+								is_ship_size = wraith_01_red
+								is_ship_size = wraith_01_yellow
+								is_ship_size = leviathan_01_scavenger_bot
+								is_ship_size = leviathan_01_elder_tiyanki
+								is_ship_size = leviathan_01_voidspawn
+								is_ship_size = enigmatic_cache
+							#	is_ship_size = nanite_space_dragon_baby
+							#	is_ship_size = space_amoeba_centenarian
+							}
+						}
+					}
+					enable_special_project = {
+						name = Z_LCTR_SP_STORY_4
+						location = star
+						owner = prev
+					}
+				}
+			}
+			#_巨构
+			1 = {
+				modifier = {
+					factor = 0
+					has_country_flag = z_lctr_flg_cntr_story_lctr_5
+				}
+				set_timed_country_flag = { flag = z_lctr_flg_cntr_story_lctr_5 days = 1500 }
+				#_set chain
+				begin_event_chain = {
+					event_chain = z_lctr_chain_story
+					target = this
+				}
+				#_普通巨构_v
+				every_megastructure = {
+					limit = {
+						NOR = {
+							z_lctr_trgr_mega_type_gate = yes
+							is_megastructure_type = lgate_base
+						}
+					}
+					enable_special_project = {
+						name = Z_LCTR_SP_STORY_5
+						location = THIS
+						owner = prev
+					}
+				}
+			}
+			#_星门
+			1 = {
+				modifier = {
+					factor = 0
+					has_country_flag = z_lctr_flg_cntr_story_lctr_6
+				}
+				set_timed_country_flag = { flag = z_lctr_flg_cntr_story_lctr_6 days = 1500 }
+				#_set chain
+				begin_event_chain = {
+					event_chain = z_lctr_chain_story
+					target = this
+				}
+				#_星门
+				every_megastructure = {
+					limit = {
+						OR = {
+							z_lctr_trgr_mega_type_gate = yes
+							is_megastructure_type = lgate_base
+						}
+					}
+					enable_special_project = {
+						name = Z_LCTR_SP_STORY_6
+						location = THIS
+						owner = prev
+					}
+				}
+				#_虫洞
+				every_system = {
+					limit = {
+						exists = star
+						has_natural_wormhole = yes
+					}
+					enable_special_project = {
+						name = Z_LCTR_SP_STORY_6
+						location = star
+						owner = prev
+					}
+				}
+			}
+		}
+	}
+}

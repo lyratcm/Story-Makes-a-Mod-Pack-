@@ -1,0 +1,21 @@
+trait_clonal_colony = {
+    potential_crossbreeding_chance = 0.25
+    cost = 3
+    modification = no
+    icon = "gfx/interface/icons/traits/trait_rapid_breeders.dds"
+    allowed_archetypes = {
+        FUNGOID
+        PLANTOID
+        half_species
+    }
+    modifier = {
+        pop_growth_speed = 0.4
+        pop_environment_tolerance = -0.05
+    }
+    opposites = {
+        "trait_rapid_breeders"
+        "trait_slow_breeders"
+        "trait_fertile"
+        "trait_clones"
+    }
+}

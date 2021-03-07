@@ -1,0 +1,16 @@
+trait_robot_mechas = {
+    cost = 3
+    opposites = {
+        "trait_robot_specialists"
+        "trait_robot_destructive"
+    }
+    allowed_archetypes = {
+        ROBOT
+        MACHINE
+    }
+    modifier = {
+        army_damage_mult = 0.50
+        army_morale_damage_mult = 0.25
+        army_collateral_damage_mult = 0.50
+    }
+}

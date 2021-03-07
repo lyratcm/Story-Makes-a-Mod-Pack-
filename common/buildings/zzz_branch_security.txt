@@ -1,0 +1,33 @@
+building_corp_security = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	icon = building_precinct_house
+	
+	branch_office_building = yes
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_corp_security
+		}
+	}
+	
+	planet_modifier = {
+		job_enforcer_add = 1
+		job_clerk_add = 2
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 800
+		}	
+		produces = {
+			energy = 20
+		}
+	}
+
+	ai_weight = {
+		weight = 400
+	}
+}

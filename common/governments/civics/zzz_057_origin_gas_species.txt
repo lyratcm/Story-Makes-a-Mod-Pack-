@@ -1,0 +1,29 @@
+origin_gas_species = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_gas_species.dds"
+	picture = GFX_origin_gas_species
+
+	starting_colony = pc_habitable_gas
+	habitability_preference = pc_habitable_gas
+	preferred_planet_class_neighbor = no
+	initializer = "gas_giant_system_initializer" # 2.6.2
+	initializers = { # 2.6.3
+		gas_giant_system_initializer
+	}
+	
+	playable = {
+		always = yes
+	}
+
+	possible = {
+		species = {
+			value = GASEOUS
+		}
+	}
+
+	description = "origin_tooltip_gas_species_effects"
+
+	random_weight = {
+		base = 5
+	}
+}

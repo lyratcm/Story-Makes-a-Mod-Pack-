@@ -1,0 +1,13 @@
+lrsk_gov_var_civic_machine_combat_data = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        army_morale_damage_mult = 0.2
+        admiral_skill_levels = 1
+        general_skill_levels = 1
+    }
+}

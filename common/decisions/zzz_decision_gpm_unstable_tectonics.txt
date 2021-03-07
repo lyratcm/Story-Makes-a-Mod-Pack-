@@ -1,0 +1,38 @@
+decision_gpm_Unstable_Tectonics = {
+    owned_planets_only = yes
+	sound = event_administrative_work
+	icon = gpm_decision_unstable_tectonics
+	enactment_time = 180
+
+    resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+            minerals = 1000
+		}
+	}
+
+    potential = {
+		# owner = { is_regular_empire = yes }
+		OR = {
+			has_modifier = unstable_tectonics
+			has_modifier = gpm_unstable_tectonics_2
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_modifier = unstable_tectonics
+			has_modifier = gpm_unstable_tectonics_2
+		}
+	}
+
+    effect = {
+		remove_modifier = unstable_tectonics
+		remove_modifier = gpm_unstable_tectonics_2
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

@@ -1,0 +1,72 @@
+decision_techno_canal = {
+	icon = decision_techno_canal
+	owned_planets_only = yes
+
+	enactment_time = 900
+	resources = {
+		category = decisions
+		cost = {
+			energy = 1000
+			minerals = 1000
+		}
+	}
+		
+	prerequisites = {
+		"tech_techno_canal"		
+	}
+	
+	potential = {
+		NOT = { is_planet_class = pc_technoorganic }
+		NOT = { has_planet_flag = pdtechnocanal }
+		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_ecocity }
+		NOT = { is_planet_class = pc_hive }
+		NOT = { is_planet_class = pc_bioforge }
+		NOT = { is_planet_class = pc_machine }
+		NOT = { is_planet_class = pc_machine_factory }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = penal_colony }
+		NOT = { has_modifier = slave_colony }
+		habitable_structure = no
+	}
+
+	effect = {
+		add_deposit = d_technocanal
+		hidden_effect = { set_planet_flag = pdtechnocanal }
+	}
+	
+	ai_weight = {
+		weight = 1
+    	modifier = {
+        	factor = 0
+        	OR = {
+            	num_pops < 15
+            	AND = {
+            		# By late game, AI will likely keep some open building slots
+            		# This is mostly harmless if there are still jobs available
+            		# Otherwise, don't let them take this over building a building
+            		free_building_slots > 0
+            		free_jobs <= 0
+            	}
+            	free_building_slots > 2
+            	owner = {
+                	OR = {
+                    	resource_stockpile_compare = {
+							resource = energy
+							value < 8000
+						} 
+                    	resource_stockpile_compare = {
+							resource = minerals
+							value < 8000
+						} 
+                	}
+            	}
+            	free_district_slots <= 0
+            	num_free_districts = {
+            		type = district_farming
+            		value > 1
+            	}
+        	}
+    	}
+	}
+}

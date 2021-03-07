@@ -1,0 +1,55 @@
+ap_master_ai = {
+	on_enabled = {
+		custom_tooltip = "master_ai_tt"
+		hidden_effect = {
+			country_event = { id = ap.2 }
+		}
+	}
+
+	modifier = {	
+		category_computing_research_speed_mult = 0.15
+		num_tech_alternatives_add = 1
+	}
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
+		}
+		custom_tooltip = {
+			fail_text = "requires_not_ap_mind_over_matter"
+			NOT = { has_ascension_perk = ap_mind_over_matter }
+		}
+		custom_tooltip = {
+			fail_text = "requires_technology_hyperintelligent_ai"
+			has_technology = tech_hyperintelligent_ai
+		}
+	}
+	
+	potential = {
+		NOR = {
+			has_ascension_perk = ap_master_ai
+			has_ethic = "ethic_gestalt_consciousness"
+		}
+	}
+
+	ai_weight = {
+		factor = 3
+		modifier = {
+			factor = 2
+			has_ethic = ethic_materialist
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_materialist
+		}
+		modifier = {
+			factor = 0.75
+			has_ethic = ethic_spiritualist
+		}
+		modifier = {
+			factor = 0.5
+			has_ethic = ethic_fanatic_spiritualist
+		}
+	}
+}

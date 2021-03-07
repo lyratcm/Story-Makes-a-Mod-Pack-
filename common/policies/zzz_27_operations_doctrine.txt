@@ -1,0 +1,59 @@
+operations_doctrine = {
+	potential = {
+		is_country_type = default
+		is_ai = no
+	}
+
+	option = {
+		name = "standard_operations"
+		policy_flags = { standard_operations }
+		ai_weight = { factor = 0 }
+	}
+
+	option = {
+		name = "blue_sky"
+		valid = {
+			has_technology = tech_Battlecruiser_1
+			has_technology = tech_starbase_3
+		}
+		policy_flags = { blue_sky }
+		modifier = {
+			ship_home_territory_fire_rate_mult = 0.20
+			ship_fire_rate_mult = -0.1
+			shipclass_military_station_damage_mult = 0.2
+			planet_orbital_bombardment_damage = -0.10
+		}
+		ai_weight = { weight = 0 }
+	}
+
+	option = {
+		name = "black_sky"
+		valid = {
+			has_technology = tech_Battlecruiser_1
+			has_technology = tech_starbase_3
+		}
+		policy_flags = { black_sky }
+		modifier = {
+			ship_home_territory_fire_rate_mult = -0.1
+			ship_fire_rate_mult = 0.2
+			ship_orbital_bombardment_mult = 0.25
+		}
+		ai_weight = { factor = 0 }
+	}
+
+	option = {
+		name = "privateer_operation"
+		valid = {
+			is_gestalt = no
+			has_technology = tech_Battlecruiser_1
+			has_technology = tech_starbase_3
+		}
+		policy_flags = { privateer_operation }
+		modifier = {
+			local_trade_protection_add = 5
+			trade_value_mult = 0.10
+			country_naval_cap_mult = -0.1
+		}
+		ai_weight = { factor = 0 }
+	}
+}

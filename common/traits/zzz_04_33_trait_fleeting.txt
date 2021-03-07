@@ -1,0 +1,42 @@
+trait_fleeting = {
+    cost = -1
+    initial = yes
+    modification = yes
+    randomized = yes
+    potential_crossbreeding_chance = 1.0
+    modifier = {
+        leader_age = -10
+        pop_decline_speed = 0.3
+    }
+    opposites = {
+        "trait_venerable"
+        "trait_enduring"
+        "trait_time_lords"
+        "trait_slow_metabolism"
+        "trait_very_slow_metabolism"
+        "trait_fungal_colony"
+        "trait_additrait_ephemeral"
+        "trait_ancient"
+        "trait_additrait_immune"
+        "trait_seasonal"
+        "trait_ageless"
+        "trait_decomposers"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_fleeting@prev
+                }
+            }
+        }
+    }
+}

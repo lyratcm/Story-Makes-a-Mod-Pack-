@@ -1,0 +1,19 @@
+lrsk_gov_var_civic_hive_domineering_expectations = {
+    potential = {
+        always = no
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_hive_devouring_swarm
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_subject_technology_sharing_mult = 0.15
+        subject_tribute_mult = 0.075
+    }
+}

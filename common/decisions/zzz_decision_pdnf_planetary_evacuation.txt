@@ -1,0 +1,152 @@
+decision_planetary_evacuation = {
+	owned_planets_only = yes
+	sound = event_red_alert
+	icon = decision_planetary_evacuation
+	
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				num_pops < 10
+			}
+			food = 500
+			consumer_goods = 100
+		}
+		cost = {
+			trigger = {
+				num_pops >= 10
+				num_pops < 20
+			}
+			food = 1000
+			consumer_goods = 200
+		}
+		cost = {
+			trigger = {
+				num_pops >= 20
+				num_pops < 30
+			}
+			food = 2000
+			consumer_goods = 400
+		}	
+		cost = {
+			trigger = {
+				num_pops >= 30
+				num_pops < 40
+			}
+			food = 3000
+			consumer_goods = 600
+		}	
+		cost = {
+			trigger = {
+				num_pops >= 40
+				num_pops < 50
+			}
+			food = 4000
+			consumer_goods = 800
+		}			
+		cost = {
+			trigger = {
+				num_pops >= 50
+				num_pops < 60
+			}
+			food = 5000
+			consumer_goods = 1000
+		}
+		cost = {
+			trigger = {
+				num_pops >= 60
+				num_pops < 70
+			}
+			food = 6000
+			consumer_goods = 1200
+		}			
+		cost = {
+			trigger = {
+				num_pops >= 70
+				num_pops < 85
+			}
+			food = 7000
+			consumer_goods = 1400
+		}
+		cost = {
+			trigger = {
+				num_pops >= 80
+				num_pops < 90
+			}
+			food = 8000
+			consumer_goods = 1600
+		}
+		cost = {
+			trigger = {
+				num_pops >= 90
+				num_pops < 100
+			}
+			food = 9000
+			consumer_goods = 1800
+		}
+		cost = {
+			trigger = {
+				num_pops >= 100
+			}
+			food = 10000
+			consumer_goods = 2000
+		}	
+	}
+	
+	potential = {
+		exists = owner
+		owner = { 
+			NOR = {
+				is_machine_empire = yes
+				is_mechanical_empire = yes
+				is_lithoid_empire = yes
+			} 
+		}
+		OR = {
+			has_modifier = apocalypse
+			has_modifier = moon_collision
+			has_modifier = moon_fall
+			has_modifier = orbit_reduction
+			has_modifier = orbit_increase
+			has_modifier = volcanic_activity
+			has_modifier = secret_disaster
+			has_modifier = doomsday_1
+			has_modifier = doomsday_2
+			has_modifier = doomsday_3
+			has_modifier = doomsday_4
+			has_modifier = doomsday_5
+			AND = {
+				solar_system = { has_star_flag = star_disaster }
+				NOT = { has_modifier = secret_disaster }
+			}
+		}
+	}
+	
+	allow = {
+		is_controlled_by = owner
+		has_ground_combat = no
+		has_orbital_bombardment = no
+		NOT = { has_modifier = planetary_evacuation }
+	}
+	
+	effect = {
+		add_modifier = { modifier = "planetary_evacuation" days = 3600 }
+		custom_tooltip = decision_planetary_evacuation_effect_desc
+		hidden_effect = {
+			planet_event = { id = newfrontiers_decision_event.1 days = 1 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 50
+		
+		modifier = {
+			factor = 0.2
+			num_pops < 10
+		}
+		modifier = {
+			factor = 2
+			has_modifier = apocalypse
+		}
+	}
+}

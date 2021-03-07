@@ -1,0 +1,23 @@
+trait_robot_general_ace_unit = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_robot_general_ace_unit.dds"
+    modifier = {
+        army_damage_mult = 0.25
+        army_morale_damage_mult = 0.25
+    }
+    leader_trait = {
+        general
+    }
+    leader_class = {
+        general
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_robot_mechas
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

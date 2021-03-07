@@ -1,0 +1,27 @@
+civic_bureau_of_transport = {
+    description = "civic_tooltip_bureau_of_transport_effects"
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 4
+    }
+    modifier = {
+        ship_interstellar_speed_mult = 0.15
+        ship_speed_mult = 0.10
+        ship_ftl_jumpdrive_range_mult = 0.10
+        ships_upkeep_mult = 0.10
+    }
+}

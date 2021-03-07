@@ -1,0 +1,28 @@
+improved_work_environment = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = 200
+		}
+	}
+
+	potential = {
+		has_country_flag = edict_improved_work_environment
+	}
+	
+	modifier = {
+		pop_cat_worker_happiness = 0.08
+		pop_cat_specialist_happiness = 0.04
+		category_biology_research_speed_mult = 0.1
+		category_statecraft_research_speed_mult = 0.1
+	}
+
+	allow = {
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+	}
+}

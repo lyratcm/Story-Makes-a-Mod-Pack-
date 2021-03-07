@@ -1,0 +1,159 @@
+###_Œﬁæ°»∫–« framework-MISC evt pic	##############################################################
+
+spriteTypes = {
+	###_[main]	######################################################################
+	#_desire-point added
+	spriteType = {
+		name = "GFX_evt_z_fw_desire_point_added"
+		texturefile = "gfx/event_pictures/z_modmenu_restoration.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	
+	
+	
+	
+	###_[misc]	######################################################################
+	#_∆’Õ®
+	spriteType = {
+		name = "GFX_evt_z_fw_misc_1_relic"
+		texturefile = "gfx/event_pictures/z_fw_misc_1_relic.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_misc_2_destruction"
+		texturefile = "gfx/event_pictures/z_fw_misc_2_destruction.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	
+	#_”Ó÷Ê÷Æ√ÿ-relic
+	spriteType = {
+		name = "GFX_evt_z_fw_misc_relic_found"
+		texturefile = "gfx/event_pictures/z_fw_misc_relic_found.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	#_≥Ê∂¥
+	spriteType = {
+		name = "GFX_evt_z_fw_wormhole_1"
+		texturefile = "gfx/event_pictures/z_fw_wormhole_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_wormhole_2"
+		texturefile = "gfx/event_pictures/z_fw_wormhole_2.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	#_–««Ú‘…√
+	spriteType = {
+		name = "GFX_evt_z_fw_misc_star_explosion_1"
+		texturefile = "gfx/event_pictures/z_fw_misc_star_explosion_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	#_∂®Œª–««Ú
+	spriteType = {
+		name = "GFX_evt_z_fw_misc_target_planet"
+		texturefile = "gfx/event_pictures/z_fw_misc_target_planet.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_misc_target_star"
+		texturefile = "gfx/event_pictures/z_fw_misc_target_star.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	
+	#_–∞…Ò
+	spriteType = {
+		name = "GFX_evt_z_fw_misc_evilgod_1"
+		texturefile = "gfx/event_pictures/z_fw_misc_evilgod_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+
+
+
+
+
+
+
+
+	###_[war]	######################################################################
+	#_war-relic
+	spriteType = {
+		name = "GFX_evt_z_fw_relic_war"
+		texturefile = "gfx/event_pictures/z_fw_relic_war.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	#_war-relic lost
+	spriteType = {
+		name = "GFX_evt_z_fw_relic_war_lost"
+		texturefile = "gfx/event_pictures/z_fw_relic_war_lost.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+
+
+
+
+	###_[relic]	######################################################################
+	###_[Ë≠Ë≤–«Õº]
+	#_necron
+	spriteType = {
+		name = "GFX_evt_z_fw_r_co_necron_1"
+		texturefile = "gfx/event_pictures/z_fw_r_co_necron_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	
+	###_[head of karyl]
+	spriteType = {
+		name = "GFX_evt_z_fw_r_hok_1"
+		texturefile = "gfx/event_pictures/z_fw_r_hok_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_r_hok_2"
+		texturefile = "gfx/event_pictures/z_fw_r_hok_2.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_r_hok_3"
+		texturefile = "gfx/event_pictures/z_fw_r_hok_3.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_r_hok_4"
+		texturefile = "gfx/event_pictures/z_fw_r_hok_4.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_r_hok_5"
+		texturefile = "gfx/event_pictures/z_fw_r_hok_5.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_r_hok_6"
+		texturefile = "gfx/event_pictures/z_fw_r_hok_6.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_z_fw_r_hok_7"
+		texturefile = "gfx/event_pictures/z_fw_r_hok_7.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+}

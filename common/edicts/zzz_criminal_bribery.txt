@@ -1,0 +1,43 @@
+criminal_bribery = {
+	length = 180
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+	
+	allow = {
+		resource_stockpile_compare = { resource = consumer_goods value >= 500 }
+		custom_tooltip = edict_criminal_bribery_tooltip_allow
+		hidden_trigger = {
+			any_system = {
+				any_system_planet = {
+					has_branch_office = yes
+					branch_office_owner = { is_same_value = PREVPREVPREV }
+					NOT = { has_modifier = syndicate_bribery }
+					planet_crime < 50
+				}
+			}
+		}
+	}
+	
+	effect = {
+		custom_tooltip = edict_criminal_bribery_tooltip_effect
+		hidden_effect = {
+			country_event = { id = civicsexpanded.15 }
+		}
+	}
+	
+	potential = {
+		is_criminal_syndicate = yes
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictLowPrio
+			has_resource = { type = consumer_goods amount >= 1000 }
+		}
+	}
+}

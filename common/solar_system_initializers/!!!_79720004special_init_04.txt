@@ -1,0 +1,347 @@
+special_init_04 = {
+    name = "NAME_Sol"
+    class = "sc_g"
+    asteroid_belt = {
+        type = rocky_asteroid_belt
+        radius = 115
+    }
+    asteroid_belt = {
+        type = icy_asteroid_belt
+        radius = 460
+    }
+    usage = misc_system_init
+    usage_odds = {
+        base = 0
+        modifier = {
+            any_country = {
+                has_country_flag = human_1
+                species_portrait = human
+            }
+            NOT = {
+                any_system = {
+                    has_star_flag = deneb_system
+                }
+            }
+            NOT = {
+                has_star_flag = empire_cluster
+            }
+            num_ai_empires_setting >= 1
+            add = 99999
+        }
+    }
+    max_instances = 1
+    flags = {
+        nuked_sol
+        sol
+    }
+    planet = {
+        name = "NAME_Sol"
+        class = "pc_g_star"
+        orbit_distance = 0
+        orbit_angle = 1
+        size = 30
+        has_ring = no
+    }
+    planet = {
+        class = "pc_molten"
+        flags = {
+            mercury
+        }
+        orbit_distance = 25
+        orbit_angle = 15
+        size = 8
+        has_ring = no
+    }
+    planet = {
+        class = "pc_toxic"
+        flags = {
+            venus
+        }
+        orbit_distance = 15
+        orbit_angle = 125
+        size = 15
+        has_ring = no
+    }
+    planet = {
+        class = "pc_nuked"
+        orbit_distance = 20
+        orbit_angle = 120
+        size = 16
+        has_ring = no
+        anomaly = "sol_wasteland_category"
+        flags = {
+            nuked_earth
+        }
+        moon = {
+            class = "pc_barren_cold"
+            flags = {
+                luna
+            }
+            size = 5
+            orbit_distance = 8
+            orbit_angle = 40
+            has_ring = no
+            entity = "cold_barren_planet_luna_entity"
+        }
+    }
+    planet = {
+        class = "pc_barren"
+        flags = {
+            mars
+        }
+        orbit_distance = 25
+        orbit_angle = 60
+        size = 11
+        has_ring = no
+        entity = "barren_planet_mars_entity"
+    }
+    planet = {
+        class = "pc_asteroid"
+        flags = {
+            ceres
+        }
+        orbit_distance = 30
+        orbit_angle = -210
+        size = 5
+        has_ring = no
+    }
+    planet = {
+        class = "pc_asteroid"
+        flags = {
+            pallas
+        }
+        orbit_distance = 0
+        orbit_angle = -95
+        size = 5
+        has_ring = no
+    }
+    planet = {
+        class = "pc_asteroid"
+        flags = {
+            juno
+        }
+        orbit_distance = 0
+        orbit_angle = 285
+        size = 5
+        has_ring = no
+    }
+    planet = {
+        class = "pc_asteroid"
+        flags = {
+            vesta
+        }
+        orbit_distance = 0
+        orbit_angle = -80
+        size = 5
+        has_ring = no
+    }
+    planet = {
+        class = "pc_gas_giant"
+        flags = {
+            jupiter
+        }
+        orbit_distance = 45
+        orbit_angle = -160
+        size = 40
+        has_ring = no
+        entity = "gas_giant_jupiter_entity"
+        change_orbit = 6
+        moon = {
+            class = "pc_molten"
+            flags = {
+                io
+            }
+            size = 6
+            orbit_distance = 10
+            orbit_angle = 110
+            has_ring = no
+        }
+        moon = {
+            class = "pc_frozen"
+            flags = {
+                europa
+            }
+            size = 6
+            orbit_distance = 2.5
+            orbit_angle = 10
+            has_ring = no
+        }
+        moon = {
+            class = "pc_frozen"
+            flags = {
+                ganymede
+            }
+            size = 9
+            orbit_distance = 2.5
+            orbit_angle = 80
+            has_ring = no
+        }
+        moon = {
+            class = "pc_frozen"
+            flags = {
+                callisto
+            }
+            size = 7
+            orbit_distance = 2.5
+            orbit_angle = -155
+            has_ring = no
+        }
+    }
+    planet = {
+        class = "pc_gas_giant"
+        flags = {
+            saturn
+        }
+        orbit_distance = 55
+        orbit_angle = 170
+        size = 35
+        has_ring = yes
+        entity = "gas_giant_saturn_entity"
+        change_orbit = 7
+        moon = {
+            class = "pc_frozen"
+            flags = {
+                titan
+            }
+            size = 8
+            orbit_distance = 12
+            orbit_angle = 320
+            has_ring = no
+        }
+    }
+    planet = {
+        class = "pc_gas_giant"
+        flags = {
+            uranus
+        }
+        orbit_distance = 70
+        orbit_angle = 125
+        size = 20
+        has_ring = no
+        entity = "gas_giant_uranus_entity"
+        flags = {
+            ice_giant
+        }
+    }
+    planet = {
+        class = "pc_gas_giant"
+        flags = {
+            neptune
+        }
+        orbit_distance = 85
+        orbit_angle = -195
+        size = 20
+        has_ring = no
+        entity = "gas_giant_neptune_entity"
+        flags = {
+            ice_giant
+        }
+        change_orbit = 4
+        moon = {
+            class = "pc_frozen"
+            flags = {
+                triton
+            }
+            size = 6
+            orbit_distance = 7
+            orbit_angle = 115
+            has_ring = no
+        }
+    }
+    planet = {
+        class = "pc_ice_asteroid"
+        flags = {
+            pluto
+        }
+        orbit_distance = 90
+        orbit_angle = -210
+        size = 5
+        has_ring = no
+    }
+    planet = {
+        class = "pc_ice_asteroid"
+        flags = {
+            makemake
+        }
+        orbit_distance = 0
+        orbit_angle = -95
+        size = 5
+        has_ring = no
+    }
+    planet = {
+        class = "pc_ice_asteroid"
+        flags = {
+            haumea
+        }
+        orbit_distance = 0
+        orbit_angle = 285
+        size = 5
+        has_ring = no
+    }
+    planet = {
+        class = "pc_ice_asteroid"
+        flags = {
+            varuna
+        }
+        orbit_distance = 0
+        orbit_angle = -80
+        size = 5
+        has_ring = no
+    }
+    neighbor_system = {
+        distance = {
+            min = 15
+            max = 40
+        }
+        initializer = "bernards_star_smallsector"
+    }
+    neighbor_system = {
+        distance = {
+            min = 10
+            max = 40
+        }
+        initializer = "alpha_centauri_smallsector"
+    }
+    neighbor_system = {
+        distance = {
+            min = 15
+            max = 50
+        }
+        initializer = "sirius_smallsector"
+    }
+    neighbor_system = {
+        distance = {
+            min = 30
+            max = 60
+        }
+        initializer = "tau_ceti_smallsector"
+    }
+    neighbor_system = {
+        distance = {
+            min = 20
+            max = 55
+        }
+        initializer = "epsilon_eridani_smallsector"
+    }
+    neighbor_system = {
+        distance = {
+            min = 30
+            max = 80
+        }
+        initializer = "fomalhaut_smallsector"
+    }
+    neighbor_system = {
+        distance = {
+            min = 20
+            max = 60
+        }
+        initializer = "eta_cassiopeiae_smallsector"
+    }
+    neighbor_system = {
+        distance = {
+            min = 20
+            max = 60
+        }
+        initializer = "sigma_draconis_smallsector"
+    }
+}

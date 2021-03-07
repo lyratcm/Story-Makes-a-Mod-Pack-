@@ -1,0 +1,7 @@
+civic_corp_iron_despot = {
+    modification = no
+    description = "civic_iron_despot_effects"
+    potential = {
+        always = no
+    }
+}

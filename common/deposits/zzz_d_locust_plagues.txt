@@ -1,0 +1,68 @@
+gpm_tb_locust_plagues = {
+	time = 270
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+    resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 400
+		}
+	}
+	
+	planet_modifier = {
+		district_farming_max = -2
+	}
+
+	triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_green = yes
+            }
+        }
+        modifier = {
+            planet_jobs_unity_produces_add = 1
+            planet_amenities_add = 5
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = secret_neopaganism
+            }
+        }
+        modifier = {
+            planet_housing_add = 2
+            planet_amenities_add = 1
+            job_soldier_add = 1
+        }
+    }
+
+	use_weights_for_blocker_swap_types = no
+	blocker_swap_types = {
+		d_lichen_fields
+		d_bountiful_plains
+		d_rugged_woods
+		d_green_hills
+		d_forgiving_tundra
+		d_boggy_fens
+		d_nutritious_mudland
+		d_fungal_caves
+		d_lush_jungle
+		d_fertile_lands
+		d_great_river
+		d_black_soil
+		d_marvelous_oasis
+		d_tropical_island
+		d_fungal_forest
+	}
+
+	# weight 0: event added
+	drop_weight = {
+		weight = 0
+	}
+
+	prerequisites = { "tech_gpm_tb_locust_plagues" }
+}

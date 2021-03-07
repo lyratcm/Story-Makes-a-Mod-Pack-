@@ -1,0 +1,106 @@
+### Global Flags
+################
+guillis_planet_modifiers_active			#set on gamestart
+has_guillis_planet_modifiers_mod		#set on gamestart
+
+gpm_initialisation_menu					#set on gamestart
+gpm_modifier_amount_max_one				#set on menu
+gpm_modifier_amount_low					#set on menu
+gpm_modifier_amount_normal				#set on menu
+gpm_modifier_amount_high				#set on menu
+
+gpm_modifiers_fallen_empire_disabled	#set on menu
+gpm_modifiers_ringworlds_disabled		#set on menu
+gpm_planetary_rings_disabled			#set on menu
+gpm_planet_wonders_disabled				#set on menu
+gpm_modifiers_homeworld_enabled			#set on menu
+gpm_modifiers_precursor_disabled		#set on menu
+gpm_precursor_ai_chain_disabled			#set on menu
+
+forbid_guillis_planet_modifiers			#dont run engine on this
+
+
+gpm_r_time_displacer_found					#Relic found, cant be found again
+gpm_r_alien_eggs_found						#Relic found, cant be found again
+gpm_r_machine_world_core_found				#Relic found, cant be found again
+gpm_r_encyclopedia_galactica_found			#Relic found, cant be found again
+gpm_r_zero_energy_generator_found			#Relic found, cant be found again
+gpm_r_quantum_sphere_found					#Relic found, cant be found again
+gpm_r_ai_architect_found					#Relic found, cant be found again
+gpm_r_encrypted_sct_found					#Relic found, cant be found again
+gpm_r_experimental_weapon_found				#Relic found, cant be found again
+gpm_r_fallout_emergency_replicator_found	#Relic found, cant be found again
+gpm_r_power_core_found						#Relic found, cant be found again
+gpm_r_mysterious_shield_generator_found		#Relic found, cant be found again
+gpm_r_gravity_engine_found					#Relic found, cant be found again
+gpm_r_codex_administratum_found				#Relic found, cant be found again
+gpm_r_enigmatic_advisor_found				#Relic found, cant be found again
+gpm_r_positronic_microchip_found			#Relic found, cant be found again
+gpm_r_venerable_dreadnaught_found			#Relic found, cant be found again
+gpm_r_sentinel_queen_found					#Relic found, cant be found again
+gpm_r_earthquake_engine_found				#Relic found, cant be found again
+gpm_r_manufactorium_ship_found				#Relic found, cant be found again
+gpm_r_datacube_found						#Relic found, cant be found again
+gpm_r_self_assembly_hub_found				#Relic found, cant be found again
+gpm_r_banner_of_the_fallen_found			#Relic found, cant be found again
+gpm_r_cloaking_device_found					#Relic found, cant be found again
+gpm_r_q_storage_compressor_found			#Relic found, cant be found again
+gpm_r_soul_gem_found						#Relic found, cant be found again
+gpm_r_self_repairing_obelisk_found			#Relic found, cant be found again
+
+### Country Flags
+#################
+
+# When discovering a precursor modifier
+gpm_discover_precursor_remnants
+gpm_discover_precursor_energy_grid
+gpm_discover_precursor_satelite_grid
+gpm_discover_precursor_city
+gpm_discover_precursor_shipyards
+gpm_discover_precursor_planetary_gun
+gpm_discover_precursor_bunker_grid
+gpm_discover_precursor_mechs
+gpm_discover_precursor_planetary_shield
+gpm_discover_precursor_floating_city
+gpm_discover_precursor_capital_complex
+gpm_discover_precursor_communication_hub
+gpm_discover_precursor_singularity_drive
+gpm_discover_precursor_eternal_fortress
+gpm_discover_precursor_prison_planet
+gpm_discover_precursor_mines
+gpm_discover_precursor_manufactorium
+gpm_discover_precursor_vaults
+gpm_discover_precursor_crashed_spacestation
+gpm_discover_precursor_battleground_ruins
+gpm_discover_precursor_outpost_ruins
+gpm_discover_precursor_harbor_ruins
+gpm_discover_precursor_generic_ruins
+gpm_discover_precursor_obelisks
+
+
+### Solar System Flags
+######################
+gpm_guardians_ego_system
+gpm_precursor_machine_system
+gpm_machine_system_machine_world
+gpm_machine_system_moon
+gpm_precursor_gaia_system
+gpm_gaia_system_gaia_world
+
+
+### Planet Flags
+################
+gpm_is_precursor_world  				#set on gamestart
+gpm_is_wondrous_world					#set on gamestart
+is_event_spawned_planet					#planet is created after gamestart (event). Runs gpm_engine.1 on_survey
+
+### Ambient Flags
+#################
+
+
+
+
+
+### Other mod global flags to check for
+#######################################
+planetarydiversity

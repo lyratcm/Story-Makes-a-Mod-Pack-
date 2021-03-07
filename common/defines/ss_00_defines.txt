@@ -1,0 +1,19 @@
+
+	NSpecies = {
+		TRAIT_MODIFICATION_BASE_COST 		= 2000		# This cost is always added to a species modification project so modifying single pops isn't efficient
+		TRAIT_CLIMATE_MODIFICATION_COST		= 2			# total genemodding cost is multiplied by this (not including trait modifications)
+		TRAIT_MODIFICATION_COST_MULT 		= 40 		# species modification cost to be multiplied with the absolute trait cost of all changes applied, per pop
+		MODIFICATION_COST_MULT				= 20		# adds to the above species modification cost, per pop
+		ROBO_TRAIT_MODIFICATION_BASE_COST 	= 1000		# This cost is always added to a species modification project so modifying single pops isn't efficient
+		ROBO_TRAIT_MODIFICATION_COST_MULT 	= 40 		# species modification cost to be multiplied with the absolute trait cost of all changes applied, per pop
+		ROBO_MODIFICATION_COST_MULT			= 20		# adds to the above species modification cost, per pop
+		HOMEWORLD_HABITABILITY				= 1.00		# Habitability on homeworld is increased by this value
+	}	
+		
+	NGameplay = {
+		LEADER_MAX_SKILL_CAP	= 20
+		POP_ETHOS_DIVERGENCE_INTERVAL				= 360	# Number of days until a Pop has a change to diverge from empire ethos
+		POP_ETHOS_DIVERGENCE_RATE_MULT				= 300	# Chance of a pop evaluating its ethics every year
+		POP_CHANGE_FACTION_CHANCE					= 100	# Once every month a pop has X chance to change faction but only if the pop wants to
+	}
+	

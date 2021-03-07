@@ -1,0 +1,9 @@
+lrsk_gov_var_civic_hive_eusocial_rhythm = {
+	potential = { authority = { value = auth_hive_mind } }
+    #icon = "gfx/interface/icons/governments/civics/lrsk_gov_var_civic_default_hive.dds"
+	random_weight = { base = 5 }
+	modifier = {
+    	ships_upkeep_mult = -0.05
+    	planet_structures_upkeep_mult = -0.05
+	}
+}

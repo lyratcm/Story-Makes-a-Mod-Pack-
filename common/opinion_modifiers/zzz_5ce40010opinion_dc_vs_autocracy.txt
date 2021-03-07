@@ -1,0 +1,17 @@
+opinion_dc_vs_autocracy = {
+    opinion = {
+        modifier = {
+            add = -100
+            has_ai_personality = democratic_crusaders
+            FROM = {
+                OR = {
+                    has_authority = auth_imperial
+                    has_authority = auth_dictatorial
+                    has_authority = auth_private
+                    has_authority = auth_master_computer
+                    has_government = gov_charter_company
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+﻿MASTER_COMPUTER = {
+    selectable = { always = no }
+    randomized = no
+    
+    ship_names = { # The game will probably want those, but you aren't supposed to get them
+        generic = {
+            "Space Jerk"
+        }
+    }
+
+    fleet_names = {
+        sequential_name = "Jerk Cluster %CCC%"
+    }
+
+    army_names = {
+		robotic_army = {
+			sequential_name = "%O% Offensive Jerks"
+		}
+		robotic_defense_army = {
+			sequential_name = "%O% Defensive Jerks"
+		}
+    }
+    
+    planet_names = {
+        generic = {
+            names = {
+                "Jerk Ball"
+            }
+        }
+    }
+
+    character_names = {
+        default = {
+            full_names = {
+                ALPHA Advisor APEX AXEL ADD Aramada BASIC BASILISC "Big Boss" "Bossman" Borealis Baller BANG Captain Capitolon CODEX Communitar Comissar Colossus DELTA DEUS Divinator Divisor Destiny ECHO Epsion Educator Everything Eminence Figure First Fortress General Genium GOD Globex "Government 2.0" GOLD Holocrone Holistic Honesty HELGHAST "High Ground" Highwayman Hightower INDIGO Indominable IDOT "Inintirad Zuul" Infinity Inferno IBEX InTex Justice JFMSU Jobotron Juicy JACK Kalpa KANE Khan KEY Komputer KEEN LORD League Legendary "Leadership System" Leadertron LINX LUNAR MASTER MASS MEGA "Mega Mind" MENTAL Medium Micron Mobile Mercy Mercurial NEXUS NEXT "New Thing" Nether NITRO NESTOR Novelty NOX Orderly "Object 10" Organizer Odium ODA OLLIE "Old Champ" Operational QBERT QT Quester Radical Reasoner RAD Resonance RICH ROXXY "Robotic One" "Star Master" Starcon Satyr SOUL SEELE Selector SURT TORUS Titan TASK Taskmaster TOTAL TRUTH Trust Unity Union UNO "Un X" UX Victory Void VOZHD Valiant "Vicious Philospher" WE WORD Waddles Warden WAS West Window X Xirmian XERO Xanth Xaroth YANCY Ysgramor Ysmir Zone ZUUL ZUID Zoocene ZILCH ZUMA
+            }
+        }
+    }
+}

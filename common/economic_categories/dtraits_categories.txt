@@ -1,0 +1,120 @@
+planet_pop_assemblers = {
+	parent = planet_jobs
+	generate_mult_modifiers = {
+		upkeep
+	}
+	generate_add_modifiers = {
+		upkeep
+	}
+}
+planet_buildings = {
+	parent = planet_structures
+	generate_mult_modifiers = {
+		cost
+		upkeep
+	}
+	generate_add_modifiers = {
+		cost
+	}
+}
+planet_pops = {
+	parent = planets
+	generate_mult_modifiers = {
+		upkeep
+		produces
+	}
+
+	triggered_upkeep_modifier = {
+		key = planet_pops_robotics
+		modifier_types = {
+			mult
+		}
+		trigger = {
+			is_robot_pop = yes
+		}
+	}
+
+	triggered_upkeep_modifier = {
+		key = planet_pops_organics
+		modifier_types = {
+			mult
+		}
+		trigger = {
+			is_robot_pop = no
+		}
+	}
+
+	triggered_upkeep_modifier = {
+		key = planet_pops_unemployed
+		modifier_types = {
+			add
+		}
+		trigger = {
+			has_job = unemployed
+		}
+	}
+}
+planet_districts_cities = {
+	parent = planet_districts
+	generate_add_modifiers = {
+		cost
+	}
+	generate_mult_modifiers = {
+		cost
+	}
+}
+
+leaders = {
+	use_for_ai_budget = yes
+	generate_mult_modifiers = {
+		cost
+		upkeep
+	}
+
+	ai_use_parent_for_resources_upkeep = {
+		energy
+	}
+
+	parent = country
+
+	triggered_upkeep_modifier = {
+		key = fleet_leaders
+		modifier_types = {
+			mult
+			add
+		}
+		trigger = {
+			exists = fleet
+		}
+	}
+}
+
+
+leader_admirals = {
+	parent = leaders
+	generate_add_modifiers = {
+		cost
+		upkeep
+	}
+}
+leader_generals = {
+	parent = leaders
+	generate_add_modifiers = {
+		cost
+		upkeep
+	}
+}
+leader_scientists = {
+	parent = leaders
+	generate_add_modifiers = {
+		cost
+		upkeep
+	}
+}
+
+planet_jobs_purge = {
+	parent = planet_jobs
+	generate_mult_modifiers = {
+		produces
+	}
+}

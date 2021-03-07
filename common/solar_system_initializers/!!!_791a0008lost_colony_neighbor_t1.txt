@@ -1,0 +1,115 @@
+lost_colony_neighbor_t1 = {
+    class = "rl_standard_stars"
+    flags = {
+        neighbor_t1
+    }
+    init_effect = {
+        every_neighbor_system = {
+            set_star_flag = empire_cluster
+        }
+    }
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = {
+            min = @standard_min
+            max = @standard_max
+        }
+        has_ring = no
+    }
+    change_orbit = {
+        min = 40
+        max = 60
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 15
+            max = 20
+        }
+        change_orbit = @base_moon_distance
+        moon = {
+            count = {
+                min = 0
+                max = 1
+            }
+            orbit_distance = 5
+        }
+    }
+    planet = {
+        count = 1
+        orbit_distance = {
+            min = 20
+            max = 25
+        }
+    }
+    planet = {
+        count = 1
+        orbit_distance = {
+            min = 25
+            max = 30
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 30
+            max = 40
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 40
+            max = 50
+        }
+    }
+    planet = {
+        count = {
+            min = 0
+            max = 1
+        }
+        orbit_distance = {
+            min = 50
+            max = 60
+        }
+    }
+    init_effect = {
+        create_starbase = {
+            size = starbase_outpost
+            owner = event_target:lost_colony_parent
+        }
+    }
+    neighbor_system = {
+        hyperlane_jumps = {
+            min = 1
+            max = @jumps
+        }
+        initializer = "lost_colony_neighbor_t2_second_colony"
+    }
+}

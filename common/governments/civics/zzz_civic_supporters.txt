@@ -1,0 +1,24 @@
+Civic_GAPS_Supporters = {
+    icon = "gfx/interface/icons/civics/Civic_GAPS_Supporters.dds"
+    modification = no
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 1
+    }
+    modifier = {
+        country_trust_growth = 0.25
+        country_trust_cap_add = 100
+        shipclass_military_build_cost_mult = 0.25
+        shipclass_military_build_speed_mult = -0.25
+        ship_fire_rate_mult = -0.15
+        ship_home_territory_fire_rate_mult = 0.15
+    }
+}

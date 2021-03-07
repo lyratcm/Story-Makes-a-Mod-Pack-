@@ -1,0 +1,37 @@
+trait_ruler_call_of_the_stars2 = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_call_of_the_stars.dds"
+    leader_potential_add = {
+        NOT = {
+            from = {
+                has_ethic = "ethic_gestalt_consciousness"
+            }
+        }
+    }
+    modifier = {
+        starbase_outpost_cost_mult = -0.20
+        country_starbase_influence_cost_mult = -0.20
+        starbase_modules_cost_mult = -0.20
+        starbase_upgrade_cost_mult = -0.20
+    }
+    leader_trait = {
+        ruler
+    }
+    leader_class = {
+        ruler
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_presapient_starborn
+        }
+    }
+    opposites = {
+        trait_ruler_call_of_the_stars
+        trait_ruler_home_in_the_sky
+        trait_ruler_expansionist
+    }
+    ai_weight = {
+        weight = 200
+    }
+}

@@ -1,0 +1,33 @@
+ap_gas_terraform = {
+	icon = "GFX_ap_gas_terraform"
+
+	description = PERK_TOOLTIP_GAS_TERRAFORM
+
+	modifier = {
+		country_unity_produces_mult = 0.05
+		country_admin_cap_mult = 0.10
+		pop_government_ethic_attraction = 0.25
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_species_type_gas"
+			OR = {
+				has_trait = trait_gas_aliens
+			}
+		}
+	}
+
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_gas_terraform
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 2
+		}
+	}
+}

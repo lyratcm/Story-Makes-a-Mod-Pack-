@@ -1,0 +1,203 @@
+synapse_drone = {
+    category = complex_drone
+    condition_string = DRONE_JOB_TRIGGER
+    building_icon = building_hive_capital
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        drone_job_check_trigger = yes
+        OR = {
+            traits_restrict_specialist_jobs = no
+            has_pop_flag = allow_synapse_drone_traits
+        }
+    }
+    country_modifier = {
+        country_admin_cap_add = 5
+    }
+    triggered_country_modifier = {
+        potential = {
+            exists = planet
+            planet = {
+                exists = sector
+                sector = {
+                    exists = leader
+                    leader = {
+                        has_trait = leader_trait_mindfulness
+                    }
+                }
+            }
+        }
+        modifier = {
+            country_admin_cap_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            planet = {
+                has_modifier = planet_artifact_relays_hivemind
+            }
+        }
+        modifier = {
+            planet_stability_add = 2
+            planet_jobs_simple_drone_produces_mult = 0.01
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_swapped_tradition = tr_synchronicity_instinctive_synchronization
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_civic = civic_hive_synapses
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 1
+            planet_stability_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+            owner = {
+                has_swapped_tradition = tr_synchronicity_instinctive_synchronization
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.8
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_charismatic
+            owner = {
+                has_swapped_tradition = tr_synchronicity_instinctive_synchronization
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_repugnant
+            owner = {
+                has_swapped_tradition = tr_synchronicity_instinctive_synchronization
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = -0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            OR = {
+                has_trait = trait_pheremones
+                has_trait = trait_lithoid_shiny
+            }
+            owner = {
+                has_civic = civic_hive_synapses
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_charismatic
+            owner = {
+                has_civic = civic_hive_synapses
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = 0.2
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            has_trait = trait_repugnant
+            owner = {
+                has_civic = civic_hive_synapses
+            }
+        }
+        modifier = {
+            planet_amenities_no_happiness_add = -0.2
+        }
+    }
+    resources = {
+        category = planet_synapse_drones
+        produces = {
+            unity = 3
+        }
+        upkeep = {
+            trigger = {
+                is_lithoid = no
+            }
+            food = 2
+            energy = 2
+        }
+        upkeep = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 2
+            energy = 2
+        }
+    }
+    weight = {
+        weight = @synapse_drone_job_weight
+        modifier = {
+            factor = 4
+            has_trait = trait_living_architecture
+        }
+        modifier = {
+            factor = 1.1
+            has_trait = trait_clever
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+            }
+        }
+        modifier = {
+            factor = 2
+            OR = {
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 1.05
+            OR = {
+                has_trait = trait_presapient_natural_intellectuals
+                has_trait = trait_mem_surveyor_freebotomites
+            }
+        }
+        modifier = {
+            factor = 0
+            is_lithoid = yes
+            jobs_spend_minerals = no
+        }
+    }
+}

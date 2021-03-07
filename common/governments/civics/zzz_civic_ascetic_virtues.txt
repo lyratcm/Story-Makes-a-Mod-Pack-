@@ -1,0 +1,39 @@
+lrsk_gov_var_civic_ascetic_virtues = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            NOR = {
+                text = civic_tooltip_not_materialist
+                value = ethic_materialist
+                value = ethic_fanatic_materialist
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_dystopia
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        leader_age = 15
+        pop_growth_speed = 0.1
+        pop_amenities_usage_mult = -0.1
+    }
+}

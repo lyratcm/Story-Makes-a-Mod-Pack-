@@ -1,0 +1,107 @@
+###_额外优化 deposits	#############################################################################
+
+
+###_动态人口限制
+z_pf2_d_dynamic_cap_1 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	planet_modifier = {
+		pop_growth_speed_reduction = 0.1
+		planet_pop_assembly_reduction = 0.1
+		pop_growth_from_immigration = -0.1
+	}
+}
+z_pf2_d_dynamic_cap_2 = {
+	icon = z_pf2_d_dynamic_cap_1
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	planet_modifier = {
+		pop_growth_speed_reduction = 0.2
+		planet_pop_assembly_reduction = 0.2
+		pop_growth_from_immigration = -0.2
+	}
+}
+z_pf2_d_dynamic_cap_3 = {
+	icon = z_pf2_d_dynamic_cap_1
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	planet_modifier = {
+		pop_growth_speed_reduction = 0.4
+		planet_pop_assembly_reduction = 0.4
+		pop_growth_from_immigration = -0.4
+	}
+}
+z_pf2_d_dynamic_cap_4 = {
+	icon = z_pf2_d_dynamic_cap_1
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	planet_modifier = {
+		pop_growth_speed_reduction = 0.8
+		planet_pop_assembly_reduction = 0.8
+		pop_growth_from_immigration = -0.8
+	}
+}
+z_pf2_d_dynamic_cap_5 = {
+	icon = z_pf2_d_dynamic_cap_1
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	planet_modifier = {
+		pop_growth_speed_reduction = 1.6
+		planet_pop_assembly_reduction = 1.6
+		pop_growth_from_immigration = -1.6
+	}
+}
+z_pf2_d_dynamic_cap_6 = {
+	icon = z_pf2_d_dynamic_cap_1
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	planet_modifier = {
+		pop_growth_speed_reduction = 3.2
+		planet_pop_assembly_reduction = 3.2
+		pop_growth_from_immigration = -3.2
+	}
+}
+z_pf2_d_dynamic_cap_7 = {
+	icon = z_pf2_d_dynamic_cap_1
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	planet_modifier = {
+		pop_growth_speed_reduction = 6.4
+		planet_pop_assembly_reduction = 6.4
+		pop_growth_from_immigration = -6.4
+	}
+}
+z_pf2_d_dynamic_cap_8 = {
+	icon = z_pf2_d_dynamic_cap_1
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = { weight = 0 }
+	
+	planet_modifier = {
+		pop_growth_speed_reduction = 77
+		planet_pop_assembly_reduction = 77
+		pop_growth_from_immigration = -77
+	}
+}

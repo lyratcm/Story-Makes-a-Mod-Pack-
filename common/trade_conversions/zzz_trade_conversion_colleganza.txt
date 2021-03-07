@@ -1,0 +1,37 @@
+trade_conversion_colleganza = {
+	potential = {
+		has_policy_flag = trade_conversion_colleganza
+	}
+	weight = {
+		weight = 999
+	}
+	conversion_rate = {
+		energy = 0.20
+		minerals = 0.025
+		food = 0.025
+		alloys = 0.01
+		consumer_goods = 0.20
+		physics_research = 0.02
+		society_research = 0.05
+		engineering_research = 0.02
+		unity = 0.20
+	}
+	economic_category = trade_routes
+}
+
+# Final conversion rates:
+# 1 energy 			/   5 trade
+# 1 mineral 		/  40 trade
+# 1 food 			/  40 trade
+# 1 alloy			/ 100 trade
+# 1 consumer good	/   5 trade
+# 1 physics			/  50 trade
+# 1 society			/  20 trade
+# 1 engineering		/  50 trade
+# 1 unity			/   5 trade
+
+# 1000 Trade Value Comparison:
+# Wealth Creation =			1000 energy		
+# Consumer Benefits =		 500 energy															 250 consumer goods
+# Marketplace of Ideas =	 500 energy																																					 250 unity
+# Colleganza =				 200 energy		  25 minerals		  25 food		  10 alloys		 200 consumer goods		  20 physics		  50 society		  20 engineering		 200 unity

@@ -1,0 +1,5 @@
+trait_dense = {
+    cost = 2
+    initial = no
+    randomized = no
+}

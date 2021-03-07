@@ -1,0 +1,15 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_ship_class_small"
+		textureFile = "gfx/interface/icons/z_um_ship_classes.dds"
+		noOfFrames = 40
+	}
+
+	spriteType = {
+		name = "GFX_ship_class_medium"
+		textureFile = "gfx/interface/icons/z_um_ship_classes_medium.dds"
+		noOfFrames = 40
+	}
+
+}

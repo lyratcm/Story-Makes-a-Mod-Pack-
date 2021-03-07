@@ -1,0 +1,16 @@
+civic_hive_total_control = {
+	potential = { authority = { value = auth_hive_mind } }
+	possible = {
+		civics = {
+			NOT = {
+				value = civic_hive_semi_autonomous_drones
+			}
+		}
+	}
+	random_weight = { base = 2 }
+	modifier = {
+		leader_skill_levels = 2
+		planet_stability_add = 20
+		country_base_influence_produces_add = 0.5
+	}
+}

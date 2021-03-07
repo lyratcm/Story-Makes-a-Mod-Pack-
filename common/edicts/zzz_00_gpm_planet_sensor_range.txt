@@ -1,0 +1,33 @@
+gpm_edict_planet_sensor_range  = {
+	length = -1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+	
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = gpm_edict_planet_sensor_range }			
+			}
+			minor_artifacts = 20
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = gpm_edict_planet_sensor_range
+			}
+			influence = 50
+		}
+	}
+
+	potential = {
+		has_technology = tech_arcane_deciphering
+	}
+
+	modifier = {
+		planet_sensor_range_add = 3
+	}
+	
+	ai_weight = {
+		weight = @EdictLowPrio
+	}	
+}

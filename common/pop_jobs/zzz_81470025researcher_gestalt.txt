@@ -1,0 +1,87 @@
+researcher_gestalt = {
+    category = resident_gestalt
+    condition_string = WORKER_JOB_TRIGGER
+    building_icon = building_research_lab_1
+    clothes_texture_index = 3
+    icon = researcher
+    possible_pre_triggers = {
+        has_owner = yes
+        is_enslaved = no
+        is_being_purged = no
+        is_being_assimilated = no
+    }
+    possible = {
+        is_free_pop_gestalt = yes
+    }
+    resources = {
+        category = planet_researchers
+        produces = {
+            physics_research = 4
+            engineering_research = 4
+            society_research = 4
+        }
+        upkeep = {
+            energy = 3
+            minerals = 3
+        }
+    }
+    weight = {
+        weight = @complex_drone_job_weight
+        modifier = {
+            factor = 10
+            has_trait = trait_erudite
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_robust
+                has_trait = trait_robot_efficient_processors
+                has_trait = trait_adaptable_evolution
+                has_trait = trait_adaptable_evolution_robot
+                has_trait = trait_ageless
+                has_trait = trait_sleepless
+            }
+        }
+        modifier = {
+            factor = 5
+            OR = {
+                has_trait = trait_robot_logic_engines
+                has_trait = trait_intelligent
+                has_trait = trait_enigmatic_intelligence
+                has_trait = trait_enigmatic_intelligence_poor
+                has_trait = trait_presapient_natural_intellectuals
+                has_trait = trait_mem_surveyor_freebotomites
+            }
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_brainslug
+        }
+        modifier = {
+            factor = 2
+            has_trait = trait_psionic
+        }
+        modifier = {
+            factor = 1.5
+            OR = {
+                has_trait = trait_natural_engineers
+                has_trait = trait_natural_physicists
+                has_trait = trait_natural_sociologists
+            }
+        }
+        modifier = {
+            factor = 0.65
+            OR = {
+                has_trait = trait_syncretic_proles
+                has_trait = trait_presapient_proles
+            }
+        }
+        modifier = {
+            factor = 0.1
+            OR = {
+                has_trait = trait_enigmatic_intelligence_failed
+                has_trait = trait_presapient_proles
+            }
+        }
+    }
+}

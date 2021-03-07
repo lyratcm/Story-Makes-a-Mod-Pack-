@@ -1,0 +1,255 @@
+###_Z FW XL WEAPONS	#########################################################################
+
+# ──z_fw_tech_weap_xl_lance_6~9
+#     └─
+# ──z_fw_tech_weap_xl_accelerator_6~9
+#     └─
+# ──z_fw_tech_weap_xl_emitter_6~9
+#     └─
+# ──z_fw_tech_weap_xl_missile_6~9
+#     └─
+
+
+
+
+###_Z FW ADV XL LANCE	##############################################
+
+z_fw_tech_weap_xl_lance_6 = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_energy_lance_2"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_lance_7 = {
+	area = physics
+	category = { particles }
+	tier = 6
+	cost = @z_techTier6cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_lance_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_lance_8 = {
+	area = physics
+	category = { particles }
+	tier = 7
+	cost = @z_techTier7cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_lance_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_lance_9 = {
+	area = physics
+	category = { particles }
+	tier = 8
+	cost = @z_techTier8cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_lance_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV XL ACCELERATOR	##############################################
+
+z_fw_tech_weap_xl_accelerator_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_mass_accelerator_2"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_accelerator_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_accelerator_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_accelerator_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_accelerator_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_accelerator_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_accelerator_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV XL ARC EMITTER	##############################################
+
+z_fw_tech_weap_xl_emitter_6 = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_arc_emitter_2"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_emitter_7 = {
+	area = physics
+	category = { particles }
+	tier = 6
+	cost = @z_techTier6cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_emitter_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_emitter_8 = {
+	area = physics
+	category = { particles }
+	tier = 7
+	cost = @z_techTier7cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_emitter_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_emitter_9 = {
+	area = physics
+	category = { particles }
+	tier = 8
+	cost = @z_techTier8cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_emitter_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV XL MISSILE	##############################################
+
+z_fw_tech_weap_xl_missile_6 = {
+	area = engineering
+	category = { propulsion }
+	tier = 5
+	cost = @tier5cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "tech_mass_accelerator_2"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_missile_7 = {
+	area = engineering
+	category = { propulsion }
+	tier = 6
+	cost = @z_techTier6cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_missile_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_missile_8 = {
+	area = engineering
+	category = { propulsion }
+	tier = 7
+	cost = @z_techTier7cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_missile_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_weap_xl_missile_9 = {
+	area = engineering
+	category = { propulsion }
+	tier = 8
+	cost = @z_techTier8cost2
+	weight = 0
+	ai_update_type = military
+	#_prerequisites = { "z_fw_tech_weap_xl_missile_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+

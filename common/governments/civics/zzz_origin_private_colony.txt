@@ -1,0 +1,9 @@
+origin_private_colony = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_private_colony.dds"
+    picture = GFX_origin_private_colony
+    max_once_global = yes
+    potential = {
+        always = no
+    }
+}

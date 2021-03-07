@@ -1,0 +1,17 @@
+trait_oligotroph = {
+    cost = 1
+    initial = no
+    modification = no
+    randomized = no
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_antimetabolic"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+    }
+    modifier = {
+        planet_pops_organics_food_upkeep_mult = -0.10
+    }
+}

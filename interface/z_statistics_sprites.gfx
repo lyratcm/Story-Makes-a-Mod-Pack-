@@ -1,0 +1,133 @@
+#_无尽整合GFX
+spriteTypes = {
+	#_evt img 数据检视GFX
+	spriteType = {
+		name = "GFX_evt_z_statistic"
+		texturefile = "gfx/event_pictures/z_statistic.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	#_evt img 数据检视GFX
+	spriteType = {
+		name = "GFX_evt_z_sts_modmenu"
+		texturefile = "gfx/interface/z_modmenu/z_sts_evt_img.dds"
+		alwaystransparent = yes
+	}
+	#_子设置窗口
+	corneredTileSpriteType = {
+		name = "GFX_z_modmenu_window_sub_bg_1"
+		texturefile = "gfx/interface/z_modmenu/z_modmenu_window_sub_bg_1.dds"
+		size= {x=50 y=50 }
+		borderSize = { x=10 y=10 }
+	}
+	
+	
+	
+	
+	#_滑条
+	spriteType = {
+		name = "GFX_z_sts_scroll_slider"
+		texturefile = "gfx/interface/z_modmenu/z_sts_scroll_slider.dds"
+	}
+	corneredTileSpriteType = {
+		name = "GFX_z_mm_scroll_bg"
+		size= {x =12 y = 12 }
+		texturefile = "gfx/interface/z_modmenu/z_mm_scroll_bg.dds"
+		borderSize = { x=4 y=4 }
+	}
+	spriteType = {
+		name = "GFX_z_mm_scroll_down"
+		texturefile = "gfx/interface/z_modmenu/z_mm_scroll_down.dds"
+	}
+	spriteType = {
+		name = "GFX_z_mm_scroll_up"
+		texturefile = "gfx/interface/z_modmenu/z_mm_scroll_up.dds"
+	}
+	
+	
+	
+	
+	##_选项
+	#_big
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_bg"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_bg.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_bg_white"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_bg_white.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_bg_blue"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_bg_blue.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_bg_green"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_bg_green.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_bg_orange"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_bg_orange.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_bg_yellow"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_bg_yellow.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_bg_red"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_bg_red.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 3
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_expand"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_expand.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 3
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_hide"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_hide.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 3
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_option_red"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_option_red.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 3
+	}
+	#_sub
+	spriteType = {
+		name = "GFX_z_sts_button_evt_sub_bg"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_sub_bg.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_sub_bg_white"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_sub_bg_white.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_sub_bg_blue"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_sub_bg_blue.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_sub_bg_green"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_sub_bg_green.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_sub_bg_orange"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_sub_bg_orange.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_sub_bg_yellow"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_sub_bg_yellow.dds"
+	}
+	spriteType = {
+		name = "GFX_z_sts_button_evt_sub"
+		texturefile = "gfx/interface/z_modmenu/z_statistics_button_evt_sub.dds"
+	}
+}

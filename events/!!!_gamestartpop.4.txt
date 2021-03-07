@@ -1,0 +1,382 @@
+namespace = gamestartpop
+country_event = {
+    id = gamestartpop.4
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        add_resource = {
+            food = 100
+        }
+        if = {
+            limit = {
+                exists = home_planet
+                has_origin = origin_post_apocalyptic
+            }
+            home_planet = {
+                add_deposit = d_underground_vault_start
+                remove_building = building_research_lab_1
+                create_pop = {
+                    species = owner_main_species
+                }
+                check_planet_employment = yes
+            }
+        }
+        if = {
+            limit = {
+                exists = capital_scope
+                has_origin = origin_delicate_ecosystem
+            }
+            capital_scope = {
+                if = {
+                    limit = {
+                        has_global_flag = eco_fragile_ecosystem
+                    }
+                    add_modifier = {
+                        modifier = eco_fragile_ecosystem
+                        days = -1
+                    }
+                    if = {
+                        limit = {
+                            is_dry = yes
+                        }
+                        add_deposit = d_eco_tall_grass_prairie
+                    }
+                    if = {
+                        limit = {
+                            is_wet = yes
+                        }
+                        add_deposit = d_eco_old_growth_forest
+                    }
+                    if = {
+                        limit = {
+                            is_cold = yes
+                        }
+                        add_deposit = d_eco_peatland
+                    }
+                }
+                else = {
+                    add_modifier = {
+                        modifier = delicate_ecosystem
+                        days = -1
+                    }
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_origin = origin_terraformer
+            }
+            give_technology = {
+                message = no
+                tech = tech_terrestrial_sculpting
+            }
+            capital_scope = {
+                add_modifier = {
+                    modifier = terraformer_homeworld
+                    days = -1
+                }
+            }
+        }
+        if = {
+            limit = {
+                exists = capital_scope
+                has_origin = origin_exploited_homeworld
+            }
+            give_technology = {
+                message = no
+                tech = tech_mining_1
+            }
+            give_technology = {
+                message = no
+                tech = tech_space_mining_1
+            }
+            capital_scope = {
+                add_deposit = d_exploited_homeworld
+            }
+            country_event = {
+                id = countryexpanded.20
+                days = 10
+                random = 20
+            }
+        }
+        if = {
+            limit = {
+                has_origin = origin_ancient_dynasty
+            }
+            give_technology = {
+                message = no
+                tech = tech_planetary_unification
+            }
+            capital_scope = {
+                add_deposit = d_ancient_palace
+            }
+        }
+        if = {
+            limit = {
+                exists = home_planet
+                has_origin = origin_holy_mountain
+            }
+            add_modifier = {
+                modifier = has_holy_mountain
+                days = -1
+            }
+            add_research_option = tech_mine_rare_crystals
+            home_planet = {
+                add_deposit = d_holy_mountain
+                create_pop = {
+                    species = owner_main_species
+                }
+                check_planet_employment = yes
+            }
+        }
+        if = {
+            limit = {
+                has_origin = origin_primitive_cyborgs
+            }
+            give_technology = {
+                message = no
+                tech = tech_powered_exoskeletons
+            }
+            give_technology = {
+                message = no
+                tech = tech_administrative_ai
+            }
+        }
+        if = {
+            limit = {
+                has_origin = origin_symbiote
+            }
+            every_owned_leader = {
+                if = {
+                    limit = {
+                        leader_class = general
+                        NOR = {
+                            has_trait = leader_trait_general_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_general_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+                if = {
+                    limit = {
+                        leader_class = admiral
+                        NOR = {
+                            has_trait = leader_trait_admiral_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_admiral_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+                if = {
+                    limit = {
+                        leader_class = governor
+                        NOR = {
+                            has_trait = leader_trait_governor_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_governor_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+                if = {
+                    limit = {
+                        leader_class = scientist
+                        NOR = {
+                            has_trait = leader_trait_scientist_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_scientist_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+                if = {
+                    limit = {
+                        leader_class = ruler
+                        NOR = {
+                            has_trait = leader_trait_ruler_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_ruler_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+            }
+            every_pool_leader = {
+                if = {
+                    limit = {
+                        leader_class = general
+                        NOR = {
+                            has_trait = leader_trait_general_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_general_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+                if = {
+                    limit = {
+                        leader_class = admiral
+                        NOR = {
+                            has_trait = leader_trait_admiral_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_admiral_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+                if = {
+                    limit = {
+                        leader_class = governor
+                        NOR = {
+                            has_trait = leader_trait_governor_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_governor_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+                if = {
+                    limit = {
+                        leader_class = scientist
+                        NOR = {
+                            has_trait = leader_trait_scientist_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_scientist_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+                if = {
+                    limit = {
+                        leader_class = ruler
+                        NOR = {
+                            has_trait = leader_trait_ruler_brainslug
+                        }
+                    }
+                    add_trait = leader_trait_ruler_brainslug
+                    add_ruler_trait = leader_trait_ruler_brainslug
+                }
+            }
+        }
+        if = {
+            limit = {
+                OR = {
+                    is_megacorp = yes
+                    has_valid_civic = civic_merchant_guilds
+                    has_valid_civic = eco_civic_consumerist
+                }
+            }
+            give_technology = {
+                message = no
+                tech = tech_space_trading
+            }
+        }
+        if = {
+            limit = {
+                OR = {
+                    has_civic = civic_warrior_culture
+                    has_civic = civic_private_military_companies
+                    has_civic = civic_hive_strength_of_legions
+                    has_civic = civic_machine_warbots
+                }
+            }
+            add_research_option = tech_centralized_command
+        }
+        if = {
+            limit = {
+                exists = home_planet
+                has_civic = civic_environmentalist
+            }
+            home_planet = {
+                if = {
+                    limit = {
+                        has_global_flag = EcologyMod_active
+                    }
+                    add_deposit = d_eco_city_park
+                    create_pop = {
+                        species = owner_main_species
+                    }
+                }
+                else = {
+                    add_deposit = d_nature_preserve
+                }
+                create_pop = {
+                    species = owner_main_species
+                }
+                create_pop = {
+                    species = owner_main_species
+                }
+                check_planet_employment = yes
+            }
+        }
+        if = {
+            limit = {
+                OR = {
+                    has_valid_civic = civic_efficient_bureaucracy
+                    has_valid_civic = civic_byzantine_bureaucracy
+                    has_valid_civic = civic_byzantine_bureaucracy_corp
+                    has_valid_civic = civic_hive_divided_attention
+                    has_valid_civic = civic_machine_efficient_administrators
+                }
+            }
+            add_research_option = tech_adaptive_bureaucracy
+        }
+        if = {
+            limit = {
+                exists = home_planet
+                has_civic = civic_reanimated_armies
+            }
+            home_planet = {
+                add_building = building_dread_encampment
+                create_pop = {
+                    species = owner_main_species
+                }
+                check_planet_employment = yes
+            }
+        }
+        if = {
+            limit = {
+                exists = home_planet
+                has_civic = civic_natural_hunters
+            }
+            give_technology = {
+                message = no
+                tech = tech_dangerous_wildlife
+            }
+            home_planet = {
+                add_deposit = d_hunting_preserve
+                create_pop = {
+                    species = owner_main_species
+                }
+                check_planet_employment = yes
+            }
+        }
+        if = {
+            limit = {
+                has_civic = civic_hmo
+            }
+            give_technology = {
+                message = no
+                tech = tech_frontier_health
+            }
+        }
+        if = {
+            limit = {
+                exists = home_planet
+                has_civic = civic_master_computer
+            }
+            home_planet = {
+                add_deposit = d_master_computer
+                create_pop = {
+                    species = owner_main_species
+                }
+                check_planet_employment = yes
+            }
+        }
+        if = {
+            limit = {
+                exists = home_planet
+                is_lithoid_empire = yes
+                owner_species = {
+                    has_trait = trait_lithoid_eternal
+                }
+            }
+            home_planet = {
+                add_deposit = d_hibernating_lithoids
+            }
+        }
+    }
+}

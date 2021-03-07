@@ -1,0 +1,90 @@
+decision_pd_transplant_tree = {
+	owned_planets_only = yes
+	sound = event_laboratory_sound
+	icon = decision_pd_transplant_tree
+
+	enactment_time = 180
+
+	resources = {
+		category = decisions
+		cost = {
+			food = 500
+		}
+	}
+
+	potential = {
+		has_modifier = no_pd_lifetree
+		NOT = {
+			OR = {
+				has_deposit = d_pd_tree_of_life_habitat
+				has_deposit = d_pd_tree_of_life_ringworld
+				has_deposit = d_pd_tree_of_life_special
+			}
+		}
+	}
+
+	allow = { }
+
+	effect = {
+		remove_modifier = no_pd_lifetree
+		hidden_effect = {
+		remove_deposit = d_pd_tree_of_life_dead
+		IF = {
+			limit = { 
+				NOT = { has_planet_flag = pd_tol1 }
+				NOT = { has_planet_flag = pd_tol2 }
+				NOT = { has_planet_flag = pd_tol3 }
+				NOT = { habitable_structure = yes }
+				NOT = { is_planet_class = pc_ecocity }
+				NOT = { is_planet_class = pc_relic }
+				NOT = { is_planet_class = pc_city }
+				NOT = { is_planet_class = pc_floating }
+				NOT = { is_planet_class = pc_crystal }
+				NOT = { is_planet_class = pc_technoorganic }
+				NOT = { is_planet_class = pc_graveyard }
+			 }
+			add_deposit = d_pd_tree_of_life_1
+			set_planet_flag = pd_tol1	
+			IF = {
+				limit = { owner = { NOT = { has_technology = tech_pdtoltech } } }
+				planet_event = { id = pdengine.40 days = 7200 random = 7200 } 
+			}
+			IF = {
+				limit = { owner = { has_technology = tech_pdtoltech } }
+				planet_event = { id = pdengine.40 days = 3600 random = 3600 }
+			}
+		}
+		ELSE_IF = {
+			limit = { 
+				habitable_structure = yes
+				NOT = { is_planet_class = pc_ringworld_habitable }
+			 }
+		add_deposit = d_pd_tree_of_life_habitat
+		}
+		ELSE_IF = {
+			limit = { 
+				is_planet_class = pc_ringworld_habitable
+			 }
+		add_deposit = d_pd_tree_of_life_ringworld
+		}
+		ELSE_IF = {
+			limit = { 
+				OR = {
+				is_planet_class = pc_ecocity
+				is_planet_class = pc_relic
+				is_planet_class = pc_city
+				is_planet_class = pc_floating
+				is_planet_class = pc_crystal
+				is_planet_class = pc_technoorganic
+				is_planet_class = pc_graveyard
+				}
+			 }
+		add_deposit = d_pd_tree_of_life_special
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

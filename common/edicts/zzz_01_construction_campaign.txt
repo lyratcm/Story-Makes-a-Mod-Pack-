@@ -1,0 +1,35 @@
+construction_campaign = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			energy = 1000
+		}
+	}
+
+	modifier = {
+		planet_structures_cost_mult = -0.1
+		planet_building_build_speed_mult = 0.1
+	}
+
+	potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		has_technology = tech_planetary_unification
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictLowPrio
+			is_at_war = no
+			resource_stockpile_compare = { resource = energy value >= 7500 }
+			any_owned_planet = {
+				OR = {
+					free_district_slots >= 1
+					free_building_slots >= 1
+				}
+			}
+		}
+	}
+}

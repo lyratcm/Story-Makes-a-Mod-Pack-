@@ -1,0 +1,27 @@
+trait_admiral_unstoppable_force = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_admiral_unstoppable_force.dds"
+    modifier = {
+        ship_speed_mult = 0.30
+        ship_disengage_chance_mult = 0.25
+        ship_evasion_mult = 0.10
+    }
+    leader_trait = {
+        admiral
+    }
+    leader_class = {
+        admiral
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_presapient_starborn
+        }
+    }
+    opposites = {
+        leader_trait_gale_speed
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

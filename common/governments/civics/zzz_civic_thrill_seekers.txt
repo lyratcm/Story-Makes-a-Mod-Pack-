@@ -1,0 +1,18 @@
+civic_thrill_seekers = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        country_ship_upgrade_cost_mult = -0.20
+        ship_speed_mult = 0.20
+        ship_evasion_mult = 0.10
+        science_ship_survey_speed = 0.20
+        ship_anomaly_research_speed_mult = 0.20
+        ship_anomaly_generation_chance_mult = -0.10
+    }
+}

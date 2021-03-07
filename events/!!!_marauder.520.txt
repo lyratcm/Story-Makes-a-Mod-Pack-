@@ -1,0 +1,33 @@
+namespace = marauder
+
+country_event = {
+	id = marauder.520
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = marauder_crisis_started
+		any_planet_within_border = {
+			has_planet_flag = marauder_rally_point # Make sure home system still owned
+		}
+	}
+
+	immediate = {
+		create_marauder_constructors = yes
+		if = {
+			limit = { num_armies < 40 }
+			create_marauder_armies = yes
+		}
+		# If at fleet cap, check again later
+		if = {
+			limit = {
+				fleet_power > 200000
+			}
+			country_event = { id = marauder.520 days = 340 }
+			break = yes
+		}
+		create_marauder_fleet = yes
+		country_event = { id = marauder.520 days = 340 }
+	}
+}

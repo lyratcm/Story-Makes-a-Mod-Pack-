@@ -1,0 +1,53 @@
+osom_decision_subterranean_4 = {
+	owned_planets_only = yes
+	icon = osom_subterranean
+	sound = event_construction
+
+	enactment_time = 1800
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			energy = 2000
+			alloys = 2000
+		}
+	}
+
+	allow = {
+		OR = {
+			has_building = osom_building_speleology_facility_1
+			has_building = osom_building_speleology_facility_2
+			has_building = osom_building_speleology_facility_3
+		}
+	}
+
+	potential = {
+		owner = {
+			has_technology = osom_tech_subterranean
+		}
+		has_modifier = osom_planet_subterranean_3
+		NOT = {
+			uses_district_set = habitat
+			uses_district_set = ring_world
+		}
+	}
+	
+	effect = {
+		add_modifier = { 
+			modifier = "osom_planet_subterranean_4" 
+			days = -1 
+		}
+		hidden_effect = {
+			remove_modifier = "osom_planet_subterranean_3" 
+		}
+	}
+	
+	ai_weight = {
+		weight = 50
+		modifier = {
+			factor = 0
+			free_district_slots > 2
+		}
+	}
+}

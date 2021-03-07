@@ -1,0 +1,105 @@
+@rw_cost = 2000
+@rw_maintenance = 10
+@rw_district_buildtime = 600
+district_rw_hive = {
+    base_buildtime = @rw_district_buildtime
+    is_capped_by_modifier = no
+    show_on_uncolonized = {
+        exists = from
+        from = {
+            is_hive_empire = yes
+        }
+        uses_district_set = ring_world
+    }
+    potential = {
+        exists = owner
+        owner = {
+            is_hive_empire = yes
+        }
+        uses_district_set = ring_world
+    }
+    conversion_ratio = 0.5
+    convert_to = {
+        district_rw_nexus
+        district_rw_city
+    }
+    resources = {
+        category = planet_districts
+        cost = {
+            minerals = @rw_cost
+        }
+        upkeep = {
+            energy = @rw_maintenance
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 60
+        job_maintenance_drone_add = 36
+        job_patrol_drone_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_technology = tech_housing_1
+            }
+        }
+        modifier = {
+            planet_housing_add = 10
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_technology = tech_housing_2
+            }
+        }
+        modifier = {
+            planet_housing_add = 10
+            job_maintenance_drone_add = 12
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_swapped_tradition = tr_prosperity_extended_hives
+            }
+        }
+        modifier = {
+            planet_housing_add = 10
+        }
+    }
+    triggered_desc = {
+        trigger = {
+            planet = {
+                has_deposit = d_arcane_generator
+                NOT = {
+                    has_district = district_rw_hive
+                }
+            }
+        }
+        text = arcane_generator_upkeep_desc
+    }
+    ai_weight = {
+        weight = 0
+        modifier = {
+            weight = 1000000
+            planet = {
+                planet_devastation < 1
+                years_passed > 5
+                OR = {
+                    free_housing < 4
+                    AND = {
+                        free_amenities < 4
+                        free_jobs < 4
+                    }
+                    NOT = {
+                        has_district = district_rw_hive
+                    }
+                }
+            }
+        }
+    }
+}

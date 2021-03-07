@@ -1,0 +1,79 @@
+decision_negotiate_with_crime_lords = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_deal
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+	
+	potential = {
+		owner = { is_regular_empire = yes }
+		planet_crime >= 10
+		NOR = { 
+			has_modifier = crime_lord_deal
+			has_modifier = anticrime_campaign
+		}
+		OR = {
+			NOT = { owner = { is_ai = yes } }
+			planet_crime > 55
+			AND = {
+				planet_crime > 45
+				has_branch_office = yes
+				branch_office_owner = { is_criminal_syndicate = yes }
+			}
+		}
+		OR = {
+			NOT = { owner = { is_ai = yes } }
+			NOT = {	has_building = building_hall_judgment }
+		}
+		OR = {
+			NOT = { owner = { is_ai = yes } }
+			NOT = {	has_modifier = crime_lord_deal_broken }
+		}
+	}
+	
+	effect = {
+		add_modifier = { modifier = "crime_lord_deal" days = -1 }
+		if = {
+			limit = {
+				NOR = {
+					has_modifier = criminal_underworld
+					has_modifier = gang_wars
+					has_modifier = center_of_drug_trade
+					has_modifier = mob_rule
+				}
+			}
+			add_modifier = { modifier = "criminal_underworld" days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = gang_wars }
+			remove_modifier = gang_wars
+			add_modifier = { modifier = "mob_rule" days = -1 }
+		}
+		else_if = {
+			limit = {
+				planet_crime >= 80
+				has_modifier = criminal_underworld
+			}
+			remove_modifier = criminal_underworld
+			add_modifier = { modifier = "mob_rule" days = -1 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 2
+			owner = {
+				OR = {
+					is_authoritarian = yes
+					is_militarist = yes
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+trait_additrait_mob_mentality = {
+    cost = 1
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    opposites = {
+        "trait_additrait_born_warriors"
+        "trait_additrait_lateral_thinkers"
+        "trait_additrait_elusive"
+    }
+}

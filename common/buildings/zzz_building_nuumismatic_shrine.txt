@@ -1,0 +1,118 @@
+building_nuumismatic_shrine = {
+	base_buildtime = 180
+	can_demolish = yes
+	base_cap_amount = 1
+	
+	potential = {
+		hidden_trigger = {
+			OR = {
+				has_building = building_nuumismatic_shrine
+				owner = { has_country_flag = nuumismatic_shrine }
+			}
+		}
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	destroy_trigger = {
+		owner = {
+			is_regular_empire = no
+		}
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.10
+		planet_jobs_unity_produces_mult = 0.10
+		job_merchant_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_private_military_companies }
+				NOT = { has_valid_civic = civic_crusaders }
+			}					
+		}
+		modifier = {
+			job_priest_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_private_military_companies
+			}					
+		}
+		modifier = {
+			job_chaplain_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_crusaders
+			}					
+		}
+		modifier = {
+			job_templar_add = 2
+		}
+	}
+
+	resources = {
+		cost = {
+			minerals = 1000
+		}
+		category = planet_buildings
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_private_military_companies }
+				NOT = { has_valid_civic = civic_crusaders }
+			}
+		}
+		text = job_priest_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_private_military_companies
+			}
+		}
+		text = job_chaplain_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_crusaders
+			}
+		}
+		text = job_templar_effect_desc
+	}
+	triggered_desc = {
+		text = job_merchant_effect_desc
+	}
+	
+	on_queued = {
+		owner = { remove_country_flag = nuumismatic_shrine }
+	}
+
+	on_unqueued = {
+		owner = { set_country_flag = nuumismatic_shrine }
+	}
+	
+	ai_weight = {
+		weight = 2
+		modifier = {
+			factor = 0
+			is_planet_class = pc_habitat
+		}
+	}
+}

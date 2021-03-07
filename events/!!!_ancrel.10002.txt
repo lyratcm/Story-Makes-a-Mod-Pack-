@@ -1,0 +1,44 @@
+namespace = ancrel
+
+country_event = {
+	id = ancrel.10002
+	title = "ancrel.10002.name"
+	desc = "ancrel.10002.desc"
+	picture = GFX_evt_ancient_records
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "FASCINATING"
+		locked_random_list = {
+			10 = {
+				add_monthly_resource_mult = {
+					resource = engineering_research
+					value = @tier3researchreward
+					min = @tier3researchmin
+					max = @tier3researchmax
+				}
+			}
+			10 = {
+				add_monthly_resource_mult = {
+					resource = physics_research
+					value = @tier3researchreward
+					min = @tier3researchmin
+					max = @tier3researchmax
+				}
+			}
+			10 = {
+				add_monthly_resource_mult = {
+					resource = society_research
+					value = @tier3researchreward
+					min = @tier3researchmin
+					max = @tier3researchmax
+				}
+			}
+		}
+		add_modifier = {
+			modifier = "arcane_insight"
+			days = 1800
+		}
+	}
+}

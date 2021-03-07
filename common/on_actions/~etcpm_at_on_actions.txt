@@ -1,0 +1,19 @@
+on_game_start = {
+	events = {
+		etcpm_at_traits.2
+	}
+}
+
+on_modification_complete = {
+	events = {
+		etcpm_at_traits.2
+		etcpm_at_traits.3
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		etcpm_at_traits.2
+		etcpm_at_traits.3
+	}
+}

@@ -1,0 +1,12 @@
+decisions = {
+    use_for_ai_budget = yes
+    parent = country
+    generate_mult_modifiers = {
+        produces
+        cost
+    }
+    generate_add_modifiers = {
+        produces
+        cost
+    }
+}

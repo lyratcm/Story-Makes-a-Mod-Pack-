@@ -1,0 +1,23 @@
+trait_robot_governor_negawatt_revolution = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_robot_governor_negawatt_revolution.dds"
+    modifier = {
+        planet_buildings_upkeep_mult = -0.10
+        planet_districts_upkeep_mult = -0.20
+    }
+    leader_trait = {
+        governor
+    }
+    leader_class = {
+        governor
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_robot_modular_neural_network
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

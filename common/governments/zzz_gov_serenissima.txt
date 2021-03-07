@@ -1,0 +1,19 @@
+gov_serenissima = {
+    ruler_title = RT_DOGE
+    election_candidates = {
+        modifier = {
+            add = 100
+            leader_class = ruler
+        }
+        modifier = {
+            add = 10
+            leader_class = governer
+        }
+    }
+    possible = {
+        has_valid_civic = secret_serenissima
+    }
+    weight = {
+        base = 9999
+    }
+}

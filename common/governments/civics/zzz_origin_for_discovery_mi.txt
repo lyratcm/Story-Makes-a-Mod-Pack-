@@ -1,0 +1,36 @@
+lrsk_gov_var_origin_for_discovery_mi = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/lrsk_gov_var_origin_for_discovery_mi.dds"
+    picture = GFX_lrsk_gov_var_origin_for_discovery_mi
+    max_once_global = yes
+    potential = {
+        always = no
+    }
+    playable = {
+        host_has_dlc = "Federations"
+    }
+    possible = {
+        authority = {
+            value = auth_machine_intelligence
+        }
+        civics = {
+            NOR = {
+                value = civic_machine_assimilator
+                value = civic_machine_terminator
+            }
+        }
+    }
+    description = "lrsk_gov_var_origin_tooltip_for_discovery_mi_effects"
+    flags = {
+        custom_start_screen
+    }
+    traits = {
+    }
+    random_weight = {
+        base = 1
+        modifier = {
+            factor = 0
+            has_global_flag = game_started
+        }
+    }
+}

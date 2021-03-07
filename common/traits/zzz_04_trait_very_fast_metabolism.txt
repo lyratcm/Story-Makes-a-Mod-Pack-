@@ -1,0 +1,38 @@
+trait_very_fast_metabolism = {
+    cost = -4
+    initial = no
+    modification = no
+    randomized = no
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_slow_metabolism"
+        "trait_fast_metabolism"
+        "trait_very_slow_metabolism"
+        "trait_enduring"
+        "trait_venerable"
+        "trait_big"
+        "trait_huge"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        planet_pops_food_upkeep_mult = 1.0
+        leader_age = -20
+        pop_growth_speed = 0.3
+    }
+    slave_cost = {
+        energy = 0
+    }
+    ai_weight = {
+        weight = 800
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_very_fast_metabolism@prev
+                }
+            }
+        }
+    }
+}

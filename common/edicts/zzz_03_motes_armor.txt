@@ -1,0 +1,19 @@
+@EdictDuration = 3600
+motes_armor = {
+    length = @EdictDuration
+    resources = {
+        category = ship_edicts
+        cost = {
+            volatile_motes = 50
+        }
+    }
+    potential = {
+        always = no
+    }
+    modifier = {
+        ship_armor_mult = 0.25
+    }
+    ai_weight = {
+        weight = 0
+    }
+}

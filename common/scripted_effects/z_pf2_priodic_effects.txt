@@ -1,0 +1,592 @@
+###_z performance plus	周期eft	#####################################################################
+
+
+
+
+z_pf2_eft_trade_transfer_player = {#_没法检测trade_value
+	every_system_within_border = {	limit = { has_system_trade_value > 0 }
+		root = { add_resource = { energy = 1000 } }
+	}
+}
+
+#_[country][monthly] 添加贸易路线补偿
+z_pf2_eft_trade_compensation = {
+	if = {#_末期
+		limit = { end_game_years_passed >= -1 }
+		if = {#_巨企
+			limit = { is_megacorp = yes }
+			if = {
+				limit = { owner = { has_policy_flag = trade_conversion_consumer_goods } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 60 }		 add_resource = { consumer_goods = 30 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 48 }		 add_resource = { consumer_goods = 24 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 36 }		 add_resource = { consumer_goods = 18 } }
+					}
+					else = {
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_unity } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 60 }		 add_resource = { unity = 30 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 48 }		 add_resource = { unity = 24 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 36 }		 add_resource = { unity = 18 } }
+					}
+					else = {
+						root = { add_resource = { energy = 24 }		 add_resource = { unity = 12 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_trade_league } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 60 }		 add_resource = { consumer_goods = 30 }		add_resource = { unity = 30 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 48 }		 add_resource = { consumer_goods = 24 }		add_resource = { unity = 24 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 36 }		 add_resource = { consumer_goods = 18 }		add_resource = { unity = 18 } }
+					}
+					else = {
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 }		add_resource = { unity = 12 } }
+					}
+				}
+			}
+			else = {
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 120 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 96 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 72 } }
+					}
+					else = {
+						root = { add_resource = { energy = 48 } }
+					}
+				}
+			}
+		}
+		else = {#_普通
+			if = {
+				limit = { owner = { has_policy_flag = trade_conversion_consumer_goods } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 40 }		 add_resource = { consumer_goods = 20 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 32 }		 add_resource = { consumer_goods = 16 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 } }
+					}
+					else = {
+						root = { add_resource = { energy = 16 }		 add_resource = { consumer_goods = 8 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_unity } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 40 }		 add_resource = { unity = 20 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 32 }		 add_resource = { unity = 16 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { unity = 12 } }
+					}
+					else = {
+						root = { add_resource = { energy = 16 }		 add_resource = { unity = 8 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_trade_league } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 40 }		 add_resource = { consumer_goods = 20 }		add_resource = { unity = 20 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 32 }		 add_resource = { consumer_goods = 16 }		 add_resource = { unity = 16 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 }		add_resource = { unity = 12 } }
+					}
+					else = {
+						root = { add_resource = { energy = 16 }		 add_resource = { consumer_goods = 8 }		add_resource = { unity = 8 } }
+					}
+				}
+			}
+			else = {
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 80 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 64 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 48 } }
+					}
+					else = {
+						root = { add_resource = { energy = 32 } }
+					}
+				}
+			}
+		}
+	}
+	else_if = {#_中期
+		limit = { mid_game_years_passed >= -1 }
+		if = {#_巨企
+			limit = { is_megacorp = yes }
+			if = {
+				limit = { owner = { has_policy_flag = trade_conversion_consumer_goods } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 40 }		 add_resource = { consumer_goods = 20 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 32 }		 add_resource = { consumer_goods = 16 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 } }
+					}
+					else = {
+						root = { add_resource = { energy = 16 }		 add_resource = { consumer_goods = 8 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_unity } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 40 }		 add_resource = { unity = 20 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 32 }		 add_resource = { unity = 16 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { unity = 12 } }
+					}
+					else = {
+						root = { add_resource = { energy = 16 }		 add_resource = { unity = 8 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_trade_league } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 40 }		 add_resource = { consumer_goods = 20 }		add_resource = { unity = 20 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 32 }		 add_resource = { consumer_goods = 16 }		 add_resource = { unity = 16 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 }		add_resource = { unity = 12 } }
+					}
+					else = {
+						root = { add_resource = { energy = 16 }		 add_resource = { consumer_goods = 8 }		add_resource = { unity = 8 } }
+					}
+				}
+			}
+			else = {
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 80 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 64 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 48 } }
+					}
+					else = {
+						root = { add_resource = { energy = 32 } }
+					}
+				}
+			}
+		}
+		else = {#_普通
+			if = {
+				limit = { owner = { has_policy_flag = trade_conversion_consumer_goods } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 30 }		 add_resource = { consumer_goods = 15 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 18 }		 add_resource = { consumer_goods = 9 } }
+					}
+					else = {
+						root = { add_resource = { energy = 12 }		 add_resource = { consumer_goods = 6 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_unity } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 30 }		 add_resource = { unity = 15 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { unity = 12 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 18 }		 add_resource = { unity = 9 } }
+					}
+					else = {
+						root = { add_resource = { energy = 12 }		 add_resource = { unity = 6 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_trade_league } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 30 }		 add_resource = { consumer_goods = 15 }		add_resource = { unity = 15 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 }		 add_resource = { unity = 12 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 18 }		 add_resource = { consumer_goods = 9 }		add_resource = { unity = 9 } }
+					}
+					else = {
+						root = { add_resource = { energy = 12 }		 add_resource = { consumer_goods = 6 }		add_resource = { unity = 6 } }
+					}
+				}
+			}
+			else = {
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 60 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 48 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 36 } }
+					}
+					else = {
+						root = { add_resource = { energy = 24 } }
+					}
+				}
+			}
+		}
+	}
+	else = {#_前期
+		if = {#_巨企
+			limit = { is_megacorp = yes }
+			if = {
+				limit = { owner = { has_policy_flag = trade_conversion_consumer_goods } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 30 }		 add_resource = { consumer_goods = 15 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 18 }		 add_resource = { consumer_goods = 9 } }
+					}
+					else = {
+						root = { add_resource = { energy = 12 }		 add_resource = { consumer_goods = 6 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_unity } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 30 }		 add_resource = { unity = 15 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { unity = 12 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 18 }		 add_resource = { unity = 9 } }
+					}
+					else = {
+						root = { add_resource = { energy = 12 }		 add_resource = { unity = 6 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_trade_league } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 30 }		 add_resource = { consumer_goods = 15 }		add_resource = { unity = 15 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 24 }		 add_resource = { consumer_goods = 12 }		 add_resource = { unity = 12 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 18 }		 add_resource = { consumer_goods = 9 }		add_resource = { unity = 9 } }
+					}
+					else = {
+						root = { add_resource = { energy = 12 }		 add_resource = { consumer_goods = 6 }		add_resource = { unity = 6 } }
+					}
+				}
+			}
+			else = {
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 60 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 48 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 36 } }
+					}
+					else = {
+						root = { add_resource = { energy = 24 } }
+					}
+				}
+			}
+		}
+		else = {#_普通
+			if = {
+				limit = { owner = { has_policy_flag = trade_conversion_consumer_goods } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 20 }		 add_resource = { consumer_goods = 10 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 16 }		 add_resource = { consumer_goods = 8 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 12 }		 add_resource = { consumer_goods = 6 } }
+					}
+					else = {
+						root = { add_resource = { energy = 8 }		 add_resource = { consumer_goods = 4 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_unity } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 20 }		 add_resource = { unity = 10 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 16 }		 add_resource = { unity = 8 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 12 }		 add_resource = { unity = 6 } }
+					}
+					else = {
+						root = { add_resource = { energy = 8 }		 add_resource = { unity = 4 } }
+					}
+				}
+			}
+			else_if = {
+				limit = { owner = { has_policy_flag = trade_conversion_trade_league } }
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 20 }		 add_resource = { consumer_goods = 10 }		add_resource = { unity = 10 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 16 }		 add_resource = { consumer_goods = 8 }		 add_resource = { unity = 8 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 12 }		 add_resource = { consumer_goods = 6 }		add_resource = { unity = 6 } }
+					}
+					else = {
+						root = { add_resource = { energy = 8 }		 add_resource = { consumer_goods = 4 }		add_resource = { unity = 4 } }
+					}
+				}
+			}
+			else = {
+				every_owned_planet = {
+					limit = { is_colony = yes }
+					if = {		limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 4 } }
+						root = { add_resource = { energy = 40 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 3 } }
+						root = { add_resource = { energy = 36 } }
+					}
+					else_if = {	limit = { check_variable = { which = z_pr_var_plnt_manpower_bonus value >= 2 } }
+						root = { add_resource = { energy = 24 } }
+					}
+					else = {
+						root = { add_resource = { energy = 16 } }
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+#_[plnt][monthly] 动态人口限制debug
+z_pf2_eft_plnt_dynamic_cap_debug = {
+	#_动态cap 星球初始化
+	remove_deposit = z_pf2_d_dynamic_cap_1
+	remove_deposit = z_pf2_d_dynamic_cap_2
+	remove_deposit = z_pf2_d_dynamic_cap_3
+	remove_deposit = z_pf2_d_dynamic_cap_4
+	remove_deposit = z_pf2_d_dynamic_cap_5
+	remove_deposit = z_pf2_d_dynamic_cap_6
+	remove_deposit = z_pf2_d_dynamic_cap_7
+	remove_deposit = z_pf2_d_dynamic_cap_8
+	set_variable = { which = z_fw_var_plnt_dynamic_pop value = 0 }
+	#_[产业革命debug]
+	if = {
+		limit = {
+			has_planet_flag = z_pf2_extreme_pop_restrict
+			owner = { has_country_flag = z_pr_flg_cntr_1 }
+		}
+		remove_planet_flag = z_pf2_extreme_pop_restrict
+	}
+}
+
+#_[plnt][monthly] 动态人口限制
+z_pf2_eft_plnt_dynamic_cap = {
+	###_初始化 debug
+	z_pf2_eft_plnt_dynamic_cap_debug = yes
+	
+	###_动态cap参数统计
+	#_[严格]	产业革命debug
+	if = {
+		limit = {
+			has_planet_flag = z_pf2_extreme_pop_restrict
+			count_pops = { limit = { is_unemployed = yes } count > 1 }
+		}
+		set_variable = { which = z_fw_var_plnt_dynamic_pop value = 100 }
+		#_[产业革命debug]
+		if = {
+			limit = { owner = { has_country_flag = z_pr_flg_cntr_1 } }
+			remove_planet_flag = z_pf2_extreme_pop_restrict
+		}
+	}
+	#_[极低动态人口]
+	else_if = {
+		limit = { has_global_flag = z_pf2_dynamic_cap_strict }
+		every_owned_pop = {#_4~8
+			limit = { is_unemployed = yes }
+			prev = { change_variable = { which = z_fw_var_plnt_dynamic_pop value = 3 } }
+		}
+		change_variable = { which = z_fw_var_plnt_dynamic_pop value = -9 }	#_人口下限补偿
+	}
+	#_[低动态人口]
+	else_if = {
+		limit = { has_global_flag = z_pf2_dynamic_cap_low }
+		every_owned_pop = {#_5~12
+			limit = { is_unemployed = yes }
+			prev = { change_variable = { which = z_fw_var_plnt_dynamic_pop value = 2 } }
+		}
+		change_variable = { which = z_fw_var_plnt_dynamic_pop value = -8 }	#_人口下限补偿
+	}
+	#_[高动态人口]	默认
+	else_if = {
+		limit = { has_global_flag = z_pf2_dynamic_cap_high }
+		every_owned_pop = {#_6~20
+			limit = { is_unemployed = yes }
+			prev = { change_variable = { which = z_fw_var_plnt_dynamic_pop value = 1 } }
+		}
+		change_variable = { which = z_fw_var_plnt_dynamic_pop value = -5 }	#_人口下限补偿
+	}
+	
+	#_[添加deposit]	若添加住房参数,所有var*2
+	if = {
+		limit = {
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value > 0 }
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value <= 2 }
+		}
+		add_deposit = z_pf2_d_dynamic_cap_1
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value > 2 }
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value <= 4 }
+		}
+		add_deposit = z_pf2_d_dynamic_cap_2
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value > 4 }
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value <= 6 }
+		}
+		add_deposit = z_pf2_d_dynamic_cap_3
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value > 6 }
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value <= 8 }
+		}
+		add_deposit = z_pf2_d_dynamic_cap_4
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value > 8 }
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value <= 10 }
+		}
+		add_deposit = z_pf2_d_dynamic_cap_5
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value > 10 }
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value <= 12 }
+		}
+		add_deposit = z_pf2_d_dynamic_cap_6
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value > 12 }
+			check_variable = { which = z_fw_var_plnt_dynamic_pop value <= 14 }
+		}
+		add_deposit = z_pf2_d_dynamic_cap_7
+	}
+	else_if = {
+		limit = { check_variable = { which = z_fw_var_plnt_dynamic_pop value > 14 } }
+		add_deposit = z_pf2_d_dynamic_cap_8
+	}
+}
+

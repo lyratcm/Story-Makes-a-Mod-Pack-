@@ -1,0 +1,52 @@
+ap_arcane_tech = {
+	on_enabled = {
+		custom_tooltip = "arcane_tech_tt"
+		hidden_effect = {
+			country_event = { id = ap.1 }
+		}
+	}
+
+	modifier = {	
+		country_base_minor_artifacts_produces_add = 0.10
+		ship_archaeological_site_excavation_speed_mult = 0.25
+	}
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_1"
+			num_ascension_perks > 0
+		}
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_arcane_tech
+		}
+		NOR = {
+			has_valid_civic = civic_fanatic_purifiers
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_inwards_perfection
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 4
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 0.75
+			has_ethic = ethic_xenophobe
+		}
+		modifier = {
+			factor = 0.5
+			has_ethic = ethic_fanatic_xenophobe
+		}
+	}
+}

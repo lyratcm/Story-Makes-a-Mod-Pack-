@@ -1,0 +1,38 @@
+civic_industrial_automatation = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_capitalism
+                value = ethic_capitalism
+                value = ethic_fanatic_capitalism
+            }
+            OR = {
+                text = civic_tooltip_materialist
+                value = ethic_materialist
+                value = ethic_fanatic_materialist
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        all_technology_research_speed = 0.05
+        country_unity_produces_mult = -0.1
+    }
+}

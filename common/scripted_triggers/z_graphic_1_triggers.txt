@@ -1,0 +1,61 @@
+###_Z GG 天空盒 triggers	#########################################################################
+#_core=0.3	inner=0.3-0.6	mid=0.6-0.9	out=0.9-1.2
+
+
+#_[system]	inside nebula
+z_gg_inside_nebula_1 = {
+	distance_to_core_percent < 0.10
+	is_inside_nebula = yes
+}
+z_gg_inside_nebula_2 = {
+	distance_to_core_percent < 0.20
+	is_inside_nebula = yes
+}
+z_gg_inside_nebula_3 = {
+	distance_to_core_percent < 0.30
+	is_inside_nebula = yes
+}
+z_gg_inside_nebula_4 = {
+	distance_to_core_percent < 0.40
+	is_inside_nebula = yes
+}
+z_gg_inside_nebula_5 = {
+	distance_to_core_percent < 0.50
+	is_inside_nebula = yes
+}
+z_gg_inside_nebula_6 = {
+	distance_to_core_percent < 0.60
+	is_inside_nebula = yes
+}
+z_gg_inside_nebula_7 = {
+	distance_to_core_percent < 0.70
+	is_inside_nebula = yes
+}
+z_gg_inside_nebula_8 = {
+	distance_to_core_percent < 0.85
+	is_inside_nebula = yes
+}
+
+
+
+
+#_niber_nebula
+#z_gg_niber_nebula_core = {
+#	distance_to_core_percent < 0.30
+#	any_neighbor_system = { is_inside_nebula = yes }
+#}
+#
+#z_gg_niber_nebula_inner = {
+#	distance_to_core_percent < 0.50
+#	any_neighbor_system = { is_inside_nebula = yes }
+#}
+#
+#z_gg_niber_nebula_mid = {
+#	distance_to_core_percent < 0.75
+#	any_neighbor_system = { is_inside_nebula = yes }
+#}
+#
+#z_gg_niber_nebula_outter = {
+#	distance_to_core_percent < 1.0
+#	any_neighbor_system = { is_inside_nebula = yes }
+#}

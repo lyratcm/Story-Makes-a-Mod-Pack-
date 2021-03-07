@@ -1,0 +1,1155 @@
+exponentgrowth = {
+	icon = "unused/d_alien_propaganda"
+	is_for_colonizeable = yes
+	category = deposit_cat_food
+	should_swap_deposit_on_terraforming = no
+	drop_weight = {
+		weight = 0		
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		job_replicator_per_pop = 0.05
+		planet_pop_assembly_reduction = -0.5
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 45 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 90 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 135 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 180 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 225 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 270 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 315 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 360 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 405 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 450 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = { is_hive_empire = no }
+			OR = {
+				owner = { is_mechanical_empire = yes }
+				has_building = building_robot_assembly_plant 
+			}
+			check_variable = { which = robo_population_counter value >= 495 }
+		}
+		job_roboticist_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 1 } }
+		pop_growth_speed_reduction = -0.002
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 2 } }
+		pop_growth_speed_reduction = -0.004
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 3 } }
+		pop_growth_speed_reduction = -0.006
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 4 } }
+		pop_growth_speed_reduction = -0.008
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 5 } }
+		pop_growth_speed_reduction = -0.010
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 6 } }
+		pop_growth_speed_reduction = -0.012
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 7 } }
+		pop_growth_speed_reduction = -0.014
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 8 } }
+		pop_growth_speed_reduction = -0.016
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 9 } }
+		pop_growth_speed_reduction = -0.018
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 10 } }
+		pop_growth_speed_reduction = -0.020
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 11 } }
+		pop_growth_speed_reduction = -0.022
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 12 } }
+		pop_growth_speed_reduction = -0.024
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 13 } }
+		pop_growth_speed_reduction = -0.026
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 14 } }
+		pop_growth_speed_reduction = -0.028
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 15 } }
+		pop_growth_speed_reduction = -0.030
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 16 } }
+		pop_growth_speed_reduction = -0.032
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 17 } }
+		pop_growth_speed_reduction = -0.034
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 18 } }
+		pop_growth_speed_reduction = -0.036
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 19 } }
+		pop_growth_speed_reduction = -0.038
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 20 } }
+		pop_growth_speed_reduction = -0.040
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 21 } }
+		pop_growth_speed_reduction = -0.042
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 22 } }
+		pop_growth_speed_reduction = -0.044
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 23 } }
+		pop_growth_speed_reduction = -0.046
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 24 } }
+		pop_growth_speed_reduction = -0.048
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 25 } }
+		pop_growth_speed_reduction = -0.050
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 26 } }
+		pop_growth_speed_reduction = -0.052
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 27 } }
+		pop_growth_speed_reduction = -0.054
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 28 } }
+		pop_growth_speed_reduction = -0.056
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 29 } }
+		pop_growth_speed_reduction = -0.058
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 30 } }
+		pop_growth_speed_reduction = -0.060
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 31 } }
+		pop_growth_speed_reduction = -0.062
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 32 } }
+		pop_growth_speed_reduction = -0.064
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 33 } }
+		pop_growth_speed_reduction = -0.066
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 34 } }
+		pop_growth_speed_reduction = -0.068
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 35 } }
+		pop_growth_speed_reduction = -0.070
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 36 } }
+		pop_growth_speed_reduction = -0.072
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 37 } }
+		pop_growth_speed_reduction = -0.074
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 38 } }
+		pop_growth_speed_reduction = -0.076
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 39 } }
+		pop_growth_speed_reduction = -0.078
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 40 } }
+		pop_growth_speed_reduction = -0.080
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 41 } }
+		pop_growth_speed_reduction = -0.082
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 42 } }
+		pop_growth_speed_reduction = -0.084
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 43 } }
+		pop_growth_speed_reduction = -0.086
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 44 } }
+		pop_growth_speed_reduction = -0.088
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 45 } }
+		pop_growth_speed_reduction = -0.090
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 46 } }
+		pop_growth_speed_reduction = -0.092
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 47 } }
+		pop_growth_speed_reduction = -0.094
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 48 } }
+		pop_growth_speed_reduction = -0.096
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 49 } }
+		pop_growth_speed_reduction = -0.098
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 50 } }
+		pop_growth_speed_reduction = -0.100
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 51 } }
+		pop_growth_speed_reduction = -0.102
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 52 } }
+		pop_growth_speed_reduction = -0.104
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 53 } }
+		pop_growth_speed_reduction = -0.106
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 54 } }
+		pop_growth_speed_reduction = -0.108
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 55 } }
+		pop_growth_speed_reduction = -0.110
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 56 } }
+		pop_growth_speed_reduction = -0.112
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 57 } }
+		pop_growth_speed_reduction = -0.114
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 58 } }
+		pop_growth_speed_reduction = -0.116
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 59 } }
+		pop_growth_speed_reduction = -0.118
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 60 } }
+		pop_growth_speed_reduction = -0.120
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 61 } }
+		pop_growth_speed_reduction = -0.122
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 62 } }
+		pop_growth_speed_reduction = -0.124
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 63 } }
+		pop_growth_speed_reduction = -0.126
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 64 } }
+		pop_growth_speed_reduction = -0.128
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 65 } }
+		pop_growth_speed_reduction = -0.130
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 66 } }
+		pop_growth_speed_reduction = -0.132
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 67 } }
+		pop_growth_speed_reduction = -0.134
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 68 } }
+		pop_growth_speed_reduction = -0.136
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 69 } }
+		pop_growth_speed_reduction = -0.138
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 70 } }
+		pop_growth_speed_reduction = -0.140
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 71 } }
+		pop_growth_speed_reduction = -0.142
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 72 } }
+		pop_growth_speed_reduction = -0.144
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 73 } }
+		pop_growth_speed_reduction = -0.146
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 74 } }
+		pop_growth_speed_reduction = -0.148
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 75 } }
+		pop_growth_speed_reduction = -0.150
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 76 } }
+		pop_growth_speed_reduction = -0.152
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 77 } }
+		pop_growth_speed_reduction = -0.154
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 78 } }
+		pop_growth_speed_reduction = -0.156
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 79 } }
+		pop_growth_speed_reduction = -0.158
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 80 } }
+		pop_growth_speed_reduction = -0.160
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 81 } }
+		pop_growth_speed_reduction = -0.162
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 82 } }
+		pop_growth_speed_reduction = -0.164
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 83 } }
+		pop_growth_speed_reduction = -0.166
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 84 } }
+		pop_growth_speed_reduction = -0.168
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 85 } }
+		pop_growth_speed_reduction = -0.170
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 86 } }
+		pop_growth_speed_reduction = -0.172
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 87 } }
+		pop_growth_speed_reduction = -0.174
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 88 } }
+		pop_growth_speed_reduction = -0.176
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 89 } }
+		pop_growth_speed_reduction = -0.178
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 90 } }
+		pop_growth_speed_reduction = -0.180
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 91 } }
+		pop_growth_speed_reduction = -0.182
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 92 } }
+		pop_growth_speed_reduction = -0.184
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 93 } }
+		pop_growth_speed_reduction = -0.186
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 94 } }
+		pop_growth_speed_reduction = -0.188
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 95 } }
+		pop_growth_speed_reduction = -0.190
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 96 } }
+		pop_growth_speed_reduction = -0.192
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 97 } }
+		pop_growth_speed_reduction = -0.194 
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 98 } }
+		pop_growth_speed_reduction = -0.196
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 99 } }
+		pop_growth_speed_reduction = -0.198
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 100 } }
+		pop_growth_speed_reduction = -0.200
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 101 } }
+		pop_growth_speed_reduction = -0.202 
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 102 } }
+		pop_growth_speed_reduction = -0.204 
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 103 } }
+		pop_growth_speed_reduction = -0.206
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 104 } }
+		pop_growth_speed_reduction = -0.208
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 105 } }
+		pop_growth_speed_reduction = -0.210
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 106 } }
+		pop_growth_speed_reduction = -0.212
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 107 } }
+		pop_growth_speed_reduction = -0.214
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 108 } }
+		pop_growth_speed_reduction = -0.216
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 109 } }
+		pop_growth_speed_reduction = -0.218
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 110 } }
+		pop_growth_speed_reduction = -0.220 
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 111 } }
+		pop_growth_speed_reduction = -0.222
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 112 } }
+		pop_growth_speed_reduction = -0.224
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 113 } }
+		pop_growth_speed_reduction = -0.226
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 114 } }
+		pop_growth_speed_reduction = -0.228
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 115 } }
+		pop_growth_speed_reduction = -0.230
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 116 } }
+		pop_growth_speed_reduction = -0.232
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 117 } }
+		pop_growth_speed_reduction = -0.234
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 118 } }
+		pop_growth_speed_reduction = -0.236
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 119 } }
+		pop_growth_speed_reduction = -0.238
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 120 } }
+		pop_growth_speed_reduction = -0.240
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 121 } }
+		pop_growth_speed_reduction = -0.242
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 122 } }
+		pop_growth_speed_reduction = -0.244
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 123 } }
+		pop_growth_speed_reduction = -0.246
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 124 } }
+		pop_growth_speed_reduction = -0.248
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 125 } }
+		pop_growth_speed_reduction = -0.250
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 126 } }
+		pop_growth_speed_reduction = -0.252
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 127 } }
+		pop_growth_speed_reduction = -0.254
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 128 } }
+		pop_growth_speed_reduction = -0.256
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 129 } }
+		pop_growth_speed_reduction = -0.258
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 130 } }
+		pop_growth_speed_reduction = -0.260
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 131 } }
+		pop_growth_speed_reduction = -0.262
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 132 } }
+		pop_growth_speed_reduction = -0.264
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 133 } }
+		pop_growth_speed_reduction = -0.266
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 134 } }
+		pop_growth_speed_reduction = -0.268
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 135 } }
+		pop_growth_speed_reduction = -0.270
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 136 } }
+		pop_growth_speed_reduction = -0.272
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 137 } }
+		pop_growth_speed_reduction = -0.274
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 138 } }
+		pop_growth_speed_reduction = -0.276
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 139 } }
+		pop_growth_speed_reduction = -0.278
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 140 } }
+		pop_growth_speed_reduction = -0.280
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 141 } }
+		pop_growth_speed_reduction = -0.282
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 142 } }
+		pop_growth_speed_reduction = -0.284
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 143 } }
+		pop_growth_speed_reduction = -0.286
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 144 } }
+		pop_growth_speed_reduction = -0.288
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 145 } }
+		pop_growth_speed_reduction = -0.290
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 146 } }
+		pop_growth_speed_reduction = -0.292
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 147 } }
+		pop_growth_speed_reduction = -0.294
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 148 } }
+		pop_growth_speed_reduction = -0.296
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 149 } }
+		pop_growth_speed_reduction = -0.298
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 150 } }
+		pop_growth_speed_reduction = -0.300
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 151 } }
+		pop_growth_speed_reduction = -0.302
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 152 } }
+		pop_growth_speed_reduction = -0.304
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 153 } }
+		pop_growth_speed_reduction = -0.306
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 154 } }
+		pop_growth_speed_reduction = -0.308
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 155 } }
+		pop_growth_speed_reduction = -0.310
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 156 } }
+		pop_growth_speed_reduction = -0.312
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 157 } }
+		pop_growth_speed_reduction = -0.314
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 158 } }
+		pop_growth_speed_reduction = -0.316
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 159 } }
+		pop_growth_speed_reduction = -0.318
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 160 } }
+		pop_growth_speed_reduction = -0.320
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 161 } }
+		pop_growth_speed_reduction = -0.322
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 162 } }
+		pop_growth_speed_reduction = -0.324
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 163 } }
+		pop_growth_speed_reduction = -0.326
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 164 } }
+		pop_growth_speed_reduction = -0.328
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 165 } }
+		pop_growth_speed_reduction = -0.330
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 166 } }
+		pop_growth_speed_reduction = -0.332
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 167 } }
+		pop_growth_speed_reduction = -0.334
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 168 } }
+		pop_growth_speed_reduction = -0.336
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 169 } }
+		pop_growth_speed_reduction = -0.338
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 170 } }
+		pop_growth_speed_reduction = -0.340
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 171 } }
+		pop_growth_speed_reduction = -0.342
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 172 } }
+		pop_growth_speed_reduction = -0.344
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 173 } }
+		pop_growth_speed_reduction = -0.346
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 174 } }
+		pop_growth_speed_reduction = -0.348
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 175 } }
+		pop_growth_speed_reduction = -0.350
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 176 } }
+		pop_growth_speed_reduction = -0.352
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 177 } }
+		pop_growth_speed_reduction = -0.354
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 178 } }
+		pop_growth_speed_reduction = -0.356
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 179 } }
+		pop_growth_speed_reduction = -0.358
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 180 } }
+		pop_growth_speed_reduction = -0.360
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 181 } }
+		pop_growth_speed_reduction = -0.362
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 182 } }
+		pop_growth_speed_reduction = -0.364
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 183 } }
+		pop_growth_speed_reduction = -0.366
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 184 } }
+		pop_growth_speed_reduction = -0.368
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 185 } }
+		pop_growth_speed_reduction = -0.370
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 186 } }
+		pop_growth_speed_reduction = -0.372
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 187 } }
+		pop_growth_speed_reduction = -0.374
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 188 } }
+		pop_growth_speed_reduction = -0.376
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 189 } }
+		pop_growth_speed_reduction = -0.378
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 190 } }
+		pop_growth_speed_reduction = -0.380
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 191 } }
+		pop_growth_speed_reduction = -0.382
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 192 } }
+		pop_growth_speed_reduction = -0.384
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 193 } }
+		pop_growth_speed_reduction = -0.386
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 194 } }
+		pop_growth_speed_reduction = -0.388
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 195 } }
+		pop_growth_speed_reduction = -0.390
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 196 } }
+		pop_growth_speed_reduction = -0.392
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 197 } }
+		pop_growth_speed_reduction = -0.394
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 198 } }
+		pop_growth_speed_reduction = -0.396
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 199 } }
+		pop_growth_speed_reduction = -0.398
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 200 } }
+		pop_growth_speed_reduction = -0.400
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 201 } }
+		pop_growth_speed_reduction = -0.402
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 202 } }
+		pop_growth_speed_reduction = -0.404
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 203 } }
+		pop_growth_speed_reduction = -0.406
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 204 } }
+		pop_growth_speed_reduction = -0.408
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 205 } }
+		pop_growth_speed_reduction = -0.410
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 206 } }
+		pop_growth_speed_reduction = -0.412
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 207 } }
+		pop_growth_speed_reduction = -0.414
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 208 } }
+		pop_growth_speed_reduction = -0.416
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 209 } }
+		pop_growth_speed_reduction = -0.418
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 210 } }
+		pop_growth_speed_reduction = -0.420
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 211 } }
+		pop_growth_speed_reduction = -0.422
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 212 } }
+		pop_growth_speed_reduction = -0.424
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 213 } }
+		pop_growth_speed_reduction = -0.426
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 214 } }
+		pop_growth_speed_reduction = -0.428
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 215 } }
+		pop_growth_speed_reduction = -0.430
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 216 } }
+		pop_growth_speed_reduction = -0.432
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 217 } }
+		pop_growth_speed_reduction = -0.434
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 218 } }
+		pop_growth_speed_reduction = -0.436
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 219 } }
+		pop_growth_speed_reduction = -0.438
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 220 } }
+		pop_growth_speed_reduction = -0.440
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 221 } }
+		pop_growth_speed_reduction = -0.442
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 222 } }
+		pop_growth_speed_reduction = -0.444
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 223 } }
+		pop_growth_speed_reduction = -0.446
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 224 } }
+		pop_growth_speed_reduction = -0.448
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 225 } }
+		pop_growth_speed_reduction = -0.450
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 226 } }
+		pop_growth_speed_reduction = -0.452
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 227 } }
+		pop_growth_speed_reduction = -0.454
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 228 } }
+		pop_growth_speed_reduction = -0.456
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 229 } }
+		pop_growth_speed_reduction = -0.458
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 230 } }
+		pop_growth_speed_reduction = -0.460
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 231 } }
+		pop_growth_speed_reduction = -0.462
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 232 } }
+		pop_growth_speed_reduction = -0.464
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 233 } }
+		pop_growth_speed_reduction = -0.466
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 234 } }
+		pop_growth_speed_reduction = -0.468
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 235 } }
+		pop_growth_speed_reduction = -0.470
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 236 } }
+		pop_growth_speed_reduction = -0.472
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 237 } }
+		pop_growth_speed_reduction = -0.474
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 238 } }
+		pop_growth_speed_reduction = -0.476
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 239 } }
+		pop_growth_speed_reduction = -0.478
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 240 } }
+		pop_growth_speed_reduction = -0.480
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 241 } }
+		pop_growth_speed_reduction = -0.482
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 242 } }
+		pop_growth_speed_reduction = -0.484
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 243 } }
+		pop_growth_speed_reduction = -0.486
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 244 } }
+		pop_growth_speed_reduction = -0.488
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 245 } }
+		pop_growth_speed_reduction = -0.490
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 246 } }
+		pop_growth_speed_reduction = -0.492
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 247 } }
+		pop_growth_speed_reduction = -0.494
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 248 } }
+		pop_growth_speed_reduction = -0.496
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value = 249 } }
+		pop_growth_speed_reduction = -0.498
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = population_counter value >= 250 } }
+		pop_growth_speed_reduction = -0.500
+	}
+	triggered_planet_modifier = {
+		potential = { check_variable = { which = available_housing value < -2 } }
+		planet_emigration_push_add = 250
+		planet_pop_assembly_reduction = 1
+		planet_pop_assemblers_upkeep_mult = -1
+	}
+}

@@ -1,0 +1,9 @@
+guiTypes = {
+    positionType = {
+        name = "ap_17"
+        position = {
+            x = 73
+            y = 246
+        }
+    }
+}

@@ -1,0 +1,29 @@
+cp_building_immortal_palace_3 = { #Immortal Palace 3
+	#base_buildtime = @b1_time
+	icon = cp_building_immortal_palace
+	can_build = no
+	can_be_disabled = no
+	base_cap_amount = 1
+	can_demolish = no
+	can_be_ruined = no
+	category = government
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = cp_civic_immortal_ascendancy }
+	}
+	planet_modifier = {
+		#
+	}
+	destroy_trigger = {
+		exists = owner
+		NOT = {
+			owner = { has_civic = cp_civic_immortal_ascendancy }
+		}
+	}
+	resources = {
+		category = planet_buildings
+		upkeep = {
+			sr_dark_matter = 12
+		}
+	}
+}

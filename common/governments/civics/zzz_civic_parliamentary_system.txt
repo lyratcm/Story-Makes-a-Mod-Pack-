@@ -1,0 +1,29 @@
+civic_parliamentary_system = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        authority = {
+            value = auth_democratic
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        pop_factions_produces_mult = 0.25
+        empire_size_penalty_mult = -0.1
+    }
+}

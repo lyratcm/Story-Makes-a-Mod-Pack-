@@ -1,0 +1,31 @@
+gpm_edict_pop_assembly  = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			minor_artifacts = 40
+		}
+	}
+
+	potential = {
+		has_technology = tech_arcane_deciphering
+		OR = {
+			is_machine_empire = yes
+			has_ethic = ethic_materialist
+			has_ethic = ethic_fanatic_materialist
+		}
+	}
+
+	modifier = {
+		planet_pop_assembly_mult = 0.33
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+		modifier = {
+			factor = 0
+			is_machine_empire = no
+		}
+	}	
+}

@@ -1,0 +1,61 @@
+###_z performance plus---decisions	##########################################################################
+
+#_严格限制
+z_pf2_dec_extreme_pop_restrict_on = {
+	sound = event_administrative_work
+	
+	potential = {
+		is_colony = yes
+		OR = {
+			has_global_flag = z_pf2_dynamic_cap_strict
+			has_global_flag = z_pf2_dynamic_cap_low
+			has_global_flag = z_pf2_dynamic_cap_high
+		}
+		has_planet_flag = z_pf2_extreme_pop_restrict
+		owner = { NOT = { has_country_flag = z_pr_flg_cntr_1 } }	#_[产业革命]
+	}
+	allow = {
+		from = { is_ai = no }
+	}
+	
+	effect = {
+		custom_tooltip = z_pf2_extreme_pop_restrict_on
+		hidden_effect = {
+			remove_planet_flag = z_pf2_extreme_pop_restrict
+			planet_event = { id = z_performance_misc.24 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+z_pf2_dec_extreme_pop_restrict_off = {
+	sound = event_administrative_work
+	
+	potential = {
+		is_colony = yes
+		OR = {
+			has_global_flag = z_pf2_dynamic_cap_strict
+			has_global_flag = z_pf2_dynamic_cap_low
+			has_global_flag = z_pf2_dynamic_cap_high
+		}
+		NOT = { has_planet_flag = z_pf2_extreme_pop_restrict }
+		owner = { NOT = { has_country_flag = z_pr_flg_cntr_1 } }	#_[产业革命]
+	}
+	allow = {
+		from = { is_ai = no }
+	}
+	
+	effect = {
+		custom_tooltip = z_pf2_extreme_pop_restrict_off
+		hidden_effect = {
+			set_planet_flag = z_pf2_extreme_pop_restrict
+			planet_event = { id = z_performance_misc.24 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

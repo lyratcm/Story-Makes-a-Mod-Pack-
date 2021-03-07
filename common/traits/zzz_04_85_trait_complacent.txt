@@ -1,0 +1,27 @@
+trait_complacent = {
+    cost = -1
+    potential_crossbreeding_chance = 1.0
+    opposites = {
+        "trait_political"
+        "trait_hive_mind"
+        "trait_nerve_stapled"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    modifier = {
+        pop_political_power = -0.5
+    }
+    ai_weight = {
+        weight = 6000
+        modifier = {
+            factor = 0
+            root = {
+                NOT = {
+                    has_species_flag = make_complacent@prev
+                }
+            }
+        }
+    }
+}

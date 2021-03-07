@@ -1,0 +1,74 @@
+building_vfb_asteroid_hub_b = {
+    category = government
+    base_buildtime = 180
+    base_cap_amount = 2
+    icon = building_vfb_asteroid_b
+    potential = {
+        NOR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        has_building = building_vfb_asteroid_hub
+        owner = {
+            has_technology = tech_building_vfb_asteroid_hub_b
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_asteroid_hub_b
+    }
+    allow = {
+        planet = {
+            num_pops >= 10
+        }
+    }
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+            planet = {
+                num_pops < 10
+            }
+            NOT = {
+                has_building = building_vfb_asteroid_hub
+            }
+        }
+    }
+    planet_modifier = {
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_ethic = ethic_gestalt_consciousness
+                }
+            }
+        }
+        job_miner_add = 4
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_ethic = ethic_gestalt_consciousness
+            }
+        }
+        job_mining_drone_add = 4
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            alloys = 50
+        }
+        upkeep = {
+            alloys = 1
+        }
+        produces = {
+            engineering_research = 8
+        }
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+    }
+}

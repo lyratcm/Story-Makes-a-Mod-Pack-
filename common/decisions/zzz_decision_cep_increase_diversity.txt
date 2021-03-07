@@ -1,0 +1,123 @@
+decision_increase_diversity = {
+	owned_planets_only = yes
+	icon = decision_alien_propaganda
+	sound = event_administrative_work
+
+	enactment_time = 30
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				num_pops < 10
+			}
+			influence = 50
+			consumer_goods = 200
+		}
+		cost = {
+			trigger = {
+				num_pops >= 10
+				num_pops < 20
+			}
+			influence = 50
+			consumer_goods = 300
+		}
+		cost = {
+			trigger = {
+				num_pops >= 20
+				num_pops < 30
+			}
+			influence = 50
+			consumer_goods = 400
+		}
+		cost = {
+			trigger = {
+				num_pops >= 30
+				num_pops < 40
+			}
+			influence = 50
+			consumer_goods = 500
+		}
+		cost = {
+			trigger = {
+				num_pops >= 40
+				num_pops < 50
+			}
+			influence = 75
+			consumer_goods = 600
+		}
+		cost = {
+			trigger = {
+				num_pops >= 50
+				num_pops < 60
+			}
+			influence = 75
+			consumer_goods = 700
+		}
+		cost = {
+			trigger = {
+				num_pops >= 60
+				num_pops < 70
+			}
+			influence = 75
+			consumer_goods = 800
+		}
+		cost = {
+			trigger = {
+				num_pops >= 70
+				num_pops < 85
+			}
+			influence = 75
+			consumer_goods = 900
+		}
+		cost = {
+			trigger = {
+				num_pops >= 85
+				num_pops < 100
+			}
+			influence = 100
+			consumer_goods = 1000
+		}
+		cost = {
+			trigger = {
+				num_pops >= 100
+			}
+			influence = 100
+			consumer_goods = 1500
+		}
+	}
+
+	potential = {
+		NOR = {
+			has_planet_flag = diversity_strengthened
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+			has_modifier = resort_colony
+		}
+		owner = {
+			has_valid_civic = civic_multiculturalism
+		}
+	}
+	
+	allow = {
+		owner = {
+			num_communications > 1
+		}
+	}
+
+	effect = {	
+		add_modifier = { modifier = "diversity_strengthened" days = 1800 }
+		hidden_effect = {
+			planet_event = { id = civic.3 days = 1800 }
+			planet_event = { id = civic.4 days = 3650 }
+			set_planet_flag = diversity_strengthened
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			num_pops < 20
+		}
+	}
+}

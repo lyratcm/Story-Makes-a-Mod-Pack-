@@ -1,0 +1,24 @@
+trait_additrait_insufficient_memory = {
+    cost = -2
+    allowed_archetypes = {
+        MACHINE
+    }
+    opposites = {
+        "trait_robot_enhanced_memory"
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            OR = {
+                has_authority = auth_machine_intelligence
+                AND = {
+                    has_policy_flag = ai_full_rights
+                    has_technology = tech_synthetic_leaders
+                }
+            }
+        }
+    }
+    modifier = {
+        leader_skill_levels = -2
+    }
+}

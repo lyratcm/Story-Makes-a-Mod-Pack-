@@ -1,0 +1,264 @@
+﻿### Apex Predator
+### Created by Hinkledolph 6/4/2016
+
+
+APEX = {
+	randomized = yes
+
+	ship_names = {
+
+		generic = {
+		"Charge-Ruin-Demon" "Manic-Negate-Shear" "Purge-Ruin-Hunter" "Cleave-Storm" "Carve-Carnage" "Attack-Slash-Demon" "Mega-Blitz-Raze" "Barrage-Riot" "Mega-Storm-Dice" "Negate-Rend" "Ruin-Havoc" "Manic-Eradicate-Carve" "Quarter-Purge" "Strike-Strike" "Manic-Havoc-Carve" "Carve-Shear-Hunter" "Mega-Dice-Ambush" "Crimson-Crush-Ruin" "Crimson-Dice-Holocaust" "Manic-Eradicate-Havoc" "Storm-Drive" "Crush-Crush-Beast" "Drive-Clash" "Mega-Clash-Impale" "Wild-Attack-Blitz" "Crimson-Reap-Scrap" "Mega-Reap-Slash-Beast" "Mega-Storm-Negate-Beast" "Manic-Rend-Attack" "Drive-Defilement-Stalker" "Rumble-Ambush" "Murder-Slash" "Crimson-Holocaust" "Wild-Gore-Rumble" "Impale-Storm" "Rumble-Crush" "Rabid-Carve-Havoc-Beast" "Mega-Mash-Barrage" "Negate-Carve-Demon" "Reap-Battle" "Wild-Wreck-Havoc" "Rabid-Clash-Strike-Stalker" "Manic-Murder-Clash" "Rabid-Impale-Shear" "Negate-Slash" "Defilement-Demon" "Strike-Slash-Stalker" "Crush-Crush" "Storm-Mash" "Gore-Impale-Beast" "Attack-Battle-Hunter" "Crimson-Strike-Strike" "Charge-Wreck-Dragon" "Crazed-Murder-Carnage" "Ultra-Drive-Holocaust" "Storm-Butcher-Dragon" "Negate-Thrust" "Blood-Blitz-Gore-Devil" "Raze-Purge-Bear" "Cold-Murder-Clash" "Ultra-Strike-Ruin" "Attack-Scrap" "Crazed-Clash-Blitz" "Blood-Raze-Devil" "Scrap-Riot-Dragon" "Winged-Negate-Dice" "Barrage-Rend" "Purge-Negate-Dragon" "Purge-Barrage-Bear" "Battle-Clash" "Ultra-Crush-Carnage-Devil" "Impale-Carve" "Blitz-Attack" "Storm-Shear" "Blitz-Holocaust" "Havoc-Carnage-Bear" "Battle-Negate-Devil" "Negate-Holocaust-Jackal" "Riot-Quarter-Jackal" "Reap-Reap-Devil" "Rumble-Thrust-Jackal" "Cold-Purge-Clash" "Shear-Raze-Jackal" "Rumble-Rend" "Defilement-Ambush" "Battle-Slay-Jackal" "Blood-Dice-Storm" "Winged-Mash-Ruin" "Wreck-Wreck-Bear" "Purge-Rend-Dragon" "Barrage-Eradicate" "Havoc-Attack-Devil" "Ultra-Cleave-Reap" "Defilement-Carnage" "Carve-Dice-Jackal" "Carve-Drive-Lion" "Holocaust-Quarter" "Blood-Storm-Slay" "Wreck-Dice-Jackal" "Negate-Dice-Dragon" "Ultra-Battle-Saw" "Blitz-Havoc-Devil" "Riot-Purge" "Strike-Slash-Bear" "Gore-Carnage-Devil" "Eradicate-Ruin" "Ultra-Barrage-Dragon" "Winged-Raze-Storm" "Cleave-Butcher-Devil" "Barrage-Butcher" "Storm-Barrage-Lion" "Blood-Shear-Thrust" "Purge-Mash-Jackal" "Ultra-Scrap-Drive" "Cold-Cleave-Purge" "Slay-Negate" "Crazed-Drive-Gore" "Barrage-Dragon" "Attack-Impale-Bear" "Riot-Rumble" "Ambush-Impale" "Holocaust-Quarter" "Vile-Blind-Screech" "Dire-Defile-Defile" "Wreck-Mash-Tyrant" "Impale-Impale-Rex" "Dice-Attack-Trophy" "Holocaust-Slay-Consumer" "Strike-Scrap" "Foul-Gore-Impale" "Saw-Defile" "Abhorrent-Ruin-Eradicate" "Vile-Slay-Reap" "Loyal-Purge-Gang" "Tremor-Strike" "Gore-Spew" "Dread-Butcher-Axe-Pact" "Carve-Ice" "Defilement-Gang" "Board-Mash-Consumer" "Eradicate-Sword" "Havoc-Reap-Tribe" "Mad-Guard-Choke-Terror" "Eradicate-Ice-Havoc" "Dread-Saw-Loyal-Attack" "Dice-Thug-Consumer" "Board-Axe-Ruin" "Guard-Raid-Spear" "Mash-Void-Attack" "Scow-Saw" "Quarter-Stomp" "Gnash-Reap" "Rot-Scow-Thrust-Battle" "Scrap-Loyal-Slash" "Stomp-Thug-Tribe" "Rend-Storm-Dice-Tribe" "Gnash-Mash-Tyrant" "Dice-Ambush" "Reap-Barrage-Guard" "Gnash-Slash-Bile" "Axe-Slay" "Shear-Sonic-Loyal" "Terror-Slash-Pact" "End-Scream-Bile" "Void-Murder" "Guard-Attack" "Board-Cannibal" "Defilement-Gnash" "Battle-Havoc" "Carnage-Holocaust-Skull" "Quarter-Hammer-Crush" "Gnash-Carnage-Scow" "Quarter-Defile" "Board-Slash" "Barrage-Gore-Loyal" "Attack-Saw" "Shear-Ruin-Raze-Reaver" "Gore-Consumer" "Grim-Defile-Quarter" "Charge-Dice-Thug" "Eradicate-Spew" "Scow-Void" "Eradicate-Loyal" "Blitz-Eradicate-Carcass" "Gnash-Defile-Carcass" "Scrap-Void-Pact" "Purge-Negate" "Drive-Guard-Crush" "Saw-Scow-Thug" "Sword-Attack" "Attack-Tremor-Spew" "Thrust-Gnash-Slash-Carcass" "Cleave-Scrap-Attack-Reaver" "Dice-Axe-Drive" "Murder-Holocaust-Gore" "Drive-Wreck" "Battle-Reaver" "Reap-Awe" "Battle-Cry-Carcass" "Screech-Carnage" "Rot-Spear-Skinner" "Grim-Barrage-Spear" "Rot-Loyal-Ice" "Battle-Skinner" "Brood-Cry-Blitz-Consumer" "Thug-Eradicate" "Barrage-Slay-Pact" "Ice-Shear-Carcass" "Impale-Hammer-Tribe" "Loyal-Bile-Skinner" "Storm" "Feud-Negate" "Skull-Bile-Tyrant" "Butcher-Havoc-Rex" "Impale-Axe-Trophy" "Dread-Drive-Awe" "Dread-Guard-Skull" "Thug-Scow-Consumer" "Mad-Tremor-Ruin" "Abhorrent-Negate-Gnash" "Mad-Saw-Riot-Pact" "Charge-Blitz-Cannibal" "Spew-Impale-Tyrant" "Wreck-Skull-Reaver" "Rend-Raid-Alpha" "Dice-Gore" "Flense-Clash-Void" "Injure-Buck-Fire" "Cut-Shun-Gnaw" "Trim-Pin-Maul" "Act-Ward-Jam" "Ward-Tear-Run" "Pin-Find-Gnaw" "Knife-Pin-Prod" "Pack-Act-Fast" "Hack-Flense-Rise" "Yank-Cram-Club" "Aim-Maim-Mark" "Trim-Nab-Skid" "Search-Dart-Fire" "Cut-Search-Panic" "Prey-Silent-Prod" "Hang-Fly-March" "Ion-Trim-Stomp" "Duel-Dig-Maul" "Fast-Shun-Flense" "Fade-Take-Maul" "Dive-Club-Trap" "Dart-Hunt-Hijack" "Nab-Blow-Ward" "Search-Pin-Duel" "Dig-Lash-Buck" "Bury-Find-Deck" "Bite-Gnaw-Rush" "Jab-Take-Jerk" "Nail-Lead-Plan" "Skid-Reel-Act" "Gun-Clash-Bang" "Blow-Maul-Prod" "Trap-Buck-Trim" "Pack-Jab-Shun" "Buck-Dig-Beat" "Shun-Rise-Dash" "Aim-Fire-Clip" "Fast-Eat-Search" "Slay-Grab-Prod" "Fade-Silent-Lead" "Lead-Tear-Crash" "Dive-Sap-Nail" "Maul-Ward-Cut" "Prey-Risk-Aim" "Prey-Eat-Repel" "Parry-Hack-Rise" "Drag-Spy-Fade" "Panic-Silent-Rush" "Shun-Beat-Ion" "Paw-Duel-Elude" "Dread-Ram-Saw" "Flense-Maul-Deck" "Ice-Parry-Yank" "Fade-Duel-Panic" "Duel-Nail-Clash" "Beat-Gnaw-Spy" "Jerk-Knife-Grab" "Search-Drag-Gnaw" "Maim-Shun-Trip" "Grind-Shun-Fade" "Sap-Rise-Dive" "Prey-Crash-Trap" "Void-Paw-Dash" "Silent-Ram-Clip" "Stomp-Crash-Spy" "Flense-Hunt-Clash" "Gnaw-Prey-Feed" "Deck-Jolt-Cut" "Cram-Club-Shun" "Rise-Fire-Plan" "Club-Slay-Nab" "Grind-Fly-Risk" "Void-Trap-Find" "Fall-Ice-Jolt" "Rise-Fire-Silent" "Ram-Skid-Clash" "Injure-Duel-Crash" "Mark-Tear-Club" "Hang-Ice-Maim" "Take-Elude-Grab" "Repel-Tear-Clip" "Maim-Nab-Ice" "Club-Bang-Nab" "Lead-Gnaw-Fall" "Prey-Tear-Pin" "Cram-Silent-Jab" "Dig-Cut-Fast" "Panic-Tear-Trip" "Fast-Dive-Ice" "Lash-Pin-Repel" "Blow-Plan-Repel" "Take-Ward-Stomp" "Pin-Hack-Maul" "Hijack-Ward-Act" "Trim-Find-Jab" "Jerk-Risk-Crash" "Risk-Plan-Repel" "Trip-Ion-Blow" "Clip-Hang-Hunt"
+			}
+
+		corvette = {
+		"Dagger-Torpedo" "Gauntlet-Skirmish" "Power-Grim" "Void-Torpedo" "Shield-Sword" "Fatal-Torpedo" "Chaser-Notorious" "Harsh-Capture" "Muscle-Sword" "Axe-Excess" "Shelling-Atrocity" "Blast-Carnage" "Watchdog-Warheads" "Detect-Stalk" "Tear-Crush" "Carnage-Menance" "Dagger-Brutal" "Artillery-Crack" "Scowl-Artillery" "Malicious-Sword" "Overrun-Tragic" "Nightmare-Fatal" "Scowl-Gun" "Kidnap-Void" "Dead-Guard" "Notorious-Tornado" "Void-Capture" "Assault-Expunge" "Vile-Doom" "Club-Impact" "Intercept-Club" "Rocket-Bear" "Spew-Skirmish" "Plunder-Inflame" "Seize-Carnage" "Tear-Shock" "Club-Vendetta" "Maul-Execute" "Capture-Artillery" "Vile-Expunge" "Furtive-Enforce" "Grievous-Mace" "Barrage-Kidnap" "Blood-Encounter" "Enforce-Dagger" "Scum-Prowl" "Warheads-Tornado" "Breach-Breach" "Crack-Muscle" "Froth-Charge" "Overrun-Steel" "Wisdom-Atrocity" "Brutal-Maul" "Encounter-Fierce" "Doom-Menance" "Bile-Break" "Torch-Rocket" "Harsh-Might" "Lance-Steel" "Enforce-Kidnap" "Shock-Execute" "Brutal-Strong" "Iron-Crack" "Revenge-Rocket" "Breach-Tear" "Attack-Chaos" "Excess-Trauma" "Barrage-Charge" "Strong-Hijack" "Sacrifice-Malicious" "Expunge-Capture" "Steel-Iron" "Malicious-Scum" "Atrocity-Froth" "Spew-Dakka" "Watchdog-Kidnap" "Artillery-Beam" "Blast-Execute" "Warheads-Carnage" "Grim-Encounter" "Downfall-Strangle" "Breach-Bloody" "Beam-Torch" "Beam-Bile" "Sabre-Shelling" "Detect-Pushing" "Break-Strangle" "Torpedo-Bloody" "Club-Gauntlet" "Enforce-Deception" "Trap-Sabre" "Maim-Intercept" "Harsh-Maul" "Capture-Torpedo" "Nightmare-Club" "Skirmish-Menance" "Capture-Brutal" "Nuke-Gauntlet" "Bile-Bloody" "Vile-Loathsome" "Loathsome-Dead" "Bandit-Rocket" "Hijack-Brutal" "Tear-Gauntlet" "Reprisal-Detect" "Crush-Blood" "Wisdom-Impact" "Revenge-Iron" "Downfall-Bile" "Maw-Burn" "Detect-Trauma" "Detect-Stalk" "Kidnap-Quell" "Doom-Execute" "Expunge-Lance" "Torch-Vile" "Club-Feud" "Vile-Gun" "Torpedo-Expunge" "Quell-Doom" "Grin-Blood" "Crisis-Horror" "Strong-Fierce" "Overrun-Charge" "Breach-Plunder" "Dakka-Iron" "Consolidate-Grim" "Stalk-Tornado" "Charge-Gun" "Ravage-Fray" "Rebel-Grave" "Glory-Vomit" "Sabre-Spew" "Prowl-Break" "Torch-Vitriol" "Carnage-Rocket" "Charge-Sacrifice" "Watchdog-Furtive" "Spew-Vitriol" "Carnage-Tear" "Steel-Iron" "Frenzy-Seize" "Skirmish-Scythe" "Bandit-Reprisal" "Explode-Fray" "Rebel-Wisdom" "Brutal-Power" "Club-Tornado" "Muscle-Power" "Bloody-Carnage" "Iron-Impact" "Sacrifice-Rift" "Maim-Shelling" "Muscle-Mace" "Ram-Rent" "Feud-Seize" "Vendetta-Void" "Laser-Grin" "Expunge-Dread" "Scum-Crisis" "Rent-Battle" "Rocket-Torch" "Bile-Warheads" "Sacrifice-Detect" "Scowl-Lance" "Prowl-Guard" "Spew-Muscle" "Artillery-Furtive" "Rebel-Watchdog" "Iron-Rift" "Ambush-Menance" "Attack-Flail" "Menance-Break" "Blast-Guard" "Fray-Inflame" "Plunder-Savage" "Scum-Pike" "Trigger-Yearn" "Chaos-Blood" "Clash-Shield" "Consolidate-Fray" "Atrocity-Iron" "Fierce-Steel" "Nuke-Vanguard" "Notorious-Spew" "Dread-Spear" "Nightmare-Maim" "Chaos-Scythe" "Clash-Unruly" "Bear-Steal" "Void-Grim" "Steal-Break" "Enforce-Enforce" "Bear-Dagger" "Muscle-Execute" "Prowl-Brutal" "Brutal-Wisdom" "Tragic-Club" "Atrocity-Grave" "Trigger-Malicious" "Maw-Scowl" "Savage-Frenzy" "Grave-Iron" "Rift-Chaser" "Breach-Plunder" "Dagger-Rent" "Froth-Burn" "Club-Strong" "Grievous-Pushing" "Chaos-Brutal" "Vitriol-Crush" "Flail-Feed" "Exploit-Detect" "Steal-Scum" "Scowl-Frenzy" "Watchdog-Pacify" "Strangle-Sniper" "Excess-Trigger" "Exploit-Axe" "Pushing-Burn" "Pacify-Guard" "Blast-Crisis" "Fierce-Choppa" "Notorious-Might" "Watchdog-Choppa" "Impact-Grunt" "Froth-Strangle" "Fierce-Vendetta" "Pushing-Rift" "Choppa-Enforce" "Furtive-Rocket" "Dash-Burn" "Execute-Maw" "Bile-Clash" "Bear-Fierce" "Maw-Frenzy" "Quell-Unruly" "Prowl-Fray" "Pacify-Wrecker" "Lance-Fatal" "Pacify-Tear" "Shock-Torpedo" "Glory-Spew" "Iron-Tragic" "Besiege-Cannon" "Grave-Maul" "Crack-Frenzy" "Enforce-Sniper" "Rent-Maim" "Axe-Hate" "Hatchet-Man" "Grinning-Death" "Iron-Price" "Roving-Doom" "Eats-Living" "Flesh-Eater" "Brood-Spawn" "Tank-Glory" "Rocket-Rider" "Gun-Slinger" "Long-Rifle" "Dead-Face" "Long-Gaze" "Pack-Killer" "Shock-War" "Grim-Fang" "Blood-Frenzy" "Gore-Jest" "Laughing-Shock"
+		}
+
+
+		constructor = {
+		"Nest-Scurry" "Cave-Dig" "Fire-Tender" "Castle-Maker" "Home-Dredge" "Fort-Builder" "Base-Dozer" "Den-Miner" "Wall-Raise" "Trench-Dig" "Expand-Collect"
+		}
+
+		colonizer = {
+		"Breed-Expand" "Nest-Builder"
+		}
+
+		science = {
+		"Outward-Look" "Seek-Save" "Find-Report" "Spy-Hide" "Find-Seek" "Scry-Remember" "Hunt-Data"
+		}
+
+		destroyer = {
+		"Unruly-Impact-Steal" "Shock-Doom-Steal" "Intercept-Crush-Detect" "Nuke-Shock-Torpedo" "Flail-Furtive-Frenzy" "Breach-Nuke-Sword" "Break-Blood-Dakka" "Mayhem-Grave-Besiege" "Gun-Might-Seize" "Pike-Bile-Hate" "Slayer-Whip-Bayonet" "Grin-Shelling-Wisdom" "Grunt-Brood-Dead" "Mace-Stalk-Prowl" "Slayer-Dagger-Besiege" "Grinder-Blood-Axe" "Cannon-Notorious-Grave" "Brood-Trigger-Shock" "Trap-Downfall-Fierce" "Execute-Torch-Whip" "Crack-Menance-Muscle" "Attack-Torpedo-Tank" "Shelling-Hunter-Savage" "Consolidate-Assault-Gun" "Grim-Harsh-Mayhem" "Feud-Shock-Shelling" "Blast-Carnivore-Wrecker" "Lance-Sniper-Stalk" "Barrage-Exploit-Unruly" "Grievous-Execute-Laser" "Nightmare-Enforce-Charge" "Sabre-Pushing-Seize" "Scythe-Cannibal-Nightmare" "Cannon-Flesh-Nuke" "Nuke-Grinder-Execute" "Feud-Warheads-Chaser" "Fray-Vow-Chaser" "Psi-Nuke-Trauma" "Charge-Maul-Intercept" "Flesh-Frenzy-Rebel" "Bear-Fire-Power" "Carnage-Stalk-Covert" "Intercept-Tragic-Nuke" "Spew-Grinder-Carnivore" "Bloody-Ambush-Burn" "Salvo-Loathsome-Malicious" "Feed-Steel-Feed" "Hunter-Enforce-Scythe" "Quell-Ambush-Tear" "Gauntlet-Blood-Crack" "Kidnap-Warheads-Pushing" "Pike-Advance-Bear" "Rift-Steel-Doom" "Hijack-Fiery-Kidnap" "Grinder-Frenzy-Grinder" "Trauma-Rift-Chaos" "Gauntlet-Spew-Ram" "Artillery-Mace-Maw" "Bloody-Tank-Besiege" "Fire-Steal-Hate" "Advance-Consolidate-Impact" "Warp-Lance-Tear" "Feud-Encounter-Tank" "Bear-Sword-Consolidate" "Burna-Sniper-Gun" "Dead-Dakka-Board" "Dagger-Blast-Club" "Might-Trigger-Savage" "Fatal-Deception-Assassin" "Warp-Nightmare-Sniper" "Harsh-Crush-Brood" "Gun-Scum-Notorious" "Salvo-Doom-Impact" "Carnage-March-Chaos" "Choppa-Pacify-Ambush" "Sniper-Ravage-Ambush" "Clash-Rift-Rocket" "Furtive-Crush-Carnage" "Doom-Sword-Hate" "Besiege-Malicious-Nuke" "Intercept-Fiery-Slayer" "Capture-Sniper-Execute" "Unruly-Bile-Chaser" "Reprisal-Bury-Trauma" "Might-Pacify-Shock" "Brood-Club-Rocket" "Cannibal-Nightmare-Rocket" "Gun-Power-Deception" "Horror-Slayer-Bayonet" "Tornado-Pushing-Ambush" "Enforce-Spray-Dash" "Scowl-Fierce-Scum" "Fray-Besiege-Board" "Gun-Unruly-Guard" "Fray-Grim-Dakka" "Wisdom-Seize-Wrecker" "Frenzy-Menance-Froth" "Board-Seize-Consolidate" "Bloody-Axe-Might" "Yearn-Blast-Shelling" "Bury-Atrocity-Burn" "Board-Mace-Flail" "Detect-Seize-Cannibal" "Sword-Axe-Prowl" "Fray-Warheads-Consolidate" "Hate-Harsh-Spew" "Plunder-Sabre-Carnivore" "Seize-Doom-Watchdog" "Hijack-Notorious-Carnage" "Seize-Frenzy-Stalk" "Bullet-Slayer-Prowl" "Atrocity-Muscle-Menance" "Explode-Kidnap-Feud" "Bullet-Hate-Board" "Watchdog-Trigger-Skirmish" "Whip-Revenge-Pacify" "Horror-Tank-Horror" "Bile-Carnage-Fiery" "Vomit-Rift-Reprisal" "Glory-Downfall-Vanguard" "Vendetta-Revenge-Fiery" "Lance-Inflame-Wisdom" "Tragic-Dread-Crisis" "Trap-Break-Grave" "Strong-Doom-Burn" "Deception-Skirmish-Spew" "Charge-Vomit-Seize" "Grim-Rift-Breach" "Ram-Besiege-Sniper" "Maim-Rift-Guard" "Hate-Encounter-Hijack" "Warheads-Laser-Attack" "Choppa-Covert-Plunder" "Bayonet-Tank-Iron" "Board-Hate-Lance" "Vendetta-Inflame-Scythe" "Spear-Fire-Hound" "Void-Flesh-Dagger" "Carnage-Bullet-Mayhem" "Blood-Crack-Breach" "Dead-Torpedo-Overrun" "Harsh-Chaser-Ram" "Grunt-Fire-Trigger" "Explode-Bloody-Yearn" "Guard-Menance-Rift" "Maul-Grievous-Steel" "Vomit-Prowl-Grunt" "Dash-Ram-Carnage" "Maw-Pushing-Shelling" "Hound-Scowl-Reprisal" "Hunter-Harsh-Advance" "Frenzy-Vitriol-Capture" "Assault-Battle-Vitriol" "Rocket-Flail-Doom" "Attack-Yearn-Harsh" "Ram-Muscle-Sacrifice" "Bury-Nuke-Feed" "Assault-Clash-Beam" "Trap-Shield-Burn" "Clash-Steel-Notorious" "Expunge-Tear-Deception" "Hate-Burna-Clash" "Menance-Power-Rebel" "Slayer-Grin-Cannon" "Feed-Savage-Feed" "Feud-Pushing-Yearn" "Vomit-Dakka-Burna" "Hijack-Ravage-Flesh" "Bear-Wrecker-Rent" "Psi-Artillery-Feed" "Spew-Crisis-Spew" "Trap-Torch-Gauntlet" "Enforce-Grim-Fierce" "Spear-Pacify-Bomb" "Tank-Vanguard-Hunter" "Burna-Dread-Grave" "Salvo-Warheads-Mayhem" "Warp-Torpedo-Pushing" "Downfall-Furtive-Bloody" "Spew-Grinder-Choppa" "Advance-Tear-Crack" "Torch-Trauma-Carnivore" "Grunt-Steel-Vitriol" "Rebel-Grim-Shock" "Tragic-Steal-Chaser" "Battle-Brutal-Feud" "Expunge-Gauntlet-Tornado" "Strangle-Barrage-Sniper" "Cannon-Salvo-Assassin" "Bury-Nightmare-Cannon" "Laser-Mace-Atrocity" "Grievous-Assassin-Trap" "Attack-Malicious-Tank" "Dakka-Brutal-Carnage" "Iron-Vile-Notorious" "Horror-Assault-Chaos" "Bloody-Fatal-Nuke" "Vow-Dash-Mayhem" "Beam-Brutal-Loathsome" "Stalk-Axe-Excess" "Warp-Sword-Bomb" "Tragic-Carnage-Might" "Rift-Rent-Board" "Advance-Kidnap-Burn" "Brood-Seize-Rocket" "Sacrifice-Rift-Bear" "Sword-Prowl-Malicious" "Fray-Crisis-Iron" "Attack-Bloody-Torch" "Void-Doom-Breach" "Cannon-Revenge-Consolidate" "Excess-Axe-Tornado" "Breach-Rebel-Board" "Carnivore-Grunt-Assault" "Encounter-Scowl-Slayer" "Shock-Carnivore-Fiery" "Blast-Burn-Chaser" "Covert-Loathsome-Fray" "Covert-Atrocity-March" "Exploit-Beam-Impact" "Grim-Trauma-Gun" "Club-Grunt-Torch" "Void-Dash-Fatal" "Laser-Impact-Might" "Froth-Deception-Dread" "Brutal-Quell-Grievous" "Reprisal-Assassin-Besiege" "Assault-Sniper-Iron" "Tear-Downfall-Fray" "Break-Frenzy-Cannon" "Furtive-Assassin-Blast" "Sabre-Vicious-Trap" "Consolidate-Explode-Impact" "Gun-Hate-Exploit" "Rift-Chaser-Skirmish" "Breach-Carnivore-Dakka" "Inflame-March-Tank" "Menance-Vicious-Vow" "Strong-Watchdog" "Iron-Scythe-Cannibal" "Club-Gauntlet-Bile" "Nightmare-Stalk-Strangle" "Covert-Steal" "Kidnap-Glory-Downfall" "Artillery-Excess-Gauntlet" "Burn-Cannibal-Grunt" "Grave-Maim-March" "Choppa-Guard-Iron" "Shield-Dead-Shelling" "Explode-Shock-Lance" "Eat-The-Dead"
+		}
+
+
+
+		cruiser = {
+		"Mega-Scorpion" "Mega-Panther" "Mega-Leopard" "Panther-Omega" "Warthog-Omega" "Ultra-Warthog" "Dragon-Dominus" "Ultra-Crocodile" "Mamba-Omega" "Deus-Wildcat" "Dragon-Ultima" "Ultra-Crocodile" "Deus-Eagle" "Ultra-Shark" "Ultra-Dragon" "Chimera-Ultima" "Apex-Crocodile" "Chimera-Omega" "Mega-Panther" "Apex-Cyclops" "Ultra-Hawk" "Deus-Cheetah" "Alpha-Weasal" "Deus-Minotaur" "Alpha-Ogre" "Deus-Panther" "Deus-Gator" "Alpha-Minotaur" "Ultra-Golem" "Ultra-Gorgon" "Mega-Warthog" "Mega-Rat" "Deus-Hyena" "Ultra-Vulture" "Deus-Bear" "Ultra-Basilisk" "Uber-Weasal" "Mega-Lion" "Ultra-Daemon" "Ultra-Behemoth" "Alpha-Rex" "Uber-Sphinx" "Mega-Cobra" "Ultra-Cobra" "Uber-Rhino" "Apex-Weasal" "Apex-Banshee" "Alpha-Basilisk" "Apex-Panther" "Mega-Ogre" "Apex-Zombie" "Apex-Panther" "Alpha-Roach" "Uber-Werewolf" "Ultra-Sphinx" "Griffin-Omega" "Bear-Ultima" "Wolf-Rex" "Spider-Omega" "Daemon-Omega" "Roach-Ultima" "Rhino-Dominus" "Gator-Omega" "Tiger-Dominus" "Lion-Noctis" "Coyote-Ultima" "Leopard-Rex" "Gator-Dominus" "Triceratops-Rex" "Basilisk-Rex" "Shade-Omega" "Chimera-Omega" "Cyclops-Noctis" "Hyena-Noctis" "Cheetah-Noctis" "Gator-Omega" "Wolverine-Noctis" "Griffin-Ultima" "Tyrannosaurus-Ultima" "Gator-Dominus" "Kraken-Noctis" "Spider-Dominus" "Weasal-Rex" "Scorpion-Omega" "Stegosaurus-Ultima" "Gorgon-Noctis" "Hyena-Ultima" "Rhino-Dominus" "Velociraptor-Ultima" "Medua-Dominus" "Wildcat-Noctis" "Lion-Noctis" "Mongoose-Ultima" "Hyena-Dominus" "Sphinx-Dominus" "Golem-Ultima" "Coyote-Rex" "Stegosaurus-Ultima" "Rhino-Ultima" "Eagle-Omega" "Sphinx-Ultima" "Scorpion-Omega" "Cyclops-Rex" "Wildcat-Dominus" "Cobra-Dominus" "Cockatrice-Noctis" "Kraken-Dominus" "Basilisk-Ultima" "Gorgon-Omega" "Vulture-Dominus" "Ogre-Omega" "Dinosaur-Rex" "Coyote-Noctis" "Vulture-Omega" "Hyena-Omega" "Vulture-Omega" "Jaguar-Ultima" "Gator-Rex" "Pitbull-Ultima" "Dragon-Noctis" "Kraken-Ultima" "Wendigo-Dominus" "Shark-Rex" "Stegosaurus-Dominus" "Wolverine-Ultima" "Lion-Noctis" "Rat-Rex" "Mamba-Noctis" "Velociraptor-Dominus" "Wendigo-Noctis" "Bear-Ultima" "Chimera-Dominus" "Hyena-Dominus" "Cyclops-Dominus" "Cobra-Noctis" "Cockatrice-Ultima" "Wildcat-Rex" "Daemon-Dominus" "Crimson-Gator" "Hunter-Tyrannosaurus" "Black-Phoenix" "Black-Mongoose" "Black-Gator" "Hunter-Tiger" "Black-Coyote" "Stalker-Velociraptor" "Black-Zombie" "Stalker-Kraken" "Black-Dragon" "Crimson-Mantis" "Ultra-Roach" "Hunter-Vulture" "Black-Wendigo" "Hunter-Jaguar" "Hunter-Zombie" "Stalker-Golem" "Crimson-Werewolf" "Crimson-Hawk" "Leopard-Dread" "Rat-Despair" "Cyclops-Horror" "Sphinx-Noctis" "Panther-Noctis" "Dragon-Despair" "Roach-Despair" "Shade-Horror" "Rhino-Dread" "Mongoose-Despair" "Daemon-Terror" "Tyrannosaurus-Dread" "Weasal-Terror" "Cheetah-Dread" "Medua-Horror" "Scorpion-Dread" "Golem-Dread" "Wolverine-Horror" "Minotaur-Dread" "Behemoth-Horror" "Shade-Terror" "Velociraptor-Despair" "Tiger-Noctis" "Gorgon-Horror" "Ogre-Dread" "Gorgon-Noctis" "Griffin-Noctis" "Tyrannosaurus-Horror" "Crocodile-Horror" "Bull-Terror" "Behemoth-Horror" "Medua-Despair" "Ogre-Dread" "Bull-Noctis" "Cobra-Despair" "Bull-Terror" "Chimera-Horror" "Stalker-Hydra" "Black-Banshee" "Crimson-Mantis" "Stalker-Hawk" "Stalker-Shark" "Hunter-Chimera" "Black-Scorpion" "Striker-Hawk" "Stalker-Werewolf" "Hunter-Bear" "Crimson-Hawk" "Stalker-Dragon" "Striker-Behemoth" "Crimson-Wildcat" "Hunter-Gator" "Black-Stegosaurus" "Hunter-Daemon" "Stalker-Lion" "Striker-Jackal" "Striker-Eagle" "Mauler-Cyclops" "Mauler-Lion" "Slasher-Minotaur" "Shooter-Weasal" "Tearer-Bear" "Tearer-Cyclops" "Slasher-Minotaur" "Tearer-Eagle" "Shooter-Roach" "Slasher-Hydra" "Slasher-Daemon" "Shooter-Eagle" "Shooter-Mantis" "Biter-Kraken" "Tearer-Scorpion" "Tearer-Kraken" "Slasher-Hydra" "Biter-Hyena" "Slasher-Warthog" "Tearer-Hydra" "Mauler-Weasal" "Biter-Dragon" "Shooter-Werewolf" "Slasher-Werewolf" "Slasher-Wolf" "Tearer-Ogre" "Tearer-Pitbull" "Mauler-Mongoose" "Slasher-Wolf" "Shooter-Kraken" "Slasher-Weasal" "Mauler-Pitbull" "Snail-Smasher"
+		}
+
+
+
+		battleship = {
+		"Dread-Tyrant" "Fire-Rot-Thunder" "Rot-Mega-Raider" "Rot-Alpha-Slayer" "Stalker-Xeno" "Final-Bruised" "Tyrant-Star-Dire" "Devour-Devour" "Bile-Hulk-Swarmer" "Void-Shade" "Warp-Blast-Mega" "Snatcher-Bleeding-Thrust" "Snatcher-Brazen" "Dire-Swarmer" "Torture-Shade" "Dominatrix-Brazen" "Sadist-Black" "Death-Sadist" "Death-Distress" "Sun-Snatcher" "Herald-Bile-Final" "Ultra-Thundering" "Ravage-Trophy-Titan" "Hulk-Thrust" "Sadist-Void" "Bone-Trophy" "Lictor-Dominatrix" "Despair-Blast-Shade" "Rival-Titan-Fire" "Scorch-Stalker-Predator" "Torture-Star" "End-Star" "Trophy-Bile" "Sun-Moon" "Pride-Ice" "Brood-Stoic-Tears" "Brazen-Reaver" "Jaw-Brazen" "Slaughter-Dire" "Slaughter-Bio" "Apex-Blast-Skull" "Defy-Bile" "Bleeding-Ice" "Dominatrix-Torture" "Trophy-Snatcher" "Storm-Void-Blast" "Dire-Bleeding-Demon" "Tears-Black" "Devour-Predator" "Predator-Blast-Apex" "Carrion-Brazen-Rot" "Hulk-Titan" "Star-Titan-Lictor" "Predator-Synaptic" "Rot-Putrid-Despair" "Trophy-Stalker" "Reaver-Speed" "Black-Xeno-Fire" "Maimed-Final-Black" "Skull-Xeno-Shadow" "Despair-Torture-Final" "Hulk-Warp-Carrion" "Shade-Tyrant-Rival" "Death-Slayer" "Blast-Pride" "Demon-Dread-Speed" "Scorch-Swarmer-Maimed" "Brazen-Shadow" "Reaver-Brazen" "Rot-Shadow-Bleeding" "Stalker-Ultra-Defy" "Distress-Dire" "Hulk-Defy-Eat" "Predator-Ultra" "Lictor-Wailing" "Terminator-Carrion-Bone" "Sun-Trophy-Vile" "Venom-Vile" "Star-Crimson" "Tears-Thrust" "Bile-Launcher" "Apex-Bile" "Reaver-Bleeding-Moon" "Bruised-Thundering-Star" "Swarmer-Xeno" "Slaughter-Dominatrix-Slayer" "Swarmer-Pride" "Thrust-Glut-Distress" "Jaw-Monster" "Venom-Stalker" "Thundering-Shade-Brazen" "Warp-Maimed-Nova" "Gnash-End" "Maimed-Distress-Wailing" "Swarmer-Wail" "Tears-Ultra-Pride" "Rot-Raider" "Brazen-Synaptic" "Swarmer-Reaver-Despair" "Storm-Sun-Brazen" "Reaver-Bleeding-Glut" "Wail-Pride-March" "Distress-Fire-Scorch" "Dire-Death-Dominatrix" "Xeno-Slayer-Dominatrix" "End-Alpha-Crimson" "Wailing-Vile-Trophy" "Apex-Lament-Stalker" "Shade-Wail-Despair" "Void-Warp-Fist" "Wail-Stalker-Brazen" "Dread-Vile-Moon" "March-Scorch-Xeno" "Gnash-Monster-Synaptic" "Skull-Blast-Bleeding" "Bone-Herald-Tyrant" "Hulk-Bleeding-Storm" "Venom-Brazen-Terminator" "Carrion-Apex-Speed" "Omega-Apex-Lament" "Lord-Slayer-Shade" "Master-Ice-Spawn" "Omega-Bio-Snatcher" "Lord-March-Herald" "Mistress-End-Rot" "Lord-Thrust-Bleeding" "Omega-Blast-Nightmare" "Last-Dire-Stalker" "Mistress-Storm-Bruised" "Omega-Monster-Star" "Dread-Skull-Wail" "Mistress-Ice-Brazen" "Lord-Death-Bio" "Dread-Reaver-Glut" "Dread-Raider-Death" "Master-Lictor-Jaw" "King-Venom-Thundering" "Last-Scorch-Glut" "Second-Ravage-Lament" "Last-Slaughter-Speed" "Carnivore-Crimson-Final" "First-Stalker-Tyrant" "Dread-Trophy-Vile" "First-Lament-Trophy" "Final-Bone-Devour" "Dread-Rival-Pride" "King-Shadow-Monster" "Xenocide-Death-Devour" "Last-Bleeding-Blast" "King-Lictor-Stoic" "Second-Despair-Void" "Holocaust-Ultra-Tears" "Lord-Carrion-Stoic" "Xenocide-Wail-Trophy" "Omega-Skull-Ice" "King-Devour-Xeno" "Omega-Alpha-Stoic" "Purger-Ice-Distress" "Second-Glut-Glut" "Xenocide-Rot-Black" "Dread-Jaw-Fist" "Dread-Bile-Hulk" "Master-Torture-Star" "Dread-Thundering-Stoic" "Mistress-Final-Moon" "King-Rival-Warp" "Xenocide-Raider-Shade" "Holocaust-Despair-Nova" "First-Storm-March" "Purger-Bile-Nova" "King-Brood-Tyrant" "Mistress-End-Stalker" "Dread-Despair-Warp" "Mistress-Mega-Rival" "Final-Fist-Shadow" "Final-Bio-Ice" "Purger-Mutant-Sadist" "Mistress-Blast-Shade" "Carnivore-Speed-Scorch" "Second-Sadist-Bio" "Xenocide-Scorch-Skull" "Carnivore-Ultra-Scorch" "First-Putrid-Stalker" "King-Tyrant-Nightmare" "Dread-Spawn-Snatcher" "Returning-Final-Devour" "Returning-Slayer-Dominatrix" "Gleeful-Venom-Slayer" "Dread-Black-Final" "Last-Raider-Defy" "Master-Sun-Rock" "Purger-Mega-Storm" "Holocaust-Mega-Monster" "Nightmare-Dominatrix" "King-Predator-Mega" "Returning-Warp-Thundering" "Carnivore-Thrust-Vile" "Purger-Blast-Rock" "Xenocide-Fire-Thrust" "Last-Dirge-Torture" "First-Brood-Fire" "Annual-Bruised-Bio" "Final-Rot-Star" "Holocaust-Stalker-Crimson" "Holocaust-Torture-Skull" "Returning-Slayer-Slayer" "King-Ravage-Speed" "Gleeful-Death-Ultra" "Xenocide-Scorch-Scorch" "Annual-Carrion-Storm" "Gleeful-Raider-Hulk" "Lord-Lament-Bone" "King-Ravage-Venom" "Dread-Scorch-Devour" "Carnivore-Lament-Dominatrix" "Xenocide-Wail-Wail" "Lord-Devour-Black" "Annual-Scorch-Glut" "Gleeful-Lament-Wail" "Venom-Rot-Pride" "Titan-Void-Terminator" "Omega-Death-Sadist" "Ultra-Lament-Demon" "Mistress-Glut-Torture" "Holocaust-Tears-Black" "Black-Wail-Scorn" "Mistress-Devour-Swarmer-" "Xenocide-Bone-Pyre" "Final-Slaughter-Hulk" "Xenocide-Storm-Fist" "Brazen-Rot-Rock" "Slaughter-Rest-Scorn" "Lord-Predator-Brood" "First-Fire-Speed" "Dread-Bruised-Despair" "Carnivore-Pride-Terminator" "Xenocide-Herald-Defy" "Master-Bio-Tyrant-Death" "Swarmer-Nightmare" "Holocaust-Final-Bone" "King-Swarmer-Maimed" "Dread-Snatcher-Scorn" "Purger-Bleeding-Ice" "Tyrant-Reaver-Nova" "Holocaust-Torture-March" "Omega-Star-Storm" "Bruised-Venom-Swarmer" "Final-Crimson-Ravage-Void" "Carnivore-Lament-Ice-Titan" "Returning-Trophy-Ice-Dirge" "Demon-Nightmare-Bone" "Purger-Pride-Rock" "Dread-March-Sun-Despair" "Last-Dire-Ravaged" "Lord-Black-Void" "King-Death-Final" "Purger-Skull-Lament-" "Final-Terminator-Pyre" "Xenocide-Synaptic-Stalker" "Holocaust-End" "Omega-Slayer" "Holocaust-Fire" "King-Lament" "Carnivore-Black" "King-Rot" "Returning-Mutant" "Holocaust-Fist" "Annual-Terminator" "Lord-Fire" "Last-Trophy" "Returning-Fist" "Mistress-Scorn" "Carnivore-Mega" "Last-Sun" "King-Pyre" "King-Gnash" "Last-Rot" "Gleeful-Pride"
+		}
+
+
+		orbital_station = {
+
+		}
+
+		mining_station = {
+
+		}
+
+		research_station = {
+
+		}
+
+		wormhole_station = {
+
+		}
+
+		###terraform_station = {	}
+
+		observation_station = {
+
+		}
+
+		outpost_station = {
+
+		}
+
+		transport = {
+		"Brood-Bringer"
+		}
+
+		military_station_small = {
+
+		}
+
+		military_station_medium = {
+
+		}
+
+		military_station_large = {
+
+		}
+
+	}
+
+		fleet_names = {
+			random_names = {
+				}
+			sequential_name = " Reavers %R%"
+		}
+
+	army_names = {
+		defense_army = {
+			random_names = {
+				}
+			sequential_name = "Guards %R%"
+		}
+
+		assault_army = {
+			random_names = {
+				"Hunters" }
+			sequential_name = "Hunters %R%"
+		}
+
+		slave_army = {
+			random_names = {
+				}
+			sequential_name = "Beasts %R%"
+		}
+
+		clone_army = {
+			random_names = {
+				}
+			sequential_name = "Replicant %R%"
+		}
+
+		robotic_army = {
+			random_names = {
+				}
+			sequential_name = "Mechas %R%"
+		}
+
+		android_army = {
+			random_names = {
+				}
+			sequential_name = "Stalkers %R%"
+		}
+
+		psionic_army = {
+			random_names = {
+				}
+			sequential_name = "Mind Eaters %R%"
+		}
+
+		xenomorph_army = {
+			random_names = {
+				}
+			sequential_name = "Predators %R%"
+		}
+
+		gene_warrior_army = {
+			random_names = {
+				}
+			sequential_name = "Terminators %R%"
+		}
+
+	}
+
+	planet_names = {
+		generic = {
+			names = {
+				"Medusa" "Sentinel" "Nemesis" "Hell's Teeth" "Maw" "Wild Hunt" "Carrion Deep" "Hallowed" "Vore" "Kraken" "Titan" "The Eye" "Laughing Pits" "Tiamat" "Scylla" "Scarabus" "Behemoth" "Naga" "Gorgon" "Hydra" "Grendel" "Harbinger" "Dagon" "Loki" "Shiva" "Perseus" "Ishmael" "Woden" "Oshosi" "Gwyn" "Herod" "Cain" "Volcji" "Eagle's Perch" "Freya" "Frigg" "Jotnar" "Yggdrasil" "Valhalla" "Mani" "Devana" "Podaga" "Bendis" "Neith" "Pakhet" "Mixcoatl" "Opochitli" "Bhadra" "Rudra" "Kaax" "Cernunnos" "Nodens" "Flidais" "Actaeon" "Artemis" "Britomatis" "Lelantos" "Meilki" "Nyriki" "Tapio" "Odin" "Skaoi"
+			}
+		}
+
+		pc_desert = {
+			names = {
+
+			}
+		}
+
+		pc_arid = {
+			names = {
+
+			}
+		}
+
+		pc_tropical = {
+			names = {
+
+			}
+		}
+
+		pc_continental = {
+			names = {
+
+			}
+		}
+
+		pc_ocean = {
+			names = {
+
+			}
+		}
+
+		pc_tundra = {
+			names = {
+
+			}
+		}
+
+		pc_arctic = {
+			names = {
+
+			}
+		}
+
+		pc_gaia = {
+			names = {
+				"Pinga" "Sedna" "Ogoun"
+			}
+		}
+
+		pc_nuked = {
+			names = {
+				"Tranquility" "The Rest" "Bone Fields" "Plague"
+			}
+		}
+
+		pc_ai = {
+			names = {
+
+			}
+		}
+
+	}
+
+	character_names = {
+		default = {
+		full_names = {
+		
+		}
+
+		first_names = {
+		"Camaxot" "Bacusihet" "Lulorocav" "Gunakivox" "Jemivilum" "Malokux" "Hikohiroc" "Dukicavoh" "Hikitus" "Bacexicor" "Hakehat" "Heluroh" "Gutukon" "Dokivel" "Dokiluk" "Dukosevic" "Bacaxevuk" "Gilenos" "Feluvulim" "Bukacek" "Kefoxexus" "Colorot" "Dokotihom" "Lefukavuk" "Kefocin" "Helusur" "Duken" "Mulomos" "Malilom" "Daxoxex" "Dovuhivun" "Camamuv" "Hikiser" "Malavex" "Cilimekix" "Calamalil" "Gutirenor" "Cilamevis" "Gilicolor" "Felihun" "Gunakun" "Lulohusec" "Caluvusil" "Gilatev" "Camhil" "Fakuhax" "Dakilim" "Bikaxep" "Felolotev" "Hikekokal" "Rulicok" "Sukenax" "Palolec" "Wefevem" "Vutelum" "Mixihix" "Viluvil" "Nacuhik" "Wunux" "Sataliv" "Zulorov" "Takil" "Vutetem" "Roturon" "Pilokec" "Vefixov" "Sikemot" "Takusev" "Vefiken" "Toxinel" "Sunelon" "Sakoriv" "Vixamuk" "Rimohus" "Wefeloc" "Sakanen" "Sitocol" "Vefusen" "Sokavir" "Nacurec" "Relisev" "Mixivuk" "Sakosix" "Zalukak" "Vefaker" "Sukecon" "Vefarol" "Zulovul" "Rimovil" "Vixisus" "Lord Tox" "Lord Pax" "Lord Ulm" "Lord Xil" "Grux" "Ruku" "Rato"
+		}
+
+		first_names_male = {
+
+		}
+
+		first_names_female = {
+
+		}
+
+		second_names = {
+		"Rimex" "Sukax" "Sukakumec" "Vilerekep" "Sitalotan" "Relonuxil" "Sunutokuk" "Sunivetih" "Roliruhol" "Paxukecov" "Nikoxakik" "Vilehukec" "Niriluron" "Zalulinil" "Sikehohir" "Sakohihon" "Zixivilax" "Paxixakak" "Vililemer" "Riminosil" "Lamuno" "Rilumohin" "Kulanot" "Zalenkat" "Vaketex" "Nukoket" "Namotep" "Selimirik" "Rolotehak" "Nabovalic" "Sakurepix" "Vutacutav" "Zulexis" "Piloxicek" "Wuluhihut" "Gomocehos" "Pilatexil" "Sunerilem" "Toxuken" "Sukiril" "Nirocurev" "Satuhituv" "Vilacehov" "Rotohekum" "Gomexinon" "Sutoxevoc" "Nirecekix" "Paxocecat" "Sovokehep" "Vefukanik" "Zukuxoxil" "Zulemilos" "Wulivonok" "Galucaruh" "Nukenehul" "Nacacotut" "Zulokor" "Zalex" "Gomaxisec" "Sakumovik" "Galorulan" "Satexepuc" "Satamotat" "Kaliluxal" "Rotunotum" "Nirolusal" "Lutaroril" "Vetitivox" "Wifacutox" "Lamexukix" "Rimalicus" "Rumosomuh" "Zalirum" "Palukalox" "Nalokuv" "Nirevohac" "Nikoxerol"
+
+		}
+
+		regnal_first_names = {
+
+		}
+
+		regnal_first_names_male = {
+
+		}
+
+		regnal_first_names_female = {
+
+		}
+
+		regnal_second_names = {
+
+		}
+		}
+		}
+		}

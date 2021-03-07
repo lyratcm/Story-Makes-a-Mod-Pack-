@@ -1,0 +1,9 @@
+civic_hive_hive_affinity = {
+	potential = { authority = { value = auth_hive_mind } }
+	random_weight = { base = 5 }
+	modifier = {
+		ship_speed_mult = 0.15
+		ship_evasion_mult = 0.15
+		ship_fire_rate_mult = 0.10
+	}
+}

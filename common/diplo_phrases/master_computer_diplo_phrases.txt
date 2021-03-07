@@ -1,0 +1,258 @@
+greetings = {
+    01_MASTER_COMPUTER_FRIENDLY_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = {
+                NOT = { has_authority = auth_master_computer }
+            }
+            OR = {
+                is_friendly_to = FROM
+                is_cordial_to = FROM
+                is_protective_to = FROM
+            }            
+        }
+    }
+    02_MASTER_COMPUTER_FRIENDLY_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = {
+                NOT = { has_authority = auth_master_computer }
+            }
+            OR = {
+                is_friendly_to = FROM
+                is_cordial_to = FROM
+                is_protective_to = FROM
+            }
+        }
+    }
+
+    01_MASTER_COMPUTER_NEUTRAL_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            NOT = { is_at_war_with = FROM }
+            OR = {
+				is_neutral_to = FROM
+				is_threatened_to = FROM
+			}
+        }
+    }
+    02_MASTER_COMPUTER_NEUTRAL_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            NOT = { is_at_war_with = FROM }
+            OR = {
+				is_neutral_to = FROM
+				is_threatened_to = FROM
+			}
+        }
+    }
+
+    01_MASTER_COMPUTER_HOSTILE_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            OR = {
+                is_at_war_with = FROM
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+        }
+    }
+    02_MASTER_COMPUTER_HOSTILE_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            OR = {
+                is_at_war_with = FROM
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+        }
+    }
+
+    01_MASTER_COMPUTER_DATAVORE_HOSTILE_GREETING = {
+        trigger = {
+            has_valid_civic = civic_master_computer_datavore
+            OR = {
+                is_at_war_with = FROM
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+        }
+    }
+    02_MASTER_COMPUTER_DATAVORE_HOSTILE_GREETING = {
+        trigger = {
+            has_valid_civic = civic_master_computer_datavore
+            OR = {
+                is_at_war_with = FROM
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+        }
+    }
+
+    01_MASTER_COMPUTER_GREETING_TO_DEM = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = { has_authority = auth_democratic }
+            NOT = { is_at_war_with = FROM }
+            OR = {
+				is_neutral_to = FROM
+				is_threatened_to = FROM
+                is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+        }
+    }
+    01_MASTER_COMPUTER_GREETING_TO_DIC = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = {
+                OR = {
+                    has_authority = auth_dictatorial
+                    has_authority = auth_imperial
+                }
+            }
+            NOT = { is_at_war_with = FROM }
+            OR = {
+				is_neutral_to = FROM
+				is_threatened_to = FROM
+                is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+        }
+    }
+
+    01_MASTER_COMPUTER_GREEING_TO_SERVITORS = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = { has_valid_civic = civic_machine_servitor }
+            NOT = { is_at_war_with = FROM }
+        }
+    }
+    01_MASTER_COMPUTER_GREETING_TO_ASSIMILATOR = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = { has_valid_civic = civic_machine_assimilator }
+            NOT = { is_at_war_with = FROM }
+        }
+    }
+    01_MASTER_COMPUTER_INTEGRATOR_GREETING_TO_ASSIMILATOR = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = { has_valid_civic = civic_machine_assimilator }
+            NOT = { is_at_war_with = FROM }
+        }
+    }
+
+    01_MASTER_COMPUTER_VR_FRIENDLY_GREETING = {
+        trigger = {
+            has_valid_civic = civic_master_computer_virtual_world
+            NOT = { is_at_war_with = FROM }
+            OR = {
+                is_friendly_to = FROM
+                is_cordial_to = FROM
+                is_protective_to = FROM
+            }
+        }
+    }
+
+    01_MASTER_COMPUTER_MUTUAL_FRIENDLY_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = { has_authority = auth_master_computer }
+            OR = {
+                is_friendly_to = FROM
+                is_cordial_to = FROM
+                is_protective_to = FROM
+            }
+        }
+    }
+    02_MASTER_COMPUTER_MUTUAL_FRIENDLY_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = { has_authority = auth_master_computer }
+            OR = {
+                is_friendly_to = FROM
+                is_cordial_to = FROM
+                is_protective_to = FROM
+            }
+        }
+    }
+
+    01_MASTER_COMPUTER_MUTUAL_HOSTILE_GREETING = {
+        trigger = {
+            has_authority = auth_master_computer
+            FROM = { has_authority = auth_master_computer }
+            OR = {
+                is_at_war_with = FROM
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+        }
+    }
+
+    01_MASTER_COMPUTER_REVERSE_FRIENDLY_GREETING = {
+        trigger = {
+            is_gestalt = no
+            FROM = { has_authority = auth_master_computer }
+            OR = {
+                is_friendly_to = FROM
+                is_cordial_to = FROM
+                is_protective_to = FROM
+            }
+        }
+    }
+
+    01_MASTER_COMPUTER_REVERSE_HOSTILE_GREETING = {
+        trigger = {
+            is_gestalt = no
+            NOT = { has_valid_civic = civic_fanatic_purifiers }
+            FROM = { has_authority = auth_master_computer }
+            OR = {
+                is_at_war_with = FROM
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+        }
+    }
+    01_MASTER_COMPUTER_REVERSE_SERVITOR_GREETING = {
+        trigger = {
+            has_valid_civic = civic_machine_servitor
+            FROM = { has_authority = auth_master_computer }
+            OR = {
+                is_friendly_to = FROM
+                is_cordial_to = FROM
+                is_protective_to = FROM
+                is_neutral_to = FROM
+				is_threatened_to = FROM
+            }
+        }
+    }
+}
+
+action_insult = {
+    propose = {
+        01_MASTER_COMPUTER_INSULT = {
+            trigger = {
+                FROM = { has_authority = auth_master_computer }
+                is_gestalt = no
+            }
+        }
+        02_MASTER_COMPUTER_INSULT = {
+            trigger = {
+                FROM = { has_authority = auth_master_computer }
+                is_gestalt = no
+            }
+        }
+
+        01_MASTER_COMPUTER_REV_INSULT = {
+            trigger = {
+                has_authority = auth_master_computer
+            }
+        }
+        01_MASTER_COMPUTER_REV_VR_INSULT = {
+            trigger = {
+                has_valid_civic = civic_master_computer_virtual_world
+            }
+        }
+    }
+}

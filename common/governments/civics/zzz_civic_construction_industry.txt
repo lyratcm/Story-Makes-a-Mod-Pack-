@@ -1,0 +1,28 @@
+civic_construction_industry = {
+    description = "civic_tooltip_construction_industry_effects"
+    potential = {
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        civics = {
+            NOT = {
+                value = civic_consumer_focus
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        planet_metallurgists_alloys_produces_add = 0.5
+        planet_jobs_alloys_produces_mult = 0.10
+        planet_metallurgists_minerals_upkeep_mult = -0.10
+        planet_jobs_consumer_goods_produces_mult = -0.20
+    }
+}

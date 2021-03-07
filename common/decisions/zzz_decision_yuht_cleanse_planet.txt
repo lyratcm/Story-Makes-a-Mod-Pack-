@@ -1,0 +1,66 @@
+decision_yuht_cleanseplanet = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_animal_wildlife
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 500
+		}
+	}
+
+	potential = {
+		can_have_habitable_deposits = yes
+		owner = {
+			has_country_flag = artifact_yuht_research_completed
+		}
+		NOT = { has_modifier = pm_yuht_cleansing }
+	}
+
+	effect = {
+		add_planet_devastation = 50
+		add_modifier = { modifier = pm_yuht_cleansing days = -1 }
+		every_deposit = {
+			limit = { is_deposit_type = d_dangerous_wildlife_blocker }
+			clear_blocker = yes
+		}
+		if = {
+			limit = { has_modifier = dangerous_wildlife }
+			remove_modifier = dangerous_wildlife
+		}
+		remove_planet_flag = has_dangerous_wildlife
+		if = {
+			limit = { has_deposit = d_hunting_preserve }
+			remove_deposit = d_hunting_preserve
+		}
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = cunning_flora_flag
+					has_modifier = cunning_flora
+					has_deposit = d_savage_wildlands
+				}
+			}
+			remove_planet_flag = cunning_flora_flag
+			remove_modifier = cunning_flora
+			remove_deposit = d_savage_wildlands
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			exists = owner
+			owner = { has_civic = civic_natural_hunters }
+		}
+		modifier = {
+			factor = 0.1
+			NOR = {
+				any_deposit = { is_deposit_type = d_dangerous_wildlife_blocker }
+				has_modifier = dangerous_wildlife
+			}
+		}
+	}
+}

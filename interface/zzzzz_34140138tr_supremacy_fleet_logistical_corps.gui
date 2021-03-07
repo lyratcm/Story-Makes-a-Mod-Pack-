@@ -1,0 +1,11 @@
+guiTypes = {
+    @x_3 = 131
+    @y_1 = 55
+    positionType = {
+        name = "tr_supremacy_fleet_logistical_corps"
+        position = {
+            x = @x_3
+            y = @y_1
+        }
+    }
+}

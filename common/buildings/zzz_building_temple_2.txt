@@ -1,0 +1,148 @@
+building_holotemple = {
+    base_buildtime = @b2_time
+    can_build = no
+    category = unity
+    potential = {
+        exists = owner
+        owner = {
+            is_spiritualist = yes
+            NOR = {
+                has_valid_civic = civic_death_cult
+                has_valid_civic = civic_death_cult_corporate
+            }
+        }
+        NOT = {
+            has_modifier = slave_colony
+        }
+    }
+    allow = {
+        has_upgraded_capital = yes
+        buildings_upgrade_allow = yes
+    }
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            owner = {
+                OR = {
+                    has_valid_civic = civic_death_cult
+                    has_valid_civic = civic_death_cult_corporate
+                    is_spiritualist = no
+                }
+            }
+            has_modifier = slave_colony
+        }
+    }
+    convert_to = {
+        building_simulation_2
+        building_hive_cluster
+        building_heritage_site
+        building_corporate_site
+    }
+    planet_modifier = {
+        pop_ethic_spiritualist_attraction_mult = 0.10
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOR = {
+                    has_valid_civic = civic_defenders_faith
+                    has_valid_civic = civic_private_militaries
+                }
+            }
+        }
+        modifier = {
+            job_priest_add = @b2_jobs
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_defenders_faith
+            }
+        }
+        modifier = {
+            job_priest_add = @b1_jobs
+            job_templar_add = @b1_jobs
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_private_militaries
+            }
+        }
+        modifier = {
+            job_chaplain_add = @b2_jobs
+        }
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+            rare_crystals = @b2_rare_cost
+        }
+        upkeep = {
+            energy = @b2_upkeep
+            rare_crystals = @b2_rare_upkeep
+        }
+    }
+    upgrades = {
+        building_sacred_nexus
+    }
+    prerequisites = {
+        "tech_holographic_rituals"
+    }
+    show_tech_unlock_if = {
+        is_spiritualist = yes
+        NOT = {
+            OR = {
+                has_valid_civic = civic_death_cult
+                has_valid_civic = civic_death_cult_corporate
+            }
+        }
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                NOT = {
+                    has_valid_civic = civic_private_militaries
+                }
+            }
+        }
+        text = job_priest_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_private_militaries
+            }
+        }
+        text = job_chaplain_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_defenders_faith
+            }
+        }
+        text = job_templar_effect_desc
+    }
+    ai_weight = {
+        weight = 1
+        modifier = {
+            factor = 0
+            owner = {
+                has_monthly_income = {
+                    resource = consumer_goods
+                    value < 8
+                }
+            }
+        }
+    }
+}

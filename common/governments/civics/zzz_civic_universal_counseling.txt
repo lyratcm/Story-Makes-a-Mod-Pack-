@@ -1,0 +1,23 @@
+civic_universal_counseling = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_pacifist
+                value = ethic_pacifist
+                value = ethic_fanatic_pacifist
+            }
+        }
+        authority = {
+        }
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        country_trust_growth = 0.25
+        country_trust_cap_add = 50
+    }
+}

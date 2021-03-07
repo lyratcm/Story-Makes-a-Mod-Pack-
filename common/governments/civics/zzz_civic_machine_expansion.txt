@@ -1,0 +1,13 @@
+civic_machine_expansion = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_starbase_influence_cost_mult = -0.25
+        country_war_exhaustion_mult = -0.15
+        country_claim_influence_cost_mult = -0.15
+    }
+}

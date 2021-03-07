@@ -1,0 +1,31 @@
+trait_ruler_exalted = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_exalted.dds"
+    leader_potential_add = {
+        NOT = {
+            from = {
+                has_ethic = "ethic_gestalt_consciousness"
+            }
+        }
+        has_trait = trait_eusocial
+    }
+    modifier = {
+        country_unity_produces_mult = 0.20
+        pop_happiness = 0.05
+    }
+    leader_trait = {
+        ruler
+    }
+    leader_class = {
+        ruler
+    }
+    opposites = {
+        trait_ruler_exalted2
+        leader_trait_reformer
+        trait_ruler_champion_of_the_people
+    }
+    ai_weight = {
+        weight = 200
+    }
+}

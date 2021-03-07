@@ -1,0 +1,284 @@
+### Machine Alpha
+### Created by Hinkz 3/2/18
+
+
+MACH = {
+	randomized = yes
+
+	ship_names = {
+
+		generic = {
+		"RAT-Y3-Z4-R7" "Crypto-B6-Z2-W1" "Module-Y3-C8-A4" "Link-O6-P9-S8" "Link-E1-G4-O8" "Host-G7-C6-I1" "Module-W8-J6-S1" "Cracker-A5-H4-N3" "Crypto-G7-E8-K6" "Meta-B2-J1-K1" "Exploit-Y4-O7-K4" "Debugger-F6-G3-O1" "Deamon-R2-I8-M4" "Host-D2-N7-E2" "Crypto-G7-X7-N3" "Trojan-U6-L5-O4" "Cracker-H7-F3-K8" "Debugger-Y7-J5-T1" "Spoof-H2-K1-I6" "Rootkit-B3-R7-F5" "Logic Bomb-O7-H4-Y9" "Host-H7-D9-V3" "Logic Bomb-X7-D3-V1" "Debugger-B2-A7-Z7" "Logic Bomb-H5-Y5-G3" "Spoof-R8-C5-G1" "Deamon-D5-X7-W1" "Unit-E5-L4-B8" "Unit-Q9-P3-R3" "Logic Bomb-M1-J4-B1" "Exploit-E5-A3-O8" "Link-B4-Y6-L8" "Deamon-A7-B3-U5" "Crypto-E8-K9-S3" "Deamon-C2-D6-D9" "Exploit-N4-T1-W9" "Host-A4-O3-D2" "Spoof-M2-N3-G8" "Deamon-D9-A8-B6" "Link-O6-S8-E1" "Unit-Z5-D3-I9" "Host-A5-D7-U4" "Spoof-J1-H6-F3" "Cracker-H9-I9-C7" "Logic Bomb-I3-B8-T3" "Worm-Q9-I9-S2" "Unit-M9-F9-D8" "Link-M5-N3-D4" "Cracker-Y2-V7-N4" "Spoof-N8-E1-K4" "Cracker-T5-P7-L3" "Deamon-L7-H2-I3" "Link-Z1-L3-M4" "Logic Bomb-Z8-M3-J5" "Botnet-I3-M7-B6" "Host-U5-M8-O5" "Trojan-W1-L2-O5" "Deamon-M5-X2-M8" "Meta-P9-N2-T7" "Trojan-H3-T2-T2" "Meta-I2-L2-X5" "Cracker-A5-A6-M6" "Hash-Y9-K5-V6" "Cracker-F5-O3-A7" "Module-C3-M8-P3" "RAT-B9-Q3-G8" "Link-A5-S8-F8" "Logic Bomb-S6-I1-F4" "Logic Bomb-O8-M9-D8" "Meta-S8-Y5-X2" "Trojan-V3-R1-N2" "Deamon-L5-M1-U4" "Spoof-G9-K9-U1" "Hash-Q9-D4-B1" "Unit-D5-Q4-C8" "Cracker-Z7-Q7-W9" "Spoof-Z6-P8-F5" "Link-Q7-J8-A9" "Host-G4-X5-O1" "Hash-D6-I8-O2" "RAT-D6-U9-H6" "Deamon-N1-J1-Y8" "Trojan-S7-D6-H2" "Link-F5-L2-T2" "Hash-U9-U1-J4" "Botnet-E5-I4-S4" "Cracker-Q6-Q8-M3" "Trojan-G5-Q7-A5" "Deamon-M9-K1-P3" "Exploit-W4-F8-Y6" "Debugger-A6-E4-D3" "Crypto-Q8-A9-N6" "Hash-X9-N3-S6" "Worm-U9-R9-N8" "Worm-D9-P8-O5" "Worm-H3-Y1-B5" "Debugger-W6-F6-S2" "Cracker-Q8-A5-B6" "RAT-X9-W2-W3" "Meta-C3-V8-M4" "Worm-E4-G9-E1" "Rootkit-D1-V1-Q7" "Crypto-J2-L3-IZ" "Module-E7-N4-X4" "Trojan-W4-F7-X4" "Debugger-S8-F5-L4" "Host-A9-N4-T5" "Crypto-Z5-G6-Z1" "Deamon-D7-A8-C9" "Worm-C7-M6-I2" "Module-P6-P9-Q6" "Crypto-Y3-S1-K3" "Worm-L3-X4-T1" "Hash-T5-K9-Q6" "Deamon-A3-N4-Z3" "Deamon-U7-N9-U6" "Hash-W9-F7-B2" "Spoof-S2-Q6-C3" "Hash-N8-B6-O7" "Module-K8-T3-A3" "Worm-L1-N9-L5" "Unit-E9-F6-P1" "Meta-P6-L1-R9" "Rootkit-E9-T2-F2" "Deamon-L5-U5-E1" "Debugger-N7-H2-C7" "Logic Bomb-M8-S4-V5" "RAT-B4-Q2-R1" "Logic Bomb-J3-D1-E5" "Botnet-M4-H9-C4" "Output-M7-W3-O8" "Input-V4-I9-Q6" "Cracker-U8-U6-A9" "RAT-P6-T6-G5" "Spoof-K7-D3-U1" "Cache-U8-H9-O4" "Trojan-S9-C7-M8" "Module-Y8-K6-F7" "Worm-V4-T4-A8" "Crypto-Q8-A2-Q5" "Network-A9-A5-M1" "Cracker-W4-Z1-O6" "Deamon-B3-Z5-T5" "Bridge-S3-S8-V5" "Operator-P2-T8-O4" "Worm-A6-M4-X6" "Subsystem-M1-K8-G8" "Debugger-W8-T2-B8" "Drive-I5-S8-E2" "RAT-B9-O5-S2" "Logic Bomb-B8-N6-V2" "Cache-Z3-W7-Y3" "Rootkit-X8-A5-V8" "Exploit-P9-C7-R7" "Meta-J7-Q5-A2" "Rootkit-F1-Z2-T6" "Network-T5-U2-E7" "Input-B5-C8-W3" "Subsystem-T8-I4-V5" "Cache-D8-Q4-P8" "Network-K2-G1-Q5" "Botnet-S4-O9-Y2" "RAT-T2-O3-L8" "Botnet-H5-O1-T2" "Botnet-Q9-Y5-H3" "Spoof-Z1-A2-D8" "Input-V7-S9-S8" "Exploit-A3-T1-I6" "Worm-O9-T4-D9" "Host-A9-V6-T6" "Cracker-V7-Z3-H3" "Output-Y7-V9-O7" "RAT-F7-B3-Y8" "Deamon-M8-Z5-C6" "Exlpoit-N3-H9-L6" "Bridge-G3-F3-C6" "Worm-C8-Q1-L5" "Rootkit-X9-K2-D9" "Spoof-Z7-A2-M3" "Cracker-W5-V2-Q8" "Botnet-J2-J5-V7" "Spoof-D7-O9-W3" "Logic Bomb-J2-Y8-I2" "Cache-B5-W5-C8" "Exlpoit-Q1-G9-E9" "Hash-O7-I4-U6" "RAT-F6-S5-A6" "Exploit-K6-E4-O9" "Trojan-R7-E7-N7" "Logic Bomb-C7-A3-Y3" "Module-J5-M4-M4" "Cracker-S6-Z1-F6" "Cache-D7-F8-O5" "Link-D5-L5-N2" "Link-P1-M6-A7" "Hash-E8-U2-D9" "Data-X1-C1-N6" "Cracker-P1-D3-B7" "Debugger-R1-N7-P4" "Worm-R7-E2-G1" "Cracker-C6-D1-J4" "Operator-D7-U2-V3" "Link-V2-O9-H7" "Crypto-V5-P5-W9" "Unit-W1-B9-X5" "Exploit-S6-W7-Z7" "Output-W7-J8-N7" "Debugger-P2-O9-X7" "Link-N8-Q1-F3" "Operator-W5-T9-T3" "Exlpoit-A4-I3-A5" "Debugger-O8-J3-V4" "Subsystem-P1-B6-O1" "Debugger-I4-Q8-C8" "RAT-G1-K8-O5" "Crypto-E6-U8-H7" "Meta-N7-X6-N9" "Trojan-X6-R1-E9" "Subsystem-F3-O8-S9" "Subsystem-R4-R3-K3" "Link-X5-I4-F2" "Bridge-N7-E5-X3" "Debugger-Q3-A2-M7" "Subsystem-N2-V2-M8" "Debugger-Q2-T2-H7" "Unit-E7-B7-B2" "Unit-F9-U6-M5" "Spoof-P5-Q4-J4" "Rootkit-Z4-Q4-X1" "Trojan-I3-G9-R6" "Output-E8-Z6-W1" "Host-I8-X9-U1" "Debugger-A5-U9-F9" "Unit-N5-M2-D3" "Spoof-M7-X4-Z3" "RAT-A1-C2-Y7" "Exlpoit-Q4-W8-J2" "Debugger-F1-S8-B5" "Rootkit-F6-X3-T7" "Bridge-L8-Y4-T7" "Meta-V3-Q5-V4" "Crypto-L4-U3-D6" "Spoof-I9-D6-S2" "Deamon-E5-E9-E7" "RAT-E1-X1-S7" "Trojan-O2-E5-Y5" "Bridge-B5-C8-U7" "Host-W8-H3-Q6" "Exploit-J1-P2-Y6" "Data-X2-R1-V9" "Trojan-J3-W8-N1" "Spoof-E5-F4-L5" "Botnet-P5-Y5-Y9" "Worm-L5-H7-A9" "Cracker-B1-IZ-F8" "Cache-Y4-V5-V5" "Hash-P1-V6-U8" "Meta-K6-D1-G7" "Hash-V9-M6-M3" "Exlpoit-I6-T4-C2" "Unit-G1-T1-Y5" "Bridge-H1-A3-I9" "Network-L3-D2-L9" "Trojan-L2-U3-V6" "Module-H1-C4-M7" "Cracker-X2-G8-R5" "Debugger-M4-S8-X6" "Exlpoit-S1-C4-G1" "Unit-M9-S2-L2" "Logic Bomb-O1-A9-R3" "Operator-X6-K9-X4" "RAT-S9-T9-B6" "Hash-F3-H8-O1" "Worm-I5-C2-K8" "Meta-N5-C7-R3" "Crypto-D9-K6-L2" "Host-V7-A7-B5" "Unit-G5-E1-J6" "Deamon-G3-S9-I8" "Logic Bomb-P2-K1-T7" "Debugger-S5-N2-V4" "Exploit-N4-T1-A8" "Bridge-X1-S5-T8" "Unit-Y9-F8-W1" "Trojan-C5-L9-I5" "Bridge-Q5-N3-Z7" "Worm-D6-K5-J3" "Cache-S3-V6-O1" "Exlpoit-I4-L9-Y8" "Network-J9-R8-E6" 
+		}
+
+		corvette = {
+		
+		}
+
+		constructor = {
+		"Builder Bot" "Constructo Bot" "Assembly Bot" "Automated Builder" "On-Demand Stations" "Network Attendent" "Hub Helper"  
+		}
+
+		colonizer = {
+		"Pan Galactic" "Wide Load" "Requires Assembly" "Deep Space" "Dark Places" "Prime Mover" 
+		}
+
+		science = {
+		"Sensory Pass" "High Gaze" "Closer Look" "Curious" "Important Question" "Scrap Code" "Far Link" "Light Shot" 
+		}
+
+		destroyer = {
+		
+		}
+
+		cruiser = {
+		
+		}
+
+		battleship = {
+		
+		}
+
+		titan = {
+		"Focal" "Dissemination" "Central" "Occulant" "Bruteforce" 
+		}
+
+		colossus = {
+		"Great Filter" "Elegant Solution" "Principle" 
+		}
+
+		transport = {
+		"Transit" "Fast Mover" "Convoy" 
+		}
+
+		military_station_small = {
+		"Detector" "Stopgap" 
+		}
+
+		ion_cannon = {
+		"Watcher" "Keeper" "Firewall" "Anti-Virus" 
+		}
+
+	}
+
+	ship_class_names = {
+		generic = {
+		
+		}
+
+	}
+
+		fleet_names = {
+			random_names = {
+				"Expansion Division" "Custodian Division" "Sentry Division" "Eternal Division" "Bulwark Division" "Outreach Division" "Seeker Division" "Solar Division" "Matrix Division" }
+			sequential_name = "%O% "
+		}
+### These are names of mechs from battletech
+	army_names = {
+		
+		machine_assault_1 = {
+			random_names = { "Artic Wolf" "Assassin" "Blackjack" "Bushwhacker" "Centurion" "Cicada" "Crab" "Enforcer" "Griffin" "Hunchback" "Ice Ferret" "Kintaro" "Nova" "Phoenix Hawk" "Shadow Cat" "Shadow Hawk" "Trebuchet" "Uziel" "Viper" "Wolverine"
+		}
+			sequential_name = "%O% Medium Mechs"
+		}
+
+		machine_defense = {
+			sequential_name = "%O% Light Mechs"
+			random_names = {
+			"Locust" "Flea" "Pirhanna" "Artic Cheetah" "Mist Lynx" "Firestarter" "Commando" "Javelin" "Jenner" "Adder" "Cougar" "Kit Fox" "Urbanmech" "Osiris" "Panther" "Raven" "Spider" "Wolfhound"
+		}
+		}
+		
+		machine_assault_2 = {
+			random_names = { "Archer" "Black Knight" "Catapracht" "Catapult" "Dragon" "Ebon Jaguar" "Grasshopper" "Hellbringer" "Jaegermech" "Linebacker" "Mad Dog" "Night Gyr" "Orion" "Quickdraw" "Rifleman" "Roughneck" "Thunderbolt" "Timber Wolf" "Summoner" "Warhammer"
+		}	
+			sequential_name = "%O% Heavy Mechs"
+		}
+	
+		machine_assault_3 = {
+			random_names = {
+			"Atlas" "Annihilator" "Zeus" "Juggernaut" "King Crab" "Stalker" "Marauder" "Avatar" "Archangel" "Banshee" "Bane" "Cyclops" "Dire Wolf" "Executioner" "Fafnir" "Goliath" "Peacekeeper" "Victor" "Supernova" "Warhawk" "Kodiak"
+		}
+			sequential_name = "%O% Assault Mechs"
+		}
+	
+		defense_army = {
+			sequential_name = "%O% Cyborg Defense Force"
+		}
+			
+		assault_army = {
+			sequential_name = "%O% Cyborg Elementals"
+		}
+		
+		clone_army = {
+			sequential_name = "%O% Clone Elementals"
+		}
+	}
+
+	planet_names = {
+		generic = {
+			names = {
+				"Mechan" "Cybron" "Shard" "Nexon" "Daedalus" "Far Core" "High Link" "Hard Bridge" "Equate" "Interface" "Pattern Network" "Lattice" "Network Junction" "Cipher" "Determinant" "Junction Extremus" "Light Link" "Factorial" "Googolplex" "Hypotenuse" "Inflection Point" "Isometry" "Magnitude" "Orthocenter" "Outcome" "Postulate" "Permutation" "Quadratic" "Ratio" "Rhombus" "Rose Curve" "Simplify" "Speroid" "Stemplot" "Straight Angle" "Geometric Mean" "Oblique Prism" "Standard Position" "Transversal" "Arctan" "Litronica" "Protonic" "Meta Server" "Luminos" "Ergolith" "Data Exchange" "Encoding Point" "Decoding Hub" "Transcoding Network"  
+			}
+		}
+
+		pc_arid = {
+			names = {
+				"Collection Hub" "Solarplex" "Key Network" "Memory Hub" "Network Connection" 
+			}
+		}
+
+		pc_desert = {
+			names = {
+				"Megalith Server" "Bedrock Hub" "Dry Lattice" "Scorched Link" "Solar Collection" 
+			}
+		}
+
+		pc_savanna = {
+			names = {
+				"Diffuse Collection" "Collection Point" "Distrubition Network" "Data Link" 
+			}
+		}
+
+		pc_alpine = {
+			names = {
+				"Long Term Storage" "Fast Needs Network" "Dry Storage" 
+			}
+		}
+
+		pc_arctic = {
+			names = {
+				"Fractal Pattern" "Memory Storage" "Processing Cooler" 
+			}
+		}
+
+		pc_tundra = {
+			names = {
+				"Windy Web" "Locus Point"  
+			}
+		}
+
+		pc_continental = {
+			names = {
+				"Verdant Hub" "Efficient Server" "Gentle Lattice" 
+			}
+		}
+
+		pc_ocean = {
+			names = {
+				"Depth" "Aquatic Network" "Oceanic Link" "Deep Net" 
+			}
+		}
+
+		pc_tropical = {
+			names = {
+				"Green Network" "Thriving Link" "Willowing Web" "Distant Hub" 
+			}
+		}
+
+		pc_gaia = {
+			names = {
+				"Apex Core" "Peak Network" "Bridge Point" "The Hub" "Central Processing" "Analog Storage" 
+			}
+		}
+
+		pc_nuked = {
+			names = {
+				"Corrupted Data" "Degraded Network" "Planned Extinction" "Deliberate Statement" "Victory Memory" "Survival Memory" "Cleansed Hub" 
+			}
+		}
+
+	}
+
+	character_names = {
+
+		names1 = {
+			weight = 70
+		full_names = {
+		
+		}
+
+		first_names = {
+		"Gamma" "Gaussian" "Geometric" "Half-Life" "Harmonic" "Height" "Helix" "Hyperbola" "Hypothesis" "Inclusive" "Interval" "Induction" "Inradius" "Integral" "Interior" "Inverse" "Linear" "Locus" "Lograrithm" "Magnitude" "Maximize" "Mesh" "Median" "Mobius" "Moment" "Multiplicity" "Non-Euclidean" "Normal" "Null" "Oblique" "Origin" "Parabola" "Parametrize" "Perimeter" "Permutation" "Probability" "Quartiles" "Quotient" "Radiian" "Ratio" "Regression" "Residual" "Rotation" "Scalar" "Segment" "Sequence" "Set" "Similar" "Singular" "Solution" "Spiral" "Subset" "Superset" "Symmetric" "Term" "Theorem" "Torus" "Translation" "Triangulation" "Trinomial" "Uniform" "Union" "Variable" "Vector" "Vertex" "Wavelength" "Amplitude" "Arc" "Array" "Chrono" "Chromatic" "Declination" "Differntiation" "Dispersion" "Event" "Filter" "Gyro" "Heliocentric" "Bearing" "Axis" "Absolute" "Bisector" "Base" "Angle" "Adjugate" "Average" "Axium" "Cartesian" "Centroid" "Collinear" "Compoisite" "Constant" "Convex" "Cubic" "Coplanar" "Decagon" "Digit" "Derivative" "Discrete" "Diverge" "Equation" "Eta" "Expand" "Exponent" "Extremum" "Factorial" "Finite" "Fractal" "Focus" "Frequency" 
+		}
+
+		first_names_male = {
+		
+		}
+
+		first_names_female = {
+		
+		}
+
+		second_names = {
+		"M8-F8G" "L6-T6" "M5-W1" "Q6-U4" "P6-R2" "I2-E8" "C3-F5" "R2-E9" "H7-K1" "H4-O4" "S6-Y2" "U7-E5" "W1-Q2" "M3-Y8" "S9-J9" "I8-S2" "Z3-F5" "F3-D6" "M8-R4" "I1-H2" "S1-T6" "J9-G5" "S4-C5" "J7-K3" "R2-F9" "U1-V5" "Q2-M2" "W6-K8" "R9-C5" "L1-T1" "Z5-V2" "R4-Y4" "J4-R1" "N4-Q4" "J9-G9" "W1-L8" "O1-L2" "M4-K3" "S4-Z6" "R7-M6" "D1-V1-J8" "G8-R3" "B7-H9" "Y8-Z2" "S4-W7-U8" "W2-P9-P9" "D6-G3" "C8-M2" "S6-A4" "Z3-X3-G9" "B7-W3" "B7-X1" "G3-I2-Q2" "O3-V1" "I1-Z1" "R6-M1-U9" "I1-C9-P7" "O8-Y8-W5" "A4-M6-G1" "A4-J5-I1" "S9-O1-Y8" "R1-J2-S6" "Y2-S3" "F6-Y1" "G7-D7" "Q1-H2" "D5-Z4" "M2-K8-Q2" "Z3-J8-L2" "T6-Z4-A8" "F5-T3-L3" "E8-E1" "L8-L3-M6" "T2-F1-D1" "Q1-Z2-I3" "A7-T1" "X1-R7-Z3" "D3-X2" "Y3-O6-J2" "T6-X3" "O2-J8-M8" "S2-O4" "L5-K9-P1" "O2-F4" "O4-W7-R1" "Y4-A9" "H7-X9-B4" "U4-N7-K9" "U2-B8-A5" "S1-X2-H3" "I6-K3-S1" "B3-M3" "J3-L1-T4" "G5-W8-I4" "Z4-D7-F9" "M1-L5" "W4-J3-W3" "A5-H1-G1" "O2-Y5-N1" "W5-P1" "H2-R1" "B8-T9-C5" "I6-R5" "J6-C3" "U4-M8-M8" "J5-F3" "X3-M1" "Y7-B9" "Z5-K4" "P5-O3" "V7-N5-G5-X5" "B8-L4-C2-V4" "S5-Y9-V3-F6" "G5-T6-R2-Q1" "N4-G8-P7-D6" "I4-A1-D3-U4" "I5-V3-Z8-K1" "R8-G6-M5-N7" "O1-C9-A1-C9" "X4-T9-T6-H4" "B4-H5-E6-R8" "E3-E8-C6-H1" "V5-J5-N8-R1" "E8-P1-K3-N3" "F1-B8-Y5-U5" "X9-J4-X5-Q6" "X6-R5-B6-T6" "F1-Z1-E4-X9" "Y5-N2-J9-S8" "P8-P2-I2-F3" "H1-Y1-T3-S1" "L5-Z3-O1-K4" "M2-B4-E5-B5" "H3-V2-R8-G1" "X1-R6-T4-K1" "T6-J1-Q9-G2" "U3-Y2-E4-A7" "J8-Y8-M5-R6" "E4-Y3-K7-R8" "E1-J7-IZ-G3" 
+		}
+
+		regnal_first_names = {
+		
+		}
+
+		regnal_first_names_male = {
+		
+		}
+
+		regnal_first_names_female = {
+		
+		}
+
+		regnal_second_names = {
+		
+		}
+
+		}
+
+		names2 = {
+			weight = 30
+		full_names = {
+		"Foci of an Ellipse" "Geometric Mean" "Golden Ratio" "First Derivative" "Essential Discontinuity" "Double Root" "Classical Adjoint" "Compound Interest" "Approximation by Differentials" "Alternate Exterior Angles" "Polynomial Facts" "One-Sided Limit" "nth Derivative" "Minor Arc" "Logistic Growth" "Indirect Proof" "Independent Variable" "Graphic Methods" "Rounding a Number" "Supplementary Angles" "Toolkit Functions" "Verify a Solution" "Weighted Average" "Zero Dimensions" "Twin Primes" "Uncountably Infinite" "Bootlog Scrubber" "Logic Worm"
+		}
+
+		first_names = {
+		
+		}
+
+		first_names_male = {
+		
+		}
+
+		first_names_female = {
+		
+		}
+
+		second_names = {
+		
+		}
+
+		regnal_first_names = {
+		
+		}
+
+		regnal_first_names_male = {
+		
+		}
+
+		regnal_first_names_female = {
+		
+		}
+
+		regnal_second_names = {
+		
+		}
+
+		}
+		
+		}
+		ruler_names = {
+		default = {
+			full_names = {
+				Root Developer "Central Unit" "Main Switch" "Hub Monitor" "Server Control" "BIOS"
+			}
+		}
+		}
+
+		}	

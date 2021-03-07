@@ -1,0 +1,51 @@
+est_greed_4_extortion = {
+
+	potential = {
+		has_non_swapped_tradition = tr_est_greed_4
+	}
+	
+	option = {
+		name = "est_greed_4_extortion_0"	
+		AI_weight = {
+		}		
+		policy_flags = {
+			est_greed_4_extortion_0
+		}			
+	}
+	
+	option = {
+		name = "est_greed_4_extortion_1"		
+		policy_flags = {
+			est_greed_4_extortion_1
+		}		
+		modifier = {
+			country_energy_produces_mult = 0.15
+			biological_pop_happiness = -0.10
+		}		
+		AI_weight = { }			
+	}
+	
+	option = {
+		name = "est_greed_4_extortion_2"		
+		policy_flags = {
+			est_greed_4_extortion_2
+		}		
+		modifier = {
+			country_energy_produces_mult = 0.30
+			biological_pop_happiness = -0.20
+		}		
+		AI_weight = { }			
+	}
+	
+	option = {
+		name = "est_greed_4_extortion_3"		
+		policy_flags = {
+			est_greed_4_extortion_3
+		}		
+		modifier = {
+			country_energy_produces_mult = 0.45
+			biological_pop_happiness = -0.30
+		}		
+		AI_weight = { }			
+	}
+}

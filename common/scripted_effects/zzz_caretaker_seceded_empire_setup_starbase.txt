@@ -1,0 +1,102 @@
+caretaker_seceded_empire_setup_starbase = {
+    if = {
+        limit = {
+            has_starbase_size <= starbase_citadel
+        }
+        set_starbase_size = starbase_citadel
+        set_starbase_module = {
+            slot = 1
+            module = shipyard
+        }
+        set_starbase_module = {
+            slot = 2
+            module = shipyard
+        }
+        set_starbase_module = {
+            slot = 3
+            module = anchorage
+        }
+        set_starbase_module = {
+            slot = 4
+            module = anchorage
+        }
+        set_starbase_module = {
+            slot = 5
+            module = gun_battery
+        }
+        set_starbase_module = {
+            slot = 6
+            module = gun_battery
+        }
+        set_starbase_building = {
+            slot = 1
+            building = crew_quarters
+        }
+        set_starbase_building = {
+            slot = 2
+            building = fleet_academy
+        }
+        set_starbase_building = {
+            slot = 3
+            building = naval_logistics_office
+        }
+        set_starbase_building = {
+            slot = 4
+            building = command_center
+        }
+    }
+    else = {
+        if = {
+            limit = {
+                NOT = {
+                    has_starbase_module = shipyard
+                }
+            }
+            set_starbase_module = {
+                slot = 1
+                module = shipyard
+            }
+            set_starbase_module = {
+                slot = 2
+                module = shipyard
+            }
+        }
+        if = {
+            limit = {
+                NOT = {
+                    has_starbase_module = anchorage
+                }
+            }
+            set_starbase_module = {
+                slot = 3
+                module = anchorage
+            }
+            set_starbase_module = {
+                slot = 4
+                module = anchorage
+            }
+        }
+        if = {
+            limit = {
+                NOT = {
+                    has_starbase_building = crew_quarters
+                }
+            }
+            set_starbase_building = {
+                slot = 1
+                building = crew_quarters
+            }
+        }
+        if = {
+            limit = {
+                NOT = {
+                    has_starbase_building = fleet_academy
+                }
+            }
+            set_starbase_building = {
+                slot = 2
+                building = fleet_academy
+            }
+        }
+    }
+}

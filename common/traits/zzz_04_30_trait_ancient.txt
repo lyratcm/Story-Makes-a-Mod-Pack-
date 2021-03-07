@@ -1,0 +1,21 @@
+trait_ancient = {
+    potential_crossbreeding_chance = 0.25
+    cost = 4
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_fertility_preacher.dds"
+    allowed_archetypes = {
+        PLANTOID
+        half_species
+    }
+    modifier = {
+        leader_age = 300
+    }
+    opposites = {
+        "trait_venerable"
+        "trait_enduring"
+        "trait_fleeting"
+        "trait_seasonal"
+        "trait_ageless"
+        "trait_fleeting_lithoid"
+    }
+}

@@ -1,0 +1,132 @@
+building_foundry_slave = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	category = manufacturing
+	icon = building_foundry_1
+	
+	potential = {
+		exists = owner
+		has_modifier = slave_colony
+		OR = {
+			owner = { has_civic = civic_slaver_guilds }
+			owner = { has_civic = civic_indentured_assets }
+		}
+		building_relaxed_basic_income_check = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			NOT = { has_modifier = slave_colony }
+			owner = {
+				NOR = {
+					owner = { has_civic = civic_slaver_guilds }
+					owner = { has_civic = civic_indentured_assets }
+				}
+			}
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_alloy_drone_add = @b2_jobs
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_fabricator_add = @b2_jobs
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_foundry_add = @b2_jobs
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = @b3_upkeep
+		}
+	}
+
+	prerequisites = {
+		tech_basic_industry
+	}	
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes } 
+		}
+		text = job_foundry_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_hive_empire = yes } 
+		}
+		text = job_alloy_drone_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_machine_empire = yes } 
+		}
+		text = job_fabricator_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			free_amenities > 2
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value > 100
+				}
+				has_monthly_income = {
+					resource = alloys
+					value < 100
+				}
+				has_monthly_income = {
+					resource = alloys
+					value > 6
+				}#Check for alloy shutdown
+			}
+		}
+		modifier = {
+			factor = 0.5
+			free_jobs > 3
+		}
+		modifier = {
+			weight = 400
+			NOT = { has_building = building_foundry_slave }
+		}
+		modifier = {
+			weight = 500
+			has_building = building_foundry_slave
+			free_building_slots = 0
+		}#Repairs
+	}
+}

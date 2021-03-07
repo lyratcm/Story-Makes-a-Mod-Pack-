@@ -1,0 +1,69 @@
+building_master_computer_node = {
+	base_buildtime = 480
+	base_cap_amount = 1
+
+	category = government
+
+	potential = {
+		owner = { has_valid_civic = civic_master_computer_mm_integrator }
+		NOT = { has_modifier = slave_colony }
+		NOT = { has_building = building_master_computer_advanced_node }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		NOT = {
+			owner = { has_civic = civic_master_computer_mm_integrator }
+		}
+	}
+	
+	planet_modifier = {
+		job_master_computer_integrator_add = 1
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}			
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	triggered_desc = {
+			text = job_master_computer_integrator_effect_desc
+	}    
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 10
+			count_owned_pops = {
+				limit = {
+					is_pop_category = specialist
+				}
+				count > 15
+			}
+		}
+		modifier = {
+			factor = 0
+			count_owned_pops = { 
+				limit = { 
+					OR = { 
+						is_unemployed = yes 
+						has_job = servant 
+					}
+				}
+				count < 1
+			}
+		}
+	}
+
+	upgrades = {
+		building_master_computer_advanced_node
+	}
+}

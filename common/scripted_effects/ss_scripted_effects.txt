@@ -1,0 +1,771 @@
+create_biomorph_species = {
+	create_species = {
+		name = "Bio-Thrall"
+		namelist = this
+		plural = "Bio-Thralls"
+		class = Biomorphic
+		portrait = "pre_mam6"
+		homeworld = this
+		traits = {
+			trait = "trait_biomorph"
+		}
+		effect = {
+			if = {
+				limit = { root.owner = { has_country_flag = biomorph_mam } }
+				change_species_portrait = pre_mam6
+			}
+			if = {
+				limit = { root.owner = { has_country_flag = biomorph_rep } }
+				change_species_portrait = pre_rep12
+			}
+			if = {
+				limit = { root.owner = { has_country_flag = biomorph_avi } }
+				change_species_portrait = pre_avi12
+			}
+			if = {
+				limit = { root.owner = { has_country_flag = biomorph_art } }
+				change_species_portrait = pre_art11
+			}
+			if = {
+				limit = { root.owner = { has_country_flag = biomorph_mol } }
+				change_species_portrait = pre_mol3
+			}
+			if = {
+				limit = { root.owner = { has_country_flag = biomorph_fun } }
+				change_species_portrait = pre_fun9
+			}
+			if = {
+				limit = { root.owner = { has_country_flag = biomorph_pla } }
+				change_species_portrait = pla5
+			}
+		}
+	}
+	capital_scope = {
+		create_pop = {
+			species = last_created_species
+		}
+		if = {
+			limit = { root.owner = { has_country_flag = biomorph_serviles } }
+			modify_species = {
+				species = last_created_species
+				base = none
+				add_trait = trait_syncretic_proles
+			}
+		}
+		if = {
+			limit = { root.owner = { has_country_flag = biomorph_livestock } }
+			modify_species = {
+				species = last_created_species
+				base = none
+				add_trait = trait_presapient_docile_livestock
+			}
+		}
+		if = {
+			limit = { root.owner = { has_country_flag = biomorph_starborn } }
+			modify_species = {
+				species = last_created_species
+				base = none
+				add_trait = trait_presapient_starborn
+			}
+		}
+		if = {
+			limit = { root.owner = { has_country_flag = biomorph_earthbound } }
+			modify_species = {
+				species = last_created_species
+				base = none
+				add_trait = trait_presapient_earthbound
+			}
+		}
+		if = {
+			limit = { root.owner = { has_country_flag = biomorph_intellectual } }
+			modify_species = {
+				species = last_created_species
+				base = none
+				add_trait = trait_presapient_natural_intellectuals
+			}
+		}
+		if = {
+			limit = { root.owner = { has_country_flag = biomorph_conservative } }
+			modify_species = {
+				species = last_created_species
+				base = none
+				add_trait = trait_presapient_conservative
+			}
+		}
+		if = {
+			limit = { root.owner = { has_authority = auth_hive_mind } }			
+			modify_species = {
+				species = last_created_species
+				base = none
+				add_trait = trait_hive_mind
+			}
+		}
+		# fallback
+		if = {
+			limit = { root.owner = {
+				NOR = {
+					has_country_flag = biomorph_serviles
+					has_country_flag = biomorph_livestock
+					has_country_flag = biomorph_starborn
+					has_country_flag = biomorph_earthbound
+					has_country_flag = biomorph_intellectual
+					has_country_flag = biomorph_conservative
+					}
+				}
+			}
+			modify_species = {
+				species = last_created_species
+				base = none
+				add_trait = trait_syncretic_proles
+			}
+		}
+	}
+	set_built_species = last_created_species
+}
+
+clean_gene_proj = {
+	remove_country_flag = gene_view_open
+}
+
+clean_biomorph = {
+	remove_country_flag = biomorph_mam
+	remove_country_flag = biomorph_rep
+	remove_country_flag = biomorph_avi
+	remove_country_flag = biomorph_art
+	remove_country_flag = biomorph_mol
+	remove_country_flag = biomorph_fun
+	remove_country_flag = biomorph_pla
+	remove_country_flag = biomorph_serviles
+	remove_country_flag = biomorph_livestock
+	remove_country_flag = biomorph_starborn
+	remove_country_flag = biomorph_earthbound
+	remove_country_flag = biomorph_intellectual
+	remove_country_flag = biomorph_conservative
+}
+
+biomorph_ascension = {
+	modify_species = {
+		species = this
+		base = none
+		ideal_planet_class = pc_arid
+	}
+	create_species = {
+		is_mod = yes
+		name = this
+		namelist = this
+		plural = this
+		class = Biomorphic
+		portrait = this
+		traits = { trait = trait_biomorph }
+		traits = this
+		
+		effect = {
+			save_event_target_as = ascended_biomorphs
+			rename_species = {
+				prompt_country = root.owner #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+				name_list = ascension_list
+			}
+		}
+	}
+	every_owned_pop = {
+		limit = { is_same_species = root }
+		change_species = event_target:ascended_biomorphs
+		modify_species = {
+			species = this
+			base = none
+			remove_trait = trait_pc_arid_preference
+		}
+	}
+}
+
+# Add appropriate Genetic Savant if Leader has the Genetic Memory trait
+# root = country, this = leader
+add_genetic_savant_after_modification = {
+		if = {
+			limit = { 
+				species = { has_trait = trait_genetic_memory }
+				has_skill < 3
+				}
+			set_skill = 3
+		}
+		if = {
+			limit = {
+				leader_class = admiral
+				species = { has_trait = trait_genetic_memory }
+			}
+			add_trait = trait_admiral_genetic_savant
+			add_ruler_trait = trait_ruler_genetic_savant
+		}
+		if = {
+			limit = {
+				leader_class = general 
+				species = { has_trait = trait_genetic_memory }
+			}
+			add_trait = trait_general_genetic_savant
+			add_ruler_trait = trait_ruler_genetic_savant
+		}
+		if = {
+			limit = {
+				leader_class = governor 
+				species = { has_trait = trait_genetic_memory }
+			}
+			add_trait = trait_governor_genetic_savant
+			add_ruler_trait = trait_ruler_genetic_savant
+		}
+		if = {
+			limit = {
+				leader_class = scientist 
+				species = { has_trait = trait_genetic_memory }
+			}
+			add_trait = trait_scientist_genetic_savant
+			add_ruler_trait = trait_ruler_genetic_savant
+		}
+		if = {
+			limit = {
+				leader_class = ruler 
+				species = { has_trait = trait_genetic_memory }
+			}
+			add_trait = trait_ruler_genetic_savant
+			add_ruler_trait = trait_ruler_genetic_savant
+		}
+	}
+
+# Remove any Genetic Savant trait if Leader has no Genetic Memory trait
+# root = country, this = leader
+remove_genetic_savant_after_modification = {
+		if = {
+			limit = {
+				has_trait = trait_admiral_genetic_savant
+				species = { NOT = { has_trait = trait_genetic_memory } }
+			}
+			remove_trait = trait_admiral_genetic_savant
+			remove_ruler_trait = trait_ruler_genetic_savant
+		}
+		if = {
+			limit = {
+				has_trait = trait_general_genetic_savant
+				species = { NOT = { has_trait = trait_genetic_memory } }
+			}
+			remove_trait = trait_general_genetic_savant
+			remove_ruler_trait = trait_ruler_genetic_savant
+		}
+		if = {
+			limit = {
+				has_trait = trait_governor_genetic_savant
+				species = { NOT = { has_trait = trait_genetic_memory } }
+			}
+			remove_trait = trait_governor_genetic_savant
+			remove_ruler_trait = trait_ruler_genetic_savant
+		}
+		if = {
+			limit = {
+				has_trait = trait_scientist_genetic_savant
+				species = { NOT = { has_trait = trait_genetic_memory } }
+			}
+			remove_trait = trait_scientist_genetic_savant
+			remove_ruler_trait = trait_ruler_genetic_savant
+		}
+		if = {
+			limit = {
+				has_trait = trait_ruler_genetic_savant
+				species = { NOT = { has_trait = trait_genetic_memory } }
+			}
+			remove_trait = trait_ruler_genetic_savant
+			remove_ruler_trait = trait_ruler_genetic_savant
+		}
+}
+
+assimilate_random_pop = {
+	random_owned_pop = {
+		limit = {
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = root.owner
+			}
+		}
+		save_event_target_as = assimilating_pop
+		set_pop_flag = assimilating_pop
+		#check types here
+		if = { # Driven Assimilators turn pops into cyborgs
+			limit = {
+				root.owner = {
+					has_civic = civic_machine_assimilator
+				}
+			}
+			if = {
+				limit = { NOT = { has_trait = trait_cybernetic } }
+				modify_species = {
+					species = this
+					add_trait = trait_cybernetic
+					add_traits_at_start_of_list = yes
+					change_scoped_species = yes
+				}
+				remove_hive_minded = yes
+				remove_culture_shock = yes
+				remove_self_modified = yes
+				root.owner = { generate_cyborg_treats = yes }
+			}
+		}
+		if = { # Hive Minds make pops hive minded
+			limit = {
+				root.owner = {
+					has_authority = auth_hive_mind
+					NOT = { has_civic = civic_hive_devouring_swarm }
+				}
+			}
+			modify_species = {
+				species = this
+				add_trait = trait_hive_mind
+				add_traits_at_start_of_list = yes
+			}
+			remove_culture_shock = yes
+			remove_self_modified = yes
+		}
+		if = { # Ascended Synths turn pops into more synths
+			limit = {
+				root.owner = { has_country_flag = synthetic_empire }
+			}
+			kill_pop = yes
+			root = {
+				create_pop = {
+					species = root.owner
+					ethos = root.owner
+				}
+			}
+		}
+		if = { # Cyborg Empires turn pops into cyborgs
+			limit = {
+				root.owner = {
+					has_country_flag = flesh_weakened
+					NOT = { has_country_flag = synthetic_empire }
+				}
+			}
+			modify_species = {
+				species = this
+				add_trait = trait_cybernetic
+				add_traits_at_start_of_list = yes
+				change_scoped_species = yes
+			}
+			remove_hive_minded = yes
+			remove_culture_shock = yes
+			remove_self_modified = yes
+		}
+		if = { # Regular Empire removes hive minded from pops
+			limit = {
+				root.owner = {
+					NOR = {
+						has_ethic = ethic_gestalt_consciousness
+						has_country_flag = synthetic_empire
+						has_country_flag = flesh_weakened
+					}
+				}
+				has_trait = trait_hive_mind
+			}
+			modify_species = {
+				species = this
+				remove_trait = trait_hive_mind
+				change_scoped_species = yes
+			}
+		}
+		if = { # Psionic Assimilation
+			limit = {
+				root.owner = { has_ascension_perk = ap_transcendence }
+				NOT = {	has_trait = trait_psionic }
+			}
+			modify_species = {
+				species = this
+				remove_trait = trait_latent_psionic
+				add_trait = trait_psionic
+				add_traits_at_start_of_list = yes
+				change_scoped_species = yes
+			}
+		}
+		if = { # Biomorph Metamorphosis
+			limit = {
+				root.owner = { has_country_flag = biomorph_empire }
+				NOR = {
+					has_trait = trait_biomorph
+					is_robotic_species = yes
+				}
+			}
+			modify_species = {
+				species = this
+				ideal_planet_class = pc_arid
+			}
+			modify_species = {
+				species = this
+				remove_trait = trait_pc_arid_preference
+			}
+			create_species = {
+				is_mod = yes
+				name = this
+				namelist = this
+				plural = this
+				class = Biomorphic
+				portrait = this
+				homeworld = prev
+				traits = { trait = trait_biomorph }
+				traits = this
+			}
+			root = {
+				every_owned_pop = {
+					limit = { 
+						is_same_species = event_target:assimilating_pop
+						has_pop_flag = assimilating_pop
+					}
+					change_species = last_created
+				}
+			}
+		}
+
+		# Set citizenship
+		if = {
+			limit = { root.owner = { has_authority = auth_machine_intelligence } }
+			set_citizenship_type = {
+				type = citizenship_full_machine
+				country = root.owner
+			}
+		}
+		else = {
+			set_citizenship_type = {
+				type = citizenship_full
+				country = root.owner
+			}
+		}
+
+		# Set living standards
+		if = {
+			limit = { root.owner = { has_ethic = ethic_gestalt_consciousness } }
+			set_living_standard = {
+				type = living_standard_hive_mind
+				country = root.owner
+			}
+		}
+	}
+}
+
+remove_preferences = {
+	modify_species = {
+		species = this
+		ideal_planet_class = pc_arid
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_pc_arid_preference
+	}
+}
+
+# Adds a random trait to a researcher
+add_random_research_trait = {
+	if = { #Is a head researcher
+		limit = {
+			leader_class = scientist
+			OR = {
+				is_researching_area = society
+				is_researching_area = engineering
+				is_researching_area = physics
+			}
+		}
+		while = {
+			limit = {
+				NOT = { has_leader_flag = has_gained_trait }
+			}
+			random_list = {
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_adaptable }
+							NOT = { owner = { has_ethic = "ethic_gestalt_consciousness" } }
+						}
+						add_trait = leader_trait_adaptable
+						set_timed_leader_flag = { flag = gained_leader_trait_adaptable days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_resilient }
+							NOT = { owner = { has_ethic = "ethic_gestalt_consciousness" } }
+						}
+						add_trait = leader_trait_resilient
+						set_timed_leader_flag = { flag = gained_leader_trait_resilient days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOR = { 
+								has_trait = leader_trait_stubborn 
+								has_trait = leader_trait_rigid_programming
+								owner = { has_authority = "auth_hive_mind" }
+							}
+						}
+						if = {
+							limit = {
+								owner = {
+									NOT = { has_authority = "auth_machine_intelligence" }
+								}
+							}
+							add_trait = leader_trait_stubborn
+							set_timed_leader_flag = { flag = gained_leader_trait_stubborn days = 7 }
+						}
+						if = {
+							limit = {
+								owner = { has_authority = "auth_machine_intelligence" }
+							}
+							add_trait = leader_trait_rigid_programming
+							set_timed_leader_flag = { flag = gained_leader_trait_rigid_programming days = 7 }
+						}
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_substance_abuser }
+							NOT = { owner = { has_ethic = "ethic_gestalt_consciousness" } }
+						}
+						add_trait = leader_trait_substance_abuser
+						set_timed_leader_flag = { flag = gained_leader_trait_substance_abuser days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_arrested_development  }
+						}
+						add_trait = leader_trait_arrested_development
+						set_timed_leader_flag = { flag = gained_leader_trait_arrested_development days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_meticulous }
+						}
+						add_trait = leader_trait_meticulous
+						set_timed_leader_flag = { flag = gained_leader_trait_meticulous days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_spark_of_genius }
+						}
+						add_trait = leader_trait_spark_of_genius
+						set_timed_leader_flag = { flag = gained_leader_trait_spark_of_genius days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_carefree }
+						}
+						add_trait = leader_trait_carefree
+						set_timed_leader_flag = { flag = gained_leader_trait_carefree days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOR = { 
+								has_trait = leader_trait_roamer 
+								has_trait = leader_trait_cataloger
+							}
+						}
+						if = {
+							limit = {
+								owner = {
+									NOT = { has_authority = "auth_machine_intelligence" }
+								}
+							}
+							add_trait = leader_trait_roamer 
+							set_timed_leader_flag = { flag = gained_leader_trait_roamer days = 7 }
+						}
+						if = {
+							limit = {
+								owner = { has_authority = "auth_machine_intelligence" }
+							}
+							add_trait = leader_trait_cataloger
+							set_timed_leader_flag = { flag = gained_leader_trait_cataloger days = 7 }
+						}
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_archaeologist }
+						}
+						add_trait = leader_trait_archaeologist
+						set_timed_leader_flag = { flag = gained_leader_trait_archaeologist days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_maniacal }
+						}
+						add_trait = leader_trait_maniacal
+						set_timed_leader_flag = { flag = gained_leader_trait_maniacal days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_custom_AI_assistant }
+							NOT = { owner = { has_ethic = "ethic_gestalt_consciousness" } }
+						}
+						add_trait = leader_trait_custom_AI_assistant
+						set_timed_leader_flag = { flag = gained_leader_trait_custom_AI_assistant days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_materials }
+						}
+						add_trait = leader_trait_expertise_materials
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_materials days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_propulsion }
+						}
+						add_trait = leader_trait_expertise_propulsion
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_propulsion days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_voidcraft }
+						}
+						add_trait = leader_trait_expertise_voidcraft
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_voidcraft days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_industry }
+						}
+						add_trait = leader_trait_expertise_industry
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_industry days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_field_manipulation }
+						}
+						add_trait = leader_trait_expertise_field_manipulation
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_field_manipulation days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_particles }
+						}
+						add_trait = leader_trait_expertise_particles
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_particles days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_computing }
+						}
+						add_trait = leader_trait_expertise_computing
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_computing days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOR = {
+								has_trait = leader_trait_expertise_psionics
+								owner = { has_ethic = ethic_gestalt_consciousness }
+								species = { has_trait = trait_mechanical }
+							}
+						}
+						add_trait = leader_trait_expertise_psionics
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_psionics days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_new_worlds }
+						}
+						add_trait = leader_trait_expertise_new_worlds
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_new_worlds days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_statecraft }
+						}
+						add_trait = leader_trait_expertise_statecraft
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_statecraft days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_biology }
+						}
+						add_trait = leader_trait_expertise_biology
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_biology days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_expertise_military_theory }
+						}
+						add_trait = leader_trait_expertise_military_theory
+						set_timed_leader_flag = { flag = gained_leader_trait_expertise_military_theory days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_paranoid }
+						}
+						add_trait = leader_trait_paranoid
+						set_timed_leader_flag = { flag = gained_leader_trait_paranoid days = 7 }
+						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
+					}
+				}
+			}
+		}
+		owner = { country_event = { id = leader.21 } }
+	}
+}

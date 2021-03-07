@@ -1,0 +1,19 @@
+gov_elective_monarchy = {
+    ruler_title = RT_HIGH_KING
+    ruler_title_female = RT_HIGH_QUEEN
+    should_force_rename = yes
+    possible = {
+        has_authority = auth_dictatorial
+        or = {
+            has_valid_civic = civic_philosopher_king
+            has_valid_civic = civic_aristocratic_elite
+        }
+    }
+    weight = {
+        base = 800
+        modifier = {
+            factor = 10000
+            has_valid_civic = civic_aristocratic_elite
+        }
+    }
+}

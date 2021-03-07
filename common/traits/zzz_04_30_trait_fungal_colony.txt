@@ -1,0 +1,24 @@
+trait_fungal_colony = {
+    potential_crossbreeding_chance = 0
+    cost = 2
+    modification = no
+    allowed_archetypes = {
+        FUNGOID
+        half_species
+    }
+    custom_tooltip = TRAIT_FUNGAL_COLONY_EFFECT
+    modifier = {
+        leader_age = 500
+        pop_growth_speed = -0.25
+    }
+    opposites = {
+        "trait_venerable"
+        "trait_enduring"
+        "trait_fleeting"
+        "trait_slow_breeders"
+        "trait_rapid_breeders"
+        "trait_fertile"
+        "trait_clones"
+        "trait_hive_mind"
+    }
+}

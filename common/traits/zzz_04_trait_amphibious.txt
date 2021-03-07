@@ -1,0 +1,40 @@
+trait_amphibious = {
+    potential_crossbreeding_chance = 0.25
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/trait_amphibious.dds"
+    allowed_archetypes = {
+        REPTILIAN
+        half_species
+    }
+    modifier = {
+        pc_ocean_habitability = 0.2
+        pc_continental_habitability = 0.2
+        pc_tropical_habitability = 0.2
+        pc_cascadian_habitability = 0.2
+        pc_desertislands_habitability = 0.2
+        pc_subarctic_habitability = 0.2
+        pc_mangrove_habitability = 0.2
+        pc_wetswamp_habitability = 0.2
+        pc_hajungle_habitability = 0.2
+        pc_biolumen_habitability = 0.2
+        pc_retinal_habitability = 0.2
+        pc_forest_habitability = 0.2
+        pc_desert_habitability = -0.1
+        pc_arid_habitability = -0.1
+        pc_outback_habitability = -0.1
+        pc_savannah_habitability = -0.1
+        pc_steppe_habitability = -0.1
+        pc_sandsea_habitability = -0.1
+        pc_oasis_habitability = -0.1
+        pc_mesa_habitability = -0.1
+        pc_hadesert_habitability = -0.1
+        pc_prairie_habitability = -0.1
+        pc_med_habitability = -0.1
+    }
+    custom_tooltip = TRAIT_AMPHIBIOUS_EFFECTS
+    opposites = {
+        "trait_extremely_adaptive"
+        "trait_desert_reptile"
+    }
+}

@@ -1,0 +1,25 @@
+civic_hive_empath = {
+    playable = {
+        host_has_dlc = "Federations"
+    }
+    potential = {
+        authority = {
+            value = auth_hive_mind
+        }
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_hive_devouring_swarm
+                value = civic_closed_collective
+                value = civic_infestation
+                value = civic_living_hosts
+            }
+        }
+    }
+    description = "civic_tooltip_empath_effects"
+    modifier = {
+        envoys_add = 2
+        diplo_weight_mult = 0.1
+    }
+}

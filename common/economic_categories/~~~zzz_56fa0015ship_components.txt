@@ -1,0 +1,13 @@
+ship_components = {
+    parent = ships
+    generate_mult_modifiers = {
+        cost
+        produces
+        upkeep
+    }
+    generate_add_modifiers = {
+        cost
+        produces
+        upkeep
+    }
+}

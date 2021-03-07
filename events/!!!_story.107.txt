@@ -1,0 +1,74 @@
+namespace = story
+
+country_event = {
+	id = story.107
+	title = story.107.name
+	desc = story.107.desc
+	picture = GFX_evt_fleet_neutral
+	show_sound = event_space_amoeba
+	location = from
+
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = amoeba
+					is_country_type = amoeba_borderless
+					is_country_type = amoeba_garrison
+				}
+			}
+			set_faction_hostility = {
+				set_hostile = no
+				set_neutral = yes
+				target = root
+			}
+		}
+	}
+
+	option = {
+		name = story.107.a
+		custom_tooltip = story.107.a.tooltip
+		hidden_effect = {
+			add_modifier = {
+				modifier = pacified_amoebas # friendly amoebas
+				days = -1
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_technology = tech_amoeba_strike_craft_1 }
+				NOT = { has_tech_option = tech_amoeba_strike_craft_1 }
+			}
+			add_research_option = tech_amoeba_strike_craft_1
+		}
+		else_if = {
+			limit = { has_tech_option = tech_amoeba_strike_craft_1 }
+			add_tech_progress = {
+				tech = tech_amoeba_strike_craft_1
+				progress = 0.25
+			}
+		}
+		else = {
+			add_modifier = {
+				modifier = flagellating_movement # +5% evasion
+				days = -1
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_technology = tech_regenerative_hull_tissue }
+				NOT = { has_tech_option = tech_regenerative_hull_tissue }
+			}
+			add_research_option = tech_regenerative_hull_tissue
+		}
+		else_if = {
+			limit = { has_tech_option = tech_regenerative_hull_tissue }
+			add_tech_progress = {
+				tech = tech_regenerative_hull_tissue
+				progress = 0.1
+			}
+		}
+	}
+}

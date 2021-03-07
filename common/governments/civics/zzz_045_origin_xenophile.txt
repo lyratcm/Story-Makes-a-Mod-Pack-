@@ -1,0 +1,24 @@
+BOO_origin_xenophile = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_default.dds"
+    picture = GFX_evt_archaeology_camp
+    potential = {
+        always = yes
+    }
+    possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+            value = ethic_fanatic_xenophile
+        }
+    }
+    modifier = {
+        pop_ethic_xenophile_attraction_mult = 0.5
+    }
+    random_weight = {
+        base = 15
+    }
+    description = "BOO_origin_xenophile_tooltip_effects"
+    advanced_start = yes
+}

@@ -1,0 +1,264 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.104
+	title = leviathans.104.name
+	desc = leviathans.104a.desc
+	desc = leviathans.104b.desc
+	desc = leviathans.104c.desc
+	desc = leviathans.104d.desc
+	desc = leviathans.104e.desc
+	desc = leviathans.104f.desc
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_trader_window"
+	force_open = yes
+
+	picture_event_data = {
+		portrait = event_target:traders
+		room = enclave_trader_room
+	}
+	
+	trigger = {
+		from = {
+			is_country_type = enclave
+			has_country_flag = trader_enclave_country_3
+		}
+		NOT = { has_country_flag = trader_enclave_diplomacy_engaged }
+		NOT = { has_country_flag = attacked_muutagans }
+	}
+
+	immediate = {
+		set_country_flag = trader_enclave_diplomacy_engaged
+		FROM = { save_event_target_as = traders }
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = SCUM
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			has_valid_civic = civic_fanatic_purifiers
+		}
+	}
+	
+	option = {
+		name = TASTY
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+	}
+
+	option = {
+		name = EXTERMINATE
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+	
+	option = { # Manufactured Goods
+		name = leviathans.105.pop.a
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leviathans.105.c.sr3
+				NOT = { has_country_flag = goods_trade_muutagan }
+			}
+			custom_tooltip = {
+				fail_text = leviathans.105.c.galactic_market
+				has_global_flag = galactic_market_founded
+			}
+		}
+		hidden_effect = {
+			country_event = { id = spaceleviathans.7 }
+		}
+	}
+
+	option = { # Strategic Resource
+		name = leviathans.105.c
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leviathans.105.c.sr3
+				has_active_muutagan_trade = no
+			}
+		}
+		hidden_effect = {
+			country_event = { id = leviathans.132 }
+		}
+	}
+
+	option = { # End Resource Deal
+		name = leviathans.105.e
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			OR = {
+				has_active_muutagan_trade = yes
+				has_active_enclave_resource_trade = yes
+			}
+		}
+		custom_tooltip = end_trade_3
+		custom_tooltip = opinion-5
+		hidden_effect = {
+			remove_muutagan_trades = yes
+			remove_enclave_resource_trades = yes
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
+		}
+		is_dialog_only = yes
+		response_text = leviathans.105.e.response
+	}
+
+	option = { # Hire Governor
+		name = leviathans.105.z
+		custom_gui = "enclave_trader_option"
+		allow = {
+			custom_tooltip = {
+				text = leviathans.105.c.trust
+				event_target:traders = {
+					trust = {
+						who = root
+						value >= 50
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = already_hired_trader_governor
+				NOR = {
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+						has_country_flag = hired_trader_governor_xur
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+						has_country_flag = hired_trader_governor_rig
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+						has_country_flag = hired_trader_governor_mut
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = leviathans.125 }
+		}
+	}
+	
+	option = { # Muutagan Crystals
+		name = leviathans.104.pop.a
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+				has_country_flag = purchased_muutagans_crystals
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				text = leviathans.105.pop.b.trust
+				event_target:traders = {
+					trust = {
+						who = root
+						value >= 75
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = spaceleviathans.12 }
+		}
+	}
+	option = { # Special Deal
+		name = leviathans.105.pop.c
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+				has_country_flag = trader_special_deal_timed_flag
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				text = leviathans.105.pop.c.trust
+				event_target:traders = {
+					trust = {
+						who = root
+						value >= 100
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = spaceleviathans.15 }
+		}
+	}
+	option = { # Special Deal
+		name = leviathans.105.pop.c
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+			}
+			has_country_flag = trader_special_deal_timed_flag
+		}
+		allow = {
+			custom_tooltip = {
+				text = leviathans.105.pop.c.trust
+				event_target:traders = {
+					trust = {
+						who = root
+						value >= 100
+					}
+				}
+			}
+		}
+		is_dialog_only = yes
+		response_text = leviathans.105.pop.c.response
+	}
+
+	option = {
+		name = leviathans.105.d
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+			}
+		}
+		default_hide_option = yes
+	}
+}

@@ -1,0 +1,15 @@
+trait_additrait_thermosynthetic = {
+    cost = 3
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        planet_pops_food_upkeep_mult = -0.35
+    }
+    opposites = {
+        "trait_high_metabolism"
+        "trait_low_metabolism"
+        "trait_photosynthetic"
+        "trait_decomposers"
+    }
+}

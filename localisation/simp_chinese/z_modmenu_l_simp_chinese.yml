@@ -1,0 +1,413 @@
+﻿l_simp_chinese:
+
+#_[测试]
+#_[欢迎致辞/框架模式选择]
+#_[作者/guide]
+#_[设置面板开启/面板_tooltips]
+#_[功能edict]
+
+
+
+
+###_[测试]
+ z_modmenu.11.name: "§G无尽群星§!: 测试"
+ z_modmenu.11.desc: "这不是你该触碰的东西!"
+ z_modmenu_test_1: "失业人口刷新-失业"
+ z_modmenu_test_2: "失业人口刷新-分类"
+ z_modmenu_test_3: "失业人口刷新-物种"
+ z_modmenu_test_4: "失业人口刷新-强制检测派系"
+ z_modmenu_test_5: "失业人口刷新-刷新"
+ z_modmenu_test_6: "测试物体-创建-首都"
+ z_modmenu_test_7: "获取测试relic"
+ z_modmenu_test_8: "10级科考古学家"
+ z_modmenu_test_9: "在母星系恒星基地创建战斗测试靶机"
+ z_modmenu_test_10: "在母星系恒星基地创建超级测试靶机"
+ z_modmenu_test_11: "event_target"
+ z_modmenu_test_species_kayrl_dominantion: "主物种设置/当前主物种为[root.species.GetName]"
+ z_test_cntr_var_pass: "传递参数[root.z_fw_core_battle_dd_execute_var]"
+ 
+ z_modmenu_test_enemy_1: "母星-创建敌对测试舰队-肃正协议"
+
+
+
+
+###_[欢迎致辞]
+ z_mm_tips_misc_welcome: "欢迎使用无尽群星！\n全新的§Y无尽整合§!在制作中，将带来全新的玩法和流畅的优化，敬请期待，加群§Y8830598§!参与测试或汇报BUG。\n也可以加群§Y251840474§!交流游戏心得并提出建议。"
+ z_ic_tips_main:0 "讨论群§Y251840474§! 畅玩群§Y8830598§! B站搜索§Y小傘のInfini7e§!"
+
+###_[作者]
+ z_modmenu.141.name: "§G无尽群星：§!作者信息"
+ z_mm_misc_alipay: "§Y£energy£Mod制作不易，请大家多多支持。这里是作者的§B支付宝§!收款码，如果您觉得无尽群星系列mod对您有帮助，请慷慨解囊。\n请在steam创意工坊中搜索§G无尽群星合集§!或§GInfiniteStellarisFramework§!获取最新的mod升级，§H点赞/收藏/订阅/奖励§!作者，给在下更多开发动力。\n谢谢！§!"
+ z_modmenu.141.desc: "大家好，这里是小伞infini7e，无尽群星系列的作者。\n无尽群星系列致力于提供优质的美术素材，高效的新游戏系统，方便的UI菜单，强大的后期优化，给诸位玩家带来更好的游戏体验。\n而无尽群星的最终目标是将各个要素和其他优质mod统一以建立一个全新的游戏体系---无尽整合。"
+ z_mm_misc_qq: "§B\n加入无尽群星讨论群以获取最新咨询，汇报bug，提出建议。\nα群251840474/β群768522242/γ群614259835§!"
+ z_mm_misc_sc_donator: "§B捐赠者ID：§!数量过多，不统计了！"
+
+###_[guide]
+ z_mm_evt_guide_name: "§G无尽群星：§!§Ymod设置面板使用指南§!"
+ z_mm_tips_guide_top: "§Y顶部按钮：无尽群星框架与子模块的常用功能快捷键。§!"
+ z_mm_tips_guide_fw_setting: "§Y框架设置：无尽群星框架自带功能设置，包含星球人口限制，强力作弊系统，框架功能开关等。§!"
+ z_mm_tips_guide_fw_misc: "§Y框架基础功能按钮与战争设置§!"
+ z_mm_tips_guide_fw_battle: "§Y无尽群星：战争设置§!"
+ z_mm_tips_guide_sub: "§Y无尽群星：子模块菜单按钮区，可以开启所有无尽群星子模块菜单，你可以在工坊搜索§B无尽群星合集§!获得全部子功能mod。§!"
+ z_mm_tips_guide_sp_mian: "§Y无尽群星：定制功能按钮区，无尽群星将对某些mod提供定制的快捷按钮来实现一些无需开启设置面板的快捷功能。§!\n§B国内modder请注意，如果你的中有一些经常使用且没有必要通过mod菜单开启的功能按钮，本mod面板将对其提供支持。请通过steam联系我，或加群614259835。§!"
+ z_mm_tips_guide_modmenu: "§Y通过左边栏底部的按钮开启本设置面板§!"
+ z_mm_tips_guide_sp: "§Y无尽群星：次级功能区，可以打开无尽群星mod面板支持的第三方mod设置菜单，如果你开启了子模块或者定制支持mod的设定菜单，它们也将在这里显示。§!\n§B国内modder请注意，如果你有意向让无尽群星设置面板对你的mod提供设置菜单快捷按钮支持，请通过steam联系我，或加群614259835。§!"
+ z_mm_tips_guide_sp_misc: "§Y右侧快捷按钮区，预留给一些第三方mod子功能的快捷按钮区§!"
+ z_mm_tips_guide_sp_map: "§Y无尽群星框架自带7种新地图模式§!"
+ 
+ z_mm_tips_framework_contents: "§Y无尽群星框架对所有无尽群星子mod提供数据、机制和UI支持，同时自带大量新游戏内容包括遗珍彩蛋、动态难度、星球人口限制、新地图模式、新战争模式、科技联动系统、自动工程船、泛用兼容与强力作弊系统。如果你不需要这些新增功能可以关闭框架，框架即使关闭依然可以为子mod提供全部的基础支持。\n一些兼容mod如战略资源、栖息地类型和modifier fix已经被整合在无尽群星框架种，且添加了一些新的兼容支持。§!"
+
+
+
+
+###_[框架模式选择]
+ z_mm_tip_intro_welcome: "选择模式，开始群星之旅！"
+ 
+ z_modmenu_start_mode_choose: "§G无尽群星§!模式选择"
+ z_mm_tips_framework_modmenu: "\n\n此模式将不会开启§B无尽群星框架§!，仅将本mod作为联动mod的快捷设置面板，除了新增地图模式外不启用任何§B无尽群星框架§!的功能。如果你要在游戏过程中重新开启框架自带功能，请在设置面板点击LOGO进入§B框架设置§!，并开启框架。\n\n如果选择此模式，请在接下来的开局设置中仔细查看各个选项。"
+ z_mm_tip_intro_menu_mode_on: "§HModmenu面板模式§!已选择$z_mm_tips_framework_modmenu$"
+ z_mm_tip_intro_menu_mode_off: "选择§HModmenu面板模式§!$z_mm_tips_framework_modmenu$"
+ 
+ z_mm_tips_framework_full: "\n\n此模式将将会激活§B无尽群星框架§!并使用框架自带的功能，如果你要在游戏过程中关闭框架新增功能，请在设置面板点击LOGO进入§B框架设置§!，并关闭框架。\n\n无尽群星框架自带的功能有：\n新地图模式/ 新战争类型/ 新遗珍与剧情/ 自动工程船(自动建造空间站)/ 哨兵阵列开关/ 无尽动态难度系统/ 武器科技联动系统/ 高级作弊系统等，以后还将陆续添加必要的新功能。"
+ z_mm_tip_intro_fw_mode_on: "§G无尽群星框架模式§!已选择$z_mm_tips_framework_full$"
+ z_mm_tip_intro_fw_mode_off: "选择§G无尽群星框架模式§!$z_mm_tips_framework_full$"
+ z_mm_tip_intro_fw_mode_ic: "§G无尽整合模式§!$z_mm_tips_framework_full$"
+ 
+ z_mm_tip_intro_confirm: "选择完成，开始群星之旅！"
+
+###_[设置面板开启]
+ z_modmenu_button: "§G无尽群星MOD面板§!"
+ z_modmenu_button_white: "无尽群星MOD面板"
+ z_modmenu.1.name: "无尽群星MOD面板"
+ z_modmenu.2.name: "无尽群星---子MOD"
+ z_modmenu.3.name: "§G无尽群星§!：菜单联动MOD"
+ z_modmenu.1.desc: "可对全部无尽群星子mod进行设置"
+ z_modmenu_exit: "§R退出§!"
+ z_modmenu_return: "返回"
+ z_modmenu_return_desc: "返回§G无尽群星MOD面板§!主界面"
+ z_modmenu_empty: ""
+
+ z_modmenu_start_title: "§G无尽群星设置面板§! 安装成功"
+ z_modmenu_start_title_desc: "§Y你知道么§!，如果你是§G无尽群星§!的使用者，你可以通过左边栏的快捷按钮开启§G无尽群星设置面板§!.否则，你只能通过法令呼出本菜单.\n\n在无尽群星设置面板中，你可以开启无尽群星子mod和联动mod，也可以直接使用一些关键功能的按钮。善用设置菜单，你的游戏体验会更棒。\n\n§G无尽群星§!核心框架是§B无尽整合§!的基础，现在它已经被加入无尽群星modmenu，如果你没有使用无尽整合它的大部分内容将默认关闭，当然你也可以在mod面板中点击logo按钮重新开启."
+ z_modmenu.12.a1: "我§Y永远§!都喜欢§Y小伞§!！"
+ z_modmenu.12.a3: "$z_modmenu.12.a1$"
+ z_modmenu.12.a3.tooltip: "开始游戏，并使用无尽群星新增的建筑，战争类型和开局补助."
+ z_modmenu.12.a2: "我§Y永远§!都喜欢§Y小伞§!，但我只想要modmenu面板！"
+ z_modmenu.12.a2.tooltip: "直接开始游戏，不使用无尽群星新增内容."
+ z_modmenu.12.a4: "我§Y永远§!都喜欢§Y小伞§!，但我只想要modmenu面板并禁用所有新设置！"
+ z_modmenu.12.a4.tooltip: "直接开始游戏，不使用无尽群星新增内容，同时也要在游戏中禁用框架设置.\n如果你实在管不住自己的手，并且绝不想要有任何触碰作弊内容的机会就用这个!"
+ 
+###_[面板_tooltips]
+ z_mm_tips_mid_game_passed: "已进入§Y中期§!阶段"
+ z_mm_tips_wip: "此项功能§Y未开放§!"
+ z_mm_tips_esc_to_unlock: "当前设置面板已锁定，按ESC键退出子菜单以解锁。"
+ z_mm_tips_mp_not_host: "§H多人模式§!只有§H主机§!可以使用设置。"
+ z_mm_tips_framework_off: "需要激活§G无尽群星框架§!"
+ z_mm_tips_framework_disabled: "你已经选择彻底关闭框架设置，世上没有后悔药.\n\n当然，如果你一定要后悔的话，找作者要指令代码吧."
+
+ z_mm_tips_pr_installed: "检测到§B产业革命§!，此功能禁止。"
+ z_mm_tips_sub_no_pf_pr: "§G人口管理器§!未安装或未完成§B第一次产业革命§!，工坊搜索Pop Manager和Production Revolution。"
+ z_mm_tips_sub_no_pf: "§G人口管理器§!未安装，工坊搜索Pop Manager。"
+ z_mm_tips_sub_no_pf2: "§G后期优化§!未安装，工坊搜索Late Game Booster。"
+ z_mm_tips_sub_no_sts: "§G数据统计§!未安装，工坊搜索Performance Statistics。"
+ z_mm_tips_sub_no_cm: "§G天灾之主§!未安装，工坊搜索Crisis Master。"
+ z_mm_tips_sub_no_pr: "§G产业革命§!未安装，工坊搜索Production Revolution。"
+ z_mm_tips_mp_not_host: "§H多人模式§!只有§H主机§!可以使用设置。"
+ z_mm_tips_pote_not_activited: "§B护国神盾§!还未发布"
+ z_mm_tips_sub_modmenu_on: "无法同时开启多个子模块."
+
+
+
+
+
+
+
+###_[功能edict]  ############################################################################################
+#_z modmenu开启设置
+ edict_z_modmenu_edt: "§G无尽群星§!: modmenu"
+ edict_z_modmenu_edt_desc: "开启无尽群星设置菜单，可对全部无尽群星子mod进行设置。"
+#_初始化modmenu
+ edict_z_modmenu_initialization_edt: "§G无尽群星§!: modmenu初始化"
+ edict_z_modmenu_initialization_edt_desc: "如果你安装了无尽群星mod菜单，但是在左边栏看不到快捷按钮也没有菜单法令，请用此法令初始化本mod."
+#_修复modmenu 按钮
+ edict_z_modmenu_restoration_edt: "§G无尽群星§!: modmenu修复"
+ edict_z_modmenu_restoration_edt_desc: "如果你的modmenu快捷按钮变灰无法使用，请使用此法令修复."
+ 
+ 
+ 
+ 
+###_mod未安装提示 ############################################################################################
+ z_modmenu_no_mod: "§R你并没有激活此MOD§!"
+ z_modmenu_no_mod_desc: "可能是因为MOD未能正确安装或没有安装"
+ z_modmenu_pity: "真是遗憾"
+ 
+ 
+ 
+ 
+###_FRAMEWORK FUNCTION  ############################################################################################
+
+
+
+
+###_MAIN BUTTONS
+#_battle variables
+ z_mm_fw_loc_core_dd_fp_lv_0: "0"
+ z_mm_fw_loc_core_dd_fp_lv: "[event_target:z_fw_tgt_global_event.z_fw_core_battle_dd_var]"
+ z_mm_fw_button_battle_fp_adpt_on_desc: "$z_modmenu.133.d10$\n\n$z_modmenu.133.d10.tooltip$\n\n动态难度战力加成§GLV[root.z_fw_loc_cntr_core_dd_fp_lv]§!"
+ z_mm_fw_button_battle_fp_adpt_periodic_desc: "$z_modmenu.133.d10a$\n\n$z_modmenu.133.d10a.tooltip$\n\n动态难度战力加成§GLV[root.z_fw_loc_cntr_core_dd_fp_lv]§!"
+ z_mm_fw_button_battle_fp_adpt_off_desc: "$z_modmenu.133.d9$\n\n$z_modmenu.133.d9.tooltip$\n\n动态难度战力加成§GLV[root.z_fw_loc_cntr_core_dd_fp_lv]§!"
+ z_mm_fw_button_battle_dd_fp_up_desc: "动态难度-战力加成等级-快捷调整按钮\n可在战争设置（上方蓝色交叉剑按钮）中调整每次点击所改变的层数。"
+ z_mm_fw_button_battle_dd_fp_down_desc: "$z_mm_fw_button_battle_dd_fp_up_desc$"
+ z_mm_fw_tips_dd_fp_fail_desc: "当前无法使用，需要开启§G无尽群星战斗设置(上方蓝色交叉剑按钮)-动态难度：战力加成§!。"
+#_z_mm_btn_fw
+ z_mm_tips_fw_btn_misc_author:0 "§G无尽群星§!：作者与相关MOD简介\n\nmod制作不易，请为可爱的小伞打赏吧！"
+ z_mm_tips_fw_btn_misc_guide:0 "§G无尽群星§!：使用指南\n\n内涵§YMOD设置面板使用指南§!与§Y无尽群星框架功能简介§!，将鼠标移动到相应位置可以获取详尽的功能介绍。"
+
+#_evts z modmenu
+ z_mm_desc_framework:0 "$z_modmenu.13.name$\n\n$z_modmenu.13.desc$"
+ z_modmenu.13.name:0 "§G无尽群星§!：主框架设置"
+ z_modmenu.13.desc:0 "此为无尽群星主框架中原创内容的设置菜单，可以开启包括自适应难度调节器，作弊菜单等核心功能."
+ z_modmenu.13.cheat_allowed:0 "多人游戏作弊§H已允许§!"
+ z_modmenu.13.cheat_disallowed:0 "多人游戏作弊§H已禁止§!"
+ z_mm_tips_cheat_disallowed_mp:0 "主机不允许在多人模式下开启作弊"
+ 
+ z_modmenu.13.a1:0 "作弊模式§H已开启§!"
+ z_modmenu.13.a1.tooltip:0 "作弊模式允许使用大量强力作弊遗珍，治愈臭鼬瘟疫，获得渴望点数。"
+ z_modmenu.13.a2:0 "作弊模式§G已关闭§!"
+ z_modmenu.13.a2.tooltip:0 "$z_modmenu.13.a1.tooltip$"
+ z_mm_tips_cheating_disabled:0 "作弊模式未开启"
+ 
+ z_fw_evts_tech_overwhelm_on:0 "科技压制§H已开启§!"
+ z_fw_tips_tech_overwhelm_on:0 "如果你击毁的飞船的拥有者科技实力远超于你，你将无法解读它们的飞船残骸并逆向科技。"
+ z_fw_evts_tech_overwhelm_off:0 "科技压制§G已关闭§!"
+ z_fw_tips_tech_overwhelm_off:0 "原版设置，科技实力差距不会影响逆向残骸。"
+ z_modmenu.13.b1:0 "获得§H$z_fw_r_monument$§!"
+ z_modmenu.13.b1.tooltip:0 "你当前并没有$z_fw_r_monument$，但你可以通过这个指令直接获得它."
+ 
+ z_modmenu.cheat_hok_cure:0 "作弊功能：治愈臭鼬瘟疫"
+ z_modmenu.cheat_hok_cure.tooltip:0 "获得一根$z_fw_r_cheat_cure_hok_base$，可以彻底清除银河系中所有的臭鼬病毒，已感染的臭鼬将恢复原始种族，并且所有星球上隐藏的臭鼬病毒残留。"
+ z_fw_r_cheat_cure_hok_base:0 "臭鼬瘟疫治疗针"
+ z_fw_r_cheat_cure_hok:0 "§G无尽群星§!：$z_fw_r_cheat_cure_hok_base$"
+ z_fw_r_cheat_cure_hok_desc:0 "我们的宇宙生病了，恐怖的瘟疫席卷了整个星系，一切活着的生物都在被腐化。他们的肉体被异化，精神被扭曲，变成了一群不可名状的...可爱的臭鼬少女。\n这他喵到底是什么鬼，这明显是上天的赐福啊，神啊，小伞啊，无尽的暗能量之主啊，让我也变成可爱的臭鼬妹子然后被（这尼玛也太变态了吧）...咳咳，被神圣的暗能量火焰净化吧！\n一切都将恢复原样，因为§B暗能量，无所不能！§!。\n神皇保佑！\n纳垢赐福！\n阿门！"
+ z_fw_tips_r_cheat_cure_hok:0 "彻底清除银河系中所有的臭鼬病毒，已感染的臭鼬将恢复原始种族，并且所有星球上隐藏的臭鼬病毒残留。"
+ 
+ z_modmenu.13.b2:0 "作弊功能: $z_fw_desire_point_var$ §G+3§!"
+ z_modmenu.13.b3:0 "作弊功能: $z_fw_desire_point_var$ §G+30§!"
+ z_modmenu.13.c1:0 "无尽群星框架§G已启用§!"
+ z_modmenu.13.c1.tooltip:0 "无尽群星原创内容，如果你使用无尽整合它将自动开启，加入新建筑，新战争方式，开局辅助与星辰大海的渴望等."
+ z_modmenu.13.c2:0 "无尽群星框架§H已禁用§!"
+ z_modmenu.13.c2.tooltip:0 "$z_modmenu.13.c1.tooltip$"
+ z_modmenu.13.c3:0 "获取初始科技"
+ z_modmenu.13.c3.tooltip:0 "无尽群星的体系会将一些非初始科技设定为开场获取，如自动探索."
+ z_modmenu.13.c4:0 "刷新无尽群星彩蛋遗珍"
+ z_modmenu.13.c4.tooltip:0 "无尽群星的原创遗珍将初始化并散布于星系中，这个功能只能使用一次."
+ z_fw_evt_r_koh_plague_enabled:0 "猎头鼬自发性传染§G已启用§!"
+ z_fw_evt_r_koh_plague_disabled:0 "猎头鼬自发性传染§H已关闭§!"
+ z_fw_tips_r_koh_plague_infection:0 "这将决定猎头鼬在非投放状态下是否具有传染性，如果禁止则只会在主动投放以后开始一波感染，否则将不断试图感染其他非同类物种。注意：默认开启，关闭会影响它的一些功能。"
+ z_modmenu.13.c5:0 "星球人口上限设置"
+ z_modmenu.13.c5.tooltip:0 "开启星球人口上限设置，如果你安装了§B额外优化§!或§G区划革新§!，这个设置将默认开启。"
+ z_modmenu.13.c6:0 "§G无尽群星§!：战争设置"
+ z_modmenu.13.c6.tooltip:0 "开启战争参数设置。"
+ 
+ z_fw_misc.tips_res_stock1:0 "额外资源储量加成：§G无§!"
+ z_fw_misc.tips_res_stock2:0 "额外资源储量加成：§Y50000§!"
+ z_fw_misc.tips_res_stock3:0 "额外资源储量加成：§Y500000§!"
+ z_fw_misc.tips_res_stock4:0 "额外资源储量加成：§Y5000000§!"
+ z_fw_misc.tips_res_stock:0 "为所有帝国添加额外的资源储量修正。注意：这将改变游戏的平衡，慎用。"
+ 
+ z_modmenu.132.name:0 "$z_modmenu.13.c5$"
+ z_modmenu.132.desc:0 "添加星球人口上限，每一个殖民地星球都会按照星球大小，所有者特性等要素限制其最大人口数量。如果你安装了§B额外优化§!或§G区划革新§!，这个设置将默认开启。"
+ z_modmenu.132.h1: "星球人口上限 §G已启用§!"
+ z_modmenu.132.h1.tooltip: "使用无尽群星设置，启用星球人口上限。按星球大小限制人口，越大的星球可以承载越多的人口。\n\n§Y注意：如果你安装有carrying capacity MOD，此功能无效。开启限制可能会一定程度影响游戏性，因为人口到达一定程度就会停止增长§!"
+ z_modmenu.132.h2: "星球人口上限 §H已禁用§!"
+ z_modmenu.132.h2.tooltip: "使用原版游戏设置，关闭星球人口上限，只要有可能，星球人口会无限增长。\n\n§Y注意：不受控制的人口增长会让后期人口过多，严重影响游戏流畅性。§!"
+ z_modmenu.132.j1: "星球人口上限提升 §H无§!"
+ z_modmenu.132.j1.tooltip: "没有额外提升。"
+ z_modmenu.132.j2: "星球人口上限提升 §G30§!"
+ z_modmenu.132.j2.tooltip: "所有星球人口上限获得额外提升。"
+ z_modmenu.132.j3: "星球人口上限提升 §G60§!"
+ z_modmenu.132.j3.tooltip: "$z_modmenu.132.j2.tooltip$"
+ z_modmenu.132.j4: "星球人口上限提升 §G90§!"
+ z_modmenu.132.j4.tooltip: "$z_modmenu.132.j2.tooltip$"
+ z_modmenu.132.j5: "星球人口上限提升 §G120§!"
+ z_modmenu.132.j5.tooltip: "$z_modmenu.132.j2.tooltip$"
+ 
+ z_fw_tips_btn_battle_setting:0 "$z_modmenu.13.c6$\n\n$z_modmenu.133.desc$"
+ z_modmenu.133.name:0 "$z_modmenu.13.c6$"
+ z_modmenu.133.desc:0 "对所有无尽群星战争改动内容的参数进行设定\n如§B战术机动/动态难度/溢出清理§!等"
+ z_fw_desc_battle_dd_fp_lv_0:0 "动态难度加成§H无§!"
+ z_fw_desc_battle_dd_fp_lv:0 "动态难度加成§GLV[root.z_fw_loc_cntr_core_dd_fp_lv]§!"
+ z_modmenu.133.war1:0 "新增战争类型 §H已禁用§!"
+ z_modmenu.133.war2:0 "新增战争类型 §G已允许§!"
+ z_modmenu.133.war.tooltip:0 "这将决定无尽群星新增的战争目标和战争借口是否被允许使用。"
+ z_modmenu.133.a1: "沉浸战场：战术机动 §H已关闭§!"
+ z_modmenu.133.a1.tooltip: "关闭战速调整，战斗移速与巡航速度保持一致。"
+ z_modmenu.133.a2: "沉浸战场：战术机动 §G已启用§!"
+ z_modmenu.133.a2.tooltip: "启用战速调整，进入战斗状态后舰船移速减半，与巡航速度拉开差距。"
+ z_modmenu.133.b1: "舰船配件科技联动 §H已关闭§!"
+ z_modmenu.133.b1.tooltip: "关闭科技联动。\n\n§Y注意：如果你不清楚这项功能意味着什么，请启用科技联动。"
+ z_modmenu.133.b2: "舰船配件科技联动 §G已启用§!"
+ z_modmenu.133.b2.tooltip: "启用科技联动，部分武器配件科技解锁后将自动解锁同科技等级的同类型武器配件科技，如果你已经解锁当前科技的必要前置条件。比如当你获得了ACOT的α激光武器，那么ESC3.0的高级激光武器将自动解锁。\n\n§Y当前支持ESC3.0与ACOT。"
+ 
+ z_modmenu.133.c1: "溢出清理器 §H已关闭§!"
+ z_modmenu.133.c1.tooltip: "不清理数据溢出单位。"
+ z_modmenu.133.c2: "溢出清理器 §G已启用§!"
+ z_modmenu.133.c2.tooltip: "自动清理数据溢出单位。"
+ 
+ z_modmenu.133.e1: "动态难度：基础调整 §H已关闭§!"
+ z_modmenu.133.e1.tooltip: "不使用基础调整。\n\n§Y注意：mod环境下可能导致游戏难度过低。§!"
+ z_modmenu.133.e2: "动态难度：基础调整 §G已启用§!"
+ z_modmenu.133.e2.tooltip: "根据游戏时间和AI类型给所有AI添加强化与经济补助，越往后期它们将越发强大，适用于大部分mod环境，建议开启。"
+ 
+ z_modmenu.133.f1: "动态难度：清除弱者 §H已关闭§!"
+ z_modmenu.133.f1.tooltip: "不使用弱者清除功能。\n\n§Y注意：会降低难度。§!"
+ z_modmenu.133.f2: "动态难度：清除弱者 §G已启用§!"
+ z_modmenu.133.f2.tooltip: "舰队力量过于弱小的普通帝国或堕落帝国，会获得增强，直到它们的舰队达到一定的规模为止。\n\n§Y支持ZOFE。§!"
+ 
+ z_fw_tips_core_battle_dd_fp_off: "动态难度：战力加成§R未开启§!"
+ z_modmenu.133.d1: "动态难度：战力加成 §H已关闭§!"
+ z_modmenu.133.d1.tooltip: "没有战力加成。\n\n§Y注意：不对强力天灾生效。§!"
+ z_modmenu.133.d2: "动态难度：战力加成 §G已启用§!"
+ z_modmenu.133.d2.tooltip: "每层战力加成都将提升AI的海军战力，最高2500层。\n\n§Y注意：不对强力天灾生效。§!"
+ 
+ z_modmenu.133.d9: "动态难度：战力加成自动化 §P已关闭§!"
+ z_modmenu.133.d9.tooltip: "AI海军战力不会自动提升，但你可以手动提升它。"
+ z_modmenu.133.d10: "动态难度：战力加成自动化 §H已设为自适应§!"
+ z_modmenu.133.d10.tooltip: "AI海军战力将根据玩家强度自动提升，以保持战斗力。"
+ z_modmenu.133.d10a: "动态难度：战力加成自动化 §G已设为周期性§!"
+ z_modmenu.133.d10a.tooltip: "AI海军战力将会根据自动化难度设定自动提升，以保持挑战性。"
+
+ z_modmenu.133.automation.tooltip: "设置战力自动加成自动化难度等级，同时作用于自适应与周期性战力加成自动调整。\n\n注意：设置后自动刷新CD。\n§H使用自适应调整时，难度等级越高触发频率越高。§!"
+ z_modmenu.133.d11: "动态难度：战力加成自动化难度 §R疯狂§!"
+ z_modmenu.133.d11.tooltip: "$z_modmenu.133.automation.tooltip$\n§G此难度下使用周期性调整，125年达到最高层数。§!"
+ z_modmenu.133.d12: "动态难度：战力加成自动化难度 §H困难§!"
+ z_modmenu.133.d12.tooltip: "$z_modmenu.133.automation.tooltip$\n§G此难度下使用周期性调整，250年达到最高层数。§!"
+ z_modmenu.133.d13: "动态难度：战力加成自动化难度 §B标准§!"
+ z_modmenu.133.d13.tooltip: "无尽群星默认。$z_modmenu.133.automation.tooltip$\n§G此难度下使用周期性调整，500年达到最高层数。§!"
+ z_modmenu.133.d14: "动态难度：战力加成自动化难度 §G简单§!"
+ z_modmenu.133.d14.tooltip: "$z_modmenu.133.automation.tooltip$\n§G此难度下使用周期性调整，1250年达到最高层数。§!"
+ 
+ z_modmenu.133.d3: "动态难度-战力加成等级 §G+1§!"
+ z_modmenu.133.d4: "动态难度-战力加成等级 §G+10§!"
+ z_modmenu.133.d5: "动态难度-战力加成等级 §G+50§!"
+ z_modmenu.133.d5a: "动态难度-战力加成等级 §G+250§!"
+ z_modmenu.133.d6: "动态难度-战力加成等级 §G-1§!"
+ z_modmenu.133.d7: "动态难度-战力加成等级 §G-10§!"
+ z_modmenu.133.d8: "动态难度-战力加成等级 §G-50§!"
+ z_modmenu.133.d8a: "动态难度-战力加成等级 §G-250§!"
+ 
+ z_modmenu.133.g.tooltip: "设置无尽群星主面板上的"+""-"战力加成快捷调整按钮每次改变的层数。"
+ z_modmenu.133.g1: "动态难度：战力加成-快速调整层数 §G1§!"
+ z_modmenu.133.g2: "动态难度：战力加成-快速调整层数 §G5§!"
+ z_modmenu.133.g3: "动态难度：战力加成-快速调整层数 §G10§!"
+ z_modmenu.133.g4: "动态难度：战力加成-快速调整层数 §G50§!"
+ 
+#_evts z modmenu misc
+ z_modmenu.130.name:0 "获得究极遗珍"
+ z_modmenu.130.desc:0 "获得$z_fw_r_celestial_orrey$，$z_fw_r_cheat_quantum_beacon$，$z_fw_r_cheat_hyper_blade$，$z_fw_r_cheat_mega_sword$和$z_fw_r_cheat_fury$。"
+ z_modmenu.not_host:0 "你不是主机"
+ z_modmenu.not_host.desc:0 "只有主机才能被允许使用这个选项。"
+ z_modmenu.131.name:0 "作弊者出现"
+ z_modmenu.131.desc:0 "[event_target:z_fw_tgt_country_last_cheater.GetName]竟然在多人游戏中开启了§G无尽群星§!的作弊功能，真是太不要脸了!"
+ z_modmenu.cheat_allowed:0 "允许作弊"
+ z_modmenu.cheat_allowed.desc:0 "主机解锁了作弊模式，点击LOGO开启框架设置，查看作弊选项。"
+ 
+ 
+ 
+ 
+###_TOP BUTTONS
+ z_mm_autostation_desc: "§B自动矿站/研究站§!：\n\n设定允许自动建造空间站的矿物储量基础条件，或关闭自动矿站。如果矿物储量满足条件，将在领土内星系的星际基地或哨站建造一艘全自动工程船为所有没有安置采矿站的星球建造采矿站。"
+ z_mm_tips_autostation_desc: "§Y能量币§!收入>§G5§!"
+ z_mm_full_sensor_desc: "§B全图视野开关§!：\n\n可选择开启或者关闭全图视野，当然只在你拥有类似§Y哨兵阵列§!这样可以开启全图传感器的条件下才能生效。\n\n注意：全图视野会导致处在银河地图模式下的严重丢帧，因为系统要计算的UI对象太多。" 
+ z_mm_full_sensor_desc: "§B护国神盾-网道开关§!：\n\n可选择开启或者关闭网道系统，在恒星基地建造§Y$sm_warp_fluctuator$§!将允许舰队进入网道系统，快速穿梭于你的领地。\n\n注意：每次有舰队通过网道都会消耗能量。"
+ z_mm_pf_manual_job_check_button: "$edict_z_performance_manual_edt$\n$edict_z_performance_manual_edt_desc$\n\n对所有国家进行§B产业革命§!检测\n将会统计§B产业参数§!，并进行§H人口/人力转化§!。"
+ z_mm_pf_manual_job_own_button: "$edict_z_pf_edt_manual_own$\n$edict_z_pf_edt_manual_own_desc$\n\n对自己进行§B产业革命§!检测\n将会统计§B产业参数§!，并进行§H人口/人力转化§!。"
+ z_mm_pf_manual_job_checking: "当前手动工作检测中."
+ z_mm_pf2_merge_ai_species_button: "$z_performance_misc.11.f1$\n$z_performance_misc.11.f1.tooltip$"
+ z_mm_pf2_ai_species_merging: "当前物种合并中."
+ z_mm_pf2_merge_ai_flt_button: "$z_performance_misc.11.f5$\n$z_performance_misc.11.f5.tooltip$"
+
+
+
+
+
+
+
+###_SUB MODULES
+ z_mm_performance_desc: "§G无尽群星§!: 人口检测优化\n一个优化人口检测模式的mod，提升后期游戏速度，无尽群星子mod."
+ z_mm_pf2_desc: "§G无尽群星§!: 额外优化\n一个对游戏进行全方位优化的mod，提升后期游戏速度，无尽群星子mod."
+ z_mm_statistic_desc: "§G无尽群星§!: 数据统计\n一个对游戏关键数据进行统计的mod，为优化和debug提供参考，无尽群星子mod."
+ z_mm_cm_desc: "§G无尽群星§!: 天灾之主\n一个强大的天灾管理器和天灾拓展mod，让天灾与天堂之战更具挑战性和趣味性，无尽群星子mod."
+ z_mm_lctr_desc: "§G无尽群星：§!高级定位器\n一个强大的星系定位系统，可以将含有特定目标的星系以兴趣点的方式显示在银河系地图上，这将使你很方便的寻找一些特殊的星系，请在开启子模块菜单后按照介绍操作。"
+ z_mm_pr_desc: "§G无尽群星：§!产业革命\n人口系统与经济系统重做，大幅度降低人口数量并将无业人口转化为星球人力，星球人力越高产出加成越高。\n同时，新的区划与产业飞升使你获得新的经济选择，而人力结构、星球社会结构与人口管理的简化在解放你双手的同时给你增加了更多的脑力娱乐。"
+ 
+#_misc mods
+ z_misc_modmenu_button:0 "§G无尽群星: 菜单联动mod设置§!"
+ z_misc_modmenu_button.tooltip:0 "§H打开§!菜单联动mod设置。"
+ z_misc_modmenu.1.name:0 "$z_misc_modmenu_button$"
+ z_misc_modmenu.1.desc:0 "在这里您可以配置mods，只有在你激活了这些联动mod的时候设置按钮才会显示."
+ z_misc_modmenu_desc:0 "$z_misc_modmenu_button$\n$z_misc_modmenu.1.desc$"
+
+
+
+
+###_SUPPORT MODS
+ z_mm_sp_ig_desc: "§BZer0's Infinity Stones: Redux§!设置菜单\n添加无限战争与相关事件，通过法令开启一次无限战争设置菜单后方可使用。"
+ z_mm_sp_ig_cht_desc: "§BZer0's Infinity Stones: Redux§!作弊菜单\n无限手套作弊菜单，在§B无限宝石设置菜单§!中开启作弊功能后方可使用。"
+ z_mm_tips_isr_cheat_on: "请开启作弊功能。"
+ z_mm_sp_eac_dpl_desc: "§BAt War: Defense Platform Longevity§!设置菜单"
+ z_mm_sp_tcf_desc: "§BTerraforming Candidate Finder§!设置菜单"
+ z_mm_sp_mods_had_ab_desc: "§BAutoBuild (only space stations)§!设置菜单，另一个自动建设太空站的mod，与框架自带的§G自动工程船§!功能重叠，择一使用。"
+ z_mm_sp_mods_had_bts_desc: "§BBoard That Ship!§! Debug按钮，使所有被停止的船恢复正常。"
+ 
+ z_mm_sm_dduc_desc: "§B动态难度调节器§!\n此mod允许你对游戏中所有敌人的强度进行调整，包括资源和战斗力，给你更多挑战."
+ z_mm_sm_mem_desc: "§BMEM 更多事件§!\n这个mod向游戏中增加了许多异常和事件，致力于在无聊的后期探索中增加更多有趣的东西，steam搜索§BMore Events Mod§!"
+ z_mm_sm_esc_desc: "§BESC 更多配件§!\n这个mod的目标是深化并拓展武器系统，增加新的科技树，高级武器，护盾和装甲"
+ z_mm_sm_rls_desc: "§BRLS 扮演统治者§!\nRLS使统治者拥有自己的图特技能和等级体系，让玩家操纵统治者如同进行rpg游戏一样，steam搜索§BRuler Level System§!"
+ z_mm_sm_acot_desc: "§BACOT§!\n这个mod引入了大量基于暗物质暗能量得全新科技，从舰船的武器配件，到建筑军队和一些行星决策."
+ z_mm_sp_sofe_desc: "§BSOFE始源危机§!设置"
+ 
+ z_mm_sm_cmn_desc: "§B天灾管理器§!\n这个mod可以让你设定原版天灾的各项细节，内容包括终局天灾，中期威胁，终末轮回. §R注意: 与天灾之主冲突，二选一. 天灾之主是无尽群星的子模块，注重天灾内容的拓展与战斗方式的改良，也有很详尽的设定内容.§!"
+ z_mm_sp_mods_cmdt_desc: "§B致命风暴§!设置\n这个mod为灰风事件添加了许多新的原创内容. §R注意: 与天灾之主冲突，二选一. 天灾之主是无尽群星的子模块，注重天灾内容的拓展与战斗方式的改良，也有很详尽的设定内容.§!"
+ z_mm_sm_tgu_desc: "§B银河大学§!\n本mod允许你花费能量币雇佣指定特性的领袖."
+ z_mm_sm_ftm_desc: "§B舰队转让§!\n本mod拥有4各功能：舰队转移，舰队市场，舰队租赁，舰队拍卖。允许你拥有更多方式管理自己的舰队，并建立跨国武备供应机制，steam搜索§BFleet Transfer Mod§!"
+ z_mm_sp_hfe_desc: "§B人类堕落帝国§!设置菜单\n这个mod增加了许多新的游戏内容，详情请在steam搜索§BHuman Fallen Empires§!"
+ z_mm_sp_giga_desc: "§B更多巨建§!设置，steam搜索§BGigastructural Engineering & More§!"
+ 
+ z_mm_sp_ev_desc: "§B太虚流浪§!设置菜单\n一个力图进行模拟一种无需行星的舰队文明的MOD，详情请在steam搜索The Empty Vagrant。"
+ z_mm_sp_kuat_desc: "§B狡猾宇宙少年§!设置菜单\n本MOD添加了超级歼星舰执行者级以及强大的涡轮激光武器。同时，执行者的生产商————夸特动力船坞公司也将会在游戏中作为堕落帝国一般存在在地图上，拥有大量可玩事件和极高的挑战性。详情请在steam搜索STAR WARS:EXECUTOR AND KUAT。"
+ z_mm_sp_wsg_desc: "§B舰妈R§!难度设置\n允许你重新设置天灾难度，但是请慎用。"
+ z_mm_sp_wsg_leader_desc: "§B舰妈R：纸片人通信界面§!\n获得岛风后开启，允许你和各种纸片人通信。"
+ z_mm_tips_sp_wsg_shimakaze: "只有拥有岛风以后才能使用。"
+ 
+ z_mm_sp_uap_desc: "§B独特飞升天赋§!设置\n增加了一些很有特点的新飞升，想获取此mod在steam搜索Unique Ascension Perks。"
+ z_mm_sp_complex_potv_desc: "§BPantheons of the Void§! 宗教树\n在此mod中，您将能够在帝国创建屏幕中选择您的宗教系统，此选择将确定您的帝国支持的信仰。信仰或宗教系统从无神论到泛灵论。"
+ z_mm_sp_bcm_desc: "§BBetterCheats§! 更好的作弊菜单\n你将会拥有多种新的作弊选项，几乎涵盖任意一个资源种类和游戏范畴。"
+ z_mm_sp_ace_desc: "§BAggressive Crisis Engine§! \n提升天灾的攻击性，可能与天灾之主冲突。"
+
+
+
+
+###_CSP SUPPORT mods
+ z_mm_tips_csp_title: "定制支持按钮"
+ z_mm_csp_common:0 "\n\n§B定制支持类mod§!，框架对此类mod提供特殊支持，拥有独立的设置菜单并提供基本的兼容支持使之与其他定制支持mod能够和谐共存。"
+ z_mm_csp_ev_desc: "§B虚空流浪§!\n本mod提供了全新的玩法体系，以无星球殖民地的方式建立一个游牧星海帝国，迎接全新的叛乱体系与恐怖的怪物天灾。$z_mm_csp_common$"
+ 
+ z_mm_tips_csp_misc_fleet_dismantle_on: "舰队自沉：§G已启用§!"
+ z_mm_tips_csp_misc_fleet_dismantle_off: "舰队自沉：§H已关闭§!"
+ z_mm_tips_csp_misc_fleet_dismantle: "舰队自沉功能：启用以后选中任意舰队命令其移动到母星轨道（移动命令点击母星），在弹出事件中选择设置为目标。设置完成后舰队将成为中立目标并添加脆弱buff，使用任意己方舰队摧毁这支舰队将产生残骸并允许逆向工程。"
+ 
+ z_mm_tips_csp_misc_edt_show: "联动mod菜单法令：已设为§G显示§!"
+ z_mm_tips_csp_misc_edt_hide: "联动mod菜单法令：已设为§H隐藏§!\n\n部分mod的设置菜单法令被隐藏，以保持法令列表的整洁。"
+#_[z_mui主按钮隐藏]
+ z_mm_tips_csp_misc_mui_button_show: "暗蓝UI下方mod面板按钮：已设为§G显示§!"
+ z_mm_tips_csp_misc_mui_button_hide: "暗蓝UI下方mod面板按钮：已设为§H隐藏§!\n\n隐藏下方的无尽群星mod设置面板开启按钮，如果有些人不喜欢那个大按钮的话。"
+ 
+ z_mm_tips_csp_stability_mod_non:0 "需要安装§B1st Liberation Manual:The Empire in fallen§!，如果你需要此mod请在steam直接搜索。"
+ z_mm_tips_csp_ftm_non:0 "需要安装§BFleet Transfer Mod§!，如果你需要此mod请在steam直接搜索。"
+ z_mm_tips_csp_ftm_transfer:0 "FTM舰队转让"
+ z_mm_tips_csp_ftm_sell:0 "FTM舰队市场"
+ z_mm_tips_csp_ftm_rent:0 "FTM舰队租赁"
+ z_mm_tips_csp_ftm_auction:0 "FTM舰队拍卖"
+
+

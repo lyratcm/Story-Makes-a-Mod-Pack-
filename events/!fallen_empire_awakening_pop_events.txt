@@ -1,0 +1,76 @@
+############################
+#
+# Fallen Empire 'Awakening' Events
+#
+# Written by Martin Anward
+#
+############################
+
+namespace = fallen_empires_awakening
+
+country_event = {
+	id = fallen_empires_awakening.3
+	title = OK
+	desc = OK
+
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = sleepers_awake_first_sleeper
+		set_country_type = awakened_fallen_empire
+		change_government = {
+			civics = {
+				civic = civic_revanchist_fervor
+				civic = civic_ancient_caches_of_technology
+			}
+		}
+
+		# Changing country type resets resources, so give them full stores
+		add_resource = { minerals = 50000 }
+		add_resource = { energy = 50000 }
+		add_resource = { alloys = 50000 }
+		add_resource = { consumer_goods = 50000 }
+		add_resource = { food = 5000 }
+		add_resource = { influence = 1000 }
+
+		# Add some more fleet
+		country_event = { id = fallen_empires.13 }
+		country_event = { id = fallen_empires.13 }
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					fleet_power > 40000
+				}
+			}
+			country_event = { id = fallen_empires.13 }
+		}
+		
+		# Non-Xenophobes rebuild gateways
+		if = {
+			limit = { is_xenophobe = no }
+			every_owned_megastructure = {
+				limit = { is_megastructure_type = gateway_ruined }
+				upgrade_megastructure_to = gateway_restored
+			}
+		}
+
+		# Establish communications
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				NOT = { has_communications = root }
+			}
+
+			establish_communications_no_message = root
+			root = { save_event_target_as = contact_empire }
+			country_event = { id = action.1 }
+		}
+	}
+}

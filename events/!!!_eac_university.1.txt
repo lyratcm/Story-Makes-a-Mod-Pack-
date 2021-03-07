@@ -1,0 +1,52 @@
+namespace = eac_university
+country_event = {
+    id = eac_university.1
+    title = eac_university.1.name
+    desc = eac_university.1.desc
+    picture = GFX_evt_eac_empire_university
+    is_triggered_only = yes
+    immediate = {
+        from = {
+            save_event_target_as = eac_capital_world
+        }
+    }
+    option = {
+        name = eac_university.1.admiral
+        custom_tooltip = eac_university.1.admiral.tooltip
+        hidden_effect = {
+            country_event = {
+                id = eac_university.2
+            }
+        }
+    }
+    option = {
+        name = eac_university.1.general
+        custom_tooltip = eac_university.1.general.tooltip
+        hidden_effect = {
+            country_event = {
+                id = eac_university.3
+            }
+        }
+    }
+    option = {
+        name = eac_university.1.scientist
+        custom_tooltip = eac_university.1.scientist.tooltip
+        hidden_effect = {
+            country_event = {
+                id = eac_university.4
+            }
+        }
+    }
+    option = {
+        name = eac_university.1.governor
+        custom_tooltip = eac_university.1.governor.tooltip
+        hidden_effect = {
+            country_event = {
+                id = eac_university.5
+            }
+        }
+    }
+    option = {
+        name = eac_close_window
+    }
+}

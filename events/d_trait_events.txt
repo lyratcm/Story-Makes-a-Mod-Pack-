@@ -1,0 +1,1509 @@
+namespace = d_traits
+
+# chance for new genetic integrator pop to be a half-species
+planet_event = {
+	id = d_traits.100
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		fromfrom = {
+			has_trait = trait_genetic_integration
+		}
+	}
+	immediate = {
+		random_owned_pop = {
+			limit = {
+				species = {
+					is_crossbreeding_possible = yes
+					is_archetype = BIOLOGICAL
+				}
+			}
+			species = { save_event_target_as = crossbreeding_species }
+		}
+		fromfrom = {
+			random_list = {
+				9 = { }
+				1 = {
+					modifier = {
+						factor = 0
+						is_same_species = event_target:crossbreeding_species
+					}
+					modifier = {
+						factor = 0
+						is_half_species = event_target:crossbreeding_species
+					}
+					modifier = {
+						factor = 6
+						is_same_species_class = event_target:crossbreeding_species
+					}
+					species = {
+						IF = {
+							limit = { is_half_species = any }
+							random_galaxy_species = {
+								limit = {
+									has_trait = trait_genetic_integration
+									prev = { is_half_species = prev }
+									NOT = { is_half_species = any }
+								}
+								save_event_target_as = base_species
+							}
+						}	
+						ELSE = {
+							save_event_target_as = base_species
+						}
+					}
+					create_half_species = { species_one = event_target:base_species species_two = event_target:crossbreeding_species }
+					change_species = last_created_species
+				}
+			}
+		}
+
+	}
+}
+
+######################
+#
+# Living Architecture
+#
+######################
+# on game start
+country_event = {
+	id = d_traits.203
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_owned_pop = { has_trait = trait_potential_living_architecture }
+	}
+	immediate = {
+		IF = {
+			limit = { is_primitive = yes }
+			switch = {
+				trigger = has_country_flag
+				stone_age = {
+					capital_scope = {
+						root_random_pop = yes
+						check_living_architecture_modifier = yes
+					}
+				}
+				id_stage = {
+					capital_scope = {
+						root_random_pop = yes
+						check_living_architecture_modifier = yes
+					}
+				}
+				bronze_age = {
+					capital_scope = {
+						while = {
+							count = 2
+							root_random_pop = yes
+							check_living_architecture_modifier = yes
+						}
+					}
+				}
+				default = {
+					capital_scope = {
+						while = {
+							count = 3
+							root_random_pop = yes
+							check_living_architecture_modifier = yes
+						}
+					}
+				}
+			}
+		}
+		ELSE = {
+			every_owned_planet = {
+				SLEX_get_custom_parameter_advanced = {
+					CONDITION_NAME = num_buildings
+					FIRST_KW = type
+					SECOND_KW = any
+					THIRD_KW = value
+					VARIABLE = building_count
+				}
+				while = {
+					limit = {
+						check_variable = {
+							which = building_count
+							value > 0
+						}
+						any_owned_pop = { has_trait = trait_potential_living_architecture }
+					}
+					root_random_pop = yes
+					subtract_variable = {
+						which = building_count
+						value = 1
+					}
+				}
+				owner = {
+					switch = {
+						trigger = has_authority
+						auth_machine_intelligence = {
+							prev = {
+								SLEX_get_custom_parameter_advanced = {
+									CONDITION_NAME = num_districts
+									FIRST_KW = type
+									SECOND_KW = district_nexus
+									THIRD_KW = value
+									VARIABLE = building_count
+								}			
+							}
+						}
+						auth_hive_mind = {
+							prev = {
+								SLEX_get_custom_parameter_advanced = {
+									CONDITION_NAME = num_districts
+									FIRST_KW = type
+									SECOND_KW = district_hive
+									THIRD_KW = value
+									VARIABLE = building_count
+								}	
+							}
+						}
+						default = {
+							prev = {
+								SLEX_get_custom_parameter_advanced = {
+									CONDITION_NAME = num_districts
+									FIRST_KW = type
+									SECOND_KW = district_city
+									THIRD_KW = value
+									VARIABLE = building_count
+								}	
+							}
+						}
+					}	
+				}
+				while = {
+					limit = {
+						check_variable = {
+							which = building_count
+							value > 0
+						}
+						any_owned_pop = { has_trait = trait_potential_living_architecture }
+					}
+					root_random_pop = yes
+					subtract_variable = {
+						which = building_count
+						value = 1
+					}
+				}
+				check_living_architecture_modifier = yes
+			}
+		}
+	}
+}
+# on pop added
+pop_event = {
+	id = d_traits.200
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_trait = trait_living_architecture
+			has_trait = trait_potential_living_architecture
+		}
+		from = {
+			NOT = { has_modifier = living_architecture_planet_modifier }
+		}
+	}
+	immediate = {
+		from = {
+			add_modifier = { modifier = living_architecture_planet_modifier days = -1 }
+		}
+	}
+}
+# on modification
+country_event = {
+	id = d_traits.201
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		from = { has_trait = trait_potential_living_architecture }
+	}
+	immediate = {
+		every_owned_planet = {
+			limit = {
+				any_owned_pop = { is_same_value = from }
+				NOT = { has_modifier = living_architecture_planet_modifier }				
+			}
+			add_modifier = { modifier = living_architecture_planet_modifier days = -1 }
+		}
+	}
+}
+# on decline, displacement, or purge
+planet_event = {
+	id = d_traits.202
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_modifier = living_architecture_planet_modifier
+		fromfrom = { has_trait = trait_potential_living_architecture }
+	}
+	immediate = {
+		check_living_architecture_modifier = yes
+	}
+}
+# on building queued
+planet_event = {
+	id = d_traits.210
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_modifier = living_architecture_planet_modifier
+	}
+	immediate = {
+		IF = {
+			limit = {
+				any_owned_species = { has_trait = trait_potential_living_architecture }
+			}
+			root_random_pop_with_construction_flag = yes
+		}
+		check_living_architecture_modifier = yes
+	}
+}
+# on building complete
+planet_event = {
+	id = d_traits.211
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_owned_pop = {
+			has_pop_flag = under_construction
+		}
+	}
+	immediate = {
+		random_owned_pop = {
+			limit = { has_pop_flag = under_construction }
+			remove_pop_flag = under_construction
+		}
+	}
+}
+# on building unqueued
+planet_event = {
+	id = d_traits.212
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_owned_pop = {
+			has_pop_flag = under_construction
+		}
+	}
+	immediate = {
+		random_owned_pop = {
+			limit = { has_pop_flag = under_construction }
+			modify_species = {
+				remove_trait = trait_living_architecture
+				add_trait = trait_potential_living_architecture
+				change_scoped_species = yes
+			}	
+			remove_pop_flag = under_construction
+		}
+		IF = {
+			limit = {
+				NOT = {
+					has_modifier = living_architecture_planet_modifier
+				}		
+			}
+			add_modifier = { modifier = living_architecture_planet_modifier days = -1 }
+		}
+	}
+}
+# on district queued
+planet_event = {
+	id = d_traits.220
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_modifier = living_architecture_planet_modifier
+		OR = {
+			last_district_changed = district_city
+			last_district_changed = district_hive
+			last_district_changed = district_nexus
+		}
+	}
+	immediate = {
+		IF = {
+			limit = {
+				any_owned_species = { has_trait = trait_potential_living_architecture }
+			}
+			root_random_pop_with_construction_flag = yes
+		}
+		check_living_architecture_modifier = yes
+	}
+}
+# on district complete
+planet_event = {
+	id = d_traits.221
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_owned_pop = {
+			has_pop_flag = under_construction
+		}
+		OR = {
+			last_district_changed = district_city
+			last_district_changed = district_hive
+			last_district_changed = district_nexus
+		}
+	}
+	immediate = {
+		random_owned_pop = {
+			limit = { has_pop_flag = under_construction }
+			remove_pop_flag = under_construction
+		}
+	}
+}
+# on district unqueued
+planet_event = {
+	id = d_traits.222
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_owned_pop = {
+			has_pop_flag = under_construction
+		}
+		OR = {
+			last_district_changed = district_city
+			last_district_changed = district_hive
+			last_district_changed = district_nexus
+		}
+	}
+	immediate = {
+		random_owned_pop = {
+			limit = { has_pop_flag = under_construction }
+			remove_pop_flag = under_construction
+		}
+		IF = {
+			limit = {
+				NOT = {
+					has_modifier = living_architecture_planet_modifier
+				}		
+			}
+			add_modifier = { modifier = living_architecture_planet_modifier days = -1 }
+		}
+	}
+}
+
+#####################
+#
+# Purpose Grown
+#
+#####################
+
+# apply job flags for obsessives and specialized bots
+pop_event = {
+	id = d_traits.300
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_trait = trait_robot_specialized
+			has_trait = trait_obsessive
+		}
+		NOT = {
+			has_pop_flag = traits_restrict_jobs_flag
+		}
+	}
+	immediate = {
+		pop_event = { id = d_traits.301 days = 2 }
+	}
+}
+pop_event = {
+	id = d_traits.301
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_trait = trait_robot_specialized
+			has_trait = trait_obsessive
+		}
+	}
+	immediate = {
+		IF = {
+			limit = { is_unemployed = yes }
+			pop_event = { id = d_traits.301 days = 10 random = 60 }
+		}
+		ELSE = {
+			set_pop_flag = traits_restrict_jobs_flag
+			switch = {
+				trigger = has_job
+				technician = { set_pop_flag = allow_technician_traits }
+				miner = { set_pop_flag = allow_miner_traits }
+				farmer = { set_pop_flag = allow_farmer_traits }
+				clerk = { set_pop_flag = allow_clerk_traits }
+				soldier = { set_pop_flag = allow_soldier_traits }
+				crystal_miner = { set_pop_flag = allow_crystal_miner_traits }
+				mote_harvester = { set_pop_flag = allow_mote_harvester_traits }
+				gas_extractor = { set_pop_flag = allow_gas_extractor_traits }
+				preacher = { set_pop_flag = allow_priest_traits }
+				researcher = { set_pop_flag = allow_researcher_traits }
+				priest = { set_pop_flag = allow_priest_traits }
+				death_priest = { set_pop_flag = allow_priest_traits }
+				foundry = { set_pop_flag = allow_foundry_traits }
+				enforcer = { set_pop_flag = allow_enforcer_traits }
+				telepath = { set_pop_flag = allow_enforcer_traits }
+				artisan = { set_pop_flag = allow_artisan_traits }
+				entertainer = { set_pop_flag = allow_entertainer_traits }
+				duelist = { set_pop_flag = allow_duelist_traits }
+				culture_worker = { set_pop_flag = allow_culture_worker_traits }
+				bureaucrat = { set_pop_flag = allow_bureaucrat_traits }
+				chemist = { set_pop_flag = allow_chemist_traits }
+				translucer = { set_pop_flag = allow_translucer_traits }
+				gas_refiner = { set_pop_flag = allow_gas_refiner_traits }
+				roboticist = { set_pop_flag = allow_roboticist_traits }
+				healthcare = { set_pop_flag = allow_healthcare_traits }
+				manager = { set_pop_flag = allow_manager_traits }
+				necromancer = { set_pop_flag = allow_necromancer_traits }
+				bluelotus_technician = { set_pop_flag = allow_bluelotus_technician_traits }
+				head_researcher = { set_pop_flag = allow_researcher_traits }
+				high_priest = { set_pop_flag = allow_priest_traits }
+				administrator = { set_pop_flag = allow_administrator_traits }
+				merchant = { set_pop_flag = allow_merchant_traits }
+				executive = { set_pop_flag = allow_executive_traits }
+				odd_factory_worker = { set_pop_flag = allow_odd_factory_worker_traits }
+				underground_trade_worker = { set_pop_flag = allow_underground_trade_worker_traits }
+				dimensional_portal_researcher = { set_pop_flag = allow_dimensional_portal_researcher_traits }
+				gas_plant_engineer = { set_pop_flag = allow_gas_plant_engineer_traits }
+				cave_cleaner = { set_pop_flag = allow_cave_cleaner_traits }
+				titan_hunter = { set_pop_flag = allow_titan_hunter_traits }
+				death_chronicler = { set_pop_flag = allow_culture_worker_traits }
+	
+				technician_drone = { set_pop_flag = allow_technician_traits }
+				mining_drone = { set_pop_flag = allow_miner_traits }
+				agri_drone = { set_pop_flag = allow_farmer_traits }
+				maintenance_drone = { set_pop_flag = allow_clerk_traits }
+				warrior_drone = { set_pop_flag = allow_soldier_traits }
+				crystal_mining_drone = { set_pop_flag = allow_crystal_miner_traits }
+				mote_harvesting_drone = { set_pop_flag = allow_mote_harvester_traits }
+				gas_extraction_drone = { set_pop_flag = allow_gas_extractor_traits }
+				brain_drone = { set_pop_flag = allow_researcher_traits }
+				calculator = { set_pop_flag = allow_researcher_traits }
+				alloy_drone = { set_pop_flag = allow_foundry_traits }
+				fabricator = { set_pop_flag = allow_foundry_traits }
+				patrol_drone = { set_pop_flag = allow_enforcer_traits }
+				artisan_drone = { set_pop_flag = allow_artisan_traits }
+				coordinator = { set_pop_flag = allow_bureaucrat_traits }
+				chemist_drone = { set_pop_flag = allow_chemist_traits }
+				translucer_drone = { set_pop_flag = allow_translucer_traits }
+				gas_refiner_drone = { set_pop_flag = allow_gas_refiner_traits }
+				replicator = { set_pop_flag = allow_roboticist_traits }
+				spawning_drone = { set_pop_flag = allow_healthcare_traits }
+				bluelotus_drone = { set_pop_flag = allow_bluelotus_technician_traits }
+				evaluator = { set_pop_flag = allow_evaluator_traits }
+				synapse_drone = { set_pop_flag = allow_synapse_drone_traits }
+				odd_factory_drone = { set_pop_flag = allow_odd_factory_worker_traits }
+				underground_contact_drone = { set_pop_flag = allow_underground_trade_worker_traits }
+				dimensional_portal_researcher_gestalt = { set_pop_flag = allow_dimensional_portal_researcher_traits }
+				gas_plant_engineer_gestalt = { set_pop_flag = allow_gas_plant_engineer_traits }
+				cave_cleaner_gestalt = { set_pop_flag = allow_cave_cleaner_traits }
+				chronicle_drone = { set_pop_flag = allow_culture_worker_traits }
+	
+				peasant = { set_pop_flag = allow_farmer_traits }
+				primitive_miner = { set_pop_flag = allow_miner_traits }
+				primitive_farmer = { set_pop_flag = allow_farmer_traits }
+				primitive_technician = { set_pop_flag = allow_technician_traits }
+				primitive_researcher = { set_pop_flag = allow_researcher_traits }
+				primitive_priest = { set_pop_flag = allow_priest_traits }
+				primitive_laborer = { set_pop_flag = allow_artisan_traits }
+				primitive_warrior = { set_pop_flag = allow_soldier_traits }
+				primitive_priest_2 = { set_pop_flag = allow_priest_traits }
+				primitive_laborer_2 = { set_pop_flag = allow_artisan_traits }
+				primitive_warrior_2 = { set_pop_flag = allow_soldier_traits }
+				primitive_noble = { set_pop_flag = allow_enforcer_traits }
+				primitive_bureaucrat = { set_pop_flag = allow_administrator_traits set_pop_flag = allow_executive_traits }
+	
+				fe_overseer = { set_pop_flag = allow_administrator_traits }
+				fe_sky_cardinal = { set_pop_flag = allow_miner_traits set_pop_flag = allow_priest_traits }
+				fe_guardian_bot = { set_pop_flag = allow_soldier_traits set_pop_flag = allow_enforcer_traits }
+				fe_protector = { set_pop_flag = allow_soldier_traits set_pop_flag = allow_enforcer_traits }
+				fe_archivist = { set_pop_flag = allow_researcher_traits }
+				fe_acolyte_farm = { set_pop_flag = allow_farmer_traits }
+				fe_acolyte_mine = { set_pop_flag = allow_miner_traits }
+				fe_acolyte_generator = { set_pop_flag = allow_technician_traits }
+				fe_sky_cardinal = { set_pop_flag = allow_priest_traits }
+				fe_xeno_keeper = { set_pop_flag = allow_enforcer_traits }
+				fe_acolyte_artisan = { set_pop_flag = allow_artisan_traits }
+				fe_maintenance_bot = { set_pop_flag = allow_clerk_traits }
+
+				default = {
+					pop_event = { id = d_traits.302 days = 180 random = 720 }
+				}
+			}	
+		}
+	}
+}
+# random events to provide limited mobility for obsessives and specialized bots
+pop_event = {
+	id = d_traits.302
+	hide_window = yes
+	mean_time_to_happen = { years = 25 }
+	trigger = {
+		has_pop_flag = traits_restrict_jobs_flag
+		NOT = { has_trait = trait_living_architecture }
+	}
+	immediate = {
+		remove_pop_flag = traits_restrict_jobs_flag
+		remove_pop_flag = allow_technician_traits
+		remove_pop_flag = allow_miner_traits
+		remove_pop_flag = allow_farmer_traits
+		remove_pop_flag = allow_clerk_traits
+		remove_pop_flag = allow_soldier_traits
+		remove_pop_flag = allow_crystal_miner_traits
+		remove_pop_flag = allow_mote_harvester_traits
+		remove_pop_flag = allow_gas_extractor_traits
+		remove_pop_flag = allow_priest_traits
+		remove_pop_flag = allow_researcher_traits
+		remove_pop_flag = allow_priest_traits
+		remove_pop_flag = allow_foundry_traits
+		remove_pop_flag = allow_enforcer_traits
+		remove_pop_flag = allow_enforcer_traits
+		remove_pop_flag = allow_artisan_traits
+		remove_pop_flag = allow_entertainer_traits
+		remove_pop_flag = allow_duelist_traits
+		remove_pop_flag = allow_culture_worker_traits
+		remove_pop_flag = allow_bureaucrat_traits
+		remove_pop_flag = allow_chemist_traits
+		remove_pop_flag = allow_translucer_traits
+		remove_pop_flag = allow_gas_refiner_traits
+		remove_pop_flag = allow_roboticist_traits
+		remove_pop_flag = allow_healthcare_traits
+		remove_pop_flag = allow_manager_traits
+		remove_pop_flag = allow_necromancer_traits
+		remove_pop_flag = allow_bluelotus_technician_traits
+		remove_pop_flag = allow_administrator_traits
+		remove_pop_flag = allow_merchant_traits
+		remove_pop_flag = allow_executive_traits
+		remove_pop_flag = allow_odd_factory_worker_traits
+		remove_pop_flag = allow_underground_trade_worker_traits
+		remove_pop_flag = allow_dimensional_portal_researcher_traits
+		remove_pop_flag = allow_gas_plant_engineer_traits
+		remove_pop_flag = allow_cave_cleaner_traits
+		remove_pop_flag = allow_titan_hunter_traits
+		remove_pop_flag = allow_evaluator_traits
+		remove_pop_flag = allow_synapse_drone_traits
+		planet = { check_planet_employment = yes }
+		pop_event = { id = d_traits.301 days = 2 }
+	}
+}
+
+#####################
+#
+# Polymorphic
+#
+#####################
+
+# randomize traits of new polymorphic pop
+# on pop added
+pop_event = {
+	id = d_traits.500
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_global_flag = game_started
+		undefined_phenotype = yes
+	}
+	immediate = {
+		randomize_undefined_phenotype = yes
+	}
+}
+# on pop grown
+planet_event = {
+	id = d_traits.501
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		fromfrom = {
+			defined_polymorphic_phenotype = yes
+		}
+	}
+
+	immediate = {
+		fromfrom = {
+			randomize_phenotype = yes
+		}
+	}
+}
+# on modification
+country_event = {
+	id = d_traits.502
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		fromfrom = {
+			undefined_phenotype = yes
+		}
+	}
+
+	immediate = {
+		every_owned_pop = {
+			limit = { is_exact_same_species = from }
+			randomize_undefined_phenotype = yes
+		}
+	}
+}
+# on game start
+country_event = {
+	id = d_traits.503
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			undefined_phenotype = yes
+			any_owned_pop = {
+				OR = {
+					undefined_phenotype = yes
+					has_trait = trait_rooted_adults
+				}
+			}
+		}
+	}
+	immediate = {
+		while = {
+			limit = {
+				any_owned_pop = { has_trait = trait_multihive }
+			}
+			random_owned_pop = {
+				limit = { has_trait = trait_multihive }
+				modify_species = {
+					species = this
+					remove_trait = trait_multihive
+					add_trait = trait_multihive_core
+				}
+			}
+			while = {
+				count = 10
+				limit = {
+					any_owned_pop = { has_trait = trait_multihive }
+				}
+				random_owned_pop = {
+					limit = { has_trait = trait_multihive }
+					modify_species = {
+						species = this
+						remove_trait = trait_multihive
+						add_trait = trait_multihive_drone
+					}
+				}
+			}
+		}
+		while = {	# Why is this necessary? Who knows, but it is.
+			limit = {
+				pop_percentage = {
+					percentage > 0.25
+					limit = {
+						has_trait = trait_multihive_core
+					}
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					has_trait = trait_multihive_core
+				}
+				modify_species = {
+					remove_trait = trait_multihive_core
+					add_trait = trait_multihive_drone
+				}	
+			}
+		}
+		while = {
+			limit = {
+				any_owned_pop = { has_trait = trait_has_subsapient_form }
+			}
+			random_owned_pop = {
+				limit = { has_trait = trait_has_subsapient_form }
+				modify_species = {
+					species = this
+					remove_trait = trait_has_subsapient_form
+					add_trait = trait_sapient_form
+				}
+			}
+			while = {
+				count = 2
+				limit = {
+					any_owned_pop = { has_trait = trait_has_subsapient_form }
+				}
+				random_owned_pop = {
+					limit = { has_trait = trait_has_subsapient_form }
+					modify_species = {
+						species = this
+						remove_trait = trait_has_subsapient_form
+						add_trait = trait_subsapient_form
+					}
+				}
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				has_trait = trait_rooted_adults
+			}
+			random_list = {
+				50 = {
+					modifier = {
+						factor = 0
+						has_trait = trait_older_form
+					}
+				}
+				50 = {
+					modify_species = {
+						remove_trait = trait_rooted_adults
+						add_trait = trait_rooted_adults_rooted
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_trait = trait_multihive }
+			modify_species = {
+				remove_trait = trait_multihive
+				add_trait = trait_multihive_core
+			}
+		}
+		if = {
+			limit = { has_trait = trait_has_subsapient_form }
+			modify_species = {
+				remove_trait = trait_has_subsapient_form
+				add_trait = trait_sapient_form
+			}
+		}
+		every_owned_planet = {
+			check_planet_employment = yes
+		}
+	}
+}
+# random
+pop_event = {
+	id = d_traits.504
+	hide_window = yes
+	mean_time_to_happen = {
+		years = 100
+	}
+	trigger = {
+		OR = {
+			defined_polymorphic_phenotype = yes
+			species_has_instars = yes
+		}
+	}
+	immediate = {
+		IF = {
+			limit = {
+				NOT = { has_trait = trait_living_architecture }
+			}
+			randomize_phenotype = yes
+			randomize_instar = yes
+			IF = {
+				limit = { undefined_phenotype = yes }
+				randomize_undefined_phenotype = yes
+			}
+		}
+		ELSE_IF = {
+			limit = {
+				planet = {
+					any_owned_pop = {
+						is_same_species = root
+						has_trait = trait_potential_living_architecture
+					}
+				}
+			}
+			planet = {
+				random_owned_pop = {
+					limit = {
+						is_same_species = root
+						has_trait = trait_potential_living_architecture
+					}
+					randomize_phenotype = yes
+					randomize_instar = yes
+					IF = {
+						limit = { undefined_phenotype = yes }
+						randomize_undefined_phenotype = yes
+					}
+				}
+			}
+		}
+	}
+}
+# random
+pop_event = {
+	id = d_traits.505
+	hide_window = yes
+	mean_time_to_happen = {
+		years = 33
+	}
+	trigger = {
+		species_has_instars = yes
+	}
+	immediate = {
+		IF = {
+			limit = {
+				NOT = { has_trait = trait_living_architecture }
+			}
+			randomize_instar = yes
+			IF = {
+				limit = { undefined_phenotype = yes }
+				randomize_undefined_phenotype = yes
+			}
+		}
+		ELSE_IF = {
+			limit = {
+				planet = {
+					any_owned_pop = {
+						is_same_species = root
+						has_trait = trait_potential_living_architecture
+					}
+				}
+			}
+			planet = {
+				random_owned_pop = {
+					limit = {
+						is_same_species = root
+						has_trait = trait_potential_living_architecture
+					}
+					randomize_instar = yes
+					IF = {
+						limit = { undefined_phenotype = yes }
+						randomize_undefined_phenotype = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# reset new living architecture pops to motile form
+planet_event = {
+	id = d_traits.510
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		fromfrom = {
+			OR = {
+				has_trait = trait_living_architecture
+				species_has_instars = yes
+			}
+		}
+	}
+	immediate = {
+		fromfrom = {
+			modify_species = {
+				species = this
+				remove_trait = trait_living_architecture
+				add_trait = trait_potential_living_architecture
+				change_scoped_species = yes
+			}	
+			reset_instar = yes
+		}
+	}
+}
+# Set polymorphic leader species
+country_event = {
+	id = d_traits.520
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from.species = {
+			undefined_phenotype = yes
+		}
+	}
+
+	immediate = {
+		from = {
+			set_leader_phenotype = yes
+		}
+	}
+}
+# Set polymorphic leader species at game start
+country_event = {
+	id = d_traits.521
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			has_origin = origin_dimorphic_sexual
+			has_origin = origin_dimorphic
+			species = { has_trait = trait_has_subsapient_form }
+		}
+	}
+
+	immediate = {
+		every_owned_leader = {
+			IF = {
+				limit = {
+					species = {
+						OR = {
+							has_trait = trait_dimorphic_female
+							has_trait = trait_dimorphic_male
+						}	
+					}
+				}
+				switch = {
+					trigger = gender
+					female = {
+						IF = {
+							limit = {
+								species = { has_trait = trait_dimorphic_male }
+							}
+							change_phenotype_targeted = { trait = trait_dimorphic_female reset_instar = yes }
+							change_leader_portrait = species
+						}
+					}
+					male = {
+						IF = {
+							limit = {
+								species = { has_trait = trait_dimorphic_female }
+							}
+							change_phenotype_targeted = { trait = trait_dimorphic_male reset_instar = yes }
+							change_leader_portrait = species
+						}
+					}
+					default = {
+						random_list = {
+							50 = {
+								switch = {
+									trigger = has_trait
+									trait_dimorphic_female = {
+										change_phenotype_targeted = { trait = trait_dimorphic_male reset_instar = yes }
+										change_leader_portrait = species
+									}
+									trait_dimorphic_male = {
+										change_phenotype_targeted = { trait = trait_dimorphic_female reset_instar = yes }
+										change_leader_portrait = species
+									}
+								}
+							}
+							50 = { }
+						}
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					species = { has_trait = trait_dimorphic_1 }
+				}
+				random_list = {
+					50 = {
+						change_phenotype_targeted = { trait = trait_dimorphic_2 reset_instar = yes }
+						change_leader_portrait = species
+					}
+					50 = { }
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					species = { has_trait = trait_dimorphic_2 }
+				}
+				random_list = {
+					50 = {
+						change_phenotype_targeted = { trait = trait_dimorphic_1 reset_instar = yes }
+						change_leader_portrait = species
+					}
+					50 = { }
+				}
+			}
+			IF = {
+				limit = {
+					species = { has_trait = trait_has_subsapient_form }
+				}
+			}
+			set_leader_phenotype = yes
+		}
+	}
+}
+# Set instar leader species
+country_event = {
+	id = d_traits.522
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			leader_age < 65
+			species = {
+				species_has_instars = yes
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			reset_instar = yes
+			change_leader_portrait = species
+		}
+	}
+}
+# Set dimorphic leader sex
+country_event = {
+	id = d_traits.523
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			OR = {
+				has_trait = trait_dimorphic_male
+				has_trait = trait_dimorphic_female
+			}
+			OR = {
+				gender = male
+				gender = female
+				leader_class = ruler
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			IF = {
+				limit = { leader_class = ruler }
+				switch = {
+					trigger = gender
+					female = {
+						IF = {
+							limit = { has_trait = trait_dimorphic_male }
+							change_phenotype_targeted = { trait = trait_dimorphic_female reset_instar = yes }
+							change_leader_portrait = species
+						}
+					}
+					male = {
+						IF = {
+							limit = { has_trait = trait_dimorphic_female }
+							change_phenotype_targeted = { trait = trait_dimorphic_male reset_instar = yes }
+							change_leader_portrait = species
+						}
+					}
+					default = {
+						random_list = {
+							50 = {
+								switch = {
+									trigger = has_trait
+									trait_dimorphic_female = {
+										change_phenotype_targeted = { trait = trait_dimorphic_male reset_instar = yes }
+										change_leader_portrait = species
+									}
+									trait_dimorphic_male = {
+										change_phenotype_targeted = { trait = trait_dimorphic_female reset_instar = yes }
+										change_leader_portrait = species
+									}
+								}
+							}
+							50 = { }
+						}
+					}
+				}
+			}
+			ELSE = {
+				switch = {
+					trigger = has_trait
+					trait_dimorphic_female = {
+						set_is_female = yes
+						change_leader_portrait = species
+					}
+					trait_dimorphic_male = {
+						set_is_female = no
+						change_leader_portrait = species
+					}
+				}
+			}
+		}
+	}
+}
+
+# replace purged or declined hive cores
+planet_event = {
+	id = d_traits.530
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		fromfrom = { has_trait = trait_multihive_core }
+		from = {
+			any_owned_species = {
+				is_same_species = fromfrom
+				has_trait = trait_multihive_drone
+			}
+		}
+	}
+	immediate = {
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						from = {
+							any_owned_pop = {
+								has_trait = trait_multihive_core
+								is_same_species = fromfrom
+								NOT = {
+									is_same_value = fromfrom
+								}
+							}
+						}	
+					}
+				}
+			}
+			90 = {
+				IF = {
+					limit = {
+						any_owned_pop = {
+							is_same_species = fromfrom
+							has_trait = trait_multihive_drone
+						}
+					}
+					random_owned_pop = {
+						limit = {
+							is_same_species = fromfrom
+							has_trait = trait_multihive_drone
+						}
+						modify_species = {
+							species = this
+							remove_trait = trait_multihive_drone
+							add_trait = trait_multihive_core
+						}
+					}
+				}
+				ELSE = {
+					from = {
+						random_owned_pop = {
+							limit = {
+								is_same_species = fromfrom
+								has_trait = trait_multihive_drone
+							}
+							modify_species = {
+								species = this
+								remove_trait = trait_multihive_drone
+								add_trait = trait_multihive_core
+							}
+						}
+					}	
+				}
+			}
+		}
+	}
+}
+
+# hive mind for multihive
+country_event = {
+	id = d_traits.610
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			species_is_multihive = yes
+		}
+	}
+
+	immediate = {
+		from = {
+			add_ruler_trait = leader_trait_ruler_hive_mind
+			IF = {
+				limit = {
+					species = { has_trait = trait_multihive }
+				}
+				switch = {
+					trigger = leader_class
+					ruler = {
+						modify_species = {
+							species = this
+							remove_trait = trait_multihive
+							add_trait = trait_multihive_core
+						}
+					}
+					governor = {
+						modify_species = {
+							species = this
+							remove_trait = trait_multihive
+							add_trait = trait_multihive_core
+						}
+						add_trait = leader_trait_multihive_core
+					}
+					default = {
+						modify_species = {
+							species = this
+							remove_trait = trait_multihive
+							add_trait = trait_multihive_drone
+						}
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					species = { has_trait = trait_multihive_core }
+				}
+				add_trait = leader_trait_multihive_core
+			}
+			ELSE_IF = {
+				limit = { leader_class = governor }
+				random_list = {
+					40 = { }
+					60 = {
+						modify_species = {
+							remove_trait = trait_multihive_drone
+							add_trait = trait_multihive_core
+						}
+						add_trait = leader_trait_multihive_core
+					}
+				}
+			}
+		}
+	}
+}
+
+#####################
+#
+# Leaders take root
+#
+#####################
+fleet_event = {
+	id = d_traits.400
+	mean_time_to_happen = { years = 5 }
+	trigger = {
+		exists = leader
+		leader = {
+			species = {
+				OR = {
+					has_trait = trait_living_architecture
+					has_trait = trait_rooted_adults
+				}	
+			}
+			leader_age >= 55
+			OR = {
+				is_lithoid = no
+				leader_age > 90
+			}
+		}
+	}
+	hide_window = yes
+	immediate = {
+		leader = {
+			mature_leader = yes
+		}
+	}
+}
+planet_event = {
+	id = d_traits.401
+	pre_triggers = {
+		has_owner = yes
+	}
+	mean_time_to_happen = { years = 5 }
+	trigger = {
+		is_sector_capital = yes
+		exists = sector.leader
+		sector.leader = {
+			species = {
+				OR = {
+					has_trait = trait_living_architecture
+					has_trait = trait_rooted_adults
+				}	
+			}
+			leader_age >= 55
+			OR = {
+				is_lithoid = no
+				leader_age > 90
+			}
+		}
+	}
+	hide_window = yes
+	immediate = {
+		sector.leader = {
+			mature_leader = yes
+		}
+	}
+}
+planet_event = {
+	id = d_traits.402
+	pre_triggers = {
+		has_owner = yes
+	}
+	mean_time_to_happen = { years = 5 }
+	trigger = {
+		any_planet_army = {
+			exists = leader
+			leader = {
+				species = {
+					OR = {
+						has_trait = trait_living_architecture
+						has_trait = trait_rooted_adults
+					}	
+				}
+				leader_age >= 55
+				OR = {
+					is_lithoid = no
+					leader_age > 90
+				}
+			}
+		}
+	}
+	hide_window = yes
+	immediate = {
+		random_planet_army = {
+			limit = {
+				exists = leader
+				leader = {
+					species = {
+						OR = {
+							has_trait = trait_living_architecture
+							has_trait = trait_rooted_adults
+						}	
+					}
+					leader_age >= 55
+					OR = {
+						is_lithoid = no
+						leader_age > 90
+					}
+				}
+			}
+			leader = {
+				mature_leader = yes
+			}	
+		}
+	}
+}
+country_event = {
+	id = d_traits.403
+	mean_time_to_happen = { years = 5 }
+	hide_window = yes
+	trigger = {
+		research_leader = {
+			area = physics
+			species = {
+				OR = {
+					has_trait = trait_living_architecture
+					has_trait = trait_rooted_adults
+				}	
+			}
+			leader_age >= 55
+			OR = {
+				is_lithoid = no
+				leader_age > 90
+			}
+		}
+	}
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				is_researching_area = physics
+			}
+			mature_leader = yes
+		}
+	}
+}
+country_event = {
+	id = d_traits.404
+	mean_time_to_happen = { years = 5 }
+	hide_window = yes
+	trigger = {
+		research_leader = {
+			area = engineering
+			species = {
+				OR = {
+					has_trait = trait_living_architecture
+					has_trait = trait_rooted_adults
+				}	
+			}
+			leader_age >= 55
+			OR = {
+				is_lithoid = no
+				leader_age > 90
+			}
+		}
+	}
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				is_researching_area = engineering
+			}
+			mature_leader = yes
+		}
+	}
+}
+country_event = {
+	id = d_traits.405
+	mean_time_to_happen = { years = 5 }
+	hide_window = yes
+	trigger = {
+		research_leader = {
+			area = society
+			species = {
+				OR = {
+					has_trait = trait_living_architecture
+					has_trait = trait_rooted_adults
+				}	
+			}
+			leader_age >= 55
+			OR = {
+				is_lithoid = no
+				leader_age > 90
+			}
+		}
+	}
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				is_researching_area = society
+			}
+			mature_leader = yes
+		}
+	}
+}
+
+
+##########################
+#
+#  Give New Leaders Traits
+#
+##########################
+
+# keen senses
+country_event = {
+	id = d_traits.601
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			leader_class = scientist
+			species = {
+				has_trait = trait_keen_senses
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			add_trait = leader_trait_keen_senses
+		}
+	}
+}
+
+# spatial awareness
+country_event = {
+	id = d_traits.602
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			OR = {
+				leader_class = admiral
+				leader_class = general
+				leader_class = scientist
+			}
+			species = {
+				has_trait = trait_spatial_awareness
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			IF = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_spatial_awareness_admiral
+			}
+			ELSE = {
+				add_trait = leader_trait_spatial_awareness_generic
+			}
+		}
+	}
+}
+

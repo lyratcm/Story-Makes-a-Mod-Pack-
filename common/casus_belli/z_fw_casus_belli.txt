@@ -1,0 +1,192 @@
+#_[去军事化]
+#_[抢夺圣遗物]
+#_[边境关闭]
+#_[抢夺伞鼬]
+
+
+#_trgr_all		[z_fw_trgr_all_wg_cb]
+
+
+
+
+#_去军事化
+z_fw_cb_demilitarize = {
+	show_in_diplomacy = yes
+	show_notification = no
+	potential = {
+		z_fw_trgr_all_wg_cb = yes
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire	#_ZOFE
+			is_country_type = lost_empire		#_ZOFE
+			is_country_type = default_ev
+		}
+        is_pacifist = yes
+	}
+	is_valid = {
+		z_fw_trgr_all_wg_cb = yes
+        from = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire	#_ZOFE
+				is_country_type = lost_empire		#_ZOFE
+				is_country_type = default_ev
+			}
+		}
+		has_total_war_cb = no
+		NOT = { is_overlord_to = FROM }
+		OR = {
+            is_subject = no
+            overlord = { NOT = { is_same_value = from } }
+        }
+	}
+}
+
+#_[抢夺圣遗物]
+z_fw_cb_plunder_relic = {
+    show_in_diplomacy = yes
+    show_notification = no
+    potential = {
+		z_fw_trgr_all_wg_cb = yes
+		#host_has_dlc = "Ancient Relics Story Pack"
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire	#_ZOFE
+		}
+        is_subject = no							#_不能是附庸国
+        #NOT = { has_ethic = ethic_gestalt_consciousness }
+    }
+    is_valid = {
+		z_fw_trgr_all_wg_cb = yes
+        from = {
+			#_随时加入新的可支持圣遗物
+			OR = {
+				#_vanilla
+				has_relic = r_dragon_trophy
+				has_relic = r_khans_throne
+				has_relic = r_worm_scales
+				has_relic = r_rubricator
+				has_relic = r_galaxy
+				has_relic = r_omnicodex
+				has_relic = r_surveyor
+				has_relic = r_galatron
+				has_relic = r_ancient_sword
+				has_relic = r_severed_head
+				has_relic = r_prethoryn_queen
+				has_relic = r_unbidden_warlock
+				has_relic = r_contingency_core
+				has_relic = r_zro_crystal
+				has_relic = r_the_last_baol
+				has_relic = r_the_defragmentor
+				has_relic = r_reality_perforator
+				has_relic = r_pox_sample
+				has_relic = r_cryo_core
+				has_relic = r_war_forge
+				#_infinite_stellaris
+				has_relic = z_fw_r_head_of_karyl
+			}
+				
+			#has_closed_borders = prev
+        }
+        #has_total_war_cb = no
+        NOT = { is_overlord_to = FROM }			#_不能是目标国的宗主
+    }
+}
+
+#_抢夺全部圣遗物
+z_fw_cb_plunder_relic_all = {
+    show_in_diplomacy = yes
+    show_notification = no
+    potential = {
+		z_fw_trgr_all_wg_cb = yes
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire	#_ZOFE
+		}
+        is_subject = no							#_不能是附庸国
+    }
+    is_valid = {
+		z_fw_trgr_all_wg_cb = yes
+        from = {
+			#_随时加入新的可支持圣遗物
+			calc_true_if = {
+				amount > 2
+				#_vanilla
+				has_relic = r_dragon_trophy
+				has_relic = r_khans_throne
+				has_relic = r_worm_scales
+				has_relic = r_rubricator
+				has_relic = r_galaxy
+				has_relic = r_omnicodex
+				has_relic = r_surveyor
+				has_relic = r_galatron
+				has_relic = r_ancient_sword
+				has_relic = r_severed_head
+				has_relic = r_prethoryn_queen
+				has_relic = r_unbidden_warlock
+				has_relic = r_contingency_core
+				has_relic = r_zro_crystal
+				has_relic = r_the_last_baol
+				has_relic = r_the_defragmentor
+				has_relic = r_reality_perforator
+				has_relic = r_pox_sample
+				has_relic = r_cryo_core
+				has_relic = r_war_forge
+				#_infinite_stellaris
+				has_relic = z_fw_r_head_of_karyl
+			}
+        }
+        NOT = { is_overlord_to = FROM }			#_不能是目标国的宗主
+    }
+}
+
+#_[边境关闭]
+z_fw_cb_border = {
+	show_in_diplomacy = yes
+	show_notification = no
+	potential = {
+		z_fw_trgr_all_wg_cb = yes
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire	#_ZOFE
+			is_country_type = lost_empire		#_ZOFE
+		}
+	}
+	is_valid = {
+		z_fw_trgr_all_wg_cb = yes
+        from = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire	#_ZOFE
+				is_country_type = lost_empire		#_ZOFE	
+			}
+			has_closed_borders = root		#_对我方关闭边境
+		}
+		NOT = { is_overlord_to = FROM }
+		OR = {
+            is_subject = no
+            overlord = { NOT = { is_same_value = from } }
+        }
+	}
+}
+
+#_[抢夺伞鼬]
+z_fw_cb_r_hok_kogasa = {
+    show_in_diplomacy = yes
+    show_notification = no
+    potential = {
+		z_fw_trgr_all_wg_cb = yes
+		#host_has_dlc = "Ancient Relics Story Pack"
+		OR = {
+			is_country_type = default
+			is_country_type = ascended_empire	#_ZOFE
+		}
+        is_subject = no							#_不能是附庸国
+    }
+    is_valid = {
+		z_fw_trgr_all_wg_cb = yes
+        from = { has_country_flag = z_fw_flg_cntr_r_hok_kogasa }
+        #has_total_war_cb = no
+        NOT = { is_overlord_to = FROM }			#_不能是目标国的宗主
+    }
+}

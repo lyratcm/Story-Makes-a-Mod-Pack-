@@ -1,0 +1,13 @@
+trait_high_energy = {
+    icon = "gfx/interface/icons/traits/trait_high_energy.dds"
+    cost = -1
+    opposites = {
+        "trait_low_energy"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        pop_housing_usage_mult = 0.2
+    }
+}

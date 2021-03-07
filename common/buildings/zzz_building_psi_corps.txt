@@ -1,0 +1,110 @@
+building_psi_corps = {
+	base_buildtime = @b2_time
+
+	category = government
+
+	base_cap_amount = 1
+
+	potential = {
+		custom_tooltip = {
+			text = EMPIRE_UNIQUE_BUILDING
+			owner = {
+				NOT = { has_country_flag = building_psi_corps }
+				NOT = { has_country_flag = built_one_psi_corps }
+			}
+		}
+		owner = { has_ascension_perk = ap_mind_over_matter }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+		buildings_simple_allow = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		NOT = {
+			owner = { has_ascension_perk = ap_mind_over_matter }
+		}
+	}
+
+	planet_modifier = {
+		job_telepath_add = @b1_jobs
+		# stability added to jobs
+	}
+	country_modifier = {
+		pop_government_ethic_attraction = 0.05
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+			sr_zro = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			sr_zro = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_telepath_effect_desc
+	}
+	triggered_desc = {
+		text = building_psi_corps_effect_desc
+	}
+	
+	on_queued = {
+		owner = { set_country_flag = building_psi_corps }
+	}
+
+	on_unqueued = {
+		owner = { remove_country_flag = building_psi_corps }
+	}
+
+	on_built = {
+		owner = { set_country_flag = built_one_psi_corps }
+		owner = { remove_country_flag = building_psi_corps }
+		set_planet_flag = built_one_psi_corps
+	}
+
+	on_destroy = {
+		owner = { remove_country_flag = built_one_psi_corps }
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 100
+			is_capital = yes
+		}
+		modifier = {
+			factor = 0
+			buildings_build_building = no
+		}
+		modifier = {
+			factor = 0
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = sr_zro
+					value < 1
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				any_pop = {
+					OR = {
+						has_trait = trait_latent_psionic
+						has_trait = trait_psionic
+					}
+				}
+			}
+		}
+	}
+}

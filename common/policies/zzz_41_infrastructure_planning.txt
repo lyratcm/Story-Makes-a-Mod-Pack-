@@ -1,0 +1,129 @@
+infrastructure_planning = {
+    potential = {
+		is_country_type = default
+		NOT = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	option = {
+		name = "infrastructure_ration"
+		valid = {
+			is_at_war = yes
+		}
+		modifier = {
+			pop_amenities_usage_mult = -0.15
+			pop_citizen_happiness = -0.05
+			planet_jobs_produces_mult = 0.25
+			trade_value_mult = -0.15
+			country_war_exhaustion_mult = 0.15
+		}
+		AI_weight = {
+			weight = 100
+		}
+	}
+	option = {
+		name = "infrastructure_destitute"
+		modifier = {
+			pop_amenities_usage_mult = -0.20
+			pop_citizen_happiness = -0.10
+			planet_jobs_produces_mult = -0.10
+			trade_value_mult = 0.20
+		}
+		AI_weight = {
+			weight = 1
+			modifier = {
+				factor = 10
+				OR = {
+					has_ethic = ethic_elitist
+					has_ethic = ethic_fanatic_elitist
+				}
+			}
+		}
+	}
+	option = {
+		name = "infrastructure_private"
+		modifier = {
+			pop_amenities_usage_mult = -0.10
+			pop_citizen_happiness = -0.05
+			trade_value_mult = 0.10
+		}
+		AI_weight = {
+			weight = 1
+			modifier = {
+				factor = 15
+				OR = {
+					has_ethic = ethic_capitalism
+					has_ethic = ethic_fanatic_capitalism
+				}
+			}
+		}
+	}
+	option = {
+		name = "infrastructure_mixed"
+		modifier = {
+		}
+		AI_weight = {
+			weight = 5
+		}
+	}
+	option = {
+		name = "infrastructure_zoned"
+		modifier = {
+			pop_amenities_usage_mult = -0.10
+			pop_housing_usage_mult = 0.10
+		}
+		AI_weight = {
+			weight = 1
+			modifier = {
+				factor = 10
+				OR = {
+					has_ethic = ethic_industrial
+					has_ethic = ethic_fanatic_industrial
+				}
+			}
+		}
+	}
+	option = {
+		name = "infrastructure_urban"
+		modifier = {
+			pop_amenities_usage_mult = 0.20
+			pop_housing_usage_mult = -0.10
+			pop_citizen_happiness = 0.05
+		}
+		AI_weight = {
+			weight = 1
+			modifier = {
+				factor = 15
+				OR = {
+					has_ethic = ethic_socialism
+					has_ethic = ethic_fanatic_socialism
+				}
+			}
+		}
+	}
+	option = {
+		name = "infrastructure_master"
+		modifier = {
+			pop_amenities_usage_mult = 0.30
+			pop_housing_usage_mult = 0.10
+			pop_citizen_happiness = 0.10
+			planet_jobs_produces_mult = 0.05
+			planet_districts_build_speed_mult = 0.25
+		}
+		AI_weight = {
+			weight = 1
+		}
+	}
+	option = {
+		name = "infrastructure_utopian"
+		modifier = {
+			pop_amenities_usage_mult = 1.50
+			pop_housing_usage_mult = 0.30
+			pop_citizen_happiness = 0.15
+			planet_jobs_produces_mult = 0.25
+		}
+		AI_weight = {
+			weight = 0
+		}
+	}
+}

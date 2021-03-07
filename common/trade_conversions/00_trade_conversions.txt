@@ -1,0 +1,174 @@
+#First is set to default
+#
+
+basic_conversion = {
+	potential = {
+		always = yes
+	}
+	
+	weight = {
+		weight = 1
+	}
+	
+	conversion_rate = {
+		energy = 1
+	}
+
+	economic_category = trade_routes
+}
+
+consumer_goods_conversion = {
+	potential = {
+		has_policy_flag = trade_conversion_consumer_goods
+	}
+	
+	weight = {
+		weight = 10
+	}
+	
+	conversion_rate = {
+		energy = 0.5
+		consumer_goods = 0.25
+	}
+
+	economic_category = trade_routes
+}
+
+unity_conversion = {
+	potential = {
+		has_policy_flag = trade_conversion_unity
+	}
+	
+	weight = {
+		weight = 10
+	}
+	
+	conversion_rate = {
+		energy = 0.5
+		unity = 0.25
+	}
+
+	economic_category = trade_routes
+}
+
+basic_conversion_corp = {
+	potential = {
+		has_policy_flag = trade_policy_default_corp
+	}
+	
+	weight = {
+		weight = 1
+	}
+	
+	conversion_rate = {
+		energy = 1.25
+	}
+
+	economic_category = trade_routes
+}
+
+minerals_conversion_corp = {
+	potential = {
+		has_policy_flag = trade_conversion_mineral_corp
+	}
+	
+	weight = {
+		weight = 10
+	}
+	
+	conversion_rate = {
+		energy = 0.8
+		minerals = 0.4
+	}
+
+	economic_category = trade_routes
+}
+
+food_conversion_corp = {
+	potential = {
+		has_policy_flag = trade_conversion_food_corp
+	}
+	
+	weight = {
+		weight = 10
+	}
+	
+	conversion_rate = {
+		energy = 0.8
+		food = 0.4
+	}
+
+	economic_category = trade_routes
+}
+
+consumer_goods_conversion_corp = {
+	potential = {
+		has_policy_flag = trade_conversion_consumer_goods_corp
+	}
+	
+	weight = {
+		weight = 10
+	}
+	
+	conversion_rate = {
+		energy = 0.7
+		consumer_goods = 0.25
+	}
+
+	economic_category = trade_routes
+}
+
+unity_conversion_corp = {
+	potential = {
+		has_policy_flag = trade_conversion_unity_corp
+	}
+	
+	weight = {
+		weight = 10
+	}
+	
+	conversion_rate = {
+		energy = 0.7
+		unity = 0.25
+		society_research = 0.1
+	}
+
+	economic_category = trade_routes
+}
+
+trade_league_conversion = {
+	potential = {
+		has_policy_flag = trade_conversion_trade_league
+	}
+	
+	weight = {
+		weight = 100
+	}
+	
+	conversion_rate = {
+		energy = 0.8
+		consumer_goods = 0.25
+		unity = 0.25
+		society_research = 0.1
+	}
+
+	economic_category = trade_routes
+}
+
+trade_league_conversion_raw = {
+	potential = {
+		has_policy_flag = trade_conversion_trade_league_raw
+	}
+	
+	weight = {
+		weight = 100
+	}
+	
+	conversion_rate = {
+		energy = 0.8
+		minerals = 0.8
+		food = 0.8
+	}
+
+	economic_category = trade_routes
+}

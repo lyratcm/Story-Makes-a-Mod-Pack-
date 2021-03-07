@@ -1,0 +1,13 @@
+BOO_origin_clean_energy = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_default.dds"
+    picture = GFX_evt_generator_powerup
+    potential = {
+        always = yes
+    }
+    random_weight = {
+        base = 15
+    }
+    description = "BOO_origin_clean_energy_tooltip_effects"
+    advanced_start = yes
+}

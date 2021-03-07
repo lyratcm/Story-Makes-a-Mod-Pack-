@@ -1,0 +1,191 @@
+###_Z FW SHIP COMPONENTS	#########################################################################
+
+# ──z_fw_tech_device_armor_6~9
+#     └─
+# ──z_fw_tech_device_shield_6~9
+#     └─
+# ──z_fw_tech_device_reactor_6~9
+#     └─ 
+
+
+
+
+###_Z FW ADV C ARMOR	##############################################
+
+z_fw_tech_device_armor_6 = {
+	area = engineering
+	category = { materials }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "tech_ship_armor_5"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_armor_7 = {
+	area = engineering
+	category = { materials }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_armor_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_armor_8 = {
+	area = engineering
+	category = { materials }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_armor_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_armor_9 = {
+	area = engineering
+	category = { materials }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_armor_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV C SHIELD	##############################################
+
+z_fw_tech_device_shield_6 = {
+	area = physics
+	category = { field_manipulation }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "tech_shields_5"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_shield_7 = {
+	area = physics
+	category = { field_manipulation }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_shield_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_shield_8 = {
+	area = physics
+	category = { field_manipulation }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_shield_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_shield_9 = {
+	area = physics
+	category = { field_manipulation }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_shield_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+
+
+
+###_Z FW ADV D REACTOR	##############################################
+
+z_fw_tech_device_reactor_6 = {
+	area = physics
+	category = { particles }
+	tier = 5
+	cost = @tier5cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "tech_zero_point_power"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_reactor_7 = {
+	area = physics
+	category = { particles }
+	tier = 6
+	cost = @z_techTier6cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_reactor_6"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_reactor_8 = {
+	area = physics
+	category = { particles }
+	tier = 7
+	cost = @z_techTier7cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_reactor_7"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}
+
+z_fw_tech_device_reactor_9 = {
+	area = physics
+	category = { particles }
+	tier = 8
+	cost = @z_techTier8cost1
+	weight = 0
+	ai_update_type = all
+	#_prerequisites = { "z_fw_tech_device_reactor_8"}
+	
+	potential = { always = no }
+	
+	ai_weight = { factor = 0 }
+}

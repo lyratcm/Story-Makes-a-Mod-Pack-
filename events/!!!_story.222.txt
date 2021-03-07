@@ -1,0 +1,33 @@
+namespace = story
+
+country_event = {
+	id = story.222
+	title = story.222.name
+	desc = story.222.desc
+	picture = GFX_evt_fleet_evil
+	show_sound = event_crystal_ship
+	location = fromfrom
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+		from = {
+			is_country_type = crystal
+		}
+		fromfromfrom = {
+			is_ship_size = crystal_station_large
+		}
+	}
+
+	option = {
+		name = OK
+		add_research_option = tech_crystal_armor_2
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = has_pacified_crystals }
+				country_event = { id = spacecreatures.13 days = 1 }
+			}
+		}
+	}
+}

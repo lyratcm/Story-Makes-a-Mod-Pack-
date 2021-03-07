@@ -1,0 +1,77 @@
+namespace = caretaker_origin_event
+country_event = {
+    id = caretaker_origin_event.3001
+    is_triggered_only = yes
+    hide_window = yes
+    trigger = {
+        has_origin = origin_caretaker
+        NOR = {
+            has_country_flag = caretaker_break_up
+            has_country_flag = caretaker_secession
+            has_country_flag = caretaker_experiment_scrapped
+        }
+    }
+    immediate = {
+        if = {
+            limit = {
+                NOT = {
+                    has_technology = tech_robotic_workers
+                }
+            }
+            country_event = {
+                id = caretaker_origin_event.3001
+                days = 1800
+            }
+            break = yes
+        }
+        if = {
+            limit = {
+                NOT = {
+                    any_owned_planet = {
+                        colony_type = col_wardworld
+                        num_pops > 20
+                        NOT = {
+                            solar_system = {
+                                any_system_planet = {
+                                    is_colony = yes
+                                    NOT = {
+                                        is_same_value = PREVPREV
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            country_event = {
+                id = caretaker_origin_event.3001
+                days = 1800
+            }
+            break = yes
+        }
+        if = {
+            limit = {
+                caretaker_mood_is_not_bad_check = yes
+            }
+            country_event = {
+                id = caretaker_origin_event.3001
+                days = 1800
+            }
+            break = yes
+        }
+        random_list = {
+            20 = {
+                country_event = {
+                    id = caretaker_origin_event.3002
+                    days = 0
+                }
+            }
+            80 = {
+                country_event = {
+                    id = caretaker_origin_event.3001
+                    days = 360
+                }
+            }
+        }
+    }
+}

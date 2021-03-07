@@ -1,0 +1,54 @@
+crew_doctrine_gestalt = {
+	potential = {
+		is_country_type = default
+		is_gestalt = yes
+		is_ai = no
+	}
+
+	option = {
+		name = "standard_drones"
+		valid = { has_technology = tech_interstellar_fleet_traditions }
+		policy_flags = { standard_drones }
+		ai_weight = { factor = 0 }
+	}
+
+	option = {
+		name = "quality_protocol"
+		valid = { has_technology = tech_interstellar_fleet_traditions }
+		policy_flags = { quality_protocol }
+		modifier = {
+			ship_disengage_chance_mult = 0.1
+			ship_tracking_mult = 0.05
+			ship_accuracy_mult = 0.05
+			country_naval_cap_mult = -0.20
+		}
+		ai_weight = { factor = 0 }
+	}
+
+	option = {
+		name = "adaptive_protocol"
+		valid = { has_technology = tech_interstellar_fleet_traditions }
+		policy_flags = { adaptive_protocol }
+		modifier = {
+			country_naval_cap_mult = 0.20
+			ship_accuracy_mult = -0.05
+			ship_tracking_mult = -0.05
+			ship_evasion_mult = -0.05
+			ship_disengage_chance_reduction = 0.1
+		}
+		ai_weight = { factor = 0 }
+	}
+
+	option = {
+		name = "swarm_protocol"
+		valid = { has_technology = tech_interstellar_fleet_traditions }
+		policy_flags = { swarm_protocol }
+		modifier = {
+			country_naval_cap_mult = 0.3
+			ship_speed_mult = 0.1
+			ship_disengage_chance_reduction = 0.2
+			ship_evasion_mult = -0.1
+		}
+		ai_weight = { factor = 0 }
+	}
+}

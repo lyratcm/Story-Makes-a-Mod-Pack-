@@ -1,0 +1,56 @@
+decision_floraforge_project = {
+	owned_planets_only = yes
+	icon = decision_floraforge_project
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 200
+			minerals = 10000
+			food = 10000
+		}
+	}
+	
+	potential = {
+		NOR = {
+			is_planet_class = pc_pdfloraforge
+		}
+		is_planet_class = pc_megafloratol
+		habitable_structure = no
+		exists = owner
+		owner = { has_ascension_perk = ap_florahive_worlds }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = decision_floraforge_requirements
+			num_districts = { type = district_hive value >= 10 }
+			num_districts = { type = district_farming value < 1 }
+			num_districts = { type = district_mining value < 1 }
+			num_districts = { type = district_generator value < 1 }
+		}
+		num_uncleared_blockers < 1
+	}
+	
+	effect = {
+		# Make city-planet
+		custom_tooltip = decision_floraforge_effects
+		hidden_effect = {		
+			change_pc = pc_pdfloraforge
+			owner = {
+				country_event = { id = distar.201 } # port for living planet distar.197, triggers in event
+			}
+			planet_event = { id = pdengine.11 }
+			add_district = district_pdhive
+			add_district = district_pdhive
+			add_district = district_pdhive
+			add_district = district_pdhive
+			add_district = district_pdhive
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

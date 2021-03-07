@@ -1,0 +1,5 @@
+trait_lithoid_titanic_strength = {
+    cost = 3
+    initial = no
+    randomized = no
+}

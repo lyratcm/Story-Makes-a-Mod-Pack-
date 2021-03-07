@@ -1,0 +1,62 @@
+civic_agrarian_idyll = {
+    description = "civic_tooltip_agrarian_idyll_effects"
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                value = auth_master_computer
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            NOR = {
+                value = ethic_fanatic_industrial
+                value = ethic_fanatic_green
+            }
+            OR = {
+                text = civic_tooltip_pacifist
+                value = ethic_pacifist
+                value = ethic_fanatic_pacifist
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_mining_guilds
+                value = civic_industrial_economy
+                value = civic_dystopia
+            }
+        }
+        origin = {
+            NOR = {
+                value = origin_post_apocalyptic
+                value = origin_shattered_ring
+                value = origin_void_dwellers
+                value = origin_remnants
+                value = origin_irradiated_evolution
+                value = origin_syncretic_livestock
+                value = origin_syncretic_livestock_lithoid
+                value = origin_exploited_homeworld
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+    }
+    swap_type = {
+        name = civic_agrarian_idyll_lithoid
+        description = "civic_tooltip_agrarian_idyll_lithoid_effects"
+        trigger = {
+            local_human_species_class = LITHOID
+        }
+    }
+}

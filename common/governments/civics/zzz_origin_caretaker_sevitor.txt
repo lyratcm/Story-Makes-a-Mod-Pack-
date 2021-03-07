@@ -1,0 +1,16 @@
+origin_caretaker_sevitor = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origin_caretaker.dds"
+    playable = {
+        always = no
+    }
+    possible = {
+    }
+    description = "origin_tooltip_caretaker_servitor_effects"
+    modifier = {
+        planet_jobs_upkeep_mult = -0.25
+    }
+    random_weight = {
+        base = 0
+    }
+}

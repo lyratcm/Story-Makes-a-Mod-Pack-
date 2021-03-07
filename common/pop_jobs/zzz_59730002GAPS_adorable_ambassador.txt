@@ -1,0 +1,35 @@
+GAPS_adorable_ambassador = {
+    category = ruler
+    condition_string = RULER_JOB_TRIGGER
+    building_icon = building_GAPS_Fawning_Den
+    clothes_texture_index = 1
+    possible = {
+        ruler_job_check_trigger = yes
+    }
+    pop_modifier = {
+        planet_pops_upkeep_mult = 1
+    }
+    country_modifier = {
+        diplo_weight_pops_mult = 0.05
+    }
+    resources = {
+        category = planet_administrators
+        produces = {
+            unity = 2
+        }
+    }
+    triggered_country_modifier = {
+        potential = {
+            solar_System.starbase = {
+                has_starbase_building = Starbase_Bulding_GAPS_Broadcasting_station
+            }
+        }
+        modifier = {
+            envoy_improve_relations_mult = 0.05
+            envoy_harm_relations_mult = 0.05
+        }
+    }
+    weight = {
+        weight = @ruler_job_weight
+    }
+}

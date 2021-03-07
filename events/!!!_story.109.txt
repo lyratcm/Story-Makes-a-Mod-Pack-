@@ -1,0 +1,24 @@
+namespace = story
+
+country_event = {
+	id = story.109
+	trigger = {
+		exists = from
+		from = {
+			OR = {
+				is_country_type = amoeba
+				is_country_type = amoeba_borderless
+				is_country_type = amoeba_garrison
+			}
+		}
+		has_modifier = amoeba_hunting_buff
+	}
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		add_resource = { energy = 1000 }
+		add_resource = { food = 1000 }
+		add_resource = { society_research = 500 }
+	}
+}

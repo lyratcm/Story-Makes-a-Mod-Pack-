@@ -1,0 +1,626 @@
+###_z modmenu-framework-[relic hok] effects	###############################################################
+
+##_[core_年度debug]	<自发性感染/头像检测>
+#_[cntr_国家感染debug]
+#_[ldr_debug领袖头像]
+#_[spcs_感染头像]
+#_[spcs_sp特性]
+#_[species_净化应对]
+
+##_[ldr_scientist同化]
+#_[cntr_伞鼬恢复至出厂状态]
+
+
+
+###_[core_年度debug]	#############################################################################
+#_flg_cntr	[z_fw_flg_cntr_hok_no_pop]		检测是否为无人国家类型
+#_flg_cntr	[z_fw_flg_cntr_hok_contacted]	投放relic接触/交战[ai或pc感染射线]
+#_flg_plnt	[z_fw_flg_plnt_r_hok_carrier]	存在携带者的星球
+z_fw_eft_cntr_r_hok_debug = {
+	#_old
+#	z_fw_eft_cntr_r_hok_debug_merge = yes			#_合并同类项old-按大类区分
+#	z_fw_eft_r_hok_leader_assimilation = yes		#_ldr同化,在占据主物种后
+#	z_fw_eft_r_hok_change_dominant_spcs = yes		#_替换主物种-按帝国类型检测
+#	z_fw_eft_spcs_r_hok_citizenship_main = yes			#_重设公民权,在占据主物种后
+		
+	z_fw_eft_cntr_r_hok_infection = yes				#_国家感染感染程度debug
+	
+	#_无人国
+	if = {
+		limit = {
+			has_country_flag = z_fw_flg_cntr_hok_no_pop
+			has_country_flag = z_fw_flg_cntr_hok_contacted	#_接触感染才会进行debug
+		}
+		#_物种头像_sp特性debug
+		every_owned_species = {
+			limit = { z_fw_r_koh_is_species_karyl = yes }
+			z_fw_eft_spcs_r_hok_infection_portrait = yes
+			z_fw_eft_spcs_r_hok_infection_trait = yes
+		}
+		#_自发性感染
+		if = {
+			#_全局开关
+			limit = {
+				exists = event_target:z_fw_tgt_global_event
+				NOT = { event_target:z_fw_tgt_global_event = { has_country_flag = z_fw_flg_r_koh_plague_disable } }
+			}
+			#_ldr感染
+			every_owned_leader = { z_fw_eft_ldr_r_hok_infection = yes }
+			every_pool_leader = { z_fw_eft_ldr_r_hok_infection = yes }
+			every_envoy = { z_fw_eft_ldr_r_hok_infection = yes }
+			ruler = { z_fw_eft_ldr_r_hok_infection = yes }
+			#_未在感染中且存在感染源的星球
+			every_owned_planet = {
+				limit = {#_有人殖民地
+					is_colony = yes
+					num_pops > 0
+				}
+				if = {#_传播
+					limit = {
+						NOT = { has_planet_flag = z_fw_flg_plnt_r_hok_infection }	#_未在传播中
+						has_planet_flag = z_fw_flg_plnt_r_hok_carrier		#_存在携带者
+					}
+					#_感染循环执行
+					planet_event = { id = z_fw1_relic_koh.111 }
+					planet_event = { id = z_fw1_relic_koh.121 }
+				}
+				if = {
+					limit = { any_owned_species = { z_fw_r_koh_is_species_karyl = yes } }
+					#_携带者
+					set_timed_planet_flag = { flag = z_fw_flg_plnt_r_hok_carrier days = 1440 }	#_瘟疫残留
+					#_变异
+					#_其他星球事件
+				}
+			}
+			#_净化/同化应对
+			every_owned_species = {
+				limit = { z_fw_r_koh_is_species_karyl = yes }
+				z_fw_eft_spcs_r_hok_counter = yes	#_净化应对
+			}
+		}
+	}
+	#_有人国
+	else_if = {
+		limit = { NOT = { has_country_flag = z_fw_flg_cntr_hok_no_pop } }
+		#_物种头像_sp特性debug
+		every_owned_species = {
+			limit = { z_fw_r_koh_is_species_karyl = yes }
+			z_fw_eft_spcs_r_hok_infection_portrait = yes
+			z_fw_eft_spcs_r_hok_infection_trait = yes
+		}
+		#_自发性感染
+		if = {
+			#_全局开关
+			limit = {
+				exists = event_target:z_fw_tgt_global_event
+				NOT = { event_target:z_fw_tgt_global_event = { has_country_flag = z_fw_flg_r_koh_plague_disable } }
+			}
+			#_未在感染中且存在感染源的星球
+			every_owned_planet = {
+				limit = {#_有人殖民地
+					is_colony = yes
+					num_pops > 0
+				}
+				if = {#_传播
+					limit = {
+						NOT = { has_planet_flag = z_fw_flg_plnt_r_hok_infection }	#_未在传播中
+						has_planet_flag = z_fw_flg_plnt_r_hok_carrier		#_存在携带者
+					}
+					#_感染循环执行
+					planet_event = { id = z_fw1_relic_koh.111 }
+					planet_event = { id = z_fw1_relic_koh.121 }
+				}
+				if = {
+					limit = { any_owned_species = { z_fw_r_koh_is_species_karyl = yes } }
+					#_携带者
+					set_timed_planet_flag = { flag = z_fw_flg_plnt_r_hok_carrier days = 1440 }	#_瘟疫残留
+					#_变异
+					#_其他星球事件
+				}
+			}
+			#_净化/同化应对
+			every_owned_species = {
+				limit = { z_fw_r_koh_is_species_karyl = yes }
+				z_fw_eft_spcs_r_hok_counter = yes	#_净化应对
+			}
+		}
+	}
+}
+
+#_[cntr_国家感染debug]	通知与感染阶段debug
+#_flg_cntr	[z_fw_flg_cntr_r_hok_infection_25][z_fw_flg_cntr_r_hok_infection_50][z_fw_flg_cntr_r_hok_infected]
+#_flg_cntr	[z_fw_flg_cntr_r_hok_infection_immune][z_fw_flg_cntr_hok_no_pop][z_fw_flg_cntr_hok_contacted]
+#_已有条件	[has_owner][event_target:z_fw_tgt_species_kayrl_main]
+z_fw_eft_cntr_r_hok_infection = {
+	#_无人国家<直接感染>
+	if = {
+		limit = {
+			OR = {
+				num_pops = 0
+				#_ev
+				is_country_type = default_ev
+				#_teif
+				is_country_type = teif_primitive
+				is_country_type = mercenary_fleet
+				#_wsg/swg
+				is_country_type = wsg_lady
+				is_country_type = sh2f
+				is_country_type = wg_crisis_country
+				is_country_type = wg_resistant_army
+				#_kuat
+				is_country_type = awakened_return_kuat_empire
+				#_mem
+				is_country_type = mem_vazurans
+				#_ehof
+				is_country_type = compound_empire
+				#_SOFE
+				is_country_type = original_empire
+				is_country_type = original_empire_passive
+				is_country_type = sofe_light_seeker
+			}
+		}
+		set_country_flag = z_fw_flg_cntr_hok_no_pop
+	}
+	#_有人国家<普通感染>
+	else = {
+		remove_country_flag = z_fw_flg_cntr_hok_no_pop
+		#_国家感染
+		if = {
+			limit = {#_人口比例达标
+				pop_percentage = {
+					percentage >= 0.75
+					limit = { z_fw_r_koh_is_species_karyl = yes } 
+				}
+			}
+			#_感染通知-严重
+			if = {
+				limit = { NOT = { has_country_flag = z_fw_flg_cntr_r_hok_infected } }
+				country_event = { id = z_fw1_relic_koh.1011 days = 7 }
+			}
+			#_阶段设置
+			set_country_flag = z_fw_flg_cntr_r_hok_infected
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_50
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_25
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_immune
+			set_country_flag = z_fw_flg_cntr_hok_contacted
+			#_ldr感染
+			every_owned_leader = { z_fw_eft_ldr_r_hok_infection = yes }
+			every_pool_leader = { z_fw_eft_ldr_r_hok_infection = yes }
+			every_envoy = { z_fw_eft_ldr_r_hok_infection = yes }
+			ruler = { z_fw_eft_ldr_r_hok_infection = yes }
+		}
+		#_50
+		else_if = {
+			limit = {#_人口比例达标
+				pop_percentage = {
+					percentage >= 0.50
+					limit = { z_fw_r_koh_is_species_karyl = yes } 
+				}
+			}
+			#_感染通知
+			if = {#_严重
+				limit = {
+					NOR = {
+						has_country_flag = z_fw_flg_cntr_r_hok_infected
+						has_country_flag = z_fw_flg_cntr_r_hok_infection_50
+					}
+				}
+				country_event = { id = z_fw1_relic_koh.1012 days = 7 }
+			}
+			else_if = {#_缓解
+				limit = {
+					has_country_flag = z_fw_flg_cntr_r_hok_infected
+					NOT = { has_country_flag = z_fw_flg_cntr_r_hok_infection_50 }
+				}
+				country_event = { id = z_fw1_relic_koh.1013 days = 7 }
+			}
+			#_阶段设置
+			remove_country_flag = z_fw_flg_cntr_r_hok_infected
+			set_country_flag = z_fw_flg_cntr_r_hok_infection_50
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_25
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_immune
+			set_country_flag = z_fw_flg_cntr_hok_contacted
+		}
+		#_25
+		else_if = {
+			limit = {#_人口比例达标
+				pop_percentage = {
+					percentage >= 0.25
+					limit = { z_fw_r_koh_is_species_karyl = yes } 
+				}
+			}
+			#_感染通知
+			if = {#_严重
+				limit = {
+					NOR = {
+						has_country_flag = z_fw_flg_cntr_r_hok_infected
+						has_country_flag = z_fw_flg_cntr_r_hok_infection_50
+						has_country_flag = z_fw_flg_cntr_r_hok_infection_25
+					}
+				}
+				country_event = { id = z_fw1_relic_koh.1014 days = 7 }
+			}
+			else_if = {#_缓解
+				limit = {
+					OR = {
+						has_country_flag = z_fw_flg_cntr_r_hok_infected
+						has_country_flag = z_fw_flg_cntr_r_hok_infection_50
+					}
+					NOT = { has_country_flag = z_fw_flg_cntr_r_hok_infection_25 }
+				}
+				country_event = { id = z_fw1_relic_koh.1015 days = 7 }
+			}
+			#_阶段设置
+			remove_country_flag = z_fw_flg_cntr_r_hok_infected
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_50
+			set_country_flag = z_fw_flg_cntr_r_hok_infection_25
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_immune
+			set_country_flag = z_fw_flg_cntr_hok_contacted
+		}
+		#_0
+		else_if = {
+			limit = {#_人口比例达标
+				pop_percentage = {
+					percentage = 0
+					limit = { z_fw_r_koh_is_species_karyl = yes } 
+				}
+			}
+			remove_country_flag = z_fw_flg_cntr_r_hok_infected
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_50
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_25
+			set_country_flag = z_fw_flg_cntr_r_hok_infection_immune
+		}
+		#_完全免疫
+		else = {
+			if = {#_严重
+				limit = {
+					OR = {
+						has_country_flag = z_fw_flg_cntr_r_hok_infected
+						has_country_flag = z_fw_flg_cntr_r_hok_infection_50
+						has_country_flag = z_fw_flg_cntr_r_hok_infection_25
+					}
+				}
+				country_event = { id = z_fw1_relic_koh.1016 days = 7 }
+			}
+			remove_country_flag = z_fw_flg_cntr_r_hok_infected
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_50
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_25
+			remove_country_flag = z_fw_flg_cntr_r_hok_infection_immune
+			set_country_flag = z_fw_flg_cntr_hok_contacted
+		}
+	}
+}
+
+#_[ldr_debug领袖头像]
+#_eft_cntr	[z_fw_eft_cntr_r_hok_infection]	root=cntr
+#_trgr_ldr	[z_fw_trgr_ldr_r_hok_ignore]	#_忽略特殊领袖
+z_fw_eft_ldr_r_hok_infection = {
+	if = {
+		limit = {
+			NOR = {
+				z_fw_trgr_ldr_r_hok_ignore = yes
+				species = { z_fw_r_koh_is_species_karyl = yes }
+			}
+		}
+		#_设定tgt_spcs
+		root = {
+			random_owned_species = {
+				limit = { is_same_species = prevprev }
+				save_event_target_as = z_fw_tgt_species_kayrl_ldr
+			}
+		}
+		#_有tgt_spcs
+		if = {
+			limit = { exists = event_target:z_fw_tgt_species_kayrl_ldr }
+			change_species = event_target:z_fw_tgt_species_kayrl_ldr
+		}
+		#_无tgt_spcs自创一个
+		else = {
+			modify_species = {
+				species = this
+				add_trait = z_fw_trait_r_hok_kayrl_positive
+				effect = { z_fw_eft_spcs_r_hok_infection_portrait = yes }
+				change_scoped_species = yes
+			}
+		}
+		#_换性别
+		if = {
+			limit = { gender = male }
+			set_is_female = yes
+		}
+		#_换头像
+		change_leader_portrait = species
+	}
+}
+
+#_[spcs_感染头像]	<模块化>
+z_fw_eft_spcs_r_hok_infection_portrait = {
+	#_肉鼬
+	if = {
+		limit = {
+			z_fw_trgr_spcs_regular = yes
+			NOT = { species_portrait = z_fw_spcs_karyl }
+		}
+		change_species_portrait = z_fw_spcs_karyl
+		rename_species = { name = "z_karyl_1" }
+	}
+	#_铁鼬
+	else_if = {
+		limit = {
+			OR = {
+				is_archetype = ROBOT
+				has_trait = trait_mechanical
+			}
+			NOT = { species_portrait = z_fw_spcs_karyl_robot }
+		}
+		change_species_portrait = z_fw_spcs_karyl_robot
+		rename_species = { name = "z_karyl_robot_1" }
+	}
+	#_钛鼬
+	else_if = {
+		limit = {
+			OR = {
+				is_archetype = MACHINE
+				has_trait = trait_machine_unit
+			}
+			NOT = { species_portrait = z_fw_spcs_karyl_machine }
+		}
+		change_species_portrait = z_fw_spcs_karyl_machine
+		rename_species = { name = "z_karyl_machine_1" }
+	}
+	#_石鼬
+	else_if = {
+		limit = {
+			OR = {
+				is_archetype = LITHOID
+				has_trait = trait_lithoid
+			}
+			NOT = { species_portrait = z_fw_spcs_karyl_lithoid }
+		}
+		change_species_portrait = z_fw_spcs_karyl_lithoid
+		rename_species = { name = "z_karyl_lithoid_1" }
+	}
+	#_尸鼬
+	else_if = {
+		limit = {
+			OR = {
+				is_species_class = NECROID
+				has_trait = trait_necrophage
+			}
+			NOT = { species_portrait = z_fw_spcs_karyl_necroid }
+		}
+		change_species_portrait = z_fw_spcs_karyl_necroid
+		rename_species = { name = "z_karyl_necroid_1" }
+	}
+	#_SP_WSS舰鼬wsg/舰妈C_杰兰特/四叶草/浪逼_学园长
+	else_if = {
+		limit = {
+			OR = {
+				is_archetype = WARSHIPGIRL
+				is_species_class = Fleetgirl		#_舰妈C_杰兰特
+				is_species_class = Fleetgirlbot
+				is_species_class = WG_clover_theater_species	#_四叶草
+				is_species_class = BIO_clover_theater_species
+				is_species_class = MACHINE_clover_theater_species
+				is_species_class = Azur_Lane		#_浪逼_学园长
+				is_species_class = Azur_Factions
+			}
+			NOT = { species_portrait = z_fw_spcs_karyl_sp_wss_wsg }
+		}
+		change_species_portrait = z_fw_spcs_karyl_sp_wss_wsg
+		rename_species = { name = "z_karyl_wsg_1" }
+	}
+	#_SP_WSS舰鼬sh
+	else_if = {
+		limit = {
+			is_archetype = SHENHAI
+			NOT = { species_portrait = z_fw_spcs_karyl_sp_wss_sh }
+		}
+		change_species_portrait = z_fw_spcs_karyl_sp_wss_sh
+		rename_species = { name = "z_karyl_sh_1" }
+	}
+	#_SP_WSS星舰鼬
+	else_if = {
+		limit = {
+			is_archetype = STARSHIPGIRLS
+			NOT = { species_portrait = z_fw_spcs_karyl_sp_wss_swg }
+		}
+		change_species_portrait = z_fw_spcs_karyl_sp_wss_swg
+		rename_species = { name = "z_karyl_wss_swg_1" }
+	}
+	#_SP_SOFE荧光鼬
+	else_if = {
+		limit = {
+			is_archetype = DEITY
+			NOT = { species_portrait = z_fw_spcs_karyl_sp_sofe_pgnt }
+		}
+		change_species_portrait = z_fw_spcs_karyl_sp_sofe_pgnt
+		rename_species = { name = "z_karyl_sofe_pgnt_1" }
+	}
+	#_SP_DAL林鼬
+	else_if = {
+		limit = {
+			is_species_class = DAL
+			NOT = { species_portrait = z_fw_spcs_karyl_sp_dal }
+		}
+		change_species_portrait = z_fw_spcs_karyl_sp_dal
+		rename_species = { name = "z_karyl_dal_1" }
+	}
+}
+
+#_[spcs_sp特性]		<模块化=根据头像检测特性>	prev=cntr
+z_fw_eft_spcs_r_hok_infection_trait = {
+	#_舰鼬
+	if = {#_舰鼬
+		limit = {
+			NOT = { is_archetype = STARSHIPGIRLS }
+			species_portrait = z_fw_spcs_karyl_sp_wss_wsg
+			NOT = { has_trait = z_fw_trait_r_hok_sp_wsg }
+		}
+		prev = {#_cntr
+			every_owned_pop = {
+				limit = { species = { is_same_value = prevprevprev } }
+				modify_species = {
+					species = this
+					add_trait = z_fw_trait_r_hok_sp_wsg
+					change_scoped_species = yes
+				}
+			}
+		}
+	}
+	else_if = {#_深海鼬
+		limit = {
+			species_portrait = z_fw_spcs_karyl_sp_wss_sh
+			NOT = { has_trait = z_fw_trait_r_hok_sp_wsg_sh }
+		}
+		prev = {#_cntr
+			every_owned_pop = {
+				limit = { species = { is_same_value = prevprevprev } }
+				modify_species = {
+					species = this
+					add_trait = z_fw_trait_r_hok_sp_wsg_sh
+					change_scoped_species = yes
+				}
+			}
+		}
+	}
+	else_if = {#_星舰鼬
+		limit = {
+			is_archetype = STARSHIPGIRLS
+			species_portrait = z_fw_spcs_karyl_sp_wss_swg
+			NOT = { has_trait = z_fw_trait_r_hok_sp_wss_swg }
+		}
+		prev = {#_cntr
+			every_owned_pop = {
+				limit = { species = { is_same_value = prevprevprev } }
+				modify_species = {
+					species = this
+					add_trait = z_fw_trait_r_hok_sp_wss_swg
+					change_scoped_species = yes
+				}
+			}
+		}
+	}
+	#_荧光鼬
+	else_if = {
+		limit = {
+		#	is_archetype = DEITY
+			species_portrait = z_fw_spcs_karyl_sp_sofe_pgnt
+			NOT = { has_trait = z_fw_trait_r_hok_sp_sofe_pgnt }
+		}
+		prev = {#_cntr
+			every_owned_pop = {
+				limit = { species = { is_same_value = prevprevprev } }
+				modify_species = {
+					species = this
+					add_trait = z_fw_trait_r_hok_sp_sofe_pgnt
+					change_scoped_species = yes
+				}
+			}
+		}
+	}
+}
+
+#_[species_净化应对]
+#_country	[root]
+z_fw_eft_spcs_r_hok_counter = {
+	species = {
+		#_奴隶运动
+	#	if = {
+	#		limit = {
+	#			NOT = { has_species_flag = z_fw_flg_spcs_kayrl_counted }
+	#			OR = {
+	#				has_citizenship_type = {
+	#					type = citizenship_slavery
+	#					country = root
+	#				}
+	#				has_citizenship_type = {
+	#					type = citizenship_robot_servitude
+	#					country = root
+	#				}
+	#			}
+	#		}
+	#		set_timed_species_flag = { flag = z_fw_flg_spcs_kayrl_counted days = 1 }
+	#		set_citizenship_type = {
+	#			type = citizenship_limited
+	#			country = root
+	#			cooldown = no
+	#		}
+	#	}
+		#_净化-孢子爆发
+		if = {
+			limit = {
+				NOT = { has_species_flag = z_fw_flg_spcs_kayrl_counted }
+				OR = {
+					has_citizenship_type = {
+						type = citizenship_purge
+						country = root
+					}
+					has_citizenship_type = {
+						type = citizenship_purge_machine
+						country = root
+					}
+				}
+			}
+			set_timed_species_flag = { flag = z_fw_flg_spcs_kayrl_counted days = 1 }
+			save_event_target_as = z_fw_r_hok_spcs_purged
+			while = {
+				count = 3
+				root = {
+					random_owned_planet = {
+						limit = { is_colony = yes }
+						create_pop = {
+							species = event_target:z_fw_r_hok_spcs_purged
+							ethos = random 
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+###_[ldr_scientist同化]	##############################################################
+z_fw_eft_ldr_r_hok_site_modification = {
+	modify_species = {
+		species = this
+		remove_trait = z_fw_trait_r_hok_kayrl_negative
+		add_trait = z_fw_trait_r_hok_kayrl_positive
+		change_scoped_species = yes
+	}
+	add_experience = 500
+#	if = {#_公的转看dio女
+#		limit = { gender = male }
+#		set_is_female = yes
+#		change_leader_portrait = z_fw_spcs_karyl_10
+#		add_trait = z_fw_trait_leader_r_hok
+#	}
+	change_leader_portrait = z_fw_spcs_karyl_kogasa_01
+	add_trait = z_fw_trait_leader_r_hok_kogasa
+	add_trait = z_fw_trait_leader_r_hok_pupil
+	set_leader_flag = z_fw_flg_ldr_r_hok_kogasa
+	set_name = "NAME_z_fw_ldr_skunk_kogasa"
+	owner = { set_country_flag = z_fw_flg_cntr_r_hok_kogasa }
+}
+#_[cntr_伞鼬恢复至出厂状态]
+z_fw_eft_cntr_r_hok_site_leader_restore = {
+	create_leader = {
+		class = scientist
+		sub_type = survey
+		species = owner_main_species
+		name = random
+		skill = 1
+		set_age = 1
+		immortal = yes
+	}
+	last_created_leader = { z_fw_eft_ldr_r_hok_site_modification = yes }
+	###_复活提示
+	country_event = { id = z_fw1_relic_koh.312 }
+}

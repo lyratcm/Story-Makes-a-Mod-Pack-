@@ -1,0 +1,62 @@
+namespace = leviathans
+
+country_event = {
+	id = leviathans.3203
+	hide_window = yes
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = guardian_hiver
+		has_country_flag = hive_country
+		count_owned_ship = {
+			limit = { is_ship_size = hive_asteroid }
+			count < 1 # count_owned_ships no longer counts dead ships
+		}
+		FROM = { 
+			has_country_flag = provoked_hivers 
+		}
+	}
+	
+	immediate = {
+		random_system = {
+			limit = { has_star_flag = guardians_hive_system }
+			save_event_target_as = hive_system
+			set_star_flag = hivers_defeated
+		}
+		create_ambient_object = {
+			type = "dormant_hive_base_2_object"
+		}
+		last_created_ambient_object = {
+			set_location = FROMFROM
+			set_ambient_object_flag = boardable_hive_asteroid
+			save_event_target_as = boardable_hive_asteroid
+		}
+		FROM = {
+			country_event = { id = leviathans.3204 }
+		}
+		every_country = {
+			limit = { 
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_modifier = asteroid_hive_weak_points
+			}
+			remove_modifier = "asteroid_hive_weak_points"
+		}
+		every_country = {
+			limit = {
+				OR = { is_country_type = default is_country_type = ascended_empire is_country_type = lost_empire }
+				has_event_chain = curator_poi_chain
+				event_target:hive_system = {
+					is_point_of_interest = {
+						id = curator_poi_hiver
+						event_chain = curator_poi_chain
+						owner = prev
+					}
+				}
+			}
+			remove_point_of_interest = curator_poi_hiver
+			end_curator_chain = yes
+		}
+	}
+}

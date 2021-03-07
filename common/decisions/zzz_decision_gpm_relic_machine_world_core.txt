@@ -1,0 +1,31 @@
+decision_gpm_machine_world_core_relic = {
+    owned_planets_only = no
+	sound = event_administrative_work
+	icon = gpm_decision_machine_world_core_relic
+	#enactment_time = 0
+
+    potential = {
+		OR = {
+			gpm_is_planet_class_normal_uninhabitable = yes
+			gpm_is_planet_class_gas_giant = yes
+			is_planet_class = pc_broken
+		}
+		FROM = { has_country_flag = relic_machine_world_core_activated }
+	}
+	
+	allow = {
+		FROM = { has_country_flag = relic_machine_world_core_activated }
+		custom_tooltip = decision_gpm_machine_world_core_relic_tt
+	}
+
+    effect = {
+		hidden_effect = { FROM = { remove_country_flag = relic_machine_world_core_activated } }
+		custom_tooltip = decision_gpm_machine_world_core_relic_tt
+		change_pc = pc_machine
+		change_planet_size = 5
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

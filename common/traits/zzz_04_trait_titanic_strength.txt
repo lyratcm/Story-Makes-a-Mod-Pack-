@@ -1,0 +1,25 @@
+trait_titanic_strength = {
+    potential_crossbreeding_chance = 0.75
+    cost = 5
+    icon = "gfx/interface/icons/traits/leader_traits/leader_trait_unyielding.dds"
+    initial = no
+    randomized = no
+    opposites = {
+        "trait_weak"
+        "trait_strong"
+        "trait_very_strong"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    advanced_trait = yes
+    modifier = {
+        army_damage_mult = 1.0
+        planet_jobs_worker_produces_mult = 0.25
+        planet_jobs_simple_drone_produces_mult = 0.25
+    }
+    slave_cost = {
+        energy = 200
+    }
+}

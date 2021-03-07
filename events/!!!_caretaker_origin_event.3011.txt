@@ -1,0 +1,19 @@
+namespace = caretaker_origin_event
+planet_event = {
+    id = caretaker_origin_event.3011
+    is_triggered_only = yes
+    diplomatic = yes
+    title = caretaker_origin_event.3011.name
+    desc = caretaker_origin_event.3011.desc
+    picture_event_data = {
+        portrait = event_target:caretaker_robotic_species@root
+        planet_background = root.owner
+        graphical_culture = root.owner
+        city_level = root.owner
+        room = root.owner
+    }
+    option = {
+        name = caretaker_origin_event.3011.option.a
+        custom_tooltip = caretaker_origin_event.3011.option.a.tooltip
+    }
+}

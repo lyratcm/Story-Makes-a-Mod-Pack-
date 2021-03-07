@@ -1,0 +1,12 @@
+﻿l_english:
+
+trait_photosynthetic:0 "Plantoid"
+trait_photosynthetic_desc:0 "§LPlantoids are photosynthetic, drastically reducing their need for food, but requires more expansive housing to properly meet their need for sunlight. They more easily adapt to worlds with abundant sources of water."
+TRAIT_PLANTOID_EFFECT:0 "$mod_planet_pops_organics_food_upkeep_mult$: §G-50%§!\n$MOD_POP_HOUSING_USAGE_MULT$: §R+20%§!\nWet Habitability: §G+30%§!\nDry Habitability: §R-15%§!\n£job_farmer£ Farmer Housing Usage: §G-100%§!\n§YPlantoid Empires built and maintained normal districts partially with food§!"
+
+trait_fungal_colony:0 "Fungal Colony"
+trait_fungal_colony_desc:0 "§LEach individual of this species is actually a colony of sentient fungus. The colony can live on for a very long time, until eventually they becomes too large and are forced to retire from wider society.§!\n"
+TRAIT_FUNGAL_COLONY_EFFECT:2 "Leader Lifespan: §G+500§! Years\nPop Growth: §R-25%§!\n+1 §YVenerable Elder§! Job on Homeworld"
+
+trait_additrait_malleable_frame:0 "Collapsable Frame"
+trait_additrait_malleable_frame_desc:0 "§LWith their collapsable frame, these units can fit everywhere and are easily stored when not in use.§!\n"

@@ -1,0 +1,47 @@
+decision_hunting_preserve = {
+	owned_planets_only = yes
+
+	enactment_time = 30
+	resources = {
+		category = decisions
+		cost = {
+			energy = 100
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		NOT = {
+			is_planet_class = pc_city
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+			is_planet_class = pc_hive
+		}
+		NOT = { has_deposit = d_hunting_preserve }
+		exists = owner
+		owner = { has_civic = civic_natural_hunters }
+		OR = {
+			has_deposit = d_dangerous_wildlife_blocker
+			has_planet_flag = has_dangerous_wildlife
+			has_modifier = dangerous_wildlife
+		}
+	}
+	
+	effect = {
+		add_deposit = d_hunting_preserve
+		random_deposit = {
+			limit = {
+				is_deposit_type = d_dangerous_wildlife_blocker
+			}
+			clear_blocker = yes
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			num_pops < 6
+		}
+	}	
+}

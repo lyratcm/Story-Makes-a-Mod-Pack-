@@ -1,0 +1,26 @@
+gov_science_directorate = {
+    ruler_title = RT_DIRECTOR_GENERAL
+    ruler_title_female = RT_DIRECTOR_GENERAL_FEMALE
+    should_force_rename = yes
+    leader_class = scientist
+    election_candidates = {
+        modifier = {
+            add = 100
+            leader_class = ruler
+        }
+        modifier = {
+            add = 10
+            leader_class = scientist
+        }
+    }
+    possible = {
+        has_valid_civic = civic_science_directorate
+    }
+    weight = {
+        base = 900
+        modifier = {
+            factor = 5
+            has_valid_civic = civic_science_directorate
+        }
+    }
+}

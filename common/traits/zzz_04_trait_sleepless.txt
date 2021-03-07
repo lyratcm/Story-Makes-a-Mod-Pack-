@@ -1,0 +1,29 @@
+trait_sleepless = {
+    potential_crossbreeding_chance = 0.5
+    cost = 4
+    icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_eye_for_talent.dds"
+    initial = no
+    randomized = no
+    randomized = no
+    opposites = {
+        "trait_low_metabolism"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            has_technology = "tech_genetic_mastery"
+        }
+    }
+    modifier = {
+        planet_jobs_produces_mult = 0.25
+        planet_pops_organics_food_upkeep_mult = 0.25
+        planet_pops_organics_minerals_upkeep_mult = 0.25
+    }
+    slave_cost = {
+        energy = 200
+    }
+}

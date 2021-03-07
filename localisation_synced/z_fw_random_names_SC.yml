@@ -1,0 +1,40 @@
+﻿l_simp_chinese:
+
+
+###_misc    ###########################################################################
+#_NPC
+ NAME_z_fw_npc_1: "无尽群星"
+ NAME_z_fw_misc_autostation_fleet: "自动矿站工程船"
+ NAME_z_fw_autostation_ship: "全自动工程船"
+ 
+ NAME_z_mm_test_fleet: "测试靶机"
+ NAME_z_mm_test_fleet_2: "超级测试靶机"
+ 
+#_NPC-enemy-test
+ NAME_z_fw_enemy_1_test: "§R无尽群星§!"
+
+#_mega
+ NAME_z_fw_mega_dismantle: "巨建拆解中"
+
+
+
+
+###_战争  ###########################################################################
+#_解除武装
+ z_demilitarize_war_1: "去军事化战争"
+ z_demilitarize_war_2: "绥靖之战"
+ z_demilitarize_war_3: "遏制战"
+#_圣遗物争夺战
+ z_war_for_relic: "圣遗物争夺战"
+ z_treasury_war: "遗珍所有权之战"
+ z_war_for_all_relics: "圣遗物掠夺之战"
+ z_total_treasury_war: "遗珍霸权战"
+#_边境战争
+ z_border_war_1: "边境战争"
+ z_border_war_2: "通行权之战"
+ z_border_war_long_1: "口岸战争"
+ z_border_war_long_2: "长久通行权之战"
+#_抢人战争
+ z_war_leader_1: "人才争夺战"
+ z_war_leader_2: "绑架之战"
+ z_war_leader_3: "抢人大战"

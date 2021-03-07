@@ -1,0 +1,9 @@
+origin_subterranean_evolution = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_subterranean_evolution.dds"
+    picture = GFX_origin_subterranean_evolution
+    max_once_global = yes
+    potential = {
+        always = no
+    }
+}

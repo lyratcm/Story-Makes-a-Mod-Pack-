@@ -1,0 +1,30 @@
+civic_public_state_enterprises = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_egalitarian
+                value = ethic_egalitarian
+                value = ethic_fanatic_egalitarian
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_robber_barons
+                value = civic_chaebol
+                value = civic_confederation_of_industries
+                value = civic_gospel_of_the_masses
+                value = civic_criminal_heritage
+            }
+        }
+    }
+    random_weight = {
+        base = 3
+    }
+    modifier = {
+        country_subject_power_penalty_mult = -0.20
+        pop_citizen_happiness = 0.05
+    }
+}

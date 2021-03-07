@@ -1,0 +1,66 @@
+decision_shelter_project_hot = {
+	owned_planets_only = yes
+	sound = event_construction
+	icon = decision_shelter_project_hot
+	
+	enactment_time = 4000
+	resources = {
+		category = decisions
+		cost = {
+			energy = 4000
+			influence = 150
+		}
+	}
+	
+	potential = {
+		owner = {
+			OR = {
+				num_owned_planets = 1
+				NAND = {
+					num_owned_planets < 1
+					any_owned_planet = { solar_system = { NOT = { has_star_flag = star_disaster } } }
+				}
+			}
+		}
+		NOT = {
+			AND = {
+				has_planet_flag = hot_zone
+				solar_system = {
+					has_star_flag = star_disaster
+					any_system_planet = {
+						is_primary_star = yes
+						is_giant_star = yes
+					}
+				}
+			}
+		}
+		OR = {
+			AND = {
+				solar_system = { has_star_flag = star_disaster }
+				OR = {
+					is_extremaly_hot = yes
+					has_planet_flag = hot_zone
+				}
+			}
+			has_planet_flag = orbit_reduction
+		}
+	}
+	
+	allow = {
+		is_controlled_by = owner
+		has_ground_combat = no
+		has_orbital_bombardment = no
+	}
+	
+	effect = {
+		custom_tooltip = decision_shelter_project_hot_effect_desc
+		hidden_effect = {
+			set_planet_flag = has_shelter_project_hot
+			owner = { country_event =  { id = newfrontiers_decision_event.19 days = 1 } }
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

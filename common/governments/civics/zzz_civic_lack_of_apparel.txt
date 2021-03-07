@@ -1,0 +1,16 @@
+civic_lack_of_apparel = {
+    potential = {
+        always = no
+    }
+    possible = {
+    }
+    random_weight = {
+        base = 1
+    }
+    modifier = {
+        country_trust_cap_add = -50
+        country_trust_growth = -0.10
+        planet_colony_development_speed_mult = 0.25
+        pop_growth_speed = 0.10
+    }
+}

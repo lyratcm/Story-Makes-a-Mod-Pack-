@@ -1,0 +1,23 @@
+trait_robot_governor_post_scarcity = {
+    cost = 1
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_robot_governor_post_scarcity.dds"
+    modifier = {
+        planet_pops_upkeep_mult = -0.10
+        planet_jobs_produces_mult = 0.05
+    }
+    leader_trait = {
+        governor
+    }
+    leader_class = {
+        governor
+    }
+    leader_potential_add = {
+        has_trait = {
+            trait_robot_recurrent_neural_network
+        }
+    }
+    ai_weight = {
+        weight = 500
+    }
+}

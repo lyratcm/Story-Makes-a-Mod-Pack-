@@ -1,0 +1,178 @@
+building_hive_capital = {
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+
+	category = government
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_hive_empire = yes
+				is_country_type = swarm
+			}
+			is_fallen_empire = no
+		}
+	}
+
+	destroy_trigger = { # destroys and/or triggers conversion if true
+		exists = owner
+		owner = { is_hive_empire = no }
+	}
+
+	convert_to = {
+		building_machine_capital
+		building_capital
+		building_ancient_control_center
+		building_ancient_palace
+	}
+
+	upgrades = {
+		"building_hive_major_capital"
+	}
+
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	show_tech_unlock_if = {
+		is_hive_empire = yes
+	}
+
+	planet_modifier = {
+		planet_housing_add = 8
+		planet_amenities_add = 8
+		job_synapse_drone_add = 2
+		job_maintenance_drone_add = 2
+		job_patrol_drone_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			OR = { has_building = building_individualist_enclave has_building = building_individualist_colony }
+		}
+		modifier = {
+			job_administrator_gestalt_add = 1
+			job_enforcer_gestalt_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+			}
+			exists = owner
+			owner = {
+				has_civic = civic_starvation_fearing
+				is_lithoid_empire = no
+			}
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			job_agri_drone_per_pop = 0.05
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			NOR = {
+				is_planet_class = pc_city
+				is_planet_class = pc_relic
+				is_planet_class = pc_ringworld_habitable
+			}
+			exists = owner
+			owner = {
+				has_civic = civic_starvation_fearing
+				is_lithoid_empire = yes
+			}
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			job_mining_drone_per_pop = 0.05
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOT = { has_valid_civic = civic_integrated_bioarchitecture }
+					is_lithoid_empire = no
+				}
+			}
+			minerals = 667
+			food = 333
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			minerals = 1000
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOT = { has_valid_civic = civic_integrated_bioarchitecture }
+					is_lithoid_empire = no
+				}
+			}
+			minerals = 667
+			food = 333
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_valid_civic = civic_integrated_bioarchitecture
+				}
+			}
+			food = 800
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = no
+				}
+			}
+			energy = 1.3
+			food = 0.7
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			energy = 2
+		}
+	}
+
+	triggered_desc = {
+		text = job_synapse_drone_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_maintenance_drone_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_patrol_drone_effect_desc
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

@@ -1,0 +1,30 @@
+gpm_edict_consumer_goods_production  = {
+	length = 1800
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			minor_artifacts = 15
+		}
+	}
+
+	potential = {
+		has_technology = tech_arcane_deciphering
+		is_gestalt = no
+	}
+
+	modifier = {
+		planet_jobs_consumer_goods_produces_mult = 0.25
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictMedPrio
+			has_monthly_income = {
+				resource = consumer_goods
+				value < 0
+			}
+		}
+	}
+}

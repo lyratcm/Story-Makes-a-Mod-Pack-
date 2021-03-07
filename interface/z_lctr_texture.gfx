@@ -1,0 +1,104 @@
+###_Œﬁæ°»∫–« framework-MISC	##############################################################
+
+#_[z_lctr_relic]
+#_[evt_pics]
+#_[misc]
+
+
+
+
+spriteTypes = {
+
+	###_[z_lctr_relic]	##########################################################
+	#_z_lctr_r_adv_sensor
+	SpriteType = {
+		name = "GFX_z_lctr_r_adv_sensor"
+		texturefile = "gfx/interface/icons/relics/z_lctr_r_adv_sensor.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_lctr_r_adv_sensor_fx1.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_lctr_r_adv_sensor_fx1.dds"
+			animationrotation = 0.0			# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 4				# in seconds
+			animationdelay = 0				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "pulsing"		#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+		animation = {
+			animationmaskfile = "gfx/interface/icons/relics/z_lctr_r_adv_sensor_fx2_mask.dds"			
+			animationtexturefile = "gfx/interface/icons/relics/z_lctr_r_adv_sensor_fx2.dds"
+			animationrotation = -40.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 3				# in seconds
+			animationdelay = 1				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "scrolling"     #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	
+	
+	
+	
+	#_[evt_pics]
+	#_0
+	spriteType = {
+		name = "GFX_evt_z_lctr_r_0"
+		texturefile = "gfx/event_pictures/z_lctr_r_0.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	#_1
+	spriteType = {
+		name = "GFX_evt_z_lctr_r_1"
+		texturefile = "gfx/event_pictures/z_lctr_r_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	#_2
+	spriteType = {
+		name = "GFX_evt_z_lctr_r_2"
+		texturefile = "gfx/event_pictures/z_lctr_r_2.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	
+	
+	
+	
+	###_[misc]	##########################################################
+	#_≤‘—©…Ωæÿ’Ûmodifier
+	spriteType = {
+		name = "GFX_z_lctr_mod_r_adv_sensor"
+		texturefile = "gfx/interface/icons/modifiers/z_lctr_mod_r_adv_sensor.dds"
+	}
+	#_war
+	spriteType = {
+		name = "GFX_z_lctr_wg_plunder_relic"
+		texturefile = "gfx/interface/icons/diplomacy/z_lctr_wg_plunder_relic.dds"
+	}
+	#_AI÷˙ ÷
+	spriteType = {
+		name = "GFX_z_lctr_ai_assist"
+		texturefile = "gfx/interface/z_modmenu/z_lctr_ai_assist.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/z_modmenu/z_lctr_ai_assist_fx_mask.dds"
+			animationtexturefile = "gfx/interface/z_modmenu/z_lctr_ai_assist_fx.dds"
+			animationrotation = 0.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 3				# in seconds
+			animationdelay = 2				# in seconds
+			animationblendmode = "add"      #add, multiply, overlay
+			animationtype = "scrolling"     #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+}

@@ -1,0 +1,2002 @@
+namespace = z_modmenu
+
+#_[wip测试]
+#_[z_mm_开局设置]
+#_[通知_支持mod未安装]
+#_[框架设置_main]		cheat选项
+#_[战争设置]
+
+###_引用	##############################
+##_core
+	#_global_flag	[z_framework_overwrite]无尽整合
+	
+##_misc
+	#_tgt			[z_fw_tgt_global_enemy_test]全局测试用敌人
+	
+##_动态难度	<z_framework_installed_dd_effects>
+	#_eft		[z_fw_eft_core_battle_dd_fp_on][z_fw_eft_core_battle_dd_fp_off]
+	#_eft_prmt	[z_fw_eft_prmt_core_battle_dd_var_change]
+
+
+###_原生	##############################
+	#_evt			[z_modmenu.120]							开局提示---是否启用框架
+	#_evt			[z_modmenu.1201]						开局提示---多人模式
+
+	#_global_flag	[z_modmenu_installed]
+	#_global_flag	[z_framework_activated][z_mm_new_relic_not_set]		启用框架
+	#_global_flag	[z_fw_core_weap_tech_linkage]			战争-武器科技联动
+	#_global_flag	[z_fw_core_battle_fp_debug_on]			战争-清理溢出
+	#_global_flag	[z_fw_core_battle_dd_common]			战争-dd-基础调整
+	#_country_eft	[z_fw_eft_core_battle_dd_pb_debug][z_fw_eft_core_battle_dd_pb_bouns]	战争-dd-基础调整
+	#_global_flag	[z_fw_core_battle_dd_ptw]				战争-dd-清除弱者
+	#_global_flag	[z_fw_core_battle_dd_fleet_power][z_fw_core_battle_dd_fp_adaptive][z_fw_core_battle_dd_fp_periodic]		战争-dd-战力加成
+	#_global_flag	[z_fw_core_dd_upgrade_2][z_fw_core_dd_upgrade_4][z_fw_core_dd_upgrade_8]
+
+
+
+
+###_[wip测试]	[id=11]	##############################
+
+
+
+
+###_[z_mm_开局设置]	################################################
+#_[on_game_start]	开局flag---z fw初始化<z_fw1_misc.1~11>
+#_HOST				[z_fw_trgr_cntr_host_mp]
+event = {
+	id = z_modmenu.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		#_安装
+		set_global_flag = z_modmenu_installed
+		##_easter egg relic
+		set_global_flag = z_mm_new_relic_not_set	#_执行后删除<不受万用初始化影响,仅用于_on_game_start>
+		#_开局设置+flg初始化	[z_fw_core.1]中通过z_fw_tgt_global_event触发
+	#	every_country = {
+	#		limit = { is_ai = no }
+	#		country_event = { id = z_modmenu.100  days = 3 }
+	#	}
+		#_开局设置_多人游戏
+		if = {
+			limit = { is_multiplayer = yes }
+			every_country = {
+				limit = { z_is_playable_country = yes }
+				set_country_flag = z_fw_flg_cntr_edt_hide
+			}
+		}
+	}
+}
+#_引出开局设置,必须是host
+country_event = {
+	id = z_modmenu.102
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_country = {
+			limit = { is_ai = no }
+			if = {
+				limit = { z_fw_trgr_cntr_host_mp = yes }	#_[z_fw_core.100]设定
+				country_event = { id = z_modmenu.1200 }
+			}
+			else = {
+				country_event = { id = z_modmenu.1201 }
+			}
+		}
+	}
+}
+#_引出开局设置,必须是host
+country_event = {
+	id = z_modmenu.100
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { z_fw_trgr_cntr_host_mp = yes }	#_[z_fw_core.100]设定
+			country_event = { id = z_modmenu.1200 }
+		}
+		else = {
+			country_event = { id = z_modmenu.1201 }
+		}
+	}
+}
+###_万用初始化	不用于多人游戏
+country_event = {
+	id = z_modmenu.101
+	hide_window = yes
+	fire_only_once = yes
+	trigger = { is_ai = no }
+	mean_time_to_happen = { days = 13 }
+
+	immediate = {
+		if = {
+			limit = {
+				is_multiplayer = no
+				NOT = { has_global_flag = z_modmenu_installed }
+			}
+			#_安装
+			set_global_flag = z_modmenu_installed
+			random_country = {
+				limit = { is_ai = no }
+				country_event = { id = z_modmenu.120  days = 1 }
+			}
+		}
+	}
+}
+	
+
+
+
+
+	
+	
+
+#_主机_通知_引出	滞后开局_模式选择
+country_event = {
+	id = z_modmenu.1200
+	title = z_modmenu_start_mode_choose
+	show_sound = z_fw_sfx_ui_click
+	is_triggered_only = yes
+	force_open = yes
+	
+	diplomatic = yes
+	custom_gui = "z_modmenu_intro_window_1"
+	immediate = {}
+}
+#_主机_滞后开局_模式选择	提示是否使用框架---NEW
+country_event = {
+	id = z_modmenu.120
+	title = z_modmenu_start_mode_choose
+	show_sound = z_fw_sfx_ui_click
+	is_triggered_only = yes
+	force_open = yes
+	
+	diplomatic = yes
+	custom_gui = "z_modmenu_intro_window"
+	immediate = {}
+}
+#_其他玩家_滞后开局_通知
+country_event = {
+	id = z_modmenu.1201
+	title = z_fw_start_title
+	show_sound = z_fw_sfx_ui_click
+	is_triggered_only = yes
+	force_open = yes
+	
+	diplomatic = yes
+	custom_gui = "z_modmenu_intro_window_2"
+	immediate = {}
+}	
+#_初始化-滞后	提示是否使用框架---OLD
+country_event = {
+	id = z_modmenu.12
+	title = z_modmenu_start_title
+	desc = z_modmenu_start_title_desc
+	picture = GFX_evt_z_modmenu_restoration
+	is_triggered_only = yes
+	force_open = yes
+	
+	immediate = {
+		if = {
+			limit = { has_global_flag = z_framework_overwrite }
+			set_global_flag = z_fw_core_battle_fp_debug_on			#_[战争-溢出清理]无尽整合初始化
+			
+			#begin_event_chain = { event_chain = z_chain_main target = this }	#_开启检视事件链
+		}
+		set_global_flag = z_framework_activated 			#_开启框架
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { has_global_flag = z_framework_activated }
+				#_无尽relic
+				set_country_flag = z_fw1_start_monument
+				set_country_flag = z_fw1_start_relic
+				#_框架相关功能
+				set_global_flag = z_fw_core_weap_tech_linkage		#_[战争-武器科技联动]初始化
+				set_global_flag = z_fw_core_battle_dd_common		#_[战争-dd-基础调整]初始化
+				set_global_flag = z_fw_core_battle_dd_ptw			#_[战争-dd-清除弱者]初始化
+				set_global_flag = z_fw_core_battle_dd_fleet_power	#_[战争-dd-战力加成]初始化
+				
+				country_event = { id = z_fw1_misc.1 }	#_开局事件
+			}
+		}
+	}
+	###_无尽整合环境
+	#_确定
+	option = {
+		name = z_modmenu.12.a1
+		trigger = {
+			has_global_flag = z_framework_overwrite
+		}
+	}
+	###_非无尽整合环境
+	#_确定-开启框架
+	option = {
+		name = z_modmenu.12.a3
+		custom_tooltip = z_modmenu.12.a3.tooltip
+		trigger = {
+			NOT = { has_global_flag = z_framework_overwrite }
+		}
+	}
+	#_确定-不开启框架
+	option = {
+		name = z_modmenu.12.a2
+		custom_tooltip = z_modmenu.12.a2.tooltip
+		trigger = {
+			NOT = { has_global_flag = z_framework_overwrite }
+		}
+		hidden_effect = {
+			remove_global_flag = z_framework_activated
+		}
+	}
+}
+#_禁用框架设置
+country_event = {
+	id = z_modmenu.121
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { has_global_flag = z_framework_disabled }
+			remove_global_flag = z_framework_disabled
+			country_event = { id = z_modmenu.12 }
+		}
+		else = { set_global_flag = z_framework_disabled }
+	}
+}
+
+
+###_modmenu	#####################################
+country_event = {
+	id = z_modmenu.1
+	#title = z_modmenu.1.name
+	#picture = GFX_evt_z_modmenu
+	show_sound = z_fw_sfx_menu_sc
+	is_triggered_only = yes
+	#trigger = { NOT = { has_country_flag = z_modmenu_opened } }
+	
+	diplomatic = yes
+	custom_gui = "z_modmenu_window"
+	
+	#_第0排
+	option = {
+		name = z_modmenu_empty
+        custom_gui = "gui_z_mm_sp_option_0"
+	}
+	#_第一排
+	option = {
+		name = z_modmenu_empty
+		custom_tooltip = z_mm_sp_wsg_leader_desc
+        custom_gui = "gui_z_mm_sp_option_1"
+		allow = {
+			#_btn_potential
+			z_mm_setting_panel_locked = no
+			z_mm_trgr_expanded_sub_ui = no
+			has_global_flag = has_wsg_mod
+			#_btn_allow
+			custom_tooltip = {
+				fail_text = already_has_wsg_shimakaze_diplo
+				hidden_trigger = {
+					OR = {
+						shimakaze_active_diplo = no
+						NOT = { has_country_flag = wsg_shimakaze_engaged }
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = z_mm_tips_sp_wsg_shimakaze
+				hidden_trigger = {
+					OR = {
+						has_country_flag = get_wsg_shimakaze
+						is_same_value = event_target:wsg_shimakaze_own_country
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			z_mm_unlock_menu = yes
+			z_mm_unlock_setting_panel = yes
+			z_mm_eft_expanded_sub_ui_exit = yes
+			z_mm_eft_sp_mod_1 = yes
+		}
+	}
+	#_第二排
+	option = {
+		name = z_modmenu_empty
+		custom_tooltip = z_mm_sm_rls_desc
+        custom_gui = "gui_z_mm_sp_option_2"
+		allow = {
+			#_btn_potential
+			z_mm_setting_panel_locked = no
+			z_mm_trgr_expanded_sub_ui = no
+			has_global_flag = play_as_ruler_started
+			#_btn_allow
+			if = {
+				limit = {
+					NOR = {
+						has_authority = auth_hive_mind
+						has_authority = auth_machine_intelligence
+						has_authority = auth_ancient_machine_intelligence
+					}
+				}
+				custom_tooltip = tab_ruler_hobbies_tooltip
+			}
+			if = {
+				limit = {
+					OR = {
+						has_authority = auth_hive_mind
+					}
+				}
+				custom_tooltip = tab_ruler_hobbies_tooltip_hivemind
+			}
+			if = {
+				limit = {
+					OR = {
+						has_authority = auth_machine_intelligence
+						has_authority = auth_ancient_machine_intelligence
+					}
+				}
+				custom_tooltip = tab_ruler_hobbies_tooltip_machine
+			}
+			custom_tooltip = {
+				fail_text = play_as_ruler.9499.tooltip2
+				hidden_trigger = {
+					any_owned_leader = {
+						leader_class = ruler
+						has_leader_flag = play_as_ruler_ruler_itself
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = play_as_ruler.9499.tooltip3
+				hidden_trigger = {
+					NOT = { has_country_flag = ruler_hobby_view_opened }	
+				}
+			}
+		}
+		hidden_effect = {
+			z_mm_unlock_menu = yes
+			z_mm_unlock_setting_panel = yes
+			z_mm_eft_expanded_sub_ui_exit = yes
+			z_mm_eft_sp_mod_2 = yes
+		}
+	}
+	#_第三排
+	option = {
+		name = z_modmenu_empty
+		custom_tooltip = z_mm_sp_giga_desc
+        custom_gui = "gui_z_mm_sp_option_3"
+		allow = {
+			#_btn_potential
+			z_mm_setting_panel_locked = no
+			z_mm_trgr_expanded_sub_ui = no
+			has_global_flag = giga_game_started
+		}
+		hidden_effect = {
+			z_mm_unlock_menu = yes
+			z_mm_unlock_setting_panel = yes
+			z_mm_eft_expanded_sub_ui_exit = yes
+			z_mm_eft_sp_mod_3 = yes
+		}
+	}
+	#_第4排
+	option = {
+		name = z_modmenu_empty
+		custom_tooltip = z_mm_sp_complex_potv_desc
+        custom_gui = "gui_z_mm_sp_option_4"
+		allow = {
+			#_btn_potential
+			z_mm_setting_panel_locked = no
+			z_mm_trgr_expanded_sub_ui = no
+			is_gestalt = no
+			OR = {
+				has_ethic = ethic_no_religion
+				has_ethic = ethic_atheism
+				has_ethic = ethic_agnosticism
+				has_ethic = ethic_deism
+				has_ethic = ethic_polytheism
+				has_ethic = ethic_animatism
+				has_ethic = ethic_animism
+			}
+		}
+		hidden_effect = {
+			z_mm_unlock_menu = yes
+			z_mm_unlock_setting_panel = yes
+			z_mm_eft_expanded_sub_ui_exit = yes
+			z_mm_eft_sp_mod_4 = yes
+		}
+	}
+}
+
+
+
+
+###_[框架设置_main]	###############################################################
+#_[星球人口限制/战争类型/资源储量buff_设置/cheat选项]
+#_country_flag	[z_fw_last_cheater]上一个作弊者
+country_event = {
+	id = z_modmenu.13
+	title = z_modmenu.13.name
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_fw_setting_window"
+	
+	#_关闭
+	option = {
+		name = z_modmenu_return
+		custom_tooltip = z_modmenu_return_desc
+        custom_gui = "z_mm_button_evt_option_red"
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes
+			#_[星球人口限制]
+			every_country = {
+				country_event = { id = z_fw_core_country.20 }	#_[星球人口限制]debug---立刻
+				country_event = { id = z_fw_core_country.2 }	#_[星球人口限制]renew---立刻
+			}
+			#_资源储量buff	debug
+			z_fw_eft_all_res_stock_debug = yes
+			#_测试
+			#country_event = { id = z_modmenu.132 }
+		}
+	}
+	
+	#_无尽frameworks on状态
+	option = {
+		name = z_modmenu.13.c1
+		custom_tooltip = z_modmenu.13.c1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			has_global_flag = z_framework_activated
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_framework_activated
+			#_框架功能
+			set_global_flag = z_fw_flg_glbl_wg_cb_disabled				#_[新战争类型]禁用
+			remove_global_flag = z_fw_flg_glbl_tech_overwhelm			#_[科技压制]关闭
+			remove_global_flag = z_fw_core_weap_tech_linkage			#_[战争-武器科技联动]
+			remove_global_flag = z_fw_core_battle_dd_common				#_[战争-dd-基础调整]
+			every_country = {
+				limit = { z_fw_core_dd_is_ignored_type = no }
+				z_fw_eft_core_battle_dd_pb_debug = yes
+			}
+			remove_global_flag = z_fw_core_battle_dd_ptw				#_[战争-dd-清除弱者]
+			remove_global_flag = z_fw_core_battle_dd_fleet_power		#_[战争-dd-战力加成]
+			z_fw_eft_core_battle_dd_fp_off = yes
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_无尽frameworks off状态
+	#_debugtooltips状态鼠标移上去会跳出,那个参数有问题?
+	option = {
+		name = z_modmenu.13.c2
+		custom_tooltip = z_modmenu.13.c2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOT = { has_global_flag = z_framework_activated }
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_framework_activated
+			#_框架功能
+			remove_global_flag = z_fw_flg_glbl_wg_cb_disabled			#_[新战争类型]启用
+			set_global_flag = z_fw_core_weap_tech_linkage				#_[战争-武器科技联动]
+			set_global_flag = z_fw_core_battle_dd_common				#_[战争-dd-基础调整]
+			every_country = {
+				limit = { z_fw_core_dd_is_ignored_type = no }
+				z_fw_eft_core_battle_dd_pb_debug = yes
+				z_fw_eft_core_battle_dd_pb_bouns = yes	#_CTD?
+			}
+			remove_global_flag = z_fw_core_battle_dd_ptw				#_[战争-dd-清除弱者]
+			set_global_flag = z_fw_core_battle_dd_fleet_power			#_[战争-dd-战力加成]
+			z_fw_eft_core_battle_dd_fp_on = yes			#_CTD?
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	
+	#_[战争类型]off状态
+	option = {
+		name = z_modmenu.133.war1
+		custom_tooltip = z_modmenu.133.war.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_fw_flg_glbl_wg_cb_disabled }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_flg_glbl_wg_cb_disabled
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_[战争类型]on状态
+	option = {
+		name = z_modmenu.133.war2
+		custom_tooltip = z_modmenu.133.war.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_fw_flg_glbl_wg_cb_disabled } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_flg_glbl_wg_cb_disabled
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	
+	#_科技压制 on
+	option = {
+		name = z_fw_evts_tech_overwhelm_on
+		custom_tooltip = z_fw_tips_tech_overwhelm_on
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			has_global_flag = z_fw_flg_glbl_tech_overwhelm
+		}
+		allow = {
+			custom_tooltip = {#_禁用框架
+				hidden_trigger = { has_global_flag = z_framework_activated }
+				fail_text = z_mm_tips_framework_off
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_flg_glbl_tech_overwhelm
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_科技压制 off
+	option = {
+		name = z_fw_evts_tech_overwhelm_off
+		custom_tooltip = z_fw_tips_tech_overwhelm_off
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOT = { has_global_flag = z_fw_flg_glbl_tech_overwhelm }
+		}
+		allow = {
+			custom_tooltip = {#_禁用框架
+				hidden_trigger = { has_global_flag = z_framework_activated }
+				fail_text = z_mm_tips_framework_off
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_flg_glbl_tech_overwhelm
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	
+	#_功能---开局科技
+	option = {
+		name = z_modmenu.13.c3
+		custom_tooltip = z_modmenu.13.c3.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		allow = {
+			custom_tooltip = {#_禁用框架
+				hidden_trigger = { has_global_flag = z_framework_activated }
+				fail_text = z_mm_tips_framework_off
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_start_tech = yes
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_功能---获得星辰大海的渴望
+	option = {
+		name = z_modmenu.13.b1
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_relic = z_fw_r_monument } }
+		allow = { 
+			custom_tooltip = {#_禁用框架
+				hidden_trigger = { has_global_flag = z_framework_activated }
+				fail_text = z_mm_tips_framework_off
+			}
+		}
+		hidden_effect = {
+			add_relic = z_fw_r_monument
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_功能---彩蛋遗珍	<仅限于没有触发时>
+	option = {
+		name = z_modmenu.13.c4
+		custom_tooltip = z_modmenu.13.c4.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_mm_new_relic_not_set }
+		allow = { 
+			custom_tooltip = {#_禁用框架
+				hidden_trigger = { has_global_flag = z_framework_activated }
+				fail_text = z_mm_tips_framework_off
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			country_event = { id = z_fw1_misc.10 }	#_spawn遗珍
+			country_event = { id = z_modmenu.13 }
+			country_event = { id = z_fw1_misc.101 }	#_spawn通知
+		}
+	}
+	
+	#_彩蛋遗珍koh	允许自动传播
+	option = {
+		name = z_fw_evt_r_koh_plague_enabled
+		custom_tooltip = z_fw_tips_r_koh_plague_infection
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			exists = event_target:z_fw_tgt_global_event
+			NOT = { event_target:z_fw_tgt_global_event = { has_country_flag = z_fw_flg_r_koh_plague_disable } }
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = { set_country_flag = z_fw_flg_r_koh_plague_disable }
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_彩蛋遗珍koh	禁止自动传播
+	option = {
+		name = z_fw_evt_r_koh_plague_disabled
+		custom_tooltip = z_fw_tips_r_koh_plague_infection
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = { has_country_flag = z_fw_flg_r_koh_plague_disable }
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = { remove_country_flag = z_fw_flg_r_koh_plague_disable }
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_koh	额外资源回收通知重启
+	option = {
+		name = z_fw_evt_r_koh_a_sr_popup_disabled
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_country_flag = z_fw_flg_cntr_hok_sr_tips_no }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_country_flag = z_fw_flg_cntr_hok_sr_tips_no
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	
+	#_资源储量buff_设置
+	option = {#_无
+		name = z_fw_misc.tips_res_stock1
+		custom_tooltip = z_fw_misc.tips_res_stock
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOR = {
+				has_modifier = z_fw_mod_cntr_res_stock_50000
+				has_modifier = z_fw_mod_cntr_res_stock_500000
+				has_modifier = z_fw_mod_cntr_res_stock_5000000
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_50000 days = -1 }
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	option = {#_50000
+		name = z_fw_misc.tips_res_stock2
+		custom_tooltip = z_fw_misc.tips_res_stock
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_modifier = z_fw_mod_cntr_res_stock_50000 }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_modifier = z_fw_mod_cntr_res_stock_50000
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_500000 days = -1 }
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	option = {#_500000
+		name = z_fw_misc.tips_res_stock3
+		custom_tooltip = z_fw_misc.tips_res_stock
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_modifier = z_fw_mod_cntr_res_stock_500000 }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_modifier = z_fw_mod_cntr_res_stock_500000
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_5000000 days = -1 }
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	option = {#_5000000
+		name = z_fw_misc.tips_res_stock4
+		custom_tooltip = z_fw_misc.tips_res_stock
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_modifier = z_fw_mod_cntr_res_stock_5000000 }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_modifier = z_fw_mod_cntr_res_stock_5000000
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	
+	
+	#_[星球人口限制]	<blue>
+	#_星球承载上限-开启状态---外部联动<产业革命/pf2>
+	option = {
+		name = z_modmenu.132.h1
+		custom_tooltip = z_modmenu.132.h1.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { NOT = { has_global_flag = z_fw_plnt_capacity_disabled } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_plnt_capacity_disabled
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_星球承载上限-关闭状态---外部联动<产业革命/pf2>
+	option = {
+		name = z_modmenu.132.h2
+		custom_tooltip = z_modmenu.132.h2.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_global_flag = z_fw_plnt_capacity_disabled }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+			custom_tooltip = {#_不与产业革命共存
+				hidden_trigger = { NOT = { has_global_flag = z_pr_installed } }
+				fail_text = z_mm_tips_pr_installed
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_plnt_capacity_disabled
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	
+	#_星球承载上限提升-无
+	option = {
+		name = z_modmenu.132.j1
+		custom_tooltip = z_modmenu.132.j1.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			NOR = {
+				has_global_flag = z_fw_planet_cap_1
+				has_global_flag = z_fw_planet_cap_2
+				has_global_flag = z_fw_planet_cap_3
+				has_global_flag = z_fw_planet_cap_4
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_planet_cap_1
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_星球承载上限提升+4
+	option = {
+		name = z_modmenu.132.j2
+		custom_tooltip = z_modmenu.132.j2.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			has_global_flag = z_fw_planet_cap_1
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_1
+			set_global_flag = z_fw_planet_cap_2
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_星球承载上限提升+8
+	option = {
+		name = z_modmenu.132.j3
+		custom_tooltip = z_modmenu.132.j3.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			has_global_flag = z_fw_planet_cap_2
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_2
+			set_global_flag = z_fw_planet_cap_3
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_星球承载上限提升+12
+	option = {
+		name = z_modmenu.132.j4
+		custom_tooltip = z_modmenu.132.j4.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			has_global_flag = z_fw_planet_cap_3
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_3
+			set_global_flag = z_fw_planet_cap_4
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_星球承载上限提升+16
+	option = {
+		name = z_modmenu.132.j5
+		custom_tooltip = z_modmenu.132.j5.tooltip
+        custom_gui = "z_mm_button_evt_sub_blue"
+		trigger = {
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+			has_global_flag = z_fw_planet_cap_4
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_planet_cap_4
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	
+	
+	#_允许其他玩家作弊
+	#_flg_glbl		[z_mm_flg_glbl_cheat_allowed]
+	option = {
+		name = z_modmenu.13.cheat_allowed
+        custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			is_multiplayer = yes
+			has_global_flag = z_mm_flg_glbl_cheat_allowed
+		}
+		hidden_effect = {
+			remove_global_flag = z_mm_flg_glbl_cheat_allowed
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_禁止其他玩家作弊
+	option = {
+		name = z_modmenu.13.cheat_disallowed
+        custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			is_multiplayer = yes
+			NOT = { has_global_flag = z_mm_flg_glbl_cheat_allowed }
+		}
+		hidden_effect = {
+			set_global_flag = z_mm_flg_glbl_cheat_allowed
+			country_event = { id = z_modmenu.13 }
+			every_country = {#_允许作弊通知
+				limit = { NOT = { is_same_value = root } }
+				country_event = { id = z_modmenu.1310 }
+			}
+		}
+	}
+
+	##_cheat选项	<orange>
+	#_cheat on
+	option = {
+		name = z_modmenu.13.a1
+        custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			OR = {
+				has_relic = z_fw_r_celestial_orrey
+				has_relic = z_fw_r_cheat_quantum_beacon
+				has_relic = z_fw_r_cheat_hyper_blade
+			}
+		}
+		hidden_effect = {
+			#_cht 璀璨星图
+			remove_relic = z_fw_r_celestial_orrey
+			remove_country_flag = z_fw_r_celestial_orrey_activited
+			#_cht 永恒星炬
+			remove_relic = z_fw_r_cheat_quantum_beacon
+			remove_country_flag = z_fw_r_cheat_quantum_beacon_activited
+			#_cht 暗能量位面剑
+			remove_relic = z_fw_r_cheat_hyper_blade
+			if = {
+				limit = { exists = event_target:z_fw_tgt_sys_r_cht_hyper_1 }
+				event_target:z_fw_tgt_sys_r_cht_hyper_1 = {
+					remove_star_flag = z_fw_flg_sys_r_cht_hyper_1
+					every_system_megastructure = {
+						limit = { is_megastructure_type = z_fw_mega_r_cht_hyper_tgt_marker_1 }
+						remove_megastructure = this
+					}
+				}
+				clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_1
+				clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_2
+			}
+			remove_global_flag = z_fw_flg_glo_r_cht_hyper_on
+			every_country = { remove_country_flag = z_fw_flg_cntr_r_cht_hyper_on }
+			#_cht 物质湮灭剑
+			remove_relic = z_fw_r_cheat_mega_sword
+			remove_country_flag = z_fw_flg_cntr_r_cht_mega_on
+			if = {
+				limit = { has_country_flag = z_fw_flg_cntr_r_cht_mega_ongoing }
+				z_fw_eft_cntr_r_cht_mega_init = yes
+			}
+			#_cht 怒
+			remove_relic = z_fw_r_cheat_fury
+			remove_modifier = z_fw_mod_r_cht_fury_1
+			remove_modifier = z_fw_mod_r_cht_fury_2
+			remove_modifier = z_fw_mod_r_cht_fury_3
+			remove_modifier = z_fw_mod_r_cht_fury_4
+			remove_modifier = z_fw_mod_r_cht_fury_5
+			if = {#_清除<Fury_Cntr存在时>禁止自适应战力加成的flg
+				limit = {
+					exists = event_target:z_fw_tgt_global_event
+					z_fw_trgr_r_cht_fury_cntr_exists = no	#_不存在其他Fury_Cntr
+				}
+				event_target:z_fw_tgt_global_event = { remove_country_flag = z_fw_flg_r_cht_fury_on }
+			}
+			#_返回
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_cheat off
+	option = {
+		name = z_modmenu.13.a2
+        custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			NOR = {
+				has_relic = z_fw_r_celestial_orrey
+				has_relic = z_fw_r_cheat_quantum_beacon
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = z_mm_tips_cheat_disallowed_mp
+				hidden_trigger = {
+					OR = {
+						is_multiplayer = no
+						AND = {
+							is_multiplayer = yes
+							has_global_flag = z_mm_flg_glbl_cheat_allowed
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			#_记录为last cheater
+			set_country_flag = z_fw_last_cheater
+			#_添加cht_relic
+			add_relic = z_fw_r_celestial_orrey
+			add_relic = z_fw_r_cheat_quantum_beacon
+			add_relic = z_fw_r_cheat_hyper_blade
+			add_relic = z_fw_r_cheat_mega_sword
+			add_relic = z_fw_r_cheat_fury
+			#_清除其他last cheater
+			every_country = {
+				limit = { NOT = { is_country = root } }
+				remove_country_flag = z_fw_last_cheater
+			}
+			#_全局广播
+			every_country = {
+				limit = {
+					is_ai = no
+					NOT = { is_country = root }
+				}
+				country_event = { id = z_modmenu.131 }
+			}
+			country_event = { id = z_modmenu.13 }
+			country_event = { id = z_modmenu.130 }	#_通知自己
+		}
+	}
+	
+	#_臭鼬治愈
+	option = {
+		name = z_modmenu.cheat_hok_cure
+        custom_gui = "z_mm_button_evt_option_orange"
+		custom_tooltip = z_modmenu.cheat_hok_cure.tooltip
+		trigger = { any_country = { any_owned_species = { z_fw_r_koh_is_species_karyl = yes } } }
+		allow = {
+			custom_tooltip = {#_开启作弊
+				hidden_trigger = { has_relic = z_fw_r_celestial_orrey }
+				fail_text = z_mm_tips_cheating_disabled
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_relic = z_fw_r_cheat_cure_hok } }
+				add_relic = z_fw_r_cheat_cure_hok
+			}
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	
+	#_星辰大海的渴望点数+3
+	option = {
+		name = z_modmenu.13.b2
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_relic = z_fw_r_celestial_orrey }
+		hidden_effect = {
+			change_variable = { which = z_fw_desire_point_var value = 3 }
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+	#_星辰大海的渴望点数+30
+	option = {
+		name = z_modmenu.13.b3
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_relic = z_fw_r_celestial_orrey }
+		hidden_effect = {
+			change_variable = { which = z_fw_desire_point_var value = 30 }
+			country_event = { id = z_modmenu.13 }
+		}
+	}
+}
+
+#_relic_co inform自己
+country_event = {
+	id = z_modmenu.130
+	title = z_modmenu.130.name
+	desc = z_modmenu.130.desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_evt_tips_gui"
+	picture_event_data = {
+		portrait = shroud1
+		room = z_mm_evt_tips_room
+	}
+	
+	option = {
+        custom_gui = "z_mm_button_evt_sub_red"
+		name = z_fw_evt_good
+	}
+}
+
+#_非host
+country_event = {
+	id = z_modmenu.1301
+	title = z_modmenu.not_host
+	desc = z_modmenu.not_host.desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	diplomatic = yes
+	custom_gui = "z_mm_evt_tips_gui"
+	picture_event_data = {
+		room = z_mm_not_host_room
+	}
+	
+	option = {
+        custom_gui = "z_mm_button_evt_sub_red"
+		name = z_modmenu_pity
+	}
+}
+
+#_作弊者 inform
+country_event = {
+	id = z_modmenu.131
+	title = z_modmenu.131.name
+	desc = z_modmenu.131.desc
+	picture = GFX_evt_z_modmenu_red_cheat
+	is_triggered_only = yes
+	immediate = {
+		random_country = {
+			limit = { has_country_flag = z_fw_last_cheater }
+			save_event_target_as = z_fw_tgt_country_last_cheater
+		}
+	}
+	option = {
+		name = z_fw_evt_terrible
+	}
+}
+#_允许作弊 inform
+country_event = {
+	id = z_modmenu.1310
+	title = z_modmenu.cheat_allowed
+	desc = z_modmenu.cheat_allowed.desc
+	picture = GFX_evt_z_modmenu_red_cheat
+	is_triggered_only = yes
+	option = {
+		name = z_fw_evt_terrible
+	}
+}
+
+
+
+#_modmenu-framework-星球人口上限设置
+country_event = {
+	id = z_modmenu.132
+	title = z_modmenu.132.name
+	desc = z_modmenu.132.desc
+	picture = GFX_evt_z_mm_capacity
+	is_triggered_only = yes
+	immediate = {}
+}
+
+
+
+
+
+
+
+
+###_[战争设置]	###############################################################
+country_event = {
+	id = z_modmenu.133
+	title = z_modmenu.133.name
+	picture = GFX_evt_z_mm_battle
+	is_triggered_only = yes
+	desc = {
+		trigger = {
+			success_text = {
+				text = z_modmenu.133.desc
+				has_global_flag = z_framework_installed
+			}
+			success_text = {#_无动态难度加成
+				text = z_fw_desc_battle_dd_fp_lv_0
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value = 0 }
+				}
+			}
+			success_text = {#_有动态难度加成
+				text = z_fw_desc_battle_dd_fp_lv
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value > 0 }
+				}
+			}
+		}
+	}
+	
+	diplomatic = yes
+	custom_gui = "z_mm_core_battle"
+	
+	#_关闭
+	option = {
+		name = z_modmenu_return
+		custom_tooltip = z_modmenu_return_desc
+        custom_gui = "z_mm_button_evt_option_red"
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes
+		}
+	}
+	
+	#_[战争类型]off状态
+	option = {
+		name = z_modmenu.133.war1
+		custom_tooltip = z_modmenu.133.war.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_fw_flg_glbl_wg_cb_disabled }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_flg_glbl_wg_cb_disabled
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争类型]on状态
+	option = {
+		name = z_modmenu.133.war2
+		custom_tooltip = z_modmenu.133.war.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_fw_flg_glbl_wg_cb_disabled } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_flg_glbl_wg_cb_disabled
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	#_[battle_maneuver]off状态--[沉浸战场]提取
+	option = {
+		name = z_modmenu.133.a1
+		custom_tooltip = z_modmenu.133.a1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_isb_flg_glbl_battle_maneuver_on } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_isb_flg_glbl_battle_maneuver_on
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[battle_maneuver]on状态---[沉浸战场]提取
+	option = {
+		name = z_modmenu.133.a2
+		custom_tooltip = z_modmenu.133.a2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_isb_flg_glbl_battle_maneuver_on }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_isb_flg_glbl_battle_maneuver_on
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	#_[weap_tech_linkage]off状态
+	option = {
+		name = z_modmenu.133.b1
+		custom_tooltip = z_modmenu.133.b1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_fw_core_weap_tech_linkage } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_weap_tech_linkage
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[weap_tech_linkage]on状态
+	option = {
+		name = z_modmenu.133.b2
+		custom_tooltip = z_modmenu.133.b2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_fw_core_weap_tech_linkage }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_weap_tech_linkage
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	#_[fp_overflow_debug]off状态
+	option = {
+		name = z_modmenu.133.c1
+		custom_tooltip = z_modmenu.133.c1.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_fw_core_battle_fp_debug_on } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_battle_fp_debug_on
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[fp_overflow_debug]on状态
+	option = {
+		name = z_modmenu.133.c2
+		custom_tooltip = z_modmenu.133.c2.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_fw_core_battle_fp_debug_on }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_fp_debug_on
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	
+	
+	
+	#_[战争-dd-基础调整]off状态
+	option = {
+		name = z_modmenu.133.e1
+		custom_tooltip = z_modmenu.133.e1.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { NOT = { has_global_flag = z_fw_core_battle_dd_common } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_battle_dd_common
+			every_country = {
+				limit = { z_fw_core_dd_is_ignored_type = no }
+				z_fw_eft_core_battle_dd_pb_debug = yes
+				z_fw_eft_core_battle_dd_pb_bouns = yes
+			}
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-基础调整]on状态
+	option = {
+		name = z_modmenu.133.e2
+		custom_tooltip = z_modmenu.133.e2.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_global_flag = z_fw_core_battle_dd_common }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_common
+			every_country = {
+				limit = { z_fw_core_dd_is_ignored_type = no }
+				z_fw_eft_core_battle_dd_pb_debug = yes
+			}
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	#_[战争-dd-清除弱者]off状态
+	option = {
+		name = z_modmenu.133.f1
+		custom_tooltip = z_modmenu.133.f1.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { NOT = { has_global_flag = z_fw_core_battle_dd_ptw } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_battle_dd_ptw
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-清除弱者]on状态
+	option = {
+		name = z_modmenu.133.f2
+		custom_tooltip = z_modmenu.133.f2.tooltip
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = { has_global_flag = z_fw_core_battle_dd_ptw }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_ptw
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	
+	
+	
+	#_[战争-dd-战力加成]off状态	橙
+	option = {
+		name = z_modmenu.133.d1
+		custom_tooltip = z_modmenu.133.d1.tooltip
+        custom_gui = "z_mm_button_evt_option_orange"
+		trigger = { NOT = { has_global_flag = z_fw_core_battle_dd_fleet_power } }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_battle_dd_fleet_power
+			z_fw_eft_core_battle_dd_fp_on = yes
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成]on状态
+	option = {
+		name = z_modmenu.133.d2
+		custom_tooltip = z_modmenu.133.d2.tooltip
+        custom_gui = "z_mm_button_evt_option_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_fleet_power
+			z_fw_eft_core_battle_dd_fp_off = yes
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	#_[战争-dd-战力加成-快速调整]	tgt_glbl=[z_fw_tgt_global_event]
+	option = {#_1
+		name = z_modmenu.133.g1
+		custom_tooltip = z_modmenu.133.g.tooltip
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fleet_power
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = {
+				NOR = {
+					has_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_5
+					has_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_10
+					has_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_50
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = {
+				set_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_5
+			}
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	option = {#_5
+		name = z_modmenu.133.g2
+		custom_tooltip = z_modmenu.133.g.tooltip
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fleet_power
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = {
+				has_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_5
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = {
+				remove_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_5
+				set_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_10
+			}
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	option = {#_10
+		name = z_modmenu.133.g3
+		custom_tooltip = z_modmenu.133.g.tooltip
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fleet_power
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = {
+				has_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_10
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = {
+				remove_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_10
+				set_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_50
+			}
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	option = {#_50
+		name = z_modmenu.133.g4
+		custom_tooltip = z_modmenu.133.g.tooltip
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fleet_power
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = {
+				has_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_50
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = {
+				remove_country_flag = z_fw_cntr_flg_core_battle_dd_fp_rapid_50
+			}
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	
+	#_[战争-dd-战力加成等级]+1
+	option = {
+		name = z_modmenu.133.d3
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			hidden_trigger = {
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value < 2500 }
+				}
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_prmt_core_battle_dd_var_change = { LEVEL = 1 }
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成等级]+10
+	option = {
+		name = z_modmenu.133.d4
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			hidden_trigger = {
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value < 2491 }
+				}
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_prmt_core_battle_dd_var_change = { LEVEL = 10 }
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成等级]+50
+	option = {
+		name = z_modmenu.133.d5
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			hidden_trigger = {
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value < 2451 }
+				}
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_prmt_core_battle_dd_var_change = { LEVEL = 50 }
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成等级]+250
+	option = {
+		name = z_modmenu.133.d5a
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			hidden_trigger = {
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value < 2251 }
+				}
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_prmt_core_battle_dd_var_change = { LEVEL = 250 }
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	#_[战争-dd-战力加成等级]-1
+	option = {
+		name = z_modmenu.133.d6
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			hidden_trigger = {
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value > 0 }
+				}
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_prmt_core_battle_dd_var_change = { LEVEL = -1 }
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成等级]-10
+	option = {
+		name = z_modmenu.133.d7
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			hidden_trigger = {
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value > 9 }
+				}
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_prmt_core_battle_dd_var_change = { LEVEL = -10 }
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成等级]-50
+	option = {
+		name = z_modmenu.133.d8
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			hidden_trigger = {
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value > 49 }
+				}
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_prmt_core_battle_dd_var_change = { LEVEL = -50 }
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成等级]-250
+	option = {
+		name = z_modmenu.133.d8a
+        custom_gui = "z_mm_button_evt_sub_orange"
+		trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+		allow = {
+			hidden_trigger = {
+				event_target:z_fw_tgt_global_event = {
+					check_variable = { which = z_fw_core_battle_dd_var value > 249 }
+				}
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_prmt_core_battle_dd_var_change = { LEVEL = -250 }
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	
+	
+	
+	#_[战争-dd-战力加成-纯手动]	绿
+	option = {
+		name = z_modmenu.133.d9
+		custom_tooltip = z_modmenu.133.d9.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			NOR = {
+				has_global_flag = z_fw_core_battle_dd_fp_adaptive
+				has_global_flag = z_fw_core_battle_dd_fp_periodic
+			}
+		}
+		allow = {
+			custom_tooltip = {#_禁用战力加成
+				hidden_trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+				fail_text = z_fw_tips_core_battle_dd_fp_off
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_battle_dd_fp_adaptive
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成-自适应]
+	option = {
+		name = z_modmenu.133.d10
+		custom_tooltip = z_modmenu.133.d10.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fp_adaptive
+		}
+		allow = {
+			custom_tooltip = {#_禁用战力加成
+				hidden_trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+				fail_text = z_fw_tips_core_battle_dd_fp_off
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_fp_adaptive
+			set_global_flag = z_fw_core_battle_dd_fp_periodic
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成-周期]
+	option = {
+		name = z_modmenu.133.d10a
+		custom_tooltip = z_modmenu.133.d10a.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fp_periodic
+		}
+		allow = {
+			custom_tooltip = {#_禁用战力加成
+				hidden_trigger = { has_global_flag = z_fw_core_battle_dd_fleet_power }
+				fail_text = z_fw_tips_core_battle_dd_fp_off
+			}
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_fp_periodic
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	
+	#_[战争-dd-战力加成-自适应难度]疯狂
+	option = {
+		name = z_modmenu.133.d11
+		custom_tooltip = z_modmenu.133.d11.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fleet_power
+			NOR = {
+				has_global_flag = z_fw_core_battle_dd_fp_adpt_hard
+				has_global_flag = z_fw_core_battle_dd_fp_adpt_standard
+				has_global_flag = z_fw_core_battle_dd_fp_adpt_easy
+			}
+			OR = {
+				has_global_flag = z_fw_core_battle_dd_fp_adaptive
+				has_global_flag = z_fw_core_battle_dd_fp_periodic
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = { remove_country_flag = z_fw_core_battle_dd_fp_cd }	#_刷新CD
+			set_global_flag = z_fw_core_battle_dd_fp_adpt_hard
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成-自适应难度]困难
+	option = {
+		name = z_modmenu.133.d12
+		custom_tooltip = z_modmenu.133.d12.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fleet_power
+			has_global_flag = z_fw_core_battle_dd_fp_adpt_hard
+			OR = {
+				has_global_flag = z_fw_core_battle_dd_fp_adaptive
+				has_global_flag = z_fw_core_battle_dd_fp_periodic
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = { remove_country_flag = z_fw_core_battle_dd_fp_cd }	#_刷新CD
+			remove_global_flag = z_fw_core_battle_dd_fp_adpt_hard
+			set_global_flag = z_fw_core_battle_dd_fp_adpt_standard
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成-自适应难度]标准
+	option = {
+		name = z_modmenu.133.d13
+		custom_tooltip = z_modmenu.133.d13.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fleet_power
+			has_global_flag = z_fw_core_battle_dd_fp_adpt_standard
+			OR = {
+				has_global_flag = z_fw_core_battle_dd_fp_adaptive
+				has_global_flag = z_fw_core_battle_dd_fp_periodic
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = { remove_country_flag = z_fw_core_battle_dd_fp_cd }	#_刷新CD
+			remove_global_flag = z_fw_core_battle_dd_fp_adpt_standard
+			set_global_flag = z_fw_core_battle_dd_fp_adpt_easy
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+	#_[战争-dd-战力加成-自适应难度]简单
+	option = {
+		name = z_modmenu.133.d14
+		custom_tooltip = z_modmenu.133.d14.tooltip
+        custom_gui = "z_mm_button_evt_sub_green"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fleet_power
+			has_global_flag = z_fw_core_battle_dd_fp_adpt_easy
+			OR = {
+				has_global_flag = z_fw_core_battle_dd_fp_adaptive
+				has_global_flag = z_fw_core_battle_dd_fp_periodic
+			}
+		}
+		allow = {
+			custom_tooltip = {#_非主机
+				hidden_trigger = { z_fw_trgr_cntr_host_mp = yes }
+				fail_text = z_mm_tips_mp_not_host
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = { remove_country_flag = z_fw_core_battle_dd_fp_cd }	#_刷新CD
+			remove_global_flag = z_fw_core_battle_dd_fp_adpt_easy
+			country_event = { id = z_modmenu.133 }
+		}
+	}
+}
+
+
+
+
+
+
+
+
+#_modmenu-framework_author
+country_event = {
+	id = z_modmenu.141
+	title = z_modmenu.141.name
+	desc = z_modmenu.141.desc
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_misc_author_gui"
+	immediate = {}
+}
+#_modmenu-framework_guide
+country_event = {
+	id = z_modmenu.142
+	title = z_mm_evt_guide_name
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_misc_guide_gui"
+	
+	option = {
+		name = z_modmenu_return
+		hidden_effect = { z_mm_unlock_setting_panel = yes }
+	}
+}

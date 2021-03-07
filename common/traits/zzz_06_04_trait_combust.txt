@@ -1,0 +1,14 @@
+trait_combust = {
+    icon = "gfx/interface/icons/traits/trait_combust.dds"
+    cost = -1
+    opposites = {
+        "trait_non_combust"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        pop_environment_tolerance = -0.20
+        army_damage_mult = 0.05
+    }
+}

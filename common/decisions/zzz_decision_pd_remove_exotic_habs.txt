@@ -1,0 +1,77 @@
+decision_noexoitchabs = {
+	owned_planets_only = yes
+	sound = event_alien_nature_02
+	icon = decision_noexoitchabs
+
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		OR = {
+		is_planet_class = pc_habitat
+		is_planet_class = pc_ringworld_habitable
+		is_planet_class = pc_relic
+		is_planet_class = pc_city
+		is_planet_class = pc_ecocity
+		is_planet_class = pc_pd_barren_hab
+		is_planet_class = pc_pd_barren_cold_hab
+		is_planet_class = pc_pd_frozen_hab
+		is_planet_class = pc_pd_molten_hab
+		is_planet_class = pc_pd_hothouse_hab
+		is_planet_class = pc_pd_toxic_hab
+		is_planet_class = pc_pd_gas_giant_hab
+		is_planet_class = pc_pd_asteroid_hab
+		}
+		OR = {
+		has_modifier = pdammoniaatmosphere
+		has_modifier = pdsulfuratmosphere
+		has_modifier = pdmethaneatmosphere
+		has_modifier = pdashatmosphere
+		}
+		owner = { 
+			NOT = { 
+				OR = {
+					has_trait = trait_pc_ash_preference
+					has_trait = trait_pc_methane_preference
+					has_trait = trait_pc_ammonia_preference
+					has_trait = trait_pc_sulfur_preference
+				}
+			}
+		}
+	}
+
+	allow = { 
+	}
+
+	effect = {
+		custom_tooltip = changehabatsomphereeffect
+		hidden_effect = { 
+			remove_modifier = pdammoniaatmosphere
+			remove_modifier = pdmethaneatmosphere
+			remove_modifier = pdashatmosphere
+			remove_modifier = pdsulfuratmosphere
+			IF = {
+				limit = { is_planet_class = pc_ringworld_habitable }
+				set_planet_entity = { picture = pc_ringworld_habitable }
+			}
+			IF = {
+				limit = { is_planet_class = pc_city }
+				set_planet_entity = { picture = pc_city }
+			}
+			IF = {
+				limit = { is_planet_class = pc_ecocity }
+				set_planet_entity = { picture = pc_ecocity }
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

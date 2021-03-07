@@ -1,0 +1,24 @@
+civic_franchising = {
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            OR = {
+                value = auth_corporate
+                value = auth_cooperative
+                value = auth_private
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    description = "civic_tooltip_franchising_effects"
+    modifier = {
+        country_subject_power_penalty_mult = -0.33
+        empire_size_branch_office_mult = -0.33
+    }
+}

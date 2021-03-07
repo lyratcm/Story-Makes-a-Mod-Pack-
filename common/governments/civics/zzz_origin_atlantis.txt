@@ -1,0 +1,20 @@
+BOO_origin_atlantis = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_default.dds"
+    picture = GFX_evt_underwater_ruins
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+    }
+    random_weight = {
+        base = 15
+    }
+    description = "BOO_origin_atlantis_tooltip_effects"
+    advanced_start = yes
+}

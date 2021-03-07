@@ -1,0 +1,132 @@
+namespace = story
+
+country_event = {
+	id = story.201
+	title = story.201.name
+	desc = {
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		text = story.201.desc.gesta
+	}
+	# Phile
+	desc = {
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		text = story.201.desc.phile
+	}
+	# Phobe
+	desc = {
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		text = story.201.desc.phobe
+	}
+	# Pacif
+	desc = {
+		trigger = {
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		text = story.201.desc.pacif
+	}
+	# Spiri
+	desc = {
+		trigger = {
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		text = story.201.desc.spiri
+	}
+	# Milit
+	desc = {
+		trigger = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+		text = story.201.desc.milit
+	}
+	# Generic
+	desc = {
+		trigger = {
+			NOR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		text = story.201.desc
+	}
+	picture = GFX_evt_fleet_evil
+	show_sound = event_crystal_ship
+	location = fromfromfrom
+	trackable = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = crystal_hostile_approach
+		# changed on pacification project		
+	}
+
+	option = { # Hunting Buff
+		name = story.201.aa
+		trigger = {
+			OR = {
+				is_xenophobe = yes
+				is_militarist = yes
+				is_homicidal = yes
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+		add_modifier = {
+			modifier = crystal_hunting_buff
+			days = -1
+		}
+		custom_tooltip = story.201.aa.crystalhunt
+	}
+
+	option = { # Special Project
+		name = story.201.bb
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 9
+				OR = {
+					is_xenophile = yes
+					is_pacifist = yes
+					has_civic = civic_machine_servitor
+				}
+			}
+		}
+		capital_scope = {
+			enable_special_project = {
+				name = "CRYSTALS_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+}

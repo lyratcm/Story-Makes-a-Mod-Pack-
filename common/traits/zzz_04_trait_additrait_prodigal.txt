@@ -1,0 +1,17 @@
+trait_additrait_prodigal = {
+    cost = -2
+    initial = no
+    modification = no
+    randomized = no
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    modifier = {
+        planet_jobs_energy_produces_mult = -0.15
+    }
+    opposites = {
+        "trait_thrifty"
+        "trait_ingenious"
+    }
+}

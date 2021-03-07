@@ -1,0 +1,114 @@
+on_game_start = {
+	events = {
+		#newfrontiers.2
+		newfrontiers.3
+		newfrontiers.5
+		newfrontiers.6
+		newfrontiers.7
+		newfrontiers.9
+		newfrontiers.11
+	}
+}
+
+# No scope, like on_game_start
+on_yearly_pulse = {
+	events = {
+		#newfrontiers_ancrel.1
+		newfrontiers_periodic_event.100 	 # Periodic Events
+	}
+}
+
+# No scope, like on_game_start
+on_five_year_pulse = {
+	events = {
+		newfrontiers_disasters.1	 # Disaster Events
+	}
+}
+
+# A ship has surveyed a planet.
+# Scope = Ship
+# From = Planet
+on_survey = {
+	events = {
+		newfrontiers_action.100
+		newfrontiers_decision_event.3
+	}
+}
+
+on_colony_1_year_old = {
+	events = {
+		newfrontiers_colony_event.1     # Ancient Machine
+		newfrontiers_colony_event.100	 # Gatekeeper Colony Event
+	}
+
+	random_events = {
+		300 = 0
+	}
+}
+
+# This = owner of ship 1 (destroyed)
+# From = owner of ship 2 (combatant)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+on_ship_destroyed_victim = {
+	events = {
+		newfrontiers_decision_event.35
+	}
+}
+
+# From = system
+# FromFrom = country (new owner)
+# This = country (previous owner)
+on_system_lost = {
+	events = {
+		newfrontiers_ancrel.7
+	}
+}
+
+# From = system
+# FromFrom = country (previous owner)
+# This = country (new owner)
+on_system_gained = {
+	events = {
+		newfrontiers_ancrel.8
+	}
+}
+
+# Planet has been terraformed
+# This = Planet
+# From = Terraformer
+on_terraforming_complete = {
+    events = {
+		newfrontiers_action.2
+    }
+}
+
+#A building construction has been completed.
+# This = Planet
+on_building_complete = {
+	events = {
+		newfrontiers_disasters.42
+		newfrontiers_disasters.44
+	}
+}
+
+# A building construction has demolished.
+# This = Planet
+on_building_demolished = {
+	events = {
+		newfrontiers_disasters.43
+		newfrontiers_disasters.45
+	}
+}
+
+# Called during empire initialization when starting a new game if has_secondary_species game rule is true.
+# Called before empire_init_create_capital_pops.
+# scope: planet
+# from: founder species
+# fromfrom: secondary species (if exists)
+empire_init_capital_planet = {
+	events = {
+		newfrontiers.14 # starting buildings, districts & pops
+		# at this point the species might have changed (because we added traits), so FROMFROM might not be the secondary species anymore
+	}
+}

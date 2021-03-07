@@ -1,0 +1,15 @@
+spriteTypes = {
+	#_∂ÓÕ‚”≈ªØGFX
+	spriteType = {
+		name = "GFX_evt_z_performance_misc"
+		texturefile = "gfx/event_pictures/z_performance_misc.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_z_pf2_small"
+		texturefile = "gfx/interface/z_modmenu/z_pf2_evt_img_small.dds"
+		alwaystransparent = yes
+	}
+}

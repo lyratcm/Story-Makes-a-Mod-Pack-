@@ -1,0 +1,99 @@
+building_more_civics_monolith_5 = {
+	base_buildtime = 840
+	can_build = no
+	can_demolish = no
+	
+	category = research
+	
+	allow = {
+		has_upgraded_capital = yes
+		owner = { has_valid_civic = civic_alien_influence }
+	}
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 24
+			job_head_researcher_add = 2
+			planet_researchers_produces_mult = 0.25
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 24
+			job_head_researcher_add = 2
+			planet_researchers_produces_mult = 0.25
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {	
+			job_calculator_add = 24
+			job_head_researcher_add = 2
+			planet_researchers_produces_mult = 0.25
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			exotic_gases = 300
+		}
+		upkeep = {
+			energy = 12
+			exotic_gases = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_regular_empire = yes } 
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_hive_empire = yes } 
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_machine_empire = yes } 
+		}
+		text = job_calculator_effect_desc
+	}	
+	
+	ai_weight = {
+		weight = 0
+	}
+}

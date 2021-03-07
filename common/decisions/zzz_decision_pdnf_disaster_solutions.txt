@@ -1,0 +1,140 @@
+decision_disaster_solutions = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_disaster_solutions
+	
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+	
+	potential = {
+		NOT = { 
+			AND = {
+				owner = { has_country_flag = orbit_stabilization_solution }
+				OR = {
+					has_modifier = moon_collision
+					has_modifier = moon_fall
+					has_modifier = orbit_reduction
+					has_modifier = orbit_increase
+				}
+			}
+		}
+		NOT = { 
+			AND = {
+				owner = { has_country_flag = bowels_control_solution }
+				has_modifier = volcanic_activity
+			}
+		}
+		NOT = { 
+			AND = {
+				owner = { has_country_flag = slow_evolution_solution }
+				solar_system = { has_star_flag = star_disaster }
+			}
+		}
+		owner = {
+			OR = {
+				num_owned_planets = 1
+				NAND = {
+					num_owned_planets < 1
+					any_owned_planet = { solar_system = { NOT = { has_star_flag = star_disaster } } }
+				}
+			}
+		}
+		OR = {
+			has_modifier = apocalypse
+			has_modifier = moon_collision
+			has_modifier = moon_fall
+			has_modifier = orbit_reduction
+			has_modifier = orbit_increase
+			has_modifier = volcanic_activity
+			solar_system = { has_star_flag = star_disaster }
+			has_modifier = secret_disaster
+		}
+	}
+	
+	effect = {
+		custom_tooltip = decision_shelter_project_cold_effect_desc
+		hidden_effect = {
+			if = {
+				limit = { 
+					OR = {
+						has_planet_flag = moon_collision
+						has_planet_flag = moon_falling
+						has_planet_flag = orbit_reduction
+						has_planet_flag = orbit_increase
+					}
+				}
+				random_list = {
+					#No Solutions
+					95 = {
+						owner = { country_event = { id = newfrontiers_decision_event.21 days = 1 } }
+					}
+					#Orbit Stabilization
+					5 = {
+						modifier = {
+							factor = 2
+							years_passed > 200
+						}
+						modifier = {
+							factor = 3
+							owner = { has_modifier = monolith_whisper }
+						}
+						owner = { country_event = { id = newfrontiers_decision_event.22 days = 1 } }
+					}
+				}
+			}
+			
+			if = {
+				limit = { has_planet_flag = awakened_planet }
+				random_list = {
+					#No Solutions
+					95 = {
+						owner = { country_event = { id = newfrontiers_decision_event.21 days = 1 } }
+					}
+					#Planet Bowels Control
+					5 = {
+						modifier = {
+							factor = 2
+							years_passed > 200
+						}
+						modifier = {
+							factor = 3
+							owner = { has_modifier = monolith_whisper }
+						}
+						owner = { country_event = { id = newfrontiers_decision_event.23 days = 1 } }
+					}
+				}
+			}
+			
+			if = {
+				limit = { solar_system = { has_star_flag = star_disaster } }
+				random_list = {
+					#No Solutions
+					95 = {
+						owner = { country_event = { id = newfrontiers_decision_event.21 days = 1 } }
+					}
+					#Slow down stellar evolution
+					5 = {
+						modifier = {
+							factor = 2
+							years_passed > 200
+						}
+						modifier = {
+							factor = 3
+							owner = { has_modifier = monolith_whisper }
+						}
+						owner = { country_event = { id = newfrontiers_decision_event.24 days = 1 } }
+					}
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

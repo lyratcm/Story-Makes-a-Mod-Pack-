@@ -1,0 +1,23 @@
+trait_resourceful = {
+    cost = 4
+    potential_crossbreeding_chance = 1
+    initial = yes
+    modification = no
+    randomized = yes
+    opposites = {
+        "trait_hedonists"
+        "trait_wasteful"
+        "trait_conservational"
+        "trait_antimetabolic"
+        "trait_oligotroph"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        BIOMORPH
+        LITHOID
+        PLANTOID
+    }
+    modifier = {
+        planet_pops_upkeep_mult = -0.20
+    }
+}

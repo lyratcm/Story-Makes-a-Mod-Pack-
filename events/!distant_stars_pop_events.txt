@@ -1,0 +1,195 @@
+namespace = distar
+
+ship_event = {
+	id = distar.171
+	title = "distar.171.name"
+	desc = {
+		trigger = {
+			owner = { NOT = { has_origin = origin_symbiote } }
+		}
+		text = "distar.171.desc"
+	}
+	desc = {
+		trigger = {
+			owner = { has_origin = origin_symbiote }
+		}
+		text = "distar.171.desc.symbiote"
+	}
+	picture = GFX_evt_society_research
+	show_sound = event_alien_nature
+	location = from
+
+	is_triggered_only = yes
+
+	immediate = {
+		leader = {
+			save_event_target_as = brainslug_scientist
+		}
+	}
+
+	option = {
+		name = "distar.171.a"
+		trigger = {
+			owner = { NOT = { has_origin = origin_symbiote } }
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+
+	option = {
+		name = "distar.171.b"
+		trigger = {
+			owner = { NOT = { has_origin = origin_symbiote } }
+		}
+		hidden_effect = {
+			ship_event = { id = distar.172 days = 30 }
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+	
+	option = {
+		name = "distar.171.a.alt"
+		trigger = {
+			owner = { has_origin = origin_symbiote }
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+	
+	option = {
+		name = "distar.171.c"
+		trigger = {
+			owner = { has_origin = origin_symbiote }
+		}
+		add_modifier = { modifier = brain_slug_union days = -1 }
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+# Enigmatic Uplift Complete - Fail
+country_event = {
+	id = distar.5074
+	title = "distar.5074.name"
+	desc = "distar.5074.desc"
+	picture = GFX_evt_enigmatic_cache
+	show_sound = event_ship_bridge
+	location = root.capital_scope
+	trackable = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		every_owned_pop = {
+			limit = {
+				is_same_species = owner_species
+				is_robot_pop = no
+				is_sapient = yes
+				NOT = { 
+					has_trait = trait_machine_unit 
+				}
+			}
+			if = {
+				limit = {
+					NOR = { 
+						has_trait = trait_enigmatic_intelligence_poor 
+						has_modifier = enigmatic_slumber 
+					}
+				}
+				modify_species = {
+					species = this
+					remove_trait = trait_uninventive
+					add_trait = trait_enigmatic_intelligence_poor
+				}
+				root = { set_country_flag = applied_enigmatic_intelligence_poor }
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_modifier = enigmatic_madness 
+					}
+				}
+				add_modifier = {
+					modifier = enigmatic_madness
+					days = 3600
+				}
+				root = { set_country_flag = applied_enigmatic_madness }
+			}
+
+			if = {
+				limit = {
+					has_modifier = enigmatic_slumber
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_enigmatic_intelligence_failed
+				}
+				remove_modifier = enigmatic_slumber
+				root = { set_country_flag = applied_enigmatic_intelligence_failed }
+			}
+
+			if = {
+				limit = {
+					has_modifier = enigmatic_fatigue
+				}
+				remove_modifier = enigmatic_fatigue
+			}
+		}
+
+		#every_owned_pop = {
+		#	limit = {
+		#		has_trait = trait_machine_unit
+		#	}
+		#	if = {
+		#		limit = {
+		#			NOT = { has_trait = trait_natural_physicists }
+		#		}
+		#		modify_species = {
+		#			species = this
+		#			add_trait = trait_natural_physicists
+		#		}
+		#	}
+		#}
+	}
+
+	option = {
+		name = distar.5074.a
+		if = {
+			limit = { has_country_flag = applied_enigmatic_intelligence_poor }
+			custom_tooltip = applied_enigmatic_intelligence_poor.tooltip
+		}
+		if = {
+			limit = { has_country_flag = applied_enigmatic_madness }
+			custom_tooltip = applied_enigmatic_madness.tooltip
+		}
+		if = {
+			limit = { has_country_flag = applied_enigmatic_intelligence_failed }
+			custom_tooltip = trait_enigmatic_intelligence_failed.tooltip
+		}
+	}
+}

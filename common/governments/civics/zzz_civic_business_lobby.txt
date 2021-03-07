@@ -1,0 +1,13 @@
+lrsk_gov_var_civic_business_lobby = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_energy_produces_mult = 0.05
+        country_minerals_produces_mult = 0.05
+        country_trade_fee = -0.05
+    }
+}

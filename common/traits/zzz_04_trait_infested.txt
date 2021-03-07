@@ -1,0 +1,16 @@
+trait_infested = {
+    cost = 0
+    initial = no
+    randomized = no
+    modification = no
+    sorting_priority = 10
+    allowed_archetypes = {
+        BIOLOGICAL
+    }
+    modifier = {
+        pop_amenities_usage_mult = 0.1
+        planet_pops_organics_food_upkeep_mult = 0.1
+        planet_pops_organics_minerals_upkeep_mult = 0.1
+        species_empire_size_mult = -0.2
+    }
+}

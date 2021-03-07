@@ -1,0 +1,17 @@
+trait_general_genetic_savant = {
+    cost = 0
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_leader_genetic_savant.dds"
+    modifier = {
+        army_damage_mult = 0.05
+        army_disengage_chance_mult = 0.15
+    }
+    leader_class = {
+        general
+    }
+    leader_trait = {
+        general
+    }
+    initial = no
+    randomized = no
+}

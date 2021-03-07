@@ -1,0 +1,20 @@
+trait_clever = {
+    potential_crossbreeding_chance = 1.0
+    cost = 1
+    icon = "gfx/interface/icons/traits/leader_traits/leader_trait_maniacal.dds"
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    modifier = {
+        species_leader_exp_gain = 0.10
+        planet_jobs_specialist_produces_mult = 0.025
+        planet_jobs_complex_drone_produces_mult = 0.025
+    }
+    opposites = {
+        "trait_syncretic_proles"
+    }
+    slave_cost = {
+        energy = 25
+    }
+}

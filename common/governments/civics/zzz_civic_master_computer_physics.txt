@@ -1,0 +1,25 @@
+civic_master_computer_physics = {
+    potential = {
+        authority = {
+            value = auth_master_computer
+        }
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_master_computer_society
+                value = civic_master_computer_engineering
+            }
+        }
+    }
+    modifier = {
+        planet_researchers_physics_research_produces_add = 2
+    }
+    random_weight = {
+        base = 5
+        modifier = {
+            factor = 2
+            has_ethic = ethic_fanatic_materialist
+        }
+    }
+}

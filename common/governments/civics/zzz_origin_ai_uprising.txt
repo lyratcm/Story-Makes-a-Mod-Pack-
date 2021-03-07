@@ -1,0 +1,31 @@
+origin_ai_uprising = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origin_ai_uprising.dds"
+    picture = GFX_origin_ai_uprising
+    potential = {
+        always = no
+    }
+    playable = {
+        host_has_dlc = "Synthetic Dawn Story Pack"
+    }
+    possible = {
+        authority = {
+            value = auth_machine_intelligence
+        }
+        civics = {
+            NOR = {
+                value = civic_machine_terminator
+                value = civic_machine_servitor
+                value = civic_machine_assimilator
+            }
+        }
+    }
+    description = "origin_tooltip_ai_uprising_effects"
+    has_secondary_species = {
+        title = origin_ai_uprising_secondary_species
+    }
+    advanced_start = yes
+    random_weight = {
+        base = 10
+    }
+}

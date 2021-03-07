@@ -1,0 +1,62 @@
+planet_researchers = {
+    icon = "job_researcher"
+    parent = planet_jobs
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_head_researcher
+        modifier_types = {
+            add
+        }
+        trigger = {
+            has_job = head_researcher
+        }
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_researcher
+        modifier_types = {
+            add
+        }
+        trigger = {
+            OR = {
+                has_job = researcher
+                has_job = brain_drone
+                has_job = calculator
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_dimensional_portal_researcher
+        modifier_types = {
+            add
+        }
+        trigger = {
+            OR = {
+                has_job = dimensional_portal_researcher
+                has_job = dimensional_portal_researcher_gestalt
+            }
+        }
+    }
+    triggered_produces_modifier = {
+        key = rsrchcap_dimensional_portal_researcher_closed
+        modifier_types = {
+            add
+        }
+        trigger = {
+            OR = {
+                has_job = dimensional_portal_researcher
+                has_job = dimensional_portal_researcher_gestalt
+            }
+            exists = planet
+            planet = {
+                has_planet_flag = dportal_closed
+            }
+        }
+    }
+}

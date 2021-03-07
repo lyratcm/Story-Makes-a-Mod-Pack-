@@ -1,0 +1,72 @@
+state_language = {
+    potential = {
+        NOT = {
+            has_ethic = ethic_gestalt_consciousness
+        }
+    }
+    option = {
+        name = "no_state_language"
+        modifier = {
+            country_admin_cap_mult = -0.15
+            pop_citizen_happiness = 0.05
+        }
+        policy_flags = {
+            flag_no_state_language
+        }
+        AI_weight = {
+            weight = 1
+            modifier = {
+                factor = 10
+                OR = {
+                    has_ethic = ethic_egalitarian
+                    has_ethic = ethic_fanatic_egalitarian
+                }
+            }
+        }
+    }
+    option = {
+        name = "state_language_taught"
+        modifier = {
+        }
+        policy_flags = {
+            flag_state_language
+        }
+        AI_weight = {
+            weight = 5
+        }
+    }
+    option = {
+        name = "state_language_enforced"
+        modifier = {
+            country_admin_cap_mult = 0.15
+            pop_citizen_happiness = -0.05
+        }
+        policy_flags = {
+            flag_state_language
+        }
+        AI_weight = {
+            weight = 1
+            modifier = {
+                factor = 10
+                OR = {
+                    has_ethic = ethic_authoritarian
+                    has_ethic = ethic_fanatic_authoritarian
+                }
+            }
+        }
+    }
+	option = {
+		name = "newspeak"
+		valid = {
+			has_valid_civic = civic_police_state
+		}
+		modifier = {
+			country_admin_cap_mult = 0.10
+			pop_government_ethic_attraction = 0.25
+			pop_citizen_happiness = -0.05
+		}
+		AI_weight = {
+            weight = 20
+        }
+	}
+}

@@ -1,0 +1,98 @@
+# Overwrite of vanilla trigger for CB sake
+has_total_war_cb = {
+	OR = {
+		#attacker checks
+		AND = {
+			OR = {
+				is_country_type = default
+				is_country_type = awakened_fallen_empire
+				is_country_type = fallen_empire
+			}
+			OR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_assimilator	
+				AND = {
+					has_valid_civic = civic_machine_terminator
+					from = {
+						NOR = {
+							has_country_flag = synthetic_empire
+							has_authority = auth_machine_intelligence
+						}
+					}				
+				}
+				AND = {
+					OR = {
+                        has_valid_civic = civic_fanatic_purifiers
+                        has_valid_civic = civic_master_computer_purifier
+                    }
+					NOT = { is_same_species = from }
+				}
+			}			
+		}
+		#end threat checks
+		AND = {
+			is_country_type = default
+			NOR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_assimilator
+                has_valid_civic = civic_machine_terminator
+                has_valid_civic = civic_master_computer_purifier				
+			}
+			from = {
+				OR = {
+					is_country_type = awakened_fallen_empire
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+                    has_valid_civic = civic_machine_terminator	
+                    has_valid_civic = civic_master_computer_purifier						
+				}	
+			}		
+		}
+	}
+}
+
+has_master_computer_capital = {
+	OR = {
+		has_building = building_master_computer_colony_shelter
+		has_building = building_master_computer_capital_1
+		has_building = building_master_computer_capital_2
+		has_building = building_master_computer_capital_3
+		has_building = building_master_computer_hab_capital_1
+		has_building = building_master_computer_hab_capital_2
+		has_building = building_master_computer_resort_capital_1
+		has_building = building_master_computer_resort_capital_2
+		has_building = building_master_computer_slave_capital_1
+		has_building = building_master_computer_slave_capital_2
+	}
+}
+
+is_master_computer = {
+	has_authority = auth_master_computer
+}
+
+master_computer_has_datavore_mod = {
+	OR = {
+		has_modifier = master_computer_datavore_inferior
+		has_modifier = master_computer_datavore_equivalent
+		has_modifier = master_computer_datavore_superior
+		has_modifier = master_computer_datavore_overwhelming
+	}
+}
+
+master_computer_is_in_datavore_war = {
+	OR = {
+		any_war = {
+			using_war_goal = {
+				type = wg_master_computer_steal_information
+				owner = root
+			}
+			any_war_participant = {
+				is_same_value = FROM
+			}
+		}
+	}
+}

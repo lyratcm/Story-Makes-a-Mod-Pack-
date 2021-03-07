@@ -1,0 +1,72 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_origin_militarist"
+		texturefile = "gfx/event_pictures/origins/origin_militarist.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_syncretic_evolution_hive"
+		texturefile = "gfx/event_pictures/origins/origin_syncretic_evolution_hive.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_syncretic_livestock"
+		texturefile = "gfx/event_pictures/origins/origin_syncretic_livestock.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_terraformer"
+		texturefile = "gfx/event_pictures/origins/origin_terraformer.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_delicate_ecosystem"
+		texturefile = "gfx/event_pictures/origins/origin_delicate_ecosystem.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_exploited_homeworld"
+		texturefile = "gfx/event_pictures/origins/origin_exploited_homeworld.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_subterranean_evolution"
+		texturefile = "gfx/event_pictures/origins/origin_subterranean_evolution.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_syncretic_livestock_lithoid"
+		texturefile = "gfx/event_pictures/origins/origin_syncretic_livestock_lithoid.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_research_coop"
+		texturefile = "gfx/event_pictures/origins/origin_research_coop.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_private_colony"
+		texturefile = "gfx/event_pictures/origins/origin_private_colony.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_symbiote"
+		texturefile = "gfx/event_pictures/origins/origin_symbiote.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_iron_despot"
+		texturefile = "gfx/event_pictures/origins/origin_iron_despot.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_holy_mountain"
+		texturefile = "gfx/event_pictures/origins/origin_holy_mountain.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_origin_little_sister"
+		texturefile = "gfx/event_pictures/origins/origin_little_sister.dds"
+		alwaystransparent = yes
+	}
+}

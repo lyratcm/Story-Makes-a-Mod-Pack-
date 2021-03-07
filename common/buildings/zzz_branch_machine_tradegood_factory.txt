@@ -1,0 +1,44 @@
+building_me_tradegood_factory = {
+    base_buildtime = 360
+    branch_office_building = yes
+    potential = {
+        has_branch_office = yes
+        owner = {
+            OR = {
+                has_authority = auth_machine_intelligence
+                has_origin = origin_extant_creators
+            }
+        }
+        branch_office_owner = {
+            is_criminal_syndicate = no
+        }
+    }
+    planet_modifier = {
+        job_artisan_drone_add = 2
+        planet_branch_offices_energy_produces_add = 15
+    }
+    resources = {
+        category = planet_branch_office_buildings
+        cost = {
+            minerals = 500
+        }
+        produces = {
+            consumer_goods = 10
+        }
+        upkeep = {
+            energy = 2
+        }
+    }
+    ai_weight = {
+        weight = 1
+        modifier = {
+            factor = 5
+            branch_office_owner = {
+                has_monthly_income = {
+                    resource = consumer_goods
+                    value < 5
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,917 @@
+namespace = z_modmenu
+
+#_[wip测试]
+
+###_原生	##############################
+	#_fleet_flag	[z_mm_test_fleet]						测试舰队flag
+
+
+
+
+###_[wip测试]	[id=11]	##############################
+
+###_list
+#_debug		test_debug
+#_			科技与资源/产业革命/destroy_constructor/凯露物种
+#_			test_relic/test_mega
+
+
+country_event = {
+	id = z_modmenu.11
+	title = z_modmenu.11.name
+	desc = z_modmenu.11.desc
+	picture = GFX_evt_z_modmenu
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_fw_setting_window"
+	
+	#_关闭
+	option = {
+		name = z_modmenu_return
+		custom_tooltip = z_modmenu_return_desc
+        custom_gui = "z_mm_button_evt_option_red"
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes
+		}
+	}
+	#_禁止作弊
+	option = {
+		name = z_modmenu_test_disabled
+        custom_gui = "z_mm_button_evt_option_blue"
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes
+			remove_country_flag = z_mm_flg_cntr_test
+		}
+	}
+	
+	#_[test_debug]
+	option = {
+		name = mem_star_resize
+		custom_gui = "z_mm_button_evt_option_red"
+		trigger = { z_mm_trgr_expanded_sub_ui = no }
+		hidden_effect = {
+			z_fw_eft_all_star_size_debug = yes
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	option = {
+		name = large_star_creat_dyson
+		custom_gui = "z_mm_button_evt_option_red"
+		trigger = { z_mm_trgr_expanded_sub_ui = no }
+		hidden_effect = {
+			every_planet = {
+				limit = {
+					is_star = yes
+					planet_size > 30
+				}
+				solar_system = {
+					spawn_megastructure = {
+						name = "test_mega"
+						type = "dyson_sphere_5"
+						orbit_angle = 0
+						orbit_distance = 0
+						owner = root
+						graphical_culture = root
+						location = prev
+					}
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	
+	#_拓展次级UI框架
+	option = {
+		name = expanded_sub_ui_open
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			z_mm_trgr_expanded_sub_ui = no
+		}
+		hidden_effect = {
+			z_mm_eft_expanded_sub_ui_open = yes
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	option = {
+		name = expanded_sub_ui_exit
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			z_mm_trgr_expanded_sub_ui = yes
+		}
+		hidden_effect = {
+			z_mm_eft_expanded_sub_ui_exit = yes
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_[科技与资源]
+	option = {
+		name = tech_and_resources
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			random_country = {
+				limit = {
+					OR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+				root = { copy_techs_from = { target = prev } }
+			}
+			add_resource = {
+				food = 5000
+				minerals = 500000
+				energy = 500000
+				alloys = 500000
+				consumer_goods = 50000
+				volatile_motes = 50000
+				exotic_gases = 50000
+				rare_crystals = 50000
+				sr_living_metal = 50000
+				sr_zro = 50000
+				sr_dark_matter = 50000
+				nanites = 50000
+				minor_artifacts = 5000
+			}
+			if = {
+				limit = { NOT = { has_modifier = z_fw_mod_test_0 } }
+				add_modifier = { modifier = z_fw_mod_test_0 days = -1 }
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_[产业革命]
+	option = {
+		name = z_pr
+        custom_gui = "z_mm_button_evt_option_blue"
+		hidden_effect = {
+			every_country = { set_country_flag = z_pr_flg_cntr_1 }
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_[destroy_constructor]
+	option = {
+		name = destroy_automatic_constructor
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			OR = {
+				exists = event_target:z_fw_tgt_flt_autostation_1
+				exists = event_target:z_fw_tgt_flt_autostation_2
+				exists = event_target:z_fw_tgt_flt_autostation_3
+				exists = event_target:z_fw_tgt_flt_autostation_4
+				exists = event_target:z_fw_tgt_flt_autostation_5
+				exists = event_target:z_fw_tgt_flt_autostation_6
+				exists = event_target:z_fw_tgt_flt_autostation_7
+				exists = event_target:z_fw_tgt_flt_autostation_8
+				exists = event_target:z_fw_tgt_flt_autostation_9
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_flt_autostation_1 = { destroy_fleet = this }
+			event_target:z_fw_tgt_flt_autostation_2 = { destroy_fleet = this }
+			event_target:z_fw_tgt_flt_autostation_3 = { destroy_fleet = this }
+			event_target:z_fw_tgt_flt_autostation_4 = { destroy_fleet = this }
+			event_target:z_fw_tgt_flt_autostation_5 = { destroy_fleet = this }
+			event_target:z_fw_tgt_flt_autostation_6 = { destroy_fleet = this }
+			event_target:z_fw_tgt_flt_autostation_7 = { destroy_fleet = this }
+			event_target:z_fw_tgt_flt_autostation_8 = { destroy_fleet = this }
+			event_target:z_fw_tgt_flt_autostation_9 = { destroy_fleet = this }
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	
+	#_unemploy
+	option = {
+		name = z_modmenu_test_1
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			any_owned_pop = { is_unemployed = yes }
+		}
+		hidden_effect = {
+			every_owned_pop = { limit = { is_unemployed = yes } unemploy_pop = yes }
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_去掉分类
+	option = {
+		name = z_modmenu_test_2
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			any_owned_pop = { is_unemployed = yes }
+		}
+		hidden_effect = {
+			every_owned_pop = { limit = { is_unemployed = yes } clear_pop_category = yes }
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_改物种
+	option = {
+		name = z_modmenu_test_3
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			any_owned_pop = { is_unemployed = yes }
+		}
+		hidden_effect = {
+			every_owned_pop = {
+				limit = { is_unemployed = yes }
+				modify_species = {
+					species = this
+					add_trait = trait_cybernetic
+					add_traits_at_start_of_list = yes
+					remove_trait = trait_cybernetic
+					change_scoped_species = yes # change only this pop's species
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_强制检测阵营
+	option = {
+		name = z_modmenu_test_4
+        custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			any_owned_pop = { is_unemployed = yes }
+		}
+		hidden_effect = {
+			every_owned_pop = { limit = { is_unemployed = yes } force_faction_evaluation = yes }
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_创建test物体
+	option = {
+		name = z_modmenu_test_6
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			capital_scope = {
+				create_ambient_object = {
+					#type = z_fw_fx_ambt_tgt_r_cht_mega_slash
+					type = z_fw_fx_ambt_tgt_r_hok_execute_1
+					location = this
+					duration = 30
+					use_3d_location = yes
+					entity_offset = { min = 0 max = 0 }
+					entity_offset_height = { min = 0 max = 0 }
+				#	base_angle_towards = star
+				#	entity_face_object = star
+					entity_scale_to_size = yes
+					scale = 1.2
+				}
+				last_created_ambient_object = {
+					set_ambient_object_flag = z_fw_fx_ambient_ongoing
+				}
+				create_ambient_object = {
+					#type = z_fw_fx_ambt_tgt_r_cht_mega_slash
+					type = z_fw_fx_ambt_tgt_r_hok_execute_2
+					location = this
+					duration = 30
+					use_3d_location = yes
+					entity_offset = { min = 0 max = 0 }
+					entity_offset_height = { min = 0 max = 0 }
+					entity_scale_to_size = yes
+					scale = 0.8
+				}
+				last_created_ambient_object = {
+					set_ambient_object_flag = z_fw_fx_ambient_ongoing
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_改变物种
+	option = {
+		name = z_modmenu_test_species_create_kayrl
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			create_species = {
+			#	is_mod = yes	#_将作为主物种的子物种存在
+				immortal = yes
+				name = z_karyl_1
+				namelist = this
+				plural = this
+				class = "Z_KARYL"
+				portrait = z_fw_spcs_karyl
+				traits = {
+					trait = z_fw_trait_r_hok_kayrl_negative
+				}
+				extra_trait_points = 0
+				allow_negative_traits = no
+			}
+			while = {
+				count = 3
+				capital_scope = {
+					create_pop = {
+						species = last_created_species
+						ethos = random
+					}
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_[凯露物种]id合并
+	option = {
+		name = z_modmenu_test_species_kayrl_merge
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			if = {
+				limit = { any_owned_species = { is_species_class = Z_KARYL } }
+				if = {
+					limit = { owner_species = { is_species_class = Z_KARYL } }
+					owner_species = { save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_1 }
+				}
+				else = {
+					random_owned_species = {
+						limit = { is_species_class = Z_KARYL }
+						save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_1
+					}
+				}
+				every_owned_pop = {
+					limit = {
+						is_species_class = Z_KARYL
+						NOT = { is_same_species = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_1 }
+					}
+					modify_species = {
+						species = this
+						base = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_1
+						change_scoped_species = yes
+					}
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_凯露物种特性改良
+	option = {
+		name = z_modmenu_test_species_kayrl_trait_fix
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			random_owned_pop = {
+				limit = { has_trait = z_fw_trait_r_hok_kayrl_negative }
+				modify_species = {
+					species = this
+					remove_trait = z_fw_trait_r_hok_kayrl_negative
+					add_trait = z_fw_trait_r_hok_kayrl_positive
+					change_scoped_species = yes
+					portrait = species
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_凯露物种设为主物种
+	option = {
+		name = z_modmenu_test_species_kayrl_dominantion
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			if = {
+				limit = { NOT = { owner_species = { is_species_class = Z_KARYL } } }
+				random_owned_species = {
+					limit = { is_species_class = Z_KARYL }
+					save_event_target_as = z_fw_r_hok_tgt_spcs_debug_karyl_1
+				}
+				root.species = {
+					set_species_identity = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_1
+				}
+				change_dominant_species = {
+					species = event_target:z_fw_r_hok_tgt_spcs_debug_karyl_1
+				#	change_all = yes	#_会让所有国家物种全部变成此物种
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_改变物种-一个裂化臭鼬
+	option = {
+		name = z_modmenu_test_species_modify_karyl_neg
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			capital_scope = {
+				random_pop = {
+					limit = { NOT = { has_trait = z_fw_trait_r_hok_kayrl_negative } }
+					root = {
+						random_owned_species = {
+							limit = {
+								NOT = { is_exact_same_species = prevprev }
+								is_same_species = prevprev
+								has_trait = z_fw_trait_r_hok_kayrl_negative
+							}
+							save_event_target_as = z_fw_tgt_species_kayrl
+						}
+					}
+					#_转换
+					if = {
+						limit = { exists = event_target:z_fw_tgt_species_kayrl }
+						change_species = event_target:z_fw_tgt_species_kayrl
+					}
+					#_新建
+					else = {
+						modify_species = {
+							species = this
+							remove_trait = z_fw_trait_r_hok_kayrl_positive
+							add_trait = z_fw_trait_r_hok_kayrl_negative
+							change_scoped_species = yes
+							effect = { z_fw_eft_spcs_r_hok_infection_portrait = yes }
+						}
+					}
+				}
+			}
+		}
+	}
+	#_karyl sp 头像检测
+	option = {
+		name = z_modmenu_test_species_karyl_portrait
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			every_owned_species = {
+				limit = { z_fw_r_koh_is_species_karyl = yes }
+				z_fw_eft_spcs_r_hok_infection_portrait = yes	#_头像debug
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_karyl sp 特性检测
+	option = {
+		name = z_modmenu_test_species_karyl_sp_traits
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			every_owned_species = {
+				limit = { z_fw_r_koh_is_species_karyl = yes }
+				z_fw_eft_spcs_r_hok_infection_trait = yes	#_特性debug
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_[test_relic]
+	#_获取relic臭鼬头
+	option = {
+		name = z_modmenu_test_7
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			add_relic = z_fw_r_head_of_karyl
+			add_resource = {
+				influence = 1000
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_r_lctr
+	option = {
+		name = z_modmenu_test_relic_lctr
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			add_relic = z_lctr_r_adv_sensor
+			add_resource = {
+				influence = 1000
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_test_mega
+	option = {
+		name = spawn_mega_structure_in_capital
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			capital_scope.solar_system = {
+				while = {#_12
+					count = 3
+					random_system_planet = {
+						limit = { NOT = { has_planet_flag = z_mm_flg_plnt_test_mega_counted } }
+						set_timed_planet_flag = { flag = z_mm_flg_plnt_test_mega_counted days = 1 }
+						solar_system = {
+							spawn_megastructure = {
+								name = "test_1"
+								type = "think_tank_4"
+								orbit_angle = 0
+								orbit_distance = 45
+								owner = root
+								graphical_culture = root
+								location = prev
+							}
+							spawn_megastructure = {
+								name = "test_2"
+								type = "dyson_sphere_5"
+								orbit_angle = 90
+								orbit_distance = 45
+								owner = root
+								graphical_culture = root
+								location = prev
+							}
+							spawn_megastructure = {
+								name = "test_3"
+								type = "gateway_restored"
+								orbit_angle = 180
+								orbit_distance = 45
+								owner = root
+								graphical_culture = root
+								location = prev
+							}
+							spawn_megastructure = {
+								name = "test_4"
+								type = "mega_shipyard_restored"
+								orbit_angle = 270
+								orbit_distance = 45
+								owner = root
+								graphical_culture = root
+								location = prev
+							}
+						}
+					}
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_mega_test	轨道栖息地-首都
+	option = {
+		name = spawn_habitats_structure_in_capital
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			capital_scope.solar_system = {
+				random_system_planet = {
+					save_event_target_as = z_mm_test_tgt_plnt_habitat
+				}
+				spawn_planet = {
+					class = "pc_habitat"
+					location = event_target:z_mm_test_tgt_plnt_habitat
+					orbit_location = yes
+					orbit_angle_offset = 45
+					orbit_distance_offset = 9
+					size = 4
+					has_ring = no
+
+					init_effect = {
+						set_name = "HABITAT_PLANET_NAME"
+						set_planet_entity = {
+							entity = "habitat_phase_01_entity"
+							graphical_culture = root
+						}
+						surveyed = {
+							set_surveyed = yes
+							surveyor = root
+						}
+						set_all_comms_surveyed = yes
+						clear_blockers = yes
+
+						set_planet_flag = megastructure
+						set_planet_flag = habitat
+					}
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_星球test	建筑modifier
+	option = {
+		name = add_structure_produces_modifier_in_capital
+        custom_gui = "z_mm_button_evt_option_blue"
+		hidden_effect = {
+			capital_scope = {
+				add_modifier = { modifier = z_fw_mod_test_1 days = -1 }
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_获得10级科学家
+	option = {
+		name = z_modmenu_test_8
+        custom_gui = "z_mm_button_evt_option_green"
+		hidden_effect = {
+			create_leader = {
+				name = random
+				species = root.owner_species
+				class = scientist
+				skill = 10
+				immortal = yes
+				traits = {
+					trait = z_fw_trait_leader_test_ancrel
+				}
+				
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_测试用肉盾工程船
+	option = {
+		name = z_modmenu_test_9
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			###_创建靶机工程船
+			#_暂时NPC<每艘船重新建立npc,防止被攻击变成敌对以后新的自动工程船也处于敌对状态>
+			create_country = {
+				name = "NAME_z_fw_npc_1"
+				type = z_fw_npc_temp_neutral
+				flag = {
+					icon = {
+						category = "z_fw"
+						file = "infinite_stellaris_0.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "00_solid.dds"
+					}
+					colors={
+						"black"
+						"black"
+						"null"
+						"null"
+					}
+				}
+				effect = {
+					#_添加基础舰船设计
+					create_ship_design = { design = "NAME_z_fw_autostation_ship" }
+					add_ship_design = last_created_design
+					every_country = {
+						limit = { is_ai = no }
+						establish_communications_no_message = prev
+						prev = { set_faction_hostility = { target = prev set_friendly = yes } }
+					}
+				}
+			}
+			create_fleet = {
+				name = "NAME_z_mm_test_fleet"
+				settings = {
+					spawn_debris = no
+				}
+				effect = {
+					set_owner = last_created_country				#_[temp_npc]
+					set_location = {
+						target = root.capital_scope.solar_system.starbase
+						distance = 7
+						angle = random
+					}
+					create_ship = {
+						name = random
+						design = "NAME_z_fw_autostation_ship"
+						graphical_culture = root	#_玩家
+					}
+					set_fleet_flag = z_mm_test_fleet			#_靶机舰队
+					add_modifier = { modifier = z_mm_mod_test_ship_1 days = -1 }
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_测试用肉盾工程船-超级
+	option = {
+		name = z_modmenu_test_10
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			###_创建靶机工程船
+			#_暂时NPC<每艘船重新建立npc,防止被攻击变成敌对以后新的自动工程船也处于敌对状态>
+			create_country = {
+				name = "NAME_z_fw_npc_1"
+				type = z_fw_npc_temp_neutral
+				flag = {
+					icon = {
+						category = "z_fw"
+						file = "infinite_stellaris_0.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "00_solid.dds"
+					}
+					colors={
+						"black"
+						"black"
+						"null"
+						"null"
+					}
+				}
+				effect = {
+					#_添加基础舰船设计
+					create_ship_design = { design = "NAME_z_fw_autostation_ship" }
+					add_ship_design = last_created_design
+					every_country = {
+						limit = { is_ai = no }
+						establish_communications_no_message = prev
+						prev = { set_faction_hostility = { target = prev set_friendly = yes } }
+					}
+				}
+			}
+			create_fleet = {
+				name = "NAME_z_mm_test_fleet_2"
+				settings = {
+					spawn_debris = no
+				}
+				effect = {
+					set_owner = last_created_country				#_[temp_npc]
+					set_location = {
+						target = root.capital_scope.solar_system.starbase
+						distance = 7
+						angle = random
+					}
+					create_ship = {
+						name = random
+						design = "NAME_z_fw_autostation_ship"
+						graphical_culture = root	#_玩家
+					}
+					set_fleet_flag = z_mm_test_fleet			#_靶机舰队
+					add_modifier = { modifier = z_mm_mod_test_ship_2 days = -1 }
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_获得扎克蓝舰队
+	option = {
+		name = ancrel.6132.a
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			capital_scope = {
+				create_fleet = {
+					name = "NAME_Zarqlans_Pilgrims"
+					effect = {
+						set_owner = root
+						while = {
+							count = 4
+							create_ship = {
+								name = random
+								design = "NAME_Zealot"
+								graphical_culture = fallen_empire_01
+							}
+						}
+						set_location = {
+							target = prev
+							distance = 45
+							angle = random
+						}
+					}
+				}
+			}
+		}
+	}
+	#_舰队优化
+	option = {
+		name = z_test_flt_opt_create
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			create_fleet = {
+				effect = {
+					set_owner = root
+					while = {
+						count = 100
+						create_ship = {
+							name = random
+							random_existing_design = corvette
+							graphical_culture = root
+						}
+					}
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	option = {
+		name = z_test_flt_opt
+        custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			every_owned_fleet = {
+				limit = { fleet_size > 8 }
+				fleet_event = { id = z_modmenu.1122 }
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	#_cntr_参数传递
+	option = {
+		name = z_test_cntr_var_pass
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			set_variable = { which = z_fw_core_battle_dd_var value = 7777 }
+			z_fw_eft_core_battle_dd_ai_effect = yes
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+	
+	#_测试用event_target实验
+	option = {
+		name = z_modmenu_test_11
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = yes
+					is_country_type = default
+				}
+				#capital_scope = { save_event_target_as = z_mm_test_tgt_plnt_modifier_1 }
+				country_event = { id = z_modmenu.1121 }
+			}
+		}
+	}
+	
+	#_测试用敌对舰队1-AI
+	option = {
+		name = z_modmenu_test_enemy_1
+        custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			event_target:z_fw_tgt_global_enemy_test = {
+				create_leader = {
+					class = admiral
+					species = root.owner_species
+					name = random
+					skill = 10
+					effect = {
+						set_age = 0
+						save_event_target_as = z_mm_enemy_test_admiral
+					}
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = event_target:z_fw_tgt_global_enemy_test
+					assign_leader = event_target:z_mm_enemy_test_admiral
+					while = {
+						count = 25
+						create_ship = {
+							name = random
+							design = "NAME_Euthanizer"
+							graphical_culture = "ai_01"
+						}
+					}
+					while = {
+						count = 50
+						create_ship = {
+							name = random
+							design = "NAME_Sterilizer"
+							graphical_culture = "ai_01"
+						}
+					}
+					set_location = {
+						target = root.capital_scope
+						distance = 45
+						angle = random
+					}
+				}
+			}
+			country_event = { id = z_modmenu.11 }
+		}
+	}
+}
+#_测试
+country_event = {
+	id = z_modmenu.110
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { has_country_flag = z_mm_flg_cntr_test }
+			remove_country_flag = z_mm_flg_cntr_test
+		}
+		else = { set_country_flag = z_mm_flg_cntr_test }
+	}
+}
+#_整合测试
+country_event = {
+	id = z_modmenu.1101
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { set_global_flag = z_framework_overwrite }
+}
+#_靶机被毁-清理flag刷新国家
+country_event = {
+	id = z_modmenu.111
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { FromFrom = { has_fleet_flag = z_mm_test_fleet } }	#_靶机舰队
+	immediate = {
+		destroy_country = yes	#_直接清除[全自动工程船]所有者<刷新关系-清除敌对关系>
+	}
+}
+#_tgt测试_1
+country_event = {
+	id = z_modmenu.1121
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		capital_scope = { save_event_target_as = z_mm_test_tgt_plnt_modifier_1 }
+		random_owned_planet = {
+			limit = { NOT = { is_capital = yes } }
+			save_event_target_as = z_mm_test_tgt_plnt_modifier_1
+		}
+	}
+}
+#_tgt测试_1-1-1
+fleet_event = {
+	id = z_modmenu.1122
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				count_owned_ship = {
+					limit = { is_ship_size = corvette }
+					count > 8
+				}
+			}
+			while = {
+				count = 4
+				random_owned_ship = {
+					limit = { is_ship_size = corvette }
+					delete_ship = this
+				}
+			}
+			fleet_event = { id = z_modmenu.1122 }
+		}
+	}
+}
+

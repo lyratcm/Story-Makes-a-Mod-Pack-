@@ -1,0 +1,174 @@
+building_master_computer_hab_capital_2 = {
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	icon = building_master_computer_capital_1
+
+	category = government
+	
+	potential = {
+        is_planet_class = pc_habitat
+        exists = owner
+        owner = {
+            has_authority = auth_master_computer
+        }
+    }
+    
+    destroy_trigger = {
+        exists = owner
+        owner = {
+            NOT = { has_authority = auth_master_computer }
+        }
+    }
+
+    convert_to = {
+        building_hab_major_capital
+    }
+	
+	allow = {
+		num_pops >= 10
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}		
+		upkeep = {
+			energy = 5
+			alloys = 5
+		}		
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_amenities_add = 5	
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		job_enforcer_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		job_synapse_drone_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		job_coordinator_add = 2
+		job_replicator_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }		
+		}
+		job_roboticist_add = 2
+	}	
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+                is_regular_empire = yes
+                has_authority = auth_master_computer
+				NOT = {
+					has_valid_civic = civic_master_computer_mm_integrator
+				}
+			}					
+		}
+		modifier = {
+			job_master_computer_admin_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+                has_valid_civic = civic_master_computer_mm_integrator
+            }
+		}
+		modifier = {
+            job_master_computer_admin_add = 1
+            job_master_computer_integrator_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_master_computer_virtual_world }
+		}
+		job_master_computer_admin_add = 1
+		job_master_computer_game_master_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_swapped_tradition = tr_domination_master_computer_deus_ex_machina
+			}
+		}
+		job_master_computer_admin_add = 1		
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_mechanical_empire = yes }		
+		}
+		text = job_roboticist_effect_desc
+	}	
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { 
+				is_regular_empire = yes
+				NOT = { has_valid_civic = civic_master_computer_wargamer }
+			}
+		}		
+		text = job_enforcer_effect_desc
+	}
+	
+	triggered_desc = {
+		text = job_master_computer_admin_effect_desc
+	}
+	triggered_desc = {
+		text = job_master_computer_integrator_effect_desc
+		trigger = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_master_computer_mm_integrator
+			}
+		}
+	}	
+	triggered_desc = {
+		text = job_master_computer_game_master_effect_desc
+		trigger = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_master_computer_virtual_world
+			}
+		}
+	}	
+
+	ai_weight = {
+		weight = 100
+	}
+}

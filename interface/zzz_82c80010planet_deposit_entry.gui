@@ -1,0 +1,142 @@
+guiTypes = {
+    @sidebar_inner_w = 430
+    containerWindowType = {
+        name = "planet_deposit_entry"
+        position = {
+            x = 0
+            y = 82
+        }
+        moveable = no
+        size = {
+            width = @sidebar_inner_w
+            height = 58
+        }
+        background = {
+            name = "background"
+            spriteType = "GFX_tiles_frame"
+        }
+        buttonType = {
+            name = "background"
+            quadTextureSprite = "GFX_list_hover"
+            position = {
+                x = -4
+                y = -4
+            }
+            size = {
+                x = 438
+                y = 66
+            }
+            clicksound = "click_outliner"
+        }
+        containerWindowType = {
+            name = "deposit_name"
+            size = {
+                width = 353
+                height = 22
+            }
+            position = {
+                x = 76
+                y = -2
+            }
+            instantTextBoxType = {
+                name = "deposit_name"
+                font = "malgun_goth_24"
+                text = "Deposit Name"
+                position = {
+                    x = 0
+                    y = 3
+                }
+                maxWidth = 353
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+                alwaysTransparent = yes
+            }
+        }
+        instantTextBoxType = {
+            name = "deposit_effects"
+            font = "cg_16b"
+            text = "Deposit effects go here"
+            position = {
+                x = 85
+                y = 25
+            }
+            maxWidth = 340
+            maxHeight = 32
+            fixedSize = yes
+            format = left
+            alwaysTransparent = yes
+        }
+        iconType = {
+            name = "deposit_icon"
+            spriteType = "GFX_deposit_unknown"
+            position = {
+                x = 1
+                y = 1
+            }
+            alwaysTransparent = yes
+            scale = 0.75
+        }
+        iconType = {
+            name = "blocker_frame"
+            spriteType = "GFX_planet_background_frame_blocker"
+            position = {
+                x = 1
+                y = 1
+            }
+            alwaysTransparent = yes
+            scale = 0.75
+        }
+        iconType = {
+            name = "rare_deposit_frame"
+            spriteType = "GFX_planet_background_frame_rare"
+            position = {
+                x = 1
+                y = 1
+            }
+            alwaysTransparent = yes
+            scale = 0.75
+        }
+        instantTextBoxType = {
+            name = "clear_blocker_cost"
+            font = "cg_16b"
+            text = "cost cost"
+            position = {
+                x = 191
+                y = 25
+            }
+            maxWidth = 120
+            maxHeight = 20
+            fixedSize = yes
+            format = center
+            alwaysTransparent = yes
+        }
+        iconType = {
+            name = "clear_blocker_deposit_icon"
+            spriteType = "GFX_deposit_unknown"
+            position = {
+                x = 375
+                y = 11
+            }
+            scale = 0.5
+        }
+        buttonType = {
+            name = "clear_blocker_button"
+            position = {
+                x = 335
+                y = 23
+            }
+            scale = 0.65
+            quadTextureSprite = "GFX_clear_blocker_button"
+            clicksound = ui_demolish_building_district
+        }
+        iconType = {
+            name = "progressbar"
+            spriteType = "GFX_blocker_progressbar"
+            position = {
+                x = 79
+                y = 70
+            }
+        }
+    }
+}

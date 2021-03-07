@@ -1,0 +1,28 @@
+offworld_trophy = {
+    category = offworld_trophy
+    can_set_priority = no
+    clothes_texture_index = 1
+    building_icon = building_organic_sanctuary
+    possible_pre_triggers = {
+        has_owner = yes
+        is_being_purged = no
+        is_being_assimilated = no
+        is_robot_pop = no
+    }
+    possible = {
+        is_sapient = yes
+    }
+    planet_modifier = {
+        planet_jobs_specialist_produces_mult = 0.005
+    }
+    resources = {
+        category = planet_bio_trophies
+        produces = {
+            unity = 3
+            society_research = 1
+        }
+    }
+    weight = {
+        weight = @criminal_job_weight
+    }
+}

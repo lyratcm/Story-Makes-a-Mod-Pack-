@@ -1,0 +1,272 @@
+guiTypes = {
+    @pop_strata = 572
+    containerWindowType = {
+        name = "planet_pop_category_entry"
+        position = {
+            x = 0
+            y = 0
+        }
+        size = {
+            width = @pop_strata
+            height = 97
+        }
+        clipping = yes
+        containerWindowType = {
+            name = "pop_category_info"
+            size = {
+                width = 100%
+                height = 97
+            }
+            background = {
+                name = "pop_background"
+                spriteType = "GFX_dark_area_button"
+                clicksound = "outliner_click_tab"
+            }
+            overlappingElementsBoxType = {
+                name = "job_types_box"
+                position = {
+                    x = 94
+                    y = 34
+                }
+                size = {
+                    x = 473
+                    y = 60
+                }
+                format = left
+            }
+        }
+        containerWindowType = {
+            size = {
+                width = 100%
+                height = 30
+            }
+            name = "pop_category_collapsed_info"
+            background = {
+                name = "collapsed_background"
+                spriteType = "GFX_dark_area_button"
+                clicksound = "outliner_click_tab"
+            }
+            instantTextBoxType = {
+                name = "pop_category_name"
+                font = "malgun_goth_24"
+                text = "Upper Class"
+                position = {
+                    x = 60
+                    y = 2
+                }
+                maxWidth = 200
+                maxHeight = 20
+                fixedSize = yes
+                format = left
+                alwaysTransparent = yes
+            }
+            iconType = {
+                name = "strata_header_arrow"
+                spriteType = "GFX_strata_header_arrow"
+                position = {
+                    x = -30
+                    y = 10
+                }
+                orientation = upper_right
+                alwaysTransparent = yes
+            }
+            containerWindowType = {
+                size = {
+                    width = 100%
+                    height = 30
+                }
+                position = {
+                    x = 0
+                    y = 0
+                }
+                name = "pop_category_collapsed_production_info"
+                background = {
+                    name = "production_background"
+                    spriteType = "GFX_invisible"
+                    clicksound = "outliner_click_tab"
+                }
+                overlappingElementsBoxType = {
+                    name = "upkeep"
+                    position = {
+                        x = -510
+                        y = 6
+                    }
+                    size = {
+                        x = 260
+                        y = 55
+                    }
+                    orientation = upper_right
+                    format = right
+                }
+                iconType = {
+                    name = "leads_to_arrows"
+                    spriteType = "GFX_leads_to_arrows"
+                    position = {
+                        x = -244
+                        y = 9
+                    }
+                    orientation = upper_right
+                    scale = 0.5
+                    alwaysTransparent = yes
+                }
+                overlappingElementsBoxType = {
+                    name = "production"
+                    position = {
+                        x = -225
+                        y = 6
+                    }
+                    size = {
+                        x = 190
+                        y = 20
+                    }
+                    orientation = upper_right
+                    format = left
+                }
+            }
+        }
+        containerWindowType = {
+            size = {
+                width = 48
+                height = 92
+            }
+            position = {
+                x = 2
+                y = 2
+            }
+            name = "pop_strata_icon_total_container"
+            background = {
+                name = "strata_background"
+                spriteType = "GFX_strata_backing_large"
+                clicksound = "outliner_click_tab"
+            }
+            iconType = {
+                name = "category_icon"
+                quadTextureSprite = "GFX_pop_category_unknown"
+                position = {
+                    x = 8
+                    y = 12
+                }
+                scale = 1.1
+            }
+            instantTextBoxType = {
+                name = "category_pops_amount"
+                font = "cg_16b"
+                position = {
+                    x = 0
+                    y = 60
+                }
+                text = "12"
+                maxWidth = 48
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+            }
+        }
+        containerWindowType = {
+            size = {
+                width = 47
+                height = 26
+            }
+            position = {
+                x = 2
+                y = 2
+            }
+            name = "pop_strata_icon_collapsed_container"
+            background = {
+                name = "collapsed_strata_background"
+                spriteType = "GFX_dark_area_button"
+                clicksound = "outliner_click_tab"
+            }
+            iconType = {
+                name = "collapsed_category_icon"
+                quadTextureSprite = "GFX_pop_category_unknown"
+                position = {
+                    x = 2
+                    y = 2
+                }
+                scale = 0.8
+            }
+            instantTextBoxType = {
+                name = "collapsed_category_pops_amount"
+                font = "cg_16b"
+                position = {
+                    x = 10
+                    y = 5
+                }
+                text = "12"
+                maxWidth = 44
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+            }
+        }
+        containerWindowType = {
+            name = "unemployed_container"
+            size = {
+                width = 36
+                height = 60
+            }
+            position = {
+                x = 53
+                y = 34
+            }
+            background = {
+                name = "unemployed_background"
+                spriteType = "GFX_dark_area_button"
+                clicksound = "outliner_click_tab"
+            }
+            iconType = {
+                name = "category_unemployed_icon"
+                spriteType = "GFX_unemployed"
+                position = {
+                    x = 7
+                    y = 8
+                }
+                scale = 0.75
+                tooltip_mode_enabled = yes
+            }
+            instantTextBoxType = {
+                name = "category_unemployed_amount"
+                font = "cg_16b"
+                position = {
+                    x = 0
+                    y = 34
+                }
+                text = "2"
+                maxWidth = 36
+                maxHeight = 20
+                fixedSize = yes
+                format = center
+            }
+        }
+        containerWindowType = {
+            name = "pop_category_jobs"
+            position = {
+                x = 0
+                y = 30
+            }
+            size = {
+                width = 0
+                height = 210
+            }
+            smoothListboxType = {
+                name = "jobs_list"
+                position = {
+                    x = 0
+                    y = 3
+                }
+                size = {
+                    x = 0
+                    y = 210
+                }
+                scrollbarType = "standardlistbox_slider_thick"
+                borderSize = {
+                    x = 0
+                    y = 0
+                }
+                spacing = 2
+                alwaysTransparent = yes
+            }
+        }
+    }
+}

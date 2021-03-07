@@ -1,0 +1,48 @@
+decision_tolbarren_no_colony = {
+	icon = decision_pd_transplant_tree
+	#owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 10000
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		has_owner = no
+		FROM = { owner = { has_origin = origin_pd_tree_of_life has_technology = tech_climate_restoration } }
+		OR = {
+			AND = {
+			OR = {
+			is_planet_class = pc_barren
+			is_planet_class = pc_barren_cold
+			is_planet_class = pc_hothouse
+			}
+			has_modifier = terraforming_candidate
+			}
+			OR = {
+				is_planet_class = pc_acid
+				is_planet_class = pc_irradiated
+				is_planet_class = pc_methane
+				is_planet_class = pc_ash
+				is_planet_class = pc_sulfur
+				is_planet_class = pc_ammonia
+			}
+		}
+		NOT = { has_modifier = pdintoaforest }
+	}
+
+	effect = {
+		add_modifier = { modifier = pdintoaforest days = -1 }
+		hidden_effect = { planet_event = { id = pdengine.50 days = 3600 } }
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+		}
+	}
+}

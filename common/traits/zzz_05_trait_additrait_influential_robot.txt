@@ -1,0 +1,5 @@
+trait_additrait_influential_robot = {
+    cost = 2
+    initial = no
+    randomized = no
+}

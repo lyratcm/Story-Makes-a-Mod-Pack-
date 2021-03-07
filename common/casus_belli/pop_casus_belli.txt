@@ -1,0 +1,37 @@
+cb_infestation = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		has_valid_civic = civic_infestation
+	}
+	is_valid = {
+		has_total_war_cb = yes
+		NOT = { is_overlord_to = FROM }
+		OR = {
+			is_subject = no
+			overlord = { NOT = { is_same_value = from } }
+		}		
+	}
+}
+
+cb_holy_mountain = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		has_origin = origin_holy_mountain
+		has_modifier = lost_holy_mountain
+		FROM = {
+			OR = {
+				any_planet_within_border = { has_deposit = d_holy_mountain }
+				has_country_flag = holy_mountain_destroyer@prev
+			}
+		}
+	}
+	is_valid = {
+		NOT = { is_overlord_to = FROM }
+		OR = {
+			is_subject = no
+			overlord = { NOT = { is_same_value = from } }
+		}		
+	}
+}

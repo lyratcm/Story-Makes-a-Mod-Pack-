@@ -1,0 +1,29 @@
+gov_fury_road_commune = {
+	ruler_title = RT_IMPERATOR
+	possible = {
+		OR = {
+			has_authority = auth_direct_democratic
+			has_authority = auth_democratic
+			has_authority = auth_oligarchic
+		}
+		has_valid_civic = secret_fury_road
+	}
+	weight = {
+		base = 9999999
+	}
+	leader_class = admiral
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 60
+			leader_class = general
+		}
+		modifier = {
+			add = 40
+			leader_class = admiral
+		}
+	}
+}

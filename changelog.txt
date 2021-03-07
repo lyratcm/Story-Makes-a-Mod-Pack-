@@ -1,0 +1,1522 @@
+ALL DONE
+
+Mods {
+	Ecology Mod {
+		Remove
+	}
+	The Galactic University {
+		Remove
+	}
+}
+
+Advisors {
+	Necroid {
+		Where'd she go?
+		Bring her back!
+	}
+}
+
+Ascension Perks {
+	Future Society {
+		Remove
+	}
+}
+
+Buildings {
+	Planetary Shield Generator {
+		Shows up twice?
+	}
+	Saccharide Synthesizers {
+		Farmer jobs +4
+	}
+	Stellar Wharf {
+		Restrict from habitats without gravity-wells
+	}
+}
+
+Casi Belli {
+	Subjugation {
+		Revert to vanilla
+	}
+}
+
+Crisis {
+	Vazuran Menace {
+		Remove
+	}
+}
+
+Defines {
+	Change Vote Cooldown {
+		Set to 30 days
+	}
+	Recess Timer {
+		Set to 360 days
+	}
+	Vote Timer {
+		Set to 360 days
+	}
+}
+
+Deposits {
+	Exploited Homeworld {
+		Remove all previous effects
+		Habitability -25%
+		Food from jobs -25%
+	}
+	Exponential Growth {
+		Replace all growth modifiers to grow 80% slower
+		Disabled pop growth doesn't kick in until -3 housing
+	}
+}
+
+Edicts {
+	Declare Immortal Ruler {
+		Remove
+	}
+}
+
+Events {
+	newfrontiers.4 {
+		Disable
+	}
+	Event from origin 'Exploited Homeworld' that changes the planet class and adds the "Dying Homeworld" trait {
+		Remove
+	}
+	Starting gene-modding tech from civic 'Health Maintenance Organization' {
+		Remove
+	}
+	Make sure Megastructure Origin event only happens to those with the Megastructure origins {
+		Fix
+	}
+}
+
+Factions {
+	All reference to Idealistic Foundation {
+		Remove, as its whole vibe has been changed
+	}
+	All reference to Beacon of Liberty {
+		Remove, as its whole vibe has been changed
+	}
+}
+
+Game Rules {
+	Gestalt Rulers Get Ruler Traits {
+		Remove
+	}
+	Planet Can Have a Branch Office {
+		Megacorps can now settle branch offices on each other
+	}
+}
+
+Icons {
+	Starbases {
+		Redraw icons to line up like NSC2 icons but look like Infinite Stellaris icons
+	}
+}
+
+Jobs {
+	Thinker {
+		Rename to 'Philosopher'
+	}
+}
+
+Missing Localisations {
+	edict_statistics_edict
+	mod_planet_synapse_drones_upkeep_mult
+	mod_pop_category_rulers_produces_mult
+}
+
+Policies {
+	Drone Healthcare {
+		Extensive Healthcare {
+			Increase pop amenities usage to +10%
+		}
+	}
+}
+
+Resources {
+	Psionic Power {
+		Remove
+	}
+	Pure Water {
+		Remove
+	}
+}
+
+Scripted Effects {
+	That one where 'Life-Seeded' turns into a hive world {
+		Remove that shit
+	}
+}
+
+Static Modifiers {
+	Inflection Point Reached {
+		Remove pop growth penalty
+		Emigration push +200
+	}
+}
+
+Traits {
+	Aggressive {
+		Remove
+	}
+	Antimetabolic {
+		Remove
+	}
+	Artificers {
+		Remove
+	}
+	Big {
+		Remove
+	}
+	Born Warriors {
+		Remove
+	}
+	Brittle {
+		Increase pop upkeep to +20%
+	}
+	Builder {
+		Remove
+	}
+	Bulky {
+		Resettlement cost +25%
+	}
+	Carnivorous {
+		Remove
+	}
+	Clumsy {
+		Remove
+	}
+	Compact {
+		Remove
+	}
+	Competitive {
+		Remove
+	}
+	Crystalline {
+		Remove
+	}
+	Cumbersome Hulks {
+		Increase housing usage to +20%
+		Increase resettlement cost to +50%
+		Remove 'Ship Evasion: -8%'
+	}
+	Custom-Made {
+		Cost 2
+	}
+	Deathworlders {
+		Cost -2
+		Remove mineral output
+		Remove food output
+	}
+	Defective Scanners {
+		Cost -2
+	}
+	Delicate {
+		Remove
+	}
+	Delicious {
+		Minerals from livestock +50%
+		Allow lithoid
+	}
+	Dextrous {
+		Remove
+	}
+	Docile {
+		Cost 1
+	}
+	Double-Jointed {
+		Resettlement cost -25%
+	}
+	Duolophage {
+		Remove
+	}
+	Economical {
+		Remove
+	}
+	Elusive (trait_additrait_elusive) {
+		Remove
+	}
+	Elusive (trait_elusive) {
+		Army disengage chance +100%
+	}
+	Energy Leaks {
+		Cost -2
+	}
+	Eusocial {
+		Remove
+	}
+	Eusocial Software {
+		Remove
+	}
+	Extremely Aggressive {
+		Remove
+	}
+	Extremely Dextrous {
+		Remove
+	}
+	Factotums {
+		Remove
+	}
+	Fast Analyzers {
+		Remove
+	}
+	Fast Metabolism {
+		Remove
+	}
+	Free Spirits {
+		Remove
+	}
+	Fungal Colony {
+		Change 'pop growth -20' to 'pop growth -25%'
+	}
+	Fungoid (trait_fungoid) {
+		Remove
+	}
+	Genetic Integration {
+		Remove
+	}
+	Gigantic {
+		Food upkeep +33%
+		Housing usage +33%
+	}
+	Grazer {
+		Remove
+	}
+	Great Leaders {
+		Remove
+	}
+	Hand-crafted {
+		Cost -4
+	}
+	High-Bandwidth {
+		Cost -1
+	}
+	Highly Specialized {
+		Remove
+	}
+	Huge {
+		Remove
+	}
+	Hunters {
+		Cost -2
+		Food output from jobs -15%
+	}
+	Hunter-Gatherers {
+		Remove
+	}
+	Iconoclastic {
+		Remove
+	}
+	Immersers {
+		Remove
+	}
+	Inert {
+		Simple drone output -15%
+	}
+	Influential {
+		Remove
+	}
+	Keen Vision (trait_additrait_keen_vision) {
+		Remove
+	}
+	Keen Vision {
+		Remove
+	}
+	Lateral Thinkers {
+		Remove
+	}
+	Lazy {
+		Remove
+	}
+	Lethargic (trait_lethargic) {
+		Cost -2
+		Minerals from jobs -15%
+	}
+	Lethargic (trait_additrait_lethargic) {
+		Remove
+	}
+	Limited Regeneration {
+		Buff army health INSTEAD OF army damage
+	}
+	Living Architecture {
+		Fuggin REMOVE this GARBAGE
+	}
+	trait_lush {
+		Remove
+	}
+	Luxurious {
+		Assembly cost +40%
+	}
+	Malleable Frame {
+		Housing usage -20%
+		Resettlement cost -50%
+		Rename to 'Collapsable Frame'
+	}
+	Mass-Produced {
+		Cost 2
+	}
+	Masterful {
+		Leader max level +3
+		Ruler output +15%
+		Remove specialist output
+		Disallow 'Inept'
+	}
+	Miniscule {
+		Food upkeep -33%
+		Housing usage -33%
+	}
+	Mob Mentality {
+		Remove
+	}
+	Mutable {
+		Remove
+	}
+	Nibbler {
+		Remove
+	}
+	Nivlac {
+		Habitability +75%
+		Pop growth speed +100%
+	}
+	No Hands {
+		Remove
+	}
+	Oligotroph {
+		Remove
+	}
+	Parasitoid {
+		Remove
+	}
+	Pioneers {
+		Remove
+	}
+	Planetary Designers {
+		Remove
+	}
+	Plantoid (trait_plantoid) {
+		Remove
+	}
+	Plantoid (trait_photosynthetic) {
+		Remove bonus to livestock production
+		Remove random +2 at the end
+	}
+	Poisonous {
+		Remove
+	}
+	Prodigal {
+		Remove
+	}
+	Purpose Grown {
+		Remove
+	}
+	Quarrelsome {
+		Remove Machine and Robot accessibility
+	}
+	Rapid Breeders {
+		Cost 3
+	}
+	Recycled {
+		Assembly cost -40%
+	}
+	Regenerative Tissue {
+		Buff army health INSTEAD OF army damage
+	}
+	Reluctant {
+		Cost -2
+		Energy from jobs -15%
+	}
+	Resilient{ 
+		Remove all effects
+		Army health +25%
+		Army morale +25%
+	}
+	Rivalry Protocols {
+		Remove
+	}
+	Rooted {
+		Remove
+	}
+	Rooted Adults {
+		Remove
+	}
+	Scavengers {
+		Remove
+	}
+	Sessile {
+		Remove
+	}
+	Settlers {
+		Remove
+	}
+	Sky Born {
+		Remove
+	}
+	Slave Species {
+		Remove
+	}
+	Slow {
+		Remove
+	}
+	Slow Breeders {
+		Cost -3
+	}
+	Slow Metabolism {
+		Remove
+	}
+	Small {
+		Remove
+	}
+	Spatial Intuition {
+		Remove
+	}
+	Standard Frame {
+		Cost 4
+	}
+	Streamlined Protocols {
+		Cost 1
+	}
+	Strong {
+		Worker output +5%
+	}
+	Stunted Prodigies {
+		No robots/machines allowed
+	}
+	Sturdy {
+		Pop upkeep -20%
+	}
+	Swarm {
+		Remove
+	}
+	Swift {
+		Remove
+	}
+	Talented {
+		Ruler output +5%
+	}
+	Time Lords {
+		Remove
+	}
+	Tiny {
+		Remove
+	}
+	Titanic Strength {
+		Cost 5
+		Army damage +100%
+		Worker output +25%
+		Simple drone output +25%
+		Allow lithoids
+	}
+	trait_war_machine_machinedlc {
+		Remove
+	}
+	Unruly {
+		Cost -1
+	}
+	Urbanites {
+		Rename to 'Urbanites'
+	}
+	Vampire {
+		Remove
+	}
+	Very Fast Metabolism {
+		Remove
+	}
+	Very Intelligent {
+		Remove
+	}
+	Very Rapid Breeders {
+		Remove
+	}
+	Very Slow Breeders (trait_very_slow_breeders) {
+		Remove
+	}
+	Very Slow Breeders (trait_additrait_very_slow_breeders) {
+		Remove
+	}
+	Very Slow Metabolism {
+		Remove
+	}
+	Very Strong {
+		Army damage +60%
+		Worker output +15%
+		Simple drone output +15%
+	}
+	Weak {
+		Worker output -5%
+		Simple drone output -5%
+	}
+}
+
+Origins {
+	Absolute Zero {
+		Remove
+	}
+	AI Uprising {
+		Remove
+	}
+	Ancien Regime {
+		Remove
+	}
+	Aquifers {
+		Remove
+	}
+	Ark {
+		Remove
+	}
+	A Second Dawn {
+		Remove
+	}
+	Biomedical Renaissance {
+		Remove
+	}
+	Ceaseless Gaze {
+		Remove
+	}
+	Children of Dunes {
+		Make the planet class actually a dune world
+	}
+	Chosen Revolutionary {
+		Overhaul
+		Rename to 'Egalitarian Unification'
+	}
+	Chosen Royal {
+		Overhaul
+		Rename to 'Authoritarian Unification'
+	}
+	Clean Energy {
+		Allow gestalts
+	}
+	Common Ground {
+		Remove possibility of allies being megacorps
+	}
+	Diplomatic Directive: Discover {
+		Remove
+	}
+	Drone Replicators {
+		Remove trade route restriction from starbase buildings
+		Fix all those localisations
+	}
+	Eusocial Hivemind {
+		Replace that awful picture with the one from 'Syncretic Evolution'
+	}
+	Exodus (origin_mem_exiles) {
+		Remove
+	}
+	Exploited Homeworld {
+		Remove trait 'Homeworld Exploiters'
+		Worker job output +10%
+		Remove 'Homeworld is shifted...'
+		Rewrite 'Homeworld gains the Exploited Homeworld deposit...'
+		Remove 'Gain the Homeworld Exploiters trait'
+	}
+	Extant Creators {
+		Growth from immigration pull +50%
+		Mention that migration treaties are allowed now
+	}
+	Fleet Overlords {
+		Remove
+	}
+	For Discovery {
+		Remove
+	}
+	Genus Loci {
+		Remove
+	}
+	Global Wars {
+		Overhaul
+		Rename to 'Militarist Unification'
+	}
+	Grand Alliance {
+		Remove
+	}
+	Great Khanate {
+		Remove
+	}
+	Immortal Messiah {
+		Remove
+	}
+	Inflection Point (origin_exodus) {
+		Remove habitable neighbors
+		Mention in the description that habitable neighbors are disabled
+		Increase restoration cost to 10,000 minerals
+		Increase restoration time to 5 years
+	}
+	Legendary Friendship {
+		Overhaul
+		Rename to 'Xenophillic Unification'
+	}
+	Little Sister {
+		Remove
+	}
+	Loopers {
+		Remove
+	}
+	Lost Continent {
+		Remove
+	}
+	Metamorphosis {
+		Remove
+	}
+	Monster Tamers {
+		Overhaul
+		Rename to 'Monster Hunters'
+	}
+	Mysterious Bond {
+		Remove
+	}
+	Nesting Grounds {
+		Remove
+	}
+	One with Nature {
+		Requires some degree of Ecologist
+	}
+	Polymorphism {
+		Remove
+	}
+	Precious Air {
+		Remove
+	}
+	Private Colonization Initiative {
+		Remove
+	}
+	Prosperous Unification {
+		Make half as likely to appear in randomly generated AI empires
+	}
+	Shroud-Touched {
+		Remove
+	}
+	Stellar Cornucopia {
+		Remove
+	}
+	Stellar Pioneers {
+		Remove
+	}
+	Subterranean Evolution {
+		Remove
+	}
+	Subterranean Societies {
+		Requires some degree of industrial
+		Rename to 'Natural Diggers'
+	}
+	Survival of the Fittest {
+		Overhaul
+		Rename to 'Xenophobic Unification'
+	}
+	Symbiosis {
+		Growth from immigration pull +50%
+		Mention that migration treaties are allowed now
+	}
+	Syncretic Crystals {
+		Remove
+	}
+	Syncretic Equals {
+		Remove
+	}
+	Syncretic Livestock {
+		Allow lithoid main species
+	}
+	Tempestuous Unification {
+		Remove
+	}
+	To Boldly Go {
+		Overhaul
+		Rename to 'Materialist Unification'
+	}
+	Tradeways {
+		Remove
+	}
+	Tradeways, Inc. {
+		Remove
+	}
+	Tree Dwellers {
+		Make the planet class actually a forest world
+	}
+	True Religion {
+		Overhaul
+		Rename to 'Spiritualist Unification'
+	}
+	Venus and Mars {
+		OH MY GOD FUCKING REMOVE
+	}
+	Void Dwellers {
+		Fix bug that removes trait 'Void Dweller'
+		Remove gestalt compatibility
+		Revert description to vanilla
+	}
+	War to End All Wars {
+		Overhaul
+		Rename to 'Pacifist Unification'
+	}
+}
+
+Ethics {
+	Ethic Categories {
+		All kinds of messed up
+	}
+	Ecologist {
+		Rename to 'Ecologist'
+	}
+	Elitist {
+		Rename to 'Elitist'
+	}
+	Fanatic Ecologist {
+		Rename to 'Fanatic Ecologist'
+	}
+	Fanatic Elitist {
+		Rename to 'Fanatic Elitist'
+	}
+	Fanatic Industrialist {
+		Monthly food +10%
+		Monthly minerals +10%
+		Habitability -7.5%
+		Rename to 'Fanatic Industrialist'
+	}
+	Fanatic Pluralist {
+		Rename to 'Fanatic Pluralist'
+	}
+	Industrialist {
+		Monthly food +5%
+		Monthly minerals +5%
+		Rename to 'Industrialist'
+	}
+	Pluralist {
+		Rename to 'Pluralist'
+	}
+}
+
+Authorities {
+	Cooperative {
+		Administrative capacity +20
+		Empire sprawl penalty +50%
+		Rename to 'Union'
+		Requires some degree of cooperative, not egalitarian
+		Remove bonuses
+		Give more unique bonuses
+		Make custom symbol
+	}
+	Corporate {
+		Administrative capacity +20
+		Remove bonuses
+		Give more unique bonuses
+	}
+	Democratic {
+		Remove happiness buff
+	}
+	Dictatorial {
+		Under 'edict cost': administrative capacity +10%
+		Remove 'empire size -10%'
+	}
+	Direct Democracy {
+		Add bonuses from 'Indirect Democracy'
+	}
+	Hive Mind {
+		Move 'Empire Sprawl Penalty: -25%' above 'Empire Sprawl from Systems: -20%'
+	}
+	Master Computer {
+		Re-order negative effects to the bottom
+	}
+	Private {
+		Remove
+	}
+}
+
+Civics {
+	Agrarian Idyll {
+		Remove effect from description
+	}
+	Ancient Shipwrights {
+		Requires some degree of militarist
+	}
+	Apprenticeship {
+		Leader pool -2
+		Leader exp gain -10%
+		Add unique leader trait to the pool
+	}
+	Aristocratic Elite {
+		Remove effect from description
+	}
+	Ascended Meritocracy {
+		Requires some degree of pluralist
+		Remove specialist political power
+		Ruler output +5%
+		Remove specialist output
+		Remove worker output
+	}
+	Ascetic Virtues {
+		Pop amenities usage -10%
+	}
+	Atom Splitters {
+		Mining station output +10%
+		Technician drones produce +1 energy
+	}
+	Attack Above All {
+		Remove
+	}
+	Automated Indolence {
+		Requires some degree of industrialist
+	}
+	Autonomous Drones {
+		Remove
+	}
+	Avid Explorers {
+		Requires some degree of pacifist
+		Requires some degree of materialist
+	}
+	Balanced Production {
+		Remove
+	}
+	Barbaric Despoilers {
+		Remove worker output buff
+	}
+	Baskers {
+		Requires some degree of ecologist or spiritualist
+	}
+	Beacon of Liberty {
+		Rename to 'Beacon of Unity'
+		Remove effects
+		Remove ethics requirements
+		Remove authority requirements
+		Monthly unity +20%
+		Revert to vanilla icon
+	}
+	Big Picture Thinker {
+		Remove
+	}
+	Biological Engineers {
+		Remove
+	}
+	Boundless Spite {
+		Remove
+	}
+	Budgetary Thrift {
+		Remove
+	}
+	Built to Last {
+		Restrict to Machine Intelligence only
+	}
+	Captivating Culture {
+		Requires fanatic xenophile
+	}
+	Caste System (civic_divine_order) {
+		Worker output +10%
+		Slave output +10%
+		New ethic requirements: some degree of elitist, some degree of spiritualist, some degree of authoritarian
+	}
+	Center of Trade {
+		Remove
+	}
+	Chivalry (lrsk_gov_var_civic_chivalry) {
+		Remove requirements
+		Requires 'Patrimonial Aristocracy'
+	}
+	Chivalry (lrsk_gov_var_civic_chivalry_aristo) {
+		Remove
+	}
+	Citizen Service {
+		Revert to vanilla name
+	}
+	Clan Politics {
+		Remove
+	}
+	Collectivism {
+		Remove
+	}
+	Colonial Fiefs {
+		Remove
+	}
+	Combat Data {
+		Remove
+	}
+	Community Supporter {
+		Remove
+	}
+	Concerted Befrienders {
+		Remove
+	}
+	Constant Growth {
+		Remove
+	}
+	Construction Company {
+		Resize that icon
+	}
+	Construction Corporation {
+		Remove
+	}
+	Controlling Interest {
+		Remove
+	}
+	Cooperative {
+		Remove
+	}
+	Cooperative Network {
+		Mention that migration treaties are allowed now
+	}
+	Corporate Death Cult {
+		Requires fanatic spiritualist
+		Pop growth +10%
+	}
+	Crime Heaven {
+		Remove
+	}
+	Crystalline Energy Grid {
+		Country base production: rare crystals +1
+	}
+	Cult of Personality {
+		Remove
+	}
+	Cyber Democracy {
+		Remove
+	}
+	Cyber Dictatorship {
+		Remove
+	}
+	Cyberocracy {
+		Remove
+	}
+	Damsels {
+		Remove
+	}
+	Datavore {
+		Remove 'War Exhaustion decreased by -10%'
+	}
+	Death Cult {
+		Requires fanatic spiritualist
+		Pop growth +10%
+	}
+	Defenders of the Faith {
+		Remove
+	}
+	Diplomatic Giants {
+		Make a new icon
+	}
+	Diplomatic Protocols {
+		Remove
+	}
+	Displaced in Time {
+		Remove
+	}
+	Distributism {
+		New ethic reqs: some degree of socialist and industrialist
+	}
+	Domineering Expectations {
+		Remove
+	}
+	Dreadnought Tactics {
+		Remove
+	}
+	Drone Brotherhood {
+		Remove after adding its effects to 'Industrial Democracy'
+	}
+	Economic Algorithms {
+		Remove
+	}
+	Education Stratum {
+		Remove
+	}
+	Emergency Government {
+		Remove all effects
+		Government ethics attraction -25%
+		Civic points +2
+		Can not be added or removed after game start
+	}
+	Emergency Ship Defense {
+		Remove
+	}
+	Energy Supremacy {
+		Remove
+	}
+	Engineered {
+		Remove
+	}
+	Engineered Drones {
+		Remove
+	}
+	Engineering Cult {
+		Requires some degree of industrialist
+		Use the icon from the civic 'Machine Cult'
+		Fix icon
+	}
+	Engineering Expertise {
+		Engineering from researchers +2
+	}
+	Enlightened Bureaucracy {
+		Remove
+	}
+	Environmentalist {
+		Requires some degree of ecologist
+	}
+	EOL Monetization Office {
+		Remove
+	}
+	Eugenic Idealism {
+		Remove
+	}
+	Evolutionary Architects {
+		Remove
+	}
+	Exalted Priesthood {
+		Requires fanatic spiritualist
+		Remove oligarchic/dictatorial requirement
+		Remove 'Combined with Machine Cult civic...'
+	}
+	Expansion Protocols {
+		Remove
+	}
+	Exploitation Algorithms {
+		Remove
+	}
+	Eye for an Eye {
+		Remove
+	}
+	Fanatical Befrienders {
+		Remove militarist requirement
+		Remove trait 'Solitary'
+		Rename to 'Fanatic Befrienders'
+		Remove from description 'Gain the solitary trait'
+	}
+	Fanatic Purifiers {
+		Revert icon to vanilla
+	}
+	Federation {
+		Remove
+	}
+	Financial Circle {
+		Remove
+	}
+	Financial Elitism {
+		Remove
+	}
+	Food Focus {
+		Remove
+	}
+	Free City States {
+		Remove
+	}
+	Free Market {
+		Remove
+	}
+	Gig Economics {
+		Resettlement cost -50%
+	}
+	Global Information Exchange {
+		Has access to trade policy 'Innovation and Progress' from game start
+	}
+	Globalism {
+		Megacorp only
+		Recolor icon to match megacorp icons
+	}
+	Gospel of the Masses {
+		Allow corp or union
+		Requires fanatic spiritualist
+	}
+	Harmonious Hive Mind {
+		Mention that migration treaties are allowed now
+	}
+	Health Maintenance Organization {
+		Allow it to be added or removed during game
+		Remove all the gene modding stuff
+		Add +1 medical worker job per planet
+		Effects and requirements are orange???
+	}
+	Heavenly Choir {
+		Remove
+	}
+	Hoarder {
+		Remove
+	}
+	Idealistic Foundation {
+		Reword description to mean something like: this government was made in the ideals of the society that founded it: perfectly embracing this culture's idea of "good"
+		No ethic requirements
+		Citizen happiness +10%
+		Revert name to vanilla
+		Revert icon to vanilla
+	}
+	Imperial Cult {
+		Remove 'Allows special edict...'
+	}
+	Imperial Economy {
+		Remove
+	}
+	Imperialist Ambitions {
+		Remove
+	}
+	Industrial Capitalism {
+		Remove
+	}
+	Industrial Democracy {
+		+1 labour hero / 20 pops
+		Worker political power +200%
+	}
+	Infestation {
+		Remove
+	}
+	Innovative Economy {
+		Remove modification points
+		Replaced research buffs with 'all research speed +5%'
+	}
+	Institutionalized Collectivism {
+		Remove
+	}
+	Integrated Bio-architecture {
+		Remove
+	}
+	Intelligent Industry {
+		Worker output +10%
+	}
+	Interventionist (civic_xeno_militarist) {
+		Remove
+		Add it back, dumby
+	}
+	Inward Perfection {
+		Rename to 'Inward Perfection'
+		Revert icon to vanilla
+	}
+	Keepers of Harmony" {
+		No 'Environmentalist' allowed
+	}
+	Knowledge is Profit {
+		Requires some degree of materialist
+		Make new icon
+	}
+	Lackadaisical {
+		Remove
+	}
+	Lack of Apparel {
+		Remove
+	}
+	Lifelong Learning {
+		Remove
+	}
+	Life-Seeded {
+		Remove
+	}
+	Living God {
+		Remove
+	}
+	Locust Capitalism {
+		Overhaul
+	}
+	Logistics Analysis System {
+		Pop upkeep -20%
+	}
+	Machine Cult {
+		Remove
+	}
+	Manipulators of Life {
+		Remove
+	}
+	Masters of Architecture {
+		Remove
+	}
+	Materialism {
+		Remove
+	}
+	Mechanist {
+		Remove
+	}
+	Megastore {
+		Remove
+	}
+	Military Industrial Complex {
+		Requires some degree of militarist
+	}
+	Mind-Machine Integration {
+		Remove 'Another one is added per 50 pops'
+	}
+	Mining Conglomerate {
+		Requires some degree of industrialist
+		Copy effects from 'Mining Guilds'
+	}
+	Mining Guilds {
+		Requires some degree of industrialist
+	}
+	Modular Construction {
+		Remove
+	}
+	Moral Enforcement {
+		Remove
+	}
+	Multiculturalism {
+		Remove
+	}
+	Multitaskers {
+		Remove
+	}
+	Multithreading {
+		Edict capacity +2
+	}
+	Necrocracy {
+		Edict length x5.00
+	}
+	Nonverbal Communication {
+		Remove
+	}
+	Optimized Expansion {
+		Remove
+	}
+	Ordered Stratocracy {
+		Rename to 'Stratocracy'
+	}
+	Organic Friendly {
+		Remove
+	}
+	OTA Updates {
+		Removed pop demotion time
+		Edict cap +1
+	}
+	Paranoid Isolationism {
+		Fix missing icon
+	}
+	Parasitic Embryos {
+		Remove
+	}
+	Parasitic Hive {
+		Remove
+	}
+	Patrol Agency {
+		Remove
+	}
+	Peaceful Society {
+		Any authority allowed
+	}
+	Peacekeepers {
+		Remove
+	}
+	Personal Weapons {
+		Remove
+	}
+	Philosophers Assembly {
+		Remove oligarchy requirement
+		Rename to 'Noocracy'
+	}
+	Physics Expertise {
+		Physics from researchers +2
+	}
+	Planetary Cache {
+		Remove
+	}
+	Planters {
+		Requires fanatic ecologist
+	}
+	Police State {
+		Requires degree of authoritarian
+	}
+	Post-Apocalyptic {
+		Remove
+	}
+	Preservers {
+		Remove
+	}
+	Private Military Companies {
+		Copy effects of 'Private Militaries'
+	}
+	Privatized Space Industries {
+		Remove
+	}
+	Problem Solver {
+		Remove effect from description
+	}
+	Public State Enterprises {
+		Remove
+	}
+	Public Works {
+		Building speed +10%
+	}
+	Rapid Breeding {
+		Remove
+	}
+	Reciprocal Planning Routines {
+		Remove
+	}
+	Reclamation Pools {
+		Remove
+	}
+	Republican Ideals {
+		Remove ethics attraction
+		Rename to 'Civic Duties'
+	}
+	Republicanism (lrsk_gov_var_republicanism) {
+		Remove
+	}
+	Republicanism (lrsk_gov_var_republicanism_oli) {
+		Remove
+	}
+	Rogue Servitor {
+		Start with 12 bio-trophy pops, +3 if prosperous unification
+		Overhaul branch office system
+	}
+	Royal Absolutism {
+		Remove
+	}
+	Ruthless Industrialism {
+		Rename to 'Ruthless Consumerism'
+	}
+	Ruthless Oppression {
+		Job output -5%
+	}
+	Sad Socratics {
+		Requires fanatic materialist
+	}
+	Scientific Management {
+		Remove ethic requirements
+	}
+	Seekers {
+		Remove
+	}
+	Self-Aware Production Targets {
+		Remove
+	}
+	Shared Burdens {
+		Xenophobes allowed
+		Rename to vanilla
+	}
+	Slave Race {
+		Remove
+	}
+	Slaving Despots {
+		Requires some degree of authoritarian
+	}
+	Social Darwinism {
+		Requires some degree of elitist
+	}
+	Society Expertise {
+		Society from researchers +2
+	}
+	Spiritual Seekers {
+		Citizen happiness +5%
+	}
+	Star Seekers {
+		Remove
+	}
+	State Monopoly {
+		Remove trade value debuff
+	}
+	Subsumed Will {
+		Edict cap +1
+	}
+	Subterranean {
+		Remove
+	}
+	Superstitious {
+		Remove
+	}
+	Supremacist Demagoguery {
+		Remove
+	}
+	Surveillance Aggregator {
+		Remove 'Planetary Stability increased by 5'
+	}
+	Survivors of Invasion {
+		Remove
+	}
+	Syncretic Evolution {
+		Remove
+	}
+	Tech Driven {
+		Remove
+	}
+	Technocorp {
+		Remove
+	}
+	Technocracy {
+		Has a random 'n' in front of its effect
+	}
+	Tech Startup {
+		Remove
+	}
+	Theocratic Republic {
+		Remove
+	}
+	Thrill Seekers {
+		Remove
+	}
+	Tradition-less {
+		Can not be any degree of spiritualist
+	}
+	Travel Agency {
+		Remove
+	}
+	Uncontrolled Birth Rate {
+		Remove
+	}
+	Unending Bloom {
+		Remove
+	}
+	Universal Counseling {
+		Remove
+	}
+	Universalism {
+		Make a megacorp variant
+	}
+	Universal Sovereignty {
+		Remove
+	}
+	Urban Planning System {
+		Remove '1 Extra Clerk per 20 Pops'
+	}
+	Utilitarian Planning {
+		Remove
+	}
+	Utopian Democracy {
+		Remove
+	}
+	Vertical Integration {
+		Remove
+	}
+	Virtual Society {
+		Remove
+	}
+	Virtual World {
+		Remove 'Amenities usage reduced by: -10%'
+		Pop amenity usage +25%
+		Physical resources from jobs -25%
+		Social/digital resources from jobs +25%
+	}
+	Void Affinity {
+		Remove
+	}
+	Void-swarm {
+		Corvette build cost -25%
+		Corvette build speed +50%
+	}
+	War Economy {
+		Remove
+	}
+	War Engineers {
+		Ship damage +10%
+		Ship speed +10%
+	}
+	War Factories {
+		Remove
+	}
+	Wargamer {
+		Remove all basic modifiers
+		Admirals and generals get the trait 'Voice with the Net Connection'
+	}
+	Warmongers" {
+		Remove
+	}
+	Welfare State {
+		Remove ethics attraction
+	}
+	Wire Pullers {
+		Remove
+	}
+	Worker Coop {
+		Remove
+	}
+	World Council {
+		Remove
+	}
+	Worm-holed {
+		Remove
+	}
+	Zealous Crusaders {
+		Remove
+	}
+	Zero-G Builders {
+		Remove
+	}
+}

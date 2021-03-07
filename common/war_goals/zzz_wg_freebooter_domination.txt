@@ -1,0 +1,79 @@
+wg_nsc_freebooter_domination = {
+	casus_belli = cb_nsc_freebooter_wrath_of_khan
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = no
+
+	allowed_peace_offers = {
+		status_quo
+	}
+	
+	surrender_acceptance = -100
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		always = yes
+	}
+	on_status_quo = {
+		custom_tooltip = wg_nsc_freebooter_domination_on_status_quo_tooltip
+		hidden_effect = {
+			create_country = {
+				ignore_initial_colony_error = yes
+				name = random
+				type = default
+				authority = root
+				civics = random
+				species = from.owner.species
+				ethos = root
+				flag = random
+				origin = origin_default
+				effect = {
+					add_resource = {
+						minerals = 5000
+						energy = 5000	
+						food = 5000
+						influence = 1000
+					}
+					prevprev.from = {
+						every_owned_planet = {
+							limit = { is_controlled_by = root }
+							set_owner = prevprev
+							solar_system.starbase = {
+								set_owner = prevprevprev
+							}
+						}
+					}
+					random_owned_planet = {
+						set_capital = yes
+					}
+					establish_communications_no_message = root
+					set_subject_of = {
+						who = root
+						subject_type = nsc_freebooter_satrapy
+					}
+				}
+			}
+		}
+	}
+	on_accept = {
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.5
+				}
+			}
+		}
+		from = {
+			set_subject_of = {
+				who = root
+				subject_type = nsc_freebooter_satrapy
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

@@ -1,0 +1,124 @@
+namespace = ev_resource
+
+###placeholder###
+country_event = {
+	id = ev_resource.2000
+	title = z_modmenu_no_mod
+	desc = z_modmenu_no_mod_desc
+	picture = GFX_evt_z_modmenu_no_mod
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_sp_mods_tips_gui"
+	picture_event_data = {
+		portrait = shroud1
+		room = z_mm_evt_tips_room
+	}
+	
+	option = {
+        custom_gui = "z_mm_button_evt_sub_red"
+		name = z_modmenu_pity
+	}
+}
+
+#_[ev_resource.2000]	原事件
+country_event = {
+	id = ev_resource.20001
+	title = "ev_resource.2000.title"
+	desc = ev_resource.2000.desc
+	picture = GFX_evt_throne_room
+	#hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_global_flag = z_modmenu_installed
+		has_global_flag = enable_empty_vagrant_mod
+	}
+	
+	diplomatic = yes
+	custom_gui = "z_mm_sp_mods_common_gui"
+	picture_event_data = {
+		room = z_mm_evt_sp_mod_ev_room
+	}
+	
+	
+	#_关闭
+	option = {
+		name = z_modmenu_return
+		custom_tooltip = z_modmenu_return_desc
+        custom_gui = "z_mm_button_evt_option_red"
+		hidden_effect = {
+			z_mm_unlock_setting_panel = yes
+			remove_country_flag = ev_has_menu_event
+		}
+	}
+	
+	option = { #进入开局菜单
+		name = ev_resource.2000.h
+		custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			country_event = { id = ev_resource.20001 }
+			country_event = { id = ev_game_start.2200 }
+		}
+	}
+
+	option = { #舰队紧急征召
+		name = ev_resource.2000.a
+		custom_tooltip = ev_resource.2000.a.tooltip
+		custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			country_event = { id = ev_resource.20001 }
+			country_event = { id = ev_maintenance.400 }
+			set_country_flag = ev_has_maintenance_fleet_event
+		}
+	}
+	option = { #人力换人口
+		name = ev_resource.2000.b
+		custom_tooltip = ev_resource.2000.b.tooltip
+		custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			country_event = { id = ev_resource.20001 }
+			country_event = { id = ev_resource.1000 }
+			set_country_flag = ev_has_manpower_to_pop_event
+		}
+	}
+	#option = { #进入银行
+	#	name = ev_resource.2000.c
+	#	custom_tooltip = ev_resource.2000.c.tooltip
+	#	hidden_effect = {
+	#		owner = { country_event = { id = ev_resource.1100 } }
+	#		owner = { set_country_flag = ev_has_provide_loan_event }
+	#	}
+	#}
+	option = { #进入大可汗附庸选项
+		name = ev_resource.2000.e
+		custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			has_country_flag = is_khanate_country_ev
+		}
+		hidden_effect = {
+			country_event = { id = ev_resource.20001 }
+			country_event = { id = ev_leader.5030 }
+		}
+	}
+	option = { #提示最优家园舰
+		name = ev_resource.2000.f
+		custom_tooltip = ev_resource.2000.f.tooltip
+		custom_gui = "z_mm_button_evt_option_pink"
+		hidden_effect = {
+			country_event = { id = ev_resource.20001 }
+			country_event = { id = ev_resource.2100 }
+		}
+	}
+	option = { #进入硬核模式的政策
+		name = ev_resource.2000.g
+		custom_gui = "z_mm_button_evt_option_pink"
+		trigger = {
+			has_country_flag = enable_ev_hard_core
+		}
+		#custom_tooltip = ev_resource.2000.g.tooltip
+		hidden_effect = {
+			country_event = { id = ev_resource.20001 }
+			country_event = { id = ev_hard_core.1 }
+		}
+	}
+}

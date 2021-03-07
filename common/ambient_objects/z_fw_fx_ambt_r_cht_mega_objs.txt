@@ -1,0 +1,65 @@
+###_z_fw_FX_ambt_cht_ŒÔ÷ ‰Œ√Ω£_objs	############################################################################
+
+
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_slash"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_slash_entity"
+	selectable = no
+	show_name = no
+}
+
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_1"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_1_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_2"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_2_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_3"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_3_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_4"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_4_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_5"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_5_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_6"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_6_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_7"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_7_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_8"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_8_entity"
+	selectable = no
+	show_name = no
+}
+ambient_object = {
+	name = "z_fw_fx_ambt_tgt_r_cht_mega_9"
+	entity = "z_fw_fx_ambt_tgt_r_cht_mega_9_entity"
+	selectable = no
+	show_name = no
+}
+

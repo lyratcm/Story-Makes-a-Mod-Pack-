@@ -1,0 +1,58 @@
+master_computer_kern = {
+    name = "Kern Worldnet"
+    adjective = Kern
+    spawn_enabled = yes
+    ship_prefix = HUS
+    species = {
+        class = "AVI"
+        portrait = "avi10"
+        name = "Kern"
+        plural = "Kerns"
+        adjective = "Kern"
+        name_list = "AVI2"
+        trait = "trait_intelligent"
+        trait = trait_communal
+        trait = trait_fleeting
+    }
+    room = "personality_ruthless_capitalists_room"
+    authority = "auth_master_computer"
+    civics = {
+        "civic_master_computer_virtual_world"
+        "civic_master_computer_grid_manager"
+    }
+    government = "gov_master_computer_virtual"
+    ethic = "ethic_egalitarian"
+    ethic = "ethic_pacifist"
+    ethic = "ethic_materialist"
+    planet_name = "Redagon"
+    planet_class = "pc_alpine"
+    system_name = "Korte Meer"
+    initializer = ""
+    graphical_culture = "avian_01"
+    city_graphical_culture = "avian_01"
+    empire_flag = {
+        icon = {
+            category = "ornate"
+            file = "flag_ornate_22.dds"
+        }
+        background = {
+            category = "backgrounds"
+            file = "circle.dds"
+        }
+        colors = {
+            "yellow"
+            "dark_green"
+            "null"
+            "null"
+        }
+    }
+    ruler = {
+        gender = female
+        name = "Taradak"
+        portrait = "avi10"
+        texture = 0
+        hair = 0
+        clothes = 4
+        leader_class = "ruler"
+    }
+}

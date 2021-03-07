@@ -1,0 +1,25 @@
+ethic_fanatic_elitist = {
+	cost = 2
+	category = "elt"
+    category_value = 0
+
+	regular_variant = ethic_elitist
+
+	use_for_pops = no
+
+	tags = {
+
+	}
+
+	country_modifier = {
+		leader_skill_levels = 2
+		leader_age = 20
+		job_noble_per_pop = 0.04
+		pop_cat_ruler_political_power = 1
+		leaders_upkeep_mult = 0.5
+	}
+
+	random_weight = {
+		value = 100
+	}
+}

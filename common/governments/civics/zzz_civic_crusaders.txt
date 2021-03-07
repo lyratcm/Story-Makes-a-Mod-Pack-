@@ -1,0 +1,7 @@
+civic_crusaders = {
+    modification = no
+    description = "civic_tooltip_crusader_effects"
+    potential = {
+        always = no
+    }
+}

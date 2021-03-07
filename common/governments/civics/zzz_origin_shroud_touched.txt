@@ -1,0 +1,32 @@
+lrsk_gov_var_origin_shroud_touched = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/lrsk_gov_var_origins_shroud_touched.dds"
+    picture = GFX_lrsk_gov_var_origin_shroud_touched
+    potential = {
+        always = no
+    }
+    playable = {
+        host_has_dlc = "Utopia"
+    }
+    possible = {
+        ethics = {
+            NOR = {
+                value = ethic_gestalt_consciousness
+                value = ethic_materialist
+                value = ethic_fanatic_materialist
+            }
+        }
+    }
+    description = "origin_tooltip_lrsk_gvp_shroud_touched_effects"
+    advanced_start = yes
+    modifier = {
+        pop_ethic_spiritualist_attraction_mult = 0.1
+        pop_ethic_materialist_attraction_mult = -0.1
+    }
+    traits = {
+        trait = lrsk_gov_var_trait_natural_esper
+    }
+    random_weight = {
+        base = 10
+    }
+}

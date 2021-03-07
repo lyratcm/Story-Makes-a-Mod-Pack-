@@ -1,0 +1,27 @@
+trait_adaptable_evolution = {
+    potential_crossbreeding_chance = 0.75
+    cost = 3
+    icon = "gfx/interface/icons/traits/leader_traits/leader_trait_adaptable.dds"
+    initial = no
+    randomized = no
+    opposites = {
+        "trait_robust"
+        "trait_ageless"
+    }
+    allowed_archetypes = {
+        BIOLOGICAL
+        LITHOID
+    }
+    species_potential_add = {
+        exists = from
+        from = {
+            has_ascension_perk = ap_engineered_evolution
+        }
+    }
+    modifier = {
+        planet_jobs_produces_mult = 0.05
+    }
+    slave_cost = {
+        energy = 150
+    }
+}

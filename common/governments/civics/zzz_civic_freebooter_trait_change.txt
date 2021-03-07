@@ -1,0 +1,19 @@
+nsc_freebooter_civic_freebooter_trait_change = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/nsc_freebooter_civic_freebooter_trait_change.dds"
+	potential = {
+		origin = { value = origin_nsc_freebooter }
+	}
+	possible = { #can be seen, but greyed out (can't select)
+		ethics = {
+			NOR = {
+				value = ethic_authoritarian
+				value = ethic_fanatic_authoritarian
+				value = ethic_xenophobe
+				value = ethic_fanatic_xenophobe
+			}
+		}
+	}
+	description = "nsc_freebooter_civic_freebooter_trait_change_tooltip"
+	random_weight = { base = 0 }
+}

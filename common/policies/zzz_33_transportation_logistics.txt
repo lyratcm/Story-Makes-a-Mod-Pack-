@@ -1,0 +1,72 @@
+transportation_logistics = {
+	potential = {
+		NOT = {
+			has_ethic = "ethic_gestalt_consciousness"
+		}
+	}
+
+	option = {
+		name = "none_transport"
+		policy_flags = {
+			none_transport
+		}
+		modifier = {
+		}
+	}
+
+	option = {
+		name = "civilian_transport"
+		policy_flags = {
+			civilian_transport
+		}
+		valid = {
+			NOR = {
+				has_ethic = ethic_fanatic_militarist
+			}
+		is_country_type = default
+		}
+		modifier = {
+        	trade_value_mult = 0.1
+			pop_growth_from_immigration = 0.33
+			planet_colony_development_speed_mult = 0.33
+			ships_upkeep_mult = 0.05
+			local_trade_protection_add = -3
+			pop_ethic_pacifist_attraction_mult = 0.25
+		}
+    	AI_weight = {
+			weight = 50
+			modifier = {
+				factor = 10
+				has_ethic = "ethic_fanatic_pacifist"
+			}
+	    }
+	}
+
+	option = {
+		name = "military_transport"
+		policy_flags = {
+			military_transport
+		}
+		valid = {
+			NOR = {
+				has_ethic = ethic_fanatic_pacifist
+				has_valid_civic = civic_corporate_dominion
+			}
+			is_country_type = default
+		}
+		modifier = {
+			ships_upkeep_mult = -0.15
+			local_trade_protection_add = 5
+			pop_growth_from_immigration = -0.15
+			trade_value_mult = -0.04
+			pop_ethic_militarist_attraction_mult = 0.25
+		}
+    	AI_weight = {
+			weight = 50
+			modifier = {
+				factor = 10
+				has_ethic = "ethic_fanatic_militarist"
+			}
+		}
+	}
+}

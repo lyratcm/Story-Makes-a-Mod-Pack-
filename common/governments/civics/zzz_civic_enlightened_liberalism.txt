@@ -1,0 +1,30 @@
+lrsk_gov_var_civic_enlightened_liberalism = {
+    potential = {
+        always = no
+    }
+    possible = {
+        civics = {
+            NOR = {
+                value = lrsk_gov_var_civic_workers_councils
+                value = lrsk_gov_var_civic_institutionalized_collectivism
+            }
+        }
+        ethics = {
+            NOR = {
+                text = civic_tooltip_not_spiritualist
+                value = ethic_spiritualist
+                value = ethic_fanatic_spiritualist
+            }
+            NOT = {
+                value = ethic_fanatic_authoritarian
+            }
+        }
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        station_gatherers_produces_mult = 0.2
+        station_researchers_produces_mult = 0.2
+    }
+}

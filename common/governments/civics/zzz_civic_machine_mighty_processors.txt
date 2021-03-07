@@ -1,0 +1,18 @@
+civic_machine_mighty_processors = {
+	potential = { authority = { value = auth_machine_intelligence } }
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_machine_terminator
+				value = civic_machine_assimilator
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		country_starbase_capacity_add = 3
+		country_naval_cap_add = 25
+		country_admin_cap_add = 50
+		ship_speed_mult = -0.10
+	}
+}

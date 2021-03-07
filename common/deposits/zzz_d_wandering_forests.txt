@@ -1,0 +1,61 @@
+d_wandering_forests = {
+    icon = d_dense_jungle
+    is_for_colonizeable = yes
+    category = deposit_cat_blockers
+    potential = {
+        always = no
+    }
+    planet_modifier = {
+        planet_max_districts_add = -1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_green = yes
+            }
+        }
+        modifier = {
+            planet_jobs_unity_produces_add = 1
+            planet_amenities_add = 10
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = secret_neopaganism
+            }
+        }
+        modifier = {
+            planet_housing_add = 2
+            planet_amenities_add = 1
+            job_priest_add = 1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_keepers_harmony
+            }
+        }
+        modifier = {
+            planet_housing_add = 1
+            job_druid_add = 1
+            biological_pop_happiness = 0.1
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_valid_civic = civic_terraforming
+            }
+        }
+        modifier = {
+            planet_housing_add = 2
+            job_xenobiologist_add = 2
+        }
+    }
+}

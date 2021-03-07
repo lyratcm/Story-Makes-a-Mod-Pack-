@@ -1,0 +1,32 @@
+pop_category_rulers = {
+    parent = planet_pops
+    generate_add_modifiers = {
+        produces
+        upkeep
+    }
+    generate_mult_modifiers = {
+        produces
+        upkeep
+    }
+    triggered_produces_modifier = {
+        key = pop_category_robot_rulers
+        modifier_types = {
+            add
+            mult
+        }
+        trigger = {
+            is_robot_pop = yes
+        }
+    }
+    triggered_produces_modifier = {
+        key = pop_category_robot_psionic_rulers
+        modifier_types = {
+            add
+            mult
+        }
+        trigger = {
+            is_robot_pop = yes
+            has_trait = trait_psionic
+        }
+    }
+}

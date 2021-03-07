@@ -1,0 +1,7 @@
+#tech_alternatives = {
+#	num_tech_alternatives_add = 3
+#}
+
+wear_trait_uninventive = {
+	num_tech_alternatives_add = -1
+}

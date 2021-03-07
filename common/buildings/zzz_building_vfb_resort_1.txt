@@ -1,0 +1,86 @@
+building_vfb_resort = {
+
+	category = government
+	
+	base_buildtime = 180
+	base_cap_amount = 1
+	
+	icon = building_vfb_resort
+	
+	potential = {
+		NOR = {
+			has_building = building_vfb_resort
+			has_building = building_vfb_groundsofeden
+			has_modifier = slave_colony
+		}
+		owner = {
+			has_technology = tech_building_vfb_resort
+			is_machine_empire = no
+			is_hive_empire = no
+		}
+		#planet = {
+		#	num_pops < 11
+		#	#has_modifier = planet_population_control
+		#}
+	}
+	
+	prerequisites = {
+		tech_building_vfb_resort
+	}
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			#planet = {
+			#	num_pops > 10
+			#	#NOT = { has_modifier = planet_population_control }
+			#}
+			owner = {
+				OR = {
+					is_machine_empire = yes
+					is_hive_empire = yes
+				}
+			}
+		}
+	}
+	
+	country_modifier = {
+
+	}
+	
+	planet_modifier = {
+		
+	}
+	
+	triggered_planet_modifier = {
+		potential = { 
+			exists = owner
+			owner = {
+				AND = {
+					is_machine_empire = no
+					is_hive_empire = no
+				}
+			}
+		}
+		job_vfb_bonvivant_add = 2
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+		factor = 2
+	}
+	
+	upgrades = {
+		building_vfb_groundsofeden
+	}
+}

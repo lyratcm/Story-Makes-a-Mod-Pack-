@@ -1,0 +1,30 @@
+Civic_GAPS_Ancient_Shipwrights = {
+    icon = "gfx/interface/icons/civics/Civic_GAPS_Ancient_Shipwrights.dds"
+    potential = {
+        ethics = {
+            NOT = {
+                value = ethic_gestalt_consciousness
+            }
+        }
+        authority = {
+            NOR = {
+                auth_master_computer
+                auth_corporate
+                auth_cooperative
+                auth_private
+            }
+        }
+    }
+    possible = {
+        ethics = {
+            OR = {
+                value = ethic_militarist
+                value = ethic_fanatic_militarist
+            }
+        }
+    }
+    modification = no
+    random_weight = {
+        base = 1
+    }
+}

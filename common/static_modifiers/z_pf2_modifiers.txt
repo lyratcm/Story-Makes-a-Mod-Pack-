@@ -1,0 +1,8 @@
+###_z performance2	###################################################################################
+
+#_[country]
+z_pf2_disable_ai_species_mod = {
+	BIOLOGICAL_species_trait_points_add = -100
+	ROBOT_species_trait_points_add = -100
+	MACHINE_species_trait_points_add = -100
+}

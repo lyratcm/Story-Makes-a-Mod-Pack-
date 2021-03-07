@@ -1,0 +1,79 @@
+building_vfb_armory = {
+    category = government
+    base_cap_amount = 1
+    base_buildtime = 180
+    icon = building_vfb_armory
+    add_to_first_building_slot = yes
+    potential = {
+        NOR = {
+            has_building = building_vfb_armory
+            has_building = building_vfb_plaza
+            has_building = building_vfb_administration
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+        owner = {
+            has_technology = tech_building_vfb_armory
+            is_machine_empire = no
+            is_hive_empire = no
+        }
+    }
+    prerequisites = {
+        tech_building_vfb_armory
+    }
+    destroy_trigger = {
+        OR = {
+            OR = {
+                has_modifier = slave_colony
+                has_modifier = resort_colony
+            }
+            owner = {
+                OR = {
+                    is_machine_empire = yes
+                    is_hive_empire = yes
+                }
+            }
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 1
+        planet_building_build_speed_mult = 0.05
+        pop_environment_tolerance = 0.05
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+        }
+        job_healthcare_add = 1
+        job_clerk_add = 1
+        job_colonist_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_functional_architecture
+                    has_valid_civic = civic_functional_architecture_megacorp
+                }
+            }
+        }
+        planet_housing_add = 2
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = 200
+        }
+        upkeep = {
+            energy = 1
+        }
+    }
+    upgrades = {
+        building_vfb_plaza
+    }
+    ai_weight = {
+        weight = 1000
+        factor = 5
+    }
+}

@@ -1,0 +1,41 @@
+ap_esap_ct3_not_finance = {
+	on_enabled = {
+		#custom_tooltip = ap_esap_ct3_not_finance_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_finance_req_1"
+			has_ascension_perk = ap_esap_ct2_infrastructure_war
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_finance_req_2"
+			has_ascension_perk = ap_esap_ct2_expansion_diplomacy
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct3_not_finance_req_3"
+			Not = {
+				has_ascension_perk = ap_esap_ct1_finance
+			}
+		}
+	}
+
+	modifier = {
+		pop_government_ethic_attraction = 1.0
+		edict_length_mult = 1.0
+		country_unity_produces_mult = 0.25
+		edicts_cost_mult = -0.20
+		pop_amenities_usage_mult = 0.25
+		planet_pops_consumer_goods_upkeep_mult = 0.25
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct3_not_finance
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

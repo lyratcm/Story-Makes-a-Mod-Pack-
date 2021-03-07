@@ -1,0 +1,81 @@
+
+
+###############################################################################
+### DEBUG EVENTS / CHEATS                                                   ###
+###############################################################################
+
+namespace = am_civics_debug
+
+### Can only be triggered via the console.
+### Force every country to become a Tributary.
+event = { 
+	id = am_civics_debug.1
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	
+	immediate = {
+		every_country = {
+			limit = {
+				is_ai = no
+			}
+			save_event_target_as = am_civics_human_player
+		}
+		every_country = {
+			limit = {
+				is_ai = yes
+				is_country_type = default
+			}
+			set_subject_of = {
+				who = event_target:am_civics_human_player
+				subject_type = tributary
+			}
+		}
+	}
+}
+
+### Can only be triggered via the console.
+### Adds the highest "Drained Planet" Modifier to a planet
+planet_event = { 
+	id = am_civics_debug.2
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	
+	immediate = {
+		set_planet_flag = am_civics_decay_active
+		remove_modifier = static_modifier_am_civics_planet_decay_1
+		remove_modifier = static_modifier_am_civics_planet_decay_2
+		remove_modifier = static_modifier_am_civics_planet_decay_3
+		remove_modifier = static_modifier_am_civics_planet_decay_4
+		remove_modifier = static_modifier_am_civics_planet_decay_5
+		remove_modifier = static_modifier_am_civics_planet_decay_6
+		remove_modifier = static_modifier_am_civics_planet_decay_7
+		remove_modifier = static_modifier_am_civics_planet_decay_8
+		remove_modifier = static_modifier_am_civics_planet_decay_9
+		add_modifier = { modifier = static_modifier_am_civics_planet_decay_10 }
+	}
+}
+
+### Can only be triggered via the console.
+### Moves "Drained Planet" Modifier back down to 1.
+planet_event = { 
+	id = am_civics_debug.3
+	hide_window = yes
+	
+	is_triggered_only = yes	
+	
+	immediate = {
+		set_planet_flag = am_civics_decay_active
+		remove_modifier = static_modifier_am_civics_planet_decay_2
+		remove_modifier = static_modifier_am_civics_planet_decay_3
+		remove_modifier = static_modifier_am_civics_planet_decay_4
+		remove_modifier = static_modifier_am_civics_planet_decay_5
+		remove_modifier = static_modifier_am_civics_planet_decay_6
+		remove_modifier = static_modifier_am_civics_planet_decay_7
+		remove_modifier = static_modifier_am_civics_planet_decay_8
+		remove_modifier = static_modifier_am_civics_planet_decay_9
+		remove_modifier = static_modifier_am_civics_planet_decay_10
+		add_modifier = { modifier = static_modifier_am_civics_planet_decay_1 }
+	}
+}

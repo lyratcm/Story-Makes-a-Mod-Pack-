@@ -1,0 +1,8 @@
+#on_game_start = {
+#}
+
+on_game_start_country = {
+	events = {
+		vfb.1
+	}
+}

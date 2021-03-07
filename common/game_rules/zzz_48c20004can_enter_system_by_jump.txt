@@ -1,0 +1,65 @@
+can_enter_system_by_jump = {
+    custom_tooltip = {
+        success_text = "debug: can jump"
+        fail_text = cannot_jump_to_system
+        OR = {
+            root = {
+                has_country_flag = z_fw_r_celestial_orrey_activited
+            }
+            root = {
+                has_country_flag = z_fw_r_cheat_quantum_beacon_activited
+            }
+            AND = {
+                NOT = {
+                    root = {
+                        is_country_type = teif_primitive
+                    }
+                }
+                OR = {
+                    NOR = {
+                        has_star_flag = sealed_system
+                        has_star_flag = fallen_sol_system
+                    }
+                    AND = {
+                        root = {
+                            has_country_flag = entered_fallen_sol_system
+                        }
+                        has_star_flag = fallen_sol_system
+                    }
+                    AND = {
+                        root = {
+                            has_country_flag = entered_sealed_system
+                        }
+                        has_star_flag = sealed_system
+                    }
+                }
+                NOR = {
+                    has_star_flag = lcluster
+                    has_star_flag = wg_sealed_system
+                    has_star_flag = ag_no_jump_in_system
+                    has_star_flag = Kuat_system
+                    has_star_flag = Kuat_system_1
+                    has_star_flag = Kuat_system_2
+                    has_star_flag = Kuat_system_3
+                    has_star_flag = outercluster
+                    has_star_flag = ehof_compound_system
+                    cohesive_system = yes
+                    urmazin_system = yes
+                    everchanging_system = yes
+                    ehof_cohesive_system = yes
+                    ehof_trader_system = yes
+                    ehof_creator_system = yes
+                    has_star_flag = nep_Krahen_cluster
+                    has_star_flag = nep_Scrus_cluster
+                    AND = {
+                        has_global_flag = nep_not_pass_Aemethms
+                        OR = {
+                            has_star_flag = nep_dragon_system
+                            has_star_flag = nep_heptagram_cluster
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

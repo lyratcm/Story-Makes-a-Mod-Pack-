@@ -1,0 +1,2628 @@
+namespace = z_fw1_misc
+
+#_[开局指南/开局设置/开局通知_彩蛋遗珍]
+#_[彩蛋遗珍_初始化]
+#_[战争胜利_渴望点数/灭国_渴望点数]
+#_[自动工程船]
+#_[AI挖掘禁止]	当前无法实现
+#_[自我拆解]
+#_[战争事件]
+#_[cht_璀璨星图]
+#_[cht_维度解构剑]
+#_[cht_物质湮灭剑]
+#_[cht_怒]
+
+
+
+###_公用flag
+	#_global_tgt	[z_fw_tgt_global_event]
+##_z_fw_core_battle_dd
+	#_global_flag	[z_fw_core_battle_dd_common]		战争-dd-基础调整	<z_modmenu.120 框架on>	<需要设置清除eft>
+	#_country_eft	[z_fw_eft_core_battle_dd_pb_debug][z_fw_eft_core_battle_dd_pb_bouns]			战争-dd-基础调整-清除eft
+	#_global_flag	[z_fw_core_battle_dd_ptw]			战争-dd-清除弱者	<z_modmenu.120 框架on>	无需设置清除eft
+	#_global_flag	[z_fw_core_battle_dd_fp_adaptive]	战争-dd-战力强化-自适应	<z_modmenu.10 start_event>
+
+
+
+
+
+
+
+	
+###_[开局指南]	[id=1]	<z_mm_button_intro_confirm>	####################################################################################
+#_镜像事件_普通指南	z_modmenu.142
+country_event = {
+	id = z_fw1_misc.100
+	title = z_mm_evt_guide_name
+	#desc = z_fw_start_setting_desc
+	is_triggered_only = yes
+	location = capital_scope
+	diplomatic = yes
+	custom_gui = "z_mm_misc_guide_gui"
+	force_open = yes	#_not complete
+	
+	option = {
+		name = z_modmenu_return
+		hidden_effect = {
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+}
+#_[开局设置]	<z_fw1_misc.100>
+#_	星辰大海的渴望/未雨绸缪/资源储量/战争类型/科技压制/彩蛋遗珍/koh自动传播/战争_基础调整/战争_清除弱者/战争_战力强化_自适应/产业革命/z_pf/隐藏dec/pf2
+country_event = {
+	id = z_fw1_misc.1
+	title = z_fw_start_setting	#_z_fw_start_title
+	desc = z_fw_start_setting_desc
+	is_triggered_only = yes
+	location = capital_scope
+	
+	diplomatic = yes
+	custom_gui = "z_fw_intro_setting_gui"
+#	diplomatic_title = z_fw_start_setting
+	force_open = yes
+#	picture_event_data = {
+#		room = z_fw_start_room
+#	}
+	
+	#_complete
+	#_所有sub module初始化内容在其mod内完成,发生在本事件前
+	option = {
+		name = z_fw1_misc.1.c
+		custom_gui = "z_mm_button_evt_option_green"
+		trigger = { has_country_flag = z_fw_flg_cntr_start_setting_done }
+		hidden_effect = {
+			#_[初始化]
+			remove_country_flag = z_fw_flg_cntr_start_setting_done
+			z_mm_unlock_setting_panel = yes
+			#_[开局flag]
+			set_country_flag = z_fw_autostation_600
+			#_[开局科技]
+			z_fw_eft_start_tech = yes
+			#_[星辰大海的渴望]	host选择后作用于所有pc
+			if = {
+				limit = { has_country_flag = z_fw1_start_monument }
+				remove_country_flag = z_fw1_start_monument
+				every_country = {
+					limit = {
+						is_ai = no
+						NOT = { has_relic = z_fw_r_monument }
+					}
+					add_relic = z_fw_r_monument
+					set_variable = { which = z_fw_desire_point_var value = 6 }
+					#_母星buff
+					if = {
+						limit = { is_gestalt = no }
+						capital_scope = {
+							add_modifier = { modifier = z_fw_mod_desire_growth_normal days = 7700 }
+						}
+					}
+					else_if = {
+						limit = { is_hive_empire = yes }
+						capital_scope = {
+							add_modifier = { modifier = z_fw_mod_desire_growth_hive days = 7700 }
+						}
+					}
+					else_if = {
+						limit = { is_machine_empire = yes }
+						capital_scope = {
+							add_modifier = { modifier = z_fw_mod_desire_assembly_machine days = 7700 }
+						}
+					}
+				}
+			}
+			#_[未雨绸缪]
+			if = {
+				limit = { has_country_flag = z_fw1_start_preparation }
+				remove_country_flag = z_fw1_start_preparation
+				if = {
+					limit = {
+						NOT = { any_owned_planet = { has_planet_flag = ringworld_start } }
+					}
+					add_resource = {
+						energy = 9900
+						minerals = 9900
+						food = 4900
+						alloys = 4900
+						consumer_goods = 4900
+						influence = 400
+					}
+				}
+			}
+			#_[资源储量]	debug
+			z_fw_eft_all_res_stock_debug = yes
+			#_[彩蛋遗珍]
+			if = {
+				limit = { has_country_flag = z_fw1_start_relic }
+				remove_country_flag = z_fw1_start_relic
+				country_event = { id = z_fw1_misc.10 }
+			}
+			#_[产业革命]初始化
+			if = {
+				limit = {
+					has_global_flag = z_pr_installed
+					has_global_flag = z_pr_init_disabled
+				}
+				remove_global_flag = z_pr_init_disabled
+			}
+			else_if = {
+				limit = { has_global_flag = z_pr_installed }
+				every_country = {
+					limit = {
+						z_pr_trgr_cntr_valid = yes
+						NOT = { has_country_flag = z_pr_flg_cntr_1 }
+					}
+					set_country_flag = z_pr_flg_cntr_1
+					#_[cntr初始化debug]	初始化debug
+					z_pr_eft_cntr_init_debug = yes
+				}
+			}
+			#_[z_pf2]星球承载上限debug
+			every_country = {
+			#	country_event = { id = z_performance_misc.21 }	#_贸易优化/动态人口debug	z_pf2有初始检测
+				country_event = { id = z_fw_core_country.20 }	#_[星球人口限制]debug---立刻
+				country_event = { id = z_fw_core_country.2 }	#_[星球人口限制]renew---立刻
+			}
+			#_[z_pf]人口迁移设置完成
+			if = {
+				limit = { has_global_flag = z_pf_heup_automatic_on }
+				#_处理density
+				remove_global_flag = z_pf_frequency_low
+				remove_global_flag = z_pf_frequency_high
+				#_处理方式
+				remove_global_flag = z_pf_excess_ai_resettle
+				remove_global_flag = z_pf_excess_ai_resettle_kill
+				remove_global_flag = z_pf_excess_ai_kill
+				set_global_flag = z_pf_excess_pc_resettle
+				remove_global_flag = z_pf_excess_pc_resettle_kill
+				remove_global_flag = z_pf_excess_pc_kill
+			}
+		}
+	}
+	#_not complete
+	option = {
+		name = z_fw_start_uncomplete
+		custom_tooltip = z_fw_tips_start_uncomplete
+		custom_gui = "z_mm_button_evt_option_red"
+		trigger = { NOT = { has_country_flag = z_fw_flg_cntr_start_setting_done } }
+		hidden_effect = {
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	
+	#_[星辰大海的渴望]
+	option = {
+		name = z_fw1_misc.1.a1
+		custom_tooltip = z_fw1_misc.1.a1.tooltip
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			has_country_flag = z_fw1_start_monument
+		}
+		hidden_effect = {
+			remove_country_flag = z_fw1_start_monument
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {
+		name = z_fw1_misc.1.a2
+		custom_tooltip = z_fw1_misc.1.a2.tooltip
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOT = { has_country_flag = z_fw1_start_monument }
+		}
+		hidden_effect = {
+			set_country_flag = z_fw1_start_monument
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_[未雨绸缪]
+	option = {
+		name = z_fw1_misc.1.b1
+		custom_tooltip = z_fw1_misc.1.b1.tooltip
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			has_country_flag = z_fw1_start_preparation
+		}
+		hidden_effect = {
+			remove_country_flag = z_fw1_start_preparation
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {
+		name = z_fw1_misc.1.b2
+		custom_tooltip = z_fw1_misc.1.b2.tooltip
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOT = { has_country_flag = z_fw1_start_preparation }
+		}
+		hidden_effect = {
+			set_country_flag = z_fw1_start_preparation
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_[资源储量]
+	option = {#_无
+		name = z_fw_misc.tips_res_stock1
+		custom_tooltip = z_fw_misc.tips_res_stock
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOR = {
+				has_modifier = z_fw_mod_cntr_res_stock_50000
+				has_modifier = z_fw_mod_cntr_res_stock_500000
+				has_modifier = z_fw_mod_cntr_res_stock_5000000
+			}
+		}
+		hidden_effect = {
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_50000 days = -1 }
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {#_50000
+		name = z_fw_misc.tips_res_stock2
+		custom_tooltip = z_fw_misc.tips_res_stock
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_modifier = z_fw_mod_cntr_res_stock_50000 }
+		hidden_effect = {
+			remove_modifier = z_fw_mod_cntr_res_stock_50000
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_500000 days = -1 }
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {#_500000
+		name = z_fw_misc.tips_res_stock3
+		custom_tooltip = z_fw_misc.tips_res_stock
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_modifier = z_fw_mod_cntr_res_stock_500000 }
+		hidden_effect = {
+			remove_modifier = z_fw_mod_cntr_res_stock_500000
+			add_modifier = { modifier = z_fw_mod_cntr_res_stock_5000000 days = -1 }
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {#_5000000
+		name = z_fw_misc.tips_res_stock4
+		custom_tooltip = z_fw_misc.tips_res_stock
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_modifier = z_fw_mod_cntr_res_stock_5000000 }
+		hidden_effect = {
+			remove_modifier = z_fw_mod_cntr_res_stock_5000000
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_[战争类型]
+	option = {#_off状态
+		name = z_modmenu.133.war1
+		custom_tooltip = z_modmenu.133.war.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_global_flag = z_fw_flg_glbl_wg_cb_disabled }
+		hidden_effect = {
+			remove_global_flag = z_fw_flg_glbl_wg_cb_disabled
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {#_on状态
+		name = z_modmenu.133.war2
+		custom_tooltip = z_modmenu.133.war.tooltip
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_global_flag = z_fw_flg_glbl_wg_cb_disabled } }
+		hidden_effect = {
+			set_global_flag = z_fw_flg_glbl_wg_cb_disabled
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_[科技压制]
+	option = {#_on
+		name = z_fw_evts_tech_overwhelm_on
+		custom_tooltip = z_fw_tips_tech_overwhelm_on
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			has_global_flag = z_fw_flg_glbl_tech_overwhelm
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_flg_glbl_tech_overwhelm
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {#_off
+		name = z_fw_evts_tech_overwhelm_off
+		custom_tooltip = z_fw_tips_tech_overwhelm_off
+        custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			NOT = { has_global_flag = z_fw_flg_glbl_tech_overwhelm }
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_flg_glbl_tech_overwhelm
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	
+	#_[彩蛋遗珍]
+	option = {
+		name = z_fw1_misc.1.c1
+		custom_tooltip = z_fw1_misc.1.c1.tooltip
+		custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			has_country_flag = z_fw1_start_relic
+		}
+		hidden_effect = {
+			remove_country_flag = z_fw1_start_relic
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {
+		name = z_fw1_misc.1.c2
+		custom_tooltip = z_fw1_misc.1.c2.tooltip
+		custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			NOT = { has_country_flag = z_fw1_start_relic }
+		}
+		hidden_effect = {
+			set_country_flag = z_fw1_start_relic
+			country_event = { id = z_fw1_misc.1 }
+			country_event = { id = z_fw1_misc.101 }
+		}
+	}
+	#_[koh自动传播]
+	option = {#_on
+		name = z_fw_evt_r_koh_plague_enabled
+		custom_tooltip = z_fw_tips_r_koh_plague_infection
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			exists = event_target:z_fw_tgt_global_event
+			NOT = { event_target:z_fw_tgt_global_event = { has_country_flag = z_fw_flg_r_koh_plague_disable } }
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = { set_country_flag = z_fw_flg_r_koh_plague_disable }
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {#_off
+		name = z_fw_evt_r_koh_plague_disabled
+		custom_tooltip = z_fw_tips_r_koh_plague_infection
+        custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			exists = event_target:z_fw_tgt_global_event
+			event_target:z_fw_tgt_global_event = { has_country_flag = z_fw_flg_r_koh_plague_disable }
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_global_event = { remove_country_flag = z_fw_flg_r_koh_plague_disable }
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	
+	#_[战争_基础调整]开局设置	<z_modmenu.120 框架on>	需要设置清除eft
+	option = {
+		name = z_fw1_misc.1.d3
+		custom_tooltip = z_fw1_misc.1.d3.tooltip
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			NOT = { has_global_flag = z_fw_core_battle_dd_common }
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_battle_dd_common
+			every_country = {
+				limit = { z_fw_core_dd_is_ignored_type = no }
+				z_fw_eft_core_battle_dd_pb_debug = yes
+				z_fw_eft_core_battle_dd_pb_bouns = yes
+			}
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {
+		name = z_fw1_misc.1.d4
+		custom_tooltip = z_fw1_misc.1.d4.tooltip
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_common
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_common
+			every_country = {
+				limit = { z_fw_core_dd_is_ignored_type = no }
+				z_fw_eft_core_battle_dd_pb_debug = yes
+			}
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_[战争_清除弱者]开局设置	<z_modmenu.120 框架on>	无需设置清除eft
+	option = {
+		name = z_fw1_misc.1.d5
+		custom_tooltip = z_fw1_misc.1.d5.tooltip
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			NOT = { has_global_flag = z_fw_core_battle_dd_ptw }
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_battle_dd_ptw
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {
+		name = z_fw1_misc.1.d6
+		custom_tooltip = z_fw1_misc.1.d6.tooltip
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_ptw
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_ptw
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_[战争_战力强化_自适应]开局设置
+	option = {
+		name = z_fw1_misc.1.d1
+		custom_tooltip = z_fw1_misc.1.d1.tooltip
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			NOR = {
+				has_global_flag = z_fw_core_battle_dd_fp_adaptive
+				has_global_flag = z_fw_core_battle_dd_fp_periodic
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_core_battle_dd_fp_adaptive
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {
+		name = z_fw1_misc.1.d2
+		custom_tooltip = z_fw1_misc.1.d2.tooltip
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fp_adaptive
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_fp_adaptive
+			set_global_flag = z_fw_core_battle_dd_fp_periodic
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {
+		name = z_fw1_misc.1.d2a
+		custom_tooltip = z_fw1_misc.1.d2a.tooltip
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			has_global_flag = z_fw_core_battle_dd_fp_periodic
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_core_battle_dd_fp_periodic
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	
+	###_[产业革命]开局设置
+	option = {
+		name = z_fw1_misc.1_pr_on
+		custom_tooltip = z_fw1_misc.1_pr_on.tooltip
+		custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			has_global_flag = z_pr_installed
+			NOT = { has_global_flag = z_pr_init_disabled }
+		}
+		hidden_effect = {
+			set_global_flag = z_pr_init_disabled
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {
+		name = z_fw1_misc.1_pr_off
+		custom_tooltip =  z_fw1_misc.1_pr_off.tooltip
+		custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			has_global_flag = z_pr_installed
+			has_global_flag = z_pr_init_disabled
+		}
+		hidden_effect = {
+			remove_global_flag = z_pr_init_disabled
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	
+	
+	###_[z_pf]开局设置
+	#_工作检测-原版
+	option = {
+		name = z_performance.11.r1
+		custom_tooltip = z_performance.11.r1.tooltip
+		custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_pfc_installed
+			has_global_flag = z_performance_installed
+			NOR = {
+				has_global_flag = z_pf_flg_glbl_job_disable
+				has_global_flag = z_pf_flg_glbl_job_automatic
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf_flg_glbl_job_disable
+			country_event = { id = z_fw1_misc.1 }
+			country_event = { id = z_pf_modmenu.101 }
+		}
+	}
+	#_工作检测-关闭
+	option = {
+		name = z_performance.11.r2
+		custom_tooltip = z_performance.11.r2.tooltip
+		custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_pfc_installed
+			has_global_flag = z_performance_installed
+			has_global_flag = z_pf_flg_glbl_job_disable
+		}
+		hidden_effect = {
+			remove_global_flag = z_pf_flg_glbl_job_disable
+			set_global_flag = z_pf_flg_glbl_job_automatic
+			country_event = { id = z_fw1_misc.1 }
+			country_event = { id = z_pf_modmenu.102 }
+		}
+	}
+	#_工作检测-自动
+	option = {
+		name = z_performance.11.r3
+		custom_tooltip = z_performance.11.r3.tooltip
+		custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_pfc_installed
+			has_global_flag = z_performance_installed
+			has_global_flag = z_pf_flg_glbl_job_automatic
+		}
+		hidden_effect = {
+			remove_global_flag = z_pf_flg_glbl_job_automatic
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_excess pops
+	option = {
+		name = z_performance.10.c
+		custom_tooltip = z_performance.10.c.tooltip
+		custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance_installed
+			has_global_flag = z_pf_heup_automatic_on
+		}
+		hidden_effect = {
+			remove_global_flag = z_pf_heup_automatic_on
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	#_no optimization
+	option = {
+		name = z_performance.10.d
+		custom_tooltip = z_performance.10.d.tooltip
+		custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance_installed
+			NOT = { has_global_flag = z_pf_heup_automatic_on }
+		}
+		hidden_effect = {
+			set_global_flag = z_pf_heup_automatic_on
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_[隐藏dec]
+	option = {#_隐藏
+		name =  z_pf_evt_hide_dec
+		custom_tooltip = z_pf_tips_hide_dec
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance_installed
+			has_country_flag = z_pf_flg_cntr_hide_dec
+		}
+		hidden_effect = {
+			every_country = {
+				limit = { has_country_flag = z_pf_flg_cntr_hide_dec }
+				remove_country_flag = z_pf_flg_cntr_hide_dec
+			}
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	option = {#_显示
+		name = z_pf_evt_show_dec
+		custom_tooltip = z_pf_tips_show_dec
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance_installed
+			NOT = { has_country_flag = z_pf_flg_cntr_hide_dec }
+		}
+		hidden_effect = {
+			every_country = {
+				limit = { z_fw_trgr_cntr_core_is_pc = yes }
+				set_country_flag = z_pf_flg_cntr_hide_dec
+			}
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	
+	###_[z pf2]开局设置
+	#_星球承载上限-开启状态---外部联动<产业革命/pf2>
+	option = {
+		name = z_modmenu.132.h1
+		custom_tooltip = z_modmenu.132.h1.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			NOT = { has_global_flag = z_fw_plnt_capacity_disabled }
+		}
+		hidden_effect = {
+			set_global_flag = z_fw_plnt_capacity_disabled
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	#_星球承载上限-关闭状态---外部联动<产业革命/pf2>
+	option = {
+		name = z_modmenu.132.h2
+		custom_tooltip = z_modmenu.132.h2.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			has_global_flag = z_fw_plnt_capacity_disabled
+		}
+		allow = {
+			custom_tooltip = {#_不与产业革命共存
+				hidden_trigger = { NOT = { has_global_flag = z_pr_installed } }
+				fail_text = z_mm_tips_pr_installed
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = z_fw_plnt_capacity_disabled
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_动态人口上限-禁用
+	option = {
+		name = z_fw_tips_start_pf2_dpr_off
+		custom_tooltip = z_fw_tips_start_pf2_dpr_off_desc
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			NOR = {
+				has_global_flag = z_pf2_dynamic_cap_strict
+				has_global_flag = z_pf2_dynamic_cap_low
+				has_global_flag = z_pf2_dynamic_cap_high
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_dynamic_cap_low
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	#_动态人口上限-启用并设为低
+	option = {
+		name = z_fw_tips_start_pf2_dpr_on
+		custom_tooltip = z_fw_tips_start_pf2_dpr_on_desc
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			has_global_flag = z_pf2_dynamic_cap_low
+		}
+		hidden_effect = {
+			remove_global_flag = z_pf2_dynamic_cap_strict
+			remove_global_flag = z_pf2_dynamic_cap_low
+			remove_global_flag = z_pf2_dynamic_cap_high
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_AI物种改造-允许
+	option = {
+		name = z_performance_misc.11.e3
+		custom_tooltip = z_performance_misc.11.e3.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			has_global_flag = z_pf2_ai_species_mod
+		}
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_species_mod
+			set_global_flag = z_pf2_ai_species_mod_limit
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	#_AI物种改造-限制
+	option = {
+		name = z_performance_misc.11.e5
+		custom_tooltip = z_performance_misc.11.e5.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			has_global_flag = z_pf2_ai_species_mod_limit
+		}
+		hidden_effect = {
+			remove_global_flag = z_pf2_ai_species_mod_limit
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	#_AI物种改造-禁用
+	option = {
+		name = z_performance_misc.11.e4
+		custom_tooltip = z_performance_misc.11.e4.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			NOR = {
+				has_global_flag = z_pf2_ai_species_mod
+				has_global_flag = z_pf2_ai_species_mod_limit
+			}
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_ai_species_mod
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	#_舰队优化-自动年度
+	option = {
+		name = z_performance_misc.11.k4
+		custom_tooltip = z_performance_misc.11.k4.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			has_global_flag = z_pf2_flg_glbl_flt_opt_automatic
+		}
+		hidden_effect = {
+			remove_global_flag = z_pf2_flg_glbl_flt_opt_automatic
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	#_舰队优化-非自动
+	option = {
+		name = z_performance_misc.11.k5
+		custom_tooltip = z_performance_misc.11.k5.tooltip
+        custom_gui = "z_mm_button_evt_option_green"
+		trigger = {
+			has_global_flag = z_performance2_installed
+			NOT = { has_global_flag = z_pf2_flg_glbl_flt_opt_automatic }
+		}
+		hidden_effect = {
+			set_global_flag = z_pf2_flg_glbl_flt_opt_automatic
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+	
+	
+	
+	#_已完成设定
+	option = {
+		name = z_fw_start_setting_done
+		custom_tooltip = z_fw_tips_start_setting_done
+		custom_gui = "z_mm_button_evt_option_pink"
+		trigger = { NOT = { has_country_flag = z_fw_flg_cntr_start_setting_done } }
+		hidden_effect = {
+			set_country_flag = z_fw_flg_cntr_start_setting_done
+			country_event = { id = z_fw1_misc.1 }
+		}
+	}
+}
+#_[开局通知_彩蛋遗珍]
+country_event = {
+	id = z_fw1_misc.101
+	title = z_fw_tips_easter_relic
+	desc = z_fw_tips_easter_relic_desc
+	is_triggered_only = yes
+	location = capital_scope
+	diplomatic = yes
+	custom_gui = "z_mm_gui_evt_520_240_no_room"
+	
+	#_关闭
+	option = {
+		name = z_fw_evt_crious
+        custom_gui = "z_mm_button_evt_sub_green"
+	}
+}
+
+#_[彩蛋遗珍_初始化]	[id=10]
+#_list			[臭鼬][苍雪山矩阵]
+#_trgr_cntr		[z_fw_is_common_country]
+#_隔离flg		[z_fw_eft_cntr_misc_relic_init_flg_cntr][z_fw_flg_cntr_r]		若单机状态,不设置隔离flg,挖掘地会集中在pc附近
+event = {
+	id = z_fw1_misc.10
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { has_global_flag = z_mm_new_relic_not_set }	#_只触发1次
+	
+	immediate = {
+		###_彩蛋遗珍已设置
+		remove_global_flag = z_mm_new_relic_not_set
+		###_[臭鼬]
+		random_country = {#_执行-PC
+			limit = {
+				is_ai = no
+				z_fw_is_common_country = yes
+				NOR = {
+					has_global_flag = z_fw_flg_glbl_r_hok
+					has_country_flag = z_fw_flg_cntr_r
+				}
+			}
+			z_fw_eft_cntr_misc_relic_init_flg_cntr = yes
+			set_timed_global_flag = { flag = z_fw_flg_glbl_r_hok days = 1 }
+			country_event = { id = z_fw1_relic_koh.2 }
+		}
+		random_country = {#_执行-AI
+			limit = {
+				is_ai = yes
+				z_fw_is_common_country = yes
+				NOR = {
+					has_global_flag = z_fw_flg_glbl_r_hok
+					has_country_flag = z_fw_flg_cntr_r
+				}
+			}
+			z_fw_eft_cntr_misc_relic_init_flg_cntr = yes
+			set_timed_global_flag = { flag = z_fw_flg_glbl_r_hok days = 1 }
+			country_event = { id = z_fw1_relic_koh.2 }
+		}
+		###_[苍雪山矩阵]
+		random_country = {#_执行-PC
+			limit = {
+				is_ai = no
+				z_fw_is_common_country = yes
+				NOR = {
+					has_global_flag = z_lctr_installed	#_不能有独立lctr安装
+					has_global_flag = z_lctr_flg_glbl_r
+					has_country_flag = z_fw_flg_cntr_r
+				}
+			}
+			z_fw_eft_cntr_misc_relic_init_flg_cntr = yes
+			set_timed_global_flag = { flag = z_lctr_flg_glbl_r days = 1 }
+			country_event = { id = z_lctr_relic.1 }
+		}
+		random_country = {#_执行-AI
+			limit = {
+				is_ai = yes
+				z_fw_is_common_country = yes
+				NOR = {
+					has_global_flag = z_lctr_installed	#_不能有独立lctr安装
+					has_global_flag = z_lctr_flg_glbl_r
+					has_country_flag = z_fw_flg_cntr_r
+				}
+			}
+			z_fw_eft_cntr_misc_relic_init_flg_cntr = yes
+			set_timed_global_flag = { flag = z_lctr_flg_glbl_r days = 1 }
+			country_event = { id = z_lctr_relic.1 }
+		}
+	}
+}
+
+#_[战争胜利_渴望点数]+1	[id=11]	是warleader
+country_event = {
+	id = z_fw1_misc.11
+	title = z_fw_desire_point_add_war_title
+	desc = z_fw_desire_point_add_war_desc
+	picture = GFX_evt_z_fw_desire_point_added
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		has_relic = z_fw_r_monument
+	}
+	
+	immediate = {
+		change_variable = { which = z_fw_desire_point_var value = 1 }
+	}
+	option = {
+		name = z_fw_evt_good
+	}
+}
+#_[灭国_渴望点数]
+country_event = {
+	id = z_fw1_misc.111
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = from
+		from = {
+			is_ai = no
+			has_relic = z_fw_r_monument
+		}
+	}
+	
+	immediate = {
+		from = { country_event = { id = z_fw1_misc.11 } }
+	}
+}
+
+
+
+
+
+
+
+
+###_[自动工程船]	[id=12]	#############################################################################
+
+#_[on_monthly_pulse]	自动矿站触发器	[id=120]
+event = {
+	id = z_fw1_misc.120
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		random_country = {
+			limit = {
+				is_ai = no
+				NOR = {
+					has_country_flag = z_fw_autostation_under_progress	#_进行中
+					has_country_flag = z_fw_autostation_cd				#_自动矿站检测cd中
+					has_country_flag = z_fw_autostation_counted			#_此轮检测过
+				}
+				OR = {#_设置
+					has_country_flag = z_fw_autostation_100
+					has_country_flag = z_fw_autostation_600
+				}
+			}
+			country_event = { id = z_fw1_misc.12 }
+		}
+	}
+}
+
+
+#_[z_fw1_misc.120]	自动矿站[id=12]	<触发自动工程船,唯一生成自动工程船的事件>
+#_country_flag	[z_fw_autostation_under_progress]国家执行自动矿站中	[z_fw_autostation_debug_cd]debug_cd
+#_fleet_flag	[z_fw_autostaion_fleet]触发事件时检测是否是自动工程船
+#_planet_tgt	[z_fw_tgt_plnt_autostation]
+#_planet_flag	[z_fw_flg_plnt_autostation]
+country_event = {
+	id = z_fw1_misc.12
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		#_系统可支持自动工程船已达上限
+		NAND = {
+			exists = event_target:z_fw_tgt_flt_autostation_1
+			exists = event_target:z_fw_tgt_flt_autostation_2
+			exists = event_target:z_fw_tgt_flt_autostation_3
+			exists = event_target:z_fw_tgt_flt_autostation_4
+			exists = event_target:z_fw_tgt_flt_autostation_5
+			exists = event_target:z_fw_tgt_flt_autostation_6
+			exists = event_target:z_fw_tgt_flt_autostation_7
+			exists = event_target:z_fw_tgt_flt_autostation_8
+			exists = event_target:z_fw_tgt_flt_autostation_9
+		}
+	}
+	
+	immediate = {
+		#_设定本轮隔离
+		set_timed_country_flag = { flag = z_fw_autostation_counted days = 1 }
+		#_设定可执行建设的星系
+		random_planet_within_border = {
+			limit = {#_[探索过/非殖民地/可建造矿站/资源科技满足/禁用条件/无威胁]
+				#_[探索过]
+				is_surveyed = { who = root status = yes }
+				#_[非殖民地]
+				is_colony = no
+				has_orbital_station = no
+				#has_mining_station = no
+				#has_research_station = no
+				#_[可建造矿站]
+				OR = {
+					has_deposit_for = shipclass_mining_station
+					has_deposit_for = shipclass_research_station
+				}
+				#_[资源科技满足]
+				z_fw_trgr_plnt_autostation_res_tech_start = yes
+				#_[禁用条件]
+				NOR = {
+					#_贸易deposit
+					has_deposit = d_trade_value_1
+					has_deposit = d_trade_value_2
+					has_deposit = d_trade_value_3
+					has_deposit = d_trade_value_4
+					has_deposit = d_trade_value_5
+					has_deposit = d_trade_value_6
+					has_deposit = d_trade_value_7
+					has_deposit = d_trade_value_8
+					has_deposit = d_trade_value_9
+					has_deposit = d_trade_value_10
+					#_巨建相关
+					has_planet_flag = megastructure		#_不是居住站/环之类伪星球
+					has_planet_flag = has_megastructure
+					has_any_megastructure = yes
+				}
+				#_[无威胁]
+				solar_system = {
+					exists = starbase
+					#has_access_fleet = root
+					NOT = {
+						any_fleet_in_system = {
+							OR = {
+								AND = {
+									exists = owner
+									owner = { is_hostile_to = root }
+								}
+								is_constructing = megastructure
+								is_constructing = mining_station
+								is_constructing = research_station
+								#is_constructing = observation_post
+							}
+						}
+					}
+				}
+			}
+			set_planet_flag = z_fw_flg_plnt_autostation		#_星球标记
+			solar_system.starbase = { save_global_event_target_as = z_fw_tgt_autostation_starbase }
+		}
+		#_在标记的星系创建自动工程船并设置country_flag=[z_fw_autostation_under_progress]
+		if = {
+			limit = { exists = event_target:z_fw_tgt_autostation_starbase }
+			###_创建automatic建设者
+			#_暂时NPC<每艘船重新建立npc,防止被攻击变成敌对以后新的自动工程船也处于敌对状态>
+			create_country = {
+				name = "NAME_z_fw_npc_1"
+				type = z_fw_npc_temp_neutral
+				flag = {
+					icon = {
+						category = "z_fw"
+						file = "infinite_stellaris_0.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "00_solid.dds"
+					}
+					colors={
+						"black"
+						"black"
+						"null"
+						"null"
+					}
+				}
+				effect = {
+					#_添加基础舰船设计
+					create_ship_design = { design = "NAME_z_fw_autostation_ship" }
+					add_ship_design = last_created_design
+					every_country = {
+						limit = { is_ai = no }
+						establish_communications_no_message = prev
+						prev = { set_faction_hostility = { target = prev set_friendly = yes } }
+					}
+				}
+			}
+			create_fleet = {
+				name = "NAME_z_fw_misc_autostation_fleet"
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = last_created_country				#_[temp_npc]
+					set_location = {
+						target = event_target:z_fw_tgt_autostation_starbase
+						distance = 7
+						angle = random
+					}
+					create_ship = {
+						name = random
+						design = "NAME_z_fw_autostation_ship"
+						graphical_culture = root	#_玩家
+					}
+					set_fleet_flag = z_fw_autostaion_fleet			#_自动空间站任务中
+					fleet_event = { id = z_fw1_misc.124 }
+					#_设定全局自动矿站建设者,最多9个,舰队毁灭时自动清除glbl_evt_tgt
+					if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_1 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_1
+					}
+					else_if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_2 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_2
+					}
+					else_if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_3 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_3
+					}
+					else_if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_4 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_4
+					}
+					else_if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_5 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_5
+					}
+					else_if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_6 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_6
+					}
+					else_if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_7 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_7
+					}
+					else_if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_8 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_8
+					}
+					else_if = {
+						limit = { NOT = { exists = event_target:z_fw_tgt_flt_autostation_9 } }
+						save_global_event_target_as = z_fw_tgt_flt_autostation_9
+					}
+				}
+			}
+			clear_global_event_target = z_fw_tgt_autostation_starbase	#_tgt_sb_init
+			set_country_flag = z_fw_autostation_under_progress			#_自动空间站建设中
+		}
+		#_没有可建造矿站,检测频率降低到每4个月
+		else = { set_timed_country_flag = { flag = z_fw_autostation_cd days = 110 } }
+		#_自循环其他pc国家
+		random_country = {
+			limit = {
+				is_ai = no
+				NOR = {
+					has_country_flag = z_fw_autostation_under_progress	#_进行中
+					has_country_flag = z_fw_autostation_cd				#_自动矿站检测cd中
+					has_country_flag = z_fw_autostation_counted			#_此轮检测过
+				}
+				OR = {#_设置
+					has_country_flag = z_fw_autostation_100
+					has_country_flag = z_fw_autostation_600
+				}
+			}
+			country_event = { id = z_fw1_misc.12 }
+		}
+	}
+}
+
+#_[on_fleet_destroyed_victim]	debug建设舰队被毁<只在战斗时>-清理flag
+#_flt_eft		[z_fw_eft_flt_autostation_tgt_clean]
+country_event = {
+	id = z_fw1_misc.121
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { FromFrom = { has_fleet_flag = z_fw_autostaion_fleet } }
+	immediate = {
+		FromFrom.solar_system.space_owner = { remove_country_flag = z_fw_autostation_under_progress }
+		destroy_country = yes	#_直接清除[全自动工程船]所有者<刷新关系-清除敌对关系>
+		#_DEBUG	flt_tgt	<不确定是否需要,以防万一>
+		fromfrom = { z_fw_eft_flt_autostation_tgt_clean = yes }
+	}
+}
+#_[已废弃/事件国家不会自动解散]	[on_fleet_disbanded]	debug建设舰队解散-清理flag
+country_event = {
+	id = z_fw1_misc.122
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { From = { has_fleet_flag = z_fw_autostaion_fleet } }
+	immediate = {
+		remove_country_flag = z_fw_autostation_under_progress
+		add_resource = { minerals = 100 }	#_资源补偿
+	}
+}
+#_[已废弃/反正最终都会毁灭]		debug建设舰队接敌-清理移动目标与flag
+fleet_event = {
+	id = z_fw1_misc.123
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { has_fleet_flag = z_fw_autostaion_fleet }
+	immediate = {
+		if = {
+			limit = { has_auto_move_target = yes }
+			remove_auto_move_target = yes
+		}
+		remove_fleet_flag = z_fw_autostaion_fleet
+		owner = {
+			remove_country_flag = z_fw_autostation_under_progress
+			add_resource = { minerals = 100 }	#_资源补偿
+		}
+	}
+}
+#_[z_fw_eft_flt_autostation_executing]	建设舰队到达目的地/只要自动建设舰队自我摧毁就会重新刷新[自动矿站事件]
+#_tgt			[z_fw_tgt_plnt_autostation]
+#_planet_flag	[z_fw_flg_plnt_autostation]
+#_fleet_flag	[z_fw_autostaion_fleet]
+#_flt_eft		[z_fw_eft_flt_autostation_tgt_clean]
+fleet_event = {
+	id = z_fw1_misc.124
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { has_fleet_flag = z_fw_autostaion_fleet }	#_自动工程船
+	
+	immediate = {
+		#_debug 星系不符合条件=清除fleet
+		if = {
+			limit = {
+				OR = {
+					#_星系失去所有者/例如星基被毁
+					solar_system = { has_owner = no }
+					#_不再采用自动矿站
+					solar_system.space_owner = {
+						is_ai = no
+						NOR = {
+							has_country_flag = z_fw_autostation_100
+							has_country_flag = z_fw_autostation_600
+						}
+					}
+					#_星系所有者不符合条件=失去星系
+					solar_system.space_owner = { is_ai = yes }
+				}
+			}
+			z_fw_eft_flt_autostation_tgt_clean = yes	#_清理tgt
+			destroy_fleet = this
+		}
+		#_免费
+		else_if = {
+			limit = {
+				solar_system = {
+					OR = {#_太空工程师
+						starbase = { has_starbase_building = z_sbb_n_constructor }
+						any_neighbor_system = {
+							exists = starbase
+							starbase = { has_starbase_building = z_sbb_n_constructor }
+						}
+					}
+				#	space_owner = { resource_income_compare = { resource = energy value >= 5 } }	#_检测energy收入
+					any_system_planet = { has_planet_flag = z_fw_flg_plnt_autostation }
+				}
+			}
+			solar_system = {
+				random_system_planet = {#_planet_1
+					limit = { has_planet_flag = z_fw_flg_plnt_autostation }
+					remove_planet_flag = z_fw_flg_plnt_autostation
+					save_event_target_as = z_fw_tgt_plnt_autostation
+				}
+			}
+			auto_move_to_planet = {
+				target = event_target:z_fw_tgt_plnt_autostation
+				clear_auto_move_on_arrival = no
+				arrival_effect = z_fw_eft_flt_autostation_executing		#_到达/检测建设条件 pote太空工程师
+			}
+		}
+		#_600余额建造
+		else_if = {
+			limit = {
+				solar_system.space_owner = {
+					has_country_flag = z_fw_autostation_600
+					NOT = { has_resource = { type = minerals amount < 600 } }
+				#	resource_income_compare = { resource = energy value >= 5 }	#_检测energy收入
+				}
+				solar_system = { any_system_planet = { has_planet_flag = z_fw_flg_plnt_autostation } }
+			}
+			solar_system = {
+				random_system_planet = {#_planet_1
+					limit = { has_planet_flag = z_fw_flg_plnt_autostation }
+					remove_planet_flag = z_fw_flg_plnt_autostation
+					save_event_target_as = z_fw_tgt_plnt_autostation
+				}
+			}
+			auto_move_to_planet = {
+				target = event_target:z_fw_tgt_plnt_autostation
+				clear_auto_move_on_arrival = no
+				arrival_effect = z_fw_eft_flt_autostation_executing		#_到达/检测建设条件
+			}
+		}
+		#_100余额建造
+		else_if = {
+			limit = {
+				solar_system.space_owner = {
+					has_country_flag = z_fw_autostation_100
+					NOT = { has_resource = { type = minerals amount < 100 } }
+				#	resource_income_compare = { resource = energy value >= 5 }	#_检测energy收入
+				}
+				solar_system = { any_system_planet = { has_planet_flag = z_fw_flg_plnt_autostation } }
+			}
+			solar_system = {
+				random_system_planet = { 
+					limit = { has_planet_flag = z_fw_flg_plnt_autostation }
+					remove_planet_flag = z_fw_flg_plnt_autostation
+					save_event_target_as = z_fw_tgt_plnt_autostation
+				}
+			}
+			auto_move_to_planet = {
+				target = event_target:z_fw_tgt_plnt_autostation
+				clear_auto_move_on_arrival = no
+				arrival_effect = z_fw_eft_flt_autostation_executing		#_到达/检测建设条件
+			}
+		}
+		#_资金不够,延时自循环	<这里容易卡功能>
+		else_if = {
+			limit = {
+				solar_system.space_owner = {
+					NOR = {
+						AND = {
+							has_country_flag = z_fw_autostation_600
+							NOT = { has_resource = { type = minerals amount < 600 } }
+						#	resource_income_compare = { resource = energy value >= 5 }	#_检测energy收入
+						}
+						AND = {
+							has_country_flag = z_fw_autostation_100
+							NOT = { has_resource = { type = minerals amount < 100 } }
+						#	resource_income_compare = { resource = energy value >= 5 }	#_检测energy收入
+						}
+					}
+				}
+				solar_system = { any_system_planet = { has_planet_flag = z_fw_flg_plnt_autostation } }
+			}
+			solar_system.space_owner = { set_timed_country_flag = { flag = z_fw_autostation_debug_cd days = @z_fw_autostation_cd } }
+			fleet_event = { id = z_fw1_misc.124 days = @z_fw_autostation_cd random = 7 }	#_星系内循环执行
+		}
+		#_全部不符,自我清除
+		else = {
+			z_fw_eft_flt_autostation_tgt_clean = yes	#_清理tgt
+			destroy_fleet = this
+		}
+	}
+}
+
+#_[on_monthly_pulse_country]	DEBUG	清除国家flag和舰队flag
+#_country_flag	[z_fw_autostation_under_progress]
+#_fleet_flag	[z_fw_autostaion_fleet]
+country_event = {
+	id = z_fw1_misc.125
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no 	#_玩家
+		has_country_flag = z_fw_autostation_under_progress	#_进行中
+		NOT = { has_country_flag = z_fw_autostation_debug_cd }	#_debug cd
+		#_领土内没有自动工程船
+		NOR = {
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_1
+				event_target:z_fw_tgt_flt_autostation_1.solar_system = { is_within_borders_of = root }
+			}
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_2
+				event_target:z_fw_tgt_flt_autostation_2.solar_system = { is_within_borders_of = root }
+			}
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_3
+				event_target:z_fw_tgt_flt_autostation_3.solar_system = { is_within_borders_of = root }
+			}
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_4
+				event_target:z_fw_tgt_flt_autostation_4.solar_system = { is_within_borders_of = root }
+			}
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_5
+				event_target:z_fw_tgt_flt_autostation_5.solar_system = { is_within_borders_of = root }
+			}
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_6
+				event_target:z_fw_tgt_flt_autostation_6.solar_system = { is_within_borders_of = root }
+			}
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_7
+				event_target:z_fw_tgt_flt_autostation_7.solar_system = { is_within_borders_of = root }
+			}
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_8
+				event_target:z_fw_tgt_flt_autostation_8.solar_system = { is_within_borders_of = root }
+			}
+			AND = {
+				exists = event_target:z_fw_tgt_flt_autostation_9
+				event_target:z_fw_tgt_flt_autostation_9.solar_system = { is_within_borders_of = root }
+			}
+		}
+	}
+	
+	immediate = {
+		remove_country_flag = z_fw_autostation_under_progress
+	}
+}
+
+
+
+
+
+
+
+
+###_[AI挖掘禁止]	[id=13]	#############################################################################
+
+#_[on_fleet_enter_orbit]	符合条件科研船设定锁定与返回
+#_flg_glbl	[z_fw_flg_glbl_no_ai_dig]
+#_flg_flt	[z_fw_flg_flt_locked_no_ai_dig]
+fleet_event = {
+	id = z_fw1_misc.130
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+	#	limit = { exists = event_target:z_fw_tgt_global_event }
+	#	event_target:z_fw_tgt_global_event = { has_country_flag = z_fw_flg_cntr_no_ai_dig }
+	#	has_global_flag = z_fw_flg_glbl_no_ai_dig	#_公版
+		is_ship_class = shipclass_science_ship		#_科研船
+	#	owner = { is_ai = no }						#_玩家
+		from = { is_inside_border = root.owner }	#_境内星球
+		NOR = {#_dig_order
+			has_fleet_order = assist_research_order
+			has_fleet_order = auto_explore_order
+			has_fleet_order = collect_data_fleet_order
+			has_fleet_order = orbit_planet_order
+			has_fleet_order = research_anomaly_order
+			has_fleet_order = survey_planet_order
+		}
+	}
+	immediate = {
+		set_fleet_flag = z_fw_flg_flt_locked_no_ai_dig
+		set_event_locked = yes
+		auto_move_to_planet = { target = owner.capital_scope clear_auto_move_on_arrival = yes }
+	}
+}
+#_[on_fleet_auto_move_arrival]	自动到达首都,接触锁定
+country_event = {
+	id = z_fw1_misc.131
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { from = { has_fleet_flag = z_fw_flg_flt_locked_no_ai_dig } }
+	immediate = {
+		from = {
+			remove_fleet_flag = z_fw_flg_flt_locked_no_ai_dig
+			set_event_locked = no
+		}
+	}
+}
+
+
+
+
+###_[自我拆解]	[id=14]	###############################################################
+
+#_[on_fleet_enter_orbit]
+fleet_event = {
+	id = z_fw1_misc.140
+	title = z_fw1_misc.140.title
+	desc = z_fw1_misc.140.desc
+	picture = GFX_evt_z_fw_desire_point_added
+	#hide_window = yes
+	is_triggered_only = yes
+	location = this
+	
+	trigger = {
+		owner = { has_country_flag = z_fw_flg_cntr_fleet_dismantle }
+		from = { is_same_value = owner.capital_scope }
+		NOR = {
+			is_ship_class = shipclass_starbase
+			is_ship_class = shipclass_military_station
+			is_ship_class = shipclass_mining_station
+			is_ship_class = shipclass_research_station
+			is_ship_class = shipclass_observation_station
+			is_ship_class = shipclass_transport
+			is_ship_class = shipclass_science_ship
+			is_ship_class = shipclass_colonizer
+			is_ship_class = shipclass_constructor
+		}
+	}
+	option = {
+		name = z_fw1_misc.140.a
+		hidden_effect = {
+			#_原国家添加buff
+			owner = {
+				remove_modifier = z_fw_mod_cntr_self_dismantle
+				add_modifier = { modifier = z_fw_mod_cntr_self_dismantle days = 90 }
+			}
+			#_舰船调整
+			set_fleet_flag = z_fw_flg_flt_self_dismantle
+			add_modifier = { modifier = z_fw_mod_ship_self_dismantle days = -1 } 		#_极致弱化
+			#_暂时NPC<每艘船重新建立npc,防止被攻击变成敌对以后新的自动工程船也处于敌对状态>
+			create_country = {
+				name = "NAME_z_fw_npc_1"
+				type = z_fw_npc_temp_neutral_self_dismantle
+				flag = {
+					icon = {
+						category = "z_fw"
+						file = "infinite_stellaris_0.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "00_solid.dds"
+					}
+					colors={
+						"black"
+						"black"
+						"null"
+						"null"
+					}
+				}
+				effect = {
+					#_建立联系防止问号国家
+					every_country = {
+						limit = { is_ai = no }
+						establish_communications_no_message = prev
+						prev = { set_faction_hostility = { target = prev set_friendly = yes } }
+					}
+				}
+			}
+			set_owner = last_created_country
+		}
+	}
+	option = {
+		name = z_fw1_misc.140.b
+	}
+}
+#_[on_fleet_destroyed_victim]	debug建设舰队被毁<只在战斗时>-清理flag
+#_flt_eft		[z_fw_eft_flt_autostation_tgt_clean]
+country_event = {
+	id = z_fw1_misc.141
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { FromFrom = { has_fleet_flag = z_fw_flg_flt_self_dismantle } }
+	immediate = { destroy_country = yes }	#_直接清除[拆解目标]所有者<刷新关系-清除敌对关系>
+}
+
+
+
+
+
+
+
+###_[战争事件] [id=2]	##################################################################################
+#_夺取一个圣遗物
+country_event = {
+	id = z_fw1_misc.21
+	title = z_fw_relic_wars.name
+	desc = z_fw_relic_wars.desc
+	picture = GFX_evt_z_fw_relic_war
+	show_sound = relic_activation_ether_drake_trophy
+	is_triggered_only = yes
+
+	option = {
+		name = z_fw1_misc.21.a
+	}
+}
+#_被夺走一个圣遗物
+country_event = {
+	id = z_fw1_misc.22
+	title = z_fw_relic_wars_lost.name
+	desc = z_fw_relic_wars_lost.desc
+	picture = GFX_evt_z_fw_relic_war_lost
+	show_sound = event_life_support_fail
+	is_triggered_only = yes
+
+	immediate = {
+	}
+	option = {
+		name = z_fw1_misc.22.a
+		tooltip = { add_modifier = { modifier = humiliated days = 3600 } }
+	}
+}
+#_夺取全部圣遗物
+country_event = {
+	id = z_fw1_misc.23
+	title = z_fw_relic_wars_all.name
+	desc = z_fw_relic_wars_all.desc
+	picture = GFX_evt_z_fw_relic_war
+	show_sound = relic_activation_ether_drake_trophy
+	is_triggered_only = yes
+
+	option = {
+		name = z_fw1_misc.23.a
+	}
+}
+###_损失全部圣遗物
+country_event = {
+	id = z_fw1_misc.24
+	title = z_fw_relic_wars_all_lost.name
+	desc = z_fw_relic_wars_all_lost.desc
+	picture = GFX_evt_z_fw_relic_war_lost
+	show_sound = event_life_support_fail
+	is_triggered_only = yes
+
+	immediate = {
+	}
+	option = {
+		name = z_fw1_misc.24.a
+		tooltip = { add_modifier = { modifier = humiliated days = 3600 } }
+	}
+}
+
+
+
+
+
+
+
+
+###_[cht_璀璨星图] [id=31]	##############################################################################
+
+#_选择引爆方式 day1-3特效 day4引爆
+#_planet_flag	[z_fw_plnt_r_co_ignore]
+#_global_event_target	[z_fw_tgt_plnt_r_co]
+#_country_flag [z_fw_r_co_country_destroyed]
+country_event = {
+	id = z_fw1_misc.31
+	title = z_fw_r_co_choice_power.name
+	desc = z_fw_r_co_choice_power.desc
+	picture = GFX_evt_z_fw_r_co_necron_1
+	show_sound = event_air_raid_siren
+	#location = root
+	is_triggered_only = yes
+
+	option = {#_引爆这颗恒星
+		name = z_fw1_misc.31.a1
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_r_co = {
+				planet_event = { id = z_fw1_planet_destruction.311 }			#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.312 days = 2 }	#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.313 days = 3 }	#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.21 days = 4 }	#_超新星诞生
+				planet_event = { id = z_fw1_planet_destruction.22 days = 4 }	#_毁灭星系
+				planet_event = { id = z_fw1_planet_destruction.23 days = 89 random = 29 }	#_超新星冷却
+			}
+			clear_global_event_target = z_fw_tgt_plnt_r_co
+		}
+	}
+	option = {#_毁灭这个星系
+		name = z_fw1_misc.31.a2
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_r_co = {
+				planet_event = { id = z_fw1_planet_destruction.311 }			#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.312 days = 2 }	#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.313 days = 3 }	#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.21 days = 4 }	#_超新星诞生
+				planet_event = { id = z_fw1_planet_destruction.22 days = 4 }	#_毁灭星系
+				planet_event = { id = z_fw1_planet_destruction.23 days = 89 random = 29 }	#_超新星冷却
+				set_timed_planet_flag = { flag = z_fw_plnt_r_co_ignore days = 41 }	#_近期执行标签
+				solar_system = {
+					random_system_planet = {
+						limit = {
+							is_star = yes
+							#z_is_destructible_stars = yes
+							NOT = { has_planet_flag = z_fw_plnt_r_co_ignore }	#_近期执行过碎星, 不再检测
+						}
+						set_timed_planet_flag = { flag = z_fw_plnt_r_co_ignore days = 41 }	#_近期执行标签
+						planet_event = { id = z_fw1_misc.311 days = 2 }	#_自循环
+					}
+				}
+			}
+			clear_global_event_target = z_fw_tgt_plnt_r_co
+		}
+	}
+	option = {#_毁灭附近星域
+		name = z_fw1_misc.31.a3
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_r_co = {
+				planet_event = { id = z_fw1_planet_destruction.311 }			#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.312 days = 2 }	#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.313 days = 3 }	#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.21 days = 4 }	#_超新星诞生
+				planet_event = { id = z_fw1_planet_destruction.22 days = 4 }	#_毁灭星系
+				planet_event = { id = z_fw1_planet_destruction.23 days = 89 random = 29 }	#_超新星冷却
+				set_timed_planet_flag = { flag = z_fw_plnt_r_co_ignore days = 41 }	#_近期执行标签
+				solar_system = {
+					random_system_planet = {
+						limit = {
+							is_star = yes
+							#z_is_destructible_stars = yes
+							NOT = { has_planet_flag = z_fw_plnt_r_co_ignore }	#_近期执行过碎星, 不再检测
+						}
+						set_timed_planet_flag = { flag = z_fw_plnt_r_co_ignore days = 41 }	#_近期执行标签
+						planet_event = { id = z_fw1_misc.311 days = 2 }	#_自循环
+					}
+				}
+				solar_system = {
+					every_neighbor_system = {#_附近星系
+						random_system_planet = {
+							limit = { is_star = yes }
+							planet_event = { id = z_fw1_planet_destruction.22 days = 9 random = 4 }	#_毁灭星系
+						}
+						every_system_planet = {
+							limit = { is_star = yes }
+							planet_event = { id = z_fw1_planet_destruction.21 days = 9 random = 4 }		#_超新星诞生
+							planet_event = { id = z_fw1_planet_destruction.23 days = 89 random = 29 }	#_超新星冷却
+						}
+					}
+				}
+			}
+			clear_global_event_target = z_fw_tgt_plnt_r_co
+		}
+	}
+	option = {#_毁灭整个国家 所有有殖民地星系的随机恒星
+		name = z_fw1_misc.31.a4
+		#trigger = {
+		#	exists = owner
+		#	owner = { z_is_playable_country = yes }	#_全mod普通国家
+		#}
+		hidden_effect = {
+			event_target:z_fw_tgt_plnt_r_co = {
+				planet_event = { id = z_fw1_planet_destruction.311 }			#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.312 days = 2 }	#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.313 days = 3 }	#_FX-mega
+				planet_event = { id = z_fw1_planet_destruction.21 days = 4 }	#_超新星诞生
+				planet_event = { id = z_fw1_planet_destruction.22 days = 4 }	#_毁灭星系
+				planet_event = { id = z_fw1_planet_destruction.23 days = 89 random = 29 }	#_超新星冷却
+				solar_system = {
+					space_owner = {
+						every_country = {
+							limit = { NOT = { is_country = prev } }
+							remove_country_flag = z_fw_r_co_country_destroyed
+						}
+						set_country_flag = z_fw_r_co_country_destroyed
+						every_system_within_border = {
+							limit = {
+								NOT = { any_system_planet = { is_planet = event_target:z_fw_tgt_plnt_r_co } }
+								any_system_planet = { is_colony = yes }
+							}
+							random_system_planet = {
+								limit = { is_star = yes }
+								planet_event = { id = z_fw1_planet_destruction.21 days = 11 random = 6 }		#_超新星诞生
+								planet_event = { id = z_fw1_planet_destruction.22 days = 11 random = 6 }	#_毁灭星系
+								planet_event = { id = z_fw1_planet_destruction.23 days = 89 random = 29 }	#_超新星冷却
+							}
+						}
+					}
+				}
+			}
+			clear_global_event_target = z_fw_tgt_plnt_r_co
+		}
+	}
+}
+#_毁灭下一个恒星
+planet_event = {
+	id = z_fw1_misc.311
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		planet_event = { id = z_fw1_planet_destruction.311 }			#_FX
+		planet_event = { id = z_fw1_planet_destruction.312 days = 2 }	#_FX
+		planet_event = { id = z_fw1_planet_destruction.313 days = 3 }	#_FX
+		planet_event = { id = z_fw1_planet_destruction.21 days = 4 }		#_超新星诞生
+		planet_event = { id = z_fw1_planet_destruction.23 days = 89 random = 29 }	#_超新星冷却
+		solar_system = {
+			random_system_planet = {
+				limit = {
+					is_star = yes
+					#z_is_destructible_stars = yes
+					NOT = { has_planet_flag = z_fw_plnt_r_co_ignore }	#_近期执行过碎星, 不再检测
+				}
+				set_timed_planet_flag = { flag = z_fw_plnt_r_co_ignore days = 41 }	#_近期执行标签
+				planet_event = { id = z_fw1_misc.311 days = 2 }	#_自循环
+			}
+		}
+	}
+}
+#_文明灭亡
+country_event = {
+	id = z_fw1_misc.312
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { has_country_flag = z_fw_r_co_country_destroyed }
+	immediate = {
+		if = {#_普通
+			limit = { z_is_playable_country_normal = yes }
+			every_playable_country = {
+				limit = {
+					is_ai = no
+					has_communications = root
+					NOT = { is_same_value = root }
+				}
+				country_event = { id = z_fw1_misc.313 }
+			}
+			every_playable_country = {
+				limit = {
+					is_ai = no
+					NOT = { has_communications = root }
+					NOT = { is_same_value = root }
+				}
+				country_event = { id = z_fw1_misc.316 }
+			}
+		}
+		else_if = {#_堕落
+			limit = { z_fw_trgr_playable_country_fallen = yes }
+			every_playable_country = {
+				limit = {
+					is_ai = no
+					has_communications = root
+					NOT = { is_same_value = root }
+				}
+				country_event = { id = z_fw1_misc.314 }
+			}
+			every_playable_country = {
+				limit = {
+					is_ai = no
+					NOT = { has_communications = root }
+					NOT = { is_same_value = root }
+				}
+				country_event = { id = z_fw1_misc.316 }
+			}
+		}
+		else = {#_其他
+			every_playable_country = {
+				limit = {
+					is_ai = no
+					has_communications = root
+					NOT = { is_same_value = root }
+				}
+				country_event = { id = z_fw1_misc.315 }
+			}
+			every_playable_country = {
+				limit = {
+					is_ai = no
+					NOT = { has_communications = root }
+					NOT = { is_same_value = root }
+				}
+				country_event = { id = z_fw1_misc.316 }
+			}
+		}
+	}
+}
+#_警告通知-普通
+country_event = {
+	id = z_fw1_misc.313
+	title = z_fw1_misc.313.name
+	desc = z_fw1_misc.313.desc
+	picture = GFX_evt_z_fw_misc_star_explosion_1
+	is_triggered_only = yes
+	option = {
+		name = z_fw_evt_terrible
+		trigger = {
+			NOT = { has_relic = z_fw_r_celestial_orrey }
+		}
+	}
+	option = {
+		name = z_fw_evt_incredible
+		trigger = { has_relic = z_fw_r_celestial_orrey }
+	}
+}
+#_警告通知-堕落
+country_event = {
+	id = z_fw1_misc.314
+	title = z_fw1_misc.314.name
+	desc = z_fw1_misc.314.desc
+	picture = GFX_evt_z_fw_misc_star_explosion_1
+	is_triggered_only = yes
+	option = {
+		name = z_fw_evt_terrible
+		trigger = {
+			NOT = { has_relic = z_fw_r_celestial_orrey }
+		}
+	}
+	option = {
+		name = z_fw_evt_incredible
+		trigger = { has_relic = z_fw_r_celestial_orrey }
+	}
+}
+#_警告通知-其他
+country_event = {
+	id = z_fw1_misc.315
+	title = z_fw1_misc.315.name
+	desc = z_fw1_misc.315.desc
+	picture = GFX_evt_z_fw_misc_star_explosion_1
+	is_triggered_only = yes
+	option = {
+		name = z_fw_evt_terrible
+		trigger = {
+			NOT = { has_relic = z_fw_r_celestial_orrey }
+		}
+	}
+	option = {
+		name = z_fw_evt_incredible
+		trigger = { has_relic = z_fw_r_celestial_orrey }
+	}
+}
+#_警告通知-位置
+country_event = {
+	id = z_fw1_misc.316
+	title = z_fw1_misc.316.name
+	desc = z_fw1_misc.316.desc
+	picture = GFX_evt_z_fw_misc_star_explosion_1
+	is_triggered_only = yes
+	option = {
+		name = z_fw_evt_terrible
+		trigger = {
+			NOT = { has_relic = z_fw_r_celestial_orrey }
+		}
+	}
+	option = {
+		name = z_fw_evt_incredible
+		trigger = { has_relic = z_fw_r_celestial_orrey }
+	}
+}
+#_清理r_co mega
+planet_event = {
+	id = z_fw1_misc.317
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		solar_system = {
+			every_system_megastructure = {
+				limit = {
+					exists = this
+					OR = {
+						is_megastructure_type = z_fw_mega_r_cht_co_tgt_marker_1
+						is_megastructure_type = z_fw_mega_r_cht_co_tgt_marker_2
+					}
+				}
+				remove_megastructure = this
+			}
+		}
+	}
+}
+
+
+
+
+###_[cht_维度解构剑]	[id=32]	##########################################################################
+#_global_flag		[z_fw_flg_glo_r_cht_hyper_on]
+#_country_flag		[z_fw_flg_cntr_r_cht_hyper_on]
+
+#_relic开关
+country_event = {
+	id = z_fw1_misc.321
+	title = z_fw1_misc.321.name
+	desc = z_fw1_misc.321.desc
+	#picture = GFX_evt_z_fw_r_cht_hyper
+	picture = GFX_evt_z_fw_misc_star_explosion_1
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_gui_evt_620_420"
+	picture_event_data = {
+		portrait = shroud1
+		room = z_fw_core_de_slash_room
+	}
+	
+	#_退出
+	option = {
+		name = z_modmenu_exit
+		custom_gui = "z_mm_button_evt_option_red"
+	}
+	
+	#_已禁用
+	option = {
+		name = z_fw_evt_r_cheat_hyper_blade_off
+		custom_tooltip = z_fw_evt_r_cheat_hyper_blade_off_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_country_flag = z_fw_flg_cntr_r_cht_hyper_on } }
+		hidden_effect = {
+			set_global_flag = z_fw_flg_glo_r_cht_hyper_on
+			set_country_flag = z_fw_flg_cntr_r_cht_hyper_on
+			country_event = { id = z_fw1_misc.321 }
+		}
+	}
+	#_已激活
+	option = {
+		name = z_fw_evt_r_cheat_hyper_blade_on
+		custom_tooltip = z_fw_evt_r_cheat_hyper_blade_on_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_country_flag = z_fw_flg_cntr_r_cht_hyper_on }
+		hidden_effect = {
+			if = {
+				limit = { exists = event_target:z_fw_tgt_sys_r_cht_hyper_1 }
+				event_target:z_fw_tgt_sys_r_cht_hyper_1 = {
+					remove_star_flag = z_fw_flg_sys_r_cht_hyper_1
+					every_system_megastructure = {
+						limit = { is_megastructure_type = z_fw_mega_r_cht_hyper_tgt_marker_1 }
+						remove_megastructure = this
+					}
+				}
+			}
+			clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_1
+			remove_global_flag = z_fw_flg_glo_r_cht_hyper_on
+			every_country = { remove_country_flag = z_fw_flg_cntr_r_cht_hyper_on }
+			country_event = { id = z_fw1_misc.321 }
+		}
+	}
+	#_一刀倾城
+	option = {
+		name = z_fw_evt_r_cheat_hyper_blade_doom
+		custom_tooltip = z_fw_evt_r_cheat_hyper_blade_doom_desc
+		custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			every_system = {
+				every_system = {
+					limit = { has_hyperlane_to = prev }
+					remove_hyperlane = {
+						from = this
+						to = prev
+					}
+				}
+			}
+			every_country = {
+				limit = { is_ai = no }
+				country_event = { id = z_fw1_misc.325 days = 1 }
+			}
+			country_event = { id = z_fw1_misc.326 days = 1  }
+		}
+	}
+}
+
+#_超空间航道断裂-阻断者
+country_event = {
+	id = z_fw1_misc.322
+	title = z_fw1_misc.322.name
+	desc = z_fw1_misc.322.desc
+	picture = GFX_evt_z_fw_core_de_slash
+	is_triggered_only = yes
+	option = {
+		name = z_fw_evt_incredible
+	}
+	
+}
+#_超空间航道断裂
+country_event = {
+	id = z_fw1_misc.323
+	title = z_fw1_misc.323.name
+	desc = z_fw1_misc.323.desc
+	picture = GFX_evt_z_fw_core_de_slash
+	is_triggered_only = yes
+	location = event_target:z_fw_tgt_sys_r_cht_hyper_1
+	
+	option = {
+		name = z_fw_evt_good
+		hidden_effect = {
+			clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_1
+			clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_2
+		}
+	}
+	
+}
+#_超空间航道链接
+country_event = {
+	id = z_fw1_misc.324
+	title = z_fw1_misc.324.name
+	desc = z_fw1_misc.324.desc
+	picture = GFX_evt_z_fw_core_de_slash
+	is_triggered_only = yes
+	location = event_target:z_fw_tgt_sys_r_cht_hyper_2
+	
+	option = {
+		name = z_fw_evt_good
+		hidden_effect = {
+			clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_1
+			clear_global_event_target = z_fw_tgt_sys_r_cht_hyper_2
+		}
+	}
+	
+}
+#_一刀倾城
+country_event = {
+	id = z_fw1_misc.325
+	title = z_fw1_misc.325.name
+	desc = z_fw1_misc.325.desc
+	picture = GFX_evt_z_fw_core_de_slash
+	is_triggered_only = yes
+	option = {
+		name = z_fw_evt_terrible
+	}
+}
+country_event = {
+	id = z_fw1_misc.326
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		random_system_within_border = {
+			limit = { any_system_planet = { is_capital = yes } }
+			save_event_target_as = z_fw_tgt_sys_r_cht_hyper_1_temp
+			random_system = {
+				limit = { NOT = { is_same_value = prev } }
+				save_event_target_as = z_fw_tgt_sys_r_cht_hyper_2_temp
+			}
+		}
+		add_hyperlane = {
+			from = event_target:z_fw_tgt_sys_r_cht_hyper_2_temp
+			to = event_target:z_fw_tgt_sys_r_cht_hyper_1_temp
+		}
+	}
+}
+
+
+
+
+###_[cht_物质湮灭剑]	[id=33]		######################################################################
+#_cntr_flg			[z_fw_flg_cntr_r_cht_mega_ongoing]		当前进行中cntr
+#_glbl_flg			[z_fw_flg_glbl_r_cht_mega_ongoing]		当前进行中
+#_cntr_flg			[z_fw_flg_cntr_r_cht_mega_on]
+#_mega_trgr			[z_fw_trgr_mega_demolish_ignore]		不可拆除巨建
+#_mega_eft			[z_fw_eft_r_cht_mega_demolish]			清除mega细节
+
+#_plnt_flg			[has_megastructure]
+
+#_环			[star_flg ring_world_built]环基址完成
+#_球			[star_flg dyson_sphere_built][cntr_flg built_dyson_sphere]
+#_哨兵			[star_flg spy_orb_built][cntr_flg built_spyorb]
+#_科研			[star_flg think_tank_built][cntr_flg built_think_tank]
+#_解压			[star_flg matter_decompressor_built]
+#_指挥中心		[star_flg strategic_coordination_center_built][cntr_flg built_strategic_coordination_center_site]
+#_艺术			[star_flg mega_art_installation_built][cntr_flg built_mega_art_installation_site]
+#_会堂			[star_flg interstellar_assembly_built][cntr_flg built_interstellar_assembly_site]
+#_船坞			[star_flg mega_shipyard_built][cntr_flg built_mega_shipyard_site]
+
+#_relic开关
+country_event = {
+	id = z_fw1_misc.331
+	title = z_fw1_misc.331.name
+	desc = z_fw1_misc.331.desc
+	picture = GFX_evt_z_fw_misc_star_explosion_1
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_gui_evt_620_420"
+	picture_event_data = {
+		portrait = shroud1
+		room = z_fw_core_de_slash_room
+	}
+	
+	#_退出
+	option = {
+		name = z_modmenu_exit
+		custom_gui = "z_mm_button_evt_option_red"
+	}
+	
+	#_已禁用
+	option = {
+		name = z_fw_evt_r_cheat_mega_sword_off
+		custom_tooltip = z_fw_evt_r_cheat_mega_sword_off_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { NOT = { has_country_flag = z_fw_flg_cntr_r_cht_mega_on } }
+		hidden_effect = {
+			set_country_flag = z_fw_flg_cntr_r_cht_mega_on
+			country_event = { id = z_fw1_misc.331 }
+		}
+	}
+	#_已激活
+	option = {
+		name = z_fw_evt_r_cheat_mega_sword_on
+		custom_tooltip = z_fw_evt_r_cheat_mega_sword_on_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = { has_country_flag = z_fw_flg_cntr_r_cht_mega_on }
+		hidden_effect = {
+			#_清除开启状态
+			remove_country_flag = z_fw_flg_cntr_r_cht_mega_on
+			#_z_fw_r_cht_mega归零
+			if = {
+				limit = { has_country_flag = z_fw_flg_cntr_r_cht_mega_ongoing }
+				z_fw_eft_cntr_r_cht_mega_init = yes
+			}
+			country_event = { id = z_fw1_misc.331 }
+		}
+	}
+	#_一刀倾城
+	option = {
+		name = z_fw_evt_r_cheat_mega_sword_doom
+		custom_tooltip = z_fw_evt_r_cheat_mega_sword_doom_desc
+		custom_gui = "z_mm_button_evt_option_orange"
+		hidden_effect = {
+			#_清除mega
+			every_megastructure = {
+				limit = { z_fw_trgr_mega_demolish_ignore = no }
+				remove_megastructure = this
+			}
+			#_清除巨建建造flg
+			every_country = {
+				limit = {
+					OR = {
+						z_fw_is_common_country = yes
+						z_fw_trgr_playable_country_fallen = yes
+					}
+				}
+				remove_country_flag = built_dyson_sphere
+				remove_country_flag = built_spyorb
+				remove_country_flag = built_think_tank
+				remove_country_flag = built_strategic_coordination_center_site
+				remove_country_flag = built_mega_art_installation_site
+				remove_country_flag = built_interstellar_assembly_site
+				remove_country_flag = built_mega_shipyard_site
+			}
+			#_清除星系flg
+			every_system = {
+				remove_star_flag = dyson_sphere_built
+				remove_star_flag = spy_orb_built
+				remove_star_flag = think_tank_built
+				remove_star_flag = matter_decompressor_built
+				remove_star_flag = strategic_coordination_center_built
+				remove_star_flag = mega_art_installation_built
+				remove_star_flag = interstellar_assembly_built
+				remove_star_flag = mega_shipyard_built
+			}
+			#_通知
+			every_country = {
+				limit = { is_ai = no }
+			#	country_event = { id = z_fw1_misc.335 days = 1 }
+			}
+		}
+	}
+}
+
+#_[z_fw_mega_r_cht_mega_tgt_marker]		巨建选择器_mega
+#_mega_eft		[z_fw_eft_r_cht_mega_demolish]
+country_event = {
+	id = z_fw1_misc.332
+	title = z_fw_evt_r_cht_mega_choose
+	desc = z_fw_tips_r_cht_mega_choose_tgt
+	picture = GFX_evt_z_fw_misc_star_explosion_1
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_gui_evt_620_620_right"
+	picture_event_data = {
+		room = z_mm_evt_tips_room
+	}
+	
+	immediate = {
+		#_设定目标,添加ambt_marker
+		event_target:z_fw_tgt_sys_r_cht_mega = {
+			z_fw_eft_sys_add_ambt_marker = { NUM = 1 }
+			z_fw_eft_sys_add_ambt_marker = { NUM = 2 }
+			z_fw_eft_sys_add_ambt_marker = { NUM = 3 }
+			z_fw_eft_sys_add_ambt_marker = { NUM = 4 }
+			z_fw_eft_sys_add_ambt_marker = { NUM = 5 }
+			z_fw_eft_sys_add_ambt_marker = { NUM = 6 }
+			z_fw_eft_sys_add_ambt_marker = { NUM = 7 }
+			z_fw_eft_sys_add_ambt_marker = { NUM = 8 }
+			z_fw_eft_sys_add_ambt_marker = { NUM = 9 }
+		}
+	}
+
+	#_debug
+	option = {
+		name = no_tgt_sys_r_cht_mega
+		custom_gui = "z_mm_button_evt_option_red"
+		trigger = { NOT = { exists = event_target:z_fw_tgt_sys_r_cht_mega } }
+		hidden_effect = { z_fw_eft_cntr_r_cht_mega_init = yes }
+	}
+	#_刷新列表	清除指示ambt_obj
+	option = {
+		name = z_fw_tips_r_cht_mega_choose_reroll
+		custom_gui = "z_mm_button_evt_option_blue"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { z_fw_trgr_mega_r_cht_mega_counted = yes }
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	#_无可清除目标
+	option = {
+		name = z_fw_tips_r_cht_mega_choose_non
+		custom_gui = "z_mm_button_evt_option_orange"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				NOT = { any_system_megastructure = { z_fw_trgr_mega_r_cht_mega_counted = yes } }
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_cntr_r_cht_mega_init = yes
+		}
+	}
+	#_放弃清除
+	option = {
+		name = z_fw_tips_r_cht_mega_choose_demolish_0
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { z_fw_trgr_mega_r_cht_mega_counted = yes }
+			}
+		}
+		hidden_effect = {
+			z_fw_eft_cntr_r_cht_mega_init = yes
+		}
+	}
+	option = {#_1
+		name = z_fw_tips_r_cht_mega_choose_demolish_1
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_1 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_1 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	option = {#_2
+		name = z_fw_tips_r_cht_mega_choose_demolish_2
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_2 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_2 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	option = {#_3
+		name = z_fw_tips_r_cht_mega_choose_demolish_3
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_3 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_3 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	option = {#_4
+		name = z_fw_tips_r_cht_mega_choose_demolish_4
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_4 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_4 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	option = {#_5
+		name = z_fw_tips_r_cht_mega_choose_demolish_5
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_5 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_5 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	option = {#_6
+		name = z_fw_tips_r_cht_mega_choose_demolish_6
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_6 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_6 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	option = {#_7
+		name = z_fw_tips_r_cht_mega_choose_demolish_7
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_7 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_7 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	option = {#_8
+		name = z_fw_tips_r_cht_mega_choose_demolish_8
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_8 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_8 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+	option = {#_9
+		name = z_fw_tips_r_cht_mega_choose_demolish_9
+		custom_tooltip = z_fw_tips_r_cht_mega_choose_demolish
+		custom_gui = "z_mm_button_evt_option_normal"
+		trigger = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				any_system_megastructure = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_9 }
+			}
+		}
+		hidden_effect = {
+			event_target:z_fw_tgt_sys_r_cht_mega = {
+				random_system_megastructure = {
+					limit = { has_megastructure_flag = z_fw_flg_mega_r_cht_mega_9 }
+					remove_megastructure = this
+					z_fw_eft_r_cht_mega_demolish = yes
+				}
+			}
+			z_fw_eft_cntr_r_cht_mega_recheck = yes
+		}
+	}
+}
+
+
+
+
+###_[cht_怒]	[id=34]		######################################################################
+#_cntr_mod		[z_fw_mod_r_cht_fury_1][z_fw_mod_r_cht_fury_2][z_fw_mod_r_cht_fury_3][z_fw_mod_r_cht_fury_4][z_fw_mod_r_cht_fury_5]
+#_global_tgt	[z_fw_tgt_global_event]		#_cntr_flg	[z_fw_flg_r_cht_fury_on]Fury_Cht中
+
+country_event = {
+	id = z_fw1_misc.341
+	title = z_fw_evt_r_cht_fury
+	desc = z_fw_evt_r_cht_fury_desc
+	picture = GFX_evt_z_fw_misc_star_explosion_1
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	custom_gui = "z_mm_gui_evt_620_520"
+	picture_event_data = {
+		room = z_fw_r_cht_fury_room
+	}
+	
+	#_退出
+	option = {
+		name = z_modmenu_exit
+		custom_gui = "z_mm_button_evt_option_red"
+	}
+	
+	#_buff_1
+	option = {
+		name = z_fw_evt_r_cht_fury_buff_1
+		custom_tooltip = z_fw_evt_r_cht_fury_buff_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		hidden_effect = {
+			add_modifier = { modifier = z_fw_mod_r_cht_fury_1 days = -1 }
+			remove_modifier = z_fw_mod_r_cht_fury_2
+			remove_modifier = z_fw_mod_r_cht_fury_3
+			remove_modifier = z_fw_mod_r_cht_fury_4
+			remove_modifier = z_fw_mod_r_cht_fury_5
+			if = {
+				limit = { exists = event_target:z_fw_tgt_global_event }
+				event_target:z_fw_tgt_global_event = { set_country_flag = z_fw_flg_r_cht_fury_on }
+			}
+			country_event = { id = z_fw1_misc.341 }
+		}
+	}
+	#_buff_2
+	option = {
+		name = z_fw_evt_r_cht_fury_buff_2
+		custom_tooltip = z_fw_evt_r_cht_fury_buff_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		hidden_effect = {
+			remove_modifier = z_fw_mod_r_cht_fury_1
+			add_modifier = { modifier = z_fw_mod_r_cht_fury_2 days = -1 }
+			remove_modifier = z_fw_mod_r_cht_fury_3
+			remove_modifier = z_fw_mod_r_cht_fury_4
+			remove_modifier = z_fw_mod_r_cht_fury_5
+			if = {
+				limit = { exists = event_target:z_fw_tgt_global_event }
+				event_target:z_fw_tgt_global_event = { set_country_flag = z_fw_flg_r_cht_fury_on }
+			}
+			country_event = { id = z_fw1_misc.341 }
+		}
+	}
+	#_buff_3
+	option = {
+		name = z_fw_evt_r_cht_fury_buff_3
+		custom_tooltip = z_fw_evt_r_cht_fury_buff_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		hidden_effect = {
+			remove_modifier = z_fw_mod_r_cht_fury_1
+			remove_modifier = z_fw_mod_r_cht_fury_2
+			add_modifier = { modifier = z_fw_mod_r_cht_fury_3 days = -1 }
+			remove_modifier = z_fw_mod_r_cht_fury_4
+			remove_modifier = z_fw_mod_r_cht_fury_5
+			if = {
+				limit = { exists = event_target:z_fw_tgt_global_event }
+				event_target:z_fw_tgt_global_event = { set_country_flag = z_fw_flg_r_cht_fury_on }
+			}
+			country_event = { id = z_fw1_misc.341 }
+		}
+	}
+	#_buff_4
+	option = {
+		name = z_fw_evt_r_cht_fury_buff_4
+		custom_tooltip = z_fw_evt_r_cht_fury_buff_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		hidden_effect = {
+			remove_modifier = z_fw_mod_r_cht_fury_1
+			remove_modifier = z_fw_mod_r_cht_fury_2
+			remove_modifier = z_fw_mod_r_cht_fury_3
+			add_modifier = { modifier = z_fw_mod_r_cht_fury_4 days = -1 }
+			remove_modifier = z_fw_mod_r_cht_fury_5
+			if = {
+				limit = { exists = event_target:z_fw_tgt_global_event }
+				event_target:z_fw_tgt_global_event = { set_country_flag = z_fw_flg_r_cht_fury_on }
+			}
+			country_event = { id = z_fw1_misc.341 }
+		}
+	}
+	#_buff_5
+	option = {
+		name = z_fw_evt_r_cht_fury_buff_5
+		custom_tooltip = z_fw_evt_r_cht_fury_buff_desc
+		custom_gui = "z_mm_button_evt_option_normal"
+		hidden_effect = {
+			remove_modifier = z_fw_mod_r_cht_fury_1
+			remove_modifier = z_fw_mod_r_cht_fury_2
+			remove_modifier = z_fw_mod_r_cht_fury_3
+			remove_modifier = z_fw_mod_r_cht_fury_4
+			add_modifier = { modifier = z_fw_mod_r_cht_fury_5 days = -1 }
+			if = {
+				limit = { exists = event_target:z_fw_tgt_global_event }
+				event_target:z_fw_tgt_global_event = { set_country_flag = z_fw_flg_r_cht_fury_on }
+			}
+			country_event = { id = z_fw1_misc.341 }
+		}
+	}
+	#_buff_clean
+	option = {
+		name = z_fw_evt_r_cht_fury_buff_clean
+		custom_tooltip = z_fw_evt_r_cht_fury_buff_clean_desc
+		custom_gui = "z_mm_button_evt_option_blue"
+		allow = {
+			OR = {
+				has_modifier = z_fw_mod_r_cht_fury_1
+				has_modifier = z_fw_mod_r_cht_fury_2
+				has_modifier = z_fw_mod_r_cht_fury_3
+				has_modifier = z_fw_mod_r_cht_fury_4
+				has_modifier = z_fw_mod_r_cht_fury_5
+			}
+		}
+		hidden_effect = {
+			remove_modifier = z_fw_mod_r_cht_fury_1
+			remove_modifier = z_fw_mod_r_cht_fury_2
+			remove_modifier = z_fw_mod_r_cht_fury_3
+			remove_modifier = z_fw_mod_r_cht_fury_4
+			remove_modifier = z_fw_mod_r_cht_fury_5
+			#_清除<Fury_Cntr存在时>禁止自适应战力加成的flg
+			if = {
+				limit = {
+					exists = event_target:z_fw_tgt_global_event
+					z_fw_trgr_r_cht_fury_cntr_exists = no	#_不存在其他Fury_Cntr
+				}
+				event_target:z_fw_tgt_global_event = { remove_country_flag = z_fw_flg_r_cht_fury_on }
+			}
+			country_event = { id = z_fw1_misc.341 }
+		}
+	}
+}

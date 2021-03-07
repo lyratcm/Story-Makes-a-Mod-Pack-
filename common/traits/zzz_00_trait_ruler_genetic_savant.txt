@@ -1,0 +1,16 @@
+trait_ruler_genetic_savant = {
+    cost = 0
+    modification = no
+    icon = "gfx/interface/icons/traits/leader_traits/trait_leader_genetic_savant.dds"
+    modifier = {
+        empire_size_penalty_mult = -0.15
+    }
+    leader_trait = {
+        ruler
+    }
+    leader_class = {
+        ruler
+    }
+    initial = no
+    randomized = no
+}

@@ -1,0 +1,691 @@
+### JOB TRIGGERS ###
+worker_promotion_check_trigger = {
+	OR = {
+		NOT = { years_passed > 1 }
+		has_trait = trait_necrophage
+		has_trait = trait_decadent
+		NOR = {
+			has_job = technician
+			has_job = miner
+			has_job = farmer
+			has_job = crystal_miner
+			has_job = gas_extractor
+			has_job = mote_harvester
+			has_job = soldier
+		}
+	}
+}
+
+simple_drone_promotion_check_trigger = {
+	OR = {
+		NOT = { years_passed > 1 }
+		NOR = {
+			has_job = technician_drone
+			has_job = mining_drone
+			has_job = agri_drone
+			has_job = crystal_mining_drone
+			has_job = gas_extraction_drone
+			has_job = mote_harvesting_drone
+			has_job = warrior_drone
+		}
+	}
+}
+
+complex_drone_job_extant_check_trigger = {
+	custom_tooltip = DRONE_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		owner = { is_gestalt = yes }
+		simple_drone_promotion_check_trigger = yes
+		OR = {
+			has_citizenship_rights = yes
+			owner = { has_origin = origin_extant_creators }
+		}
+		is_being_purged = no
+		is_enslaved = no
+		is_being_assimilated = no
+		NOT = { has_trait = trait_syncretic_proles }
+		NOT = { has_trait = trait_nerve_stapled }
+		NOT = { has_trait = trait_presapient_docile_livestock }	
+	}
+}
+
+can_take_grunt_job = {
+	is_enslaved = yes
+	has_slavery_type = { type = slavery_military }
+	NOR = {
+		has_trait = trait_hive_mind
+		has_trait = trait_machine_unit
+	}
+}
+
+### POP TRIGGERS ###
+is_valid_migration_pop = {
+	exists = owner
+	is_robot_pop = no
+	has_culture_shock = no
+	is_enslaved = no
+	has_migration_control = no
+	NOR = {
+		has_trait = trait_hive_mind 
+		has_trait = trait_nerve_stapled
+	}
+	owner = {
+		any_relation = {
+			OR = {
+				has_diplo_migration_treaty = PREV
+				PREV = { has_diplo_migration_treaty = PREV }
+			}
+			prevprev = { #this ensures Pop scope, as root will not always be pop scope					
+				NOR = {
+					has_citizenship_type = { type = citizenship_slavery country = prev }
+					has_citizenship_type = { type = citizenship_purge country = prev }
+				}
+			}
+			any_owned_planet = {
+				is_under_colonization = no
+				is_controlled_by = owner
+				has_orbital_bombardment = no
+				habitability = { who = prevprevprev value >= 0.6 }
+				free_housing >= 1
+				free_jobs >= 1
+			}
+		}
+	}
+}
+
+is_free_pop_gestalt = {
+	custom_tooltip = is_free_pop_gestalt_tooltip
+	hidden_trigger = {
+		exists = owner
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		OR = {
+			AND = {
+				owner = { is_hive_empire = yes }
+				NOT = { has_trait = trait_hive_mind }
+			}
+			AND = {
+				owner = { is_machine_empire = yes }
+				is_robot_pop = no
+			}
+		}
+		owner = {
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_closed_collective
+				has_valid_civic = civic_machine_assimilator
+				has_valid_civic = civic_machine_servitor
+				has_valid_civic = civic_machine_consciousness
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_closed_network
+				has_valid_civic = civic_living_hosts
+				has_valid_civic = civic_infestation
+			}
+		}
+	}
+}
+
+is_free_resident_pop_gestalt = {
+	is_free_pop_gestalt = yes
+	has_citizenship_rights = no
+}
+
+can_be_infested = {
+	NOR = {
+		is_archetype = MACHINE
+		is_archetype = ROBOT
+		is_archetype = PRESAPIENT
+		is_same_species = prev.owner_species
+		has_trait = trait_hive_mind
+	}
+	has_citizenship_type = { type = citizenship_assimilation }
+	has_species_flag = flag_species_to_infest
+}
+
+is_gov_ethic_pop = {
+	exists = owner
+	OR = {
+		AND = {
+			owner = { is_pacifist = yes }
+			pop_has_ethic = ethic_pacifist
+		}
+		AND = {
+			owner = { is_militarist = yes }
+			pop_has_ethic = ethic_militarist
+		}
+		AND = {
+			owner = { is_materialist = yes }
+			pop_has_ethic = ethic_materialist
+		}
+		AND = {
+			owner = { is_spiritualist = yes }
+			pop_has_ethic = ethic_spiritualist
+		}
+		AND = {
+			owner = { is_egalitarian = yes }
+			pop_has_ethic = ethic_egalitarian
+		}
+		AND = {
+			owner = { is_authoritarian = yes }
+			pop_has_ethic = ethic_authoritarian
+		}
+		AND = {
+			owner = { is_xenophile = yes }
+			pop_has_ethic = ethic_xenophile
+		}
+		AND = {
+			owner = { is_xenophobe = yes }
+			pop_has_ethic = ethic_xenophobe
+		}
+	}
+}
+
+is_gov_ethic_planet_pop = {
+	OR = {
+		AND = {
+			planet = { exists = owner owner = { is_pacifist = yes } }
+			pop_has_ethic = ethic_pacifist
+		}
+		AND = {
+			planet = { exists = owner owner = { is_militarist = yes } }
+			pop_has_ethic = ethic_militarist
+		}
+		AND = {
+			planet = { exists = owner owner = { is_materialist = yes } }
+			pop_has_ethic = ethic_materialist
+		}
+		AND = {
+			planet = { exists = owner owner = { is_spiritualist = yes } }
+			pop_has_ethic = ethic_spiritualist
+		}
+		AND = {
+			planet = { exists = owner owner = { is_egalitarian = yes } }
+			pop_has_ethic = ethic_egalitarian
+		}
+		AND = {
+			planet = { exists = owner owner = { is_authoritarian = yes } }
+			pop_has_ethic = ethic_authoritarian
+		}
+		AND = {
+			planet = { exists = owner owner = { is_xenophile = yes } }
+			pop_has_ethic = ethic_xenophile
+		}
+		AND = {
+			planet = { exists = owner owner = { is_xenophobe = yes } }
+			pop_has_ethic = ethic_xenophobe
+		}
+	}
+}
+
+### EMPIRE TRIGGERS ###
+
+is_reptilian = {
+	species = {
+		is_archetype = REPTILIAN
+	}
+}
+is_fungoid = {
+	species = {
+		is_archetype = FUNGOID
+	}
+}
+is_plantoid = {
+	species = {
+		is_archetype = PLANTOID
+	}
+}
+
+is_reptilian_empire = {
+	owner_species = { is_reptilian = yes }
+}
+
+is_fungoid_empire = {
+	owner_species = { is_fungoid = yes }
+}
+
+is_plantoid_empire = {
+	owner_species = { is_plantoid = yes }
+}
+
+from_has_antagonistic_ethics = {
+	custom_tooltip = has_antagonistic_ethics
+	hidden_trigger = {
+		OR = {
+			AND = {
+				OR = {
+					is_materialist = yes
+					is_machine_empire = yes
+				}
+				FROM = { is_spiritualist = yes }
+			}
+			AND = {
+				FROM = {
+					OR = {
+						is_materialist = yes
+						is_machine_empire = yes
+					}
+				}
+				is_spiritualist = yes
+			}
+			AND = {
+				FROM = { is_militarist = yes }
+				OR = {
+					is_pacifist = yes
+					has_ai_personality = open_hive_mind
+					has_ai_personality = open_machine_intelligence
+				}
+			}
+			AND = {
+				is_militarist = yes
+				FROM = {
+					OR = {
+						is_pacifist = yes
+						has_ai_personality = open_hive_mind
+						has_ai_personality = open_machine_intelligence
+					}
+				}
+			}
+			AND = {
+				OR = {
+					is_xenophobe = yes
+					has_valid_civic = civic_closed_collective
+					has_valid_civic = civic_closed_network
+					any_owned_pop = { is_being_purged = yes }
+				}
+				FROM = {
+					is_xenophile = yes
+				}
+			}
+			AND = {
+				is_xenophile = yes
+				FROM = {
+					OR = {
+						is_xenophobe = yes
+						has_valid_civic = civic_closed_collective
+						has_valid_civic = civic_closed_network
+						any_owned_pop = { is_being_purged = yes }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					is_authoritarian = yes
+					AND = {
+						is_hive_empire = yes
+						NOT = { has_ai_personality = open_hive_mind }
+					}
+					any_owned_pop = { is_enslaved = yes }
+				}
+				FROM = {
+					OR = {
+						is_egalitarian = yes
+						has_valid_civic = civic_machine_servitor
+					}
+				}
+			}
+			AND = {
+				OR = {
+					is_egalitarian = yes
+					has_valid_civic = civic_machine_servitor
+				}
+				FROM = {
+					OR = {
+						is_authoritarian = yes
+						AND = {
+							is_hive_empire = yes
+							NOT = { has_ai_personality = open_hive_mind }
+						}
+						any_owned_pop = { is_enslaved = yes }
+					}
+				}
+			}
+		}
+	}
+}
+
+prev_has_antagonistic_ethics = {
+	custom_tooltip = has_antagonistic_ethics
+	hidden_trigger = {
+		OR = {
+			AND = {
+				OR = {
+					is_materialist = yes
+					is_machine_empire = yes
+				}
+				PREV = { is_spiritualist = yes }
+			}
+			AND = {
+				PREV = {
+					OR = {
+						is_materialist = yes
+						is_machine_empire = yes
+					}
+				}
+				is_spiritualist = yes
+			}
+			AND = {
+				PREV = { is_militarist = yes }
+				OR = {
+					is_pacifist = yes
+					has_ai_personality = open_hive_mind
+					has_ai_personality = open_machine_intelligence
+				}
+			}
+			AND = {
+				is_militarist = yes
+				PREV = {
+					OR = {
+						is_pacifist = yes
+						has_ai_personality = open_hive_mind
+						has_ai_personality = open_machine_intelligence
+					}
+				}
+			}
+			AND = {
+				OR = {
+					is_xenophobe = yes
+					has_valid_civic = civic_closed_collective
+					has_valid_civic = civic_closed_network
+					any_owned_pop = { is_being_purged = yes }
+				}
+				PREV = {
+					is_xenophile = yes
+				}
+			}
+			AND = {
+				is_xenophile = yes
+				PREV = {
+					OR = {
+						is_xenophobe = yes
+						has_valid_civic = civic_closed_collective
+						has_valid_civic = civic_closed_network
+						any_owned_pop = { is_being_purged = yes }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					is_authoritarian = yes
+					AND = {
+						is_hive_empire = yes
+						NOT = { has_ai_personality = open_hive_mind }
+					}
+					any_owned_pop = { is_enslaved = yes }
+				}
+				PREV = {
+					OR = {
+						is_egalitarian = yes
+						has_valid_civic = civic_machine_servitor
+					}
+				}
+			}
+			AND = {
+				OR = {
+					is_egalitarian = yes
+					has_valid_civic = civic_machine_servitor
+				}
+				PREV = {
+					OR = {
+						is_authoritarian = yes
+						AND = {
+							is_hive_empire = yes
+							NOT = { has_ai_personality = open_hive_mind }
+						}
+						any_owned_pop = { is_enslaved = yes }
+					}
+				}
+			}
+		}
+	}
+}
+
+is_military_election = {
+	OR = {
+		has_government = gov_military_dictatorship
+		has_government = gov_military_junta
+		has_government = gov_military_commissariat
+		has_government = gov_martial_dictatorship
+		has_government = gov_war_council
+		has_government = gov_assembly_of_clans
+		has_government = gov_citizen_stratocracy
+		has_government = gov_citizen_republic
+		has_government = gov_compassionate_order
+		has_government = gov_friendship_committee
+		has_government = gov_harmony_assembly
+	}
+}
+
+is_pacifist_election = {
+	OR = {
+		has_government = gov_irenic_dictatorship
+		has_government = gov_irenic_bureaucracy
+		has_government = gov_moral_democracy
+	}
+}
+
+is_science_election = {
+	OR = {
+		is_pacifist_election = yes
+		has_government = gov_technocratic_dictatorship
+		has_government = gov_science_directorate
+		has_government = gov_rational_consensus
+	}
+}
+
+is_govenor_election = {
+	OR = {
+		is_pacifist_election = yes
+		has_government = gov_theocratic_dictatorship
+		has_government = gov_theocratic_oligarchy
+		has_government = gov_holy_tribunal
+		has_government = gov_megachurch
+		has_government = gov_military_commissariat
+		has_government = gov_citizen_republic
+		has_government = gov_megacorporation
+		has_government = gov_trade_league
+		has_government = gov_criminal_syndicate
+		has_government = gov_subversive_cult
+		has_government = gov_compassionate_order
+		has_government = gov_friendship_committee
+		has_government = gov_harmony_assembly
+		has_government = gov_celestial_choir
+		has_government = gov_celestial_theocracy
+		has_government = gov_celestial_monarchy
+		has_government = gov_charter_company
+	}
+}
+
+is_doomed_planet = {
+	OR = {
+		has_modifier = doomsday_1
+		has_modifier = doomsday_2
+		has_modifier = doomsday_3
+		has_modifier = doomsday_4
+		has_modifier = doomsday_5
+	}
+}
+
+### EVENT TRIGGERS ###
+is_valid_scion_leader = {
+	NOR = {
+		leader_class = ruler
+		has_leader_flag = fe_gifted_leader
+	}
+	OR = {
+		event_target:scion_master = { NOT = { has_country_flag = fallen_empire_machine } }
+		leader_class = scientist
+	}
+}
+
+### PANTHEON OF THE VOID TRIGGERS ###
+
+void_pantheon_active = {
+	has_global_flag = void_pantheon_active
+}
+
+### COSMIC RELIGION TRIGGERS ###
+
+cosmic_religion_active = {
+	has_global_flag = cosmic_religion_active
+}
+
+is_same_religion_as_from = {
+	OR = {
+		AND = {
+			has_modifier = "em_animism"
+			from = {
+				has_modifier = "em_animism"
+			}
+		}
+		AND = {
+			has_modifier = "em_monotheism"
+			from = {
+				has_modifier = "em_monotheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_polytheism"
+			from = {
+				has_modifier = "em_polytheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_pantheism"
+			from = {
+				has_modifier = "em_pantheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_secularism"
+			from = {
+				has_modifier = "em_secularism"
+			}
+		}
+		AND = {
+			has_modifier = "em_atheism"
+			from = {
+				has_modifier = "em_atheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_materialism"
+			from = {
+				has_modifier = "em_materialism"
+			}
+		}
+		AND = {
+			has_modifier = "em_god_emperor"
+			from = {
+				has_modifier = "em_god_emperor"
+			}
+		}
+	}
+}
+
+is_same_religion_as_root = {
+	OR = {
+		AND = {
+			has_modifier = "em_animism"
+			root = {
+				has_modifier = "em_animism"
+			}
+		}
+		AND = {
+			has_modifier = "em_monotheism"
+			root = {
+				has_modifier = "em_monotheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_polytheism"
+			root = {
+				has_modifier = "em_polytheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_pantheism"
+			root = {
+				has_modifier = "em_pantheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_secularism"
+			root = {
+				has_modifier = "em_secularism"
+			}
+		}
+		AND = {
+			has_modifier = "em_atheism"
+			root = {
+				has_modifier = "em_atheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_materialism"
+			root = {
+				has_modifier = "em_materialism"
+			}
+		}
+		AND = {
+			has_modifier = "em_god_emperor"
+			root = {
+				has_modifier = "em_god_emperor"
+			}
+		}
+	}
+}
+
+is_same_religion_as_prev = {
+	OR = {
+		AND = {
+			has_modifier = "em_animism"
+			prev = {
+				has_modifier = "em_animism"
+			}
+		}
+		AND = {
+			has_modifier = "em_monotheism"
+			prev = {
+				has_modifier = "em_monotheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_polytheism"
+			prev = {
+				has_modifier = "em_polytheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_pantheism"
+			prev = {
+				has_modifier = "em_pantheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_secularism"
+			prev = {
+				has_modifier = "em_secularism"
+			}
+		}
+		AND = {
+			has_modifier = "em_atheism"
+			prev = {
+				has_modifier = "em_atheism"
+			}
+		}
+		AND = {
+			has_modifier = "em_materialism"
+			prev = {
+				has_modifier = "em_materialism"
+			}
+		}
+		AND = {
+			has_modifier = "em_god_emperor"
+			prev = {
+				has_modifier = "em_god_emperor"
+			}
+		}
+	}
+}

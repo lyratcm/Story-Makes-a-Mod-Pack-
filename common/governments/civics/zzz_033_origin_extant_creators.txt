@@ -1,0 +1,42 @@
+origin_extant_creators = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_extant_creators.dds"
+    picture = GFX_origin_unwashed_masses
+    playable = {
+        host_has_dlc = "Utopia"
+        host_has_dlc = "Synthetic Dawn Story Pack"
+    }
+    possible = {
+        authority = {
+            value = auth_machine_intelligence
+        }
+        civics = {
+            NOR = {
+                value = civic_machine_terminator
+                value = civic_machine_assimilator
+                value = civic_machine_servitor
+                value = civic_machine_consciousness
+                value = civic_closed_network
+                value = civic_machine_warbots
+                value = civic_hive_subspace_ephapse
+            }
+        }
+    }
+    description = civic_tooltip_extant_creators_effects
+    modifier = {
+        pop_growth_from_immigration = 0.5
+    }
+    has_secondary_species = {
+        title = civic_extant_creators_secondary_species
+        traits = {
+            trait = trait_mechanist
+        }
+    }
+    advanced_start = yes
+    flags = {
+        custom_start_screen
+    }
+    random_weight = {
+        base = 5
+    }
+}

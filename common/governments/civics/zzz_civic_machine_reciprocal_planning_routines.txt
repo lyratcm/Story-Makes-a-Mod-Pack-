@@ -1,0 +1,11 @@
+lrsk_gov_var_civic_machine_reciprocal_planning_routines = {
+    potential = {
+        always = no
+    }
+    random_weight = {
+        base = 5
+    }
+    modifier = {
+        country_admin_cap_add = 20
+    }
+}

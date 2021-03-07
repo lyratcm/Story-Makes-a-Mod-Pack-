@@ -1,0 +1,43 @@
+cp_building_cantina_wing = { #Cantina Wing
+	base_buildtime = @b1_time
+	icon = building_underground_clubs
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = cp_civic_space_cantina }
+	}
+	planet_modifier = {
+		job_cp_patron_add = 8
+		job_entertainer_add = 4
+		planet_max_buildings_add = 1
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			alloys = 800
+		}
+		upkeep = {
+			energy = 6
+		}
+	}
+	destroy_trigger = {
+		exists = owner
+		NOT = {
+			owner = { has_civic = cp_civic_space_cantina }
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_entertainer_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_patron_effect_desc
+	}
+	ai_weight = {
+		factor = 1
+	}
+}

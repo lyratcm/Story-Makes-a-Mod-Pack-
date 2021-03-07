@@ -1,0 +1,31 @@
+ap_esap_ct1_diplomacy = {
+	on_enabled = {
+		#custom_tooltip = ap_esap_ct1_diplomacy_tooltip
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_diplomacy_req_1"
+		}
+		custom_tooltip = {
+			fail_text = "ap_esap_ct1_diplomacy_req_2"
+			Not = {
+				has_ascension_perk = ap_esap_ct3_not_diplomacy
+			}
+		}
+	}
+
+	modifier = {
+		envoys_add = 3
+	}
+	
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_esap_ct1_diplomacy
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

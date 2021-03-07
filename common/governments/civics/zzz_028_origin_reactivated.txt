@@ -1,0 +1,22 @@
+origin_reactivated = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_reactivated.dds"
+	picture = GFX_origin_reactivated
+
+	playable = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+	}
+
+	possible = {
+		authority = { value = auth_machine_intelligence }
+	}
+
+	description = "origin_tooltip_reactivated_effects"
+	#flags = { custom_start_screen }
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 3
+	}
+}

@@ -1,0 +1,19 @@
+crystalline_physics = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		cost = {
+			rare_crystals = 25
+		}
+	}
+
+	modifier = {
+		planet_jobs_physics_research_produces_mult = 0.15
+		planet_researchers_upkeep_mult = -0.15
+	}
+	
+	ai_weight = {
+		weight = 0
+	}	
+}

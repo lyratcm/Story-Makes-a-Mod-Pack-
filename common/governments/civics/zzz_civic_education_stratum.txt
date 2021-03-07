@@ -1,0 +1,26 @@
+civic_education_stratum = {
+    potential = {
+        always = no
+    }
+    possible = {
+        ethics = {
+            OR = {
+                text = civic_tooltip_egalitarian
+                value = ethic_egalitarian
+                value = ethic_fanatic_egalitarian
+            }
+        }
+        authority = {
+        }
+    }
+    random_weight = {
+        base = 2
+    }
+    modifier = {
+        leader_skill_levels = 2
+        country_leader_pool_size = 2
+        all_technology_research_speed = 0.05
+        leaders_upkeep_mult = 0.50
+        empire_size_penalty_mult = 0.5
+    }
+}

@@ -1,0 +1,15 @@
+
+generate_gas_start_deposits_and_blockers = {
+	clear_deposits = yes
+	if = {
+		limit = {
+			owner = {
+				has_origin = origin_gas_species
+				}
+			}
+		}
+		add_deposit = habitable_gas_deposit
+		add_deposit = habitable_space_deposit
+		add_deposit = habitable_energy_deposit
+		add_deposit = habitable_minerals_deposit
+	}

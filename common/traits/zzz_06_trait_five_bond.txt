@@ -1,0 +1,23 @@
+trait_five_bond = {
+    icon = "gfx/interface/icons/traits/trait_five_bond.dds"
+    cost = 4
+    advanced_trait = yes
+    initial = no
+    randomized = no
+    opposites = {
+        "trait_single_bond"
+        "trait_high_pressure"
+    }
+    allowed_archetypes = {
+        GASEOUS
+    }
+    modifier = {
+        army_damage_mult = 0.5
+        pop_environment_tolerance = 0.30
+        planet_jobs_produces_mult = 0.15
+        leader_age = 25
+    }
+    slave_cost = {
+        energy = 200
+    }
+}

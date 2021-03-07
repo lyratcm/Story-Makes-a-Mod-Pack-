@@ -1,0 +1,261 @@
+change_phenotype_targeted = {
+	IF = {
+		limit = {
+			exists = planet
+			planet = {
+				any_owned_pop = {
+					has_trait = $trait$
+					is_same_species = prevprev
+				}
+			}
+		}
+		planet = {
+			random_owned_pop = {
+				limit = {
+					has_trait = $trait$
+					is_same_species = prevprev
+				}
+				prevprev = {
+					change_species = prev
+				}
+			}
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			exists = owner
+			owner = {
+				any_owned_species = {
+					has_trait = $trait$
+					is_same_species = prevprev
+				}
+			}
+		}
+		owner = {
+			random_owned_pop = {
+				limit = {
+					has_trait = $trait$
+					is_same_species = prevprev
+				}
+				prevprev = {
+					change_species = prev
+				}
+			}
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			switch = {
+				trigger = num_trait_points
+				2 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 2
+					}		
+				}
+				3 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 3
+					}		
+				}
+				4 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 4
+					}		
+				}
+				5 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 5
+					}		
+				}
+				6 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 6
+					}		
+				}
+				7 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 7
+					}		
+				}
+				8 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 8
+					}		
+				}
+				9 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 9
+					}		
+				}
+				10 = {
+					any_galaxy_species = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 10
+					}		
+				}
+				default = {
+					always = no
+				}
+			}
+		}
+		switch = {
+			trigger = num_trait_points
+			2 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 2
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+			3 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 3
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+			4 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 4
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+			5 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 5
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+			6 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 6
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+			7 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 7
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+			8 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 8
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+			9 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 9
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+			10 = {
+				random_galaxy_species = {
+					limit = {
+						has_trait = $trait$
+						is_same_species = prev
+						num_trait_points = 10
+					}
+					prev = {
+						change_species = prev
+					}
+				}		
+			}
+		}
+	}
+	ELSE = {
+		random_galaxy_species = {
+			limit = {
+				has_trait = $trait$
+				is_same_species = prev
+			}
+			prev = {
+				change_species = prev
+			}
+		}
+	}
+	[[reset_instar]
+		IF = {
+			limit = {
+				species = { has_trait = trait_rooted_adults_rooted }
+			}
+			modify_species = {
+				remove_trait = trait_rooted_adults_rooted
+				add_trait = trait_rooted_adults
+			}
+		}
+		ELSE_IF = {
+			limit = {
+				species = { has_trait = trait_living_architecture }
+			}
+			modify_species = {
+				remove_trait = trait_living_architecture
+				add_trait = trait_potential_living_architecture
+			}
+		}
+	]
+}

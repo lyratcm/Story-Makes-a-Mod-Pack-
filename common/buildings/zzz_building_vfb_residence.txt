@@ -1,0 +1,65 @@
+building_vfb_residence = {
+    category = government
+    base_buildtime = 180
+    base_cap_amount = 2
+    icon = building_vfb_residence
+    potential = {
+        OR = {
+            is_planet_class = pc_habitat
+            is_planet_class = pc_pd_gas_giant_hab
+            is_planet_class = pc_pd_asteroid_hab
+            is_planet_class = pc_nsc_freebooter_habitat
+        }
+        owner = {
+            has_technology = tech_planetary_government
+        }
+    }
+    prerequisites = {
+        tech_planetary_government
+    }
+    destroy_trigger = {
+        NOR = {
+            is_planet_class = pc_habitat
+            is_planet_class = pc_pd_gas_giant_hab
+            is_planet_class = pc_pd_asteroid_hab
+            is_planet_class = pc_nsc_freebooter_habitat
+        }
+    }
+    planet_modifier = {
+        planet_housing_add = 10
+        planet_amenities_add = -10
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_valid_civic = civic_functional_architecture
+                    has_valid_civic = civic_functional_architecture_megacorp
+                }
+            }
+        }
+        planet_housing_add = 2
+    }
+    resources = {
+        category = planet_buildings
+        cost = {
+            alloys = 100
+        }
+        upkeep = {
+            alloys = 1
+        }
+    }
+    ai_weight = {
+        weight = 10
+        factor = 2
+        modifier = {
+            weight = 1000
+            factor = 20
+            num_buildings = {
+                type = building_vfb_residence
+                value < 1
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+namespace = ss
+
+country_event = {
+	id = ss.3
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		every_owned_leader = {
+			add_genetic_savant_after_modification = yes
+			remove_genetic_savant_after_modification = yes
+		}
+		
+		every_pool_leader = {
+			add_genetic_savant_after_modification = yes
+			remove_genetic_savant_after_modification = yes		
+		}
+	}
+}
