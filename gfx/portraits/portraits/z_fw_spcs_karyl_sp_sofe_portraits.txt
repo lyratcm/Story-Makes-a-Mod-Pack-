@@ -1,0 +1,192 @@
+###_z fw portraits-karyl-sp	#############################################################
+
+portraits = {
+	#_sp_sofe_pgnt
+	z_fw_spcs_karyl_sp_sofe_pgnt_01 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_01.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_02 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_02.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_03 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_03.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_04 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_04.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_05 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_05.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_06 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_06.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_07 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_07.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_08 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_08.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_09 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_09.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_10 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_10.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_11 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_11.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_12 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_12.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_13 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_13.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_sofe_pgnt_14 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_sofe_pgnt_14.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+}
+
+#_荧光鼬
+portrait_groups = {
+	z_fw_spcs_karyl_sp_sofe_pgnt = {
+		default = z_fw_spcs_karyl_sp_sofe_pgnt_01
+		game_setup = {#will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				#trigger = {
+				#	ruler = { gender = male }
+				#}
+				portraits = {
+					z_fw_spcs_karyl_sp_sofe_pgnt_01
+					z_fw_spcs_karyl_sp_sofe_pgnt_02
+					z_fw_spcs_karyl_sp_sofe_pgnt_03
+					z_fw_spcs_karyl_sp_sofe_pgnt_04
+					z_fw_spcs_karyl_sp_sofe_pgnt_05
+					z_fw_spcs_karyl_sp_sofe_pgnt_06
+					z_fw_spcs_karyl_sp_sofe_pgnt_07
+					z_fw_spcs_karyl_sp_sofe_pgnt_08
+					z_fw_spcs_karyl_sp_sofe_pgnt_09
+					z_fw_spcs_karyl_sp_sofe_pgnt_10
+					z_fw_spcs_karyl_sp_sofe_pgnt_11
+					z_fw_spcs_karyl_sp_sofe_pgnt_12
+					z_fw_spcs_karyl_sp_sofe_pgnt_13
+					z_fw_spcs_karyl_sp_sofe_pgnt_14
+				}
+			}
+		}		
+		
+		#species scope 指定单个看板
+		species = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_sofe_pgnt_01
+				}
+			}
+		}		
+		#pop scope 全头像
+		pop = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_sofe_pgnt_01
+					z_fw_spcs_karyl_sp_sofe_pgnt_02
+					z_fw_spcs_karyl_sp_sofe_pgnt_03
+					z_fw_spcs_karyl_sp_sofe_pgnt_04
+					z_fw_spcs_karyl_sp_sofe_pgnt_05
+					z_fw_spcs_karyl_sp_sofe_pgnt_06
+					z_fw_spcs_karyl_sp_sofe_pgnt_07
+					z_fw_spcs_karyl_sp_sofe_pgnt_08
+					z_fw_spcs_karyl_sp_sofe_pgnt_09
+					z_fw_spcs_karyl_sp_sofe_pgnt_10
+					z_fw_spcs_karyl_sp_sofe_pgnt_11
+					z_fw_spcs_karyl_sp_sofe_pgnt_12
+					z_fw_spcs_karyl_sp_sofe_pgnt_13
+					z_fw_spcs_karyl_sp_sofe_pgnt_14
+				}
+			}
+		}
+		
+		#leader scope 指定性别
+		leader = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_sofe_pgnt_01
+					z_fw_spcs_karyl_sp_sofe_pgnt_02
+					z_fw_spcs_karyl_sp_sofe_pgnt_03
+					z_fw_spcs_karyl_sp_sofe_pgnt_04
+					z_fw_spcs_karyl_sp_sofe_pgnt_05
+					z_fw_spcs_karyl_sp_sofe_pgnt_06
+					z_fw_spcs_karyl_sp_sofe_pgnt_07
+					z_fw_spcs_karyl_sp_sofe_pgnt_08
+					z_fw_spcs_karyl_sp_sofe_pgnt_09
+					z_fw_spcs_karyl_sp_sofe_pgnt_10
+					z_fw_spcs_karyl_sp_sofe_pgnt_11
+					z_fw_spcs_karyl_sp_sofe_pgnt_12
+					z_fw_spcs_karyl_sp_sofe_pgnt_13
+					z_fw_spcs_karyl_sp_sofe_pgnt_14
+				}
+			}
+		}
+		ruler = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_sofe_pgnt_01
+					z_fw_spcs_karyl_sp_sofe_pgnt_02
+					z_fw_spcs_karyl_sp_sofe_pgnt_03
+					z_fw_spcs_karyl_sp_sofe_pgnt_04
+					z_fw_spcs_karyl_sp_sofe_pgnt_05
+					z_fw_spcs_karyl_sp_sofe_pgnt_06
+					z_fw_spcs_karyl_sp_sofe_pgnt_07
+					z_fw_spcs_karyl_sp_sofe_pgnt_08
+					z_fw_spcs_karyl_sp_sofe_pgnt_09
+					z_fw_spcs_karyl_sp_sofe_pgnt_10
+					z_fw_spcs_karyl_sp_sofe_pgnt_11
+					z_fw_spcs_karyl_sp_sofe_pgnt_12
+					z_fw_spcs_karyl_sp_sofe_pgnt_13
+					z_fw_spcs_karyl_sp_sofe_pgnt_14
+				}
+			}
+		}
+	}
+}
+

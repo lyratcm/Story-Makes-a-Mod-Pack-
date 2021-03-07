@@ -1,0 +1,7 @@
+objectTypes = {
+    pdxparticle = {
+        name = "z_galactic_rings_particle"
+        type = "z_galactic_rings_particle"
+        scale = 1.0
+    }
+}

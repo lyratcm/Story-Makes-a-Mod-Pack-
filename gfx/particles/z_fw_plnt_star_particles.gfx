@@ -1,0 +1,9 @@
+###_z fw particle planet-star	##################################################################
+
+objectTypes = {
+	pdxparticle = {
+		name = "z_nova_star_outburst_effect"
+		type = "z_nova_star_effect"
+		scale = 1.0
+	}
+}

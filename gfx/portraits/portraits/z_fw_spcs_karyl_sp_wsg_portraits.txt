@@ -1,0 +1,531 @@
+###_z fw portraits-karyl-sp	#############################################################
+
+portraits = {
+	#_sp_wss_wsg
+	z_fw_spcs_karyl_sp_wss_nf2 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_nf2.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_nf3 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_nf3.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_nf5 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_nf5.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_nf6 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_nf6.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg_370 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg_370.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg_435 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg_435.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg_436 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg_436.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg381_1 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg381_1.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg349 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg349.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg371 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg371.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg382 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg382.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg386 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg386.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg387 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg387.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg397 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg397.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg398 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg398.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg403 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg403.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg406 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg406.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_wsg413 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_wsg413.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	
+	#_sp_wss_sh
+	z_fw_spcs_karyl_sp_wss_sh01 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh01.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh02 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh02.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh03 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh03.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh12 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh12.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh24 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh24.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh34 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh34.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh44 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh44.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh46 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh46.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh60 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh60.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sh61 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sh61.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	
+	#_sp_wss_swg
+	z_fw_spcs_karyl_sp_wss_sw01 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw01.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw01_1 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw01_1.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw01_2 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw01_2.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw02 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw02.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw03 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw03.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw04 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw04.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw07 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw07.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw08 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw08.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw12 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw12.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_sw13 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_sw13.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_wss_swg_22_1	= {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_wss_swg_22_1.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+}
+
+#_深海
+portrait_groups = {
+	z_fw_spcs_karyl_sp_wss_sh = {
+		default = z_fw_spcs_karyl_sp_wss_sh12
+		game_setup = {#will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				#trigger = {
+				#	ruler = { gender = male }
+				#}
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sh01
+					z_fw_spcs_karyl_sp_wss_sh02
+					z_fw_spcs_karyl_sp_wss_sh03
+					z_fw_spcs_karyl_sp_wss_sh12
+					z_fw_spcs_karyl_sp_wss_sh24
+					z_fw_spcs_karyl_sp_wss_sh34
+					z_fw_spcs_karyl_sp_wss_sh44
+					z_fw_spcs_karyl_sp_wss_sh46
+					z_fw_spcs_karyl_sp_wss_sh60
+					z_fw_spcs_karyl_sp_wss_sh61
+				}
+			}
+		}		
+		
+		#species scope 指定单个看板
+		species = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sh12
+				}
+			}
+		}		
+		#pop scope 全头像
+		pop = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sh01
+					z_fw_spcs_karyl_sp_wss_sh02
+					z_fw_spcs_karyl_sp_wss_sh03
+					z_fw_spcs_karyl_sp_wss_sh12
+					z_fw_spcs_karyl_sp_wss_sh24
+					z_fw_spcs_karyl_sp_wss_sh34
+					z_fw_spcs_karyl_sp_wss_sh44
+					z_fw_spcs_karyl_sp_wss_sh46
+					z_fw_spcs_karyl_sp_wss_sh60
+					z_fw_spcs_karyl_sp_wss_sh61
+				}
+			}
+		}
+		
+		#leader scope 指定性别
+		leader = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sh01
+					z_fw_spcs_karyl_sp_wss_sh02
+					z_fw_spcs_karyl_sp_wss_sh03
+					z_fw_spcs_karyl_sp_wss_sh12
+					z_fw_spcs_karyl_sp_wss_sh24
+					z_fw_spcs_karyl_sp_wss_sh34
+					z_fw_spcs_karyl_sp_wss_sh44
+					z_fw_spcs_karyl_sp_wss_sh46
+					z_fw_spcs_karyl_sp_wss_sh60
+					z_fw_spcs_karyl_sp_wss_sh61
+				}
+			}
+		}
+		ruler = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sh01
+					z_fw_spcs_karyl_sp_wss_sh02
+					z_fw_spcs_karyl_sp_wss_sh03
+					z_fw_spcs_karyl_sp_wss_sh12
+					z_fw_spcs_karyl_sp_wss_sh24
+					z_fw_spcs_karyl_sp_wss_sh34
+					z_fw_spcs_karyl_sp_wss_sh44
+					z_fw_spcs_karyl_sp_wss_sh46
+					z_fw_spcs_karyl_sp_wss_sh60
+					z_fw_spcs_karyl_sp_wss_sh61
+				}
+			}
+		}
+	}
+}
+
+
+#_舰鼬
+portrait_groups = {
+	z_fw_spcs_karyl_sp_wss_wsg = {
+		default = z_fw_spcs_karyl_sp_wss_wsg398
+		game_setup = {#will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				#trigger = {
+				#	ruler = { gender = male }
+				#}
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_nf2
+					z_fw_spcs_karyl_sp_wss_nf3
+					z_fw_spcs_karyl_sp_wss_nf5
+					z_fw_spcs_karyl_sp_wss_nf6
+					z_fw_spcs_karyl_sp_wss_wsg_370
+					z_fw_spcs_karyl_sp_wss_wsg_435
+					z_fw_spcs_karyl_sp_wss_wsg_436
+					z_fw_spcs_karyl_sp_wss_wsg381_1
+					z_fw_spcs_karyl_sp_wss_wsg349
+					z_fw_spcs_karyl_sp_wss_wsg371
+					z_fw_spcs_karyl_sp_wss_wsg382
+					z_fw_spcs_karyl_sp_wss_wsg386
+					z_fw_spcs_karyl_sp_wss_wsg387
+					z_fw_spcs_karyl_sp_wss_wsg397
+					z_fw_spcs_karyl_sp_wss_wsg398
+					z_fw_spcs_karyl_sp_wss_wsg403
+					z_fw_spcs_karyl_sp_wss_wsg406
+					z_fw_spcs_karyl_sp_wss_wsg413
+				}
+			}
+		}		
+		
+		#species scope 指定单个看板
+		species = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_wsg398
+				}
+			}
+		}		
+		#pop scope 全头像
+		pop = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_nf2
+					z_fw_spcs_karyl_sp_wss_nf3
+					z_fw_spcs_karyl_sp_wss_nf5
+					z_fw_spcs_karyl_sp_wss_nf6
+					z_fw_spcs_karyl_sp_wss_wsg_370
+					z_fw_spcs_karyl_sp_wss_wsg_435
+					z_fw_spcs_karyl_sp_wss_wsg_436
+					z_fw_spcs_karyl_sp_wss_wsg381_1
+					z_fw_spcs_karyl_sp_wss_wsg349
+					z_fw_spcs_karyl_sp_wss_wsg371
+					z_fw_spcs_karyl_sp_wss_wsg382
+					z_fw_spcs_karyl_sp_wss_wsg386
+					z_fw_spcs_karyl_sp_wss_wsg387
+					z_fw_spcs_karyl_sp_wss_wsg397
+					z_fw_spcs_karyl_sp_wss_wsg398
+					z_fw_spcs_karyl_sp_wss_wsg403
+					z_fw_spcs_karyl_sp_wss_wsg406
+					z_fw_spcs_karyl_sp_wss_wsg413
+				}
+			}
+		}
+		
+		#leader scope 指定性别
+		leader = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_wsg381_1
+					z_fw_spcs_karyl_sp_wss_wsg349
+					z_fw_spcs_karyl_sp_wss_wsg371
+					z_fw_spcs_karyl_sp_wss_wsg382
+					z_fw_spcs_karyl_sp_wss_wsg386
+					z_fw_spcs_karyl_sp_wss_wsg387
+					z_fw_spcs_karyl_sp_wss_wsg397
+					z_fw_spcs_karyl_sp_wss_wsg398
+					z_fw_spcs_karyl_sp_wss_wsg403
+					z_fw_spcs_karyl_sp_wss_wsg406
+					z_fw_spcs_karyl_sp_wss_wsg413
+					z_fw_spcs_karyl_sp_wss_wsg_370
+					z_fw_spcs_karyl_sp_wss_wsg_435
+					z_fw_spcs_karyl_sp_wss_wsg_436
+				}
+			}
+		}
+		ruler = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_wsg381_1
+					z_fw_spcs_karyl_sp_wss_wsg349
+					z_fw_spcs_karyl_sp_wss_wsg371
+					z_fw_spcs_karyl_sp_wss_wsg382
+					z_fw_spcs_karyl_sp_wss_wsg386
+					z_fw_spcs_karyl_sp_wss_wsg387
+					z_fw_spcs_karyl_sp_wss_wsg397
+					z_fw_spcs_karyl_sp_wss_wsg398
+					z_fw_spcs_karyl_sp_wss_wsg403
+					z_fw_spcs_karyl_sp_wss_wsg406
+					z_fw_spcs_karyl_sp_wss_wsg413
+					z_fw_spcs_karyl_sp_wss_wsg_370
+					z_fw_spcs_karyl_sp_wss_wsg_435
+					z_fw_spcs_karyl_sp_wss_wsg_436
+				}
+			}
+		}
+	}
+}
+
+
+#_帝国舰鼬
+portrait_groups = {
+	z_fw_spcs_karyl_sp_wss_swg = {
+		default = z_fw_spcs_karyl_sp_wss_sw04
+		game_setup = {#will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				#trigger = {
+				#	ruler = { gender = male }
+				#}
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sw01
+					z_fw_spcs_karyl_sp_wss_sw01_1
+					z_fw_spcs_karyl_sp_wss_sw01_2
+					z_fw_spcs_karyl_sp_wss_sw02
+					z_fw_spcs_karyl_sp_wss_sw03
+					z_fw_spcs_karyl_sp_wss_sw04
+					z_fw_spcs_karyl_sp_wss_sw07
+					z_fw_spcs_karyl_sp_wss_sw08
+					z_fw_spcs_karyl_sp_wss_sw12
+					z_fw_spcs_karyl_sp_wss_sw13
+					z_fw_spcs_karyl_sp_wss_swg_22_1
+				}
+			}
+		}		
+		
+		#species scope 指定单个看板
+		species = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sw04
+				}
+			}
+		}		
+		#pop scope 全头像
+		pop = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sw01
+					z_fw_spcs_karyl_sp_wss_sw01_1
+					z_fw_spcs_karyl_sp_wss_sw01_2
+					z_fw_spcs_karyl_sp_wss_sw02
+					z_fw_spcs_karyl_sp_wss_sw03
+					z_fw_spcs_karyl_sp_wss_sw04
+					z_fw_spcs_karyl_sp_wss_sw07
+					z_fw_spcs_karyl_sp_wss_sw08
+					z_fw_spcs_karyl_sp_wss_sw12
+					z_fw_spcs_karyl_sp_wss_sw13
+					z_fw_spcs_karyl_sp_wss_swg_22_1
+				}
+			}
+		}
+		
+		#leader scope 指定性别
+		leader = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sw01
+					z_fw_spcs_karyl_sp_wss_sw01_1
+					z_fw_spcs_karyl_sp_wss_sw01_2
+					z_fw_spcs_karyl_sp_wss_sw02
+					z_fw_spcs_karyl_sp_wss_sw03
+					z_fw_spcs_karyl_sp_wss_sw04
+					z_fw_spcs_karyl_sp_wss_sw07
+					z_fw_spcs_karyl_sp_wss_sw08
+					z_fw_spcs_karyl_sp_wss_sw12
+					z_fw_spcs_karyl_sp_wss_sw13
+					z_fw_spcs_karyl_sp_wss_swg_22_1
+				}
+			}
+		}
+		ruler = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_wss_sw01
+					z_fw_spcs_karyl_sp_wss_sw01_1
+					z_fw_spcs_karyl_sp_wss_sw01_2
+					z_fw_spcs_karyl_sp_wss_sw02
+					z_fw_spcs_karyl_sp_wss_sw03
+					z_fw_spcs_karyl_sp_wss_sw04
+					z_fw_spcs_karyl_sp_wss_sw07
+					z_fw_spcs_karyl_sp_wss_sw08
+					z_fw_spcs_karyl_sp_wss_sw12
+					z_fw_spcs_karyl_sp_wss_sw13
+					z_fw_spcs_karyl_sp_wss_swg_22_1
+				}
+			}
+		}
+	}
+}

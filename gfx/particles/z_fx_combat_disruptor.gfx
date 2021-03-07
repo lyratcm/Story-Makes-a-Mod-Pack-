@@ -1,0 +1,40 @@
+###_Z FW 战斗FX	裂解器	#########################################################################
+
+objectTypes = {
+
+	###_裂解器-1	#########################################
+	#_FX投射物
+	pdxparticle = {
+		name = "z_fx_combat_dsrpt_projectile_effect"
+		type = "z_fx_combat_dsrpt_projectile_effect"
+		
+		scale = 0.5
+	}
+	pdxparticle = {
+		name = "z_fx_combat_dsrpt_projectile_effect_plus"
+		type = "z_fx_combat_dsrpt_projectile_effect_plus"
+		
+		scale = 2.0
+	}
+	#_FX预热
+	pdxparticle = {
+		name = "z_fx_combat_dsrpt_windup_effect"
+		type = "z_fx_combat_dsrpt_windup_effect"
+		
+		scale = 1.0
+	}
+	#_FX开火
+	pdxparticle = {
+		name = "custom_disruptor_3_muzzle_particle"
+		type = "custom_disruptor_3_muzzle_particle"
+		
+		scale = 0.1
+	}
+	#_FX命中
+	pdxparticle = {
+		name = "z_fx_combat_dsrpt_hit_effect"
+		type = "z_fx_combat_dsrpt_hit_effect"
+		
+		scale = 0.5
+	}
+}

@@ -1,0 +1,22 @@
+objectTypes = {
+	pdxparticle = {
+		name = "z_fx_galaxy_quadrant_particle"
+		type = "z_fx_galaxy_quadrant_particle"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fx_galaxy_pinwheel_particle"
+		type = "z_fx_galaxy_pinwheel_particle"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_black_hole_particle"
+		type = "z_black_hole_particle"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_galactic_rings_particle"
+		type = "z_galactic_rings_particle"
+		scale = 1.0
+	}
+}

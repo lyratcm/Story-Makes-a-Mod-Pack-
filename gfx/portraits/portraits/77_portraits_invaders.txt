@@ -1,0 +1,1403 @@
+##############################################################
+###	PORTRAITS SETTINGS
+###
+### Which portraits are used is set in 
+### common\species_classes\00_species_classes.txt
+###
+###	This file configures how portraits and planet backgrounds are built.
+###	Default position orientation is lower left.
+##############################################################
+
+portraits = {
+
+		# Invaders
+		invaders_aquamarine = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_aquamarine.dds"
+			}
+			}
+
+		invaders_azure = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_azure.dds"
+			}
+			}
+
+		invaders_blue = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_blue.dds"
+			}
+			}
+
+		invaders_chartreuse = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_chartreuse.dds"
+			}
+			}
+
+		invaders_cyan = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_cyan.dds"
+			}
+			}	
+
+		invaders_green = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_green.dds"
+			}
+			}	
+
+		invaders_grey = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_grey.dds"
+			}
+			}
+
+		invaders_magenta = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_magenta.dds"
+			}
+			}
+
+		invaders_orange = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_orange.dds"
+			}
+			}
+
+		invaders_red = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_red.dds"
+			}
+			}
+
+		invaders_rose = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_rose.dds"
+			}
+			}
+
+		invaders_violet = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_violet.dds"
+			}
+			}
+
+		invaders_yellow = {	entity = "portrait_swarm_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "event_swarm"
+		character_textures = {
+			"gfx/models/portraits/invaders/invaders_yellow.dds"
+			}
+			}
+}
+
+portrait_groups = {
+	invaders_all = {
+		default = invaders_grey
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					invaders_grey
+					invaders_yellow
+					invaders_violet
+					invaders_rose
+					invaders_red
+					invaders_orange
+					invaders_magenta
+					invaders_green
+					invaders_cyan
+					invaders_chartreuse
+					invaders_blue
+					invaders_azure
+					invaders_aquamarine
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					invaders_grey
+					invaders_yellow
+					invaders_violet
+					invaders_rose
+					invaders_red
+					invaders_orange
+					invaders_magenta
+					invaders_green
+					invaders_cyan
+					invaders_chartreuse
+					invaders_blue
+					invaders_azure
+					invaders_aquamarine
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+					invaders_grey
+					invaders_yellow
+					invaders_violet
+					invaders_rose
+					invaders_red
+					invaders_orange
+					invaders_magenta
+					invaders_green
+					invaders_cyan
+					invaders_chartreuse
+					invaders_blue
+					invaders_azure
+					invaders_aquamarine
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+					invaders_grey
+					invaders_yellow
+					invaders_violet
+					invaders_rose
+					invaders_red
+					invaders_orange
+					invaders_magenta
+					invaders_green
+					invaders_cyan
+					invaders_chartreuse
+					invaders_blue
+					invaders_azure
+					invaders_aquamarine
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					invaders_grey
+					invaders_yellow
+					invaders_violet
+					invaders_rose
+					invaders_red
+					invaders_orange
+					invaders_magenta
+					invaders_green
+					invaders_cyan
+					invaders_chartreuse
+					invaders_blue
+					invaders_azure
+					invaders_aquamarine
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					invaders_grey
+					invaders_yellow
+					invaders_violet
+					invaders_rose
+					invaders_red
+					invaders_orange
+					invaders_magenta
+					invaders_green
+					invaders_cyan
+					invaders_chartreuse
+					invaders_blue
+					invaders_azure
+					invaders_aquamarine
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					invaders_grey
+					invaders_yellow
+					invaders_violet
+					invaders_rose
+					invaders_red
+					invaders_orange
+					invaders_magenta
+					invaders_green
+					invaders_cyan
+					invaders_chartreuse
+					invaders_blue
+					invaders_azure
+					invaders_aquamarine
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					invaders_grey
+					invaders_yellow
+					invaders_violet
+					invaders_rose
+					invaders_red
+					invaders_orange
+					invaders_magenta
+					invaders_green
+					invaders_cyan
+					invaders_chartreuse
+					invaders_blue
+					invaders_azure
+					invaders_aquamarine
+				}
+			}
+		}
+	}
+	
+invaders_aquamarine = {
+		default = invaders_aquamarine
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_aquamarine
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_aquamarine
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_aquamarine
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_aquamarine
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_aquamarine
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_aquamarine
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_aquamarine
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_aquamarine
+				}
+			}
+		}
+	}
+
+invaders_azure = {
+		default = invaders_azure
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_azure
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_azure
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_azure
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_azure
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_azure
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_azure
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_azure
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_azure
+				}
+			}
+		}
+	}
+
+invaders_blue = {
+		default = invaders_blue
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_blue
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_blue
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_blue
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_blue
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_blue
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_blue
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_blue
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_blue
+				}
+			}
+		}
+	}
+
+invaders_chartreuse = {
+		default = invaders_chartreuse
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_chartreuse
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_chartreuse
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_chartreuse
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_chartreuse
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_chartreuse
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_chartreuse
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_chartreuse
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_chartreuse
+				}
+			}
+		}
+	}
+
+invaders_cyan = {
+		default = invaders_cyan
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_cyan
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_cyan
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_cyan
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_cyan
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_cyan
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_cyan
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_cyan
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_cyan
+				}
+			}
+		}
+	}
+
+invaders_green = {
+		default = invaders_green
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_green
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_green
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_green
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_green
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_green
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_green
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_green
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_green
+				}
+			}
+		}
+	}
+
+invaders_orange = {
+		default = invaders_orange 
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_orange 
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_orange 
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_orange 
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_orange 
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_orange 
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_orange 
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_orange 
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_orange 
+				}
+			}
+		}
+	}
+
+invaders_red = {
+		default = invaders_red
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_red
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_red
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_red
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_red
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_red
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_red
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_red
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_red
+				}
+			}
+		}
+	}
+
+invaders_rose = {
+		default = invaders_rose
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_rose
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_rose
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_rose
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_rose
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_rose
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_rose
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_rose
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_rose
+				}
+			}
+		}
+	}
+
+invaders_violet = {
+		default = invaders_violet
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_violet
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_violet
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_violet
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_violet
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_violet
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_violet
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_violet
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_violet
+				}
+			}
+		}
+	}
+
+invaders_magenta = {
+		default = invaders_magenta
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_magenta
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_magenta
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_magenta
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_magenta
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_magenta
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_magenta
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_magenta
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_magenta
+				}
+			}
+		}
+	}
+
+invaders_yellow = {
+		default = invaders_yellow
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+
+					invaders_yellow
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+
+					invaders_yellow
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+
+					invaders_yellow
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+
+					invaders_yellow
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_yellow
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_yellow
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+
+					invaders_yellow
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+
+					invaders_yellow
+				}
+			}
+		}
+	}
+}

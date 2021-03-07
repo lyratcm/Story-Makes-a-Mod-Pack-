@@ -1,0 +1,7 @@
+objectTypes = {
+    pdxparticle = {
+        name = "z_black_hole_particle"
+        type = "z_black_hole_particle"
+        scale = 1.0
+    }
+}

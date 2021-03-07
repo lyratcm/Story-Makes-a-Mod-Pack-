@@ -1,0 +1,682 @@
+objectTypes = {
+	
+	#####################
+	# AI Ship Particles #
+	#####################
+	
+	pdxparticle = {
+		name = "ai_01_colossus_electricity_effect"
+		type = "ai_01_colossus_electricity_effect"
+		scale = 4000.0
+	}
+	
+	###############
+	# Ship Lights #
+	###############
+	
+	pdxparticle = {
+		name = "ship_light_blue2_effect"
+		type = "ship_light_blue2_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ship_light_blue2_regular_effect"
+		type = "ship_light_blue2_regular_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ship_light_red_regular_effect"
+		type = "ship_light_red_regular_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ship_light_magenta_effect"
+		type = "ship_light_magenta_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ship_light_magenta_regular_effect"
+		type = "ship_light_magenta_regular_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ship_light_green2_effect"
+		type = "ship_light_green2_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ship_light_green2_regular_effect"
+		type = "ship_light_green2_regular_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ship_light_violet_effect"
+		type = "ship_light_violet_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ship_light_violet_regular_effect"
+		type = "ship_light_violet_regular_effect"
+		scale = 1.0
+	}
+	
+	###########################
+	# Unbidden Ship Particles #
+	###########################
+	
+	pdxparticle = {
+		name = "ed_pure_green_exhaust_idle"
+		type = "ed_pure_green_exhaust_idle_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_pure_green_exhaust_moving"
+		type = "ed_pure_green_exhaust_moving_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_pure_green_anchor_station_lightning_effect"
+		type = "ed_pure_green_anchor_station_lightning_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_pure_green_anchor_station_portal_effect"
+		type = "ed_pure_green_anchor_station_portal_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_pure_green_colossus_body_effect"
+		type = "ed_pure_green_colossus_body_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_pure_green_colossus_core_effect"
+		type = "ed_pure_green_colossus_core_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_orange_anchor_station_lightning_effect"
+		type = "ed_orange_anchor_station_lightning_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_orange_anchor_station_portal_effect"
+		type = "ed_orange_anchor_station_portal_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_orange_colossus_body_effect"
+		type = "ed_orange_colossus_body_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_orange_colossus_core_effect"
+		type = "ed_orange_colossus_core_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_red_def_ship_effect"
+		type = "ed_large_red_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_red_def_station_effect"
+		type = "ed_large_red_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_red_dissolve_effect"
+		type = "ed_red_dissolve_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_red_def_ship_effect"
+		type = "ed_small_red_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_red_def_station_effect"
+		type = "ed_small_red_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_red_dissolve_effect"
+		type = "ed_red_dissolve_effect"
+		scale = 0.6
+	}
+	
+	pdxparticle = {
+		name = "ed_red_exhaust_idle"
+		type = "ed_red_exhaust_idle_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_red_exhaust_moving"
+		type = "ed_red_exhaust_moving_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_red_construction_effect"
+		type = "ed_red_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_red_construction_ship_effect"
+		type = "ed_red_construction_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_red_anchor_construction_effect"
+		type = "ed_red_anchor_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_red_anchor_station_lightning_effect"
+		type = "ed_red_anchor_station_lightning_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_red_anchor_station_portal_effect"
+		type = "ed_red_anchor_station_portal_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_red_colossus_body_effect"
+		type = "ed_red_colossus_body_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_red_colossus_core_effect"
+		type = "ed_red_colossus_core_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_blue_def_ship_effect"
+		type = "ed_large_blue_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_blue_def_station_effect"
+		type = "ed_large_blue_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_blue_dissolve_effect"
+		type = "ed_blue_dissolve_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_blue_def_ship_effect"
+		type = "ed_small_blue_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_blue_def_station_effect"
+		type = "ed_small_blue_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_blue_dissolve_effect"
+		type = "ed_blue_dissolve_effect"
+		scale = 0.6
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_exhaust_idle"
+		type = "ed_blue_exhaust_idle_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_exhaust_moving"
+		type = "ed_blue_exhaust_moving_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_construction_effect"
+		type = "ed_blue_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_construction_ship_effect"
+		type = "ed_blue_construction_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_anchor_construction_effect"
+		type = "ed_blue_anchor_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_anchor_station_lightning_effect"
+		type = "ed_blue_anchor_station_lightning_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_anchor_station_portal_effect"
+		type = "ed_blue_anchor_station_portal_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_colossus_body_effect"
+		type = "ed_blue_colossus_body_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_blue_colossus_core_effect"
+		type = "ed_blue_colossus_core_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_yellow_def_ship_effect"
+		type = "ed_large_yellow_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_yellow_def_station_effect"
+		type = "ed_large_yellow_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_yellow_dissolve_effect"
+		type = "ed_yellow_dissolve_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_yellow_def_ship_effect"
+		type = "ed_small_yellow_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_yellow_def_station_effect"
+		type = "ed_small_yellow_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_yellow_dissolve_effect"
+		type = "ed_yellow_dissolve_effect"
+		scale = 0.6
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_exhaust_idle"
+		type = "ed_yellow_exhaust_idle_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_exhaust_moving"
+		type = "ed_yellow_exhaust_moving_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_construction_effect"
+		type = "ed_yellow_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_construction_ship_effect"
+		type = "ed_yellow_construction_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_anchor_construction_effect"
+		type = "ed_yellow_anchor_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_anchor_station_lightning_effect"
+		type = "ed_yellow_anchor_station_lightning_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_anchor_station_portal_effect"
+		type = "ed_yellow_anchor_station_portal_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_colossus_body_effect"
+		type = "ed_yellow_colossus_body_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_yellow_colossus_core_effect"
+		type = "ed_yellow_colossus_core_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_magenta_def_ship_effect"
+		type = "ed_large_magenta_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_magenta_def_station_effect"
+		type = "ed_large_magenta_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_magenta_dissolve_effect"
+		type = "ed_magenta_dissolve_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_magenta_def_ship_effect"
+		type = "ed_small_magenta_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_magenta_def_station_effect"
+		type = "ed_small_magenta_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_magenta_dissolve_effect"
+		type = "ed_magenta_dissolve_effect"
+		scale = 0.6
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_exhaust_idle"
+		type = "ed_magenta_exhaust_idle_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_exhaust_moving"
+		type = "ed_magenta_exhaust_moving_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_construction_effect"
+		type = "ed_magenta_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_construction_ship_effect"
+		type = "ed_magenta_construction_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_anchor_construction_effect"
+		type = "ed_magenta_anchor_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_anchor_station_lightning_effect"
+		type = "ed_magenta_anchor_station_lightning_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_anchor_station_portal_effect"
+		type = "ed_magenta_anchor_station_portal_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_colossus_body_effect"
+		type = "ed_magenta_colossus_body_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_magenta_colossus_core_effect"
+		type = "ed_magenta_colossus_core_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_violet_def_ship_effect"
+		type = "ed_large_violet_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_violet_def_station_effect"
+		type = "ed_large_violet_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_large_violet_dissolve_effect"
+		type = "ed_violet_dissolve_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_violet_def_ship_effect"
+		type = "ed_small_violet_def_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_violet_def_station_effect"
+		type = "ed_small_violet_def_station_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_small_violet_dissolve_effect"
+		type = "ed_violet_dissolve_effect"
+		scale = 0.6
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_exhaust_idle"
+		type = "ed_violet_exhaust_idle_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_exhaust_moving"
+		type = "ed_violet_exhaust_moving_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_construction_effect"
+		type = "ed_violet_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_construction_ship_effect"
+		type = "ed_violet_construction_ship_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_anchor_construction_effect"
+		type = "ed_violet_anchor_construction_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_anchor_station_lightning_effect"
+		type = "ed_violet_anchor_station_lightning_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_anchor_station_portal_effect"
+		type = "ed_violet_anchor_station_portal_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_colossus_body_effect"
+		type = "ed_violet_colossus_body_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "ed_violet_colossus_core_effect"
+		type = "ed_violet_colossus_core_effect"
+		scale = 1.0
+	}
+	
+	##############################
+	# Fallen Empire Energy Cores #
+	##############################
+	
+	pdxparticle = {
+		name = "energy_core_ed2_effect"
+		type = "energy_core_ed2_effect"
+		scale = 1.0
+	}
+	
+	#Also as Fallen Empire Militarist Core
+	pdxparticle = {
+		name = "energy_core_ed3_effect"
+		type = "energy_core_ed3_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "energy_core_ed4_effect"
+		type = "energy_core_ed4_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "energy_core_ed5_effect"
+		type = "energy_core_ed5_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "energy_core_ed6_effect"
+		type = "energy_core_ed6_effect"
+		scale = 1.0
+	}
+		
+	#Also as Fallen Empire Pacifist Core
+	pdxparticle = {
+		name = "energy_core_ed7_effect"
+		type = "energy_core_ed7_effect"
+		scale = 1.0
+	}
+	
+	##################################
+	# Fallen Empire Colossus Effects #
+	##################################
+	
+	pdxparticle = {
+		name = "magenta_colossus_core_effect"
+		type = "magenta_colossus_core_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "magenta_colossus_energy_effect"
+		type = "magenta_colossus_energy_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "magenta_colossus_energy_start_effect"
+		type = "magenta_colossus_energy_start_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "magenta_colossus_shield_effect"
+		type = "magenta_colossus_shield_effect"
+		scale = 1.0
+	}
+	
+	###############################
+	# Fallen Empire Titan Exhaust #
+	###############################
+	
+	pdxparticle = {
+		name = "mammalian_01_5_0_exhaust_oblong_idle_particle"
+		type = "mammalian_01_ship_exhaust_idle_large_file"
+		scale = 5.0
+	}
+	
+	pdxparticle = {
+		name = "mammalian_01_4_0_exhaust_oblong_idle_particle"
+		type = "mammalian_01_ship_exhaust_idle_large_file"
+		scale = 4.0
+	}
+	
+	pdxparticle = {
+		name = "mammalian_01_5_0_ship_exhaust_oblong_moving_particle"
+		type = "mammalian_01_ship_exhaust_oblong_file"
+		scale = 5.0
+	}
+	
+	pdxparticle = {
+		name = "mammalian_01_4_0_ship_exhaust_oblong_moving_particle"
+		type = "mammalian_01_ship_exhaust_oblong_file"
+		scale = 4.0
+	}
+}

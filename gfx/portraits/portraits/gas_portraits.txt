@@ -1,0 +1,493 @@
+portraits = {
+   gas1 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings_portrait1.dds"
+   }
+   gas2 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings_portrait2.dds"
+   }
+   gas3 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings_portrait3.dds"
+   }
+   gas4 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings_portrait4.dds"
+   }
+}
+
+portrait_groups = {
+       gaseous = { 
+		default = gas1  
+		game_setup = { 			
+				add = {
+				trigger = {  }
+				portraits = { 
+				gas1
+				gas2
+				gas3
+				gas4
+				}
+			} 
+		}			
+		
+
+		species = { #generic portrait for a species
+			add = {
+				trigger = {  }
+				portraits = {
+				gas1
+				gas2
+				gas3
+				gas4
+				}
+			}
+		}		
+		
+
+		pop = { #for a specific pop
+			add = {
+				trigger = {  }
+				portraits = {
+				gas1
+				gas2
+				gas3
+				gas4
+				}
+			}
+		}
+		
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					leader_class = scientist
+				}
+				portraits = {
+				gas1
+				gas2
+				gas3
+				gas4
+				}
+			}
+			add = {
+				trigger = {
+					leader_class = general
+				}
+				portraits = {
+				gas1
+				gas2
+				gas3
+				gas4
+				}
+			}  
+			add = {
+				trigger = {
+					leader_class = admiral
+				}
+				portraits = {
+				gas1
+				gas2
+				gas3
+				gas4
+				}
+			} 
+			add = {
+				trigger = {
+					leader_class = governor
+				}
+				portraits = {
+				gas1
+				gas2
+				gas3
+				gas4
+				}
+			} 
+		}
+			
+
+		ruler = {
+			add = {
+				trigger = {  }
+				portraits = {
+				gas1
+				gas2
+				gas3
+				gas4
+				}
+			}
+		}
+	}
+}
+
+portraits = {
+   gas01 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings2_portrait1.dds"
+   }
+   gas02 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings2_portrait2.dds"
+   }
+   gas03 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings2_portrait3.dds"
+   }
+   gas04 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings2_portrait4.dds"
+   }
+   gas05 = {
+       texturefile = "gfx/models/portraits/gas/gas_beings2_portrait5.dds"
+   }
+}
+
+portrait_groups = {
+       gaseous2 = { 
+		default = gas01  
+		game_setup = { 			
+				add = {
+				trigger = {  }
+				portraits = { 
+				gas01
+				gas02
+				gas03
+				gas04
+				gas05
+				}
+			} 
+		}			
+		
+
+		species = { #generic portrait for a species
+			add = {
+				trigger = {  }
+				portraits = {
+				gas01
+				gas02
+				gas03
+				gas04
+				gas05
+				}
+			}
+		}		
+		
+
+		pop = { #for a specific pop
+			add = {
+				trigger = {  }
+				portraits = {
+				gas01
+				gas02
+				gas03
+				gas04
+				gas05
+				}
+			}
+		}
+		
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					leader_class = scientist
+				}
+				portraits = {
+				gas01
+				gas02
+				gas03
+				gas04
+				gas05
+				}
+			}
+			add = {
+				trigger = {
+					leader_class = general
+				}
+				portraits = {
+				gas01
+				gas02
+				gas03
+				gas04
+				gas05
+				}
+			}  
+			add = {
+				trigger = {
+					leader_class = admiral
+				}
+				portraits = {
+				gas01
+				gas02
+				gas03
+				gas04
+				gas05
+				}
+			} 
+			add = {
+				trigger = {
+					leader_class = governor
+				}
+				portraits = {
+				gas01
+				gas02
+				gas03
+				gas04
+				gas05
+				}
+			} 
+		}
+			
+
+		ruler = {
+			add = {
+				trigger = {  }
+				portraits = {
+				gas01
+				gas02
+				gas03
+				gas04
+				gas05
+				}
+			}
+		}
+	}
+}
+
+portraits = {
+   evil_gas1 = {
+       texturefile = "gfx/models/portraits/gas/gas_evil_portrait1.dds"
+   }
+   evil_gas2 = {
+       texturefile = "gfx/models/portraits/gas/gas_evil_portrait2.dds"
+   }
+   evil_gas3 = {
+       texturefile = "gfx/models/portraits/gas/gas_evil_portrait3.dds"
+   }
+   evil_gas4 = {
+       texturefile = "gfx/models/portraits/gas/gas_evil_portrait4.dds"
+   }
+   evil_gas5 = {
+       texturefile = "gfx/models/portraits/gas/gas_evil_portrait5.dds"
+   }
+}
+
+portrait_groups = {
+       gaseous3 = { 
+		default = evil_gas1  
+		game_setup = { 			
+				add = {
+				trigger = {  }
+				portraits = { 
+				evil_gas1
+				evil_gas2
+				evil_gas3
+				evil_gas4
+				evil_gas5
+				}
+			} 
+		}			
+		
+
+		species = { #generic portrait for a species
+			add = {
+				trigger = {  }
+				portraits = {
+				evil_gas1
+				evil_gas2
+				evil_gas3
+				evil_gas4
+				evil_gas5
+				}
+			}
+		}		
+		
+
+		pop = { #for a specific pop
+			add = {
+				trigger = {  }
+				portraits = {
+				evil_gas1
+				evil_gas2
+				evil_gas3
+				evil_gas4
+				evil_gas5
+				}
+			}
+		}
+		
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					leader_class = scientist
+				}
+				portraits = {
+				evil_gas1
+				evil_gas2
+				evil_gas3
+				evil_gas4
+				evil_gas5
+				}
+			}
+			add = {
+				trigger = {
+					leader_class = general
+				}
+				portraits = {
+				evil_gas1
+				evil_gas2
+				evil_gas3
+				evil_gas4
+				evil_gas5
+				}
+			}  
+			add = {
+				trigger = {
+					leader_class = admiral
+				}
+				portraits = {
+				evil_gas1
+				evil_gas2
+				evil_gas3
+				evil_gas4
+				evil_gas5
+				}
+			} 
+			add = {
+				trigger = {
+					leader_class = governor
+				}
+				portraits = {
+				evil_gas1
+				evil_gas2
+				evil_gas3
+				evil_gas4
+				evil_gas5
+				}
+			} 
+		}
+			
+
+		ruler = {
+			add = {
+				trigger = {  }
+				portraits = {
+				evil_gas1
+				evil_gas2
+				evil_gas3
+				evil_gas4
+				evil_gas5
+				}
+			}
+		}
+	}
+}
+
+portraits = {
+   suit_gas1 = {
+       texturefile = "gfx/models/portraits/gas/gas_suit_portrait1.dds"
+   }
+   suit_gas2 = {
+       texturefile = "gfx/models/portraits/gas/gas_suit_portrait2.dds"
+   }
+   suit_gas3 = {
+       texturefile = "gfx/models/portraits/gas/gas_suit_portrait3.dds"
+   }
+   suit_gas4 = {
+       texturefile = "gfx/models/portraits/gas/gas_suit_portrait4.dds"
+   }
+}
+
+portrait_groups = {
+       gaseous4 = { 
+		default = suit_gas1  
+		game_setup = { 			
+				add = {
+				trigger = {  }
+				portraits = { 
+				suit_gas1
+				suit_gas2
+				suit_gas3
+				suit_gas4
+				}
+			} 
+		}			
+		
+
+		species = { #generic portrait for a species
+			add = {
+				trigger = {  }
+				portraits = {
+				suit_gas1
+				suit_gas2
+				suit_gas3
+				suit_gas4
+				}
+			}
+		}		
+		
+
+		pop = { #for a specific pop
+			add = {
+				trigger = {  }
+				portraits = {
+				suit_gas1
+				suit_gas2
+				suit_gas3
+				suit_gas4
+				}
+			}
+		}
+		
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					leader_class = scientist
+				}
+				portraits = {
+				suit_gas1
+				suit_gas2
+				suit_gas3
+				suit_gas4
+				}
+			}
+			add = {
+				trigger = {
+					leader_class = general
+				}
+				portraits = {
+				suit_gas1
+				suit_gas2
+				suit_gas3
+				suit_gas4
+				}
+			}  
+			add = {
+				trigger = {
+					leader_class = admiral
+				}
+				portraits = {
+				suit_gas1
+				suit_gas2
+				suit_gas3
+				suit_gas4
+				}
+			} 
+			add = {
+				trigger = {
+					leader_class = governor
+				}
+				portraits = {
+				suit_gas1
+				suit_gas2
+				suit_gas3
+				suit_gas4
+				}
+			} 
+		}
+			
+
+		ruler = {
+			add = {
+				trigger = {  }
+				portraits = {
+				suit_gas1
+				suit_gas2
+				suit_gas3
+				suit_gas4
+				}
+			}
+		}
+	}
+}

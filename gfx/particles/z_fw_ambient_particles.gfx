@@ -1,0 +1,37 @@
+###_z fw particle ambient object	##################################################################
+
+objectTypes = {
+
+	###_[test]	/particles/misc/z_fw_fx_ambient_test.asset
+	pdxparticle = {
+		name = "z_fw_fx_ambient_test_1"
+		type = "z_fw_fx_ambient_test_billboard"
+		scale = 1.0
+	}
+	
+	
+	
+	
+	###_[star explosion]
+	#_green
+	pdxparticle = {
+		name = "z_fw_fx_star_explosion_1"
+		type = "warp_wind_up_2_effect"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_star_explosion_2"
+		type = "warp_wind_down_2_effect"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_star_explosion_3"
+		type = "ftl_in_ship_2_file"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_star_explosion_4"
+		type = "ftl_out_ship_2_file"
+		scale = 1.0
+	}
+}

@@ -1,0 +1,385 @@
+###_z fw 猫猫头 FX	###################################################################################
+
+
+
+
+###_[投放]	<blue>	#####################
+#_[1]
+particle={
+	name="z_fw_fx_ambt_r_hok_execute_1_1"
+	subsystem={
+		name="hok_tgt_1"
+		max_amount=1
+		slave_particles=0
+		emitter_type="point"
+		invert=no
+		trail=no
+		local_space=yes
+		billboard=yes
+		hide=no
+		texture={
+			file="gfx/particles/misc/z_fw_misc/z_fw_fx_target_1_1.dds"
+			x=1
+			y=1
+			shader="ParticleAdditive"
+		}
+		color={
+			x=75.000
+			y=165.000
+			z=255.000
+			alpha=255.000,hok_tgt_1_alpha
+		}
+		position={
+			x=0.000
+			z=0.000
+		}
+		duration=1.000
+		velocity_pitch={ 0.000 0.000 }
+		velocity_yaw={ 0.000 0.000 }
+		velocity=0.000
+		life=3.200
+		emission=20.000
+		size=10.000,hok_tgt_1_scale
+		particle_yaw=0.000
+		particle_pitch=0.000
+		rotation={ 0.000 0.000 }
+		rotation_speed=0.000
+	}
+	animation={
+		name="hok_tgt_1_scale"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.050 0.070 0.050 0.300 1.000 0.750 1.000 1.000 0.000 }
+		op="MUL"
+		time="life"
+	}
+	animation={
+		name="hok_tgt_1_alpha"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.000 0.070 0.700 0.100 0.000 0.130 0.700 0.880 0.700 1.000 0.000 }
+		op="MUL"
+		time="life"
+	}
+	subsystem={
+		name="hok_tgt_2"
+		max_amount=1
+		slave_particles=0
+		emitter_type="point"
+		invert=no
+		trail=no
+		local_space=yes
+		billboard=yes
+		hide=no
+		texture={
+			file="gfx/particles/misc/z_fw_misc/z_fw_fx_target_1_2.dds"
+			x=1
+			y=1
+			shader="ParticleAdditive"
+		}
+		color={
+			x=75.000
+			y=165.000
+			z=255.000
+			alpha=255.000,hok_tgt_2_alpha
+		}
+		position={
+			x=0.000
+			z=0.000
+		}
+		duration=1.000
+		velocity_pitch={ 0.000 0.000 }
+		velocity_yaw={ 0.000 0.000 }
+		velocity=0.000
+		life=3.200
+		emission=20.000
+		size=10.000
+		particle_yaw=0.000
+		particle_pitch=0.000
+		rotation={ 0.000 0.000 }
+		rotation_speed=0.000
+	}
+	animation={
+		name="hok_tgt_2_alpha"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.000 0.300 0.000 0.330 0.900 0.3600 0.000 0.390 0.700 0.850 0.700 0.970 0.000 1.000 0.000 }
+		op="MUL"
+		time="life"
+	}
+	subsystem={
+		name="hok_tgt_3"
+		max_amount=1
+		slave_particles=0
+		emitter_type="point"
+		invert=no
+		trail=no
+		local_space=yes
+		billboard=yes
+		hide=no
+		texture={
+			file="gfx/particles/misc/z_fw_misc/z_fw_fx_target_1_3.dds"
+			x=1
+			y=1
+			shader="ParticleAdditive"
+		}
+		color={
+			x=75.000
+			y=165.000
+			z=255.000
+			alpha=255.000,hok_tgt_3_alpha
+		}
+		position={
+			x=0.000
+			z=0.000
+		}
+		duration=1.000
+		velocity_pitch={ 0.000 0.000 }
+		velocity_yaw={ 0.000 0.000 }
+		velocity=0.000
+		life=3.200
+		emission=20.000
+		size=10.000
+		particle_yaw=0.000
+		particle_pitch=0.000
+		rotation={ 0.000 0.000 }
+		rotation_speed=0.000
+	}
+	animation={
+		name="hok_tgt_3_alpha"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.000 0.450 0.000 0.480 0.900 0.510 0.000 0.540 0.700 0.820 0.700 0.940 0.000 1.000 0.000 }
+		op="MUL"
+		time="life"
+	}
+	subsystem={
+		name="hok_tgt_4"
+		max_amount=1
+		slave_particles=0
+		emitter_type="point"
+		invert=no
+		trail=no
+		local_space=yes
+		billboard=yes
+		hide=no
+		texture={
+			file="gfx/particles/misc/z_fw_misc/z_fw_fx_target_1_4.dds"
+			x=1
+			y=1
+			shader="ParticleAdditive"
+		}
+		color={
+			x=75.000
+			y=165.000
+			z=255.000
+			alpha=255.000,hok_tgt_4_alpha
+		}
+		position={
+			x=0.000
+			z=0.000
+		}
+		duration=1.000
+		velocity_pitch={ 0.000 0.000 }
+		velocity_yaw={ 0.000 0.000 }
+		velocity=0.000
+		life=3.200
+		emission=20.000
+		size=10.000
+		particle_yaw=0.000
+		particle_pitch=0.000
+		rotation={ 0.000 0.000 }
+		rotation_speed=0.000
+	}
+	animation={
+		name="hok_tgt_4_alpha"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.000 0.600 0.000 0.630 0.700 0.790 0.700 0.910 0.000 1.000 0.000 }
+		op="MUL"
+		time="life"
+	}
+	force={
+		type="planar"
+		name="force0"
+		position={
+			0.000 0.000 0.000 
+		}
+		direction={
+			0.000 1.000 0.000 
+		}
+		local_force=yes
+		yaw=0.000
+		division=16
+		amount=5.000
+	}
+}
+
+#_[2]
+particle={
+	name="z_fw_fx_ambt_r_hok_execute_1_2"
+	subsystem={
+		name="hok_tgt_1"
+		max_amount=1
+		slave_particles=0
+		emitter_type="point"
+		invert=no
+		trail=no
+		local_space=yes
+		billboard=yes
+		hide=no
+		texture={
+			file="gfx/particles/misc/relic/z_fw_fx_relic_hok_1.dds"
+			x=1
+			y=1
+			shader="ParticleAdditive"
+		}
+		color={ alpha=255.000,hok_tgt_1_alpha }
+		position={
+			x=0
+			y=11
+			z=0
+		}
+		duration=1.000
+		velocity_pitch={ 90.000 0.000 }
+		velocity_yaw={ 0.000 0.000 }
+		velocity=-0.200
+		life={ 3.000 0.000 }
+		emission=20.000
+		size=8.5,hok_tgt_1_scale
+		particle_yaw=0.000
+		particle_pitch=0.000
+		rotation={ -45.000 0.000 }
+		rotation_speed={ 30.000 0.000 }
+	}
+	animation={
+		name="hok_tgt_1_alpha"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.000 0.100 0.850 0.150 0.700 0.60 0.700 0.8500 0.600 1.000 0.000 }
+		op="MUL"
+		time="life"
+	}
+	animation={
+		name="hok_tgt_1_scale"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.750 0.150 0.850 0.600 0.750 0.850 0.650 1.000 0.500 }
+		op="MUL"
+		time="life"
+	}
+	force={
+		type="planar"
+		name="force0"
+		position={
+			0.000 0.000 0.000 
+		}
+		direction={
+			0.000 1.000 0.000 
+		}
+		local_force=yes
+		yaw=0.000
+		division=16
+		amount=5.000
+	}
+}
+
+particle={
+	name="z_fw_fx_ambt_r_hok_execute_1_3"
+	subsystem={
+		name="hok_tgt_1"
+		max_amount=1
+		slave_particles=0
+		emitter_type="point"
+		invert=no
+		trail=no
+		local_space=yes
+		billboard=no
+		hide=no
+		texture={
+			file="gfx/particles/misc/z_fw_misc/z_fw_fx_misc_ring_1.dds"
+			x=1
+			y=1
+			shader="ParticleAdditive"
+		}
+		color={
+			x=75.000
+			y=165.000
+			z=255.000
+			alpha=255.000,alpha_ring
+		}
+		position={
+			x=0
+			y=8
+			z=0
+		}
+		duration=1.000
+		velocity_pitch={ -90.000 0.000 }
+		velocity_yaw={ 0.000 0.000 }
+		velocity=1.800
+		life=3.500
+		emission=20.000
+		size=7.5,ring_scale
+		particle_yaw=0.000
+		particle_pitch=90.000
+		rotation={ 0.000 0.000 }
+		rotation_speed={ 45.000 0.000 }
+	}
+	animation={
+		name="alpha_ring"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.000 0.050 0.250 0.150 0.600 0.500 0.700 0.850 0.600 0.950 0.250 1.000 0.000 }
+		op="MUL"
+		time="life"
+	}
+	animation={
+		name="ring_scale"
+		start=0.000
+		duration=1.0
+		repeat=no
+		minValue=0.000
+		maxValue=1.000
+		curve={ 0.000 0.600 0.300 0.630 0.600 0.710 0.700 0.750 0.800 0.800 0.900 0.880 1.000 1.000 }
+		op="MUL"
+		time="life"
+	}
+	force={
+		type="planar"
+		name="force0"
+		position={
+			0.000 0.000 0.000 
+		}
+		direction={
+			0.000 1.000 0.000 
+		}
+		local_force=yes
+		yaw=0.000
+		division=16
+		amount=5.000
+	}
+}

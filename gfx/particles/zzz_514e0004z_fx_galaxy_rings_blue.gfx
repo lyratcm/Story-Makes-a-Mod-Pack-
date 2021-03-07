@@ -1,0 +1,7 @@
+objectTypes = {
+    pdxparticle = {
+        name = "z_fx_galaxy_rings_blue"
+        type = "z_fx_galaxy_rings_blue"
+        scale = 1.0
+    }
+}

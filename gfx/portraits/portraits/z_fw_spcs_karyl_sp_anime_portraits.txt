@@ -1,0 +1,172 @@
+###_z fw portraits-karyl-sp	anime	#############################################################
+
+portraits = {
+	#_sp_dal
+	z_fw_spcs_karyl_sp_dal_kurumi1 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_kurumi1.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_kurumi2 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_kurumi2.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_kurumi3 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_kurumi3.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_kurumi4 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_kurumi4.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_miku1 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_miku1.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_miku2 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_miku2.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_miku3 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_miku3.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_rinne1 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_rinne1.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_rinne2 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_rinne2.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_rinne3 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_rinne3.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_rinne4 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_rinne4.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+	z_fw_spcs_karyl_sp_dal_rinne5 = {
+		texturefile = "gfx/models/portraits/z_fw_spcs_karyl/z_fw_spcs_karyl_sp_dal_rinne5.dds"
+		clothes_selector = "no_texture"
+		hair_selector = "no_texture"
+		greeting_sound = "humanoid_female_greeting_d"
+	}
+}
+
+#_林鼬
+portrait_groups = {
+	z_fw_spcs_karyl_sp_dal = {
+		default = z_fw_spcs_karyl_sp_dal_rinne3
+		game_setup = {#will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				#trigger = {
+				#	ruler = { gender = male }
+				#}
+				portraits = {
+					z_fw_spcs_karyl_sp_dal_kurumi1
+					z_fw_spcs_karyl_sp_dal_kurumi2
+					z_fw_spcs_karyl_sp_dal_kurumi3
+					z_fw_spcs_karyl_sp_dal_kurumi4
+					z_fw_spcs_karyl_sp_dal_miku1
+					z_fw_spcs_karyl_sp_dal_miku2
+					z_fw_spcs_karyl_sp_dal_miku3
+					z_fw_spcs_karyl_sp_dal_rinne1
+					z_fw_spcs_karyl_sp_dal_rinne2
+					z_fw_spcs_karyl_sp_dal_rinne3
+					z_fw_spcs_karyl_sp_dal_rinne4
+					z_fw_spcs_karyl_sp_dal_rinne5
+				}
+			}
+		}		
+		
+		#species scope 指定单个看板
+		species = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_dal_rinne3
+				}
+			}
+		}		
+		#pop scope 全头像
+		pop = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_dal_kurumi1
+					z_fw_spcs_karyl_sp_dal_kurumi2
+					z_fw_spcs_karyl_sp_dal_kurumi3
+					z_fw_spcs_karyl_sp_dal_kurumi4
+					z_fw_spcs_karyl_sp_dal_miku1
+					z_fw_spcs_karyl_sp_dal_miku2
+					z_fw_spcs_karyl_sp_dal_miku3
+					z_fw_spcs_karyl_sp_dal_rinne1
+					z_fw_spcs_karyl_sp_dal_rinne2
+					z_fw_spcs_karyl_sp_dal_rinne3
+					z_fw_spcs_karyl_sp_dal_rinne4
+					z_fw_spcs_karyl_sp_dal_rinne5
+				}
+			}
+		}
+		
+		#leader scope 指定性别
+		leader = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_dal_kurumi1
+					z_fw_spcs_karyl_sp_dal_kurumi2
+					z_fw_spcs_karyl_sp_dal_kurumi3
+					z_fw_spcs_karyl_sp_dal_kurumi4
+					z_fw_spcs_karyl_sp_dal_miku1
+					z_fw_spcs_karyl_sp_dal_miku2
+					z_fw_spcs_karyl_sp_dal_miku3
+					z_fw_spcs_karyl_sp_dal_rinne1
+					z_fw_spcs_karyl_sp_dal_rinne2
+					z_fw_spcs_karyl_sp_dal_rinne3
+					z_fw_spcs_karyl_sp_dal_rinne4
+					z_fw_spcs_karyl_sp_dal_rinne5
+				}
+			}
+		}
+		ruler = {
+			add = {
+				portraits = {
+					z_fw_spcs_karyl_sp_dal_kurumi1
+					z_fw_spcs_karyl_sp_dal_kurumi2
+					z_fw_spcs_karyl_sp_dal_kurumi3
+					z_fw_spcs_karyl_sp_dal_kurumi4
+					z_fw_spcs_karyl_sp_dal_miku1
+					z_fw_spcs_karyl_sp_dal_miku2
+					z_fw_spcs_karyl_sp_dal_miku3
+					z_fw_spcs_karyl_sp_dal_rinne1
+					z_fw_spcs_karyl_sp_dal_rinne2
+					z_fw_spcs_karyl_sp_dal_rinne3
+					z_fw_spcs_karyl_sp_dal_rinne4
+					z_fw_spcs_karyl_sp_dal_rinne5
+				}
+			}
+		}
+	}
+}
+

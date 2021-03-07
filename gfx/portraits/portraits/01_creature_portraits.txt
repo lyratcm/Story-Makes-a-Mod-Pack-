@@ -1,0 +1,10 @@
+portraits = { 
+creature = { entity = "portrait_fungoid_11_entity" clothes_selector = "no_texture" hair_selector = "no_texture" 
+greeting_sound = "reptilian_01_greetings"
+character_textures = {
+"gfx/models/portraits/creature/creature.dds"
+
+}
+}
+
+}

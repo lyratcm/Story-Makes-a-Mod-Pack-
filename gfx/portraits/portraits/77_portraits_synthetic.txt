@@ -1,0 +1,536 @@
+##############################################################
+###	PORTRAITS SETTINGS
+###
+### Which portraits are used is set in 
+### common\species_classes\00_species_classes.txt
+###
+###	This file configures how portraits and planet backgrounds are built.
+###	Default position orientation is lower left.
+##############################################################
+
+portraits = {
+
+		# Unbidden
+
+		synthetic_advanced = {	entity = "portrait_robot_01_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "space_cloud_death"
+			character_textures = { 
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_red.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_aquamarine.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_azure.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_blue.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_chartreuse.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_cyan.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_green.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_magenta.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_orange.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_rose.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_violet.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_white.dds"
+				"gfx/models/portraits/synthetic/advanced/syntheticadvanced_yellow.dds"
+			}
+		}
+
+		synthetic_black = {	entity = "portrait_robot_03_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "space_cloud_death"
+			character_textures = {
+				"gfx/models/portraits/synthetic/black/syntheticblack_azure.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_aquamarine.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_blue.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_chartreuse.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_cyan.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_green.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_magenta.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_orange.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_red.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_rose.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_violet.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_white.dds"
+				"gfx/models/portraits/synthetic/black/syntheticblack_yellow.dds"
+			}
+		}
+
+		synthetic_color = {	entity = "portrait_robot_03_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "space_cloud_death"
+			character_textures = {
+				"gfx/models/portraits/synthetic/color/syntheticcolor_violet.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_aquamarine.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_azure.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_blue.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_chartreuse.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_cyan.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_green.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_magenta.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_orange.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_red.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_rose.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_white.dds"
+				"gfx/models/portraits/synthetic/color/syntheticcolor_yellow.dds"
+			}
+		}
+
+		synthetic_grey = {	entity = "portrait_robot_03_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "space_cloud_death"
+			character_textures = {
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_yellow.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_aquamarine.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_azure.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_blue.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_chartreuse.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_cyan.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_green.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_magenta.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_orange.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_red.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_rose.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_violet.dds"
+				"gfx/models/portraits/synthetic/grey/syntheticgrey_white.dds"
+			}
+		}
+
+		synthetic_white = {	entity = "portrait_robot_03_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"		greeting_sound = "space_cloud_death"
+			character_textures = {
+				"gfx/models/portraits/synthetic/white/syntheticwhite_green.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_aquamarine.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_azure.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_blue.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_chartreuse.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_cyan.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_magenta.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_orange.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_red.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_rose.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_violet.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_white.dds"
+				"gfx/models/portraits/synthetic/white/syntheticwhite_yellow.dds"
+			}
+		}
+}
+
+portrait_groups = {
+	synthetic_advanced = {
+		default = synthetic_advanced
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					synthetic_advanced
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					synthetic_advanced
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+					synthetic_advanced
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+					synthetic_advanced
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_advanced
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_advanced
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_advanced
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_advanced
+				}
+			}
+		}
+	}
+
+synthetic_color = {
+		default = synthetic_color
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					synthetic_color
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					synthetic_color
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+					synthetic_color
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+					synthetic_color
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_color
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_color
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_color
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_color
+				}
+			}
+		}
+	}
+
+synthetic_black = {
+		default = synthetic_black
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					synthetic_black
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					synthetic_black
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+					synthetic_black
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+					synthetic_black
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_black
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_black
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_black
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_black
+				}
+			}
+		}
+	}
+
+synthetic_grey = {
+		default = synthetic_grey
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					synthetic_grey
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					synthetic_grey
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+					synthetic_grey
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+					synthetic_grey
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_grey
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_grey
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_grey
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_grey
+				}
+			}
+		}
+	}
+
+synthetic_white = {
+		default = synthetic_white
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					synthetic_white
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					synthetic_white
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+					synthetic_white
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+					synthetic_white
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_white
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_white
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					synthetic_white
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					synthetic_white
+				}
+			}
+		}
+	}
+}

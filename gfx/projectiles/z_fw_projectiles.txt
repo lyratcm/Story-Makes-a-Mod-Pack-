@@ -1,0 +1,25 @@
+@z_pjct_speed_disr = 325
+
+@z_fx_pjct_duration = 5.0
+
+###_Z GRAPHIC NEW	#######################################################################################
+
+
+
+
+#_裂解器 projectile化example	###################################################
+projectile_gfx_ballistic = {
+	#common for all types of projectiles
+	name = "z_disruptor_0"
+	color = { 1.0	1.0		1.0		1.0 }
+	hit_entity = "z_fx_combat_dsrpt_hit"
+	shield_hit_entity = "z_fx_combat_dsrpt_hit"
+	muzzle_flash_entity = "z_fx_combat_dsrpt_muzzle"
+	windup_entity = "z_fx_combat_dsrpt_windup"
+	
+	
+	#ballistic specific
+	entity = "z_fx_combat_dsrpt_projectile"
+	speed = @z_pjct_speed_disr
+	max_duration = @z_fx_pjct_duration
+}

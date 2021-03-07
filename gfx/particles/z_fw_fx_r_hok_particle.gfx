@@ -1,0 +1,21 @@
+###_z fw particle r_hok object	##################################################################
+#_[blue]
+
+objectTypes = {
+
+	pdxparticle = {
+		name = "z_fw_fx_ambt_r_hok_execute_1_1"
+		type = "z_fw_fx_ambt_r_hok_execute_1_1"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_r_hok_execute_1_2"
+		type = "z_fw_fx_ambt_r_hok_execute_1_2"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_r_hok_execute_1_3"
+		type = "z_fw_fx_ambt_r_hok_execute_1_3"
+		scale = 1.0
+	}
+}

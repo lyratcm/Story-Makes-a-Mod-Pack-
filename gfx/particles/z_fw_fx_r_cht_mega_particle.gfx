@@ -1,0 +1,57 @@
+###_z fw particle r_cht_mega object	##################################################################
+#_[green]
+
+objectTypes = {
+
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_slash"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_slash"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_1"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_1"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_2"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_2"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_3"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_3"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_4"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_4"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_5"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_5"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_6"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_6"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_7"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_7"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_8"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_8"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_tgt_r_cht_mega_9"
+		type = "z_fw_fx_ambt_tgt_r_cht_mega_9"
+		scale = 1.0
+	}
+}

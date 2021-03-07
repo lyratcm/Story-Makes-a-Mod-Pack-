@@ -1,0 +1,71 @@
+###_z fw particle r_hok object	##################################################################
+#_[H]
+
+objectTypes = {
+	pdxparticle = {
+		name = "z_fw_fx_ambt_misc_mega_dismantle"
+		type = "z_fw_fx_ambt_misc_mega_dismantle"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_misc_mega_dis_line"
+		type = "z_fw_fx_ambt_misc_mega_dis_line"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_misc_mega_dis_ring"
+		type = "z_fw_fx_ambt_misc_mega_dis_ring"
+		scale = 3.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_misc_mega_dis_frags"
+		type = "z_fw_fx_ambt_misc_mega_dis_frags"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_1"
+		type = "z_fw_fx_ambt_mega_dismantle_1"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_2"
+		type = "z_fw_fx_ambt_mega_dismantle_2"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_3"
+		type = "z_fw_fx_ambt_mega_dismantle_3"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_4"
+		type = "z_fw_fx_ambt_mega_dismantle_4"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_5"
+		type = "z_fw_fx_ambt_mega_dismantle_5"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_6"
+		type = "z_fw_fx_ambt_mega_dismantle_6"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_7"
+		type = "z_fw_fx_ambt_mega_dismantle_7"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_8"
+		type = "z_fw_fx_ambt_mega_dismantle_8"
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "z_fw_fx_ambt_mega_dismantle_9"
+		type = "z_fw_fx_ambt_mega_dismantle_9"
+		scale = 1.0
+	}
+}
