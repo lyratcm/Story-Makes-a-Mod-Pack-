@@ -328,6 +328,7 @@ decision_upgrade = {
 			 has_origin = origin_living_station
 		}
 		is_planet_class = pc_living_station
+		num_pops <= 200
 	}
 
 	effect = {
@@ -480,6 +481,41 @@ decision_upgrade_200_regular = {
 
 	effect = {
 		add_deposit = d_upgrade_200_regular
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_upgrade = {
+	owned_planets_only = yes
+
+	enactment_time = 450
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			alloys = 2500
+			minerals = 3000
+			energy = 3000
+		}
+	}
+	
+	allow = {
+		free_district_slots < 1
+	}
+
+	potential = {
+		owner = {
+			 has_origin = origin_living_station
+		}
+		is_planet_class = pc_living_station
+		num_pops >= 200
+	}
+
+	effect = {
+		add_deposit = d_upgrade
 	}
 
 	ai_weight = {
