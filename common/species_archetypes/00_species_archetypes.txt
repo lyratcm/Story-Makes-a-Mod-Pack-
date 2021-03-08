@@ -14,7 +14,7 @@
 @machine_trait_points = 1
 @machine_max_traits = 5
 @species_trait_points = 2
-@species_max_traits = 5
+@species_max_traits = 7
 
 BIOLOGICAL = {
 	species_trait_points = @species_trait_points
