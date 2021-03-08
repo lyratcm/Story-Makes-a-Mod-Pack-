@@ -1,0 +1,120 @@
+namespace = Auth
+
+country_event = {
+	id = Auth.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_empire_pride
+	}
+
+	immediate = {
+		give_technology = { message = no tech = tech_juggernaut }
+		create_fleet = {
+			name = "NAME_PRIDE_OF_EMPIRE"		
+			effect = {
+				set_owner = root
+				create_ship = {
+					name = "NAME_PRIDE"
+					design = "NAME_pride"
+				}
+				set_location = root.capital_scope
+			}
+		}
+		last_created_ship = {
+			add_modifier = { modifier = "self_emergency_pride" days = -1 }
+			set_ship_flag = empire_pride
+			set_graphical_culture = fromfrom
+		}
+	}
+}
+
+country_event = {
+	id = Auth.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			has_origin = origin_empire_pride
+			limit = {
+				fromfrom = { has_ship_flag = empire_pride }
+			}
+			country_event = { id = Auth.2 }
+		}
+	}
+}
+
+country_event = {
+	id = Auth.2
+	title = "Auth.Dead"
+	desc = { text = Auth.DeadLead }
+	is_triggered_only = yes
+	
+	picture = GFX_evt_exploding_ship
+
+	option = {
+		name = "rulers.dead"
+		random_owned_leader = {
+			limit = {
+				leader_class = ruler
+				
+			}
+			kill_leader = {
+				show_notification = no
+			}
+		}
+		random_owned_leader = {
+			limit = {
+				leader_class = ruler
+				
+			}
+			kill_leader = {
+				show_notification = no
+			}
+		}
+		add_modifier = {
+			modifier = dead_pride
+			days = -1
+		}
+	}
+}
+
+ship_event = {
+	id = Auth.3
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			has_origin = origin_empire_pride
+		}
+		is_ship_size = juggernaut
+	}
+
+	immediate = {
+		owner = {
+			country_event = { id = Auth.4 }
+		}
+		set_ship_flag = empire_pride
+		add_modifier = { modifier = "self_emergency_pride" days = -1 }
+	}
+}
+
+country_event = {
+	id = Auth.4
+	title = "Auth.New"
+	desc = { text = Auth.NewLead }
+	
+	picture = GFX_evt_unidentified_ship
+	is_triggered_only = yes
+
+	option = {
+		name = "rulers.pride"
+		owner = {
+			remove_modifier = "dead_pride"
+		}
+	}
+}

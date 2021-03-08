@@ -1,0 +1,216 @@
+namespace = liv
+
+country_event = {
+    id = liv.1
+
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        owner = {
+            has_origin = origin_living_station
+			owner = { is_regular_empire = yes }
+        }
+    }
+    immediate = {
+        random_owned_planet = {
+            limit = { is_capital = yes }
+            set_planet_size = 15
+            remove_all_districts = yes
+			remove_all_buildings = yes
+            clear_deposits = yes
+			add_deposit = d_upgrade_start_regular
+			set_planet_entity = {
+				entity = "habitat_phase_02_entity"
+				graphical_culture = owner
+			}
+			
+			while = {
+				count = 14
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+			}
+
+		# 8 jobs
+            add_district = district_liv_housing
+			add_district = district_liv_housing
+		
+		# 5 jobs
+            add_district = district_liv_bureaucratic
+		
+		# 15 jobs
+			add_district = district_liv_civilian
+			add_district = district_liv_civilian
+			
+		# 6 jobs
+			add_district = district_liv_maintenance
+			
+		# 3 jobs
+			add_building = building_capital
+
+		# 6 jobs
+			add_building = building_research_lab_1
+			add_building = building_research_lab_1
+        }
+    }
+}
+
+country_event = {
+    id = liv.2
+
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        owner = {
+            has_origin = origin_living_station
+			owner = { is_machine_empire = yes }
+        }
+    }
+    immediate = {
+        random_owned_planet = {
+            limit = { is_capital = yes }
+            set_planet_size = 15
+            remove_all_districts = yes
+			remove_all_buildings = yes
+            clear_deposits = yes
+			add_deposit = d_upgrade_start_robots
+			set_planet_entity = {
+				entity = "habitat_phase_02_entity"
+				graphical_culture = owner
+			}
+			
+			while = {
+				count = 17
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+			}
+
+		# 6 jobs
+            add_district = district_liv_storage
+			add_district = district_liv_storage
+		
+		# 4 jobs
+            add_district = district_liv_controller
+			
+		# 26 jobs
+			add_district = district_liv_gatherer
+			add_district = district_liv_gatherer
+			
+		# 3 jobs
+			add_building = building_machine_capital
+
+		# 6 jobs
+			add_building = building_research_lab_1
+			add_building = building_machine_assembly_plant
+        }
+    }
+}
+
+country_event = {
+    id = liv.3
+
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        owner = {
+            has_origin = origin_living_station
+			owner = { is_hive_empire = yes }
+        }
+    }
+    immediate = {
+        random_owned_planet = {
+            limit = { is_capital = yes }
+            set_planet_size = 15
+            remove_all_districts = yes
+			remove_all_buildings = yes
+            clear_deposits = yes
+			add_deposit = d_upgrade_start_regular
+			set_planet_entity = {
+				entity = "habitat_phase_02_entity"
+				graphical_culture = owner
+			}
+			
+			while = {
+				count = 6
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+			}
+
+		# 4 jobs
+            add_district = district_liv_hive
+		
+		# 4 jobs
+            add_district = district_liv_overseer
+			
+		# 26 jobs
+			add_district = district_liv_feeder
+			add_district = district_liv_feeder
+			add_district = district_liv_upkeeper
+			
+		# 3 jobs
+			add_building = building_hive_capital
+
+		# 6 jobs
+			add_building = building_research_lab_1
+			add_building = building_spawning_pool
+        }
+    }
+}
+
+planet_event = {
+    id = liv.4
+    title = liv.4.title
+    desc = liv.4.desc
+
+    picture = GFX_evt_gray_gooed_planet
+    
+    is_triggered_only = yes
+
+    trigger = {
+        owner = {
+            has_origin = origin_living_station
+        }
+        NOR = {
+            is_planet_class = pc_habitat 
+            is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_living_station
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+			is_planet_class = pc_gaia
+			is_planet_class = pc_city
+			is_planet_class = pc_ringworld_city 
+            is_planet_class = pc_ringworld_machine
+			is_planet_class = pc_ringworld_hive
+			is_planet_class = pc_birch
+			is_planet_class = pc_virtual_reality
+			is_planet_class = pc_virtual_industry
+			is_planet_class = pc_virtual_stellar_industry
+        }
+    }
+	
+	immediate = {
+        destroy_colony = yes
+        change_pc = pc_broken
+        clear_deposits = yes
+        add_deposit = d_alloys_5
+		add_deposit = d_energy_10
+		add_deposit = d_minerals_10
+		add_deposit = d_rare_crystals_2
+		add_deposit = d_exotic_gases_2
+		add_deposit = d_volatile_motes_2
+	}
+
+    option = {
+		name = OK
+        custom_tooltip = liv.4.tooltip
+	}
+}
