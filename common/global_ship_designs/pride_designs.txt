@@ -1,0 +1,170 @@
+ship_design = {
+	name = "NAME_pride"
+	ship_size = juggernaut
+
+	section = {
+		template = "CORE_JUGGERNAUT_SECTION"
+		slot = "core"
+		
+		component = {
+			slot = "EXTRA_LARGE_01"
+			template = ""
+		}
+		component = {
+			slot = "EXTRA_LARGE_02"
+			template = ""
+		}
+		component = {
+			slot = "STRIKE_CRAFT_01"
+			template = ""
+		}
+		component = {
+			slot = "STRIKE_CRAFT_02"
+			template = ""
+		}
+		component = {
+			slot = "STRIKE_CRAFT_03"
+			template = ""
+		}
+		component = {
+			slot = "STRIKE_CRAFT_04"
+			template = ""
+		}
+		component = {
+			slot = "STRIKE_CRAFT_05"
+			template = ""
+		}
+		component = {
+			slot = "STRIKE_CRAFT_06"
+			template = ""
+		}
+		component = {
+			slot = "MEDIUM_GUN_01"
+			template = ""
+		}		
+		component = {
+			slot = "MEDIUM_GUN_02"
+			template = ""
+		}
+		component = {
+			slot = "MEDIUM_GUN_03"
+			template = ""
+		}
+		component = {
+			slot = "MEDIUM_GUN_04"
+			template = ""
+		}
+		component = {
+			slot = "MEDIUM_GUN_05"
+			template = ""
+		}			
+		
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_7"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_8"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_9"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_10"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_11"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_12"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_13"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_14"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_15"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_16"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_17"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_18"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_19"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_20"
+			template = ""
+		}
+		component = {
+			slot = "LARGE_UTILITY_21"
+			template = ""
+		}
+		
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = ""
+		}
+		component = {
+			slot = "AUX_UTILITY_2"
+			template = ""
+		}
+		component = {
+			slot = "AUX_UTILITY_3"
+			template = ""
+		}
+		component = {
+			slot = "AUX_UTILITY_4"
+			template = ""
+		}
+	}
+	required_component_set = "power_core"
+	required_component_set = "sensor_components"
+	required_component_set = "combat_computers"
+	required_component_set = "ftl_components"
+	required_component_set = "thruster_components"
+	required_component_set = "ship_aura_components"
+}

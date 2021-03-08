@@ -1,0 +1,380 @@
+recalculate_bio_mass_quality_modifier = {
+	switch = {
+		trigger = has_modifier
+		bio_mass_mod_9 = { remove_modifier = bio_mass_mod_9 }
+		bio_mass_mod_8 = { remove_modifier = bio_mass_mod_8 }
+		bio_mass_mod_7 = { remove_modifier = bio_mass_mod_7 }
+		bio_mass_mod_6 = { remove_modifier = bio_mass_mod_6 }
+		bio_mass_mod_5 = { remove_modifier = bio_mass_mod_5 }
+		bio_mass_mod_4 = { remove_modifier = bio_mass_mod_4 }
+		bio_mass_mod_3 = { remove_modifier = bio_mass_mod_3 }
+		bio_mass_mod_2 = { remove_modifier = bio_mass_mod_2 }
+		bio_mass_mod_1 = { remove_modifier = bio_mass_mod_1 }
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value >= 9
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_9
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value = 8
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_8
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value = 7
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_7
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value = 6
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_6
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value = 5
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_5
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value = 4
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_4
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value = 3
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_3
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value = 2
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_2
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_quality
+				value = 1
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_mod_1
+			days = -1
+		}
+	}
+	else = {
+		# nothing
+	}
+}
+
+
+recalculate_bio_mass_fleet_quality_modifier = {
+	switch = {
+		trigger = has_modifier
+		bio_mass_fleet_mod_9 = { remove_modifier = bio_mass_fleet_mod_9 }
+		bio_mass_fleet_mod_8 = { remove_modifier = bio_mass_fleet_mod_8 }
+		bio_mass_fleet_mod_7 = { remove_modifier = bio_mass_fleet_mod_7 }
+		bio_mass_fleet_mod_6 = { remove_modifier = bio_mass_fleet_mod_6 }
+		bio_mass_fleet_mod_5 = { remove_modifier = bio_mass_fleet_mod_5 }
+		bio_mass_fleet_mod_4 = { remove_modifier = bio_mass_fleet_mod_4 }
+		bio_mass_fleet_mod_3 = { remove_modifier = bio_mass_fleet_mod_3 }
+		bio_mass_fleet_mod_2 = { remove_modifier = bio_mass_fleet_mod_2 }
+		bio_mass_fleet_mod_1 = { remove_modifier = bio_mass_fleet_mod_1 }
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value >= 9
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_9
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value = 8
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_8
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value = 7
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_7
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value = 6
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_6
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value = 5
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_5
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value = 4
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_4
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value = 3
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_3
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value = 2
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_2
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_fleet_quality
+				value = 1
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_fleet_mod_1
+			days = -1
+		}
+	}
+	else = {
+		# nothing
+	}
+}
+
+
+
+recalculate_bio_mass_controller_quality_modifier = {
+	switch = {
+		trigger = has_modifier
+		bio_mass_controller_mod_9 = { remove_modifier = bio_mass_controller_mod_9 }
+		bio_mass_controller_mod_8 = { remove_modifier = bio_mass_controller_mod_8 }
+		bio_mass_controller_mod_7 = { remove_modifier = bio_mass_controller_mod_7 }
+		bio_mass_controller_mod_6 = { remove_modifier = bio_mass_controller_mod_6 }
+		bio_mass_controller_mod_5 = { remove_modifier = bio_mass_controller_mod_5 }
+		bio_mass_controller_mod_4 = { remove_modifier = bio_mass_controller_mod_4 }
+		bio_mass_controller_mod_3 = { remove_modifier = bio_mass_controller_mod_3 }
+		bio_mass_controller_mod_2 = { remove_modifier = bio_mass_controller_mod_2 }
+		bio_mass_controller_mod_1 = { remove_modifier = bio_mass_controller_mod_1 }
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value >= 9
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controller_mod_9
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value = 8
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controller_mod_8
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value = 7
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controller_mod_7
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value = 6
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controller_mod_6
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value = 5
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controller_mod_5
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value = 4
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controllermod_4
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value = 3
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controller_mod_3
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value = 2
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controller_mod_2
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = bio_mass_controller_quality
+				value = 1
+			}
+		}
+		add_modifier = {
+			modifier = bio_mass_controller_mod_1
+			days = -1
+		}
+	}
+	else = {
+		# nothing
+	}
+}

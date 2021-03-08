@@ -1,0 +1,43 @@
+d_upgrade_50_hive = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		job_spawning_drone_per_pop = 0.02
+		pop_growth_speed = 1.00
+		planet_amenities_no_happiness_mult = 0.15
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}
+
+d_upgrade_100_hive = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		job_brain_drone_per_pop = 0.10
+		planet_researchers_upkeep_mult = -0.15
+		planet_researchers_produces_mult = 0.15
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}

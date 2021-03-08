@@ -1,0 +1,49 @@
+military_focus = {
+	icon = "gfx/interface/icons/planet_modifiers/military_upgrade_2.dds"
+	icon_frame = 2
+}
+
+civilian_focus = {
+	icon = "gfx/interface/icons/planet_modifiers/civilian_upgrade_2.dds"
+	icon_frame = 2
+}
+
+military_upgrade_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/military_upgrade_1.dds"
+	icon_frame = 2
+}
+
+military_upgrade_2 = {
+	icon = "gfx/interface/icons/planet_modifiers/military_upgrade_2.dds"
+	icon_frame = 2
+}
+
+civilian_upgrade_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/civilian_upgrade_1.dds"
+	icon_frame = 2
+}
+
+civilian_upgrade_2 = {
+	icon = "gfx/interface/icons/planet_modifiers/civilian_upgrade_2.dds"
+	icon_frame = 2
+}
+
+feeder_upgrade_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/feeder_upgrade.dds"
+	icon_frame = 1
+}
+
+feeder_upgrade_2 = {
+	icon = "gfx/interface/icons/planet_modifiers/feeder_upgrade.dds"
+	icon_frame = 1
+}
+
+trade_focus = {
+	icon = "gfx/interface/icons/planet_modifiers/trade_focus.dds"
+	icon_frame = 2
+}
+
+agri_focus = {
+	icon = "gfx/interface/icons/planet_modifiers/agri_focus.dds"
+	icon_frame = 2
+}

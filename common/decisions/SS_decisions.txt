@@ -1,0 +1,488 @@
+##########################################################################
+# Decisions
+##########################################################################
+
+
+decision_civilian_to_trade = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		is_planet_class = pc_living_station
+		owner = {
+			has_origin = origin_living_station
+			NOT = {
+				is_gestalt = yes
+			}
+		}
+		NOT = {
+			has_modifier = trade_focus
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_civilian_to_trade_effects
+		add_modifier = { modifier = "trade_focus" days = -1 }
+		remove_modifier = agri_focus
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_trade_to_civilian = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		is_planet_class = pc_living_station
+		owner = {
+			has_origin = origin_living_station
+			NOT = {
+				is_gestalt = yes
+			}
+		}
+		has_modifier = trade_focus
+	}
+
+	effect = {
+		custom_tooltip = decision_trade_to_civilian_effects
+		add_modifier = { modifier = "agri_focus" days = -1 }
+		remove_modifier = trade_focus
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+
+decision_military_upgrade_1 = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		is_planet_class = pc_living_station
+		owner = {
+			has_technology = "tech_alloys_1"
+			has_origin = origin_living_station
+		}
+		NOT = {
+			has_modifier = military_upgrade_1
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_military_upgrade_1_effects
+		add_modifier = { modifier = "military_upgrade_1" days = -1 }
+		remove_modifier = military_upgrade_2
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_military_upgrade_2 = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		is_planet_class = pc_living_station
+		owner = {
+			has_technology = "tech_alloys_2"
+			has_origin = origin_living_station
+		}
+		NOT = {
+			has_modifier = military_upgrade_2
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_military_upgrade_2_effects
+		add_modifier = { modifier = "military_upgrade_2" days = -1 }
+		remove_modifier = military_upgrade_1
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_civilian_uprgade_1 = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		is_planet_class = pc_living_station
+		owner = {
+			has_technology = "tech_luxuries_1"
+			has_origin = origin_living_station
+		}
+		NOT = {
+			has_modifier = civilian_upgrade_1
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_civilian_uprgade_1_effects
+		add_modifier = { modifier = "civilian_upgrade_1" days = -1 }
+		remove_modifier = civilian_upgrade_2
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_civilian_uprgade_2 = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		is_planet_class = pc_living_station
+		owner = {
+			has_technology = "tech_luxuries_2"
+			has_origin = origin_living_station
+		}
+		NOT = {
+			has_modifier = civilian_upgrade_2
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_civilian_uprgade_2_effects
+		add_modifier = { modifier = "civilian_upgrade_2" days = -1 }
+		remove_modifier = civilian_upgrade_1
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+
+
+decision_military_focus = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		owner = {
+			has_origin = origin_living_station
+			NOT = {
+				is_gestalt = yes
+			}
+		}
+		is_planet_class = pc_living_station
+		NOT = {
+			has_modifier = military_focus
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_military_focus_effects
+		add_modifier = { modifier = "military_focus" days = -1 }
+		remove_modifier = civilian_focus
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_civilian_focus = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		owner = {
+			has_origin = origin_living_station
+			NOT = {
+				is_gestalt = yes
+			}
+		}
+		is_planet_class = pc_living_station
+		NOT = {
+			has_modifier = civilian_focus
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_civilian_focus_effects
+		add_modifier = { modifier = "civilian_focus" days = -1 }
+		remove_modifier = military_focus
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_normal_focus = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		owner = {
+			has_origin = origin_living_station
+			NOT = {
+				is_gestalt = yes
+			}
+		}
+		is_planet_class = pc_living_station
+		OR = {
+			has_modifier = civilian_focus
+			has_modifier = military_focus
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_normal_focus_effects
+		remove_modifier = military_focus
+		remove_modifier = civilian_focus
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+
+
+decision_upgrade = {
+	owned_planets_only = yes
+
+	enactment_time = 900
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			alloys = 2500
+			minerals = 3000
+			energy = 3000
+		}
+	}
+	
+	allow = {
+		free_district_slots < 1
+	}
+
+	potential = {
+		owner = {
+			 has_origin = origin_living_station
+		}
+		is_planet_class = pc_living_station
+	}
+
+	effect = {
+		add_deposit = d_upgrade
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_upgrade_50_regular = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			alloys = 500
+		}
+	}
+
+	potential = {
+		owner = {
+            has_origin = origin_living_station
+			is_regular_empire = yes
+        }
+		
+		NOT = {
+			has_deposit = d_upgrade_50_regular
+		}
+		is_planet_class = pc_living_station
+		num_pops >= 50
+		
+	}
+
+	effect = {
+		add_deposit = d_upgrade_50_regular
+	}
+	
+	hidden_effect = {
+		remove_deposit = d_upgrade_50_machines
+		remove_deposit = d_upgrade_50_hive
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_upgrade_150 = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			alloys = 500
+		}
+	}
+
+	potential = {
+		owner = {
+            has_origin = origin_living_station
+        }
+		
+		NOT = {
+			has_deposit = d_upgrade_150
+		}
+		is_planet_class = pc_living_station
+		num_pops >= 150
+		
+	}
+
+	effect = {
+		add_deposit = d_upgrade_150
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_upgrade_100_regular = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			alloys = 500
+		}
+	}
+
+	potential = {
+		owner = {
+			is_regular_empire = yes
+            has_origin = origin_living_station
+        }
+		
+		NOT = {
+			has_deposit = d_upgrade_100_regular
+		}
+		is_planet_class = pc_living_station
+		num_pops >= 100
+		
+	}
+
+	effect = {
+		add_deposit = d_upgrade_100_regular
+	}
+	
+	hidden_effect = {
+		remove_deposit = d_upgrade_100_machine
+		remove_deposit = d_upgrade_100_hive
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_upgrade_200_regular = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			alloys = 500
+		}
+	}
+
+	potential = {
+		owner = {
+            has_origin = origin_living_station
+        }
+		
+		NOT = {
+			has_deposit = d_upgrade_200_regular
+		}
+		is_planet_class = pc_living_station
+		num_pops >= 200
+		
+	}
+
+	effect = {
+		add_deposit = d_upgrade_200_regular
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}

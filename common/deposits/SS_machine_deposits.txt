@@ -1,0 +1,67 @@
+d_upgrade_start_robots = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 20
+			energy = 20
+		}
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}
+
+d_upgrade_50_machines = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		job_replicator_add = 2
+		planet_pop_assembly_mult = 0.75
+		planet_amenities_no_happiness_mult = 0.25
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}
+
+d_upgrade_100_machine = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		job_calculator_per_pop = 0.10
+		planet_researchers_upkeep_mult = -0.15
+		planet_researchers_produces_mult = 0.15
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}

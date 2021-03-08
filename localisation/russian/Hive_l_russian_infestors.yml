@@ -1,0 +1,144 @@
+﻿l_russian:
+
+ ###########
+ CIVICS#####
+ ###########
+ origin_hive_infestor:0 "Рой-заразитель"
+ origin_hive_infestor_effects:0 "Родной мир - §Y$pc_hive$§! (размер: £planetsize£ §Y20§!)\nСознание данного улья крепко связано с биомассой, покрывающей его родную планету, по этому дроны производят и потребляют ресурсы на §G10%§! эффективнее на §YМирах Улья§!, но оказываются почти не дееспособны на любых друих мирах. Позволяет §Yзаражать планеты§! при помощи специального решения, что бы получать с них дополнительные ресурсы."
+ origin_hive_infestor_desc:0 "С самого зарождения, данный рой распространял по планете собственную биомассу, которая поддерживала его существование и помагала в развитии. В конце концов симбиоз биомассы и роя привёл к тому, что разум роя слился с биомассой и больше не способен уществовать вне её ареала распространения."
+ START_SCREEN_INFEST:0 "С самого зарождения, наш рой состоял в симбиотических отношениях с биомассой. Мы кормили её, позволяя разрастись по поверхности всей планеты. После поглощения всей экосистемы планеты, мы обратили внимание на звёзды. Открыв первый гипердвигатель, мы смогли распространить биомассу на другие планеты. Мы продолжим её рост и наше развитие по галактике."
+ 
+ pc_bio_organ:0 "Космический органоид"
+ pc_bio_organ_desc:0 "Огромная органическая масса покрыла эту планету и вытягивает из неё ресурсы."
+
+ #############
+ DECISIONS####
+ #############
+ decision_gas_gaser:0 "Заражение добытчиком: $pc_gas_giant$"
+ decision_gas_gaser_effects:0 "Заражённый §Y$pc_gas_giant$§! производит £energy£ §Y$energy$§!, планеты больших размеров производят так же £exotic_gases£ §Y$exotic_gases$§!."
+ decision_gas_gaser_desc:0 "-"
+ 
+ decision_molt_gaser:0 "Заражение добытчиком: $pc_molten$"
+ decision_molt_gaser_effects:0 "Заражённый §Y$pc_molten$§! производит £alloys£ §Y$alloys$§!, планеты больших размеров производят так же £volatile_motes£ §Y$volatile_motes$§!." 
+ decision_molt_gaser_desc:0 "-"
+ 
+ decision_barren_gaser:0 "Заражение добытчиком: $pc_barren$"
+ decision_barren_gaser_effects:0 "Заражённый §Y$pc_barren$§! производит £minerals£ §Y$minerals$§!, планеты больших размеров производят так же £rare_crystals£ §Y$rare_crystals$§!."
+ decision_barren_gaser_desc:0 "-"
+ 
+ decision_broken_gaser:0 "Заражение добытчиком: $pc_broken$"
+ decision_broken_gaser_effects:0 "Заражённый §Y$pc_broken$§! производит большое количество £minerals£ §Y$minerals$§! и £alloys£ §Y$alloys$§!, а так же £exotic_gases£ §Y$exotic_gases$§!, £volatile_motes£ §Y$volatile_motes$§! и £rare_crystals£ §Y$rare_crystals$§!."
+ decision_broken_gaser_desc:0 "-"
+ 
+ 
+ ##########################
+ ##############brains######
+ ##########################
+ 
+ decision_egg_gaser:0 "Заражение мозговой корой: $pc_egg_cracked$"
+ decision_egg_gaser_effects:0 "Мозговая кора на §Y$pc_egg_cracked$§! производит большое количество £society_research£ §Y$society_research$§!."
+ decision_egg_gaser_desc:0 "-"
+ 
+ decision_tox_brain:0 "Заражение мозговой корой: $pc_toxic$"
+ decision_tox_brain_effects:0 "Мозговая кора на §Y$pc_toxic$§! производит £society_research£ §Y$society_research$§!"
+ decision_tox_brain_desc:0 "-"
+ 
+ decision_gas_brain:0 "Заражение мозговой корой: $pc_gas_giant$"
+ decision_gas_brain_effects:0 "Мозговая кора на §Y$pc_gas_giant$§! производит £physics_research£ §Y$physics_research$§!"
+ decision_gas_brain_desc:0 "-"
+ 
+ decision_molt_brain:0 "Заражение мозговой корой: $pc_molten$"
+ decision_molt_brain_effects:0 "Мозговая кора на §Y$pc_molten$§! производит £physics_research£ §Y$physics_research$§! и £engineering_research£ §Y$engineering_research$§!."
+ decision_molt_brain_desc:0 "-"
+ 
+ decision_barren_brain:0 "Заражение мозговой корой: $pc_barren$"
+ decision_barren_brain_effects:0 "Мозговая кора на §Y$pc_barren$§! производит £engineering_research£ §Y$engineering_research$§!"
+ decision_barren_brain_desc:0 "-"
+ 
+ 
+ ##################
+ ######TRAITS######
+ ##################
+ 
+ trait_infestor_drone_1:0 "Зависимость от биомассы"
+ trait_infestor_drone_1_desc:0 "Разум данного улья тесно связан с биомассой, в пределах распространения которой, его дроны проявляют максимальную продуктивность."
+ 
+ trait_infestor_drone_2:0 "Зависимость от биомассы"
+ trait_infestor_drone_2_desc:0 "Вне зоны распространения биомассы, данные дроны теряют связь с разумом и выходят из под контроля."
+ 
+ ######################
+ ######PROTECTORS######
+ ######################
+ 
+ decision_hive_protectors:0 "Выводок сторожевых дронов"
+ decision_hive_protectors_effects:0 "После заражения, на планете будут расти §Y$swarmling_protector$§! и §Y$devourer_protector$§!, которые нападут на вражеские корабли, когда те влетят в систему, но после этого погибнут."
+ decision_hive_protectors_desc:0 "-"
+ 
+ swarmling_protector:0 "Сторожевые роевики"
+ 
+ devourer_protector:0 "Патрульные пожиратели"
+ 
+ protectors_ready_low:0 "Дроны: группа"
+ protectors_ready_low_desc:0 "Небольшая группа дронов, мало готовая к бою."
+ protectors_ready_med:0 "Дроны: стая"
+ protectors_ready_med_desc:0 "Стая дронов, способная застать врасплох небольшие флотилии врага."
+ protectors_ready_full:0 "Дроны: рой"
+ protectors_ready_full_desc:0 "Огромный рой, представляющий угрозу, даже для крупных сил врага."
+ 
+ ######################
+ ######AP SPECIAL######
+ ######################
+ ap_infested_worlds:0 "Автономные органоиды"
+ 
+ ap_infested_worlds_desc:0 "Усилив контроль над биомассой, мо смогли придать ей форму и наделили ту форму автономностью."
+ 
+ allow_grow_infested_organoids:0 "Открывает возможность §Yвзращивания§! особых мегасооружений: §YФлотовода§!, §YТерриториального Регулятора§! и §YБиоформы§! над обитаемыми планетами.\n§RМАКСИМУМ 3 ОРГАНОИДА§!"
+ 
+ describe_ap_infested_worlds:0 "Сильно ухудшает пригодность всех планет, кроме §YМиров ульев§!.\n§Y$MOD_COUNTRY_TERRAFORM_SPEED_MULT$§! §G+65%§!"
+ 
+ 
+ 
+ ap_better_organism:0 "Наращивание органической массы"
+ 
+ ap_better_organism_desc:0 "По мере роста, наша биомасса начинает принимать всё более сложные и объёмные формы, хоть нам и становится сложнее существовать вне её досягаемости, но мы получаем возможность распространить её ещё сильнее."
+ 
+ allow_apgrade_infested_worlds:0 "Позволяет улучшить §YФлотовода§!, §YТерриториального Регулятора§! и §YБиоформы§! для усиления еффектов."
+ 
+ describe_edict_infested_worlds:0 "§Y$MOD_COUNTRY_TERRAFORMING_COST_MULT$§! §G-50%§!"
+ 
+ 
+ bioform_biosupplyment:0 "Биоформа"
+ bioform_biosupplyment_DESC:0 "Автономный космический органоид, помогающий разуму следить за состоянием дронов и способный регулировать их внутренние процессы."
+ bioform_biosupplyment_MEGASTRUCTURE_DETAILS:0 "§Y$bioform_biosupplyment$§! помогает разуму следить за состоянием дронов и регулирует их внутренние процессы."
+ 
+ bioform_biosupplyment_up:0 "Разросшаяся Биоформа"
+ bioform_biosupplyment_up_DESC:0 "Массивный органоид, следящий за состоянием дронов."
+ 
+ bioform_fleeter:0 "Флотовод"
+ bioform_fleeter_DESC:0 "Автономный космический органоид, помогающий коллективному сознанию управлять и содержать флот."
+ bioform_fleeter_MEGASTRUCTURE_DETAILS:0 "§Y$bioform_fleeter$§! помогает коллективному сознанию контроллировать и содержать флот."
+ 
+ bioform_fleeter_up:0 "Разросшийся Флотовод"
+ bioform_fleeter_up_DESC:0 "Массивный органоид, отвечающий за логистику флота."
+ 
+ bioform_controller:0 "Территориальный Контроллёр"
+ bioform_controller_DESC:0 "Автономный космический органоид, помогающий коллективному сознанию контроллировать поведение дронов и территорию в космическом пространстве."
+ bioform_controller_MEGASTRUCTURE_DETAILS:0 "§Y$bioform_controller$§! помогает коллективному сознанию контроллировать поведение дронов и территорию в космическом пространстве."
+ 
+ bioform_controller_up:0 "Разросшийся Территориальный Контроллёр"
+ bioform_controller_up_DESC:0 "Массивный органоид, контроллирующий внутреннее пространство и дронов."
+ 
+ 
+ 
+ 
+ ######################
+ #######JOBS###########
+ ######################
+ 
+ job_livestock_infest:0 "Скот-носитель"
+ job_livestock_infest_desc:0 "Их главная функция: создать питательную среду для молодых дронов и ембрионов."
+ mod_job_livestock_infest_add:0 "Деятельность: $job_livestock_infest$"
+ mod_job_livestock_infest_per_pop:0 "§G+1§! $job_livestock_infest$ как вид деятельности для $VALUE$ поселений"
+ mod_job_livestock_infest_per_pop_short:0 "\n§G+1§! £mod_job_livestock_infest_add£ для $VALUE$ £pop£"
+ job_livestock_infest_effect_desc:0 "$job_livestock_infest_plural$ производят £food£ §Y$food$§!"
+ job_livestock_infest_plural:0 "Скот"

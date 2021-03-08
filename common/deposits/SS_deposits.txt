@@ -1,0 +1,140 @@
+d_upgrade_start_regular = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 20
+			food = 10
+		}
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}
+
+
+
+
+d_upgrade_50_regular = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		pop_growth_speed = 1.00
+		job_healthcare_per_pop = 0.10
+		planet_jobs_consumer_goods_produces_mult = 0.10
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}
+
+d_upgrade_150 = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		planet_jobs_energy_produces_mult = 0.50
+		planet_jobs_minerals_produces_mult = 0.50
+		planet_jobs_food_produces_mult = 0.50
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}
+
+d_upgrade_100_regular = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		job_researcher_per_pop = 0.10
+		planet_researchers_upkeep_mult = -0.15
+		planet_researchers_produces_mult = 0.15
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}
+
+d_upgrade_200_regular = {
+	is_for_colonizeable = yes
+
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		planet_jobs_consumer_goods_produces_mult = 0.25
+		planet_jobs_alloys_produces_mult = 0.25
+		planet_jobs_unity_produces_mult = 0.25
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_living_station
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0		
+	}
+}
+
+d_upgrade = {
+	is_for_colonizeable = no
+	use_for_min_max_adjustments = no
+	
+	use_weights_for_terraforming_swap_types = no
+	should_swap_deposit_on_terraforming = no
+	
+	category = deposit_cat_rare
+	
+	planet_modifier = { 
+		planet_max_districts_add = 5
+	}
+	
+	potential = {
+		is_dry = yes	
+	}
+	
+	drop_weight = {
+		weight = @high
+		modifier = {
+			factor = @planet_type_bonus
+			is_dry = yes
+		}
+	}
+}

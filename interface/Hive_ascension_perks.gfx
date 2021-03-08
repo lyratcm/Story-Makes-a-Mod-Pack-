@@ -1,0 +1,13 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_ap_infested_worlds"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_infested_worlds.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_ap_better_organism"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_better_organism.dds"
+		alwaystransparent = yes
+	}
+}

@@ -1,0 +1,669 @@
+decision_gas_gaser = {
+	resources = {
+		category = decisions
+		cost = {
+		    trigger = {
+				planet_size >= 27
+			}
+			food = 6000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 27
+				planet_size >= 20
+			}
+			food = 4000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 20
+			}
+			food = 2000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		is_planet_class = pc_gas_giant
+		has_anomaly = no
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+	    custom_tooltip = decision_gas_gaser_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ
+			if = {
+				limit = {
+					planet_size >= 27
+				}
+				add_deposit = d_exotic_gases_1
+                add_deposit = d_energy_10
+				add_deposit = d_energy_10
+				add_deposit = d_energy_10
+			}
+			if = {
+				limit = {
+					planet_size < 27
+					planet_size >= 20
+				}
+                add_deposit = d_energy_10
+				add_deposit = d_energy_10
+			}
+			if = {
+				limit = {
+					planet_size < 20
+				}
+                add_deposit = d_energy_10
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}
+
+decision_molt_gaser = {
+	resources = {
+		category = decisions
+		cost = {
+		    trigger = {
+				planet_size <= 30
+				planet_size >= 27
+			}
+			food = 6000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 27
+				planet_size >= 20
+			}
+			food = 4000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 20
+			}
+			food = 2000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		is_planet_class = pc_molten
+		has_anomaly = no
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+	    custom_tooltip = decision_molt_gaser_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ
+			if = {
+				limit = {
+				    planet_size <= 30
+					planet_size >= 27
+				}
+				add_deposit = d_volatile_motes_1
+                add_deposit = d_alloys_4
+				add_deposit = d_alloys_4
+				add_deposit = d_alloys_4
+				add_deposit = d_alloys_4
+			}
+			if = {
+				limit = {
+				    planet_size < 27
+					planet_size >= 20
+				}
+                add_deposit = d_alloys_4
+				add_deposit = d_alloys_4
+				add_deposit = d_alloys_4
+			}
+			if = {
+				limit = {
+					planet_size < 20
+				}
+				add_deposit = d_alloys_4
+				add_deposit = d_alloys_4
+       		}
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}
+
+decision_barren_gaser = {
+	resources = {
+		category = decisions
+		cost = {
+		    trigger = {
+				planet_size > 25
+			}
+			food = 6000
+		}
+		cost = {
+		    trigger = {
+				planet_size <= 25
+				planet_size >= 18
+			}
+			food = 4000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 18
+			}
+			food = 2000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		has_anomaly = no
+		OR = {
+		    is_planet_class = pc_barren
+		    is_planet_class = pc_barren_cold
+			is_planet_class = pc_frozen
+		}
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+	    custom_tooltip = decision_barren_gaser_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ
+			if = {
+				limit = {
+				    planet_size > 25
+				}
+				add_deposit = d_rare_crystals_1
+				add_deposit = d_minerals_10
+				add_deposit = d_minerals_10
+                add_deposit = d_minerals_10
+			}
+			if = {
+				limit = {
+				    planet_size <= 25
+					planet_size >= 18
+				}
+				add_deposit = d_minerals_10
+				add_deposit = d_minerals_10
+			}
+			if = {
+				limit = {
+					planet_size < 18
+				}
+                add_deposit = d_minerals_10
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}
+
+decision_broken_gaser = {
+	resources = {
+		category = decisions
+		cost = {
+		    trigger = {
+				planet_size <= 30
+				planet_size >= 27
+			}
+			food = 8000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 27
+				planet_size >= 20
+			}
+			food = 6000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 20
+			}
+			food = 4000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		has_anomaly = no
+		OR = {
+			is_planet_class = pc_broken
+			is_planet_class = pc_shattered
+		}
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+	    custom_tooltip = decision_broken_gaser_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ_broken
+			set_planet_entity = {
+				entity = "shattered_infected_planet"
+			}
+			if = {
+				limit = {
+					planet_size >= 27
+				}
+				add_deposit = d_minerals_10
+				add_deposit = d_minerals_10
+				add_deposit = d_minerals_10
+				add_deposit = d_minerals_10
+				add_deposit = d_alloys_5
+				add_deposit = d_alloys_5
+				add_deposit = d_alloys_5
+				add_deposit = d_alloys_5
+				add_deposit = d_exotic_gases_2
+				add_deposit = d_volatile_motes_2
+				add_deposit = d_rare_crystals_2
+				set_planet_entity = {
+					entity = "shattered_infected_planet"
+				}
+			}
+			if = {
+				limit = {
+				   planet_size < 27
+					planet_size >= 20
+				}
+				add_deposit = d_minerals_10
+				add_deposit = d_minerals_10
+				add_deposit = d_minerals_10
+				add_deposit = d_alloys_5
+				add_deposit = d_alloys_5
+				add_deposit = d_alloys_5
+				add_deposit = d_exotic_gases_1
+				add_deposit = d_volatile_motes_1
+				add_deposit = d_rare_crystals_1
+				set_planet_entity = {
+					entity = "shattered_infected_planet"
+				}
+			}
+			if = {
+				limit = {
+					planet_size < 20
+				}
+                add_deposit = d_minerals_10
+				add_deposit = d_minerals_10
+				add_deposit = d_alloys_5
+				add_deposit = d_alloys_5
+				add_deposit = d_exotic_gases_1
+				add_deposit = d_volatile_motes_1
+				add_deposit = d_rare_crystals_1
+				set_planet_entity = {
+					entity = "shattered_infected_planet"
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}
+
+
+
+#################################
+###########BRAINS################
+#################################
+
+decision_egg_brain = {
+	resources = {
+		category = decisions
+		cost = {
+			food = 10000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		is_planet_class = pc_egg_cracked
+		has_anomaly = no
+		has_owner = no
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_egg_brain_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ
+			set_planet_entity = {
+				entity = "shattered_infected_planet"
+			}
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+			add_deposit = d_society_10
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}
+
+decision_gas_brain = {
+	resources = {
+		category = decisions
+		cost = {
+		    trigger = {
+				planet_size >= 27
+			}
+			food = 6000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 27
+				planet_size >= 20
+			}
+			food = 4000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 20
+			}
+			food = 2000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		is_planet_class = pc_gas_giant
+		has_anomaly = no
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+	    custom_tooltip = decision_gas_brain_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ
+			if = {
+				limit = {
+					planet_size >= 27
+				}
+                add_deposit = d_physics_10
+				add_deposit = d_physics_10
+				add_deposit = d_physics_10
+				add_deposit = d_physics_10
+				add_deposit = d_physics_5
+			}
+			if = {
+				limit = {
+					planet_size < 27
+					planet_size >= 20
+				}
+                add_deposit = d_physics_10
+				add_deposit = d_physics_10
+				add_deposit = d_physics_10
+			}
+			if = {
+				limit = {
+					planet_size < 20
+				}
+                add_deposit = d_physics_10
+				add_deposit = d_physics_5
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}
+
+decision_tox_brain = {
+	resources = {
+		category = decisions
+		cost = {
+		    trigger = {
+				planet_size >= 25
+			}
+			food = 6000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 25
+				planet_size >= 18
+			}
+			food = 4000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 18
+			}
+			food = 2000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		is_planet_class = pc_toxic
+		has_anomaly = no
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+	    custom_tooltip = decision_tox_brain_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ
+			if = {
+				limit = {
+					planet_size >= 25
+				}	
+                add_deposit = d_society_10
+				add_deposit = d_society_10
+				add_deposit = d_society_10
+				add_deposit = d_society_10
+				add_deposit = d_society_5
+			}
+			if = {
+				limit = {
+					planet_size < 25
+					planet_size >= 18
+				}
+                add_deposit = d_society_10
+				add_deposit = d_society_10
+				add_deposit = d_society_10
+			}
+			if = {
+				limit = {
+					planet_size < 18
+				}
+				add_deposit = d_society_10
+				add_deposit = d_society_5
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}
+
+decision_molt_brain = {
+	resources = {
+		category = decisions
+		cost = {
+		    trigger = {
+				planet_size <= 30
+				planet_size > 27
+			}
+			food = 6000
+		}
+		cost = {
+		    trigger = {
+				planet_size <= 27
+				planet_size >= 20
+			}
+			food = 4000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 20
+			}
+			food = 2000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		is_planet_class = pc_molten
+		has_anomaly = no
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+	    custom_tooltip = decision_molt_brain_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ
+			if = {
+				limit = {
+				    planet_size <= 30
+					planet_size > 27
+				}
+                add_deposit = d_physics_10
+				add_deposit = d_physics_10
+				add_deposit = d_engineering_10
+				add_deposit = d_engineering_10
+			}
+			if = {
+				limit = {
+				    planet_size <= 27
+					planet_size >= 20
+				}
+				add_deposit = d_physics_10
+				add_deposit = d_physics_5
+				add_deposit = d_engineering_10
+				add_deposit = d_engineering_5
+			}
+			if = {
+				limit = {
+					planet_size < 20
+				}
+				add_deposit = d_physics_10
+				add_deposit = d_engineering_10
+       		}
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}
+
+decision_barren_brain = {
+	resources = {
+		category = decisions
+		cost = {
+		    trigger = {
+				planet_size > 25
+			}
+			food = 6000
+		}
+		cost = {
+		    trigger = {
+				planet_size <= 25
+				planet_size >= 18
+			}
+			food = 4000
+		}
+		cost = {
+		    trigger = {
+				planet_size < 18
+			}
+			food = 2000
+		}
+	}
+	
+	potential = {
+	    exists = space_owner
+		space_owner = { is_same_value = from }
+		OR = {
+		    is_planet_class = pc_barren
+		    is_planet_class = pc_barren_cold
+			is_planet_class = pc_frozen
+		}
+		from = {
+			has_origin = origin_hive_infestor
+		}
+	}
+
+	effect = {
+	    custom_tooltip = decision_barren_brain_effects
+		hidden_effect = {
+			clear_deposits = yes
+			change_pc = pc_bio_organ
+			has_anomaly = no
+			if = {
+				limit = {
+				    planet_size > 25
+				}
+                add_deposit = d_engineering_10
+				add_deposit = d_engineering_10
+                add_deposit = d_engineering_10
+			}
+			if = {
+				limit = {
+				    planet_size <= 25
+					planet_size >= 18
+				}
+				add_deposit = d_engineering_10
+                add_deposit = d_engineering_10
+			}
+			if = {
+				limit = {
+					planet_size < 18
+				}
+                add_deposit = d_engineering_10
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 999
+	}
+}

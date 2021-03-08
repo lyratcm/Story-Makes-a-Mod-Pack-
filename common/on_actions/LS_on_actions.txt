@@ -1,0 +1,14 @@
+on_game_start_country = {
+	events = {
+		liv.1
+		liv.2
+		liv.3
+	}
+}
+
+on_colonized = {
+	events = {
+        liv.4
+		liv.5
+    }
+}

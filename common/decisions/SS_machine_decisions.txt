@@ -1,0 +1,78 @@
+decision_upgrade_50_machine = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			alloys = 500
+		}
+	}
+
+	potential = {
+		owner = {
+			is_machine_empire = yes
+            has_origin = origin_living_station
+        }
+		
+		NOT = {
+			has_deposit = d_upgrade_50_machines
+		}
+		is_planet_class = pc_living_station
+		num_pops >= 50
+	}
+
+	effect = {
+		add_deposit = d_upgrade_50_machines
+	}
+	
+	hidden_effect = {
+		remove_deposit = d_upgrade_50_hive
+		remove_deposit = d_upgrade_50_regular
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}
+
+decision_upgrade_100_machine = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			alloys = 500
+		}
+	}
+
+	potential = {
+		owner = {
+			is_machine_empire = yes
+            has_origin = origin_living_station
+        }
+		
+		NOT = {
+			has_deposit = d_upgrade_100_machine
+		}
+		is_planet_class = pc_living_station
+		num_pops >= 100
+		
+	}
+
+	effect = {
+		add_deposit = d_upgrade_100_machine
+	}
+	
+	hidden_effect = {
+		remove_deposit = d_upgrade_100_hive
+		remove_deposit = d_upgrade_100_regular
+	}
+
+	ai_weight = {
+		weight = 9999
+	}
+}

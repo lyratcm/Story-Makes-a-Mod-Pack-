@@ -1,0 +1,34 @@
+trait_infestor_drone_1 = {
+	icon = "gfx/interface/icons/traits/trait_void_dweller_positive.dds"
+	initial = no
+	modification = no
+	randomized = no
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	sorting_priority = 30
+	potential_crossbreeding_chance = 0.33
+	modifier = {
+		planet_jobs_produces_mult = 0.05
+		planet_jobs_food_produces_mult = 0.15
+		planet_jobs_upkeep_mult = -0.10
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+trait_infestor_drone_2 = {
+	icon = "gfx/interface/icons/traits/trait_void_dweller.dds"
+	initial = no
+	modification = no
+	randomized = no
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	sorting_priority = 30
+	potential_crossbreeding_chance = 0.33
+	modifier = {
+		planet_jobs_produces_mult = -0.25
+		pop_amenities_usage_no_happiness_mult = 0.50
+	}
+	ai_weight = {
+		weight = 0
+	}
+}

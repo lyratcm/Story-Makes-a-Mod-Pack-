@@ -1,0 +1,868 @@
+district_liv_housing = {
+	base_buildtime = 500
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Liv_station
+		owner = { 
+			is_regular_empire = yes
+		}
+	}
+	
+	potential = {
+		uses_district_set = Liv_station
+		owner = { 
+			is_regular_empire = yes
+		}
+	}
+	
+	conversion_ratio = 1
+	convert_to = {
+		district_liv_storage
+		district_liv_maintence_hive
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 5
+		}		
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 20
+		job_enforcer_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_colonial_centralization
+			}
+		}
+		modifier = {
+			job_enforcer_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+		modifier = {
+			job_entertainer_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		modifier = {
+			job_duelist_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_non_swapped_tradition = tr_prosperity_public_works }
+		}
+		modifier = {
+			planet_housing_add = 5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_technology = tech_housing_1 
+			}
+		}
+		modifier = {
+			planet_housing_add = 5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_technology = tech_housing_2 
+				NOT = { has_valid_civic = civic_agrarian_idyll }
+			}
+		}
+		modifier = {
+			planet_housing_add = 5
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_enforcer_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+		text = job_entertainer_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		text = job_duelist_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 900
+			planet = {
+				free_housing < 2
+			}
+		}
+	}
+}
+
+district_liv_bureaucratic = {
+	base_buildtime = 400
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Liv_station
+		owner = { 
+			is_regular_empire = yes
+		}
+	}
+	
+	potential = {
+		uses_district_set = Liv_station
+		owner = { 
+			is_regular_empire = yes
+		}
+	}
+	
+	conversion_ratio = 1
+	convert_to = {
+		district_liv_controller
+		district_liv_storage_hive
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 3
+		}		
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 5
+		job_bureaucrat_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOR = {
+					is_spiritualist = yes
+					has_authority = auth_corporate
+				}
+			}
+		}
+		modifier = {
+			job_culture_worker_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_spiritualist = yes
+				NOT = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+		modifier = {
+			job_priest_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_authority = auth_corporate
+			}
+		}
+		modifier = {
+			job_manager_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_authority = auth_corporate
+					has_civic = civic_exalted_priesthood
+					has_civic = civic_aristocratic_elite
+					has_civic = civic_merchant_guilds
+					has_civic = civic_technocracy
+				}
+			}
+		}
+		modifier = {
+			job_administrator_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_authority = auth_corporate }
+		}
+		modifier = {
+			job_executive_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_exalted_priesthood }
+		}
+		modifier = {
+			job_high_priest_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_aristocratic_elite }
+		}
+		modifier = {
+			job_noble_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_technocracy }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_merchant_guilds }
+		}
+		modifier = {
+			job_merchant_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_non_swapped_tradition = tr_prosperity_interstellar_franchising }
+		}
+		modifier = {
+			planet_housing_add = 2
+			job_clerk_add = 2
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_bureaucrat_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_exalted_priesthood
+			}
+		}
+		text = job_high_priest_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_aristocratic_elite
+			}
+		}
+		text = job_noble_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_technocracy
+			}
+		}
+		text = job_head_researcher_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_merchant_guilds
+			}
+		}
+		text = job_merchant_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_authority = auth_corporate }
+				is_regular_empire = yes
+			}
+		}
+		text = job_administrator_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 30
+			owner = { empire_sprawl_over_cap > 40 }
+		}
+		modifier = {
+			factor = 20
+			owner = { empire_sprawl_over_cap > 20 }
+		}
+		modifier = {
+			factor = 10
+			owner = { empire_sprawl_over_cap > 10 }
+		}
+		modifier = {
+			factor = 5
+			owner = { empire_sprawl_over_cap > 5 }
+		}
+		modifier = {
+			factor = 1
+			owner = { empire_sprawl_over_cap > 0 }
+		}
+	}
+}
+
+district_liv_civilian = {
+	base_buildtime = 400
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Liv_station
+		owner = { 
+			is_regular_empire = yes
+		}
+	}
+	
+	potential = {
+		uses_district_set = Liv_station
+		owner = { 
+			is_regular_empire = yes
+		}
+	}
+	
+	conversion_ratio = 1
+	convert_to = {
+		district_liv_gathering
+		district_liv_gathering_hive
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 3
+		}	
+		upkeep = {
+			trigger = {
+				has_modifier = civilian_upgrade_1
+			}
+			rare_crystals = 0.5
+		}
+		upkeep = {
+			trigger = {
+				has_modifier = civilian_upgrade_2
+			}
+			rare_crystals = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			NOR = {
+				has_modifier = trade_focus
+				has_modifier = agri_focus
+			}
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_farmer_add = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = agri_focus
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_farmer_add = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = trade_focus
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_clerk_add = 5
+		}
+	}
+	
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = military_focus
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_artisan_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			NOT = {
+				has_modifier = military_focus
+				has_modifier = civilian_focus
+			}
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_artisan_add = 3
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = civilian_upgrade_1
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_artisan_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = civilian_upgrade_2
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_artisan_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = civilian_focus
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_artisan_add = 4
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			NOT = {
+				has_modifier = trade_focus
+			}
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_farmer_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_artisan_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			has_modifier = trade_focus
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_clerk_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 30
+			OR = {
+				has_monthly_income = {
+					resource = food
+					value < 15
+				}
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 10
+				}
+			}
+		}
+		modifier = {
+			factor = 20
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = food
+						value < 40
+					}
+					has_monthly_income = {
+						resource = consumer_goods
+						value < 15
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 10
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = food
+						value < 100
+					}
+					has_monthly_income = {
+						resource = consumer_goods
+						value < 25
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = food
+						value < 200
+					}
+					has_monthly_income = {
+						resource = consumer_goods
+						value < 40
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = food
+						value < 250
+					}
+					has_monthly_income = {
+						resource = consumer_goods
+						value < 80
+					}
+				}
+			}
+		}
+	}
+}
+
+district_liv_maintenance = {
+	base_buildtime = 500
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Liv_station
+		owner = {
+			is_regular_empire = yes
+		}
+	}
+	
+	potential = {
+		uses_district_set = Liv_station
+		owner = {
+			is_regular_empire = yes
+		}
+	}
+	
+	conversion_ratio = 1
+	convert_to = {
+		district_liv_industry
+		district_liv_industry_hive
+	}	
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 3
+		}
+		upkeep = {
+			trigger = {
+				has_modifier = military_upgrade_1
+			}
+			volatile_motes = 0.5
+		}
+		upkeep = {
+			trigger = {
+				has_modifier = military_upgrade_2
+			}
+			volatile_motes = 1
+		}
+	}
+	
+	planet_modifier = {
+		job_miner_add = 5
+		job_technician_add = 5
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = military_upgrade_1
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_foundry_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = military_upgrade_2
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_foundry_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			NOT = {
+				has_modifier = military_focus
+				has_modifier = civilian_focus
+			}
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_foundry_add = 3
+		}
+	}	
+		
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = military_focus
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_foundry_add = 4
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = civilian_focus
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_foundry_add = 2
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_miner_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_technician_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_foundry_effect_desc
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			weight = 30
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value < 15
+					}
+					has_monthly_income = {
+						resource = minerals
+						value < 15
+					}
+					has_monthly_income = {
+						resource = alloys
+						value < 25
+					}
+				}
+			}
+		}
+		modifier = {
+			weight = 20
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value < 50
+					}
+					has_monthly_income = {
+						resource = minerals
+						value < 50
+					}
+					has_monthly_income = {
+						resource = alloys
+						value < 50
+					}
+				}
+			}
+		}
+		modifier = {
+			weight = 10
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value < 100
+					}
+					has_monthly_income = {
+						resource = minerals
+						value < 100
+					}
+					has_monthly_income = {
+						resource = alloys
+						value < 100
+					}
+				}
+			}
+		}
+		modifier = {
+			weight = 5
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value < 250
+					}
+					has_monthly_income = {
+						resource = minerals
+						value < 250
+					}
+					has_monthly_income = {
+						resource = alloys
+						value < 300
+					}
+				}
+			}
+		}
+		modifier = {
+			weight = 1
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value < 500
+					}
+					has_monthly_income = {
+						resource = minerals
+						value < 500
+					}
+					has_monthly_income = {
+						resource = alloys
+						value < 500
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,7 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_hive_infestor"
+		texturefile = "gfx/event_pictures/origins/hive_infestor.dds"
+		alwaystransparent = yes
+	}
+}

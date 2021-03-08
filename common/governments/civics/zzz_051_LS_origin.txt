@@ -1,0 +1,32 @@
+origin_living_station = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_living_station.dds"
+	picture = GFX_origin_living_station
+
+	starting_colony = pc_living_station
+	habitability_preference = pc_living_station
+	max_once_global = yes
+	preferred_planet_class_neighbor = no
+
+	possible = {
+		civics = { 
+			NOR = {
+				value = civic_agrarian_idyll 
+				value = civic_machine_servitor 
+				value = civic_machine_assimilator 
+			} 
+		}
+	}
+
+	description = "origin_living_station_effects"
+	flags = { custom_start_screen }
+	
+	modifier = {
+		country_resource_max_add = 10000
+		planet_colony_development_speed_mult = -1.50
+	}
+
+	random_weight = {
+		base = 0
+	}
+}

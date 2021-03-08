@@ -1,0 +1,33 @@
+pc_living_station = {
+	habitat = yes
+	entity = "orbital_habitat"
+	icon_frame = 22
+	entity_scale = 5.0
+	enable_tilt = no
+	fixed_entity_scale = no
+	place_entity_on_planet_plane = yes
+	entity_face_object = no #disable rotation towards sun or planet we orbit around
+	atmosphere_color 		= hsv { 0.0 0.0 1.0 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+	show_city = no
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	chance_of_ring = 0.0
+	planet_size = 10
+	moon_size = 1
+	colonizable = yes
+	ideal = yes
+	district_set = Liv_station
+	starting_planet = no
+	orbit_lines = no
+	has_colonization_influence_cost = no			# applies when within own borders
+	
+	is_artificial_planet = yes
+	
+	modifier = {
+		planet_pop_assembly_mult = 0.20
+		pop_growth_speed = 0.50
+		pop_demotion_time_mult = -0.50
+	}	
+}

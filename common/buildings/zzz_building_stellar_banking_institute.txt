@@ -255,12 +255,131 @@ building_am_civics_stellar_banking_institute = {
 		}
 	}
 	triggered_planet_modifier = {
-		potential = { owner = { has_resource = { type = energy amount >= 100000 } } }
+		potential = { owner = { has_resource = { type = energy amount >= 110000 } } }
 		modifier = {
 			trade_value_add = 50
 		}
 	}
-
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 120000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 130000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 140000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 150000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 150000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 160000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 170000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 180000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 190000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 200000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 210000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 220000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 230000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 240000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 250000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 260000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 270000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 280000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 290000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
+	triggered_planet_modifier = {
+		potential = { owner = { has_resource = { type = energy amount >= 300000 } } }
+		modifier = {
+			trade_value_add = 50
+		}
+	}
 	on_queued = {
 		owner = { remove_country_flag = am_civics_can_build_stellar_banking_institute }
 		owner = { set_country_flag = am_civics_is_building_stellar_banking_institute }
