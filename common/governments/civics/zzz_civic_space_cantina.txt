@@ -10,7 +10,10 @@ cp_civic_space_cantina = {
     }
     possible = {
         origin = {
+            OR ={
             value = origin_void_dwellers
+            value = origin_nsc_freebooter                
+            }
         }
         ethics = {
             OR = {
