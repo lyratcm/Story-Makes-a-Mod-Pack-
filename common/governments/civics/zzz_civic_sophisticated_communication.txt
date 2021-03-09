@@ -15,8 +15,8 @@ civic_sophisticated_communication = {
 	}
 	modification = no
 	modifier = {
-		country_admin_cap_mult = -0.25
-		empire_size_penalty_mult = 0.50
+		country_admin_cap_mult = -0.15
+		empire_size_penalty_mult = 0.30
 		planet_pops_society_research_produces_add = 1
 		planet_pops_unity_produces_add = 1
 	}

@@ -6,5 +6,21 @@ can_support_branch_offices = {
             is_country_type = awakened_fallen_empire
         }
     }
+    custom_tooltip = {
+        fail_text = requires_recipient_not_fanatic_purifiers
+        exists = owner
+        owner = {
+            OR = {
+                is_same_species = root
+                NOR = {
+                    has_valid_civic = civic_fanatic_purifiers
+                    has_valid_civic = civic_master_computer_purifier
+                    has_valid_civic = civic_machine_exterminator
+                    has_valid_civic = civic_hive_devouring_swarm
+                    has_valid_civic = civic_machine_assimilator
+                }
+            }
+        }
+    }
     is_country_type = default
 }

@@ -10,6 +10,7 @@ can_build_branch_office_on_planet = {
                     has_valid_civic = civic_master_computer_purifier
                     has_valid_civic = civic_machine_exterminator
                     has_valid_civic = civic_hive_devouring_swarm
+                    has_valid_civic = civic_machine_assimilator
                 }
             }
         }

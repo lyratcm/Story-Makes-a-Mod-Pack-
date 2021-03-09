@@ -18,8 +18,7 @@ civic_emergency_government = {
     modifier = {
         country_government_civic_points_add = 2
         pop_government_ethic_attraction = -0.25
-        country_admin_cap_mult = -0.25
-        empire_size_penalty_mult = 0.50
+        country_admin_cap_mult = -0.20
     }
     random_weight = {
         weight = 0
