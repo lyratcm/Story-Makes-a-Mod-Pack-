@@ -12,6 +12,12 @@ karst_miner = {
             minerals = 8
             rare_crystals = 2
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 3
+        }
         upkeep = {
             consumer_goods = 2
         }

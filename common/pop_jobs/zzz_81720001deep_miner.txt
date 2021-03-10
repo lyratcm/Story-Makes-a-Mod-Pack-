@@ -26,6 +26,12 @@ deep_miner = {
         }
         produces = {
             trigger = {
+                is_lithoid = yes
+            }
+            minerals = 1.5
+        }
+        produces = {
+            trigger = {
                 owner = {
                     is_gestalt = yes
                 }

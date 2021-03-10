@@ -14,6 +14,12 @@ gpm_orbital_mineral_miner = {
         produces = {
             minerals = 12
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 4.5
+        }
         upkeep = {
             consumer_goods = 2
         }

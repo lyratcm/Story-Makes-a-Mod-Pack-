@@ -1,4 +1,10 @@
 recycling_campaign = {
+	potential = {
+		NOR = {
+			has_ethic = ethic_industrial
+			has_ethic = ethic_fanatic_industrial
+		}
+	}
 	length = 3600
 	icon = "GFX_edict_type_time"
 	resources = {

@@ -11,6 +11,12 @@ salt_miner = {
         produces = {
             minerals = 4
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 1.5
+        }
         upkeep = {
             consumer_goods = 1
         }

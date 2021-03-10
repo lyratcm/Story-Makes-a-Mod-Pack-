@@ -23,6 +23,12 @@ GAPS_Underground_Miner = {
         produces = {
             minerals = 4
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 1.5
+        }
         upkeep = {
             trigger = {
                 exists = owner

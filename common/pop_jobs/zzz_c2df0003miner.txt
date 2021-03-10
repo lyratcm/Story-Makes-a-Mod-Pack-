@@ -31,7 +31,7 @@ miner = {
             trigger = {
                 is_lithoid = yes
             }
-            minerals = 1
+            minerals = 1.5
         }
         upkeep = {
             trigger = {

@@ -14,6 +14,12 @@ gpm_asteroid_miner = {
         produces = {
             minerals = 15
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 5.5
+        }
         upkeep = {
             consumer_goods = 2
         }

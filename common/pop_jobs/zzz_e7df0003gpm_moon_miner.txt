@@ -15,6 +15,12 @@ gpm_moon_miner = {
             minerals = 10
             alloys = 2
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 3.5
+        }
         upkeep = {
             consumer_goods = 2
         }

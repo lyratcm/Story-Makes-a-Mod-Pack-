@@ -279,7 +279,7 @@
  
  ethic_industrial:0 "Industrialist"
  ethic_fanatic_industrial:0 "Fanatic Industrialist"
- ethic_industrial_desc:1 "§LThose, who preserve anthropocentric system of values, consider themselves masters of biosphere, who have moral rights to exploit nature and it's resources for the sake of their own prosperity, even if it implies discrimination of other biological species. Otherwise it can be called "Biospherical Elitism"§!"
+ ethic_industrial_desc:1 "§LThose, who preserve anthropocentric system of values, consider themselves masters of biosphere, who have moral rights to exploit nature and it's resources for the sake of their own prosperity, even if it implies discrimination of other biological species. Otherwise it can be called "Biospherical Elitism".§!" §!\n\nEdict §YRecycling Campaign§! is not available."
  ethic_fanatic_industrial_desc:1 "§LThrough our inventions, we were capable of raising Civilization from dust and bending the forces of nature to our will. At our command, the other planets will relinquish their riches and magnificent factories scoop them up. This power demands to be used, and through its use, we shall remake the galaxy in our own image.§!\n\nEdict §YRecycling Campaign§! is not available."
  
  ethic_green:0 "Ecologist"

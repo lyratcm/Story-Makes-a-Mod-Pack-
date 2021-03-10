@@ -12,6 +12,12 @@ methane_miner = {
             physics_research = 3
             minerals = 4
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 1.5
+        }
         upkeep = {
             consumer_goods = 1
         }

@@ -12,6 +12,12 @@ nightside_miner = {
             minerals = 4
             physics_research = 6
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 1.5
+        }
         upkeep = {
             consumer_goods = 2
         }

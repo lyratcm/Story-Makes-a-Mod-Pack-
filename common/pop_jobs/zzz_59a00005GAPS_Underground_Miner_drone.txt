@@ -16,6 +16,12 @@ GAPS_Underground_Miner_drone = {
         produces = {
             minerals = 4
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 1.5
+        }
         upkeep = {
             trigger = {
                 exists = owner

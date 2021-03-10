@@ -12,6 +12,12 @@ rogue_miner = {
             physics_research = 6
             minerals = 4
         }
+        produces = {
+            trigger = {
+                is_lithoid = yes
+            }
+            minerals = 1.5
+        }
         upkeep = {
             consumer_goods = 2
         }
