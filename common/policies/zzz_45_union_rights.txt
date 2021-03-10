@@ -3,13 +3,13 @@ union_rights = {
 		NOT = {
 			has_ethic = "ethic_gestalt_consciousness"
 		}
-	}	
+	}
 	option = {
 		name = "full_union_rights"
 		valid = {
 			NOR = {
-				is_authoritarian = yes
 				has_authority = auth_corporate
+				is_authoritarian = yes
 				has_valid_civic = civic_aristocratic_elite
 				has_valid_civic = civic_royal_trading_company
 				has_valid_civic = civic_barbaric_despoilers
@@ -25,12 +25,6 @@ union_rights = {
 		}
 		policy_flags = {
 			full_union_rights
-		}
-		in_breach_of = {
-			key = resolution_lawandorder_right_to_work
-			trigger = {
-				has_global_flag = better_diplo_installed
-			}
 		}
 		AI_weight = {
 			modifier = {
@@ -62,7 +56,6 @@ union_rights = {
 			}
 		}
 	}
-	
 	option = {
 		name = "normal_union_rights"
 		valid = {
@@ -77,16 +70,6 @@ union_rights = {
 				has_valid_civic = civic_slaver_guilds
 				has_valid_civic = civic_indentured_assets
 				has_origin = origin_ancient_dynasty
-			}
-			OR = {
-				is_active_resolution = "resolution_lawandorder_right_to_work"
-				is_active_resolution = "resolution_lawandorder_administrative_subsidies"
-				is_active_resolution = "resolution_lawandorder_free_migration"
-				is_active_resolution = "resolution_lawandorder_informed_governance"
-				NOR = {
-					has_valid_civic = civic_shared_burden
-					has_valid_civic = civic_worker_coop
-				}
 			}
 		}
 		modifier = {
@@ -134,12 +117,6 @@ union_rights = {
 		policy_flags = {
 			limited_union_rights
 		}
-		in_breach_of = {
-			key = resolution_greatergood_workers_rights
-			trigger = {
-				has_global_flag = better_diplo_installed
-			}
-		}
 		AI_weight = {
 			modifier = {
 				factor = 3
@@ -162,7 +139,6 @@ union_rights = {
 	
 	option = {
 		name = "no_union_rights"
-		
 		valid = {
 			OR = {
 				is_authoritarian = yes
