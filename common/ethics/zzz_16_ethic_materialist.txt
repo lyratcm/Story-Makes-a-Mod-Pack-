@@ -14,8 +14,8 @@ ethic_materialist = {
 	}
 
 	country_modifier = {
-		country_physics_tech_research_speed	= 0.07
-		country_engineering_tech_research_speed	= 0.07
+		country_physics_tech_research_speed	= 0.1
+		country_engineering_tech_research_speed	= 0.1
 		planet_pops_robotics_upkeep_mult = -0.1
 	}
 

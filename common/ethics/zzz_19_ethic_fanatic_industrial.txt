@@ -17,7 +17,7 @@ ethic_fanatic_industrial = {
         country_food_produces_mult = 0.1
         country_minerals_produces_mult = 0.1
         planet_max_districts_add = 2
-        pop_environment_tolerance = -0.075
+        pop_environment_tolerance = -0.1
     }
 
     random_weight = {
