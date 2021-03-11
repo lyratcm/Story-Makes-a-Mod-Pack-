@@ -1205,21 +1205,21 @@ event = {
 }
 
 #Start Menu
-event = {
-	id = realspace.204
-	title = OK
-	desc = OK
-	hide_window = yes
-	#is_triggered_only = yes
-	fire_only_once = yes
+# event = {
+# 	id = realspace.204
+# 	title = OK
+# 	desc = OK
+# 	hide_window = yes
+# 	#is_triggered_only = yes
+# 	fire_only_once = yes
 	
-	immediate = {
-		every_country = {
-			limit = { is_ai = no }
-			country_event = { id = realspace.206 }
-		}
-	}
-}
+# 	immediate = {
+# 		every_country = {
+# 			limit = { is_ai = no }
+# 			country_event = { id = realspace.206 }
+# 		}
+# 	}
+# }
 
 #Real Space Menu
 country_event = {
