@@ -2,7 +2,7 @@ trait_very_intelligent = {
     cost = 4
     potential_crossbreeding_chance = 1.0
     initial = no
-    modification = no
+    modification = yes
     randomized = no
     opposites = {
         "trait_nerve_stapled"

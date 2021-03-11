@@ -1,7 +1,7 @@
 trait_keen_senses = {
     cost = 1
     initial = no
-    modification = no
+    modification = yes
     randomized = no
     potential_crossbreeding_chance = 1.0
     allowed_archetypes = {

@@ -1,7 +1,7 @@
 trait_artisanal = {
     cost = 4
     initial = yes
-    modification = no
+    modification = yes
     randomized = yes
     potential_crossbreeding_chance = 1.0
     opposites = {

@@ -1,7 +1,7 @@
 trait_succulent = {
     potential_crossbreeding_chance = 1
     cost = 1
-    modification = no
+    modification = yes
     icon = "gfx/interface/icons/traits/trait_desert_reptile.dds"
     allowed_archetypes = {
         PLANTOID

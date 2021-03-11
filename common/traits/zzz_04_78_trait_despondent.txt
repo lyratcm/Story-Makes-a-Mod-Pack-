@@ -2,7 +2,7 @@ trait_despondent = {
     cost = -3
     potential_crossbreeding_chance = 1
     initial = yes
-    modification = no
+    modification = yes
     randomized = yes
     opposites = {
         "trait_sanguine"

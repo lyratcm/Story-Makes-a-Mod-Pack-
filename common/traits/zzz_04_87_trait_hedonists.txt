@@ -2,7 +2,7 @@ trait_hedonists = {
     cost = -4
     potential_crossbreeding_chance = 1
     initial = yes
-    modification = no
+    modification = yes
     randomized = yes
     opposites = {
         "trait_resourceful"

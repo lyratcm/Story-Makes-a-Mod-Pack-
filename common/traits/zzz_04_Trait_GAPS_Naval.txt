@@ -3,7 +3,7 @@ Trait_GAPS_Naval = {
     cost = 2
     initial = yes
     randomized = yes
-    modification = no
+    modification = yes
     allowed_archetypes = {
         BIOLOGICAL
         BIOMORPH

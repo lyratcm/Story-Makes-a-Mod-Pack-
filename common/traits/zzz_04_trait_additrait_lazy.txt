@@ -1,7 +1,7 @@
 trait_additrait_lazy = {
     cost = -2
     initial = no
-    modification = no
+    modification = yes
     randomized = no
     allowed_archetypes = {
         BIOLOGICAL

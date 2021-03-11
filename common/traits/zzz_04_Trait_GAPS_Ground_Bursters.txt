@@ -3,7 +3,7 @@ Trait_GAPS_Ground_Bursters = {
     cost = 1
     initial = yes
     randomized = yes
-    modification = no
+    modification = yes
     allowed_archetypes = {
         LITHOID
     }

@@ -1,7 +1,7 @@
 trait_very_slow_breeders = {
     cost = -4
     initial = no
-    modification = no
+    modification = yes
     randomized = no
     potential_crossbreeding_chance = 1.0
     opposites = {

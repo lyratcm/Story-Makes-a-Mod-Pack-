@@ -2,7 +2,7 @@ trait_limited_regeneration = {
     cost = 0
     potential_crossbreeding_chance = 0.33
     initial = no
-    modification = no
+    modification = yes
     randomized = no
     allowed_archetypes = {
         BIOLOGICAL

@@ -3,7 +3,7 @@ Trait_GAPS_Stunted_Prodigies = {
     icon = "gfx/interface/icons/traits/Trait_GAPS_Stunted_Prodigies.dds"
     initial = yes
     randomized = yes
-    modification = no
+    modification = yes
     allowed_archetypes = {
         BIOLOGICAL
         BIOMORPH

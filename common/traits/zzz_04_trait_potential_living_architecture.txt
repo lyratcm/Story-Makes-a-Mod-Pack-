@@ -1,22 +1,22 @@
-trait_potential_living_architecture = {
-    cost = 1
-    potential_crossbreeding_chance = 1.0
-    allowed_archetypes = {
-        BIOLOGICAL
-    }
-    initial = no
-    modification = no
-    advanced_trait = no
-    custom_tooltip = TRAIT_LIVING_ARCHITECTURE_EFFECT
-    opposites = {
-        "trait_nomadic"
-        "trait_sedentary"
-        "trait_living_architecture"
-        "trait_rooted_adults"
-        "trait_rooted_adults_rooted"
-        "trait_younger_form"
-    }
-    ai_weight = {
-        weight = 0
-    }
-}
+# trait_potential_living_architecture = {
+#     cost = 1
+#     potential_crossbreeding_chance = 1.0
+#     allowed_archetypes = {
+#         BIOLOGICAL
+#     }
+#     initial = no
+#     modification = no
+#     advanced_trait = no
+#     custom_tooltip = TRAIT_LIVING_ARCHITECTURE_EFFECT
+#     opposites = {
+#         "trait_nomadic"
+#         "trait_sedentary"
+#         "trait_living_architecture"
+#         "trait_rooted_adults"
+#         "trait_rooted_adults_rooted"
+#         "trait_younger_form"
+#     }
+#     ai_weight = {
+#         weight = 0
+#     }
+# }

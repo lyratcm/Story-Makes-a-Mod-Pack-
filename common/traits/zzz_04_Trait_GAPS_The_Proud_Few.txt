@@ -3,7 +3,7 @@ Trait_GAPS_The_Proud_Few = {
     cost = 2
     initial = yes
     randomized = no
-    modification = no
+    modification = yes
     allowed_archetypes = {
         BIOLOGICAL
         BIOMORPH

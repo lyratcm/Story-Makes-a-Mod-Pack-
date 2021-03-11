@@ -2,7 +2,7 @@ trait_strong_immune_system = {
     cost = 2
     icon = "gfx/interface/icons/traits/trait_strong_immune_system.dds"
     initial = no
-    modification = no
+    modification = yes
     randomized = no
     allowed_archetypes = {
         BIOLOGICAL

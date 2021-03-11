@@ -5,6 +5,7 @@ trait_exotic_gas_dependency = {
         BIOLOGICAL
     }
     initial = no
+    modification = no
     randomized = no
     custom_tooltip = TRAIT_EXOTIC_GAS_DEPENDENCY_EFFECT
     species_potential_add = {

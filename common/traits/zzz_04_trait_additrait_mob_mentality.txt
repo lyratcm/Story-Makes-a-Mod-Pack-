@@ -1,7 +1,7 @@
 trait_additrait_mob_mentality = {
     cost = 1
     initial = no
-    modification = no
+    modification = yes
     randomized = no
     allowed_archetypes = {
         BIOLOGICAL

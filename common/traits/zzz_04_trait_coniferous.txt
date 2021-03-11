@@ -1,7 +1,7 @@
 trait_coniferous = {
     potential_crossbreeding_chance = 1
     cost = 1
-    modification = no
+    modification = yes
     allowed_archetypes = {
         PLANTOID
         half_species

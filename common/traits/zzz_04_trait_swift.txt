@@ -1,7 +1,7 @@
 trait_swift = {
     cost = 2
     initial = no
-    modification = no
+    modification = yes
     randomized = no
     potential_crossbreeding_chance = 1.0
     opposites = {

@@ -1,7 +1,7 @@
 trait_intrepid = {
     cost = 3
     initial = yes
-    modification = no
+    modification = yes
     randomized = yes
     opposites = {
         "trait_undisciplined"
