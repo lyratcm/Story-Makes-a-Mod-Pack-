@@ -43,9 +43,7 @@ purge = {
         policy_flags = {
             purge_allowed
         }
-        in_breach_of = {
-            key = resolution_rulesofwar_reverence_for_life
-        }
+
         modifier = {
         }
         valid = {
@@ -63,6 +61,9 @@ purge = {
                 has_ethic = ethic_xenophobe
                 has_ethic = ethic_fanatic_xenophobe
             }
+        }
+        in_breach_of = {
+            key = resolution_rulesofwar_reverence_for_life
         }
         AI_weight = {
             factor = 10
