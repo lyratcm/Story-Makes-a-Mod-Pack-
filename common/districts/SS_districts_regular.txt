@@ -48,7 +48,6 @@ district_liv_housing = {
 			job_enforcer_add = 1
 		}
 	}
-	
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -193,6 +192,7 @@ district_liv_bureaucratic = {
 				NOR = {
 					is_spiritualist = yes
 					has_authority = auth_corporate
+					has_valid_civic = civic_technocracy
 				}
 			}
 		}
@@ -201,13 +201,26 @@ district_liv_bureaucratic = {
 		}
 	}
 
+	triggered_planet_modifier= {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_technocracy
+			}
+		}
+		modifier = {
+			job_culture_science_add = 2
+		}
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = { 
 				is_spiritualist = yes
-				NOT = {
+				NOR = {
 					has_authority = auth_corporate
+					has_valid_civic = civic_technocracy
 				}
 			}
 		}

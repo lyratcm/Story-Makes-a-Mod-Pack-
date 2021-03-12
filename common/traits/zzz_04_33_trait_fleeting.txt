@@ -25,7 +25,6 @@ trait_fleeting = {
     allowed_archetypes = {
         BIOLOGICAL
         BIOMORPH
-        LITHOID
         PLANTOID
     }
     ai_weight = {
