@@ -7,6 +7,7 @@ namespace = gpm_start_menu
 
 country_event = {
 	id = gpm_start_menu.1
+	hide_window = yes
 	title = gpm_start_menu.1.name
 	desc = gpm_start_menu.1.desc
 	picture = GFX_evt_gpm_guillis_planet_modifiers
@@ -14,6 +15,11 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		set_global_flag = gpm_modifier_amount_high
+		set_global_flag = gpm_galaxy_age_default
+ 		country_event = { 
+			id = gpm_engine.0 days = 1 
+		}
 	}
 
 	# gpm_modifier_amount_max_one
@@ -21,160 +27,160 @@ country_event = {
 	# gpm_modifier_amount_normal
 	# gpm_modifier_amount_high
 
-	# Cycle amount of modifiers setting
-	# Max 1 modifier
-	option = {
-		trigger = {
-			has_global_flag = gpm_modifier_amount_max_one
-		}
-		name = gpm_start_menu.1.max_one
-		custom_tooltip = gpm_start_menu.1.max_oneTT
-		set_global_flag = gpm_modifier_amount_low		
-		remove_global_flag = gpm_modifier_amount_max_one
-		hidden_effect = {
-			country_event = { id = gpm_start_menu.1  }
-		}
-	}
+	# # Cycle amount of modifiers setting
+	# # Max 1 modifier
+	# option = {
+	# 	trigger = {
+	# 		has_global_flag = gpm_modifier_amount_max_one
+	# 	}
+	# 	name = gpm_start_menu.1.max_one
+	# 	custom_tooltip = gpm_start_menu.1.max_oneTT
+	# 	set_global_flag = gpm_modifier_amount_low		
+	# 	remove_global_flag = gpm_modifier_amount_max_one
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_start_menu.1  }
+	# 	}
+	# }
 
-	# low amount of modifiers
-	option = {
-		trigger = {
-			has_global_flag = gpm_modifier_amount_low
-		}
-		name = gpm_start_menu.1.low
-		custom_tooltip = gpm_start_menu.1.lowTT
-		set_global_flag = gpm_modifier_amount_normal
-		remove_global_flag = gpm_modifier_amount_low
-		hidden_effect = {
-			country_event = { id = gpm_start_menu.1  }
-		}
-	}
+	# # low amount of modifiers
+	# option = {
+	# 	trigger = {
+	# 		has_global_flag = gpm_modifier_amount_low
+	# 	}
+	# 	name = gpm_start_menu.1.low
+	# 	custom_tooltip = gpm_start_menu.1.lowTT
+	# 	set_global_flag = gpm_modifier_amount_normal
+	# 	remove_global_flag = gpm_modifier_amount_low
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_start_menu.1  }
+	# 	}
+	# }
 	
-	# normal amount of modifiers (recomended)
-	option = {
-		trigger = {
-			has_global_flag = gpm_modifier_amount_normal
-		}
-		name = gpm_start_menu.1.normal
-		custom_tooltip = gpm_start_menu.1.normalTT
-		set_global_flag = gpm_modifier_amount_high
-		remove_global_flag = gpm_modifier_amount_normal
-		hidden_effect = {
-			country_event = { id = gpm_start_menu.1  }
-		}
-	}
+	# # normal amount of modifiers (recomended)
+	# option = {
+	# 	trigger = {
+	# 		has_global_flag = gpm_modifier_amount_normal
+	# 	}
+	# 	name = gpm_start_menu.1.normal
+	# 	custom_tooltip = gpm_start_menu.1.normalTT
+	# 	set_global_flag = gpm_modifier_amount_high
+	# 	remove_global_flag = gpm_modifier_amount_normal
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_start_menu.1  }
+	# 	}
+	# }
 	
-	# high amount of modifiers
-	option = {
-		trigger = {
-			has_global_flag = gpm_modifier_amount_high
-		}
-		name = gpm_start_menu.1.high
-		custom_tooltip = gpm_start_menu.1.highTT
-		set_global_flag = gpm_modifier_amount_max_one
-		remove_global_flag = gpm_modifier_amount_high
-		hidden_effect = {
-			country_event = { id = gpm_start_menu.1  }
-		}
-	}
+	# # high amount of modifiers
+	# option = {
+	# 	trigger = {
+	# 		has_global_flag = gpm_modifier_amount_high
+	# 	}
+	# 	name = gpm_start_menu.1.high
+	# 	custom_tooltip = gpm_start_menu.1.highTT
+	# 	set_global_flag = gpm_modifier_amount_max_one
+	# 	remove_global_flag = gpm_modifier_amount_high
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_start_menu.1  }
+	# 	}
+	# }
 
 	# gpm_galaxy_age_young
 	# gpm_galaxy_age_default
 	# gpm_galaxy_age_old
 
-	# Cycle galaxy age
-	# young galaxy
-	option = {
-		trigger = {
-			has_global_flag = gpm_galaxy_age_young
-		}
-		name = gpm_start_menu.1.young_galaxy_age
-		custom_tooltip = gpm_start_menu.1.young_galaxy_ageTT
-		set_global_flag = gpm_galaxy_age_default
-		remove_global_flag = gpm_galaxy_age_young
-		hidden_effect = {
-			country_event = { id = gpm_start_menu.1  }
-		}
-	}
+	# # Cycle galaxy age
+	# # young galaxy
+	# option = {
+	# 	trigger = {
+	# 		has_global_flag = gpm_galaxy_age_young
+	# 	}
+	# 	name = gpm_start_menu.1.young_galaxy_age
+	# 	custom_tooltip = gpm_start_menu.1.young_galaxy_ageTT
+	# 	set_global_flag = gpm_galaxy_age_default
+	# 	remove_global_flag = gpm_galaxy_age_young
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_start_menu.1  }
+	# 	}
+	# }
 	
-	# default galaxy age
-	option = {
-		trigger = {
-			has_global_flag = gpm_galaxy_age_default
-		}
-		name = gpm_start_menu.1.default_galaxy_age
-		custom_tooltip = gpm_start_menu.1.default_galaxy_ageTT
-		set_global_flag = gpm_galaxy_age_old
-		remove_global_flag = gpm_galaxy_age_default
-		hidden_effect = {
-			country_event = { id = gpm_start_menu.1  }
-		}
-	}
+	# # default galaxy age
+	# option = {
+	# 	trigger = {
+	# 		has_global_flag = gpm_galaxy_age_default
+	# 	}
+	# 	name = gpm_start_menu.1.default_galaxy_age
+	# 	custom_tooltip = gpm_start_menu.1.default_galaxy_ageTT
+	# 	set_global_flag = gpm_galaxy_age_old
+	# 	remove_global_flag = gpm_galaxy_age_default
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_start_menu.1  }
+	# 	}
+	# }
 	
-	# old galaxy
-	option = {
-		trigger = {
-			has_global_flag = gpm_galaxy_age_old
-		}
-		name = gpm_start_menu.1.old_galaxy_age
-		custom_tooltip = gpm_start_menu.1.old_galaxy_ageTT
-		set_global_flag = gpm_galaxy_age_young
-		remove_global_flag = gpm_galaxy_age_old
-		hidden_effect = {
-			country_event = { id = gpm_start_menu.1  }
-		}
-	}
+	# # old galaxy
+	# option = {
+	# 	trigger = {
+	# 		has_global_flag = gpm_galaxy_age_old
+	# 	}
+	# 	name = gpm_start_menu.1.old_galaxy_age
+	# 	custom_tooltip = gpm_start_menu.1.old_galaxy_ageTT
+	# 	set_global_flag = gpm_galaxy_age_young
+	# 	remove_global_flag = gpm_galaxy_age_old
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_start_menu.1  }
+	# 	}
+	# }
 
 
 
 
 
-	# additional options menu
-	option = {
-		name = gpm_start_menu.1.options
-		custom_tooltip = gpm_start_menu.1.optionsTT
-		hidden_effect = {
-			country_event = { id = gpm_start_menu.2  }
-		}
-	}
-	# options menu GSC Weapons
-	option = {
-		trigger = { has_global_flag = has_crystallis_component_mod }
-		name = gpm_start_menu.1.GSC_weapons
-		custom_tooltip = gsc_start_menu.1.desc
-		hidden_effect = {
-			country_event = { id = gsc_start_menu.2  }
-		}
-	}
-	# options menu GSC Non-Weapons
-	option = {
-		trigger = { has_global_flag = has_crystallis_component_mod }
-		name = gpm_start_menu.1.GSC_non_weapons
-		custom_tooltip = gsc_start_menu.1.desc
-		hidden_effect = {
-			country_event = { id = gsc_start_menu.3  }
-		}
-	}
+	# # additional options menu
+	# option = {
+	# 	name = gpm_start_menu.1.options
+	# 	custom_tooltip = gpm_start_menu.1.optionsTT
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_start_menu.2  }
+	# 	}
+	# }
+	# # options menu GSC Weapons
+	# option = {
+	# 	trigger = { has_global_flag = has_crystallis_component_mod }
+	# 	name = gpm_start_menu.1.GSC_weapons
+	# 	custom_tooltip = gsc_start_menu.1.desc
+	# 	hidden_effect = {
+	# 		country_event = { id = gsc_start_menu.2  }
+	# 	}
+	# }
+	# # options menu GSC Non-Weapons
+	# option = {
+	# 	trigger = { has_global_flag = has_crystallis_component_mod }
+	# 	name = gpm_start_menu.1.GSC_non_weapons
+	# 	custom_tooltip = gsc_start_menu.1.desc
+	# 	hidden_effect = {
+	# 		country_event = { id = gsc_start_menu.3  }
+	# 	}
+	# }
 
-	# start the game
-	option = {
-		name = gpm_start_menu.1.START
-		custom_tooltip = gpm_start_menu.1.STARTTT
-		if = {
-			limit = {
-				NOR = {
-					has_global_flag = gpm_modifier_amount_max_one
-					has_global_flag = gpm_modifier_amount_low
-					has_global_flag = gpm_modifier_amount_normal
-					has_global_flag = gpm_modifier_amount_high
-				}
-			}
-			set_global_flag = gpm_modifier_amount_normal
-		}
-		hidden_effect = {
-			country_event = { id = gpm_engine.0 days = 1 }
-		}
-	}
+	# # start the game
+	# option = {
+	# 	name = gpm_start_menu.1.START
+	# 	custom_tooltip = gpm_start_menu.1.STARTTT
+	# 	if = {
+	# 		limit = {
+	# 			NOR = {
+	# 				has_global_flag = gpm_modifier_amount_max_one
+	# 				has_global_flag = gpm_modifier_amount_low
+	# 				has_global_flag = gpm_modifier_amount_normal
+	# 				has_global_flag = gpm_modifier_amount_high
+	# 			}
+	# 		}
+	# 		set_global_flag = gpm_modifier_amount_normal
+	# 	}
+	# 	hidden_effect = {
+	# 		country_event = { id = gpm_engine.0 days = 1 }
+	# 	}
+	# }
 	
 	##TEST OPTION##
 	# option = {

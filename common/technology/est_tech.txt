@@ -155,145 +155,145 @@ tech_est_industry_2_2 = {
 		}
 	}
 }
-#Enabled by Industry 2
-tech_est_industry_2_3 = {
-	cost = @tier3cost2
-	area = engineering
-	tier = 3
-	is_rare = yes
-	category = { industry }	
-	#prerequisites = { "tech_basic_industry" }
-	weight = @tier4weight2
+# #Enabled by Industry 2
+# tech_est_industry_2_3 = {
+# 	cost = @tier3cost2
+# 	area = engineering
+# 	tier = 3
+# 	is_rare = yes
+# 	category = { industry }	
+# 	#prerequisites = { "tech_basic_industry" }
+# 	weight = @tier4weight2
 	
-	modifier = {
-		shipclass_mining_station_build_cost_mult = -0.20
-	}	
+# 	modifier = {
+# 		shipclass_mining_station_build_cost_mult = -0.20
+# 	}	
 	
-	weight_modifier = {
-		modifier = {
-			factor = @ap_technological_ascendancy_rare_tech
-			has_ascension_perk = ap_technological_ascendancy
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}			
-		}
-		modifier = {
-			factor = 0
-			Not = {
-				has_tradition = tr_est_industry_2
-			}			
-		}
-	}
+# 	weight_modifier = {
+# 		modifier = {
+# 			factor = @ap_technological_ascendancy_rare_tech
+# 			has_ascension_perk = ap_technological_ascendancy
+# 		}
+# 		modifier = {
+# 			factor = 1.25
+# 			research_leader = {
+# 				area = engineering
+# 				has_trait = "leader_trait_expertise_industry"
+# 			}			
+# 		}
+# 		modifier = {
+# 			factor = 0
+# 			Not = {
+# 				has_tradition = tr_est_industry_2
+# 			}			
+# 		}
+# 	}
 	
-	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-		}
-	}
-}
-#Enabled by Industry 2
-tech_est_industry_2_4 = {
-	cost = @tier3cost3
-	area = engineering
-	tier = 3
-	is_rare = yes
-	category = { industry }	
-	#prerequisites = { "tech_basic_industry" }
-	weight = @tier4weight3
+# 	ai_weight = {
+# 		modifier = {
+# 			factor = 1.25
+# 			research_leader = {
+# 				area = engineering
+# 				has_trait = "leader_trait_expertise_industry"
+# 			}
+# 		}
+# 	}
+# }
+# #Enabled by Industry 2
+# tech_est_industry_2_4 = {
+# 	cost = @tier3cost3
+# 	area = engineering
+# 	tier = 3
+# 	is_rare = yes
+# 	category = { industry }	
+# 	#prerequisites = { "tech_basic_industry" }
+# 	weight = @tier4weight3
 	
-	prereqfor_desc = {
-		hide_prereq_for_desc = component
-		custom = {
-			title = "tech_est_industry_2_4_effect_title"
-			desc = "tech_est_industry_2_4_effect_desc"
-		}
-	}
+# 	prereqfor_desc = {
+# 		hide_prereq_for_desc = component
+# 		custom = {
+# 			title = "tech_est_industry_2_4_effect_title"
+# 			desc = "tech_est_industry_2_4_effect_desc"
+# 		}
+# 	}
 	
-	weight_modifier = {
-		modifier = {
-			factor = @ap_technological_ascendancy_rare_tech
-			has_ascension_perk = ap_technological_ascendancy
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}			
-		}
-		modifier = {
-			factor = 0
-			Not = {
-				has_tradition = tr_est_industry_2
-			}			
-		}
-		modifier = {
-			factor = 0
-			Not = {
-				has_tradition = tr_est_industry_4
-			}			
-		}
-	}
+# 	weight_modifier = {
+# 		modifier = {
+# 			factor = @ap_technological_ascendancy_rare_tech
+# 			has_ascension_perk = ap_technological_ascendancy
+# 		}
+# 		modifier = {
+# 			factor = 1.25
+# 			research_leader = {
+# 				area = engineering
+# 				has_trait = "leader_trait_expertise_industry"
+# 			}			
+# 		}
+# 		modifier = {
+# 			factor = 0
+# 			Not = {
+# 				has_tradition = tr_est_industry_2
+# 			}			
+# 		}
+# 		modifier = {
+# 			factor = 0
+# 			Not = {
+# 				has_tradition = tr_est_industry_4
+# 			}			
+# 		}
+# 	}
 	
-	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-		}
-	}
-}
-#Enabled by Industry 2
-tech_est_industry_2_5 = {
-	cost = @tier4cost2
-	area = engineering
-	tier = 4
-	is_rare = yes
-	category = { industry }	
-	#prerequisites = { "tech_basic_industry" }
-	weight = @tier5weight2
+# 	ai_weight = {
+# 		modifier = {
+# 			factor = 1.25
+# 			research_leader = {
+# 				area = engineering
+# 				has_trait = "leader_trait_expertise_industry"
+# 			}
+# 		}
+# 	}
+# }
+# #Enabled by Industry 2
+# tech_est_industry_2_5 = {
+# 	cost = @tier4cost2
+# 	area = engineering
+# 	tier = 4
+# 	is_rare = yes
+# 	category = { industry }	
+# 	#prerequisites = { "tech_basic_industry" }
+# 	weight = @tier5weight2
 	
-	modifier = {
-		planet_miners_rare_crystals_produces_mult = 0.20
-	}	
+# 	modifier = {
+# 		planet_miners_rare_crystals_produces_mult = 0.20
+# 	}	
 	
-	weight_modifier = {
-		modifier = {
-			factor = @ap_technological_ascendancy_rare_tech
-			has_ascension_perk = ap_technological_ascendancy
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}			
-		}
-		modifier = {
-			factor = 0
-			Not = {
-				has_tradition = tr_est_industry_2
-			}			
-		}
-	}
+# 	weight_modifier = {
+# 		modifier = {
+# 			factor = @ap_technological_ascendancy_rare_tech
+# 			has_ascension_perk = ap_technological_ascendancy
+# 		}
+# 		modifier = {
+# 			factor = 1.25
+# 			research_leader = {
+# 				area = engineering
+# 				has_trait = "leader_trait_expertise_industry"
+# 			}			
+# 		}
+# 		modifier = {
+# 			factor = 0
+# 			Not = {
+# 				has_tradition = tr_est_industry_2
+# 			}			
+# 		}
+# 	}
 	
-	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-		}
-	}
-}
+# 	ai_weight = {
+# 		modifier = {
+# 			factor = 1.25
+# 			research_leader = {
+# 				area = engineering
+# 				has_trait = "leader_trait_expertise_industry"
+# 			}
+# 		}
+# 	}
+# }
