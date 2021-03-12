@@ -6,11 +6,27 @@ d_upgrade_start_regular = {
 	resources = {
 		category = orbital_mining_deposits
 		produces = {
-			minerals = 20
+			trigger = {
+				owner = {
+					is_lithoid_empire = no					
+				}
+
+			}
 			food = 10
+			minerals = 20
 		}
 	}
-	
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			trigger = {
+				owner = {
+					is_lithoid_empire = yes					
+				}
+			}
+			minerals = 30
+		}
+	}	
 	potential = {
 		OR = {
 			is_planet_class = pc_living_station
