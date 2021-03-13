@@ -15,13 +15,14 @@ labour_hero = {
             is_fallen_empire_spiritualist = no
         }
     }
+    
     resources = {
         category = planet_miners
         produces = {
-            energy = 2
-            minerals = 2
-            food = 2
-            unity = 2
+            energy = 3
+            minerals = 3
+            food = 3
+            unity = 3
         }
         produces = {
             trigger = {
@@ -29,8 +30,8 @@ labour_hero = {
                     is_lithoid = yes
                 }
             }
-            food = -2
-            minerals = 2
+            food = -3
+            minerals = 3
         }
         upkeep = {
             trigger = {
@@ -43,7 +44,7 @@ labour_hero = {
         }
     }
     weight = {
-        weight = @worker_job_weight
+        weight = 4
         modifier = {
             factor = 2
             OR = {

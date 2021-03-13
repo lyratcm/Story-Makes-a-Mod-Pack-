@@ -16,8 +16,10 @@ Civic_GAPS_Supporters = {
     modifier = {
         country_trust_growth = 0.25
         country_trust_cap_add = 100
-        shipclass_military_build_cost_mult = 0.25
-        shipclass_military_build_speed_mult = -0.25
+        # shipclass_military_build_cost_mult = 0.25
+        # shipclass_military_build_speed_mult = -0.25
+        starbase_shipyard_build_speed_mult = -0.25
+        starbase_shipyard_build_cost_mult = 0.25
         ship_fire_rate_mult = -0.15
         ship_home_territory_fire_rate_mult = 0.15
     }

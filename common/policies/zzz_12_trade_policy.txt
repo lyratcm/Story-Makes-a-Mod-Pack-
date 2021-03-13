@@ -5,7 +5,7 @@ trade_policy = {
         }
     }
     option = {
-        name = ""
+        name = "trade_policy_default"
         potential = {
             OR = {
                 has_federation = no
