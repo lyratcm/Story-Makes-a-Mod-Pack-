@@ -34,7 +34,7 @@ pirate = {
         }
     }
     country_modifier = {
-        country_naval_cap_add = 4
+        country_naval_cap_add = 5
     }
     triggered_planet_modifier = {
         potential = {
@@ -47,7 +47,7 @@ pirate = {
             }
         }
         modifier = {
-            trade_value_add = 3
+            trade_value_add = 5
         }
     }
     triggered_country_modifier = {

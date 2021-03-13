@@ -173,7 +173,6 @@ planet_event = {
     picture = GFX_evt_gray_gooed_planet
     
     is_triggered_only = yes
-
     trigger = {
         owner = {
             has_origin = origin_living_station
@@ -194,6 +193,14 @@ planet_event = {
 			is_planet_class = pc_virtual_reality
 			is_planet_class = pc_virtual_industry
 			is_planet_class = pc_virtual_stellar_industry
+			is_planet_class = pc_pd_barren_hab
+			is_planet_class = pc_pd_barren_cold_hab
+			is_planet_class = pc_pd_asteroid_hab
+			is_planet_class = pc_pd_molten_hab
+			is_planet_class = pc_pd_toxic_hab
+			is_planet_class = pc_pd_frozen_hab
+			is_planet_class = pc_pd_gas_giant_hab
+			is_planet_class = pc_pd_hothouse_hab
         }
     }
 	
@@ -201,12 +208,130 @@ planet_event = {
         destroy_colony = yes
         change_pc = pc_broken
         clear_deposits = yes
-        add_deposit = d_alloys_5
-		add_deposit = d_energy_10
-		add_deposit = d_minerals_10
-		add_deposit = d_rare_crystals_2
-		add_deposit = d_exotic_gases_2
-		add_deposit = d_volatile_motes_2
+        add_deposit = d_alloys_2
+		add_deposit = d_energy_5
+		add_deposit = d_minerals_5
+		add_deposit = d_rare_crystals_1
+		add_deposit = d_exotic_gases_1
+		add_deposit = d_volatile_motes_1
+	}
+
+    option = {
+		name = OK
+        custom_tooltip = liv.4.tooltip
+	}
+}
+
+planet_event = {
+    id = liv.5
+    title = liv.4.title
+    desc = liv.4.desc
+
+    picture = GFX_evt_gray_gooed_planet
+    
+    is_triggered_only = yes
+
+    trigger = {
+        owner = {
+            has_origin = origin_living_station
+        }
+        OR = {
+			is_planet_class = pc_pd_barren_hab
+			is_planet_class = pc_pd_barren_cold_hab
+			is_planet_class = pc_pd_asteroid_hab
+        }
+    }
+	
+	immediate = {
+        destroy_colony = yes
+        clear_deposits = yes
+	}
+
+    option = {
+		name = OK
+        custom_tooltip = liv.4.tooltip
+	}
+}
+
+planet_event = {
+    id = liv.6
+    title = liv.4.title
+    desc = liv.4.desc
+
+    picture = GFX_evt_gray_gooed_planet
+    
+    is_triggered_only = yes
+
+    trigger = {
+        owner = {
+            has_origin = origin_living_station
+        }
+        OR = {
+			is_planet_class = pc_pd_molten_hab
+			is_planet_class = pc_pd_frozen_hab
+        }
+    }
+	
+	immediate = {
+        destroy_colony = yes
+        change_pc = pc_broken
+        clear_deposits = yes
+        add_deposit = d_alloys_1
+		add_deposit = d_energy_5
+		add_deposit = d_minerals_5
+	}
+
+    option = {
+		name = OK
+        custom_tooltip = liv.4.tooltip
+	}
+}
+
+planet_event = {
+    id = liv.7
+    title = liv.4.title
+    desc = liv.4.desc
+
+    picture = GFX_evt_gray_gooed_planet
+    
+    is_triggered_only = yes
+
+    trigger = {
+        owner = {
+            has_origin = origin_living_station
+        }
+        OR = {
+			is_planet_class = pc_pd_toxic_hab
+			is_planet_class = pc_pd_gas_giant_hab
+			is_planet_class = pc_pd_hothouse_hab
+        }
+    }
+	
+	immediate = {
+        destroy_colony = yes
+        change_pc = pc_broken
+        clear_deposits = yes
+        add_deposit = d_alloys_2
+		add_deposit = d_energy_5
+		add_deposit = d_minerals_5
+		if = {
+			limit = {
+				is_planet_class = pc_pd_toxic_hab
+			}
+		add_deposit = d_rare_crystals_1			
+		}
+		if = {
+			limit = {
+				is_planet_class = pc_pd_gas_giant_hab
+			}
+			add_deposit = d_exotic_gases_1		
+		}
+		if = {
+			limit = {
+				is_planet_class = pc_pd_hothouse_hab
+			}
+			add_deposit = d_volatile_motes_1		
+		}
 	}
 
     option = {

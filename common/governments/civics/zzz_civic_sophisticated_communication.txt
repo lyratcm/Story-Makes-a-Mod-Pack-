@@ -13,7 +13,6 @@ civic_sophisticated_communication = {
 			}
 		}
 	}
-	modification = no
 	modifier = {
 		country_admin_cap_mult = -0.15
 		empire_size_penalty_mult = 0.30

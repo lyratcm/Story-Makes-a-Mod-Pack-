@@ -22,12 +22,9 @@ pc_living_station = {
 	starting_planet = no
 	orbit_lines = no
 	has_colonization_influence_cost = no			# applies when within own borders
-	
 	is_artificial_planet = yes
 	
 	modifier = {
-		planet_pop_assembly_mult = 0.20
-		pop_growth_speed = 0.50
 		pop_demotion_time_mult = -0.50
 	}	
 }

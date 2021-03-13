@@ -5,7 +5,7 @@ trade_policy = {
         }
     }
     option = {
-        name = "trade_policy_default"
+        name = ""
         potential = {
             OR = {
                 has_federation = no
@@ -183,7 +183,6 @@ trade_policy = {
             trade_conversion_innovation
         }
         valid = {
-            is_country_type = default
             has_technology = tech_innovations
             NOR = {
                 has_valid_civic = civic_ultimate_collective
@@ -277,10 +276,39 @@ trade_policy = {
     option = {
         name = "trade_policy_colleganza"
         potential = {
+            # OR = {
+            #     has_federation = no
+            #     AND = {
+            #         has_federation = yes
+            #         federation = {
+            #             NOT = {
+            #                 has_federation_perk = trade_federation_passive
+            #             }
+            #         }
+            #     }
+            # }
             has_valid_civic = secret_serenissima
         }
         policy_flags = {
             trade_conversion_colleganza
+        }
+        modifier = {
+        }
+        AI_weight = {
+            weight = 9998
+        }
+    }
+    option = {
+        name = "trade_policy_trade_league_colleganza"
+        potential = {
+            has_valid_civic = secret_serenissima
+            has_federation = yes
+            federation = {
+                has_federation_perk = trade_federation_passive
+            }
+        }
+        policy_flags = {
+            trade_conversion_trade_league_colleganza
         }
         modifier = {
         }

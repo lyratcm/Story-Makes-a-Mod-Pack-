@@ -29,8 +29,8 @@ apothecary = {
         }
     }
     planet_modifier = {
-        planet_crime_add = 1
-        planet_amenities_add = 2
+        planet_crime_add = 2
+        planet_amenities_add = 4
         planet_jobs_produces_mult = -0.01
     }
     triggered_planet_modifier = {
@@ -44,7 +44,8 @@ apothecary = {
             }
         }
         modifier = {
-            trade_value_add = 3
+            trade_value_add = 5
+            planet_jobs_produces_mult = 0.02
         }
     }
     triggered_planet_modifier = {
@@ -55,7 +56,7 @@ apothecary = {
             }
         }
         modifier = {
-            planet_amenities_add = 0.8
+            planet_amenities_add = 1.6
         }
     }
     triggered_planet_modifier = {
@@ -67,7 +68,7 @@ apothecary = {
             }
         }
         modifier = {
-            planet_amenities_add = 0.4
+            planet_amenities_add = 0.8
         }
     }
     triggered_planet_modifier = {
@@ -80,7 +81,7 @@ apothecary = {
             }
         }
         modifier = {
-            planet_amenities_add = 0.4
+            planet_amenities_add = 0.8
         }
     }
     triggered_planet_modifier = {
@@ -91,13 +92,13 @@ apothecary = {
             }
         }
         modifier = {
-            planet_amenities_add = -0.4
+            planet_amenities_add = -0.8
         }
     }
     resources = {
         category = planet_artisans
         produces = {
-            consumer_goods = 2
+            consumer_goods = 3
         }
     }
     weight = {

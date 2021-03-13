@@ -43,6 +43,19 @@ smuggler = {
     triggered_planet_modifier = {
         potential = {
             exists = owner
+            has_civic = secret_are_we_the_bad_guys
+            owner = {
+                is_gestalt = no
+            }
+        }
+        modifier = {
+            trade_value_add = 2
+            planet_crime_add = 4
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
             owner = {
                 is_gestalt = yes
             }
