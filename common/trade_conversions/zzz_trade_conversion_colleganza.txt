@@ -1,23 +1,19 @@
-trade_conversion_colleganza = {
-	potential = {
-		has_policy_flag = trade_conversion_colleganza
-	}
-	weight = {
-		weight = 998
-	}
-	conversion_rate = {
-		energy = 0.20
-		minerals = 0.05
-		food = 0.025
-		alloys = 0.01
-		consumer_goods = 0.10
-		physics_research = 0.05
-		society_research = 0.05
-		engineering_research = 0.05
-		unity = 0.20
-	}
-	economic_category = trade_routes
+weight = 999
 }
+conversion_rate = {
+	energy = 0.20
+	minerals = 0.025
+	food = 0.025
+	alloys = 0.01
+	consumer_goods = 0.20
+	physics_research = 0.02
+	society_research = 0.05
+	engineering_research = 0.02
+	unity = 0.20
+}
+economic_category = trade_routes
+}
+
 # Final conversion rates:
 # 1 energy 			/   5 trade
 # 1 mineral 		/  40 trade
@@ -31,9 +27,9 @@ trade_conversion_colleganza = {
 
 # 1000 Trade Value Comparison:
 # Wealth Creation =			1000 energy		
-# Consumer Benefits =		 500 energy															 250 consumer goods (500 energy equ)
-# Marketplace of Ideas =	 500 energy																																					 250 unity (500 engergy equ)
-# Colleganza =				 200 energy		  50 minerals		  25 food		  10 alloys		 100 consumer goods		  50 physics		  50 society		  50 engineering		 200 unity
+# Consumer Benefits =		 500 energy															 250 consumer goods
+# Marketplace of Ideas =	 500 energy																																					 250 unity
+# Colleganza =				 200 energy		  25 minerals		  25 food		  10 alloys		 200 consumer goods		  20 physics		  50 society		  20 engineering		 200 unity
 # dan's notes
 #Colleganza = 200 + 50 + 25 + 50 200 + 75 (stats taken from other trade pols) + 75 + 75 + 400 = 1350?? buts its a sceret civic and if you have too much of a rescource its worth alot less
 #trade versions are 2.4x of normal
