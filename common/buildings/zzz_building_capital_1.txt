@@ -255,18 +255,24 @@ building_capital = {
     
     triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guys
             planet_crime > 10
-            planet_crime < 19			
+            planet_crime < 19
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }			
 		}
 		planet_immigration_pull_add = 10
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guys
             planet_crime > 20
-            planet_crime < 29			
+            planet_crime < 29	
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }	
 		}
 		planet_immigration_pull_add = 20
 	}
@@ -274,34 +280,46 @@ building_capital = {
 	triggered_planet_modifier = {
 
 		potential = {
-            has_civic = secret_are_we_the_bad_guyss
             planet_crime > 30
-            planet_crime < 39			
+            planet_crime < 39
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }
 		}
 		planet_immigration_pull_add = 30
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guys
             planet_crime > 40
-            planet_crime < 49			
+            planet_crime < 49
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }
 		}
 		planet_immigration_pull_add = 40
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guys
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }
             planet_crime > 50
-            planet_crime < 59			
+            planet_crime < 59	
 		}
 		planet_immigration_pull_add = 50
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guyss
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }
             planet_crime > 60
             planet_crime < 69			
 		}
@@ -310,7 +328,10 @@ building_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guys
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }
             planet_crime > 70
             planet_crime < 79			
 		}
@@ -319,7 +340,10 @@ building_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guys
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }
             planet_crime > 80
             planet_crime < 89			
 		}
@@ -328,7 +352,10 @@ building_capital = {
 	
 	triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guys
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }
             planet_crime > 90
             planet_crime < 99			
 		}
@@ -337,7 +364,10 @@ building_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-            has_civic = secret_are_we_the_bad_guys
+            owner = exists
+            owner = {
+                has_civic = secret_are_we_the_bad_guys	
+            }
 		    planet_crime = 100	
 		}
 		planet_immigration_pull_add = 100

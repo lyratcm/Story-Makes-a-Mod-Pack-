@@ -1,6 +1,5 @@
 refugees = {
 	potential = {
-		has_encountered_other_species = yes
 		is_country_type = default
 		OR = {
 			NOT = { has_ethic = "ethic_gestalt_consciousness" }

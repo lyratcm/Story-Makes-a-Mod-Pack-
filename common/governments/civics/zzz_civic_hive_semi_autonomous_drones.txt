@@ -1,5 +1,4 @@
 civic_hive_semi_autonomous_drones = {
-	modification = no
 	potential = { authority = { value = auth_hive_mind } }
 	possible = {
 		civics = {
