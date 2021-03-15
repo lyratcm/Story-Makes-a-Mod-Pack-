@@ -12,7 +12,7 @@ GAPS_sad_researcher = {
         complex_specialist_job_check_trigger = yes
     }
     resources = {
-        category = planet_GAPS_sad_researchers
+        category = planet_researchers
         produces = {
             physics_research = 4
             engineering_research = 4
