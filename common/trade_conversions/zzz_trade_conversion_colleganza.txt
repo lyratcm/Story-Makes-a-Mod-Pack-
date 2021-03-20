@@ -1,17 +1,22 @@
-weight = 999
-}
-conversion_rate = {
-	energy = 0.20
-	minerals = 0.025
-	food = 0.025
-	alloys = 0.01
-	consumer_goods = 0.20
-	physics_research = 0.02
-	society_research = 0.05
-	engineering_research = 0.02
-	unity = 0.20
-}
-economic_category = trade_routes
+trade_conversion_colleganza = {
+	potential = {
+		has_policy_flag = trade_conversion_colleganza
+	}
+	weight = {
+		weight = 998
+	}
+	conversion_rate = {
+		energy = 0.20
+		minerals = 0.025
+		food = 0.025
+		alloys = 0.01
+		consumer_goods = 0.20
+		physics_research = 0.02
+		society_research = 0.05
+		engineering_research = 0.02
+		unity = 0.20
+	}
+	economic_category = trade_routes
 }
 
 # Final conversion rates:
@@ -34,6 +39,7 @@ economic_category = trade_routes
 #Colleganza = 200 + 50 + 25 + 50 200 + 75 (stats taken from other trade pols) + 75 + 75 + 400 = 1350?? buts its a sceret civic and if you have too much of a rescource its worth alot less
 #trade versions are 2.4x of normal
 #trade colleganza = 600 + 100 + 50 + 125 + 300 + 300 + 300 + 600 = 2775 keeps step with the trade league changes (2400) but still is slightly better as its a secret civic
+
 trade_conversion_trade_league_colleganza = {
 	potential = {
 		has_policy_flag = trade_conversion_trade_league_colleganza
