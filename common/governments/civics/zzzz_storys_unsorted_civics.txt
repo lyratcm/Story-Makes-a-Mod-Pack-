@@ -276,7 +276,7 @@ civic_universal_welfare = {
 	}
 	possible = {
 		ethics = {
-			value = ethic_fanatic_pluralism
+			value = ethic_fanatic_pluralist
 		}
 	}
 	pickable_at_start = yes
@@ -304,7 +304,7 @@ civic_all_in_this_together = {
 	}
 	possible = {
 		ethics = {
-			value = ethic_fanatic_pluralism
+			value = ethic_fanatic_pluralist
 		}
 	}
 	pickable_at_start = yes
@@ -333,7 +333,7 @@ civic_cream_of_crop = {
 	}
 	possible = {
 		ethics = {
-			value = ethic_fanatic_elitism
+			value = ethic_fanatic_elitist
 		}
 	}
 	pickable_at_start = yes
@@ -363,7 +363,7 @@ civic_know_your_place = {
 	}
 	possible = {
 		ethics = {
-			value = ethic_fanatic_elitism
+			value = ethic_fanatic_elitist
 		}
 	}
 	pickable_at_start = yes
@@ -464,29 +464,29 @@ civic_tragedy_of_commons = {
 	}
 }
 
-civic_asdf = {
-	potential = {
-		ethics = {
-			NOT = {
-				value = ethic_gestalt_consciousness
-			}
-		}
-		authority = {
-			NOR = {
-				value = auth_master_computer
-				value = auth_corporate
-				value = auth_cooperative
-			}
-		}
-	}
-	possible = {
-		ethics = {
-			value = ethic_fanatic_asdf
-		}
-	}
-	pickable_at_start = yes
-	modification = yes
-	modifier = {
-		asdf
-	}
-}
+# civic_asdf = {
+#	potential = {
+#	ethics = {
+#			NOT = {
+#				value = ethic_gestalt_consciousness
+#			}
+#		}
+#		authority = {
+#			NOR = {
+#				value = auth_master_computer
+#				value = auth_corporate
+#				value = auth_cooperative
+#			}
+#		}
+#	}
+#	possible = {
+#		ethics = {
+#			value = ethic_fanatic_asdf
+#		}
+#	}
+#	pickable_at_start = yes
+#	modification = yes
+#	modifier = {
+#		asdf
+#	}
+#}

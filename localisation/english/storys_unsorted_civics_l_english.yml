@@ -12,7 +12,7 @@
   civic_but_fear_itself: "But Fear Itself"
   civic_but_fear_itself_desc: "Why should we restrict ourselves from living our best lives by living under the fear of potential consequences? In this society it is believed that everyone has the right to make their own decisions and face their own judgement."
 
-  civic_everyones_critic: "Everyone\'s Critic"
+  civic_everyones_critic: "Everyones Critic"
   civic_everyones_critic_desc: "§RDOES NOT CURRENTLY WORK§!\n\nWhen you look upon our species, our society, our culture, truly only one word comes to mind: Perfection. Then why, pray tell, must we consider the squabblings of others when it is only our kind that matters? The bee does not have to explain to the fly why honey is better than shit. So follows our way of thinking."
 
   civic_doomsday_preppers: "Doomsday Preppers"
@@ -23,6 +23,7 @@
 
   civic_unmatched_ambitions: "Unmatched Ambitions"
   civic_unmatched_ambitions_desc: "There is no greater calling than that of potential greatness that lies just out of reach. Our ambitions are unmatched in this galaxy, and we - all of us - are willing to put in great effort to see our projects through. The soil we stand on must be ready as well."
+    mod_planet_districts_cities_unity_produces_add: "£unity£ Unity from £district£ City Districts"
 
   civic_what_comes_naturally: "What Comes Naturally"
   civic_what_comes_naturally_desc: "There is no will within the earth, no whims of the waters, and no preference from the sky. These are all just objects, just resources for us to use. If nature should ever inform us of its consent in our matters, we will listen. Until then, let us do what we wish with the gifts of the galaxy."
@@ -39,7 +40,7 @@
   civic_know_your_place: "Know Your Place"
   civic_know_your_place_desc: "Why should a future clerk worry themselves with understanding the function of an administrator? Is it not easier, and dare one say more natural, for each member of society to simply master the path laid out for them? After all, the time for exploration of purpose is over; as a society we have grown to understand that every tier is valuable in its own way."
 
-  civic_post_monetary_society: "Post\-Monetary Society"
+  civic_post_monetary_society: "Post Monetary Society"
   civic_post_monetary_society_desc: "The concept of an individual owning private assets has been foreign to us far longer than the concept of interstellar travel has been familiar to us. Truly, besides whatever personal property one wishes to accrue, what purpose is there of private ownership? Let the community own the assets it uses."
 
   civic_sweat_of_your_brow: "The Sweat of Your Brow"
