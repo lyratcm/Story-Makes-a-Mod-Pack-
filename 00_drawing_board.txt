@@ -1098,3 +1098,60 @@ Trait "Swift" {
     Job output +10%
     Leader lifespan -20
 }
+
+Civic "Everyone's Critic" {
+    Description {
+        When you look upon our species, our society, our culture, truly only one word comes to mind: Perfection.
+        Then why, pray tell, must we consider the squabblings of others when it is only our kind that matters?
+        The bee does not have to explain to the fly why honey is better than shit.
+        So follows our way of thinking.
+    }
+    Requires {
+        Fanatic Xenophobe
+        Generic Authorities
+    }
+    Effects {
+        Grants custom diplomatic stance "Exploitative" {
+            +66% Diplomatic Weight
+            +100% Diplomatic Influence Cost
+            +200 Border Friction
+            0.25 Influence Upkeep to Improve / Harm Relations
+        }
+        Community Proposal Cost +50%
+    }
+    Modification = No
+}
+
+Civic "Doomsday Preppers" {
+    Description {
+        All of these fools, thinking that some smooth words and shaken appendages will actually guarantee anything in this galaxy.
+        We know the truth.
+        We know that as soon as the chips are down that every single one of them will turn on us in the blink of an eye.
+        We have to be ready.
+    }
+    Requires {
+        Fanatic Xenophobe
+        Generic Authorities
+    }
+    Effects {
+        -20% War Exhuastion
+        Immune to Treaties
+        Can not enter Non-Aggression Pacts
+        Can not gain Association status
+        Can not join Federations
+    }
+}
+
+Civic "Fucking TRY It?" {
+    Requires {
+        Some Militarist
+        Some Egalitarian
+    }
+}
+
+Civic "Mandatory Therapy?" {
+    Requires {
+        Some Pacifist
+        Some Cooperative
+    }
+}

@@ -1,0 +1,492 @@
+# Story's Fanatic Civics
+
+civic_tranquility = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_pacifist
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		planet_crime_add = -10
+		planet_stability_add = 10
+		planet_jobs_produces_mult = -0.05
+	}
+}
+
+civic_better_safe_than_sorry = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_authoritarian
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		pop_citizen_happiness = 0.10
+		job_enforcer_add = 1
+		job_healthcare_add = 1
+		job_soldier_add = 1
+		all_technology_research_speed = -0.10
+	}
+}
+
+civic_ruthless_expression = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_egalitarian
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		pop_factions_produces_mult = 0.30
+		pop_ethics_shift_speed_mult = 1.00
+		pop_government_ethic_attraction = -0.30
+	}
+}
+
+civic_but_fear_itself = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_egalitarian
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		country_influence_produces_add = 1
+		pop_growth_speed = -0.20
+	}
+}
+
+civic_everyones_critic = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_xenophobe
+		}
+	}
+	pickable_at_start = yes
+	modification = no
+	modifier = {
+	}
+}
+
+civic_doomsday_preppers = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_xenophobe
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		country_war_exhaustion_mult = -0.20
+	}
+}
+
+civic_circle_of_life = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_green
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		planet_jobs_upkeep_mult = -0.15
+		planet_jobs_energy_produces_add = 0.05
+		planet_jobs_minerals_produces_add = 0.05
+		planet_jobs_food_produces_add = 0.05
+	}
+}
+
+civic_unmatched_ambitions = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_industrial
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		planet_districts_cities_unity_produces_add = 1
+		planet_structures_upkeep_mult = -0.15
+		planet_structures_cost_mult = 0.15
+	}
+}
+
+civic_what_comes_naturally = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_industrial
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		deposit_blockers_cost_mult = -0.30
+		planet_clear_blocker_time_mult = -0.30
+		planet_colony_development_speed_mult = 0.30
+		planet_jobs_upkeep_mult = 0.15
+	}
+}
+
+civic_universal_welfare = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_pluralism
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		pop_growth_speed = 0.15
+		empire_size_pops_mult = 0.40
+	}
+}
+
+civic_all_in_this_together = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_pluralism
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		pop_demotion_time_mult = -0.50
+		planet_jobs_unity_produces_add = 0.33
+		planet_jobs_produces_mult = -0.05
+	}
+}
+
+civic_cream_of_crop = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_elitism
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		leader_age_min = -10
+		species_leader_exp_gain = 0.33
+		leader_skill_levels = 2
+		country_leader_pool_size = -1
+	}
+}
+
+civic_know_your_place = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_elitism
+		}
+	}
+	pickable_at_start = yes
+	modification = no
+	modifier = {
+		planet_jobs_produces_mult = 0.05
+		empire_size_pops_mult = -0.30
+		pop_demotion_time_mult = 2.00
+	}
+}
+
+civic_post_monetary_society = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_socialism
+		}
+	}
+	pickable_at_start = yes
+	modification = no
+	modifier = {
+		planet_stability_add = 5
+		planet_jobs_produces_mult = 0.10
+		trade_value_mult = -0.50
+	}
+}
+
+civic_sweat_of_your_brow = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_capitalism
+		}
+	}
+	pickable_at_start = yes
+	modification = no
+	modifier = {
+		planet_jobs_produces_mult = 0.15
+		trade_value_mult = 0.15
+		pop_growth_speed = -0.10
+		planet_stability_add = -10
+		planet_crime_add = 20
+	}
+}
+
+civic_tragedy_of_commons = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_capitalism
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		trade_value_mult = 0.25
+		planet_jobs_produces_mult = -0.05
+		pop_citizen_happiness = -0.05
+	}
+}
+
+civic_asdf = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOR = {
+				value = auth_master_computer
+				value = auth_corporate
+				value = auth_cooperative
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_asdf
+		}
+	}
+	pickable_at_start = yes
+	modification = yes
+	modifier = {
+		asdf
+	}
+}
