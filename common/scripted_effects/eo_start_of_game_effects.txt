@@ -1114,254 +1114,254 @@ eo_modifiers_and_planets = {
 		}
 	}
 ####Dragon's Lair spawn Ravinax
-	if = {
-		limit = {
-			owner = {
-				has_origin = origin_dragon_lair
-			}
-		}
-		owner = {
-			set_country_flag = dragons_lair_country
-		}
-		set_planet_flag = ravinax_world
-		save_global_event_target_as = ravinax_world
-		set_planet_flag = dragon_feed_0
-		#planet_event = { id = eo.16 days = 27375 random = 3650}
-		solar_system = {
-			random_system_planet = {
-				limit = {
-					OR = {
-						has_deposit = d_minerals_2
-						has_deposit = d_minerals_3
-					}
-				}
-				set_name = "NAME_Ravinax_Nest"
-				set_planet_flag = ravinax_lair
-				set_planet_flag = ravinax_alive
-				save_global_event_target_as = ravinax_lair
-				clear_deposits = yes
-				add_deposit = d_ravinax_hoard
+	# if = {
+	# 	limit = {
+	# 		owner = {
+	# 			has_origin = origin_dragon_lair
+	# 		}
+	# 	}
+	# 	owner = {
+	# 		set_country_flag = dragons_lair_country
+	# 	}
+	# 	set_planet_flag = ravinax_world
+	# 	save_global_event_target_as = ravinax_world
+	# 	set_planet_flag = dragon_feed_0
+	# 	#planet_event = { id = eo.16 days = 27375 random = 3650}
+	# 	solar_system = {
+	# 		random_system_planet = {
+	# 			limit = {
+	# 				OR = {
+	# 					has_deposit = d_minerals_2
+	# 					has_deposit = d_minerals_3
+	# 				}
+	# 			}
+	# 			set_name = "NAME_Ravinax_Nest"
+	# 			set_planet_flag = ravinax_lair
+	# 			set_planet_flag = ravinax_alive
+	# 			save_global_event_target_as = ravinax_lair
+	# 			clear_deposits = yes
+	# 			add_deposit = d_ravinax_hoard
 
-				create_country = {
-					name = "NAME_Ravinax"
-					type = guardian_dragon
-					flag = {
-						icon = {
-							category = "zoological"
-							file = "flag_zoological_6.dds"
-						}
-						background= {
-							category = "backgrounds"
-							file = "00_solid.dds"
-						}
-						colors={
-							"dark_green"
-							"dark_green"
-							"null"
-							"null"
-						}
-					}
-					effect = {
-						set_faction_hostility = {
-							target = root.owner
-							set_hostile = no
-							set_neutral = yes
-							set_friendly = no
-						}
-						set_faction_hostility = {
-							target = event_target:caravaneer_home_country
-							set_hostile = no
-							set_neutral = yes
-							set_friendly = no
-						}
-						set_faction_hostility = {
-							target = event_target:caravaneer_fleet1_country
-							set_hostile = no
-							set_neutral = yes
-							set_friendly = no
-						}
-						set_faction_hostility = {
-							target = event_target:caravaneer_fleet2_country
-							set_hostile = no
-							set_neutral = yes
-							set_friendly = no
-						}
-						set_faction_hostility = {
-							target = event_target:caravaneer_fleet3_country
-							set_hostile = no
-							set_neutral = yes
-							set_friendly = no
-						}
-						save_global_event_target_as = ravinax_country
-						set_country_flag = ravinax_country
-						every_playable_country = {
-							establish_communications_no_message = event_target:ravinax_country
-						}
+	# 			create_country = {
+	# 				name = "NAME_Ravinax"
+	# 				type = guardian_dragon
+	# 				flag = {
+	# 					icon = {
+	# 						category = "zoological"
+	# 						file = "flag_zoological_6.dds"
+	# 					}
+	# 					background= {
+	# 						category = "backgrounds"
+	# 						file = "00_solid.dds"
+	# 					}
+	# 					colors={
+	# 						"dark_green"
+	# 						"dark_green"
+	# 						"null"
+	# 						"null"
+	# 					}
+	# 				}
+	# 				effect = {
+	# 					set_faction_hostility = {
+	# 						target = root.owner
+	# 						set_hostile = no
+	# 						set_neutral = yes
+	# 						set_friendly = no
+	# 					}
+	# 					set_faction_hostility = {
+	# 						target = event_target:caravaneer_home_country
+	# 						set_hostile = no
+	# 						set_neutral = yes
+	# 						set_friendly = no
+	# 					}
+	# 					set_faction_hostility = {
+	# 						target = event_target:caravaneer_fleet1_country
+	# 						set_hostile = no
+	# 						set_neutral = yes
+	# 						set_friendly = no
+	# 					}
+	# 					set_faction_hostility = {
+	# 						target = event_target:caravaneer_fleet2_country
+	# 						set_hostile = no
+	# 						set_neutral = yes
+	# 						set_friendly = no
+	# 					}
+	# 					set_faction_hostility = {
+	# 						target = event_target:caravaneer_fleet3_country
+	# 						set_hostile = no
+	# 						set_neutral = yes
+	# 						set_friendly = no
+	# 					}
+	# 					save_global_event_target_as = ravinax_country
+	# 					set_country_flag = ravinax_country
+	# 					every_playable_country = {
+	# 						establish_communications_no_message = event_target:ravinax_country
+	# 					}
 
-						create_fleet = {
-							name = "NAME_Ravinax"
-							settings = {
-								spawn_debris = no
-								is_boss = yes
-							}
-							effect = {
-								set_owner = event_target:ravinax_country
-								create_ship = {
-									name = "NAME_Ravinax"
-									design = "NAME_Ravinax"
-								}
-								save_global_event_target_as = ravinax_fleet
-								set_fleet_flag = ravinax
-								set_location = {
-									target = event_target:ravinax_lair
-									distance = 10
-									angle = 90
-									direction = in_system
-								}
-								set_fleet_stance = aggressive
-								set_aggro_range_measure_from = self
-								set_aggro_range = 400
-								event_target:ravinax_lair = {
-									planet_event = { id = eo.10 }
-								}
-								queue_actions = {
-									repeat = {
-										find_closest_planet = {
-											trigger = {
-												id = ravinax.1
-												is_star = no
-												has_planet_flag = ravinax_patrol_1
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 40
-													random = 20
-												}
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = ravinax.2
-												is_star = no
-												has_planet_flag = ravinax_patrol_2
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 40
-													random = 20
-												}
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = ravinax.3
-												is_star = no
-												has_planet_flag = ravinax_patrol_3
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 40
-													random = 20
-												}
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = ravinax.4
-												has_planet_flag = ravinax_world
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 70
-													random = 20
-												}
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = ravinax.5
-												is_star = no
-												has_planet_flag = ravinax_patrol_4
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 40
-													random = 20
-												}
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = ravinax.6
-												is_star = no
-												has_planet_flag = ravinax_patrol_5
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 40
-													random = 20
-												}
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = ravinax.7
-												has_planet_flag = ravinax_lair
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 100
-													random = 80
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				create_ambient_object = {
-					type = "medium_debris_01_object"
-					#entity_offset_height = { min = -0 max = -25 }
-					location = this
-				}
-				create_ambient_object = {
-					type = "abandoned_ship_object"
-					location = this
-				}
-			}
-			create_ambient_object = {
-				type = "medium_debris_02_object"
-				#entity_offset_height = { min = -0 max = -25 }
-				location = this
-			}
-			create_ambient_object = {
-				type = "small_debris_object"
-				#entity_offset_height = { min = -0 max = -25 }
-				location = this
-			}
-			create_ambient_object = {
-				type = "small_debris_object"
-				#entity_offset_height = { min = -0 max = -25 }
-				location = this
-			}
-		}
-	}
+	# 					create_fleet = {
+	# 						name = "NAME_Ravinax"
+	# 						settings = {
+	# 							spawn_debris = no
+	# 							is_boss = yes
+	# 						}
+	# 						effect = {
+	# 							set_owner = event_target:ravinax_country
+	# 							create_ship = {
+	# 								name = "NAME_Ravinax"
+	# 								design = "NAME_Ravinax"
+	# 							}
+	# 							save_global_event_target_as = ravinax_fleet
+	# 							set_fleet_flag = ravinax
+	# 							set_location = {
+	# 								target = event_target:ravinax_lair
+	# 								distance = 10
+	# 								angle = 90
+	# 								direction = in_system
+	# 							}
+	# 							set_fleet_stance = aggressive
+	# 							set_aggro_range_measure_from = self
+	# 							set_aggro_range = 400
+	# 							event_target:ravinax_lair = {
+	# 								planet_event = { id = eo.10 }
+	# 							}
+	# 							queue_actions = {
+	# 								repeat = {
+	# 									find_closest_planet = {
+	# 										trigger = {
+	# 											id = ravinax.1
+	# 											is_star = no
+	# 											has_planet_flag = ravinax_patrol_1
+	# 										}
+	# 										found_planet = {
+	# 											move_to = this
+	# 											orbit_planet = this
+	# 											wait = {
+	# 												duration = 40
+	# 												random = 20
+	# 											}
+	# 										}
+	# 									}
+	# 									find_closest_planet = {
+	# 										trigger = {
+	# 											id = ravinax.2
+	# 											is_star = no
+	# 											has_planet_flag = ravinax_patrol_2
+	# 										}
+	# 										found_planet = {
+	# 											move_to = this
+	# 											orbit_planet = this
+	# 											wait = {
+	# 												duration = 40
+	# 												random = 20
+	# 											}
+	# 										}
+	# 									}
+	# 									find_closest_planet = {
+	# 										trigger = {
+	# 											id = ravinax.3
+	# 											is_star = no
+	# 											has_planet_flag = ravinax_patrol_3
+	# 										}
+	# 										found_planet = {
+	# 											move_to = this
+	# 											orbit_planet = this
+	# 											wait = {
+	# 												duration = 40
+	# 												random = 20
+	# 											}
+	# 										}
+	# 									}
+	# 									find_closest_planet = {
+	# 										trigger = {
+	# 											id = ravinax.4
+	# 											has_planet_flag = ravinax_world
+	# 										}
+	# 										found_planet = {
+	# 											move_to = this
+	# 											orbit_planet = this
+	# 											wait = {
+	# 												duration = 70
+	# 												random = 20
+	# 											}
+	# 										}
+	# 									}
+	# 									find_closest_planet = {
+	# 										trigger = {
+	# 											id = ravinax.5
+	# 											is_star = no
+	# 											has_planet_flag = ravinax_patrol_4
+	# 										}
+	# 										found_planet = {
+	# 											move_to = this
+	# 											orbit_planet = this
+	# 											wait = {
+	# 												duration = 40
+	# 												random = 20
+	# 											}
+	# 										}
+	# 									}
+	# 									find_closest_planet = {
+	# 										trigger = {
+	# 											id = ravinax.6
+	# 											is_star = no
+	# 											has_planet_flag = ravinax_patrol_5
+	# 										}
+	# 										found_planet = {
+	# 											move_to = this
+	# 											orbit_planet = this
+	# 											wait = {
+	# 												duration = 40
+	# 												random = 20
+	# 											}
+	# 										}
+	# 									}
+	# 									find_closest_planet = {
+	# 										trigger = {
+	# 											id = ravinax.7
+	# 											has_planet_flag = ravinax_lair
+	# 										}
+	# 										found_planet = {
+	# 											move_to = this
+	# 											orbit_planet = this
+	# 											wait = {
+	# 												duration = 100
+	# 												random = 80
+	# 											}
+	# 										}
+	# 									}
+	# 								}
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			create_ambient_object = {
+	# 				type = "medium_debris_01_object"
+	# 				#entity_offset_height = { min = -0 max = -25 }
+	# 				location = this
+	# 			}
+	# 			create_ambient_object = {
+	# 				type = "abandoned_ship_object"
+	# 				location = this
+	# 			}
+	# 		}
+	# 		create_ambient_object = {
+	# 			type = "medium_debris_02_object"
+	# 			#entity_offset_height = { min = -0 max = -25 }
+	# 			location = this
+	# 		}
+	# 		create_ambient_object = {
+	# 			type = "small_debris_object"
+	# 			#entity_offset_height = { min = -0 max = -25 }
+	# 			location = this
+	# 		}
+	# 		create_ambient_object = {
+	# 			type = "small_debris_object"
+	# 			#entity_offset_height = { min = -0 max = -25 }
+	# 			location = this
+	# 		}
+	# 	}
+	# }
 ####Starship Graveyard space debris
 	if = {
 		limit = {
