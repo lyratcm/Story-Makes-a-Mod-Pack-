@@ -11,7 +11,7 @@ lrsk_gov_var_civic_mc_police_state = {
     description = "civic_tooltip_lrsk_gov_var_civic_mc_police_state_effects"
     possible = {
         ethics = {
-            value = ethic_fanatic_authoritarian
+            value = ethic_authoritarian
         }
     }
     random_weight = {

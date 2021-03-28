@@ -11,7 +11,7 @@ lrsk_gov_var_civic_mc_heritage_trust = {
     description = "civic_tooltip_lrsk_gov_var_civic_mc_heritage_trust_effects"
     possible = {
         ethics = {
-            value = ethic_fanatic_xenophobe
+            value = ethic_xenophobe
         }
     }
     random_weight = {

@@ -14,7 +14,7 @@ lrsk_gov_var_civic_mc_workers_councils = {
             value = auth_cooperative
         }
         ethics = {
-            value = ethic_fanatic_egalitarian
+            value = ethic_egalitarian
         }
     }
     random_weight = {
