@@ -18,7 +18,7 @@ slavery_livestock = {
         }
     }
     in_breach_of = {
-         {
+        {
             key = resolution_greatergood_greater_than_ourselves
         }
     }
