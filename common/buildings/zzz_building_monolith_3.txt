@@ -23,8 +23,8 @@ building_more_civics_monolith_3 = {
 			owner = { is_regular_empire = yes }
 		}
 		modifier = {
-			job_researcher_add = 12
-			planet_researchers_produces_mult = 0.10
+			job_researcher_add = 8
+			planet_researchers_produces_mult = 0.5
 		}
 	}
 	
@@ -34,8 +34,8 @@ building_more_civics_monolith_3 = {
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
-			job_brain_drone_add = 12
-			planet_researchers_produces_mult = 0.10
+			job_brain_drone_add = 8
+			planet_researchers_produces_mult = 0.5
 		}
 	}
 	
@@ -45,8 +45,8 @@ building_more_civics_monolith_3 = {
 			owner = { is_machine_empire = yes }
 		}
 		modifier = {	
-			job_calculator_add = 12
-			planet_researchers_produces_mult = 0.10
+			job_calculator_add = 8
+			planet_researchers_produces_mult = 0.5
 		}
 	}
 
@@ -57,7 +57,7 @@ building_more_civics_monolith_3 = {
 			exotic_gases = 100
 		}
 		upkeep = {
-			energy = 6
+			energy = 15
 			exotic_gases = 2
 		}
 	}

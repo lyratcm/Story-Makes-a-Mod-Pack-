@@ -15,7 +15,7 @@ country_event = {
     immediate = {
         random_owned_planet = {
             limit = { is_capital = yes }
-            set_planet_size = 15
+            set_planet_size = 30
             remove_all_districts = yes
 			remove_all_buildings = yes
             clear_deposits = yes
@@ -53,6 +53,7 @@ country_event = {
 		# 6 jobs
 			add_building = building_research_lab_1
 			add_building = building_research_lab_1
+			add_building = building_research_lab_1
         }
     }
 }
@@ -72,7 +73,7 @@ country_event = {
     immediate = {
         random_owned_planet = {
             limit = { is_capital = yes }
-            set_planet_size = 15
+            set_planet_size = 30
             remove_all_districts = yes
 			remove_all_buildings = yes
             clear_deposits = yes
@@ -107,6 +108,7 @@ country_event = {
 		# 6 jobs
 			add_building = building_research_lab_1
 			add_building = building_machine_assembly_plant
+			add_building = building_research_lab_1
         }
     }
 }
@@ -126,7 +128,7 @@ country_event = {
     immediate = {
         random_owned_planet = {
             limit = { is_capital = yes }
-            set_planet_size = 15
+            set_planet_size = 30
             remove_all_districts = yes
 			remove_all_buildings = yes
             clear_deposits = yes
@@ -161,6 +163,7 @@ country_event = {
 		# 6 jobs
 			add_building = building_research_lab_1
 			add_building = building_spawning_pool
+			add_building = building_research_lab_1
         }
     }
 }
@@ -209,11 +212,25 @@ planet_event = {
         change_pc = pc_broken
         clear_deposits = yes
         add_deposit = d_alloys_2
-		add_deposit = d_energy_5
-		add_deposit = d_minerals_5
-		add_deposit = d_rare_crystals_1
-		add_deposit = d_exotic_gases_1
-		add_deposit = d_volatile_motes_1
+		random_list = {
+			50 = {
+			add_deposit = d_energy_10
+			}
+			50 = {
+			add_deposit = d_minerals_10
+			}
+		}
+		random_list = {
+			33 = {
+			add_deposit = d_rare_crystals_3
+			}
+			33 = {
+			add_deposit = d_exotic_gases_3
+			}
+			33 = {
+			add_deposit = d_volatile_motes_3
+			}
+		}
 	}
 
     option = {
