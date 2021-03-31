@@ -1,9 +1,9 @@
 Trait_GAPS_Builder = {
     icon = "gfx/interface/icons/traits/Trait_GAPS_Builder.dds"
     cost = 2
-    initial = no
+    initial = yes
     randomized = no
-    modification = no
+    modification = yes
     allowed_archetypes = {
         BIOLOGICAL
         BIOMORPH
@@ -14,7 +14,9 @@ Trait_GAPS_Builder = {
         ROBOT
     }
     modifier = {
-        planet_building_build_speed_mult = 0.01
-        planet_clear_blocker_time_mult = -0.01
+		planet_building_build_speed_mult = 0.01
+		planet_clear_blocker_time_mult = -0.01
+		planet_buildings_cost_mult = 0.01
+		deposit_blockers_cost_mult = 0.01
     }
 }
