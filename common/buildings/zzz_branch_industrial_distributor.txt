@@ -9,9 +9,7 @@ building_corporate_industrial_distributor = {
 		branch_office_owner = {
 			has_valid_civic = civic_construction_industry
 		}
-		owner = {
-			is_gestalt = no
-		}
+
 	}
 	
 	country_modifier = {
@@ -19,8 +17,17 @@ building_corporate_industrial_distributor = {
 	}
 
 	planet_modifier = {
-		job_clerk_add = 2
+
 		branch_office_value_mult = 0.10
+	}
+
+	planet_modifer = {
+		potential = {
+			owner = {
+				is_gestalt = no
+			}			
+		}
+		job_clerk_add = 2
 	}
 	
 	resources = {
@@ -35,6 +42,14 @@ building_corporate_industrial_distributor = {
 		produces = {
 			energy = 16
 		}
+		produces = {
+            trigger = {
+				onwer = {
+					is_gestalt = yes
+				} 
+            }
+            energy = 10
+        }
 	}
 	
 	triggered_desc = {

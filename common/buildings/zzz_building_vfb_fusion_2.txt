@@ -1,5 +1,5 @@
 building_vfb_fusion_complex = {
-    category = government
+    category = resource
     base_buildtime = 360
     can_build = no
     icon = building_vfb_fusion

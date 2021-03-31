@@ -1,5 +1,5 @@
 building_vfb_fusion_complex_b = {
-    category = government
+    category = resource
     base_buildtime = 180
     base_cap_amount = 2
     icon = building_vfb_fusion_b
