@@ -14,6 +14,13 @@ clerk = {
             is_fallen_empire = no
         }
     }
+    resources = {
+        category = planet_clerks
+        produces = {
+        }
+        upkeep = {
+        }
+    }
     planet_modifier = {
         planet_amenities_add = 2
         trade_value_add = 2
