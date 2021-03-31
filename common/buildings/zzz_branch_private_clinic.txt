@@ -14,10 +14,17 @@ building_private_clinic = {
 	}
 	
 	planet_modifier = {
+
+	}
+	planet_modifier = {
+		potential = {
+			owner = {
+				is_gestal = no
+			}
+		}
 		job_healthcare_add = 1
 		job_clerk_add = 2
 	}
-
 	resources = {
 		category = planet_branch_office_buildings
 		cost = {
@@ -34,6 +41,14 @@ building_private_clinic = {
 			}
 			energy = -6
 			society_research = 6
+		}
+		produces = {
+			trigger = {
+				owner = {
+					is_gestal = yes
+				}
+			}
+			energy = 10
 		}
 	}
 

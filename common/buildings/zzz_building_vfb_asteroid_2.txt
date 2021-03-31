@@ -1,5 +1,5 @@
 building_vfb_asteroid_hub = {
-    category = government
+    category = Resources
     base_buildtime = 360
     can_build = no
     icon = building_vfb_asteroid

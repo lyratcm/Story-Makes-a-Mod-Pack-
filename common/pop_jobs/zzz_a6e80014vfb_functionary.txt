@@ -21,7 +21,7 @@ vfb_functionary = {
         }
     }
     planet_modifier = {
-        planet_stability_add = 10
+        planet_stability_add = 5
     }
     country_modifier = {
         country_admin_cap_add = 10
@@ -32,7 +32,7 @@ vfb_functionary = {
         }
         upkeep = {
             consumer_goods = 2
-            unity = 2
+            unity = 1
         }
     }
     weight = {
