@@ -102,6 +102,7 @@
  gov_serenissima: "§MMost Serene Republic§!"
  gov_serenissima_desc: "By custom, the appellation \"Most Serene\" is an indicator of sovereignty, diplomacy, and virtue. This republic has overcome many of its nationalistic urges to temper itself into a renowned galactic power."
  RT_DOGE: "Dux"
+ trade_conversion_colleganza_name: "Colleganza"
 
  secret_capitalist_fascism: "§MCapitalist Fascism§!"
  secret_capitalist_fascism_desc: "\n§MSECRET CIVIC!§!\n\n"
@@ -117,11 +118,28 @@
  job_folk_hero: "Care Giver"
 
  job_tourist: "Tourist"
+ job_tourist_plural: "Tourists"
+ mod_job_tourist_add: "Tourist Jobs"
+
  job_purist: "Purist"
+ job_purist_plural: "Purists"
+ mod_job_purist_add: "Purist Jobs"
+
  job_counselor: "Counselor"
+ job_counselor_plural: "Counselors"
+ mod_job_counselor_add: "Counselor Jobs"
+
  job_union_rep: "Union Organizer"
+ job_union_rep_plural: "Union Organizers"
+ mod_job_union_rep_add: "Union Organizer Jobs"
+
  job_livestock_drone: "Livestock Drone"
+ job_livestock_drone_plural: "Livestock Drones"
+ mod_job_livestock_drone_add: "Livestock Drone Jobs"
+
  job_dismantled_drone: "Scrapped Drone"
+ job_dismantled_drone_plural: "Scrapped Drones"
+ mod_job_dimantled_drone_add: "Scrapped Drone Jobs"
 
  building_foreign_arquitecture: "Construction Drone Network"
  building_foreign_arquitecture_desc: "Our friends, they need shelter! Need industry! Must help Our friends..."
@@ -142,9 +160,18 @@
 
  building_strategic_resource_exchange: "Exotic Trades Depot"
  building_strategic_resource_exchange_desc: "A planetary center to sell and loan Advanced Resources from the federal reserves to the public. Creates three jobs that convert monthly Advanced Resources into immense amounts of trade and amenities."
+
  job_crystal_mogul: "Crystal Mogul"
  job_crystal_mogul_desc: "Turns a tenth of a monthly Rare Crystal into 10 trade value and 6 amenities."
+ job_crystal_mogul_plural: "Crystal Moguls"
+ mod_job_crystal_mogul_add: "Crystal Mogul Jobs"
+
  job_gas_mogul: "Gas Mogul"
  job_gas_mogul_desc: "Turns a tenth of a monthly Exotic Gas into 10 trade value and 6 amenities."
+ job_gas_mogul_plural: "Gas Moguls"
+ mod_job_gas_mogul_add: "Gas Mogul Jobs"
+
  job_mote_mogul: "Mote Mogul"
  job_mote_mogul_desc: "Turns a tenth of a monthly Volatile Mote into 10 trade value and 6 amenities."
+ job_mote_mogul_plural: "Mote Moguls"
+ mod_job_mote_mogul_add: "Mote Mogul Jobs"
