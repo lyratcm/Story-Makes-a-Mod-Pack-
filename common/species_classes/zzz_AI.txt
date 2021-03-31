@@ -1,0 +1,42 @@
+AI_01_NSC = {
+	archetype = MACHINE
+	playable = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+	}
+	possible = {
+		authority = {
+			OR = {
+				value = auth_machine_intelligence
+				text = SPECIES_CLASS_MUST_USE_MACHINE_INTELLIGENCE
+			}
+		}
+	}
+	possible_secondary = {
+		always = no
+		text = SECONDARY_SPECIES_CLASS_INVALID
+	}
+	robotic = yes
+	gender = no
+	use_climate_preference = no
+	portrait_modding = yes
+	leader_age_min = 2
+	leader_age_max = 10
+	portraits = {
+		synthetic_advanced
+		hum_robot_red
+		synthetic_color
+		synthetic_black
+		synthetic_grey
+		synthetic_white
+	}
+	non_randomized_portraits = {
+		synthetic_advanced
+		hum_robot_red
+		synthetic_color
+		synthetic_black
+		synthetic_grey
+		synthetic_white
+	}
+	graphical_culture = ai_01_nsc
+	move_pop_sound_effect = "robot_pops_move"
+}

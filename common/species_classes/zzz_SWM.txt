@@ -1,0 +1,46 @@
+SWM = {
+	archetype = BIOLOGICAL
+	possible = {
+		authority = {
+			NOT = {
+				value = auth_machine_intelligence
+				text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE
+			}
+		}
+	}
+	gender = no
+	portraits = { 
+		invaders_all
+		swarm
+		invaders_yellow
+		invaders_violet
+		invaders_rose
+		invaders_red
+		invaders_orange
+		invaders_magenta
+		invaders_green
+		invaders_cyan
+		invaders_chartreuse
+		invaders_blue
+		invaders_azure
+		invaders_aquamarine
+	}
+	non_randomized_portraits = { 
+		invaders_all
+		swarm
+		invaders_yellow
+		invaders_violet
+		invaders_rose
+		invaders_red
+		invaders_orange
+		invaders_magenta
+		invaders_green
+		invaders_cyan
+		invaders_chartreuse
+		invaders_blue
+		invaders_azure
+		invaders_aquamarine
+	}
+	graphical_culture = swarm_invaders
+	move_pop_sound_effect = "moving_pop_confirmation"
+}

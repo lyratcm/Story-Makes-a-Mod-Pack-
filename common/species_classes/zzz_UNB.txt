@@ -1,0 +1,48 @@
+UNBIDDEN1 = {
+	archetype = BIOLOGICAL
+	possible = {
+		authority = {
+			NOT = {
+				value = auth_machine_intelligence
+				text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE
+			}
+		}
+	}
+	gender = no
+	portraits = {
+		unbidden_all
+		unbidden_white
+		unbidden_black
+		unbidden_yellow
+		unbidden_violet
+		unbidden_rose
+		unbidden_red
+		unbidden_orange
+		unbidden_magenta
+		unbidden_green
+		unbidden_cyan
+		unbidden_chartreuse
+		unbidden_blue
+		unbidden_azure
+		unbidden_aquamarine
+	}
+	non_randomized_portraits = {
+		unbidden_all
+		unbidden_white
+		unbidden_black
+		unbidden_yellow
+		unbidden_violet
+		unbidden_rose
+		unbidden_red
+		unbidden_orange
+		unbidden_magenta
+		unbidden_green
+		unbidden_cyan
+		unbidden_chartreuse
+		unbidden_blue
+		unbidden_azure
+		unbidden_aquamarine
+	}
+	graphical_culture = unbidden_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
