@@ -16,8 +16,7 @@ d_wandering_forests = {
             }
         }
         modifier = {
-            planet_jobs_unity_produces_add = 1
-            planet_amenities_add = 10
+            planet_amenities_add = 5
         }
     }
     triggered_planet_modifier = {
@@ -50,7 +49,7 @@ d_wandering_forests = {
         potential = {
             exists = owner
             owner = {
-                has_valid_civic = civic_terraforming
+                has_origin = origin_terraformer
             }
         }
         modifier = {

@@ -42,8 +42,7 @@ d_toxic_kelp = {
             }
         }
         modifier = {
-            planet_jobs_unity_produces_add = 1
-            planet_amenities_add = 5
+            planet_amenities_add = 2
         }
     }
     triggered_planet_modifier = {
@@ -63,7 +62,7 @@ d_toxic_kelp = {
         potential = {
             exists = owner
             owner = {
-                has_valid_civic = civic_terraforming
+                has_origin = origin_terraformer
             }
         }
         modifier = {
@@ -79,11 +78,7 @@ d_toxic_kelp = {
             }
         }
         modifier = {
-            planet_housing_add = 1
-            job_farmer_add = 2
-            pop_environment_tolerance = 0.01
-            planet_jobs_unity_produces_add = 1
-            biological_pop_happiness = 0.01
+            job_farmer_add = 1
         }
     }
     on_cleared = {
@@ -91,7 +86,7 @@ d_toxic_kelp = {
             limit = {
                 exists = owner
                 owner = {
-                    has_valid_civic = civic_terraforming
+                    has_origin = origin_terraformer
                 }
             }
             owner = {

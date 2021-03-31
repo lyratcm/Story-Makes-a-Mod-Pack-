@@ -24,7 +24,7 @@ d_alien_pets_deposit = {
         potential = {
             exists = owner
             owner = {
-                has_valid_civic = civic_terraforming
+                has_origin = origin_terraformer
             }
         }
         modifier = {
@@ -39,8 +39,7 @@ d_alien_pets_deposit = {
             }
         }
         modifier = {
-            planet_jobs_unity_produces_add = 1
-            planet_amenities_add = 10
+            planet_amenities_add = 5
         }
     }
     drop_weight = {
