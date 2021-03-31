@@ -65,9 +65,9 @@
 
  civic_buy_local: "Buy Local, Think Galactic"
  civic_buy_local_desc: "The clerks of this society are not merely cashiers and tellers, but an immensely diverse army of self-employed cooks, artisans, and artists. By legitimizing the practice of creating and selling your own products through a wireless medium and investing heavily in public shipping services, we can create an entire economy of personal, creative industry."
- mod_planet_clerk_food_produces_add: "£food£ Food per £job_clerk£ Clerk"
- mod_planet_clerk_consumer_goods_produces_add: "£consumer_goods£ Consumer Goods per £job_clerk£ Clerk"
- mod_planet_clerk_unity_produces_add: "£unity£ Unity per £job_clerk£ Clerk"
+ mod_planet_clerks_food_produces_add: "£food£ Food per £job_clerk£ Clerk"
+ mod_planet_clerks_consumer_goods_produces_add: "£consumer_goods£ Consumer Goods per £job_clerk£ Clerk"
+ mod_planet_clerks_unity_produces_add: "£unity£ Unity per £job_clerk£ Clerk"
 
  civic_children_of_the_atom: "Children of the Atom"
  civic_children_of_the_atom_desc: "The further understanding and application of atomic energy unites this nation. Physics researchers are celebrities in this culture, and everything from household appliances to automobiles are nuclear-powered."

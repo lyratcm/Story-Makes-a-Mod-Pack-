@@ -23,8 +23,8 @@ civic_buy_local = {
 		}
 	}
 	modifier = {
-		planet_clerk_food_produces_add = 0.50
-		planet_clerk_consumer_goods_produces_add = 0.50
-		planet_clerk_unity_produces_add = 0.50
+		planet_clerks_food_produces_add = 0.50
+		planet_clerks_consumer_goods_produces_add = 0.50
+		planet_clerks_unity_produces_add = 0.50
 	}
 }
