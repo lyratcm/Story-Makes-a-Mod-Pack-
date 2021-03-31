@@ -14,7 +14,12 @@ building_private_clinic = {
 	}
 	
 	planet_modifier = {
-
+		potential = {
+			owner = {
+				is_gestal = yes
+			}
+		}
+		planet_pop_assembly_mult = 0.10
 	}
 	planet_modifier = {
 		potential = {
