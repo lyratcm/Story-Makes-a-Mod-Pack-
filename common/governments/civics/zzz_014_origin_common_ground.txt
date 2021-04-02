@@ -3,36 +3,28 @@ origin_common_ground = {
     icon = "gfx/interface/icons/origins/origins_common_ground.dds"
     picture = GFX_origin_common_ground
     max_once_global = yes
+    starting_colony = pc_relic
+    habitability_preference = pc_relic
     playable = {
         host_has_dlc = "Federations"
     }
     possible = {
-        authority = {
-            NOT = {
-                value = auth_machine_intelligence
-            }
-        }
         ethics = {
             NOR = {
+                value = ethic_gestalt_consciousness
                 value = ethic_xenophobe
                 value = ethic_fanatic_xenophobe
+                value = ethic_authoritarian
+                value = ethic_fanatic_authoritarian
             }
         }
-        civics = {
-            NOR = {
-                value = civic_barbaric_despoilers
-                value = civic_fanatic_purifiers
-                value = civic_inwards_perfection
-                value = civic_befrienders
-                value = civic_hive_devouring_swarm
-                value = civic_closed_collective
-                value = civic_infestation
-                value = civic_living_hosts
-                value = civic_machine_terminator
-                value = civic_machine_assimilator
-                value = civic_closed_network
-            }
-        }
+    }
+    modifier = {
+        diplo_weight_mult = 0.33
+        planet_immigration_pull_add = 5
+        planet_immigration_pull_mult = 0.50
+        starbase_outpost_influence_cost_mult = 2.00
+        empire_size_colonies_mult = 4.00
     }
     description = "origin_tooltip_common_ground_effects"
     flags = {

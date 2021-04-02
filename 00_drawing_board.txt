@@ -1142,10 +1142,36 @@ Civic "Doomsday Preppers" {
     }
 }
 
-Civic "Fucking TRY It?" {
+Civic "Adrenaline Junkies" {
+    Description {
+        Hey, hey, so I know that we totally put the safety measures on our FTL drives, and for good reason, of course of course, but
+        like what if we just... turned off the safety on one, no, two warp drives and just, like, plugged them into each other.
+    }
     Requires {
         Some Militarist
-        Some Egalitarian
+        Some Materialist
+    }
+    Effects {
+        Kinetic weapon damage buff
+        Kinetic weapon attack speed buff
+        Sublight speed buff
+        Engineering (Propulsion) research speed up
+        Engineering (Voidcraft) research speed up
+        Ship cost up
+        Ship build speed down
+    }
+}
+
+Civic "???" {
+    Description {
+        asdf
+    }
+    Requires {
+        Some Militarist
+        Some Ecologist
+    }
+    Effects {
+        asdf
     }
 }
 
@@ -1153,5 +1179,17 @@ Civic "Mandatory Therapy?" {
     Requires {
         Some Pacifist
         Some Cooperative
+    }
+}
+
+Civic "???" {
+    Description {
+        asdf
+    }
+    Requires {
+        asdf
+    }
+    Effects {
+        asdf
     }
 }
