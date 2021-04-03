@@ -175,3 +175,7 @@
  job_mote_mogul_desc: "Turns a tenth of a monthly Volatile Mote into 10 trade value and 6 amenities."
  job_mote_mogul_plural: "Mote Moguls"
  mod_job_mote_mogul_add: "Mote Mogul Jobs"
+
+  initializer_common_ground: "Seat of the New League"
+  common_ground_capital: "Seat of the New League"
+  common_ground_capital_desc: "Who would have thought that words used to hold the weight and power of our entire economy? Before whatever calamity befell us, what was said, was done. In this new era we seek to bring back the power of promises, the sanctity of script, and the trust in treaties."

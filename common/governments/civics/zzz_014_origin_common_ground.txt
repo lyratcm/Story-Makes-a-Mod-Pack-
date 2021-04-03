@@ -5,6 +5,9 @@ origin_common_ground = {
     max_once_global = yes
     starting_colony = pc_relic
     habitability_preference = pc_relic
+    initializers = {
+        initializer_common_ground
+    }
     playable = {
         host_has_dlc = "Federations"
     }
@@ -14,15 +17,13 @@ origin_common_ground = {
                 value = ethic_gestalt_consciousness
                 value = ethic_xenophobe
                 value = ethic_fanatic_xenophobe
-                value = ethic_authoritarian
                 value = ethic_fanatic_authoritarian
             }
         }
     }
     modifier = {
-        diplo_weight_mult = 0.33
-        planet_immigration_pull_add = 5
-        planet_immigration_pull_mult = 0.50
+        diplo_weight_mult = 0.25
+        envoys_add = 2
         starbase_outpost_influence_cost_mult = 2.00
         empire_size_colonies_mult = 4.00
     }

@@ -1,0 +1,234 @@
+initializer_common_ground = {
+    class = "sc_b"
+
+    asteroid_belt = {
+        type = icy_asteroid_belt
+        radius = 160
+    }
+
+    usage = origin
+
+    flags = {
+        empire_home_system
+    }
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		
+		generate_home_system_resources = yes
+	}
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 25
+        orbit_angle = 0
+        size = {
+            min = @standard_min
+            max = @standard_max
+        }
+        has_ring = no
+    }
+
+    change_orbit = 45
+
+    planet = {
+        class = pc_molten
+        size = 13
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+
+    planet = {
+        class = pc_molten
+        size = 9
+        orbit_distance = 25
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+
+    planet = {
+        class = pc_molten
+        size = 17
+        orbit_distance = 30
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        moon = {
+            class = "pc_broken"
+            orbit_distance = 12
+            size = 10
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+        }
+    }
+
+    change_orbit = 35
+    planet = {
+        count = {
+            min = 2
+            max = 3
+        }
+        class = pc_ice_asteroid
+        orbit_distance = 0
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+
+    change_orbit = 40
+
+    planet = {
+        class = pc_toxic
+        size = 26
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+    }
+
+    change_orbit = 45
+
+    planet = {
+        home_planet = yes
+		class = pc_relic
+        size = 25
+        has_ring = no
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        flags = {
+            special_start_planet
+        }
+        init_effect = {
+            generate_empire_home_planet = yes
+		}
+		init_effect = {
+			prevent_anomaly = yes
+            clear_deposits = yes
+            add_deposit = d_ruined_arcology
+            add_deposit = d_ruined_arcology
+            add_deposit = d_ruined_arcology
+            add_deposit = d_ruined_arcology
+            add_deposit = d_ruined_arcology
+            add_deposit = d_ruined_arcology
+            add_deposit = d_ruined_arcology
+            add_deposit = d_relic_dense_ruins
+            add_deposit = d_collapsed_spire
+            add_deposit = d_massive_crevice
+            add_deposit = d_shattered_solar_array
+            add_deposit = d_flooded_reactor_pits
+            add_deposit = d_crumbling_mining_tunnels
+            add_deposit = d_relic_metal_boneyard
+			add_modifier = {
+				modifier = "common_ground_capital"
+				days = -1
+			}
+        }
+        moon = {
+            class = "pc_nuked"
+            orbit_distance = 12
+            size = 12
+            has_ring = no
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+                reroll_planet = yes
+			}
+        }
+    }
+
+    planet = {
+        class = pc_gas_giant
+        size = 40
+        orbit_distance = 50
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        moon = {
+            class = "pc_barren_cold"
+            orbit_distance = 14
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+        }
+        moon = {
+            class = "pc_barren_cold"
+            orbit_distance = 6
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+        }
+        moon = {
+            class = "pc_barren_cold"
+            orbit_distance = 6
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+        }
+        moon = {
+            class = "pc_barren_cold"
+            orbit_distance = 6
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+        }
+        moon = {
+            class = "pc_frozen"
+            orbit_distance = 6
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+        }
+    }
+
+    planet = {
+        class = pc_gas_giant
+        size = 25
+        orbit_distance = 60
+        orbit_angle = {
+            min = 90
+            max = 270
+        }
+        moon = {
+            class = "pc_barren_cold"
+            orbit_distance = 14
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+        }
+        moon = {
+            class = "pc_barren_cold"
+            orbit_distance = 6
+            orbit_angle = {
+                min = 90
+                max = 270
+            }
+        }
+    }
+}
