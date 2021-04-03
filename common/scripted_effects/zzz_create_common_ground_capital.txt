@@ -1,0 +1,40 @@
+create_common_ground_capital = {
+    owner = {
+		save_event_target_as = common_ground_leader
+	}
+
+	solar_system = {
+		random_system_planet ={
+			limit = {
+				has_planet_flag = common_ground_capital
+			}
+			set_owner = event_target:common_ground_leader
+			while = {
+				count = 16
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			while = {
+				count = 3
+				create_pop = {
+					species = fed_planet_1_species
+				}
+			}
+			while = {
+				count = 3
+				create_pop = {
+					species = fed_planet_2_species
+				}
+			}
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_building = building_capital
+			add_building = building_bureaucratic_1
+			add_building = building_research_lab_1
+			add_building = building_factory_1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+create_common_ground_member_1 = {
+	create_country = {
+		name_list = random
+		species = event_target:fed_planet_1_species
+		type = default
+		origin = "origin_common_ground_npc"
+		ignore_initial_colony_error = yes
+		day_zero_contact = no
+		randomize_ethos = yes
+		ethos = {
+			ethic = "ethic_xenophile"
+		}
+		effect = {
+			save_event_target_as = fed_member_1
+			establish_communications_no_message = root
+		}
+	}
+}
