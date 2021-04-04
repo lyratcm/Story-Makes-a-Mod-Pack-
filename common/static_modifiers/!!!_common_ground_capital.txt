@@ -2,15 +2,9 @@ common_ground_capital = {
     icon = pm_galactic_senate
 	icon_frame = 1
 
-	modifier = {
-		planet_immigration_pull_add = 5
-        planet_immigration_pull_mult = 0.50
-        diplomacy_energy_produces_add = 5
-        diplomacy_minerals_produces_add = 5
-        diplomacy_food_produces_add = 5
-        diplomacy_physics_research_produces_add = 5
-        diplomacy_society_research_produces_add = 5
-        diplomacy_engineering_research_produces_add = 5
-        diplomacy_unity_produces_add = 10
-	}
+	planet_immigration_pull_add = 5
+    planet_immigration_pull_mult = 0.50
+	job_director_culture_add = 2
+	job_director_imports_add = 1
+	job_director_xenology_add = 2
 }

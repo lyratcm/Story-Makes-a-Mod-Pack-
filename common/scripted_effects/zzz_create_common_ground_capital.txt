@@ -10,21 +10,21 @@ create_common_ground_capital = {
 			}
 			set_owner = event_target:common_ground_leader
 			while = {
-				count = 16
+				count = 15
 				create_pop = {
 					species = owner_main_species
 				}
 			}
 			while = {
-				count = 3
+				count = 2
 				create_pop = {
-					species = fed_planet_1_species
+					species = event_target:fed_planet_1_species
 				}
 			}
 			while = {
-				count = 3
+				count = 2
 				create_pop = {
-					species = fed_planet_2_species
+					species = event_target:fed_planet_2_species
 				}
 			}
 			add_district = district_city
