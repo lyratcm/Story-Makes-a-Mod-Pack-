@@ -14,17 +14,9 @@ country_event = {
     }
     immediate = {
         random_owned_planet = {
-            limit = { is_capital = yes }
-            set_planet_size = 30
-            remove_all_districts = yes
-			remove_all_buildings = yes
-            clear_deposits = yes
+			build_living_station = yes
 			add_deposit = d_upgrade_start_regular
-			set_planet_entity = {
-				entity = "habitat_phase_02_entity"
-				graphical_culture = owner
-			}
-			
+			add_deposit = d_upgrade_start_regular	
 			while = {
 				count = 14
 				create_pop = {
@@ -33,24 +25,24 @@ country_event = {
 				}
 			}
 
-		# 8 jobs
+			# 8 jobs
             add_district = district_liv_housing
 			add_district = district_liv_housing
 		
-		# 5 jobs
+			# 5 jobs
             add_district = district_liv_bureaucratic
 		
-		# 15 jobs
+			# 15 jobs
 			add_district = district_liv_civilian
 			add_district = district_liv_civilian
 			
-		# 6 jobs
+			# 6 jobs
 			add_district = district_liv_maintenance
 			
-		# 3 jobs
+			# 3 jobs
 			add_building = building_capital
 
-		# 6 jobs
+			# 6 jobs
 			add_building = building_research_lab_1
 			add_building = building_research_lab_1
 			add_building = building_research_lab_1
@@ -72,17 +64,9 @@ country_event = {
     }
     immediate = {
         random_owned_planet = {
-            limit = { is_capital = yes }
-            set_planet_size = 30
-            remove_all_districts = yes
-			remove_all_buildings = yes
-            clear_deposits = yes
+			build_living_station = yes
 			add_deposit = d_upgrade_start_robots
-			set_planet_entity = {
-				entity = "habitat_phase_02_entity"
-				graphical_culture = owner
-			}
-			
+			add_deposit = d_upgrade_start_robots						
 			while = {
 				count = 17
 				create_pop = {
@@ -91,21 +75,21 @@ country_event = {
 				}
 			}
 
-		# 6 jobs
+			# 6 jobs
             add_district = district_liv_storage
 			add_district = district_liv_storage
 		
-		# 4 jobs
+			# 4 jobs
             add_district = district_liv_controller
 			
-		# 26 jobs
+			# 26 jobs
 			add_district = district_liv_gatherer
 			add_district = district_liv_gatherer
 			
-		# 3 jobs
+			# 3 jobs
 			add_building = building_machine_capital
 
-		# 6 jobs
+			# 6 jobs
 			add_building = building_research_lab_1
 			add_building = building_machine_assembly_plant
 			add_building = building_research_lab_1
@@ -127,40 +111,32 @@ country_event = {
     }
     immediate = {
         random_owned_planet = {
-            limit = { is_capital = yes }
-            set_planet_size = 30
-            remove_all_districts = yes
-			remove_all_buildings = yes
-            clear_deposits = yes
+			build_living_station = {
 			add_deposit = d_upgrade_start_regular
-			set_planet_entity = {
-				entity = "habitat_phase_02_entity"
-				graphical_culture = owner
-			}
-			
+			add_deposit = d_upgrade_start_regular
 			while = {
-				count = 6
+				count = 18
 				create_pop = {
 					species = owner_main_species
 					ethos = random
 				}
 			}
 
-		# 4 jobs
+			# 4 jobs
             add_district = district_liv_hive
 		
-		# 4 jobs
+			# 4 jobs
             add_district = district_liv_overseer
 			
-		# 26 jobs
+			# 26 jobs
 			add_district = district_liv_feeder
 			add_district = district_liv_feeder
 			add_district = district_liv_upkeeper
 			
-		# 3 jobs
+			# 3 jobs
 			add_building = building_hive_capital
 
-		# 6 jobs
+			# 6 jobs
 			add_building = building_research_lab_1
 			add_building = building_spawning_pool
 			add_building = building_research_lab_1
@@ -169,6 +145,7 @@ country_event = {
 }
 
 planet_event = {
+	# Destory normal planet bc planets are icky
     id = liv.4
     title = liv.4.title
     desc = liv.4.desc
@@ -180,31 +157,7 @@ planet_event = {
         owner = {
             has_origin = origin_living_station
         }
-        NOR = {
-            is_planet_class = pc_habitat 
-            is_planet_class = pc_ringworld_habitable
-			is_planet_class = pc_living_station
-			is_planet_class = pc_hive
-			is_planet_class = pc_machine
-			is_planet_class = pc_relic
-			is_planet_class = pc_gaia
-			is_planet_class = pc_city
-			is_planet_class = pc_ringworld_city 
-            is_planet_class = pc_ringworld_machine
-			is_planet_class = pc_ringworld_hive
-			is_planet_class = pc_birch
-			is_planet_class = pc_virtual_reality
-			is_planet_class = pc_virtual_industry
-			is_planet_class = pc_virtual_stellar_industry
-			is_planet_class = pc_pd_barren_hab
-			is_planet_class = pc_pd_barren_cold_hab
-			is_planet_class = pc_pd_asteroid_hab
-			is_planet_class = pc_pd_molten_hab
-			is_planet_class = pc_pd_toxic_hab
-			is_planet_class = pc_pd_frozen_hab
-			is_planet_class = pc_pd_gas_giant_hab
-			is_planet_class = pc_pd_hothouse_hab
-        }
+		is_perfect_planet = no
     }
 	
 	immediate = {
@@ -240,6 +193,7 @@ planet_event = {
 }
 
 planet_event = {
+	#destroy tier 1 pd habs in a massively inefficient way due to a very large lack of tech
     id = liv.5
     title = liv.4.title
     desc = liv.4.desc
@@ -252,11 +206,7 @@ planet_event = {
         owner = {
             has_origin = origin_living_station
         }
-        OR = {
-			is_planet_class = pc_pd_barren_hab
-			is_planet_class = pc_pd_barren_cold_hab
-			is_planet_class = pc_pd_asteroid_hab
-        }
+		is_fake_planet_t1 = yes
     }
 	
 	immediate = {
@@ -271,6 +221,7 @@ planet_event = {
 }
 
 planet_event = {
+	#destroy tier 2 pd habs in a very inefficient way due to a large lack of tech
     id = liv.6
     title = liv.4.title
     desc = liv.4.desc
@@ -283,10 +234,7 @@ planet_event = {
         owner = {
             has_origin = origin_living_station
         }
-        OR = {
-			is_planet_class = pc_pd_molten_hab
-			is_planet_class = pc_pd_frozen_hab
-        }
+		is_fake_planet_t2 = yes
     }
 	
 	immediate = {
@@ -294,8 +242,14 @@ planet_event = {
         change_pc = pc_broken
         clear_deposits = yes
         add_deposit = d_alloys_1
-		add_deposit = d_energy_5
-		add_deposit = d_minerals_5
+		random_list = {
+			50 = {
+			add_deposit = d_energy_7
+			}
+			50 = {
+			add_deposit = d_minerals_7
+			}
+		}
 	}
 
     option = {
@@ -305,6 +259,7 @@ planet_event = {
 }
 
 planet_event = {
+	#destroy tier 2 pd habs in a inefficient way due to a lack of tech
     id = liv.7
     title = liv.4.title
     desc = liv.4.desc
@@ -317,11 +272,7 @@ planet_event = {
         owner = {
             has_origin = origin_living_station
         }
-        OR = {
-			is_planet_class = pc_pd_toxic_hab
-			is_planet_class = pc_pd_gas_giant_hab
-			is_planet_class = pc_pd_hothouse_hab
-        }
+		is_fake_planet_t3 = yes
     }
 	
 	immediate = {
@@ -329,8 +280,14 @@ planet_event = {
         change_pc = pc_broken
         clear_deposits = yes
         add_deposit = d_alloys_2
-		add_deposit = d_energy_5
-		add_deposit = d_minerals_5
+		random_list = {
+			50 = {
+			add_deposit = d_energy_10
+			}
+			50 = {
+			add_deposit = d_minerals_9
+			}
+		}
 		if = {
 			limit = {
 				is_planet_class = pc_pd_toxic_hab

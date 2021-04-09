@@ -1,0 +1,82 @@
+decision_archology_project_living_station = {
+    owned_planets_only = yes
+    icon = decision_arcology_project
+    enactment_time = 1800
+    resources = {
+        category = decisions
+        cost = {
+            influence = 200
+            minerals = 20000
+        }
+    }
+    potential = {
+		is_planet_class = pc_living_station
+        exists = owner
+        owner = {
+            has_ascension_perk = ap_arcology_project
+        }
+    }
+    allow = {
+        custom_tooltip = {
+            fail_text = decision_arcology_project_requirements
+            free_district_slots < 1
+        }
+        num_uncleared_blockers < 1
+    }
+    effect = {
+        custom_tooltip = decision_arcology_project_effects
+        hidden_effect = {
+			change_pc = pc_living_arcology
+            owner = {
+                country_event = {
+                    id = distar.201
+                }
+            }
+            planet_event = {
+                id = mega.200
+            }
+            if = {
+                limit = {
+                    OR = {
+                        is_active_resolution = "resolution_ecology_environmental_control_board"
+                        is_active_resolution = "resolution_ecology_paradise_initiative"
+                    }
+                }
+                owner = {
+                    set_timed_country_flag = {
+                        flag = resolution_breached_terraformed
+                        days = 3600
+                    }
+                }
+            }
+        }
+    }
+    ai_weight = {
+        weight = 100
+        modifier = {
+            factor = 0.001
+            owner = {
+                is_galactic_community_member = yes
+            }
+            OR = {
+                is_active_resolution = "resolution_ecology_environmental_control_board"
+                is_active_resolution = "resolution_ecology_paradise_initiative"
+            }
+        }
+        modifier = {
+            factor = 0
+            owner = {
+                is_galactic_community_member = yes
+                OR = {
+                    is_xenophile = yes
+                    is_pacifist = yes
+                    is_spiritualist = yes
+                }
+            }
+            OR = {
+                is_active_resolution = "resolution_ecology_environmental_control_board"
+                is_active_resolution = "resolution_ecology_paradise_initiative"
+            }
+        }
+    }
+}

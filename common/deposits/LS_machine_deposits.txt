@@ -1,22 +1,29 @@
 d_upgrade_start_robots = {
 	is_for_colonizeable = yes
-
-	category = deposit_cat_rare
+	time = 270
+	category = deposit_cat_blockers
 	
 	resources = {
 		category = orbital_mining_deposits
 		produces = {
-			minerals = 20
-			energy = 20
+			minerals = 10
+			energy = 10
 		}
 	}
-	
+	resources = {
+        category = deposit_blockers
+        cost = {
+            energy = 1000
+        }
+    }
 	potential = {
 		OR = {
 			is_planet_class = pc_living_station
 		}	
 	}
-	
+	planet_modifier = { 
+		planet_max_districts_add = -10
+	}
 	drop_weight = {
 		weight = 0		
 	}

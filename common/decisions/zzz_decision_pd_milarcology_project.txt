@@ -18,6 +18,7 @@ decision_milarcology_project = {
 			is_planet_class = pc_milarc
 			is_planet_class = pc_city
 			is_planet_class = pc_relic
+			is_planet_class = pc_living_station
 			has_modifier = resort_colony
 			has_modifier = penal_colony
 			has_modifier = slave_colony

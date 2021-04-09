@@ -1,0 +1,49 @@
+is_normal_planet = {
+
+}
+
+is_perfect_planet = {
+	is_planet_class = pc_habitat 
+	is_planet_class = pc_ringworld_habitable
+	is_planet_class = pc_living_station
+	is_planet_class = pc_hive
+	is_planet_class = pc_machine
+	is_planet_class = pc_relic
+	is_planet_class = pc_gaia
+	is_planet_class = pc_city
+	is_planet_class = pc_ringworld_city 
+	is_planet_class = pc_ringworld_machine
+	is_planet_class = pc_ringworld_hive
+	is_planet_class = pc_birch
+	is_planet_class = pc_virtual_reality
+	is_planet_class = pc_virtual_industry
+	is_planet_class = pc_virtual_stellar_industry
+	is_planet_class = pc_pd_barren_hab
+	is_planet_class = pc_pd_barren_cold_hab
+	is_planet_class = pc_pd_asteroid_hab
+	is_planet_class = pc_pd_molten_hab
+	is_planet_class = pc_pd_toxic_hab
+	is_planet_class = pc_pd_frozen_hab
+	is_planet_class = pc_pd_gas_giant_hab
+	is_planet_class = pc_pd_hothouse_hab
+	is_planet_class = pc_apsr_ancient
+	is_planet_class = pc_apsr_unique
+	is_planet_class = pc_apsr_glass	
+}
+
+is_fake_planet_t1 = {
+	is_planet_class = pc_pd_barren_hab
+	is_planet_class = pc_pd_barren_cold_hab
+	is_planet_class = pc_pd_asteroid_hab
+}
+
+is_fake_planet_t2 = {
+	is_planet_class = pc_pd_molten_hab
+	is_planet_class = pc_pd_frozen_hab
+}
+
+is_fake_planet_t3 = {
+	is_planet_class = pc_pd_toxic_hab
+	is_planet_class = pc_pd_gas_giant_hab
+	is_planet_class = pc_pd_hothouse_hab
+}

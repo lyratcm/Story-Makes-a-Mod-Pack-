@@ -1,5 +1,4 @@
-pc_living_station = {
-	habitat = yes
+pc_living_arcology = {
 	entity = "orbital_habitat"
 	icon_frame = 22
 	entity_scale = 5.0
@@ -18,7 +17,7 @@ pc_living_station = {
 	moon_size = 1
 	colonizable = yes
 	ideal = yes
-	district_set = Liv_station
+	district_set = Liv_arcology_station
 	starting_planet = no
 	orbit_lines = no
 	has_colonization_influence_cost = no			# applies when within own borders

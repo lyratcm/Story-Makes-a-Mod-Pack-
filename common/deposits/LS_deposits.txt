@@ -1,7 +1,7 @@
 d_upgrade_start_regular = {
 	is_for_colonizeable = yes
-
-	category = deposit_cat_rare
+	time = 270
+	category = deposit_cat_blockers
 	
 	resources = {
 		category = orbital_mining_deposits
@@ -12,10 +12,16 @@ d_upgrade_start_regular = {
 				}
 
 			}
-			food = 10
-			minerals = 20
+			food = 5
+			minerals = 10
 		}
 	}
+    resources = {
+        category = deposit_blockers
+        cost = {
+            energy = 1000
+        }
+    }
 	resources = {
 		category = orbital_mining_deposits
 		produces = {
@@ -24,9 +30,12 @@ d_upgrade_start_regular = {
 					is_lithoid_empire = yes					
 				}
 			}
-			minerals = 30
+			minerals = 15
 		}
-	}	
+	}
+	planet_modifier = { 
+		planet_max_districts_add = -10
+	}
 	potential = {
 		OR = {
 			is_planet_class = pc_living_station

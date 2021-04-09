@@ -1,0 +1,11 @@
+build_living_station = {
+	limit = { is_capital = yes }
+	set_planet_size = 30
+	remove_all_districts = yes
+	remove_all_buildings = yes
+	clear_deposits = yes
+	set_planet_entity = {
+		entity = "habitat_phase_02_entity"
+		graphical_culture = owner
+	}
+}
