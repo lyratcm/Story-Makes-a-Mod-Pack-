@@ -24,7 +24,7 @@ building_more_civics_monolith_3 = {
 		}
 		modifier = {
 			job_researcher_add = 8
-			planet_researchers_produces_mult = 0.5
+			planet_researchers_produces_mult = 0.05
 		}
 	}
 	

@@ -508,7 +508,7 @@ decision_upgrade = {
 
 	potential = {
 		owner = {
-			 has_origin = origin_living_station
+			has_origin = origin_living_station
 		}
 		is_planet_class = pc_living_station
 		num_pops >= 200

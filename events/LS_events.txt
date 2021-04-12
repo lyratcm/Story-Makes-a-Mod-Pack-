@@ -111,7 +111,7 @@ country_event = {
     }
     immediate = {
         random_owned_planet = {
-			build_living_station = {
+			build_living_station = yes
 			add_deposit = d_upgrade_start_regular
 			add_deposit = d_upgrade_start_regular
 			while = {
@@ -157,6 +157,7 @@ planet_event = {
         owner = {
             has_origin = origin_living_station
         }
+		
 		is_perfect_planet = no
     }
 	
