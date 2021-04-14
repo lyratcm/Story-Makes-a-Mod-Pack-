@@ -51,53 +51,6 @@ country_event = {
 }
 
 country_event = {
-    id = liv.2
-
-    is_triggered_only = yes
-    hide_window = yes
-
-    trigger = {
-        owner = {
-            has_origin = origin_living_station
-			owner = { is_machine_empire = yes }
-        }
-    }
-    immediate = {
-        random_owned_planet = {
-			build_living_station = yes
-			add_deposit = d_upgrade_start_robots
-			add_deposit = d_upgrade_start_robots						
-			while = {
-				count = 17
-				create_pop = {
-					species = owner_main_species
-					ethos = random
-				}
-			}
-
-			# 6 jobs
-            add_district = district_liv_storage
-			add_district = district_liv_storage
-		
-			# 4 jobs
-            add_district = district_liv_controller
-			
-			# 26 jobs
-			add_district = district_liv_gatherer
-			add_district = district_liv_gatherer
-			
-			# 3 jobs
-			add_building = building_machine_capital
-
-			# 6 jobs
-			add_building = building_research_lab_1
-			add_building = building_machine_assembly_plant
-			add_building = building_research_lab_1
-        }
-    }
-}
-
-country_event = {
     id = liv.3
 
     is_triggered_only = yes
@@ -149,7 +102,6 @@ planet_event = {
     id = liv.4
     title = liv.4.title
     desc = liv.4.desc
-
     picture = GFX_evt_gray_gooed_planet
     
     is_triggered_only = yes
@@ -157,8 +109,13 @@ planet_event = {
         owner = {
             has_origin = origin_living_station
         }
-		
-		is_perfect_planet = no
+		NOR = {
+			is_ideal_planet_class = {
+				who = THIS
+				status = yes
+			}
+			is_planet_class = pc_habitat
+		}
     }
 	
 	immediate = {
@@ -194,15 +151,14 @@ planet_event = {
 }
 
 planet_event = {
+	#for planatry diveristy habs
 	#destroy tier 1 pd habs in a massively inefficient way due to a very large lack of tech
     id = liv.5
     title = liv.4.title
     desc = liv.4.desc
-
     picture = GFX_evt_gray_gooed_planet
     
     is_triggered_only = yes
-
     trigger = {
         owner = {
             has_origin = origin_living_station
@@ -222,15 +178,14 @@ planet_event = {
 }
 
 planet_event = {
+	#for planatry diveristy habs
 	#destroy tier 2 pd habs in a very inefficient way due to a large lack of tech
     id = liv.6
     title = liv.4.title
     desc = liv.4.desc
-
     picture = GFX_evt_gray_gooed_planet
     
     is_triggered_only = yes
-
     trigger = {
         owner = {
             has_origin = origin_living_station
@@ -260,15 +215,14 @@ planet_event = {
 }
 
 planet_event = {
+	#for planatry diveristy habs
 	#destroy tier 2 pd habs in a inefficient way due to a lack of tech
     id = liv.7
     title = liv.4.title
     desc = liv.4.desc
-
     picture = GFX_evt_gray_gooed_planet
     
     is_triggered_only = yes
-
     trigger = {
         owner = {
             has_origin = origin_living_station
@@ -280,13 +234,13 @@ planet_event = {
         destroy_colony = yes
         change_pc = pc_broken
         clear_deposits = yes
-        add_deposit = d_alloys_2
+        add_deposit = d_alloys_10
 		random_list = {
 			50 = {
 			add_deposit = d_energy_10
 			}
 			50 = {
-			add_deposit = d_minerals_9
+			add_deposit = d_minerals_5
 			}
 		}
 		if = {

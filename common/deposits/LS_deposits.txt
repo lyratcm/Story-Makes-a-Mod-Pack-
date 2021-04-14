@@ -16,12 +16,7 @@ d_upgrade_start_regular = {
 			minerals = 10
 		}
 	}
-    resources = {
-        category = deposit_blockers
-        cost = {
-            energy = 1000
-        }
-    }
+
 	resources = {
 		category = orbital_mining_deposits
 		produces = {
@@ -33,15 +28,28 @@ d_upgrade_start_regular = {
 			minerals = 15
 		}
 	}
+  
+	resources = {
+        category = deposit_blockers
+        cost = {
+			energy = 1500
+			minerals = 1500
+			rare_crystals = 150
+			exotic_gases = 150
+			volatile_motes = 150
+        }
+    }
+
 	planet_modifier = { 
 		planet_max_districts_add = -10
 	}
+
 	potential = {
 		OR = {
 			is_planet_class = pc_living_station
 		}	
 	}
-	
+
 	drop_weight = {
 		weight = 0		
 	}

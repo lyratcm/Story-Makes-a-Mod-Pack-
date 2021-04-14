@@ -9,6 +9,11 @@ origin_living_station = {
 	preferred_planet_class_neighbor = no
 
 	possible = {
+		authority = { 
+			NOT = { 
+				value = auth_machine_intelligence 
+			} 
+		} 
 		civics = { 
 			NOR = {
 				value = civic_agrarian_idyll 
@@ -22,8 +27,8 @@ origin_living_station = {
 	flags = { custom_start_screen }
 	
 	modifier = {
-		country_resource_max_add = 10000
-		planet_colony_development_speed_mult = -1.50
+		country_resource_max_add = 15000
+		planet_colony_development_speed_mult = -1
 	}
 
 	random_weight = {

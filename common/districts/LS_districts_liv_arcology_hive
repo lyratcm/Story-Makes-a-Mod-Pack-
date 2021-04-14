@@ -1,16 +1,16 @@
-district_liv_housing_hive = {
-	base_buildtime = @ls_district_build_time
+district_liv_arcology_housing_hive = {
+	base_buildtime = @ls_arco_district_build_time
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = Liv_station
+		uses_district_set = Liv_arcology_station
 		owner = { 
 			is_hive_empire = yes
 		}
 	}
 
 	potential = {
-		uses_district_set = Liv_station
+		uses_district_set = Liv_arcology_station
 		owner = { 
 			is_hive_empire = yes
 		}
@@ -18,25 +18,26 @@ district_liv_housing_hive = {
 
 	conversion_ratio = 1
 	convert_to = {
-		district_liv_arcology_housing
 		district_liv_housing
-		district_liv_arcology_housing_hive
+		district_liv_storage
+		district_liv_arcology_housing
 	}
-	
+
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @ls_district_cost
+			minerals = @ls_arco_district_cost
 		}
 		upkeep = {
-			energy = @ls_district_upkeep
-		}		
+			energy = @ls_arco_district_upkeep
+		}
 	}
-	
+
 	planet_modifier = {
-		planet_housing_add = 30
-		job_patrol_drone_add = 1
-		job_maintenance_drone_add = 4
+		planet_housing_add = 60
+		job_patrol_drone_add = 5
+		job_maintenance_drone_add = 20
+		job_spawning_drone_add = 2
 	}
 
 	triggered_planet_modifier = {
@@ -47,7 +48,7 @@ district_liv_housing_hive = {
 			}
 		}
 		modifier = {
-			job_patrol_drone_add = 1
+			job_patrol_drone_add = 5
 		}
 	}
 
@@ -57,7 +58,7 @@ district_liv_housing_hive = {
 			owner = { has_swapped_tradition = tr_prosperity_optimized_nexus }
 		}
 		modifier = {
-			planet_housing_add = 10
+			planet_housing_add = 20
 		}
 	}
 
@@ -69,7 +70,7 @@ district_liv_housing_hive = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 5
+			planet_housing_add = 10
 		}
 	}
 
@@ -81,8 +82,18 @@ district_liv_housing_hive = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 5
+			planet_housing_add = 10
 		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		text = job_maintenance_drone_effect_desc
 	}
 
 	triggered_desc = {
@@ -112,54 +123,43 @@ district_liv_housing_hive = {
 	}
 }
 
-district_liv_feeder = {
-	base_buildtime = @ls_district_build_time
+district_liv_arcology_rural_hive = {
+	base_buildtime = @ls_arco_district_build_time
 	is_capped_by_modifier = no
-	
+
 	show_on_uncolonized = {
-		uses_district_set = Liv_station
+		uses_district_set = Liv_arcology_station
 		owner = { 
 			is_hive_empire = yes
 		}
 	}
-	
+
 	potential = {
-		uses_district_set = Liv_station
+		uses_district_set = Liv_arcology_station
 		owner = { 
 			is_hive_empire = yes
 		}
 	}
-	
+
 	conversion_ratio = 1
 	convert_to = {
 		district_liv_arcology_rural
 		district_liv_civilian
-		district_liv_arcology_rural_hive
+		district_liv_feeder
 	}
-	
+
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @ls_district_cost
+			minerals = @ls_arco_district_cost
 		}
 		upkeep = {
-			energy = @ls_district_upkeep
-		}	
-		upkeep = {
-			trigger = {
-				has_modifier = feeder_upgrade_1
-			}
+			energy = @ls_arco_district_upkeep
 			rare_crystals = 0.5
-		}
-		upkeep = {
-			trigger = {
-				has_modifier = feeder_upgrade_2
-			}
-			rare_crystals = 1
+			volatile_motes = 0.5
 		}
 	}
-	
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -168,11 +168,13 @@ district_liv_feeder = {
 			}
 		}
 		modifier = {
-			job_agri_drone_add = 5
-			job_artisan_drone_add = 3
+			planet_housing_add = 20
+			job_mining_drone_add = 10
+			job_technician_drone_add = 10
+			job_agri_drone_add = 10
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -180,10 +182,10 @@ district_liv_feeder = {
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
-			job_agri_drone_add = 3
+			job_agri_drone_add = 10
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -204,58 +206,109 @@ district_liv_feeder = {
 		}
 		text = job_agri_drone_effect_desc
 	}
-	
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_mining_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_technician_drone_effect_desc
+	}
+
 	ai_weight = {
 		weight = 1
 		modifier = {
 			factor = 30
-			OR = {
-				has_monthly_income = {
-					resource = food
-					value < 15
-				}
+			has_monthly_income = {
+				resource = food
+				value < 15
 			}
 		}
 		modifier = {
 			factor = 20
 			owner = {
-				OR = {
-					has_monthly_income = {
-						resource = food
-						value < 40
-					}
+				has_monthly_income = {
+					resource = food
+					value < 40
 				}
 			}
 		}
 		modifier = {
 			factor = 10
 			owner = {
-				OR = {
-					has_monthly_income = {
-						resource = food
-						value < 100
-					}
+				has_monthly_income = {
+					resource = food
+					value < 100
 				}
 			}
 		}
 		modifier = {
 			factor = 5
 			owner = {
-				OR = {
-					has_monthly_income = {
-						resource = food
-						value < 200
-					}
+				has_monthly_income = {
+					resource = food
+					value < 200
 				}
 			}
 		}
 		modifier = {
 			factor = 1
 			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 250
+				}
+			}
+		}
+		modifier = {
+			weight = 30
+			owner = {
 				OR = {
 					has_monthly_income = {
-						resource = food
-						value < 250
+						resource = energy
+						value < 15
+					}
+					has_monthly_income = {
+						resource = minerals
+						value < 15
+					}
+				}
+			}
+		}
+		modifier = {
+			weight = 20
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value < 50
+					}
+					has_monthly_income = {
+						resource = minerals
+						value < 50
+					}
+				}
+			}
+		}
+		modifier = {
+			weight = 10
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value < 100
+					}
+					has_monthly_income = {
+						resource = minerals
+						value < 100
 					}
 				}
 			}
@@ -266,44 +319,45 @@ district_liv_feeder = {
 district_liv_admistration_hive = {
 	base_buildtime = @ls_district_build_time
 	is_capped_by_modifier = no
-	
+
 	show_on_uncolonized = {
-		uses_district_set = Liv_station
+		uses_district_set = Liv_arcology_station
 		owner = { 
 			is_hive_empire = yes
 		}
 	}
-	
+
 	potential = {
-		uses_district_set = Liv_station
+		uses_district_set = Liv_arcology_station
 		owner = { 
 			is_hive_empire = yes
 		}
 	}
-	
+
 	conversion_ratio = 1
 	convert_to = {
-		district_liv_bureaucratic
-		district_liv_arcology_rural_hive
-		district_liv_arcology_admistration_hive
+		district_liv_admistration_hive
+		district_liv_arcology_admistration
+		district_liv_admistration
 	}
-	
+
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @ls_district_cost
+			minerals = @ls_arco_district_cost
 		}
 		upkeep = {
-			energy = @ls_district_upkeep
+			energy = @ls_arco_district_upkeep
+			exotic_gases = 1.5
 		}		
 	}
-	
+
 	planet_modifier = {
-		planet_housing_add = 5
-		job_synapse_drone_add = 2
-		job_maintenance_drone_add = 2
+		planet_housing_add = 20
+		job_synapse_drone_add = 15
+		job_brain_drone_add = 15
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -312,10 +366,10 @@ district_liv_admistration_hive = {
 			}
 		}
 		modifier = {
-			job_synapse_drone_add = 1
+			job_synapse_drone_add = 5
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -324,7 +378,7 @@ district_liv_admistration_hive = {
 			}
 		}
 		modifier = {
-			job_synapse_drone_add = 1
+			job_synapse_drone_add = 5
 		}
 	}
 
@@ -337,17 +391,7 @@ district_liv_admistration_hive = {
 		}
 		text = job_synapse_drone_effect_desc
 	}
-	
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_hive_empire = yes
-			}
-		}
-		text = job_maintenance_drone_effect_desc
-	}
-	
+
 	ai_weight = {
 		weight = 1
 		modifier = {
@@ -373,59 +417,69 @@ district_liv_admistration_hive = {
 	}
 }
 
-district_liv_arcology_specialist_goods_industry_hive = {
-	base_buildtime = @ls_district_build_time
+district_liv_upkeeper = {
+	base_buildtime = @ls_arco_district_build_time
 	is_capped_by_modifier = no
-	
+
 	show_on_uncolonized = {
-		uses_district_set = Liv_station
+		uses_district_set = Liv_arcology_station
 		owner = {
 			is_hive_empire = yes
 		}
 	}
-	
+
 	potential = {
-		uses_district_set = Liv_station
+		uses_district_set = Liv_arcology_station
 		owner = {
 			is_hive_empire = yes
 		}
 	}
-	
+
 	conversion_ratio = 1
 	convert_to = {
-		district_liv_arcology_specialist_goods_industry
-		district_liv_arcology_rural_hive
 		district_liv_maintenance
-	}
-	
+		district_liv_gatherer
+	}	
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @ls_district_cost
+			minerals = @ls_arco_district_cost
 		}
 		upkeep = {
-			energy = @ls_district_upkeep
+			energy = @ls_arco_district_upkeep
 		}
 		upkeep = {
 			trigger = {
 				has_modifier = military_upgrade_1
 			}
-			volatile_motes = 0.5
+			volatile_motes = @ls_arco_district_upkeep_t1
 		}
 		upkeep = {
 			trigger = {
 				has_modifier = military_upgrade_2
 			}
-			volatile_motes = 1
+			volatile_motes = @ls_arco_district_upkeep_t2
+		}
+		upkeep = {
+			trigger = {
+				has_modifier = civilian_upgrade_1
+			}
+			rare_crystals = @ls_arco_district_upkeep_t1
+		}
+		upkeep = {
+			trigger = {
+				has_modifier = civilian_upgrade_2
+			}
+			rare_crystals = @ls_arco_district_upkeep_t2
 		}
 	}
-	
+
 	planet_modifier = {
-		job_mining_drone_add = 5
-		job_technician_drone_add = 5
-		job_alloy_drone_add = 3
+		planet_housing_add = 20
+		job_alloy_drone_add = 10
+		job_artisan_drone_add = 10
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -433,10 +487,10 @@ district_liv_arcology_specialist_goods_industry_hive = {
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
-			job_alloy_drone_add = 1
+			job_alloy_drone_add = 5
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -444,26 +498,56 @@ district_liv_arcology_specialist_goods_industry_hive = {
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
-			job_alloy_drone_add = 2
+			job_alloy_drone_add = 10
 		}
 	}
-	
-	triggered_desc = {
-		trigger = {
+
+	triggered_planet_modifier = {
+		potential = {
 			exists = owner
+			has_modifier = civilian_upgrade_1
 			owner = { is_hive_empire = yes }
 		}
-		text = job_mining_drone_effect_desc
+		modifier = {
+			job_artisan_drone_add = 5
+		}
 	}
-	
-	triggered_desc = {
-		trigger = {
+
+	triggered_planet_modifier = {
+		potential = {
 			exists = owner
+			has_modifier = civilian_upgrade_2
 			owner = { is_hive_empire = yes }
 		}
-		text = job_technician_drone_effect_desc
+		modifier = {
+			job_artisan_drone_add = 10
+		}
 	}
-	
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = civilian_focus
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_artisan_drone_add = 5
+			job_alloy_drone_add = 5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			has_modifier = military_focus
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_artisan_drone_add = 5
+			job_alloy_drone_add = 5
+		}
+	}
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -471,101 +555,32 @@ district_liv_arcology_specialist_goods_industry_hive = {
 		}
 		text = job_alloy_drone_effect_desc
 	}
-	
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_artisan_drone_effect_desc
+	}
+
 	ai_weight = {
 		weight = 1
 		modifier = {
-			weight = 30
-			owner = {
-				OR = {
-					has_monthly_income = {
-						resource = energy
-						value < 15
-					}
-					has_monthly_income = {
-						resource = minerals
-						value < 15
-					}
-					has_monthly_income = {
-						resource = alloys
-						value < 25
-					}
-				}
-			}
-		}
-		modifier = {
-			weight = 20
-			owner = {
-				OR = {
-					has_monthly_income = {
-						resource = energy
-						value < 50
-					}
-					has_monthly_income = {
-						resource = minerals
-						value < 50
-					}
-					has_monthly_income = {
-						resource = alloys
-						value < 50
-					}
-				}
-			}
-		}
-		modifier = {
-			weight = 10
-			owner = {
-				OR = {
-					has_monthly_income = {
-						resource = energy
-						value < 100
-					}
-					has_monthly_income = {
-						resource = minerals
-						value < 100
-					}
-					has_monthly_income = {
-						resource = alloys
-						value < 100
-					}
-				}
-			}
-		}
-		modifier = {
 			weight = 5
 			owner = {
-				OR = {
-					has_monthly_income = {
-						resource = energy
-						value < 250
-					}
-					has_monthly_income = {
-						resource = minerals
-						value < 250
-					}
-					has_monthly_income = {
-						resource = alloys
-						value < 300
-					}
+				has_monthly_income = {
+					resource = alloys
+					value < 300
 				}
 			}
 		}
 		modifier = {
 			weight = 1
 			owner = {
-				OR = {
-					has_monthly_income = {
-						resource = energy
-						value < 500
-					}
-					has_monthly_income = {
-						resource = minerals
-						value < 500
-					}
-					has_monthly_income = {
-						resource = alloys
-						value < 500
-					}
+				has_monthly_income = {
+					resource = alloys
+					value < 500
 				}
 			}
 		}
