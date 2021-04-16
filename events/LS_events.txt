@@ -114,6 +114,7 @@ planet_event = {
 				who = THIS
 				status = yes
 			}
+			is_planet_class = pc_relic
 			is_planet_class = pc_habitat
 		}
     }
